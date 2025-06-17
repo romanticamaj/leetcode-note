@@ -14,41 +14,101 @@
 - **Linked List Cycle Detection**: 使用快慢指針檢測鏈表中是否存在環
 - **Find Middle of Linked List**: 使用快慢指針找到鏈表的中間節點
 
-## Fast and Slow Pointers
+## Two Pointer 變體
 
-Fast and Slow Pointers 是 Two Pointers 技巧的一種特殊實現，主要用於鏈表和數組操作。
+Two Pointer 技巧有多種變體，每種變體適用於不同類型的問題：
 
-### 核心概念
+- [Fast and Slow Pointers](./Fast_and_Slow_Pointers.md): 兩個指針以不同速度移動，常用於鏈表操作
+- [K-Gap Pointers](./K_Gap_Pointers.md): 兩個指針保持固定距離，適用於需要處理相距 k 個位置的元素
+- [Adjacent Pointers](./Adjacent_Pointers.md): 兩個相鄰指針（或 1-gap pointers），以相同速度移動，常用於反轉鏈表等就地修改操作
 
-- Fast and Slow Pointers 是 Two Pointers 技巧的一種實現
-- 兩個指針以不同的「速度」移動，或從不同的位置開始迭代，或具有其他抽象差異
-- 常見使用方式，「快」指針每次迭代移動兩個節點，而「慢」指針每次迭代移動一個節點
+## Two Pointer 技巧的關鍵設計要素
 
-### 基本模板
+在使用 Two Pointer 技巧時，有兩個關鍵設計要素需要特別注意：
 
-```python
-# head 是鏈表的頭節點
-def fn(head):
-    slow = head
-    fast = head
-    
-    while fast and fast.next:
-        # 在這裡執行操作
-        slow = slow.next
-        fast = fast.next.next
+### 1. While Condition (終止條件)
+
+終止條件決定了循環何時結束，它必須確保：
+
+- 所有指針操作都是安全的（避免空指針異常）
+- 算法能夠正確處理所有有效輸入
+- 不會導致無限循環
+
+**設計原則**：
+
+- 分析循環內部的指針操作，確保條件能防止任何不安全的訪問
+- 考慮邊界情況，如空輸入、單節點輸入等
+- 確保終止條件與問題的目標一致
+
+**常見模式**：
+
+```cpp
+// 從兩端向中間移動的指針
+while (left < right) {
+    // 操作 array[left] 和 array[right]
+    // ...
+}
+
+// 快慢指針
+while (fast && fast->next) {
+    slow = slow->next;
+    fast = fast->next->next;
+    // ...
+}
+
+// K-Gap 指針
+while (right && n > 0) {
+    right = right->next;
+    n--;
+}
+while (right) {
+    // 判斷題目條件
+    // ...
+
+    // 操作 left 和 right
+    left = left->next;
+    right = right->next;
+}
 ```
 
-**while 循環條件說明**：
-- 我們需要檢查 `fast` 和 `fast.next` 的非空性，因為在循環內部會使用 `fast.next.next`
+### 2. While Loop Movement (前進條件)
 
-### 常見應用
+前進條件決定了指針如何移動，它必須確保：
 
-1. **檢測鏈表中的環 (Cycle Detection)**
-2. **找到鏈表的中間節點 (Finding Middle Node)**
-3. **判斷鏈表是否為回文 (Palindrome Linked List)**
+- 算法能夠向解決方案推進
+- 不會跳過可能的解
+- 最終會達到終止條件
 
-### 優勢
+**設計原則**：
 
-- **空間效率**：通常只需要 O(1) 的額外空間
-- **時間效率**：通常只需要一次遍歷，時間複雜度為 O(n)
-- **簡潔性**：代碼簡潔易懂，實現簡單
+- 指針移動必須與問題目標相關
+- 每次迭代都應該縮小問題規模或接近目標
+- 避免指針移動導致的無限循環
+- **特別注意：前進條件直接會跟 While Condition 有關，例如 pointer nullity 判斷**
+
+**常見模式**：
+
+```cpp
+// 相向移動
+left++;
+right--;
+
+// 同向移動（不同速度）
+slow = slow->next;         // 移動一步
+fast = fast->next->next;   // 移動兩步
+
+// 條件性移動
+if (condition) {
+    left++;
+} else {
+    right--;
+}
+```
+
+### 兩者的關係
+
+While Condition 和 While Loop Movement 是緊密相關的：
+
+- 終止條件必須考慮指針的移動方式
+- 指針的移動必須最終導致終止條件的滿足
+- 兩者共同確保算法的正確性和效率
