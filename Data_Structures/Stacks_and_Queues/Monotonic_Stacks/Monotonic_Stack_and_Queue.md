@@ -32,7 +32,7 @@ for num in nums:
     stack.push(num)
 ```
 
-** 當 `stack.top >= num` 會成立，可以想成 非遞減 monotonic stack 目前最上面的元素在 num 加入後，會違反，所以可以開始整理 stack，即 pop 元素
+** 當 `stack.top >= num` 會成立，可以想成目前最上面的元素在 num 加入後，會違反 monotonic increasing，所以可以開始整理 stack，即 pop 元素
 
 對於 monotonic decreasing stack，只需修改比較條件：
 
@@ -41,7 +41,37 @@ while stack.length > 0 AND stack.top <= num:
     stack.pop()
 ```
 
-** 當 `stack.top <= num` 會成立，同理，可以想成 非遞增 monotonic stack 目前最上面的元素在 num 加入後，會違反，所以可以開始整理 stack，即 pop 元素
+** 當 `stack.top <= num` 會成立，同理，可以想成目前最上面的元素在 num 加入後，會違反 monotonic decreasing stack，所以可以開始整理 stack，即 pop 元素
+
+### top 跟 num 的比較
+
+特別注意要 maintain 的特性是：
+
+- **Monotonic increasing (嚴格遞增)**:
+  - 判斷條件是 `stack.top >= num`
+  - 結果: [1, 3, 5, 7] (每個元素嚴格大於前一個)
+  - 當棧頂元素大於等於當前元素時，彈出棧頂元素
+
+- **Monotonic non-decreasing (非遞減)**:
+  - 判斷條件是 `stack.top > num`
+  - 結果: [1, 3, 3, 5, 7] (元素可以等於前一個)
+  - 當棧頂元素大於當前元素時，彈出棧頂元素
+
+- **Monotonic decreasing (嚴格遞減)**:
+  - 判斷條件是 `stack.top <= num`
+  - 結果: [7, 5, 3, 1] (每個元素嚴格小於前一個)
+  - 當棧頂元素小於等於當前元素時，彈出棧頂元素
+
+- **Monotonic non-increasing (非遞增)**:
+  - 判斷條件是 `stack.top < num`
+  - 結果: [7, 5, 3, 3, 1] (元素可以等於前一個)
+  - 當棧頂元素小於當前元素時，彈出棧頂元素
+
+可以用反向思考來理解這些條件：
+
+例如，要維持 monotonic increasing (嚴格遞增)，棧中元素必須滿足 `stack.top < num`。當這個條件不成立時 (即 `!(stack.top < num)` 或 `stack.top >= num`)，我們需要彈出棧頂元素，直到條件成立或棧為空。
+
+同理，要維持 monotonic decreasing (嚴格遞減)，棧中元素必須滿足 `stack.top > num`。當這個條件不成立時 (即 `!(stack.top > num)` 或 `stack.top <= num`)，我們需要彈出棧頂元素。
 
 ## 時間複雜度分析
 
@@ -75,6 +105,41 @@ Monotonic stack 和 queue 在以下情況特別有用：
 3. 在處理元素時，考慮是否需要存儲元素的索引而不僅僅是值
 4. 對於滑動窗口問題，通常使用 monotonic queue 更為合適
 
+## Monotonic Deque
+
+### 定義
+
+**Monotonic Deque**: 一種可以從兩端添加和刪除元素，並且維持元素有序的數據結構。它是雙端隊列（double-ended queue）的一種變體，其元素保持單調性（遞增或遞減）。
+
+### 特性
+
+Monotonic Deque 結合了 monotonic stack 和 monotonic queue 的特性：
+
+1. **雙端操作**: 可以在兩端進行元素的添加和刪除
+2. **維持單調性**: 通過移除違反單調性的元素來保持整個結構的有序性
+3. **靈活性**: 比 monotonic stack 和 monotonic queue 更靈活，可以根據需要從任一端操作
+
+### 實現方式
+
+Monotonic Deque 的實現可以基於標準的 deque 數據結構，並添加維護單調性的邏輯
+
+### 應用場景
+
+Monotonic Deque 特別適用於以下場景：
+
+1. **滑動窗口最大/最小值問題**: 當窗口滑動時，需要高效地維護窗口內的最大或最小值
+2. **需要雙端操作的單調性問題**: 某些問題需要從兩端維護單調性
+3. **動態範圍查詢**: 在動態變化的數據集上進行範圍最值查詢
+
+### 與其他單調數據結構的比較
+
+| 特性 | Monotonic Stack | Monotonic Queue | Monotonic Deque |
+|------|----------------|-----------------|-----------------|
+| 插入操作 | 一端 | 一端 | 兩端 |
+| 刪除操作 | 一端 | 一端 | 兩端 |
+| 靈活性 | 低 | 中 | 高 |
+| 常見應用 | 下一個更大元素 | 滑動窗口最值 | 複雜的滑動窗口問題 |
+
 ## 總結
 
-Monotonic stack 和 queue 是解決特定類型問題的強大工具，尤其是那些涉及尋找下一個更大/更小元素或維護動態窗口中最值的問題。雖然它們的實現相對簡單，但理解其背後的原理和適用場景對於有效地應用這些數據結構至關重要。
+Monotonic stack、queue 和 deque 是解決特定類型問題的強大工具，尤其是那些涉及尋找下一個更大/更小元素或維護動態窗口中最值的問題。雖然它們的實現相對簡單，但理解其背後的原理和適用場景對於有效地應用這些數據結構至關重要。根據問題的具體需求，選擇合適的單調數據結構可以顯著提高算法的效率。
