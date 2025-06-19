@@ -18,16 +18,14 @@ DFS 在樹上的實現有一個通用的結構，幾乎適用於所有樹的 DFS
 
 
 ```cpp
-// 通用 DFS 函數模板
 ReturnType dfs(TreeNode* node) {
     // 1. 處理基本情況
     if (node == nullptr) {
-        // 返回基本情況的結果
         return baseResult;
     }
     
     // 2. 對當前節點進行邏輯處理
-    // ... 處理當前節點的邏輯 ...
+    // ...
     
     // 3. 遞歸調用子節點
     ReturnType leftResult = dfs(node->left);
@@ -36,7 +34,6 @@ ReturnType dfs(TreeNode* node) {
     // 4. 根據子節點的結果計算當前節點的結果
     ReturnType result = combine(node->val, leftResult, rightResult);
     
-    // 返回結果
     return result;
 }
 ```

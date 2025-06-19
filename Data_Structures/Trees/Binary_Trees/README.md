@@ -27,17 +27,10 @@ struct TreeNode {
 
 遍歷方法的名稱描述了當前節點的處理邏輯何時執行：
 
-```
-The name of each traversal is describing when the current node's logic is performed.
-
 Pre -> before children (在處理子節點之前)
 In -> in the middle of children (在處理子節點之間)
 Post -> after children (在處理子節點之後)
-```
 
-- 在**前序遍歷**中，我們先處理當前節點，然後再處理其子節點
-- 在**中序遍歷**中，我們先處理左子節點，然後處理當前節點，最後處理右子節點
-- 在**後序遍歷**中，我們先處理所有子節點，然後才處理當前節點
 
 如果我們參考前面提到的 DFS 通用結構：
 
