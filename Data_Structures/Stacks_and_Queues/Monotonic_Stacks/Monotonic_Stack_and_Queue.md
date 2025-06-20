@@ -32,7 +32,7 @@ for num in nums:
     stack.push(num)
 ```
 
-** 當 `stack.top >= num` 會成立，可以想成目前最上面的元素在 num 加入後，會違反 monotonic increasing，所以可以開始整理 stack，即 pop 元素
+\*\* 當 `stack.top >= num` 會成立，可以想成目前最上面的元素在 num 加入後，會違反 monotonic increasing，所以可以開始整理 stack，即 pop 元素
 
 對於 monotonic decreasing stack，只需修改比較條件：
 
@@ -41,23 +41,26 @@ while stack.length > 0 AND stack.top <= num:
     stack.pop()
 ```
 
-** 當 `stack.top <= num` 會成立，同理，可以想成目前最上面的元素在 num 加入後，會違反 monotonic decreasing stack，所以可以開始整理 stack，即 pop 元素
+\*\* 當 `stack.top <= num` 會成立，同理，可以想成目前最上面的元素在 num 加入後，會違反 monotonic decreasing stack，所以可以開始整理 stack，即 pop 元素
 
 ### top 跟 num 的比較
 
 特別注意要 maintain 的特性是：
 
 - **Monotonic increasing (嚴格遞增)**:
+
   - 判斷條件是 `stack.top >= num`
   - 結果: [1, 3, 5, 7] (每個元素嚴格大於前一個)
   - 當棧頂元素大於等於當前元素時，彈出棧頂元素
 
 - **Monotonic non-decreasing (非遞減)**:
+
   - 判斷條件是 `stack.top > num`
   - 結果: [1, 3, 3, 5, 7] (元素可以等於前一個)
   - 當棧頂元素大於當前元素時，彈出棧頂元素
 
 - **Monotonic decreasing (嚴格遞減)**:
+
   - 判斷條件是 `stack.top <= num`
   - 結果: [7, 5, 3, 1] (每個元素嚴格小於前一個)
   - 當棧頂元素小於等於當前元素時，彈出棧頂元素
@@ -78,6 +81,7 @@ while stack.length > 0 AND stack.top <= num:
 儘管上述代碼中有嵌套循環，但時間複雜度仍然是 O(n)，其中 n 是數組的長度。這是因為內部 while 循環在所有 for 循環迭代中只能對每個元素進行一次迭代，使 for 循環迭代的平攤時間複雜度為 O(1)。
 
 具體來說：
+
 - 每個元素最多入棧一次
 - 每個元素最多出棧一次
 - 因此，所有操作的總數不超過 2n，時間複雜度為 O(n)
@@ -133,12 +137,12 @@ Monotonic Deque 特別適用於以下場景：
 
 ### 與其他單調數據結構的比較
 
-| 特性 | Monotonic Stack | Monotonic Queue | Monotonic Deque |
-|------|----------------|-----------------|-----------------|
-| 插入操作 | 一端 | 一端 | 兩端 |
-| 刪除操作 | 一端 | 一端 | 兩端 |
-| 靈活性 | 低 | 中 | 高 |
-| 常見應用 | 下一個更大元素 | 滑動窗口最值 | 複雜的滑動窗口問題 |
+| 特性     | Monotonic Stack | Monotonic Queue | Monotonic Deque    |
+| -------- | --------------- | --------------- | ------------------ |
+| 插入操作 | 一端            | 一端            | 兩端               |
+| 刪除操作 | 一端            | 一端            | 兩端               |
+| 靈活性   | 低              | 中              | 高                 |
+| 常見應用 | 下一個更大元素  | 滑動窗口最值    | 複雜的滑動窗口問題 |
 
 ## 總結
 
