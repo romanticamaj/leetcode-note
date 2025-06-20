@@ -1,212 +1,156 @@
-# C++ Deque 與 Queue 的比較
+# C++ `deque` vs `queue` 完整比較與使用指南
 
-## 基本概念
+## `deque` 是什麼？
 
-### Queue（隊列）
+`std::deque`（double-ended queue）是 C++ STL 中一種支援**雙端插入與刪除**的容器。與 `vector` 類似，它支援隨機存取，但在兩端插入/刪除的效率更高。
 
-Queue 是一種先進先出（FIFO: First-In-First-Out）的數據結構，只允許在一端（隊尾）添加元素，在另一端（隊首）移除元素。在 C++ 標準庫中，`std::queue` 是一個 container adapter（容器適配器），默認基於 `std::deque` 實現。
+### 特性總覽：
 
-### Deque（雙端隊列）
+| 特性          | `deque`                                                    |
+| ------------- | ---------------------------------------------------------- |
+| 雙端操作      | 支援 `push_front` / `pop_front` / `push_back` / `pop_back` |
+| 隨機存取      | 支援 `operator[]`、`at()`                                  |
+| 動態擴容      | 是                                                         |
+| 內部實作      | 分段連續記憶體（非單一連續）                               |
+| 插入刪除效率  | 前後皆為 O(1)（均攤）                                      |
+| 中間插入刪除  | O(n)（需要移動後續元素）                                   |
+| 前端/尾端操作 | 可用 `front()` / `back()` 讀取兩端元素                     |
+| 空間配置      | 多段記憶體區塊                                             |
 
-Deque（Double-ended queue，雙端隊列）是一種可以在兩端進行插入和刪除操作的序列容器。在 C++ 標準庫中，`std::deque` 是一個獨立的容器類。
+---
 
-## Deque 與 Queue 的主要差異
+### 記憶體配置與內部結構
 
-| Feature | std::deque | std::queue |
-|---------|------------|------------|
-| Type | Container | Adapter |
-| Implementation | Independent | Based on deque |
-| Access | Random access | Front only |
-| Insertion | Both ends & middle | Back only |
-| Deletion | Both ends & middle | Front only |
-| Iterators | Yes | No |
-| Resizing | Dynamic | From base container |
+- `deque` 並不像 `vector` 使用單一連續記憶體，而是使用**分段記憶體區塊（chunked memory blocks）**。
+- STL `deque` 內部維護一個指向多個固定大小區塊的指標陣列（map of blocks），每個區塊大小通常為 512 bytes 或數個元素。
+- 這種設計讓 `deque` 可以在前端與尾端都進行 O(1) 的插入與刪除，因為只需在區塊邊界擴展或回收。
 
-## Deque 的特點
+### iterator 特性
 
-### 1. 雙端操作
+- `deque` 的 iterator 是 **RandomAccessIterator**，與 `vector` 相同，可支援 `+`, `-`, `[]`, `distance()` 等操作。
+- 但由於記憶體非連續，`&deque[i+1] == &deque[i] + 1` 不一定成立。
+  不過其 iterator 仍完全支援 `++`, `--`, `+n`, `-n`, `[]` 等 RandomAccess 操作，行為與 `vector` 相同，只是底層位置不連續。
+- 若你需要與底層記憶體位置有關的操作（如 `memcpy`），`deque` 不適合。
 
-Deque 允許在容器的兩端高效地進行插入和刪除操作：
+### 注意事項
+
+- `deque` 的 iterator 在以下情況會失效（invalidated）：
+  - 插入或刪除導致區塊重組（尤其是 `push_front` / `pop_front`）
+  - `clear()` 或 `resize()` 操作
+- 相比之下，`vector` 的 iterator 只有在 reallocation 時才會失效（通常是 `push_back` 導致容量擴張）
+
+### 實作差異（GCC vs MSVC）
+
+| 行為/特性       | GCC (libstdc++)                                                     | MSVC (Visual C++)             |
+| --------------- | ------------------------------------------------------------------- | ----------------------------- |
+| 區塊大小        | 通常為 512 bytes                                                    | 依元素型別調整                |
+| iterator 相容性 | 支援 RandomAccessIterator，操作與 `vector` 類似，但記憶體位置不連續 | 同樣支援 RandomAccessIterator |
+| 擴容策略        | 雙端擴張，分段配置                                                  | 類似                          |
+
+### 標準文件參考
+
+- C++ Standard: [deque - cppreference](https://en.cppreference.com/w/cpp/container/deque)
+- iterator category: [Iterator categories - cppreference](https://en.cppreference.com/w/cpp/iterator)
+
+---
+
+## `queue` 是什麼？
+
+`std::queue` 是一種**封裝容器（container adaptor）**，預設以 `deque` 為底層實作，提供**單端進、單端出**的 FIFO 結構。
+
+### 特性總覽：
+
+| 特性           | `queue`                          |
+| -------------- | -------------------------------- |
+| 操作限制       | 只能 `push` 到尾端、`pop` 從前端 |
+| 不支援隨機存取 | 無 `[]`，不提供 iterator 介面    |
+| 底層容器       | 預設為 `deque`，可改為 `list`    |
+| 適用場景       | 僅需 FIFO 行為的情境             |
+
+---
+
+## `deque` vs `queue` 比較表
+
+| 功能/特性     | `deque`                               | `queue`                  |
+| ------------- | ------------------------------------- | ------------------------ |
+| 雙端操作      | ✅ `push_front` / `pop_front`         | ❌ 僅支援尾 push、頭 pop |
+| 隨機存取      | ✅ `[]`, `at()`                       | ❌                       |
+| iterator 支援 | ✅                                    | ❌                       |
+| 彈性          | ✅ 高（可當作雙端佇列、stack、queue） | ❌ 僅限 FIFO             |
+| 使用場景      | BFS、滑動窗口、雙端處理等             | 純 FIFO 隊列             |
+
+---
+---
+
+## `deque` vs `queue` API 與時間複雜度比較
+
+| 操作類型 | `deque` API                     | 時間複雜度 | `queue` API     | 時間複雜度 | 備註                         |
+|----------|----------------------------------|------------|------------------|------------|------------------------------|
+| 插入尾端 | `push_back(val)`                | O(1)       | `push(val)`      | O(1)       | `queue` 實際呼叫 `deque::push_back` |
+| 插入前端 | `push_front(val)`               | O(1)       | ❌               | -          | `queue` 不支援               |
+| 移除尾端 | `pop_back()`                    | O(1)       | ❌               | -          | `queue` 不支援               |
+| 移除前端 | `pop_front()`                   | O(1)       | `pop()`          | O(1)       | `queue` 實際呼叫 `deque::pop_front` |
+| 讀取尾端 | `back()`                        | O(1)       | `back()`         | O(1)       | 兩者皆支援                   |
+| 讀取前端 | `front()`                       | O(1)       | `front()`        | O(1)       | 兩者皆支援                   |
+| 隨機存取 | `operator[]`, `at()`            | O(1)       | ❌               | -          | `queue` 不支援               |
+| 判斷是否為空 | `empty()`                    | O(1)       | `empty()`        | O(1)       | 兩者皆支援                   |
+| 取得大小 | `size()`                        | O(1)       | `size()`         | O(1)       | 兩者皆支援                   |
+| 清空     | `clear()`                       | O(n)       | ❌               | -          | `queue` 無提供 clear()       |
+
+這張表格幫助你快速比較 `deque` 與 `queue` 在 API 支援與時間複雜度上的差異，並理解 `queue` 是如何封裝 `deque` 的子集功能。
+
+## `deque` 的常見用法
+
+### 1. 雙端佇列
 
 ```cpp
-std::deque<int> dq;
-dq.push_front(1);  // 在前端添加元素
-dq.push_back(2);   // 在後端添加元素
-dq.pop_front();    // 從前端移除元素
-dq.pop_back();     // 從後端移除元素
+deque<int> dq;
+dq.push_back(1);
+dq.push_front(2);
+dq.pop_back();
+dq.pop_front();
 ```
 
-### 2. 隨機訪問
-
-Deque 支持隨機訪問，可以使用索引直接訪問任意位置的元素：
+### 2. 單調佇列（Monotonic Queue）
 
 ```cpp
-std::deque<int> dq = {1, 2, 3, 4, 5};
-int third = dq[2];  // 訪問索引為 2 的元素（值為 3）
-dq[1] = 10;         // 修改索引為 1 的元素
+deque<int> mono;
+while (!mono.empty() && mono.back() < current)
+    mono.pop_back();
+mono.push_back(current);
 ```
 
-### 3. 動態內存分配
-
-Deque 使用多個內存塊來存儲元素，而不是一個連續的內存塊：
-- 不需要像 vector 那樣在擴容時複製所有元素
-- 在兩端添加元素時通常不需要重新分配內存
-- 內存使用可能比 vector 更高，因為需要維護多個內存塊的引用
-
-### 4. 中間插入和刪除
-
-Deque 支持在容器中間插入和刪除元素，但效率低於在兩端操作：
+### 3. 滑動窗口最大值
 
 ```cpp
-std::deque<int> dq = {1, 2, 3, 4, 5};
-dq.insert(dq.begin() + 2, 10);  // 在索引為 2 的位置插入元素 10
-dq.erase(dq.begin() + 1);       // 刪除索引為 1 的元素
-```
-
-### 5. 不保證迭代器和引用的穩定性
-
-與 vector 類似，當 deque 進行插入或刪除操作時，可能會使現有的迭代器和引用失效。
-
-### 6. 時間複雜度分析
-
-Deque 的各種操作時間複雜度如下：
-
-| 操作 | 時間複雜度 | 說明 |
-|------|------------|------|
-| 隨機訪問 | O(1) | 通過索引直接訪問元素 |
-| 在兩端插入/刪除 | O(1) | push_front, push_back, pop_front, pop_back 操作 |
-| 在中間插入/刪除 | O(n) | 需要移動元素以維持連續性 |
-| 查找元素 | O(n) | 需要線性搜索 |
-
-#### 為什麼 deque 在中間插入/刪除需要 O(n) 時間？
-
-雖然 deque 支持在中間位置插入和刪除元素，但這些操作的時間複雜度為 O(n)，原因如下：
-
-1. **元素移動**：當在 deque 的中間插入一個元素時，需要將插入點後面的所有元素向後移動一個位置來騰出空間。同樣，當刪除中間的元素時，需要將刪除點後面的所有元素向前移動一個位置來填補空缺。
-
-2. **分段內存結構**：雖然 deque 使用分段連續內存塊而非單一連續內存（如 vector），但這只影響實現細節和常數因子，不改變漸進時間複雜度。
-
-3. **最壞情況分析**：
-   - 最壞情況下，如果插入/刪除發生在 deque 的中間位置，大約需要移動一半的元素
-   - 如果 deque 包含 n 個元素，則需要移動約 n/2 個元素，這仍然是 O(n) 的操作
-
-4. **與 vector 的比較**：
-   - vector 在中間插入/刪除也是 O(n) 的操作
-   - deque 的分段內存結構可能使得這些操作在實際執行時比 vector 更高效（常數因子更小），特別是當需要重新分配內存時
-   - 然而，從漸進分析的角度來看，兩者都是 O(n) 的操作
-
-5. **替代方案**：
-   - 如果應用程序需要頻繁在容器中間進行插入和刪除操作，可能應該考慮使用 `std::list`（雙向鏈表）
-   - `std::list` 提供 O(1) 的中間插入和刪除操作（假設已有指向插入/刪除位置的迭代器）
-   - 但 `std::list` 不支持隨機訪問，查找特定位置需要 O(n) 時間
-
-## 使用場景
-
-### 適合使用 Queue 的情況
-
-- 需要嚴格的 FIFO（先進先出）操作
-- 只需要訪問隊首元素
-- 不需要隨機訪問或迭代容器中的元素
-- 典型應用：任務隊列、消息緩衝區、廣度優先搜索（BFS）
-
-### Queue 在算法問題中的應用
-
-在算法問題中，queue 的使用頻率低於 stack，且相關問題通常更具挑戰性。Queue 最主要的應用是實現廣度優先搜索（BFS）算法，這是一種用於圖和樹遍歷的重要算法。除了 BFS 外，與 stack 不同，很少有問題的核心焦點是 queue 本身。
-
-BFS 的典型應用包括：
-- 最短路徑問題（如迷宮最短路徑）
-- 層序遍歷（如二叉樹的層序遍歷）
-- 連通性問題（如找出圖中的所有連通分量）
-- 拓撲排序的某些實現
-
-### 適合使用 Deque 的情況
-
-- 需要在兩端高效地進行插入和刪除操作
-- 需要 `隨機訪問` 元素
-- 需要在 `中間插入或刪除` 元素
-- 需要迭代容器中的元素
-- 典型應用：滑動窗口問題、雙端隊列算法、需要頻繁在兩端操作的數據處理
-
-## 代碼示例
-
-### Queue 基本操作
-
-```cpp
-#include <queue>
-#include <iostream>
-
-int main() {
-    std::queue<int> q;
-    
-    // 添加元素
-    q.push(1);
-    q.push(2);
-    q.push(3);
-    
-    // 訪問隊首元素
-    std::cout << "Front: " << q.front() << std::endl;  // 輸出: 1
-    
-    // 移除隊首元素
-    q.pop();
-    std::cout << "New front: " << q.front() << std::endl;  // 輸出: 2
-    
-    // 檢查隊列大小
-    std::cout << "Size: " << q.size() << std::endl;  // 輸出: 2
-    
-    // 檢查隊列是否為空
-    std::cout << "Empty: " << (q.empty() ? "Yes" : "No") << std::endl;  // 輸出: No
-    
-    return 0;
-}
-```
-
-### Deque 基本操作
-
-```cpp
-#include <deque>
-#include <iostream>
-
-int main() {
-    std::deque<int> dq;
-    
-    // 在兩端添加元素
-    dq.push_front(1);
-    dq.push_back(2);
-    dq.push_front(0);
-    dq.push_back(3);
-    
-    // 現在 dq 包含: {0, 1, 2, 3}
-    
-    // 隨機訪問
-    std::cout << "Element at index 2: " << dq[2] << std::endl;  // 輸出: 2
-    
-    // 修改元素
-    dq[1] = 10;
-    // 現在 dq 包含: {0, 10, 2, 3}
-    
-    // 在中間插入元素
-    dq.insert(dq.begin() + 2, 15);
-    // 現在 dq 包含: {0, 10, 15, 2, 3}
-    
-    // 從兩端移除元素
-    dq.pop_front();
-    dq.pop_back();
-    // 現在 dq 包含: {10, 15, 2}
-    
-    // 迭代遍歷
-    std::cout << "Deque contents: ";
-    for (int x : dq) {
-        std::cout << x << " ";
+vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+    deque<int> dq;
+    vector<int> res;
+    for (int i = 0; i < nums.size(); ++i) {
+        if (!dq.empty() && dq.front() <= i - k)
+            dq.pop_front();
+        while (!dq.empty() && nums[dq.back()] < nums[i])
+            dq.pop_back();
+        dq.push_back(i);
+        if (i >= k - 1)
+            res.push_back(nums[dq.front()]);
     }
-    std::cout << std::endl;  // 輸出: Deque contents: 10 15 2
-    
-    return 0;
+    return res;
 }
 ```
 
-## 總結
+---
 
-- **Queue** 是一個 container adapter，提供嚴格的 FIFO 操作，限制了元素的訪問和修改方式，適用於需要簡單隊列操作的場景。
-- **Deque** 是一個功能更強大的容器，支持雙端操作和隨機訪問，提供了更大的靈活性，但可能有更高的內存開銷。
+## 什麼時候選擇 `deque`？
 
-選擇使用哪一個取決於具體的需求：如果只需要標準的隊列操作，使用 `std::queue` 可能更簡單明了；如果需要更靈活的操作，如雙端插入/刪除或隨機訪問，則應選擇 `std::deque`。
+- 需要雙端操作（如 BFS、滑動窗口）
+- 需要隨機存取（比 `list` 更快）
+- 不需要頻繁中間插入（否則 `list` 更適合）
+
+---
+
+## 小結
+
+- `deque` 是功能強大的雙端容器，適合大多數需要彈性佇列操作的場景
+- `queue` 是簡化版的 FIFO 封裝，適合只需要基本佇列行為的情境
+- 若你需要更多控制與效率，`deque` 幾乎總是更好的選擇
