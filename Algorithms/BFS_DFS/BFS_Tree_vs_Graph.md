@@ -95,3 +95,61 @@ public:
 - 若你已熟悉 binary tree 的 BFS，轉換到 graph 的 BFS 只需多加注意 visited 與起點選擇邏輯，即可無痛遷移。
 
 這種結構對應的理解，有助於你在面試與實作中快速建立 BFS 解法。
+
+---
+
+## 🧪 延伸補充：為何建議「加入 queue 時就標記 visited」
+
+若你在「取出 queue 時」才標記 visited，可能會發生以下情況：
+
+- 某節點 A 的鄰居 C 尚未被 visited，因此被加入 queue。
+- 另一節點 B 也有鄰居 C，且 B 也在 queue 中。
+- 此時 C 尚未被 pop，因此仍未被標記 visited，導致 B 也將 C 加入 queue。
+
+這會導致 C 被重複加入 queue，造成空間浪費與重複處理。
+
+### ✅ 正確做法：加入 queue 時就標記 visited（Mark-on-Push）
+
+這樣可以保證每個節點最多只會被加入 queue 一次。
+
+### 🔁 比較程式碼
+
+**❌ 取出時標記（Mark-on-Pop）**
+
+```cpp
+while (!q.empty()) {
+    const int cur = q.front();
+    q.pop();
+
+    // BFS basic: operate on current node
+    // Here: Mark-on-Pop
+    visited[cur] = true;
+
+    for (int nei : graph[cur]) {
+        if (!visited[nei]) {
+            q.push(nei);
+        }
+    }
+}
+```
+
+**✅ 加入時標記（Mark-on-Push）**
+
+```cpp
+// Mark-on-Push, for graph to optimize
+visited[start] = true;
+q.push(start);
+
+while (!q.empty()) {
+    const int cur = q.front();
+    q.pop();
+
+    for (int nei : graph[cur]) {
+        if (!visited[nei]) {
+            // Mark-on-Push, for graph to optimize
+            visited[nei] = true;
+            q.push(nei);
+        }
+    }
+}
+```

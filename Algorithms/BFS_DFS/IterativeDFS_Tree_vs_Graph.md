@@ -96,3 +96,58 @@ public:
   - 鄰接節點的遍歷方式
 
 這種結構對應的理解，有助於你在面試與實作中靈活選擇 DFS 實作方式。
+
+---
+
+## 🧪 延伸補充：為何建議「加入 stack 時就標記 visited」
+
+若你在「取出 stack 時」才標記 visited，可能會發生以下情況：
+
+- 某節點 A 的鄰居 C 尚未被 visited，因此被加入 stack。
+- 另一節點 B 也有鄰居 C，且 B 也在 stack 中。
+- 此時 C 尚未被 pop，因此仍未被標記 visited，導致 B 也將 C 加入 stack。
+
+這會導致 C 被重複加入 stack，造成空間浪費與重複處理。
+
+### ✅ 正確做法：加入 stack 時就標記 visited（Mark-on-Push）
+
+這樣可以保證每個節點最多只會被加入 stack 一次。
+
+### 🔁 比較程式碼
+
+**❌ 取出時標記（Mark-on-Pop）**
+
+```cpp
+while (!s.empty()) {
+    const int cur = s.top();
+    s.pop();
+
+    // DFS basic: operate on current node
+    // Here: Mark-on-Pop
+    visited[cur] = true;
+
+    for (int nei : graph[cur]) {
+        if (!visited[nei]) {
+            s.push(nei);
+        }
+    }
+}
+```
+
+**✅ 加入時標記（Mark-on-Push）**
+
+```cpp
+// Mark-on-Push, for graph to optimize
+visited[start] = true;
+s.push(start);
+while (!s.empty()) {
+    int cur = s.top(); s.pop();
+    for (int nei : graph[cur]) {
+        if (!visited[nei]) {
+            // Mark-on-Push, for graph to optimize
+            visited[nei] = true;
+            s.push(nei);
+        }
+    }
+}
+```
