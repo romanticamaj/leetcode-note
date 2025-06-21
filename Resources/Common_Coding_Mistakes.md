@@ -407,3 +407,49 @@ void dfs(TreeNode* node) {
 - **若需保留物件，應考慮深拷貝或轉換為簡化結構**
 
 這類錯誤常見於樹的遍歷、圖的記錄、或模擬類型題目中，務必在設計資料流時明確區分「資料來源」與「資料輸出」的型別與內容。
+
+## ❗ Character vs Integer in Conditionals
+
+### Problem
+
+In C++, the character literal `'0'` represents the ASCII character `'0'`, which has an ASCII value of **48**. This is **not** the same as the integer literal `0`.
+
+### Consequence
+
+Using a character directly in a conditional like `if ('0')` will evaluate to `true`, because `'0'` is 48, which is a non-zero value.
+
+```cpp
+if ('0') {
+    // This block WILL execute
+}
+```
+
+However, the null character `'\0'` has an ASCII value of 0, so:
+
+```cpp
+if ('\0') {
+    // This block will NOT execute
+}
+```
+
+### ✅ Best Practice
+
+- **Never use a `char` directly in a boolean condition unless you explicitly mean to check for null or non-null.**
+- Always compare explicitly:
+
+```cpp
+if (c != '0') { ... }   // Correct: checks if c is not the character '0'
+if (c == '\0') { ... }  // Correct: checks for null terminator
+```
+
+### 🔍 Summary
+
+| Expression | Evaluates to | Meaning         |
+|------------|--------------|-----------------|
+| `'0'`      | `true`       | ASCII 48        |
+| `'\0'`     | `false`      | ASCII 0 (null)  |
+| `0`        | `false`      | Integer zero    |
+
+---
+
+This is a subtle but common mistake, especially when working with character arrays or parsing input. Always be explicit when comparing characters in conditionals.
