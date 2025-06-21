@@ -31,6 +31,7 @@ public:
         std::vector<bool> visited(isConnected.size(), false);
         int provinceCount = 0;
 
+        // Iterate through all nodes to ensure all components are covered
         for (int i = 0; i < isConnected.size(); ++i) {
             if (visited[i]) continue;
 
@@ -42,10 +43,14 @@ public:
     }
 
     void dfs(const vector<vector<int>>& isConnected, const int node, vector<bool>& visited) {
+        // Base case: skip already visited elements
         if (visited[node]) return;
 
+        // Mark the current element as visited
         visited[node] = true;
 
+        // Explore all related elements
+        // If a connection exists and the element hasn't been visited, recurse
         for (int i = 0; i < isConnected.size(); ++i) {
             if (isConnected[node][i]) {
                 dfs(isConnected, i, visited);

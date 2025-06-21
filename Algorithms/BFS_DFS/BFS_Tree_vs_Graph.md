@@ -32,6 +32,7 @@ public:
         std::vector<bool> visited(isConnected.size(), false);
         int count = 0;
 
+        // Iterate through all nodes to ensure all components are covered
         for (int i = 0; i < isConnected.size(); ++i) {
             if (!visited[i]) {
                 bfs(isConnected, i, visited);
@@ -45,7 +46,9 @@ public:
     void bfs(const vector<vector<int>>& isConnected, const int node, vector<bool> &visited) {
         std::queue<int> q;
 
+        // Initialize the queue with the starting element
         q.push(node);
+
         while (!q.empty()) {
             // Retrieve the next element from the queue for processing
             const int current = q.front();
