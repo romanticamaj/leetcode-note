@@ -120,6 +120,10 @@
   - 確認使用當前 node 做運算的位置 (pre-order, inorder, post-order 的差別)
   - 掌握適當的 push pop 的時機
 
+#### ✅ Checklist
+- [ ] DFS 遞迴實作
+- [ ] Iterative DFS 實作
+
 ### 廣度優先搜索 (BFS)
 
 - **難度等級**: ⭐⭐
@@ -128,6 +132,10 @@
 - **時間複雜度**: O(V + E)
 - **空間複雜度**: O(V)
 - **核心思想**: 優先探索廣度，按層次遍歷，使用隊列實現
+
+#### ✅ Checklist
+- [ ] 時間複雜度分析
+- [ ] 空間複雜度分析 (難!)
 
 ### 拓撲排序 (Topological Sort)
 
