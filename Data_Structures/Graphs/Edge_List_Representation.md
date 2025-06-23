@@ -4,7 +4,7 @@
 
 - **`std::vector<std::pair<int, int>>`**: **最基本**。僅用於儲存，查找效率 O(E)。
 - **`std::set<std::pair<int, int>>`**: **O(log E) 查找**。適用於需要排序或不方便寫雜湊的場景。
-- **`std::set<std::vector<int>>`**: **C++20 限定**。處理帶權重邊 `(u, v, w)` 的簡潔方法。
+- **`std::set<std::vector<int>>`**: 處理帶權重邊 `(u, v, w)` 的簡潔方法。
 - **`std::unordered_set<std::pair<int, int>, Hasher>`**: **平均 O(1) 查找**。面試中最常見的高效邊集合。
 
 ---
@@ -56,8 +56,8 @@ void check_edges_with_set_pair() {
 }
 ```
 
-**C++20: 直接使用 `std::vector`**
-C++20 可以直接使用 `std::set<std::vector<int>>`，在處理帶權重的邊時特別方便。
+**使用 `std::vector` (適用於帶權重的邊)**
+由於 `std::vector` 自 C++98 起就支援 `operator<`（按字典序比較），因此 `std::set<std::vector<int>>` 是一個處理帶權重邊 `(u, v, w)` 的標準且簡潔的方法。
 
 ```cpp
 // 使用 std::set<std::vector<int>> 處理帶權重的無向邊
