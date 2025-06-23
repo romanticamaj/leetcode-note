@@ -16,13 +16,22 @@
 
 ### 2. 遞迴的呼叫位置 = **主動操作點**
 
-- 呼叫遞迴不只是丟出去算，而是：
-  - **接收回傳值（有意義）**
-  - **基於回傳值進行操作**
-- 所以在呼叫遞迴那一行，你可以而且應該做：
-  - 資料結構的連接或修改
-  - 加總、累積、計算邏輯
-  - 決策性更新（如記錄最大值、長度、合併）
+遞迴函式的核心不只是呼叫自己，更重要的是在「呼叫前」與「呼叫後」對當前狀態進行處理。
+
+- **呼叫前的處理 (Pre-order Logic):**
+  - 在進入下一層遞迴之前，針對**目前節點**的狀態進行處理。
+  - 這是執行「前序」邏輯的地方，例如：
+    - 標記節點為已訪問 (`visited[node] = true`)
+    - 將當前節點值加入路徑中 (`path.push_back(node->val)`)
+    - 根據當前狀態進行剪枝判斷
+
+- **呼叫後的處理 (Post-order Logic) = 主動操作點:**
+  - 當遞迴呼叫從子問題返回後，這個位置就是**主動操作點**。
+  - 呼叫遞迴不只是丟出去算，而是要**接收回傳值（有意義）**並**基於回傳值進行操作**。
+  - 在這裡，你可以而且應該做：
+    - **合併與建構**：合併子問題的結果 (e.g., `left_sum + right_sum + current_val`)，或連接資料結構。
+    - **決策性更新**：更新全域狀態（如最大深度、節點總數）。
+    - **回溯**：清理當前層級的狀態，為其他分支做準備 (`path.pop_back()`)。
 
 ---
 
@@ -44,7 +53,7 @@
 | 編號 | 心法內容                     | 關鍵行為                         |
 | ---- | ---------------------------- | -------------------------------- |
 | 1    | Base case 有其邊界意義       | 是答案的一部分，而非僅為終止條件 |
-| 2    | 呼叫遞迴的位置應做實際操作   | 接回傳值、合併、建構、改寫等     |
+| 2    | 在遞迴呼叫前後處理狀態       | 前序 (Pre-order) 處理當前狀態，後序 (Post-order) 作為「主動操作點」合併結果 |
 | 3    | 回傳值需語意統一、邏輯可串接 | 維持 call stack 邏輯與意圖一致   |
 
 ---
@@ -59,17 +68,20 @@ ReturnType function(Args...) {
     if (終止條件)
         return 明確答案或基本結構;
 
-    // 2. Recursive Call + 操作
+    // 2. 呼叫前的處理 (Pre-order Logic)
+    // e.g., path.push_back(node->val); visited[node] = true;
+    // ... 處理當前節點，為進入子問題做準備 ...
+
+    // 3. 遞迴呼叫 (Recursive Call)
     auto result1 = function(子問題1);
-    // 分開處理: process result1 with current structure;
-
     auto result2 = function(子問題2);
-    // 分開處理: process result2 with current structure;
 
-    auto combined = merge(result1, result2);
-    // 合併處理: process combined with current strucuture;
+    // 4. 呼叫後的處理 (Post-order Logic) - 主動操作點
+    // e.g., auto combined = merge(result1, result2);
+    // e.g., path.pop_back();
+    // ... 基於回傳值進行合併、更新、回溯 ...
 
-    // 3. 回傳結構
+    // 5. 回傳
     return 最終結果;
 }
 ```
