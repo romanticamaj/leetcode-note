@@ -25,7 +25,7 @@
     - 將當前節點值加入路徑中 (`path.push_back(node->val)`)
     - 根據當前狀態進行剪枝判斷
 
-- **呼叫後的處理 (Post-order Logic) = 主動操作點:**
+- **呼叫後的處理 (Post-order Logic):**
   - 當遞迴呼叫從子問題返回後，這個位置就是**主動操作點**。
   - 呼叫遞迴不只是丟出去算，而是要**接收回傳值（有意義）**並**基於回傳值進行操作**。
   - 在這裡，你可以而且應該做：
@@ -50,11 +50,11 @@
 
 ## 🧩 心法速查表
 
-| 編號 | 心法內容                     | 關鍵行為                         |
-| ---- | ---------------------------- | -------------------------------- |
-| 1    | Base case 有其邊界意義       | 是答案的一部分，而非僅為終止條件 |
+| 編號 | 心法內容                     | 關鍵行為                                                                    |
+| ---- | ---------------------------- | --------------------------------------------------------------------------- |
+| 1    | Base case 有其邊界意義       | 是答案的一部分，而非僅為終止條件                                            |
 | 2    | 在遞迴呼叫前後處理狀態       | 前序 (Pre-order) 處理當前狀態，後序 (Post-order) 作為「主動操作點」合併結果 |
-| 3    | 回傳值需語意統一、邏輯可串接 | 維持 call stack 邏輯與意圖一致   |
+| 3    | 回傳值需語意統一、邏輯可串接 | 維持 call stack 邏輯與意圖一致                                              |
 
 ---
 
@@ -64,25 +64,29 @@
 
 ```cpp
 ReturnType function(Args...) {
-    // 1. Base Case
-    if (終止條件)
-        return 明確答案或基本結構;
+    // 0. 初始化區域狀態（local state）
+    LocalStateType localState = initLocalState();
 
-    // 2. 呼叫前的處理 (Pre-order Logic)
-    // e.g., path.push_back(node->val); visited[node] = true;
-    // ... 處理當前節點，為進入子問題做準備 ...
+    // 1. Base Case：終止條件與基本回傳
+    if (isBaseCase(...)) {
+        return baseResult(...);
+    }
 
-    // 3. 遞迴呼叫 (Recursive Call)
-    auto result1 = function(子問題1);
-    auto result2 = function(子問題2);
+    // 2. 呼叫前的處理（Pre-order Logic）
+    // 例如：記錄當前節點、標記 visited、剪枝等
+    preprocessCurrentNode(localState, ...);
 
-    // 4. 呼叫後的處理 (Post-order Logic) - 主動操作點
-    // e.g., auto combined = merge(result1, result2);
-    // e.g., path.pop_back();
-    // ... 基於回傳值進行合併、更新、回溯 ...
+    // 3. 遞迴呼叫（Recursive Calls）
+    auto leftResult = function(subproblem1);
+    auto rightResult = function(subproblem2);
 
-    // 5. 回傳
-    return 最終結果;
+    // 4. 呼叫後的處理（Post-order Logic）＝ 主動操作點
+    // 例如：合併子結果、更新狀態、回溯
+    auto combined = mergeResults(leftResult, rightResult, localState);
+    postprocessCurrentNode(localState, ...);
+
+    // 5. 回傳結果
+    return combined;
 }
 ```
 
@@ -101,7 +105,6 @@ ReturnType function(Args...) {
 | 1    | 若 root 為 null，表示已到插入位置   | base case 有意義：要插入節點的位置 |
 | 2    | 比較 val 與 root->val，決定往左還右 | 呼叫處即接住、賦值                 |
 | 3    | 回傳 root，讓上層維持整體結構不變   | 回傳值統一與串接                   |
-
 
 ## 📘 結語
 
