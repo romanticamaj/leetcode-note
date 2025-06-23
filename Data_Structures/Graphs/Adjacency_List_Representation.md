@@ -11,113 +11,95 @@
 - **`std::unordered_map<int, std::unordered_set<int>>`**: **最常用**。儲存節點到其**唯一**鄰居的映射。不允許重複邊。
 - **`std::unordered_map<int, std::vector<int>>`**: 儲存節點到其鄰居的映射。**允許重複邊** (平行邊)。
 - **`std::unordered_map<int, std::unordered_map<int, int>>`**: **最強大**。儲存節點到鄰居的映射，並為每條邊附加額外資訊（如權重、方向標記等）。
+- **`std::vector<std::vector<int>>`**: **最高效 (無權重)**。節點為 `0..n-1` 時使用。
+- **`std::vector<std::vector<std::pair<int, int>>>`**: **最高效 (有權重)**。節點為 `0..n-1` 時使用。
 
 ---
 
 ## C++ 高效實現：`unordered_map`
 
-在 C++ 中，實現鄰接列表最快、最靈活的方式是使用 `std::unordered_map`，它提供了平均 O(1) 的查找效率。
+## 方法 1: `unordered_map` (靈活性高)
 
-### 基本結構：`unordered_map<int, unordered_set<int>>`
+這是最通用的方法，適用於任何整數節點 ID。
 
-- **外層 Map**: `unordered_map<int, ...>` 將每個節點 `u` 映射到它的鄰居集合。
-- **內層 Set**: `...unordered_set<int>>` 儲存 `u` 的所有鄰居，並允許在 O(1) 時間內判斷某個鄰居是否存在。
+- **`unordered_map<int, vector<int>>`**: 允許重複邊。
+- **`unordered_map<int, unordered_set<int>>`**: 自動處理重複邊。
+- **`unordered_map<int, unordered_map<int, int>>`**: 儲存權重或額外資訊。
+
+## 方法 2: `vector` (效能最佳)
+
+當題目保證節點是從 `0` 到 `n-1` 編號時，使用 `vector` 作為鄰接列表的底層容器是最高效的。
+
+- **`vector<vector<int>>`**: 節點 `u` 的鄰居儲存在 `adj[u]`。
+- **`vector<vector<pair<int, int>>>`**: 儲存帶權重的邊，`adj[u]` 包含 `pair{neighbor, weight}`。
 
 ### 處理有向圖 vs. 無向圖
 
-- **有向圖 (Directed)**: 添加邊 `u -> v` 時，只需將 `v` 加入 `u` 的鄰居集合。`adj[u].insert(v);`
-- **無向圖 (Undirected)**: 添加邊 `(u, v)` 時，需要雙向操作：將 `v` 加入 `u` 的鄰居集合，**同時**將 `u` 加入 `v` 的鄰居集合。`adj[u].insert(v); adj[v].insert(u);`
+#### `unordered_map` (或 `map`)
 
-### 程式碼範例
+- **有向圖 (Directed)**: 添加邊 `u -> v` 時，只需在 `u` 的鄰居 map 中加入 `v`。
+  ```cpp
+  // adj 的類型: unordered_map<int, unordered_map<int, int>>
+  // 儲存權重為 w
+  adj[u][v] = w;
+  ```
+- **無向圖 (Undirected)**: 添加邊 `(u, v)` 時，需要雙向操作。
+  ```cpp
+  // adj 的類型: unordered_map<int, unordered_map<int, int>>
+  adj[u][v] = 1; // 或者儲存權重
+  adj[v][u] = 1; // 或者儲存權重
+  ```
 
-```cpp
-class Graph {
-private:
-    std::unordered_map<int, std::unordered_set<int>> adj;
+#### `vector`
 
-public:
-    // 添加一條有向邊 u -> v
-    void addDirectedEdge(int u, int v) {
-        adj[u].insert(v);
-    }
-
-    // 添加一條無向邊
-    void addUndirectedEdge(int u, int v) {
-        adj[u].insert(v);
-        adj[v].insert(u);
-    }
-
-    // 檢查邊 u -> v 是否存在 (平均 O(1) 時間)
-    bool hasEdge(int u, int v) {
-        if (adj.contains(u)) { // C++20
-            return adj.at(u).contains(v);
-        }
-        return false;
-        // C++11/14/17: return adj.count(u) && adj.at(u).count(v);
-    }
-};
-```
+- **有向圖 (Directed)**: 添加邊 `u -> v` 時，只需將 `{v, weight}` 加入 `u` 的鄰居列表。
+  ```cpp
+  // adj 的類型: vector<vector<pair<int, int>>>
+  adj[u].push_back({v, weight});
+  ```
+- **無向圖 (Undirected)**: 添加邊 `(u, v)` 時，需要雙向操作。
+  ```cpp
+  // adj 的類型: vector<vector<pair<int, int>>>
+  adj[u].push_back({v, weight});
+  adj[v].push_back({u, weight}); // 注意權重
+  ```
 
 ---
 
-## 進階變形：儲存額外資訊 (如權重或方向)
+## 如何遍歷鄰居
 
-鄰接列表的真正威力在於其靈活性。我們可以輕易地修改內層的集合來儲存更多資訊。
+這是鄰接列表最核心的操作，例如在 BFS 或 DFS 中。
 
-### 範例：儲存加權邊
-
-只需將內層的 `unordered_set<int>` 改為 `unordered_map<int, int>`，其中第二個 `int` 用於儲存權重。
-
-- **結構**: `std::unordered_map<int, std::unordered_map<int, int>>`
-- `adj[u][v] = weight`
+### 使用 `unordered_map` 的情況
 
 ```cpp
-class WeightedGraph {
-private:
-    std::unordered_map<int, std::unordered_map<int, int>> adj;
-
-public:
-    // 添加一條帶權重的有向邊 u -> v
-    void addWeightedEdge(int u, int v, int weight) {
-        adj[u][v] = weight;
+// adj 的類型: std::unordered_map<int, std::unordered_map<int, int>>
+void DFS_on_map(int u, std::unordered_map<int, std::unordered_map<int, int>>& adj) {
+    if (!adj.contains(u)) { // C++20
+        return;
     }
 
-    int getWeight(int u, int v) {
-        if (hasEdge(u, v)) {
-            return adj.at(u).at(v);
-        }
-        return -1; // Or throw an exception
+    // C++17 Structured Binding
+    for (const auto& [neighbor, weight] : adj.at(u)) {
+        // 遞迴呼叫 DFS(neighbor, ...);
     }
-
-    bool hasEdge(int u, int v) {
-        return adj.contains(u) && adj.at(u).contains(v);
-    }
-};
+}
 ```
 
-### 範例：同時處理無向連接與有向資訊
-
-這是一個常見的面試變形：圖中的邊是雙向的，但你需要知道原始的有向資訊。
-
-- **結構**: `std::unordered_map<int, std::unordered_map<int, int>>`
-- `adj[u][v] = 1` 表示原始邊是 `u -> v`
-- `adj[v][u] = -1` 表示 `v` 是 `u` 的一個反向鄰居
+### 使用 `vector` 的情況
 
 ```cpp
-class BidirectionalGraph {
-private:
-    std::unordered_map<int, std::unordered_map<int, int>> adj;
-
-public:
-    void addDirectedEdge(int u, int v) {
-        adj[u][v] = 1;  // 正向邊
-        adj[v][u] = -1; // 反向邊
+// adj 的類型: std::vector<std::vector<std::pair<int, int>>>
+void DFS_on_vector(int u, std::vector<std::vector<std::pair<int, int>>>& adj) {
+    if (u < 0 || u >= adj.size()) {
+        return;
     }
 
-    bool hasOutgoingEdge(int u, int v) {
-        return adj.contains(u) && adj.at(u).contains(v) && adj.at(u).at(v) == 1;
+    // C++17 Structured Binding
+    for (const auto& [neighbor, weight] : adj[u]) {
+        // 遞迴呼叫 DFS(neighbor, ...);
     }
-};
+}
 ```
 
 ## 結論
