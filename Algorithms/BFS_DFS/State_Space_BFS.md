@@ -1,14 +1,12 @@
-# State-Space BFS
+# 心法：狀態空間 BFS (State-Space BFS)
 
 ## tl;dr
 
 BFS 遍歷的是一個「狀態空間」，而不僅僅是物理位置。佇列中的每個節點都代表一個獨特的 `(位置, 狀態)`。
 
-也可稱作 BFS with State Tracking
-
-- **High-Dimensional `visited`**: `visited` 集合必須記錄完整的狀態，以防止對同一狀態的重複探索。
 - **State as a Node**: 將每個 `(位置, 狀態)` 組合視為圖中的一個獨立節點。剪枝不能僅基於位置。
-- **State-Conditioned Queuing**: 只有當一個新狀態比同一位置上先前記錄的狀態「更優」（例如，剩餘資源更多）時，才應將其加入佇列。
+- **High-Dimensional `visited`**: `visited` 集合必須記錄完整的狀態，以防止對同一狀態的重複探索。
+- **State-Conditioned Queuing**: 只有當一個新狀態合法且比同一位置上先前記錄的狀態「更優」（例如，剩餘資源更多）時，才應將其加入佇列。
 
 ---
 
@@ -19,6 +17,16 @@ BFS 遍歷的是一個「狀態空間」，而不僅僅是物理位置。佇列�
 - **條件式移動**: 格子的可走性取決於「當前狀態」（如：持有鑰匙、剩餘生命值）。
 - **狀態影響決策**: 當前狀態會改變後續的移動能力或結果（如：消耗資源後才能通過）。
 - **高維最短路**: 尋找最短路徑，但不能單純用 `visited[r][c]` 來判斷是否已訪問。
+
+### 核心矛盾：為何標準 BFS 不足？
+
+讓我們以「消除障礙的最短路徑」為例來思考：
+
+- **如果沒有障礙物限制**：最短路徑就是曼哈頓距離。
+- **如果可消除障礙的配額（quota）大於曼哈頓距離**：最短路徑也必然是曼哈頓距離。
+- **但現實是，quota 有限**：這意味著我們不能總是走直線，有時必須「繞路」以節省 quota。
+
+這就產生了核心矛盾：為了找到全局最短路徑，我們必須探索所有可能的路徑，同時尊重 quota 的限制。因此，**保留 quota 資訊就變得至關重要**，因為它允許我們**以不同的狀態（quota）重新訪問同一個格子**。
 
 ---
 
@@ -62,13 +70,11 @@ vector<vector<vector<bool>>> visited(m, vector<vector<bool>>(n, vector<bool>(k +
 當狀態是數值且有「優劣」之分時（如剩餘步數、生命值），可以用一個二維陣列來記錄到達某位置時的「最佳狀態」。
 
 ```cpp
-// 範例：visited[r][c] 記錄到達 (r,c) 的最佳狀態 (e.g., 剩餘步數)
+// 範例：visited[r][c] 記錄到達 (r,c) 的最佳狀態 (e.g., 剩餘武器數、剩餘步數)
 vector<vector<int>> visited(m, vector<int>(n, -1));
 
-// 條件式入隊
-if (state > visited[nr][nc]) {
-    new_state = update(state); // e.g., 減少步數, 增加武器
-
+// 條件式入隊：只有當新狀態有效且優於先前記錄時才處理
+if (new_state >= 0 && visited[nr][nc] < new_state) {
     visited[nr][nc] = new_state;
     queue.push({nr, nc, new_state});
 }
@@ -133,14 +139,14 @@ while (!q.empty()) {
 
             if (is_out_of_bounds(nr, nc)) continue;
 
-            // 剪枝：如果新狀態無效，或不如之前到達該點的狀態，則跳過
-            if (state < 0 || visited[nr][nc] >= state) continue;
+            // 根據當前狀態計算新狀態
+            int new_state = calculate_new_state(state, grid[nr][nc]);
 
-            // 根據當前狀態計算新狀態, Marked-On-Push
-            auto new_state = calculate_new_state(state, grid[nr][nc]);
-
-            visited[nr][nc] = new_state;
-            q.push({nr, nc, new_state});
+            // 條件式入隊：只有當新狀態有效且優於先前記錄時才處理
+            if (new_state >= 0 && visited[nr][nc] < new_state) {
+                visited[nr][nc] = new_state;
+                q.push({nr, nc, new_state});
+            }
         }
     }
     distance++;
