@@ -1,4 +1,4 @@
-# 心法：狀態空間 BFS (State-Space BFS)
+# 狀態空間 BFS (State-Space BFS)
 
 ## tl;dr
 
@@ -30,147 +30,122 @@ BFS 遍歷的是一個「狀態空間」，而不僅僅是物理位置。佇列�
 
 ---
 
-## ✅ Step 1: 狀態建模 (State Modeling)
+## 🧠 題型本質：狀態空間擴張型 BFS
 
-傳統 BFS 的佇列中儲存的是 `(r, c)`，但在 State-Space BFS 中，你處理的是一個更豐富的結構：
+這類問題的核心特徵是：
+
+> 最短路徑不僅取決於「節點位置」，還取決於「附加條件」。這些附加條件會改變你對「已走過」的定義，從而擴張了搜尋的狀態空間。
+
+---
+
+## ✅ 核心設計原則 (Core Design Principles)
+
+### 1. 狀態空間擴張 (State Space Expansion)
+
+- **傳統 BFS**: 狀態只考慮節點 `node`。
+- **擴張後**: 狀態是 `(node, extra_condition)` 的組合，例如 `(node, remaining_k)` 或 `(node, incoming_edge_color)`。
+
+> **泛化 takeaway**: 當「一個節點是否走過」的判斷標準，不再只有節點本身，而是需要附加額外條件時，就必須將這些條件納入 BFS 的狀態定義中。
+
+### 2. Visited 維度對應狀態空間 (Visited Dimensions Match the State Space)
+
+- `visited` 陣列必須能夠唯一識別一個完整的狀態。
+- 如果狀態是 `(node, color)`，`visited` 就必須是 `visited[node][color]`。
+- 如果狀態是 `(r, c, k)`，`visited` 就必須是 `visited[r][c][k]`。
+
+> **泛化 takeaway**: `visited` 的維度必須與狀態空間的維度完全對應，否則會導致重複訪問（造成 TLE）或錯誤剪枝（找不到最佳解）。
+
+### 3. Queue 必須攜帶完整狀態 (Queue Carries the Full State)
+
+- 佇列中儲存的每個元素，都必須包含判斷下一步合法性所需的所有資訊。
+- 如果下一步的移動需要知道「上一步的顏色」，那麼這個顏色資訊就必須被放進佇列。
+
+> **泛化 takeaway**: 如果下一步的決策依賴於當前的某個特定狀態，那麼這個狀態就必須在佇列中傳遞。
+
+### 4. 建圖時加入邊的屬性 (Graph Building with Edge Attributes)
+
+- 在許多問題中，附加條件是「邊的性質」（例如：邊的顏色、權重、類型）。
+- 在建圖時，應將這些屬性與邊本身綁定。
+
+> **泛化 takeaway**: 考慮使用 `vector<pair<neighbor, attribute>>` 或 `struct Edge` 來建構鄰接串列，使圖的表達更清晰。
+
+### 5. BFS 確保首次到達即為最短 (BFS Guarantees Shortest Path)
+
+- 這個基本原則在擴張的狀態空間中依然成立。
+- BFS 按層級擴張，保證了第一次抵達某個完整狀態 `(node, extra_condition)` 的路徑，就是到達該狀態的最短路徑。
+
+---
+
+## 🪜 通用策略模板
+
+當題目要求「滿足特定條件的最短路徑」，且「狀態」不只取決於位置時，遵循以下步驟：
+
+1. **設計狀態空間**：找出所有會影響決策的變數，將它們組合成一個完整的狀態，例如 `(node, extra_state)`。
+2. **建構對應的 Visited 結構**：建立一個能夠唯一標識每個狀態的 `visited` 集合或多維陣列。
+3. **設計 Queue 結構**：確保佇列中的元素攜帶了判斷下一步所需的所有狀態資訊。
+4. **定義入隊條件**：在 BFS 擴展時，只有當新產生的狀態合法且未被訪問過時，才將其加入佇列並標記為已訪問。
+5. **更新答案**：在 BFS 的過程中，根據題意在首次訪問節點或滿足終止條件時更新結果。
+
+### 通用程式碼模板 (Generic Code Template)
+
+這是一個結合了上述原則的通用 C++ 模板。實際應用時，需要根據具體問題來定義 `State` 結構、`visited` 的維度和 `is_valid_transition` 函數。
 
 ```cpp
-// 狀態的抽象表示
+// 1. 設計狀態空間 (Define the State)
 struct State {
-    int r, c;
-    int remaining_k; // 範例：剩餘可破壞障礙物的次數
-    int keys_mask;   // 範例：已持有的鑰匙集合 (位元遮罩)
+    // ... position info (e.g., r, c or node_id)
+    // ... extra state info (e.g., remaining_k, mask, color)
 };
-```
 
-BFS 的核心單位從「位置」變成了「狀態」。
+// 2. 建構對應的 Visited 結構 (Define the Visited structure)
+// e.g., vector<vector<vector<bool>>> visited(m, n, k+1, false);
+// e.g., vector<vector<int>> visited(m, n, -1); // For state optimization
+// e.g., set<tuple<int, int, int>> visited;
 
----
+// 3. 設計 Queue 結構 (Define the Queue)
+queue<State> q;
 
-## ✅ Step 2: Visited 陣列的對應設計
-
-因為狀態是多維的，`visited` 的設計也必須能對應整個狀態空間，以防止重複且無效的探索。
-
-### ✦ 方法一：完整狀態空間建模 (3D Grid Analogy)
-
-你可以將 `(r, c, state)` 想像成一個三維空間。`r` 和 `c` 是平面上的座標，而 `state` 是 Z 軸（深度）。
-
-- **2D Grid**: 是一個平面。
-- **3D State-Space**: 像是將多個平面疊加起來，每一層代表一個不同的狀態 `k`。
-
-因此，`visited` 陣列也從二維變成了三維，`visited[r][c][k]` 的意義就是「在狀態 `k` 下，是否訪問過 `(r, c)` 這個位置」。
-
-```cpp
-// 範例：visited[r][c][k]
-vector<vector<vector<bool>>> visited(m, vector<vector<bool>>(n, vector<bool>(k + 1, false)));
-```
-
-### ✦ 方法二：記錄該位置的最佳狀態 (空間優化)
-
-當狀態是數值且有「優劣」之分時（如剩餘步數、生命值），可以用一個二維陣列來記錄到達某位置時的「最佳狀態」。
-
-```cpp
-// 範例：visited[r][c] 記錄到達 (r,c) 的最佳狀態 (e.g., 剩餘武器數、剩餘步數)
-vector<vector<int>> visited(m, vector<int>(n, -1));
-
-// 條件式入隊：只有當新狀態有效且優於先前記錄時才處理
-if (new_state >= 0 && visited[nr][nc] < new_state) {
-    visited[nr][nc] = new_state;
-    queue.push({nr, nc, new_state});
-}
-```
-
-這兩種方法的本質都是：
-
-> **對每個 `(位置, 狀態)` 進行去重，避免冗餘探索。**
-
----
-
-## ✅ Step 3: 為什麼 BFS 仍能保證最短距離？
-
-BFS 的最短路保證在狀態空間中依然成立：
-
-> **第一次訪問某個 `(位置, 狀態)` 的組合，其步數必定是到達該狀態的最短距離。**
-
-這是因為 BFS 嚴格按照層級（level）順序進行擴展。只要你確保每個 `(位置, 狀態)` 只入隊一次，那麼當你第一次從佇列中取出目標狀態時，其所在的層級就是最短步數。
-
----
-
-## ✅ Step 4: 正確的剪枝觀念
-
-| 錯誤觀念                         | 正確觀念                                       |
-| :------------------------------- | :--------------------------------------------- |
-| 「這個**位置**來過了，不用再走」 | 「如果**狀態**不同，這是一條全新的路」         |
-| 「`visited` 應以**座標**為準」   | 「`visited` 應以**完整狀態**為 Key」           |
-| 「能走就全部放進 queue」         | 「只有當新狀態比舊狀態**更有潛力**時，才入隊」 |
-
-**內心提問法**:
-
-> 「我現在以**這個狀態**來到這個位置，比上次的狀態更強嗎？如果是，那這條路就值得繼續探索。」
-
----
-
-## 🛠️ 通用演算法結構 (空間優化版)
-
-```cpp
-// visited[r][c] = 到達 (r,c) 時的最佳狀態 (e.g., 剩餘 k)
-vector<vector<int>> visited(m, vector<int>(n, -1));
-queue<State> q; // State: {r, c, state_value}
-
-// 初始化
-q.push({0, 0, initial_state});
-visited[0][0] = initial_state;
+// 初始化 (Initialization)
+q.push(initial_state);
+mark_visited(initial_state);
 
 int distance = 0;
 while (!q.empty()) {
     int level_size = q.size();
-
     while (level_size--) {
-        auto [r, c, state] = q.front();
+        State current = q.front();
         q.pop();
 
-        if (r == m - 1 && c == n - 1) { // ending point found or meet specific condition
+        if (is_target(current)) {
             return distance;
         }
 
-        for (auto& dir : directions) {
-            int nr = r + dir.first;
-            int nc = c + dir.second;
+        // 遍歷所有可能的下一步 (Iterate through all possible next moves)
+        for (auto& move : possible_moves) {
+            State next = calculate_next_state(current, move);
 
-            if (is_out_of_bounds(nr, nc)) continue;
-
-            // 根據當前狀態計算新狀態
-            int new_state = calculate_new_state(state, grid[nr][nc]);
-
-            // 條件式入隊：只有當新狀態有效且優於先前記錄時才處理
-            if (new_state >= 0 && visited[nr][nc] < new_state) {
-                visited[nr][nc] = new_state;
-                q.push({nr, nc, new_state});
+            // 4. 定義入隊條件 (Define enqueuing condition)
+            if (is_valid_transition(next) && !is_visited(next)) {
+                mark_visited(next);
+                q.push(next);
             }
         }
     }
     distance++;
 }
-return -1; // 無法到達
+
+return -1; // Target not reachable
 ```
 
 ---
 
-## 📘 延伸練習題目
+## 🧩 類似題型範例
 
-| 題目編號                                                 | 狀態空間設計                    |
-| :------------------------------------------------------- | :------------------------------ |
-| 1293. Shortest Path in a Grid with Obstacles Elimination | `(r, c, remaining_k)`           |
-| 864. Shortest Path to Get All Keys                       | `(r, c, keys_mask)`             |
-| 847. Shortest Path Visiting All Nodes                    | `(current_node, visited_mask)`  |
-| 773. Sliding Puzzle                                      | `(board_string, zero_position)` |
-
----
-
-## ✅ 結語
-
-當你遇到「帶有條件的最短路徑」問題時，就應該啟動這套心法：
-
-> **State-Space BFS → 狀態空間建模 → 高維 visited → 條件式入隊**
-
-這是處理所有「條件型路徑搜尋」問題的萬用套路。
+| 題目編號                                                 | 狀態空間設計 (State Space Design) | 核心挑戰                             |
+| :------------------------------------------------------- | :-------------------------------- | :----------------------------------- |
+| 1129. Shortest Path with Alternating Colors              | `(node, incoming_edge_color)`     | 邊的屬性 (顏色) 成為狀態的一部分     |
+| 1293. Shortest Path in a Grid with Obstacles Elimination | `(r, c, remaining_k)`             | 資源消耗 (k) 成為狀態的一部分        |
+| 864. Shortest Path to Get All Keys                       | `(r, c, keys_mask)`               | 狀態累積 (鑰匙) 改變可達性           |
+| 847. Shortest Path Visiting All Nodes                    | `(current_node, visited_mask)`    | 訪問過的所有節點集合成為狀態的一部分 |
+| 1368. Minimum Cost to Make at Least One Valid Path       | `(r, c)` (但用 0-1 BFS)           | 邊的權重不同，需用 Deque (0-1 BFS)   |
+| 773. Sliding Puzzle                                      | `(board_string, zero_position)`   | 整個遊戲盤面成為狀態                 |
