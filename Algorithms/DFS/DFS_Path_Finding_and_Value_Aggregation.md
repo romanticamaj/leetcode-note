@@ -96,10 +96,10 @@
    ResultType aggregated_result = initial_value;
    for (auto& edge : graph.get_neighbors(current)) {
        Node neighbor = edge.get_neighbor();
-       
+
        // 取得來自一個分支的結果
        ReturnType result_from_neighbor = dfs(neighbor, target, visited);
-       
+
        // 將該分支結果聚合到總結果中
        aggregated_result = aggregate(aggregated_result, result_from_neighbor);
    }
@@ -108,6 +108,23 @@
 
 ---
 
+## 3. 應用於樹 (Application to Trees)
+
+這些原則同樣適用於樹的遍歷，但有兩個關鍵的簡化：
+
+1. **鄰居即子節點 (Neighbors are Children)**:
+
+   - 在圖中，你需要一個鄰接表來找到 `neighbors`。
+   - 在樹中，鄰居就是明確的 `left` 和 `right` 子節點。
+
+2. **無需 `visited` 集合 (No `visited` Set Needed)**:
+   - 樹是無環圖 (acyclic graph)，從父節點往下走，絕不會回到訪問過的節點。
+   - 因此，在樹的 DFS 中，你不需要 `visited` 集合來防止無限循環。
+
+---
+
 ## ✅ 總結
 
 將 DFS 用於圖的路徑查找與值聚合問題時，成功的關鍵在於將遞迴函數的回傳值設計成一個**同時包含「狀態信號」和「計算結果」的複合資訊**。通過在呼叫點正確地解析這個回傳值，你就能優雅地解決這類複雜的遞迴問題。
+
+對於樹，這個模式同樣適用，但可以省去 `visited` 集合的開銷。
