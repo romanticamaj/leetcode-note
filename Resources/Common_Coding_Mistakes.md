@@ -453,3 +453,83 @@ if (c == '\0') { ... }  // Correct: checks for null terminator
 ---
 
 This is a subtle but common mistake, especially when working with character arrays or parsing input. Always be explicit when comparing characters in conditionals.
+
+---
+
+## ❗ `const`容器與`operator[]`的陷阱
+
+### 問題描述
+
+當你試圖使用 `operator[]`（中括號運算子）來存取一個被 `const` 修飾的 `std::map` 或 `std::unordered_map` 時，編譯器會報錯。
+
+```cpp
+// 錯誤範例
+void processGraph(const unordered_map<string, unordered_map<string, double>>& graph) {
+    string current = "A";
+    // ...
+    // 下面這行會導致編譯錯誤
+    for (auto const& [neighbor, weight] : graph[current]) {
+        // ...
+    }
+}
+```
+
+**錯誤訊息**: `no viable overloaded operator[] for type 'const ...'`
+
+### 核心原因
+
+`std::map` 和 `std::unordered_map` 的 `operator[]` 不是一個 `const` 成員函數。這是因為它被設計為具有「如果鍵不存在，就插入一個預設值」的副作用。這個插入操作會修改容器，這與 `const` 的承諾（不修改物件）相違背。
+
+### ✅ 正確做法
+
+當你需要從一個 `const` 的 map 中讀取資料時，必須使用保證不會修改容器的方法。
+
+#### 方法一：使用 `.at()` (推薦)
+
+`.at()` 成員函數會回傳鍵對應的值，且它有 `const` 版本。如果鍵不存在，它會拋出一個 `std::out_of_range` 例外。
+
+```cpp
+// 正確範例
+void processGraph(const unordered_map<string, unordered_map<string, double>>& graph) {
+    string current = "A";
+    try {
+        for (auto const& [neighbor, weight] : graph.at(current)) {
+            // ...
+        }
+    } catch (const std::out_of_range& e) {
+        // 處理 'current' 節點不存在於圖中的情況
+    }
+}
+```
+
+#### 方法二：使用 `.find()`
+
+`.find()` 會回傳一個指向鍵值對的迭代器。如果鍵不存在，它會回傳指向 `.end()` 的迭代器。這個方法不會拋出例外，因此通常更安全、更常用。
+
+```cpp
+// 正確範例
+void processGraph(const unordered_map<string, unordered_map<string, double>>& graph) {
+    string current = "A";
+    auto it = graph.find(current);
+
+    if (it != graph.end()) {
+        // it->first 是鍵 (current)
+        // it->second 是值 (鄰居 map)
+        for (auto const& [neighbor, weight] : it->second) {
+            // ...
+        }
+    } else {
+        // 處理 'current' 節點不存在於圖中的情況
+    }
+}
+```
+
+### 🔍 總結
+
+| 方法 | `const` 安全性 | 鍵不存在時的行為 | 適用場景 |
+| :--- | :--- | :--- | :--- |
+| `operator[]` | ❌ 否 | 插入預設值 | 非 `const` map，且希望鍵不存在時自動插入 |
+| `.at()` | ✅ 是 | 拋出 `std::out_of_range` | `const` map，且你預期鍵一定存在 |
+| `.find()` | ✅ 是 | 回傳 `end()` 迭代器 | `const` map，最安全通用的讀取方式 |
+
+**心法**：當處理 `const` map 或 `const` unordered_map 時，永遠用 `.find()` 或 `.at()` 取代 `[]` 來存取元素。
