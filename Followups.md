@@ -15,6 +15,7 @@
 
 - [ ] **研究**：研究 A\* 搜尋演算法，並比較它與 Dijkstra、BFS 的差異。
 - [ ] **優化**：在 Union-Find 中實現「按秩合併」（Union by Rank/Size）。
+- [ ] **學習**：整理 Disjoint Set (Union-Find) 的完整模板，包含路徑壓縮和按秩合併。
 
 ---
 
