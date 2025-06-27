@@ -9,14 +9,15 @@
 **問題描述**：在編寫遞歸函數時，調用自身時使用了錯誤的函數名稱。
 
 **錯誤示例**：
+
 ```cpp
 // 錯誤示例
 void dfs(TreeNode* node) {
     if (!node) return;
-    
+
     // 處理當前節點
     cout << node->val << " ";
-    
+
     // 遞歸調用 - 錯誤的函數名稱
     DFS(node->left);  // 大小寫錯誤
     dFs(node->right); // 大小寫錯誤
@@ -24,14 +25,15 @@ void dfs(TreeNode* node) {
 ```
 
 **正確示例**：
+
 ```cpp
 // 正確示例
 void dfs(TreeNode* node) {
     if (!node) return;
-    
+
     // 處理當前節點
     cout << node->val << " ";
-    
+
     // 遞歸調用 - 正確的函數名稱
     dfs(node->left);  // 正確複製函數名稱
     dfs(node->right); // 正確複製函數名稱
@@ -39,6 +41,7 @@ void dfs(TreeNode* node) {
 ```
 
 **避免方法**：
+
 1. 定義函數後，複製函數名稱而不是重新輸入
 2. 使用一致的命名規範（如全部小寫或駝峰式命名）
 3. 代碼審查時特別注意函數名稱的一致性
@@ -48,6 +51,7 @@ void dfs(TreeNode* node) {
 **問題描述**：忘記處理遞歸的基本情況（終止條件），導致無限遞歸和棧溢出。
 
 **錯誤示例**：
+
 ```cpp
 // 錯誤示例 - 缺少基本情況
 int factorial(int n) {
@@ -56,6 +60,7 @@ int factorial(int n) {
 ```
 
 **正確示例**：
+
 ```cpp
 // 正確示例
 int factorial(int n) {
@@ -65,6 +70,7 @@ int factorial(int n) {
 ```
 
 **避免方法**：
+
 1. 始終先考慮並處理基本情況
 2. 確保基本情況能夠覆蓋所有可能的終止條件
 3. 考慮邊界情況和特殊輸入
@@ -76,6 +82,7 @@ int factorial(int n) {
 **問題描述**：訪問數組範圍之外的元素。
 
 **錯誤示例**：
+
 ```cpp
 // 錯誤示例
 vector<int> nums = {1, 2, 3};
@@ -85,6 +92,7 @@ for (int i = 0; i <= nums.size(); i++) {  // 使用 <= 而不是 <
 ```
 
 **正確示例**：
+
 ```cpp
 // 正確示例
 vector<int> nums = {1, 2, 3};
@@ -94,6 +102,7 @@ for (int i = 0; i < nums.size(); i++) {  // 使用 < 而不是 <=
 ```
 
 **避免方法**：
+
 1. 使用 `<` 而不是 `<=` 作為循環條件
 2. 使用範圍基於的 for 循環 (range-based for loop)
 3. 在訪問前檢查索引是否有效
@@ -103,18 +112,21 @@ for (int i = 0; i < nums.size(); i++) {  // 使用 < 而不是 <=
 **問題描述**：在計算數組索引時出錯，特別是在二分搜索或滑動窗口等算法中。
 
 **錯誤示例**：
+
 ```cpp
 // 錯誤示例 - 二分搜索中間點計算
 int mid = (left + right) / 2;  // 可能導致整數溢出
 ```
 
 **正確示例**：
+
 ```cpp
 // 正確示例
 int mid = left + (right - left) / 2;  // 避免整數溢出
 ```
 
 **避免方法**：
+
 1. 使用安全的索引計算方法
 2. 注意整數溢出問題
 3. 在複雜索引計算中添加註釋說明
@@ -126,6 +138,7 @@ int mid = left + (right - left) / 2;  // 避免整數溢出
 **問題描述**：嘗試解引用空指針 (nullptr)。
 
 **錯誤示例**：
+
 ```cpp
 // 錯誤示例
 TreeNode* node = nullptr;
@@ -133,6 +146,7 @@ int val = node->val;  // 解引用空指針
 ```
 
 **正確示例**：
+
 ```cpp
 // 正確示例
 TreeNode* node = nullptr;
@@ -142,6 +156,7 @@ if (node) {
 ```
 
 **避免方法**：
+
 1. 在解引用前始終檢查指針是否為空
 2. 使用智能指針減少空指針錯誤
 3. 確保函數返回有效指針或明確處理空指針情況
@@ -151,6 +166,7 @@ if (node) {
 **問題描述**：分配記憶體後未釋放，導致記憶體洩漏。
 
 **錯誤示例**：
+
 ```cpp
 // 錯誤示例
 void processData() {
@@ -161,6 +177,7 @@ void processData() {
 ```
 
 **正確示例**：
+
 ```cpp
 // 正確示例
 void processData() {
@@ -171,6 +188,7 @@ void processData() {
 ```
 
 **避免方法**：
+
 1. 使用智能指針 (如 `std::unique_ptr`, `std::shared_ptr`)
 2. 遵循 RAII 原則 (Resource Acquisition Is Initialization)
 3. 使用容器類代替原始數組
@@ -183,6 +201,7 @@ void processData() {
 **問題描述**：使用未初始化的變數，導致未定義行為。
 
 **錯誤示例**：
+
 ```cpp
 // 錯誤示例
 int sum;
@@ -192,6 +211,7 @@ for (int i = 0; i < 10; i++) {
 ```
 
 **正確示例**：
+
 ```cpp
 // 正確示例
 int sum = 0;  // 初始化變數
@@ -201,6 +221,7 @@ for (int i = 0; i < 10; i++) {
 ```
 
 **避免方法**：
+
 1. 在聲明變數時進行初始化
 2. 使用編譯器警告檢測未初始化變數
 3. 遵循變數最小作用域原則
@@ -210,6 +231,7 @@ for (int i = 0; i < 10; i++) {
 **問題描述**：使用 `==` 比較字符串對象而不是使用 `equals` 或 `compare` 方法。
 
 **錯誤示例** (Java):
+
 ```java
 // 錯誤示例
 String s1 = new String("hello");
@@ -220,6 +242,7 @@ if (s1 == s2) {  // 比較引用而不是內容
 ```
 
 **正確示例** (Java):
+
 ```java
 // 正確示例
 String s1 = new String("hello");
@@ -230,6 +253,7 @@ if (s1.equals(s2)) {  // 比較內容而不是引用
 ```
 
 **避免方法**：
+
 1. 了解不同語言中字符串比較的正確方法
 2. 使用適當的字符串比較函數或方法
 3. 注意字符串的大小寫敏感性
@@ -239,10 +263,10 @@ if (s1.equals(s2)) {  // 比較內容而不是引用
 - **型別不匹配導致的非預期結果**：不同的型別（如 int、unsigned int、long long）進行加減法可能導致非預期結果
 - **溢出問題**：使用不適當的型別可能導致計算過程中出現溢出（overflow）
 - **常見陷阱**：
-  * 有符號與無符號整數混合運算
-  * 整數除法截斷
-  * 陣列索引使用錯誤型別（如使用 int 而非 size_t）
-  * 比較不同型別的值
+  - 有符號與無符號整數混合運算
+  - 整數除法截斷
+  - 陣列索引使用錯誤型別（如使用 int 而非 size_t）
+  - 比較不同型別的值
 
 ## C++ 資料結構選用心法
 
@@ -251,27 +275,32 @@ if (s1.equals(s2)) {  // 比較內容而不是引用
 **問題描述**：在選擇容器類型時，經常默認使用有序容器（如 `set`、`map`），而忽略了無序容器（如 `unordered_set`、`unordered_map`）可能提供的性能優勢。
 
 **心法**：
+
 - 如果不需要元素有序，優先考慮使用無序容器
 - 當看到需要使用 `set` 時，先問自己：「排序重要嗎？」如果不重要，立即考慮 `unordered_set`
 - 同理，對於 `map` vs `unordered_map` 也是如此
 
 **性能比較**：
+
 - `set`/`map`: 插入、刪除、查找操作的時間複雜度為 O(log n)
 - `unordered_set`/`unordered_map`: 平均情況下，這些操作的時間複雜度為 O(1)
 
 **使用 `set`/`map` 的情況**：
+
 - 需要元素按特定順序排列
 - 需要範圍查詢（如找出所有大於 x 且小於 y 的元素）
 - 需要使用自定義比較器
 - 需要穩定的性能保證（無論數據分佈如何）
 
 **使用 `unordered_set`/`unordered_map` 的情況**：
+
 - 只需要快速查找、插入和刪除
 - 不關心元素順序
 - 數據分佈較為均勻（避免哈希衝突）
 - 優先考慮平均性能而非最壞情況
 
 **代碼示例**：
+
 ```cpp
 // 不需要排序時，使用無序容器
 unordered_set<int> seen;  // 而不是 set<int> seen;
@@ -294,6 +323,7 @@ map<string, int> sortedCounts;  // 按鍵排序
 **問題描述**：在使用 `set` 或 `unordered_set` 記錄狀態時，如果可能有重複元素，執行 `erase` 操作會移除所有相同的元素，因為這些容器不保存元素的數量信息。
 
 **錯誤示例**：
+
 ```cpp
 // 錯誤示例 - 使用 set 處理可能有重複元素的情況
 set<int> elements = {1, 2, 3, 4, 5};
@@ -303,6 +333,7 @@ elements.erase(2);   // 移除了唯一的 2，而不是最近添加的那個
 ```
 
 **正確示例**：
+
 ```cpp
 // 正確示例 - 使用 multiset 處理重複元素
 multiset<int> elements = {1, 2, 3, 4, 5};
@@ -316,12 +347,14 @@ if (counter[2] == 0) counter.erase(2);  // 只在計數為 0 時移除
 ```
 
 **避免方法**：
+
 1. 如果需要處理重複元素，考慮使用 `multiset` 或 `multimap`
 2. 或者使用 `map<Key, Count>` 手動記錄元素出現次數
 3. 使用 `erase(iterator)` 而不是 `erase(value)` 來精確控制要移除的元素
 4. 在算法題中，明確考慮是否需要處理重複元素的情況
 
 **總結原則**：
+
 1. 先考慮操作需求（查找、插入、刪除、排序等）
 2. 再考慮性能需求（時間複雜度、空間複雜度）
 3. 最後考慮特殊需求（如迭代器穩定性、內存布局等）
@@ -333,16 +366,16 @@ if (counter[2] == 0) counter.erase(2);  // 只在計數為 0 時移除
 
 ### 常見資料結構操作對應：
 
-| 資料結構 | 加入操作       | 移除操作       |
-|----------|----------------|----------------|
-| `stack`  | `push()`       | `pop()`        |
-| `queue`  | `push()` | `pop()`  |
-| `deque`  | `push_back()` / `push_front()` | `pop_back()` / `pop_front()` |
-| `vector` | `push_back()`  | `pop_back()`   |
-| `set`    | `insert()`     | `erase()`      |
-| `map`    | `insert()` / `[]` | `erase()`   |
-| `unordered_set` | `insert()` | `erase()`    |
-| `unordered_map` | `insert()` / `[]` | `erase()` |
+| 資料結構        | 加入操作                       | 移除操作                     |
+| --------------- | ------------------------------ | ---------------------------- |
+| `stack`         | `push()`                       | `pop()`                      |
+| `queue`         | `push()`                       | `pop()`                      |
+| `deque`         | `push_back()` / `push_front()` | `pop_back()` / `pop_front()` |
+| `vector`        | `push_back()`                  | `pop_back()`                 |
+| `set`           | `insert()`                     | `erase()`                    |
+| `map`           | `insert()` / `[]`              | `erase()`                    |
+| `unordered_set` | `insert()`                     | `erase()`                    |
+| `unordered_map` | `insert()` / `[]`              | `erase()`                    |
 
 ### 心法：
 
@@ -444,11 +477,11 @@ if (c == '\0') { ... }  // Correct: checks for null terminator
 
 ### 🔍 Summary
 
-| Expression | Evaluates to | Meaning         |
-|------------|--------------|-----------------|
-| `'0'`      | `true`       | ASCII 48        |
-| `'\0'`     | `false`      | ASCII 0 (null)  |
-| `0`        | `false`      | Integer zero    |
+| Expression | Evaluates to | Meaning        |
+| ---------- | ------------ | -------------- |
+| `'0'`      | `true`       | ASCII 48       |
+| `'\0'`     | `false`      | ASCII 0 (null) |
+| `0`        | `false`      | Integer zero   |
 
 ---
 
@@ -526,10 +559,61 @@ void processGraph(const unordered_map<string, unordered_map<string, double>>& gr
 
 ### 🔍 總結
 
-| 方法 | `const` 安全性 | 鍵不存在時的行為 | 適用場景 |
-| :--- | :--- | :--- | :--- |
-| `operator[]` | ❌ 否 | 插入預設值 | 非 `const` map，且希望鍵不存在時自動插入 |
-| `.at()` | ✅ 是 | 拋出 `std::out_of_range` | `const` map，且你預期鍵一定存在 |
-| `.find()` | ✅ 是 | 回傳 `end()` 迭代器 | `const` map，最安全通用的讀取方式 |
+| 方法         | `const` 安全性 | 鍵不存在時的行為         | 適用場景                                 |
+| :----------- | :------------- | :----------------------- | :--------------------------------------- |
+| `operator[]` | ❌ 否          | 插入預設值               | 非 `const` map，且希望鍵不存在時自動插入 |
+| `.at()`      | ✅ 是          | 拋出 `std::out_of_range` | `const` map，且你預期鍵一定存在          |
+| `.find()`    | ✅ 是          | 回傳 `end()` 迭代器      | `const` map，最安全通用的讀取方式        |
 
 **心法**：當處理 `const` map 或 `const` unordered_map 時，永遠用 `.find()` 或 `.at()` 取代 `[]` 來存取元素。
+
+---
+
+## ❗ `vector` vs `map` 的 `operator[]` 行為差異
+
+`vector` 和 `map`/`unordered_map` 都支援 `operator[]`，但其行為和約束截然不同，混淆它們是常見的錯誤來源。
+
+### `std::vector` 的 `operator[]`
+
+- **行為**: 提供對**已存在**元素的直接存取。它**不會**自動新增元素。
+- **約束**: 使用 `[]` 存取一個**超出範圍 (out-of-bounds)** 的索引是**未定義行為 (Undefined Behavior)**。程式可能會崩潰，也可能讀寫無關的記憶體。
+- **初始化**: 在使用 `operator[]` 賦值前，必須確保 `vector` 的大小足夠，或者使用 `push_back` 來新增元素。
+
+```cpp
+// ❌ 錯誤：對一個空的 vector 使用索引賦值
+std::vector<int> vec;
+vec[0] = 100; // 未定義行為！vec 的大小是 0。
+
+// ✅ 正確做法 1：先指定大小
+std::vector<int> vec_sized(10);
+vec_sized[0] = 100; // 正確，因為索引 0 是合法的。
+
+// ✅ 正確做法 2：使用 push_back
+std::vector<int> vec_pushed;
+vec_pushed.push_back(100); // 正確，新增一個元素並賦值。
+```
+
+### `std::map` / `std::unordered_map` 的 `operator[]`
+
+- **行為**: 提供對鍵 (key) 所對應的值 (value) 的存取。
+- **特殊功能**: 如果鍵**不存在**，`operator[]` 會**自動插入**一個新的鍵值對，其中值是預設建構的 (例如，`int` 為 `0`，`string` 為 `""`)。
+- **`const` 限制**: 正因為有自動插入的副作用，所以 `operator[]` 不能被用於 `const` 的 map (詳見上一節)。
+
+```cpp
+std::unordered_map<std::string, int> word_count;
+
+// ✅ 正確：如果 "hello" 不存在，會自動新增 "hello" -> 0，然後再 ++ 變成 1。
+word_count["hello"]++;
+
+// ✅ 正確：可以直接賦值，即使 "world" 不存在。
+word_count["world"] = 5;
+```
+
+### 總結心法
+
+| 容器                              | `operator[]` 行為 | 使用前提                            |
+| :-------------------------------- | :---------------- | :---------------------------------- |
+| `std::vector`                     | **僅存取**        | 索引必須在 `[0, size() - 1]` 範圍內 |
+| `std::map` / `std::unordered_map` | **存取或插入**    | 無，若鍵不存在則自動插入            |
+
+> **心法**: 對 `vector` 用 `[]` 前，先確保**空間已分配**；對 `map` 用 `[]`，則可放心寫入，它會**自動處理**鍵的存在與否。
