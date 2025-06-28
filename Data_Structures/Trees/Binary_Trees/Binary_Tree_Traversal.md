@@ -11,7 +11,7 @@ struct TreeNode {
     int val;
     TreeNode* left;
     TreeNode* right;
-    
+
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 ```
@@ -30,7 +30,6 @@ struct TreeNode {
 Pre -> before children (在處理子節點之前)
 In -> in the middle of children (在處理子節點之間)
 Post -> after children (在處理子節點之後)
-
 
 如果我們參考前面提到的 DFS 通用結構：
 
@@ -74,7 +73,7 @@ Linked List 通常使用 iterative 方式遍歷，而 Binary Tree 則通常使�
 2. **通往基本情況的橋樑**：葉節點的左右子節點都是 `null`，這意味著當遞歸到葉節點時，對其子節點的遞歸調用會直接進入基本情況（base case）。
 3. **遞歸終止的保證**：正是因為葉節點的存在，遞歸才能夠有保證地終止。沒有葉節點，遞歸將無法到達基本情況。
 
-****重要**** `Leaf Node 也是一個 subtree (可以走到 base case 的 subtree)`
+\***\*重要\*\*** `Leaf Node 也是一個 subtree (可以走到 base case 的 subtree)`
 
 這個理解對於掌握樹的遞歸至關重要。當我們遞歸地處理一棵樹時，我們實際上是在處理一系列嵌套的子樹，最終到達葉節點，然後通過葉節點的 `null` 子節點進入基本情況，從而開始回溯過程。
 

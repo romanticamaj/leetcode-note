@@ -5,13 +5,14 @@
 哈希表（Hash Table）是一種基於鍵值對（key-value pair）的數據結構，通過哈希函數將鍵映射到存儲桶（bucket）中，實現高效的數據存儲和檢索。
 
 常見的哈希表實現包括：
+
 - **Hash Map**：存儲鍵值對，每個鍵映射到一個值
 - **Hash Set**：只存儲鍵，用於快速判斷元素是否存在
 
 ## 時間複雜度
 
 | 操作 | 平均時間複雜度 | 最壞時間複雜度 |
-|------|----------------|----------------|
+| ---- | -------------- | -------------- |
 | 查詢 | O(1)           | O(n)           |
 | 插入 | O(1)           | O(n)           |
 | 刪除 | O(1)           | O(n)           |
@@ -25,6 +26,7 @@
 當你的算法需要頻繁檢查一個元素是否存在於集合中時（例如，`if ... in ...`），使用哈希表可以將時間複雜度從 O(n) 降低到 O(1)。
 
 例如：
+
 - 將 `if element in array` 操作（O(n)）優化為 `if element in hash_set`（O(1)）
 - 將 `for each element in array, check if target - element exists in array`（O(n²)）優化為使用哈希表（O(n)）
 
@@ -77,7 +79,7 @@ Counting 可以用 hash map (e.g., unordered_map) 達成，常常可以跟 slidi
 - Sliding window 題目通常是找 subarray 滿足某個 constraint metric
 - 這個 constraint metric 就可以用 hash map 來記錄
 - Hash map 作為 `while WINDOW_IS_INVALID` 的比較來源
-- 例如：限制窗口內不同字符的數量、元素出現頻率不超過k次等
+- 例如：限制窗口內不同字符的數量、元素出現頻率不超過 k 次等
 
 ## 實現技巧
 
@@ -107,6 +109,7 @@ hashMap[key] = value;
 ```
 
 這種技術特別適用於：
+
 - 需要將矩陣行或列作為鍵
 - 需要將整個數組或向量作為鍵
 - 需要將多維數據結構映射到一維鍵
@@ -150,6 +153,7 @@ for (int i = 0; i < nums.size(); i++) {
 ```
 
 這種方法特別適用於：
+
 - 尋找配對元素（如 Two Sum 問題）
 - 檢測重複元素
 - 需要記錄元素出現次數的問題
@@ -187,6 +191,7 @@ Target Sum 問題是一類常見的數組問題，要求找出數組中和為目
 ## 與其他數據結構的結合
 
 哈希表常與其他算法技巧結合使用：
+
 - **與 Sliding Window 結合**：維護窗口內元素的頻率或特性
 - **與 Two Pointers 結合**：在一個指針遍歷的同時，使用哈希表記錄已訪問的元素
 - **與 Prefix Sum 結合**：記錄前綴和的出現次數或位置
