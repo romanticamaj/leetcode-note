@@ -4,7 +4,7 @@
 
 `std::deque`（double-ended queue）是 C++ STL 中一種支援**雙端插入與刪除**的容器。與 `vector` 類似，它支援隨機存取，但在兩端插入/刪除的效率更高。
 
-### 特性總覽：
+### 特性總覽
 
 | 特性          | `deque`                                                    |
 | ------------- | ---------------------------------------------------------- |
@@ -39,26 +39,13 @@
   - `clear()` 或 `resize()` 操作
 - 相比之下，`vector` 的 iterator 只有在 reallocation 時才會失效（通常是 `push_back` 導致容量擴張）
 
-### 實作差異（GCC vs MSVC）
-
-| 行為/特性       | GCC (libstdc++)                                                     | MSVC (Visual C++)             |
-| --------------- | ------------------------------------------------------------------- | ----------------------------- |
-| 區塊大小        | 通常為 512 bytes                                                    | 依元素型別調整                |
-| iterator 相容性 | 支援 RandomAccessIterator，操作與 `vector` 類似，但記憶體位置不連續 | 同樣支援 RandomAccessIterator |
-| 擴容策略        | 雙端擴張，分段配置                                                  | 類似                          |
-
-### 標準文件參考
-
-- C++ Standard: [deque - cppreference](https://en.cppreference.com/w/cpp/container/deque)
-- iterator category: [Iterator categories - cppreference](https://en.cppreference.com/w/cpp/iterator)
-
 ---
 
 ## `queue` 是什麼？
 
 `std::queue` 是一種**封裝容器（container adaptor）**，預設以 `deque` 為底層實作，提供**單端進、單端出**的 FIFO 結構。
 
-### 特性總覽：
+### 特性總覽
 
 | 特性           | `queue`                          |
 | -------------- | -------------------------------- |
@@ -80,22 +67,23 @@
 | 使用場景      | BFS、滑動窗口、雙端處理等             | 純 FIFO 隊列             |
 
 ---
+
 ---
 
 ## `deque` vs `queue` API 與時間複雜度比較
 
-| 操作類型 | `deque` API                     | 時間複雜度 | `queue` API     | 時間複雜度 | 備註                         |
-|----------|----------------------------------|------------|------------------|------------|------------------------------|
-| 插入尾端 | `push_back(val)`                | O(1)       | `push(val)`      | O(1)       | `queue` 實際呼叫 `deque::push_back` |
-| 插入前端 | `push_front(val)`               | O(1)       | ❌               | -          | `queue` 不支援               |
-| 移除尾端 | `pop_back()`                    | O(1)       | ❌               | -          | `queue` 不支援               |
-| 移除前端 | `pop_front()`                   | O(1)       | `pop()`          | O(1)       | `queue` 實際呼叫 `deque::pop_front` |
-| 讀取尾端 | `back()`                        | O(1)       | `back()`         | O(1)       | 兩者皆支援                   |
-| 讀取前端 | `front()`                       | O(1)       | `front()`        | O(1)       | 兩者皆支援                   |
-| 隨機存取 | `operator[]`, `at()`            | O(1)       | ❌               | -          | `queue` 不支援               |
-| 判斷是否為空 | `empty()`                    | O(1)       | `empty()`        | O(1)       | 兩者皆支援                   |
-| 取得大小 | `size()`                        | O(1)       | `size()`         | O(1)       | 兩者皆支援                   |
-| 清空     | `clear()`                       | O(n)       | ❌               | -          | `queue` 無提供 clear()       |
+| 操作類型     | `deque` API          | 時間複雜度 | `queue` API | 時間複雜度 | 備註                                |
+| ------------ | -------------------- | ---------- | ----------- | ---------- | ----------------------------------- |
+| 插入尾端     | `push_back(val)`     | O(1)       | `push(val)` | O(1)       | `queue` 實際呼叫 `deque::push_back` |
+| 插入前端     | `push_front(val)`    | O(1)       | ❌          | -          | `queue` 不支援                      |
+| 移除尾端     | `pop_back()`         | O(1)       | ❌          | -          | `queue` 不支援                      |
+| 移除前端     | `pop_front()`        | O(1)       | `pop()`     | O(1)       | `queue` 實際呼叫 `deque::pop_front` |
+| 讀取尾端     | `back()`             | O(1)       | `back()`    | O(1)       | 兩者皆支援                          |
+| 讀取前端     | `front()`            | O(1)       | `front()`   | O(1)       | 兩者皆支援                          |
+| 隨機存取     | `operator[]`, `at()` | O(1)       | ❌          | -          | `queue` 不支援                      |
+| 判斷是否為空 | `empty()`            | O(1)       | `empty()`   | O(1)       | 兩者皆支援                          |
+| 取得大小     | `size()`             | O(1)       | `size()`    | O(1)       | 兩者皆支援                          |
+| 清空         | `clear()`            | O(n)       | ❌          | -          | `queue` 無提供 clear()              |
 
 這張表格幫助你快速比較 `deque` 與 `queue` 在 API 支援與時間複雜度上的差異，並理解 `queue` 是如何封裝 `deque` 的子集功能。
 

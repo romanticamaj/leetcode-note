@@ -63,5 +63,5 @@ std::transform(input.begin(), input.end(), std::back_inserter(output), [](int x)
 
 - **陷阱**：`std::transform` 不會幫你 `resize` 輸出容器。
 - **解法**：
-  1.  手動 `resize`。
-  2.  使用 `std::back_inserter`（推薦）。
+  1. 手動 `resize`。
+  2. 使用 `std::back_inserter`（推薦）。

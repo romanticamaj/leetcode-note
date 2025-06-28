@@ -63,7 +63,7 @@ int main() {
 }
 ```
 
-#### 關鍵 takeaways:
+#### 關鍵 takeaways
 
 - **`std::set` vs `std::unordered_set`**: `std::set` 可以直接使用 `std::pair` 和 `std::vector`，因為它基於 `operator<`（比較），而這些類型預設支援比較。`std::unordered_set` 基於雜湊，需要額外的工作。
 - **靈活性**: 同樣的方法也適用於 `std::vector` 或你自己的 `struct`，只需為它們實現對應的雜湊結構即可。
