@@ -8,7 +8,7 @@
 
 > You should always discuss the possibility of overwriting the input with your interviewer and clarify what kind of environment your algorithm is expected to run in. Sometimes they won't care, sometimes they'll state it has to run in a multithreaded environment, or sometimes they'll have a particular preference as it impacts what they're trying to see from you.
 
-### 建議提問方式：
+### 建議提問方式
 
 - 「這題我可以直接修改 input 嗎？還是需要保留原始資料？」
 - 「這題會在 multi-threaded 環境下執行嗎？我需要考慮 thread safety 嗎？」

@@ -22,22 +22,24 @@
 ### 算法選擇
 
 - **Subarray/Substring 問題**：
-  * 通常可以使用 **Sliding Window** 或 **Prefix Sum** 解決
-  * 這些技術專門處理連續元素序列
+  - 通常可以使用 **Sliding Window** 或 **Prefix Sum** 解決
+  - 這些技術專門處理連續元素序列
 
 - **Subsequence 問題**：
-  * 最常見的解決方案是使用 **Two Pointers**，特別是當給定兩個輸入數組/字符串時
-  * 由於 **Prefix Sum** 和 **Sliding Window** 代表連續的子數組/子字符串，它們在處理非連續的子序列時不適用
+  - 最常見的解決方案是使用 **Two Pointers**，特別是當給定兩個輸入數組/字符串時
+  - 由於 **Prefix Sum** 和 **Sliding Window** 代表連續的子數組/子字符串，它們在處理非連續的子序列時不適用
 
 ## Sliding Window vs Prefix Sum
 
 ### Sliding Window 適用場景
 
 如果問題具有以下明確約束：
+
 - 和大於或小於 k
 - 對內容的限制，例如最多 k 個不同元素或不允許重複
 
 以及/或者要求：
+
 - 最小或最大長度
 - 子數組/子字符串的數量
 - 最大或最小和
