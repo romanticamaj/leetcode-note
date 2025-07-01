@@ -107,3 +107,72 @@ int main() {
 - **`std::greater<T>`**：內部執行 `a > b`，在 `priority_queue` 中產生 **小根堆**，`top()` 是最小值。
 
 這就是為什麼把第三個模板參數從 `std::less` 換成 `std::greater`，就能將 max-heap 變成 min-heap 的根本原因。
+
+---
+
+## 常見陷阱 (Pitfall)
+
+在自訂 `priority_queue` 的比較器時，一個常見的錯誤是忘記提供第二個模板參數，也就是底層容器的型別。
+
+**錯誤寫法：**
+
+```cpp
+// 這段程式碼無法編譯
+std::priority_queue<int, std::greater<int>> minHeap;
+```
+
+**原因**：
+`std::priority_queue` 的模板定義如下：
+
+```cpp
+template<
+    class T,
+    class Container = std::vector<T>,
+    class Compare = std::less<typename Container::value_type>
+> class priority_queue;
+```
+
+第二個參數 `Container` 和第三個參數 `Compare` 都有預設值。如果你想提供自訂的 `Compare`（第三個參數），就必須先明確指定 `Container`（第二個參數），即使你只是想使用預設的 `std::vector<T>`。
+
+**正確寫法：**
+
+```cpp
+// 必須明確提供容器型別
+std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;
+```
+
+---
+
+## 小技巧：用負號實現 Min-Heap
+
+在處理數值型別時，有一個非常巧妙的技巧可以快速實現 Min-Heap，而無需自訂比較器：**將存入的元素變為負數**。
+
+`std::priority_queue` 預設是 Max-Heap，它會將最大的元素放在頂部。如果我們將所有數字都變成負數，那麼原本最小的數字（例如 `1`）就會變成最大的負數（`-1`），從而被 Max-Heap 放在頂部。
+
+**實現方式：**
+
+- **插入 (`push`)**：將 `value` 以 `-value` 的形式存入。
+- **讀取 (`top`)**：取出堆頂元素後，再將其變回正數 (`-heap.top()`)。
+
+**範例：**
+
+```cpp
+#include <queue>
+#include <iostream>
+
+int main() {
+    // 使用預設的 Max-Heap 來模擬 Min-Heap
+    std::priority_queue<int> minHeap_sim;
+
+    minHeap_sim.push(-3); // 存入 -3
+    minHeap_sim.push(-1); // 存入 -1
+    minHeap_sim.push(-4); // 存入 -4
+
+    // 此時堆頂是 -1 (最大的負數)
+    std::cout << "Simulated minHeap.top() = " << -minHeap_sim.top() << std::endl; // 輸出 1
+
+    return 0;
+}
+```
+
+這個技巧非常簡潔，在競賽中可以節省大量時間，但請注意它只適用於數值型別。
