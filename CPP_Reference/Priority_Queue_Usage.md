@@ -87,7 +87,7 @@ int main() {
     // 2) 使用 std::greater → min-heap
     std::priority_queue<
         int,
-        std::vector<int>,
+        std::vector<int>, // Container Type, 指定 Compare 情況下, 一定要給定
         std::greater<int>
     > minHeap;
     minHeap.push(3);
@@ -110,7 +110,7 @@ int main() {
 
 ---
 
-## 常見陷阱 (Pitfall)
+## Compare 需與 Container Type 一併使用
 
 在自訂 `priority_queue` 的比較器時，一個常見的錯誤是忘記提供第二個模板參數，也就是底層容器的型別。
 

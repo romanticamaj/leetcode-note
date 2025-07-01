@@ -1,23 +1,5 @@
 # C++ 常用數據結構 API 參考
 
-## 包含必要的標頭文件
-
-```cpp
-#include <vector>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <map>
-#include <set>
-#include <queue>
-#include <stack>
-#include <deque>
-#include <list>
-#include <algorithm>
-#include <cmath>      // 數學函數
-#include <numeric>    // accumulate 等
-```
-
 ## vector
 
 ```cpp
@@ -220,18 +202,18 @@ upper_bound(v.begin(), v.end(), val);        // 返回>val的第一個元素的�
 
 // 其他
 reverse(v.begin(), v.end());                 // 反轉
+count(v.begin(), v.end(), val);              // 計數
 max_element(v.begin(), v.end());             // 最大元素的迭代器
 min_element(v.begin(), v.end());             // 最小元素的迭代器
-// 基本用法 - 求和
-accumulate(v.begin(), v.end(), 0);           // 求和（需要 #include <numeric>）
 
-// 高級用法 - 使用自定義二元操作符 [Medium]
+// 求和: 基本用法
+accumulate(v.begin(), v.end(), 0);           // 求和（需要 #include <numeric>）
+// 求和: 高級用法 - 使用自定義二元操作符 [Medium]
 // 將 vector<int> 轉換為字符串（用作哈希表的鍵）
 string key = accumulate(v.begin(), v.end(), string(),
     [](string a, int b) {
         return std::move(a) + '-' + to_string(b);
     });
-count(v.begin(), v.end(), val);              // 計數
 ```
 
 ## 常用工具函數
