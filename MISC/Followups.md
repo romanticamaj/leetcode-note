@@ -23,6 +23,8 @@
 
 ## 🔢 陣列與字串 (Arrays and Strings)
 
+- [ ] **學習**：研究 Quickselect（Hoare 選擇演算法），它能在平均 O(n) 時間內找到無序列表中的第 k 小元素。
+
 ---
 
 ## 💡 動態規劃 (Dynamic Programming)

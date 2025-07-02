@@ -38,6 +38,11 @@
 - **問題**：在處理樹或圖的節點時，將整個 `Node*` 物件指標存入結果容器，而非其值 `node->val`。
 - **心法**：明確區分「過程容器」與「結果容器」。結果容器應只儲存題目要求的**最終值**（如 `int`, `string`），而非中間過程使用的複雜物件或指標，除非題目有特殊要求。
 
+### Container 型別轉換不匹配
+
+- **問題**：Container 間的型別轉換不匹配，通常發生在建構回傳值時，沒有用正確的 `value` 或是直接對 container 操作，導致編譯錯誤或非預期行為。
+- **心法**：使用 `std::transform` 或範圍-based for 迴圈來逐一轉換元素。明確地從來源容器中提取所需的值（如 `node->val`），並將其插入目標容器。這確保了型別安全，也讓程式碼意圖更清晰。參見 [Container Conversion Techniques](Container/Container_Conversion_Techniques.md)。
+
 ## 4. C++ 型別系統陷阱
 
 ### 型別不匹配與隱式轉換
