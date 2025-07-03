@@ -5,22 +5,9 @@
 - 涉及使用兩個整數變量（指針），這兩個指針都沿著可迭代數據結構移動
 - 從輸入的邊緣開始放置指針（一個在開始，一個在結尾）。讓它們朝彼此移動直到相遇
 - 特別注意 **sorted** 的 array 可以用，尤其是 **Partially Sorted**，例如，雙邊方向個別 sorted
-- **快慢 pointer** 也是一個使用時機，例如 一個走 **1x**，一個走 **0.5x**，去找到中心位置，或是類似變形
+- **快慢 pointer** 也是一個使用時機，例如，一個走 **1x**，一個走 **0.5x**，去找到中心位置，或是類似變形
 
-## 常見問題
-
-- **Reverse String**: 反轉字符串，使用兩個指針從字符串的兩端向中間移動
-- **Squares of a Sorted Array**: 對排序數組中的元素進行平方，並保持結果有序
-- **Linked List Cycle Detection**: 使用快慢指針檢測鏈表中是否存在環
-- **Find Middle of Linked List**: 使用快慢指針找到鏈表的中間節點
-
-## Two Pointer 變體
-
-Two Pointer 技巧有多種變體，每種變體適用於不同類型的問題：
-
-- [Fast and Slow Pointers](./Fast_and_Slow_Pointers.md): 兩個指針以不同速度移動，常用於鏈表操作
-- [K-Gap Pointers](./K_Gap_Pointers.md): 兩個指針保持固定距離，適用於需要處理相距 k 個位置的元素
-- [Adjacent Pointers](./Adjacent_Pointers.md): 兩個相鄰指針（或 1-gap pointers），以相同速度移動，常用於反轉鏈表等就地修改操作
+---
 
 ## Two Pointer 技巧的關鍵設計要素
 
@@ -112,3 +99,63 @@ While Condition 和 While Loop Movement 是緊密相關的：
 - 終止條件必須考慮指針的移動方式
 - 指針的移動必須最終導致終止條件的滿足
 - 兩者共同確保算法的正確性和效率
+
+---
+
+## 核心應用：在排序陣列中定義子序列的邊界
+
+當 Two Pointers 應用於**已排序**的陣列時，它有一個非常強大且自然的屬性：
+
+> **在一個由 `left` 和 `right` 指針定義的窗口 `[left, right]` 中，`array[left]` 永遠是該窗口內的最小值，而 `array[right]` 永遠是最大值。**
+
+這個特性極大地簡化了需要同時考慮子序列（或子陣列）中最大值和最小值的問題。我們不需要額外遍歷或使用其他資料結構來尋找當前窗口的極值，指針本身就給了我們答案。
+
+**應用場景**：
+
+- **尋找滿足條件的子序列**：例如，找到所有最大值和最小值之差小於某個閾值的子序列。
+- **滑動窗口問題的簡化**：在某些情況下，如果陣列已排序，Two Pointers 可以作為滑動窗口的一種特例，更高效地處理問題。
+
+**範例**：
+
+假設需要在一個排序陣列中找到一個子序列，其最大值與最小值的和等於一個目標值 `target`。
+
+```cpp
+// 在排序陣列 nums 中尋找一對元素，其和為 target
+while (left < right) {
+    int min_val = nums[left];  // 當前窗口的最小值
+    int max_val = nums[right]; // 當前窗口的最大值
+    int current_sum = min_val + max_val;
+
+    if (current_sum == target) {
+        // 找到解
+        return {min_val, max_val};
+    } else if (current_sum < target) {
+        // 和太小，需要增大最小值，即移動 left 指針
+        left++;
+    } else {
+        // 和太大，需要減小最大值，即移動 right 指針
+        right--;
+    }
+}
+```
+
+這個心法是 Two Pointers 技巧在排序陣列上如此高效的根本原因之一。
+
+---
+
+## 常見問題
+
+- **Reverse String**: 反轉字符串，使用兩個指針從字符串的兩端向中間移動
+- **Squares of a Sorted Array**: 對排序數組中的元素進行平方，並保持結果有序
+- **Linked List Cycle Detection**: 使用快慢指針檢測鏈表中是否存在環
+- **Find Middle of Linked List**: 使用快慢指針找到鏈表的中間節點
+
+---
+
+## Two Pointer 變體
+
+Two Pointer 技巧有多種變體，每種變體適用於不同類型的問題：
+
+- [Fast and Slow Pointers](./Fast_and_Slow_Pointers.md): 兩個指針以不同速度移動，常用於鏈表操作
+- [K-Gap Pointers](./K_Gap_Pointers.md): 兩個指針保持固定距離，適用於需要處理相距 k 個位置的元素
+- [Adjacent Pointers](./Adjacent_Pointers.md): 兩個相鄰指針（或 1-gap pointers），以相同速度移動，常用於反轉鏈表等就地修改操作
