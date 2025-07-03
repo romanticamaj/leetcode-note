@@ -80,7 +80,19 @@ std::vector<int> findTopKLargest(const std::vector<int>& nums, int k) {
 
 ---
 
-## 4. 複雜度分析
+## 4. 何時使用：串流與即時處理的信號 (Signal for Streaming & Real-time)
+
+當題目描述中出現以下特徵時，應立即想到使用固定大小 K 的堆：
+
+- **資料流 (Data Stream)**：資料是逐一抵達的，無法一次性全部存取。
+- **即時性 (Real-time)**：需要在任何時間點都能快速查詢當前的 Top-K 元素。
+- **資料集過大 (Huge Dataset)**：輸入資料量巨大，無法全部載入記憶體進行排序。
+
+固定大小的堆（Min-Heap 或 Max-Heap）是處理這類問題的完美模型。它只需要 O(K) 的空間，並且能以 O(log K) 的時間處理每個新來的元素，使其非常適合動態和大規模的資料場景。
+
+---
+
+## 5. 複雜度分析
 
 假設資料集大小為 N。
 
@@ -93,6 +105,6 @@ std::vector<int> findTopKLargest(const std::vector<int>& nums, int k) {
 - **空間複雜度**：**O(K)**
   - 我們需要一個大小為 K 的堆來儲存候選元素。
 
-## 總結
+## 6. 總結
 
 使用 `priority_queue` 搭配「Push-Pop」策略是解決 Top-K 問題的標準最佳實踐。它在時間和空間效率上取得了絕佳的平衡，同時程式碼極其簡潔，易於在面試等高壓環境下正確實現。
