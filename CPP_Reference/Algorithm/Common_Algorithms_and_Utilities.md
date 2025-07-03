@@ -11,6 +11,13 @@ sort(v.begin(), v.end(), greater<int>());    // 降序排序
 sort(v.begin(), v.end(), [](int a, int b) {  // 自定義排序
     return a > b;
 });
+// `std::sort` 的行為:
+// 1. 預設行為: 如果不提供第三個參數，`std::sort` 預設使用 `operator<` 進行比較，結果為 **升序 (ascending order)**，即從小排到大。
+// 2. 自定義行為:
+//    - 若要 **降序 (descending order)**，可以傳入 `std::greater<>()`。
+//   - 特別注意, 建構一個 object, 跟 priority_queue 用 type 即可不一樣
+//    - 若要實現更複雜的排序邏輯（例如，按物件的某個成員排序），可以傳入一個自定義的比較函式 (Lambda)。
+//    - 比較函式 `comp(a, b)` 應回傳 `true` 如果 `a` 應該排在 `b` 的前面。
 
 // 查找
 find(v.begin(), v.end(), val);               // 查找值，返回迭代器
