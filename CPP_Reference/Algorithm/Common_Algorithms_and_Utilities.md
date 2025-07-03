@@ -18,6 +18,7 @@ sort(v.begin(), v.end(), [](int a, int b) {  // 自定義排序
 //   - 特別注意, 建構一個 object, 跟 priority_queue 用 type 即可不一樣
 //    - 若要實現更複雜的排序邏輯（例如，按物件的某個成員排序），可以傳入一個自定義的比較函式 (Lambda)。
 //    - 比較函式 `comp(a, b)` 應回傳 `true` 如果 `a` 應該排在 `b` 的前面。
+詳細比較請參見：[C++ Sorting: `std::sort` vs. Container's `sort()`](./Sort_Comparison.md)
 
 // 查找
 find(v.begin(), v.end(), val);               // 查找值，返回迭代器
