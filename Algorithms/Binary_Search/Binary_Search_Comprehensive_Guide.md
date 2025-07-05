@@ -2,6 +2,8 @@
 
 二分搜尋法的精髓在於其 **搜尋區間 (Search Space)** 的定義與 **收斂方式 (Convergence)**。不同的設定組合適用於不同的情境。
 
+**Keyword**: Search Space, Target Pointer, Pruning Pointer, While Condition, Convergence Strategy
+
 ## 🚀 核心元素設定
 
 在設計二分搜尋時，我們需要考慮以下幾個關鍵元素的組合：
