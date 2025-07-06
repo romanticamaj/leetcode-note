@@ -44,22 +44,18 @@ int binarySearch(const std::vector<int>& nums, int target) {
 
 ## 對於插入點 (`left`) 的直觀看法
 
-要理解為什麼 `left` 會成為插入點，關鍵在於觀察 `while (left <= right)` 迴圈終止時 `left` 和 `right` 指標的狀態。
+當 `while (left <= right)` 迴圈結束時，代表 `left > right`，此時的陣列狀態可以被理解為：
 
-迴圈在 `left > right` 時終止。這個條件也可以寫成 `left = right + 1`。
+```
+... [所有小於等於 target 的元素] ... [right] [left] ... [所有大於等於 target 的元素] ...
+```
 
-讓我們分析最後一步之前的指標狀態：
+- **`right` 指標**: 指向的是「小於 `target` 的元素」這個區塊的 **最右邊界**。
+- **`left` 指標**: 指向的是「大於 `target` 的元素」這個區塊的 **最左邊界**。
 
-1. **搜尋空間縮小**：每一次迭代，二分搜尋演算法都會排除掉目標不可能存在的那一半陣列。
-2. **`left` 和 `right` 指標收斂**：最終，`left` 和 `right` 會指向相鄰的元素或同一個元素。
-3. **最後的比較**：考慮 `left == right` 的最後一次迭代。此時搜尋空間已經縮小到位於索引 `mid = left = right` 的單一元素。
-   - **情況 A: `nums[mid] < target`**：
-     - 我們知道 `target` 必定在 `mid` 的右邊。
-     - 程式碼執行 `left = mid + 1`。
-     - 現在，`left` 是 `mid + 1`，而 `right` 仍然是 `mid`。迴圈因為 `left > right` 而終止。
-     - 插入點是 `left`，正好是 `mid` 之後的一個位置。這是正確的，因為 `nums[mid]` 比 `target` 小。
-   - **情況 B: `nums[mid] > target`**：
-     - 我們知道 `target` 必定在 `mid` 的左邊。
-     - 程式碼執行 `right = mid - 1`。
-     - 現在，`right` 是 `mid - 1`，而 `left` 仍然是 `mid`。迴圈因為 `left > right` 而終止。
-     - 插入點是 `left` (值仍然是 `mid`)。這也是正確的。`target` 應該被插入在 `mid` 的位置，將 `nums[mid]` 及所有後續元素向右推移一個位置。
+在迴圈的每一步，我們都在維護這個規則：
+
+- 如果 `nums[mid] < target`，我們知道 `mid` 以及它左邊的所有元素都太小了，所以我們移動 `left = mid + 1`，將 `left` 指標推向右邊。
+- 如果 `nums[mid] > target`，我們知道 `mid` 以及它右邊的所有元素都太大了，所以我們移動 `right = mid - 1`，將 `right` 指標拉向左邊。
+
+當迴圈終止時，`left` 和 `right` 指標交錯而過，`left` 正好停在第一個大於 `target` 的元素應該在的位置。因此，如果 `target` 不存在於陣列中，`left` 就是它最理想的插入點，可以確保插入後陣列依然保持排序。
