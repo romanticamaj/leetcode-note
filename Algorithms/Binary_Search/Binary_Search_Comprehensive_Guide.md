@@ -2,29 +2,33 @@
 
 二分搜尋法的精髓在於其 **搜尋區間 (Search Space)** 的定義與 **收斂方式 (Convergence)**。不同的設定組合適用於不同的情境。
 
-**Keyword**: Search Space, Target Pointer, Pruning Pointer, While Condition, Convergence Strategy
+## 🚀 設計二分搜尋的五大考量
 
-## 🚀 核心元素設定
+設計任何二分搜尋演算法時，都必須仔細考量並搭配以下五個核心元素：
 
-在設計二分搜尋時，我們需要考慮以下幾個關鍵元素的組合：
+1. **搜尋空間 (Search Space)**: 定義 `left` 和 `right` 指標的初始範圍。
 
-1. **搜尋空間 (Search Space)**:
+   - `[0, size-1]` (搜尋元素): 用於在陣列內部尋找特定元素。
+   - `[0, size]` (搜尋插入點): 用於尋找一個插入位置，包含「插入在所有元素之後」的可能。
 
-   - **`[0, size-1]` (搜尋元素)**: 閉區間。適用於在陣列 **內部** 尋找特定元素。`right` 指標的初始值 `size-1` 指向最後一個實際的元素。
-   - **`[0, size]` (搜尋插入點)**: 閉區間。適用於尋找一個 **插入位置**。`right` 指標的初始值 `size` 將「插入在所有元素之後」這個位置納入答案的可能範圍。
+2. **目標指標 (Target Pointer)**: 通常是 `left`，代表迴圈結束時我們想要的答案。
 
-2. **目標指標 (Target Pointer)**: 通常是 `left`。迴圈結束時，`left` 指標的位置就是我們的答案。
+3. **修剪指標 (Pruning Pointer)**: 通常是 `right`，用來縮小搜尋空間的右邊界。
 
-3. **修剪指標 (Pruning Pointer)**: 通常是 `right`。我們移動 `right` 指標來縮小搜尋空間的右邊界。
+4. **迴圈條件 (While Condition)**: 決定搜尋何時終止。
 
-4. **迴圈條件 (While Condition)**:
+   - `left <= right`: 搭配 `[0, size-1]` 空間，當 `left > right` 時區間為空。
+   - `left < right`: 搭配 `[0, size]` 空間，當 `left == right` 時收斂至單點。
 
-   - `left <= right`: 用於閉區間 `[0, size-1]`。當 `left > right` 時，區間為空，搜尋結束。
-   - `left < right`: 用於 `[0, size]` 的搜尋空間 (搜尋插入點)。當 `left == right` 時，搜尋區間已收斂至單一的確定位置，搜尋結束。
+5. **收斂策略 (Convergence Strategy)**: 根據 `mid` 與 `target` 的關係，決定如何移動指標。
+   - **基本型 (找特定值)**: `left = mid + 1` 或 `right = mid - 1`
+   - **`lower_bound` (往左找)**: `right = mid`
+   - **`upper_bound` (往右找)**: `left = mid + 1`
 
-5. **收斂策略 (Convergence Strategy)**:
-   - **向左收斂 (e.g., `lower_bound`)**: 當 `mid` 滿足條件時，我們嘗試在左半邊尋找更好的解，因此移動 `right = mid`。這會讓結果盡量往左靠。
-   - **向右收斂 (e.g., `upper_bound`)**: 當 `arr[mid] <= target` 時，表示 `mid` 指向的元素不夠大，肯定不是我們要找的「第一個大於 target」的元素，因此我們移動 `left = mid + 1` 來排除 `mid` 及之前的所有元素。
+## 🧠 核心口訣
+
+- **`lower_bound` (找第一個 `>=`)**: 關鍵是 **往左找**。當 `mid` 滿足條件 (`>= target`) 時，`right` 指標要盡量往左靠，所以設為 `mid`。
+- **`upper_bound` (找第一個 `>`)**: 關鍵是 **往右找**。當 `mid` 不滿足條件 (`<= target`) 時，`left` 指標要盡量往右跳，所以設為 `mid + 1`。
 
 ---
 
