@@ -111,6 +111,24 @@ if (nums[mid] > target) { // 尋找第一個 > target
 }
 ```
 
+### 邊界情況：當 Target 不存在時
+
+你提出的觀點完全正確，這正是模式二的強大之處。
+
+1. **`target` 比陣列中所有元素都小:**
+   - 在每次迭代中，條件 `nums[mid] < target` (lower_bound) 或 `nums[mid] <= target` (upper_bound) 始終為 `false`。
+   - 因此，`right` 會不斷地被更新為 `mid` (`right = mid`)。
+   - `left` 始終保持為 `0`。
+   - 循環最終在 `left == right == 0` 時終止，返回 `0`，即陣列的第一個位置，完全正確。
+
+2. **`target` 比陣列中所有元素都大:**
+   - 在每次迭代中，條件 `nums[mid] < target` (lower_bound) 或 `nums[mid] <= target` (upper_bound) 始終為 `true`。
+   - 因此，`left` 會不斷地被更新為 `mid + 1`。
+   - 最終 `left` 會被推到 `size`。
+   - 循環最終在 `left == right == size` 時終止，返回 `size`，即陣列末尾之後的位置，也完全正確。
+
+這個行為保證了 `lower_bound` 和 `upper_bound` 模式對於任何 `target` 值都能返回一個語義上正確的插入點。
+
 ---
 
 ## 深度探討：重複值的影響
