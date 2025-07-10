@@ -153,7 +153,7 @@ return left;
 
 - **`lower_bound`**:
   - 因為 `arr[mid] >= 1` 始終成立，會不斷執行 `right = mid`，將搜尋邊界持續向左壓縮。
-  - 最終 `left` 會收斂到 `0`。
+  - 最終 `right` 會收斂到 `0`。
 - **`upper_bound`**:
   - 因為 `arr[mid] > 1` 始終不成立 (`1 > 1` 為 false)，會不斷執行 `left = mid + 1`，將搜尋邊界持續向右推進。
   - 最終 `left` 會收斂到 `5` (`size`)。
@@ -203,6 +203,7 @@ return left;
 
 - 如果你使用 `while (left < right)`，請搭配 `right = size`。
 - 如果你使用 `while (left <= right)`，請搭配 `right = size - 1`。
+- 注意：搜尋空間 (Search Space) 與迴圈條件的關係 (從 base case 角度來想, zero length, one length)
 
 ---
 
