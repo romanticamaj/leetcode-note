@@ -63,9 +63,7 @@
 ## ✨ 模板化思考流程
 
 ```cpp
-// 偽代碼
-function backtrack(DecidedSet& partial_solution, UndecidedSet& candidates) {
-
+void backtrack(DecidedSet& partial_solution, UndecidedSet& candidates) {
     // 步驟 3: 檢查終止條件
     if (is_complete_solution(partial_solution)) {
         add_to_results(partial_solution);
@@ -74,7 +72,6 @@ function backtrack(DecidedSet& partial_solution, UndecidedSet& candidates) {
 
     // 步驟 2: 遍歷待定集
     for (Candidate& candidate : candidates) {
-
         // 步驟 4 (可選): 剪枝
         if (!is_promising(partial_solution, candidate)) {
             continue;
@@ -84,7 +81,7 @@ function backtrack(DecidedSet& partial_solution, UndecidedSet& candidates) {
         add_to_decided(partial_solution, candidate);
 
         // 探索下一步
-        backtrack(partial_solution, get_next_candidates(candidates));
+        backtrack(partial_solution, get_next_candidates(candidate, candidates));
 
         // 回溯：將候選者從「已定」移回「待定」
         remove_from_decided(partial_solution, candidate);

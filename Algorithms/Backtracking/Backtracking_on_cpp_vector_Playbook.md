@@ -10,67 +10,57 @@
 
 排列的本質是**重新排列 `vector` 中元素的順序**。這意味著解的結構與輸入 `vector` 息息相關，為原地操作提供了可能性。
 
-### 1.1 全長排列 (k=n, 不重複): 原地 `swap` 的黃金標準
+### 1.1 `swap` 技巧：原地排列的統一模型 (不重複元素)
 
-- **核心情境**：找出 `vector` 的所有全長排列 (e.g., LeetCode 46)。
-- **能否 In-place?**：**可以**。這是 `swap` 技巧最經典、最高效的應用場景。
-- **運作原理**：解與輸入是同構的（元素、長度均相同）。因此，我們可直接修改輸入 `vector`，用 `index` 指標將其劃分為 `[0, index-1]` (已定區) 和 `[index, n-1]` (待選區)。`swap` 操作的本質是在「待選區」中為當前 `index` 挑選一個元素，從而實現了狀態的轉換，且無需 `O(N)` 的 `visited` 陣列。
+**全長排列 (k=n) 和 k-長度排列 (k<n) 的 `swap` 實現，其核心遞迴邏輯是完全一樣的**。唯一的差別在於「**終止條件 (Base Case)**」和「**解的建構方式**」。這揭示了一個更深刻的統一模型。
 
-```cpp
-void permute_full_inplace(vector<int>& nums, int index, vector<vector<int>>& results) {
-    if (index == nums.size()) {
-        results.push_back(nums); // 此時的 nums 本身就是一個完整的解
-        return;
-    }
-    // 從「待選區」[index, n-1] 中選擇一個元素放到 index 位置
-    for (int i = index; i < nums.size(); ++i) {
-        swap(nums[index], nums[i]);
-        permute_full_inplace(nums, index + 1, results);
-        swap(nums[index], nums[i]); // 回溯，恢復狀態供下一輪迴圈使用
-    }
-}
-```
-
-### 1.2 k-長度排列 (k<n, 不重複): `swap` 的適應與權衡
-
-當只需找出長度為 `k` 的排列時，情況變得更加微妙。
-
-#### 策略 A: 適應性原地 `swap` (Adapted In-place)
-
-- **核心思想**：`swap` 的狀態管理邏輯不變，但終止條件和解的收集方式需要調整。
-- **能否 In-place?**：**狀態管理是 In-place 的**，省去了 `visited` 陣列的 `O(N)` 空間。但**收集解時仍需 `O(k)` 空間**來建立一個新的 `vector`。
-- **運作原理**：當遞迴深度 `index` 達到 `k` 時，「已定區」`nums[0...k-1]` 就構成了一個有效的 k-排列。我們只需複製這部分前綴即可。
+- **核心思想**：`swap` 技巧透過將 `vector` 劃分為 `[0, index-1]` (已定區) 和 `[index, n-1]` (待選區) 來原地管理狀態，避免了 `visited` 陣列的 `O(N)` 空間開銷。
+- **統一模型**：一個單一的遞迴函式就能處理這兩種情況。我們只需在終止條件上做文章。
 
 ```cpp
-void permute_k_inplace_adapted(vector<int>& nums, int index, int k, vector<vector<int>>& results) {
+// 統一的、原地 swap 的排列生成器
+void generate_permutations_inplace(vector<int>& nums, int index, int k, vector<vector<int>>& results) {
+    // --- 唯一的差別：終止條件 ---
+    // Case 1: k-長度排列 (k < n)
     if (index == k) {
-        results.emplace_back(nums.begin(), nums.begin() + k); // 複製前 k 個元素作為解
+        results.emplace_back(nums.begin(), nums.begin() + k); // 複製前 k 個元素
         return;
     }
+    // Case 2: 全長排列 (k == n)
+    if (index == nums.size()) {
+        results.push_back(nums); // 整個 nums 就是一個解
+        return;
+    }
+    // --- 核心遞迴邏輯 (完全相同) ---
     for (int i = index; i < nums.size(); ++i) {
         swap(nums[index], nums[i]);
-        permute_k_inplace_adapted(nums, index + 1, k, results);
-        swap(nums[index], nums[i]);
+        generate_permutations_inplace(nums, index + 1, k, results);
+        swap(nums[index], nums[i]); // 回溯
     }
 }
 ```
 
-#### 策略 B: 輔助 `path` 向量 + `visited` 陣列
+### 1.2 輔助空間策略：`path` + `visited`
 
-- **核心思想**：一個更傳統、概念上更直接的作法。`path` 向量專門負責建構解，`visited` 陣列專門負責追蹤狀態，職責分離。
-- **權衡**：此方法需要 `O(N)` 的 `visited` 陣列和 `O(k)` 的 `path` 向量，空間開銷較大，但邏輯可能更清晰：`path` 的大小就是遞迴深度。
+當 `swap` 技巧不適用或邏輯變得複雜時（例如，有重複元素且需要排序去重），使用輔助 `path` 向量和 `visited` 陣列的傳統方法提供了一個清晰、職責分離的替代方案。
+
+- **核心思想**：`path` 向量負責建構解，`visited` 陣列負責追蹤狀態。
+- **權衡**：需要 `O(N)` 的 `visited` 陣列和 `O(k)` 的 `path` 向量，空間開銷較大，但邏輯清晰。
 
 ```cpp
-void permute_k_aux_space(vector<int>& path, const vector<int>& nums, vector<bool>& visited, int k, vector<vector<int>>& results) {
+void generate_permutations_aux(vector<int>& path, const vector<int>& nums, vector<bool>& visited, int k, vector<vector<int>>& results) {
     if (path.size() == k) {
         results.push_back(path);
         return;
     }
     for (int i = 0; i < nums.size(); ++i) {
         if (visited[i]) continue;
+
         visited[i] = true;
         path.push_back(nums[i]);
-        permute_k_aux_space(path, nums, visited, k, results);
+
+        generate_permutations_aux(path, nums, visited, k, results);
+
         path.pop_back();
         visited[i] = false;
     }
@@ -79,9 +69,12 @@ void permute_k_aux_space(vector<int>& path, const vector<int>& nums, vector<bool
 
 ### 1.3 可重複排列: `swap` 模型的失效
 
-- **核心思想：模型不匹配 (Model Mismatch)**
-- **In-place 為何不可行**：`swap` 技巧的心智模型是**分割** `vector` 為「已定區」和不斷縮小的「待選區」。然而，「可重複選取」問題的本質是，**選擇池（candidates）永遠是完整的原始 `vector`**，它從不縮小。這兩種模型從根本上是**不相容**的。
-- **`vector` 策略**：必須將「候選人池 (`nums`)」和「正在建構的路徑 (`path`)」明確分開。`path` 向量作為輔助空間，獨立地記錄當前的排列，而 `nums` 則作為一個永遠不變的、完整的候選人列表。
+- **In-place 為何不可行**
+  - `swap` 技巧的心智模型是**分割** `vector` 為「已定區」和不斷縮小的「待選區」。然而，「可重複排列」問題的本質是，**選擇池（candidates）永遠是完整的原始 `vector`**，它從不縮小。
+  - 這兩種模型從根本上是**不相容**的。
+- **`vector` 策略**
+  - 必須將「候選人池 (`nums`)」和「正在建構的路徑 (`path`)」明確分開。
+  - `path` 向量作為輔助空間，獨立地記錄當前的排列，而 `nums` 則作為一個永遠不變的、完整的候選人列表。
 
 ```cpp
 void permute_k_with_replacement(vector<int>& path, const vector<int>& nums, int k, vector<vector<int>>& results) {
@@ -92,7 +85,9 @@ void permute_k_with_replacement(vector<int>& path, const vector<int>& nums, int 
     // 每次都從完整的候選者中選擇
     for (int i = 0; i < nums.size(); ++i) {
         path.push_back(nums[i]);
+
         permute_k_with_replacement(path, nums, k, results);
+
         path.pop_back();
     }
 }
@@ -154,8 +149,10 @@ void combine_k_with_replacement(vector<int>& path, int k, int start, const vecto
     // 從 start 開始遍歷
     for (int i = start; i < nums.size(); ++i) {
         path.push_back(nums[i]);
+
         // 關鍵：遞迴時傳入 i，允許重複選取同一個數字
         combine_k_with_replacement(path, k, i, nums, results);
+
         path.pop_back(); // 回溯
     }
 }
@@ -167,10 +164,9 @@ void combine_k_with_replacement(vector<int>& path, int k, int start, const vecto
 
 最終，選擇何種策略取決於問題的內在約束。
 
-| 問題類型                | 能否 In-place on `vector`? | `vector` 核心策略                                                |
-| :---------------------- | :------------------------- | :--------------------------------------------------------------- |
-| **全長排列 (不重複)**   | **是**                     | `swap(nums[index], nums[i])`                                     |
-| **k-長度排列 (不重複)** | **狀態管理 In-place**      | `swap` + 複製前 k 個元素 (策略 A) 或 `path` + `visited` (策略 B) |
-| **排列 (可重複)**       | 否                         | `path` 向量                                                      |
-| **組合 (不重複)**       | 否                         | `path` 向量 + `start` 索引 (`i+1`)                               |
-| **組合 (可重複)**       | 否                         | `path` 向量 + `start` 索引 (`i`)                                 |
+| 問題類型          | 能否 In-place on `vector`? | `vector` 核心策略                           |
+| :---------------- | :------------------------- | :------------------------------------------ |
+| **排列 (不重複)** | **是**                     | `swap`，根據長度在 base case 決定如何收割解 |
+| **排列 (可重複)** | 否                         | `path` 向量                                 |
+| **組合 (不重複)** | 否                         | `path` 向量 + `start` 索引 (`i+1`)          |
+| **組合 (可重複)** | 否                         | `path` 向量 + `start` 索引 (`i`)            |

@@ -141,7 +141,6 @@ void backtrack_swap(vector<int>& nums, int index, vector<vector<int>>& results) 
 - 在回溯時「完全還原現場」。
 
 都可以考慮 `swap`。
-例如：**全排列 (Permutations)**、**N 皇后 (N-Queens)**、**Next Permutation**。
 
 ---
 

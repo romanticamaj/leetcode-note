@@ -19,7 +19,7 @@
  * @param choices 所有可用的選擇
  * @param results 儲存所有找到的有效解
  */
-void backtrack(State& path, const Choices& choices, Results& results) {
+void backtrack(const Choices& choices, State& path, Results& results) {
     // --- 收集解的兩種時機 (根據問題選擇一種) ---
 
     // 時機 A：解在葉節點 (例如：組合、排列)
@@ -36,16 +36,16 @@ void backtrack(State& path, const Choices& choices, Results& results) {
     // --- (以上二選一，或都不選，取決於問題定義) ---
 
     // 遍歷所有可能的選擇
-    for (const auto& choice : get_available_choices(path, choices)) {
+    for (const auto& choice : get_available_choices(choices, path)) {
         // (可選) 剪枝：若當前選擇不合法，則跳過
-        if (!is_valid(path, choice)) {
+        if (!is_valid(choice, path)) {
             continue;
         }
 
         // 核心三部曲
-        make_choice(path, choice);      // 1. Choose
-        backtrack(path, choices, results); // 2. Explore
-        unmake_choice(path, choice);    // 3. Unchoose
+        make_choice(choice, path);      // 1. Choose
+        backtrack(choices, path, results); // 2. Explore
+        unmake_choice(choice, path);    // 3. Unchoose
     }
 }
 ```
@@ -54,7 +54,7 @@ void backtrack(State& path, const Choices& choices, Results& results) {
 
 你可以將整個回溯過程想像成在一個「決策樹」上進行深度優先搜索 (DFS)。
 
-- **節點 (Node)**：每一次對 `backtrack` 函式的呼叫。
+- **節點 (Node)**：每一次對 `backtrack` 函式的呼叫。(同 State-Space Tree，對應當前的 `State`)
 - **路徑 (Path)**：從根節點到當前節點的路徑，代表一個正在構建中的部分解。
 - **向下探索 (Explore)**：遞迴呼叫 `backtrack`，深入下一層。
 - **向上回溯 (Unchoose)**：撤銷選擇，從遞迴中返回，回到父節點。
@@ -69,36 +69,36 @@ void backtrack(State& path, const Choices& choices, Results& results) {
 
 在這類問題中，一個部分解 `path` 只有在它無法再繼續延伸時（即到達決策樹的葉節點），才是一個完整解。這通常意味著 `path` 達到了特定長度或滿足了某個終止條件。
 
-#### 子模式 A.1：組合 (Combinations) - 順序不重要
+#### 子模式 A.1：組合 (Combinations)
 
-- **實現關鍵**：**防止「向後看」**。透過傳遞 `start` 索引，並在遞迴中呼叫 `i + 1`，來強制選擇的順序性，從而避免產生重複的組合（如 `[1, 2]` 和 `[2, 1]`）。
+- **實現關鍵**：**防止「向後看」**。透過傳遞 `index` 索引，並在遞迴中呼叫 `i + 1`，來強制選擇的順序性，從而避免產生重複的組合（如 `[1, 2]` 和 `[2, 1]`）。
 
 ```cpp
-void generateCombinations(PathType& path, int start, int k, const ChoicesType& choices, ResultsType& results) {
+void generateCombinations(const ChoicesType& choices, const int k, const int index, PathType& path, ResultsType& results) {
     // 終止條件：當前組合的長度已達到 k
     if (path.size() == k) {
         results.push_back(path);
         return;
     }
 
-    // 從 start 開始遍歷，避免重複
-    for (int i = start; i < choices.size(); ++i) {
+    // 從 index 開始遍歷，避免重複
+    for (int i = index; i < choices.size(); ++i) {
         path.push_back(choices[i]);
 
         // 關鍵：傳入 i + 1，下一輪選擇只能從 i 的右邊開始
-        generateCombinations(path, i + 1, k, choices, results);
+        generateCombinations(choices, k, i + 1, path, results);
 
         path.pop_back(); // 回溯
     }
 }
 ```
 
-#### 子模式 A.2：排列 (Permutations) - 順序重要
+#### 子模式 A.2：排列 (Permutations)
 
 - **實現關鍵**：**允許「任意看」，但要避免「重複用」**。需要一個 `visited` 陣列來追蹤哪些元素已在當前路徑中。
 
 ```cpp
-void generatePermutations(PathType& path, const ChoicesType& choices, VisitedType& visited, ResultsType& results) {
+void generatePermutations(const ChoicesType& choices, VisitedType& visited, PathType& path, ResultsType& results) {
     // 終止條件：當前排列的長度等於總元素數
     if (path.size() == choices.size()) {
         results.push_back(path);
@@ -107,7 +107,7 @@ void generatePermutations(PathType& path, const ChoicesType& choices, VisitedTyp
 
     // 每次都從頭掃描，但用 visited 陣列跳過已用過的元素
     for (int i = 0; i < choices.size(); ++i) {
-        if (visited[i]) continue;
+        if (visited[i]) continue; // 不重複選取
 
         path.push_back(choices[i]);
         visited[i] = true;
@@ -129,22 +129,22 @@ void generatePermutations(PathType& path, const ChoicesType& choices, VisitedTyp
 - **實現關鍵**：將「收集解」的動作放在遞迴函式的**入口處**，概念上等同於 DFS 遍歷中的 `visit(node)` 操作。
 
 ```cpp
-void generateSubsets(PathType& path, int start, const ChoicesType& choices, ResultsType& results) {
+void generateSubsets(const ChoicesType& choices, const int index, PathType& path, ResultsType& results) {
     // 關鍵：在遞迴入口，立即將當前路徑視為一個解並收集
     results.push_back(path);
 
     // 遍歷後續選擇，構建更長的子集
-    for (int i = start; i < choices.size(); ++i) {
+    for (int i = index; i < choices.size(); ++i) {
         path.push_back(choices[i]);
 
-        generateSubsets(path, i + 1, choices, results);
+        generateSubsets(choices, i + 1, path, results); // 不重複選取
 
         path.pop_back();
     }
 }
 ```
 
-> **隱式終止條件**：你可能會注意到 `generateSubsets` 函式沒有像 模式 A 那樣的顯式 `if` 終止條件。這是因為遞迴的終止是**隱式**地由 `for` 迴圈處理的。當 `start` 索引越過 `choices` 的邊界時，`for (int i = start; ...)` 迴圈將不會執行，遞迴自然終止並返回。
+> **隱式終止條件**：你可能會注意到 `generateSubsets` 函式沒有像 模式 A 那樣的顯式 `if` 終止條件。這是因為遞迴的終止是**隱式**地由 `for` 迴圈處理的。當 `index` 索引越過 `choices` 的邊界時，`for (int i = index; ...)` 迴圈將不會執行，遞迴自然終止並返回。
 
 ---
 
@@ -158,13 +158,13 @@ void solveWithConstraints(State& state, ...) {
 
     for (const auto& choice : get_available_choices(state)) {
         // 剪枝：在深入探索前，判斷此選擇是否會違反問題的約束
-        if (is_valid_choice(state, choice)) {
-            make_choice(state, choice);
+        if (!is_valid_choice(state, choice)) continue;
 
-            solveWithConstraints(state, ...);
+        make_choice(state, choice);
 
-            unmake_choice(state, choice);
-        }
+        solveWithConstraints(state, ...);
+
+        unmake_choice(state, choice);
     }
 }
 ```
