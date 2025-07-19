@@ -89,6 +89,10 @@
   2. **設計 Cache Key：** Cache Key 必須由所有狀態定義參數唯一構成 (例如 `cache[index][prevIndex]`)。
   3. **重構函式：** 移除路徑依賴參數，改由 `return` 值傳遞「從當前狀態出發能獲得的最優解」。
 
+> **狀態壓縮註記：**
+> 回溯法為避免「組合」問題的解重複，常需 `index` 狀態來管理人為的搜索順序。然而，DP 的「最優值」問題（如求極值）通常不關心達成目標的具體路徑（是何種「排列」），因此可拋棄 `index` 維度。
+> 這正是狀態壓縮的契機，能大幅簡化設計。詳見 [`DP_State_Design_from_Solution_Properties.md`](Algorithms/Dynamic_Programming/DP_State_Design_from_Solution_Properties.md)。
+
 ### Iterative Approach (迭代解法)
 
 #### 階段三：由下而上 DP (Bottom-Up DP / Tabulation)
