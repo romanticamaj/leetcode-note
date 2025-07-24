@@ -85,25 +85,28 @@
 
 ### 最佳實踐總結
 
-> **在 LeetCode 或類似環境中，最穩健的 Top-Down DP 快取策略是：將 `std::unordered_map` 作為參數，以引用方式傳遞給遞迴函式。**
+> **在 LeetCode 或類似環境中，最穩健的 Top-Down DP 快取策略是：將 `std::vector` 作為參數，以引用方式傳遞給遞迴函式。**
 
 ```cpp
 class Solution {
 public:
-    int fib(int n) {
-        std::unordered_map<int, int> cache;
-        return solve(n, cache);
+    int problem(int n) {
+        std::vector<int> cache(n, -1);
+  
+        return solve(0, cache);
     }
 
 private:
-    int solve(int n, std::unordered_map<int, int>& cache) {
-        if (n <= 1) {
-            return n;
+    int solve(int i, std::vector<int>& cache) {
+        if (boudary_condition(i)) {
+            return base_case_solution;
         }
-        if (cache.count(n)) {
-            return cache[n];
+
+        if (cache[i] == -1) {
+            cache[i] = solve(i + 1, cache) + solve(i + 2, cache);
         }
-        return cache[n] = solve(n - 1, cache) + solve(n - 2, cache);
+
+        return cache[i];
     }
 };
 ```
