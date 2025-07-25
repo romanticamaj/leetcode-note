@@ -30,6 +30,9 @@
 
 ## 💡 動態規劃 (Dynamic Programming)
 
+- [ ] **研究**：研究矩陣快速冪 (Matrix Exponentiation) 如何將線性遞迴的 DP 問題從 O(N) 優化到 O(logN)，以 Fibonacci 數為例。
+- [ ] **總結**：整理一份關於 DP 狀態設計的通用心法與模式，探討如何定義最小化且完備的狀態。
+
 ---
 
 ## 🧮 數學 (Math)
