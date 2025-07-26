@@ -1,104 +1,99 @@
-# K-Gap Pointers
+# 雙指針模式：固定間距指針 (K-Gap Pointers)
 
-K-Gap Pointers 是 Two Pointers 技巧的一種變體，其中兩個指針之間保持固定的 k 個距離。
+**固定間距指針** (K-Gap Pointers) 是雙指針技巧的一種重要模式，其核心策略是讓兩個指針在序列中保持一個**恆定的距離 `k`**，並以**相同的速度**同步移動。
 
-## 核心概念
+這種模式非常適用於需要處理「從末尾算起的第 k 個元素」或「與當前元素相距 k 個位置的元素」等相關問題。
 
-- 兩個指針之間保持固定的 k 個距離 (the two pointers by a gap of k)
-- 兩個指針以相同的速度移動，它們始終保持 k 個距離 (move them at the same speed, they will always be k apart)
-- 這種技巧特別適用於需要操作第 k 個位置的元素的問題
+> **關聯:** 本文是 **[雙指針核心模式與模板](./01-Two_Pointers_Core_Patterns_and_Templates.md)** 的補充，建議先閱讀核心模式以建立完整概念。
 
-## 基本模板
+---
+
+## 核心思想
+
+- **建立間距 (Establish the Gap):** 首先，讓一個指針（通常是 `fast`）先向前移動 `k` 個位置，從而與另一個指針（`slow`）建立起一個固定的距離。
+- **同步推進 (Synchronized Advance):** 之後，兩個指針以相同的速度（每次一步）同時向前移動。
+- **維持恆定距離 (Maintain Constant Distance):** 由於速度相同，它們之間的距離 `k` 在整個遍歷過程中保持不變。
+- **終點定位 (Endpoint Positioning):** 當 `fast` 指針變為 `nullptr`（即到達序列終點）時，`slow` 指針的位置就具有了特殊的意義，例如，它可能正好指向倒數第 `k` 個元素。
+
+---
+
+## 鏈表操作泛化模板
+
+以下模板展示了如何在鏈表中應用固定間距指針，以找到倒數第 `k` 個節點。
 
 ```cpp
-// 在數組中使用 k-gap pointers
-void kGapPointers(vector<int>& nums, int k) {
-    if (nums.size() <= k) return;
-    
-    int left = 0;
-    int right = k;  // 初始間隔為 k
-    
-    while (right < nums.size()) {
-        // 處理 nums[left] 和 nums[right]
-        
-        // 同時向前移動兩個指針，保持 k 間隔
-        left++;
-        right++;
-    }
-}
-
-// 在鏈表中使用 k-gap pointers
-ListNode* kGapPointersInList(ListNode* head, int k) {
+ListNode* k_gap_pointers_template(ListNode* head, int k) {
+    // 1. 指針初始化
     ListNode* slow = head;
     ListNode* fast = head;
-    
-    // 先將 fast 指針向前移動 k 步
-    while (fast && k > 0) {
+
+    // 2. 建立間距：先將 fast 指針向前移動 k 步
+    while (k-- > 0) {
+        // 在移動 k 次的過程中，如果 fast 提前到達末尾，
+        // 則說明鏈表長度不足 k，無法建立間距。
+        if (fast == nullptr) {
+            return nullptr; // 或根據題目要求處理
+        }
         fast = fast->next;
-        k--;
     }
-    
-    if (k > 0) return nullptr;  // 鏈表長度小於 k
-    
-    while (fast) {
-        // 處理 slow 和 fast 指向的節點
-        
-        // 同時向前移動兩個指針，保持 k 間隔
+
+    // 3. 同步推進：同時移動兩個指針，直到 fast 變為 nullptr
+    while (fast != nullptr) {
         slow = slow->next;
         fast = fast->next;
     }
-    
-    return slow;  // 返回特定位置的節點
+
+    // 4. 返回結果：
+    //    當 fast 變為 nullptr 時，slow 正好指向倒數第 k 個節點（如果從 1 開始計數）
+    return slow;
 }
 ```
 
-## 關鍵設計要素
+---
 
-### 1. While Condition (終止條件)
+## 關鍵設計要素分析
 
-K-Gap Pointers 的終止條件通常基於快指針的有效性：
+### 1. 間距建立與邊界檢查
+
+建立初始間距是此模式的第一步，也是處理邊界条件的關鍵。
 
 ```cpp
-while (fast) {
-    // 操作...
+// 先將 fast 指針向前移動 k 步
+for (int i = 0; i < k; ++i) {
+    if (fast == nullptr) return nullptr; // 鏈表長度不足 k
+    fast = fast->next;
 }
 ```
 
-這個條件確保：
-- `fast` 不為 nullptr，所以可以安全地訪問 `fast->next`
-- 當 `fast` 到達鏈表末尾時，`slow` 正好位於倒數第 k 個位置
+- **安全性:** 在 `fast` 指針移動的每一步都進行檢查，確保不會對 `nullptr` 進行訪問。
+- **有效性:** 如果循環正常結束，則證明鏈表的長度至少為 `k`，後續操作是安全的。如果中途 `fast` 變為 `nullptr`，則說明鏈表長度不足 `k`，可以直接返回，優雅地處理了邊界情況。
 
-**設計原則**：
-- 分析循環內部的指針操作，確保條件能防止任何不安全的訪問
-- 考慮邊界情況，如鏈表長度小於 k 的情況
-- 確保終止條件與問題的目標一致
+### 2. 循環終止條件 (Termination Condition)
 
-### 2. While Loop Movement (前進條件)
+同步推進階段的終止條件 `while (fast != nullptr)` 非常直觀。
 
-K-Gap Pointers 的前進條件通常是：
+- **終點信號:** 當 `fast` 指針變為 `nullptr` 時，循環終止，代表已完整遍歷鏈表。
+- **精準定位:** 由於 `slow` 與 `fast` 之間維持著 `k` 個節點的距離，`fast` 到達終點的同時，`slow` 也到達了它的目標位置（例如倒數第 `k` 個節點）。
 
-```cpp
-slow = slow->next;
-fast = fast->next;
-```
+### 3. 指針前進邏輯 (Movement Logic)
 
-這個移動模式確保：
-- 兩個指針以 `相同的速度` 移動
-- 兩個指針之間始終保持 k 個距離
-- 當 fast 到達末尾時，slow 正好位於倒數第 k 個位置
+`slow = slow->next;` 和 `fast = fast->next;` 的同步移動是維持恆定距離的保證。
 
-**設計原則**：
-- 指針移動必須與問題目標相關
-- 保持兩個指針之間的固定距離
-- 確保移動方式能夠幫助解決特定問題（如找到倒數第 k 個節點）
+- **等速移動:** 兩個指針以完全相同的速度前進，確保了它們之間的相對位置永遠不變。
+- **問題轉化:** 該模式巧妙地將「尋找倒數第 `k` 個節點」的問題，轉化為「當一個指針到達終點時，另一個指針在哪裡」的問題，從而僅需一次遍歷即可解決。
 
-## 常見應用
+---
 
-### 1. 刪除鏈表的倒數第 N 個節點
-### 2. 找到鏈表的倒數第 K 個節點
+## 常見應用場景
 
-## 優勢
+- **找到鏈表的倒數第 k 個節點:** 這是該模式最經典的應用。
+- **刪除鏈表的倒數第 n 個節點:** 需要找到倒數第 `n+1` 個節點，以便修改其 `next` 指針。
+- **旋轉鏈表:** 找到倒數第 `k` 個節點作為新的頭部。
 
-- **單次遍歷**：只需要遍歷一次數據結構
-- **固定距離**：可以輕鬆處理相距 k 個位置的元素
-- **空間效率**：只需要 O(1) 的額外空間
+---
+
+## 模式優勢
+
+- **單次遍歷:** 僅需對數據結構進行一次完整的遍歷即可解決問題，無需預先計算長度。
+- **空間效率:** 只需要 O(1) 的額外空間。
+- **邏輯清晰:** 將複雜的倒數問題轉化為簡單的同步移動問題。
