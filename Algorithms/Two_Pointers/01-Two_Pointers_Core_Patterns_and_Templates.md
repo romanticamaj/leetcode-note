@@ -75,6 +75,43 @@ T opposite_ends_template(vector<U>& arr) {
 - **初始化：** `left` 在頭，`right` 在尾，明確定義了初始搜尋空間 `[0, n-1]`。
 - **移動邏輯：** 根據 `arr[left]` 和 `arr[right]` 的關係，我們總能確定性地排除一端，從而將搜尋空間縮小一格。
 
+**設計心法：排序陣列中的隱含屬性**
+
+> 當「對向雙指針」應用於**已排序**的陣列時，由 `left` 和 `right` 指針定義的窗口 `[left, right]` 天然地包含了該窗口內的**最小值 (`arr[left]`)** 和**最大值 (`arr[right]`)**。
+
+這個特性極大地簡化了需要同時考慮子序列極值的問題，因為我們無需額外遍歷來尋找最值。
+
+**泛化模板應用：**
+
+這個心法可以被泛化，用來處理任何需要根據窗口內極值來做決策的問題。
+
+```cpp
+// 在已排序陣列中，根據窗口極值來尋找解
+while (left < right) {
+    // 利用隱含屬性直接獲取窗口的最小值和最大值
+    auto& min_val = arr[left];
+    auto& max_val = arr[right];
+
+    // 根據問題的具體邏輯，對當前窗口的狀態進行評估
+    auto evaluation_result = evaluate_state(min_val, max_val);
+
+    // 根據評估結果，決定如何縮小搜尋空間
+    if (evaluation_result == TARGET_MET) {
+        // 找到解或更新答案
+        // ...
+        // 可能需要同時移動兩個指針，或只移動一個
+        left++;
+        right--;
+    } else if (evaluation_result < TARGET_STATE) {
+        // 當前狀態小於目標，需要增大窗口內的最小值
+        left++;
+    } else { // evaluation_result > TARGET_STATE
+        // 當前狀態大於目標，需要減小窗口內的最大值
+        right--;
+    }
+}
+```
+
 ### --- 模式二：同向雙指針 (Same Direction) ---
 
 此模式的指針朝同一方向移動，但通常有不同的職責，用於定義一個動態的「關注範圍」或在多個序列間同步推進。
