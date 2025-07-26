@@ -1,83 +1,91 @@
-# Fast and Slow Pointers
+# 雙指針模式：快慢指針 (Fast & Slow Pointers)
 
-Fast and Slow Pointers 是 Two Pointers 技巧的一種特殊實現，主要用於鏈表和數組操作。
+**快慢指針** (Fast and Slow Pointers) 是雙指針技巧中一種極具創造性的模式。其核心思想是讓兩個指針從同一點出發，但以**不同的速度**在序列（通常是鏈表或陣列）中移動，利用它們之間產生的**速度差**來探測結構的內在特性，例如環的存在、序列的中點等。
 
-## 核心概念
+這種模式也被稱為「龜兔賽跑算法」(Tortoise and Hare Algorithm)。
 
-- Fast and Slow Pointers 是 Two Pointers 技巧的一種實現
-- 兩個指針以不同的「速度」移動
-- 通常情況下，「快」指針每次迭代移動兩個節點，而「慢」指針每次迭代移動一個節點 (兩倍速的意思，間接可以找到 Linked List 的 Middle Node)
+> **關聯:** 本文是 **[雙指針核心模式與模板](./01-Two_Pointers_Core_Patterns_and_Templates.md)** 的補充，建議先閱讀核心模式以建立完整概念。
 
-## 基本模板
+---
+
+## 核心思想
+
+- **速度差 (Speed Difference):** 模式的基石。通常，`fast` 指針每次移動兩步，而 `slow` 指針每次移動一步。
+- **相對距離變化 (Changing Relative Distance):** 由於速度不同，兩個指針間的距離在每次迭代中都會發生變化。這個變化的規律正是解決問題的關鍵。
+- **事件觸發 (Event Trigger):** 演算法的目標通常在某個特殊事件發生時達成，例如：
+  - `fast` 與 `slow` 指針相遇（表示存在環）。
+  - `fast` 指針到達序列末尾（此時 `slow` 指針恰好在特定位置，如中點）。
+
+---
+
+## 鏈表操作泛化模板
+
+以下模板展示了快慢指針在鏈表問題中的經典結構，常用於尋找中點或檢測環。
 
 ```cpp
-// head 是鏈表的頭節點
-ListNode* fn(ListNode* head) {
+ListNode* fast_and_slow_template(ListNode* head) {
+    // 1. 指針初始化：快慢指針均從頭節點開始
     ListNode* slow = head;
     ListNode* fast = head;
-    
-    while (fast && fast->next) {
-        // 在這裡執行操作
-        slow = slow->next;
-        fast = fast->next->next;
+
+    // 2. 循環遍歷：條件是保證 fast 指針及其下一步的有效性
+    while (fast != nullptr && fast->next != nullptr) {
+        // a. 移動指針
+        slow = slow->next;        // 慢指針移動一步
+        fast = fast->next->next;  // 快指針移動兩步
+
+        // b. 根據問題執行特定邏輯
+        //    例如，在環檢測中，判斷 slow == fast
     }
-    
-    return slow;  // 根據需要返回適當的節點
+
+    // 3. 返回結果
+    //    循環結束時，slow 指針的位置具有特殊意義（例如，中點）
+    return slow;
 }
 ```
 
-**while 循環條件說明**：
-- 條件 `fast && fast->next` 是為了確保安全訪問 `fast->next` 和 `fast->next->next`
+---
 
-## 常見應用
+## 關鍵設計要素分析
 
-### 1. 檢測鏈表中的環 (Cycle Detection)
-### 2. 找到鏈表的中間節點 (Finding Middle Node)
-### 3. 判斷鏈表是否為回文 (Palindrome Linked List)
+### 1. 循環終止條件 (Termination Condition)
 
-## 關鍵設計要素
+`while (fast && fast->next)` 是此模式最關鍵的**安全保障**。
 
-### 1. While Condition (終止條件)
+- **`fast != nullptr`**: 確保 `fast` 指針本身是有效的，這在鏈表長度為奇數時，`fast` 會最終指向最後一個節點，此時 `fast->next` 為空，循環終止。
+- **`fast->next != nullptr`**: 確保 `fast` 的下一個節點是有效的，這樣才能安全地執行 `fast->next->next`。這在鏈表長度為偶數時，`fast` 會最終指向 `nullptr`（在最後一個節點之後），而其前一步 `fast->next` 是最後一個節點，因此循環終止。
 
-Fast and Slow Pointers 的終止條件通常基於快指針的有效性：
+**設計原則:**
 
-```cpp
-while (fast && fast->next) {
-    // 操作...
-}
-```
+- **安全性優先:** 終止條件的首要目標是防止對 `nullptr` 進行訪問，避免執行期錯誤。
+- **目標導向:** 條件的選擇直接決定了循環結束時 `slow` 指針的位置。例如，若條件改為 `while (fast->next && fast->next->next)`，則在偶數長度鏈表中，`slow` 會停在中間兩節點的第二個。
+- **邊界處理:** 此條件能優雅地處理空鏈表或單節點鏈表的情況，此時循環不會執行。
 
-這個條件確保：
-- `fast` 不為 nullptr，所以可以安全地訪問 `fast->next`
-- `fast->next` 不為 nullptr，所以可以安全地訪問 `fast->next->next`
+### 2. 指針前進邏輯 (Movement Logic)
 
-**設計原則**：
-- 分析循環內部的指針操作，確保條件能防止任何不安全的訪問
-- 考慮邊界情況，如指標是否已為空
-- 確保終止條件與問題的目標一致
+`slow = slow->next;` 和 `fast = fast->next->next;` 的組合是利用速度差解決問題的核心。
 
-### 2. While Loop Movement (前進條件)
+- **創造距離:** `fast` 指針每輪比 `slow` 指針多走一步，使得它們之間的距離每輪增加 1。
+- **線性關係:** 在線性鏈表中，當 `fast` 走完 `2n` 步到達終點時，`slow` 恰好走完 `n` 步，停留在中點。
+- **環中追及:** 在帶環鏈表中，兩個指針進入環後，`fast` 指針在環內以每輪一步的相對速度追趕 `slow` 指針，因此必然會相遇。
 
-Fast and Slow Pointers 的前進條件通常是：
+**設計原則:**
 
-```cpp
-slow = slow->next;        // 移動一步
-fast = fast->next->next;  // 移動兩步
-```
+- **速度匹配問題:** 選擇的速度組合（例如 1:2 或 1:3）必須能夠有效地揭示問題所需的結構特性。
+- **迭代不變性:** 確保每次迭代後，指針的移動都能穩定地導向最終目標（例如，在環中穩定地縮小距離，或在線性表中穩定地走向中點）。
 
-這個移動模式確保：
-- 慢指針以正常速度移動
-- 快指針以兩倍速度移動
-- 如果存在環，兩個指針最終會相遇
-- 如果是線性鏈表，快指針會先到達末尾
+---
 
-**設計原則**：
-- 指針移動必須與問題目標相關
-- 每次迭代都應該縮小問題規模或接近目標
-- 移動速度的差異應該能夠幫助解決特定問題（如檢測環、找中點等）
+## 常見應用場景
 
-## 優勢
+- **檢測鏈表中的環 (Cycle Detection):** 如果 `fast` 與 `slow` 相遇，則存在環。
+- **找到鏈表的中間節點 (Finding Middle Node):** 當 `fast` 到達末尾時，`slow` 就在中點。
+- **判斷鏈表是否為回文 (Palindrome Linked List):** 先用快慢指針找到中點，反轉後半部分，再進行比較。
 
-- **空間效率**：通常只需要 O(1) 的額外空間
-- **時間效率**：通常只需要一次遍歷，時間複雜度為 O(n)
-- **簡潔性**：代碼簡潔易懂，實現簡單
+---
+
+## 模式優勢
+
+- **空間效率:** 通常僅需 O(1) 的額外空間。
+- **時間效率:** 僅需對序列進行一次遍歷，時間複雜度為 O(n)。
+- **代碼簡潔:** 實現邏輯清晰，代碼量少。
