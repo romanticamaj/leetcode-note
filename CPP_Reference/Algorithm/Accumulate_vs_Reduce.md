@@ -48,6 +48,11 @@ int main() {
     std::vector<std::string> words = {"Hello", " ", "World", "!"};
     std::string sentence = std::accumulate(words.begin(), words.end(), std::string(""));
     // sentence = "Hello World!"
+
+    // 計算乘積
+    long long product = std::accumulate(v.begin(), v.end(), 1LL, std::multiplies<long long>());
+    // 1LL * 1 * 2 * 3 * 4 * 5 = 120
+    // 注意：初始值必須是 1 (乘法單位元)，且型別為 long long (1LL) 防止溢位
 }
 ```
 

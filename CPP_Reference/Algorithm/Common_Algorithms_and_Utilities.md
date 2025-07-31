@@ -49,6 +49,9 @@ string key = accumulate(
         return std::move(a) + '-' + std::to_string(b);
     }
 );
+
+// 求乘積: 使用 std::multiplies
+long long product = accumulate(v.begin(), v.end(), 1LL, std::multiplies<long long>());
 ```
 
 ## 常用工具函式
