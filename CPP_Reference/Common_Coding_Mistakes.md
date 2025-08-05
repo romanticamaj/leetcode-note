@@ -26,6 +26,27 @@
 - **問題**：使用未經初始化的區域變數，其值是不確定的，會導致非預期的程式行為。
 - **心法**：堅持**在宣告變數時立即初始化**，例如 `int sum = 0;`。
 
+### 智能指標與原始指標轉換錯誤
+
+- **問題**：在需要傳遞原始指標 (`Raw Pointer`, e.g., `Node*`) 的地方，直接傳遞了智能指標物件 (`Smart Pointer`, e.g., `std::unique_ptr<Node>`)，或者忘記使用 `.get()` 方法來提取其管理的原始指標。這會導致編譯錯誤，因為兩者型別不相容。
+- **心法**：明確記住智能指標是一個**物件**，它**管理**著一個原始指標。當需要與接受原始指標的 C-style API 或舊函式互動時，必須使用 `.get()` 方法來取得被管理的指標。
+
+**範例：**
+
+```cpp
+void processNode(ListNode* node) {
+    // ...
+}
+
+auto dummy = std::make_unique<ListNode>();
+
+// ❌ 錯誤：型別不匹配 (unique_ptr vs ListNode*)
+// processNode(dummy);
+
+// ✅ 正確：使用 .get() 提取原始指標
+processNode(dummy.get());
+```
+
 ## 資料結構操作心法
 
 ### 成對操作原則 (Add/Delete Pairing)
