@@ -1,127 +1,135 @@
-# C++ Sorting: `std::sort` vs. Container's `sort()`
+# C++ 排序演算法比較：`std::sort`, `std::stable_sort`, 與 `container.sort()`
 
-在 C++ 中，排序是常見操作。主要有兩種方式：通用的 `std::sort` 演算法，以及某些容器（如 `std::list`）提供的成員函式 `sort()`。兩者在效能、用法和適用性上有顯著差異。
+在 C++ 中，排序是基礎且頻繁的操作。標準庫提供了多種排序工具，主要包括通用的 `std::sort`、保證穩定性的 `std::stable_sort`，以及特定容器（如 `std::list`）的成員函式 `sort()`。理解它們的差異對於撰寫高效且正確的程式碼至關重要。
 
 ---
 
 ## 1. `std::sort` (`<algorithm>` 標頭檔)
 
-`std::sort` 是一個通用的、高效能的排序演算法。
+`std::sort` 是 C++ 中最常用、最高效的通用排序演算法。
 
 - **適用容器**:
 
-  - 任何提供**隨機存取迭代器 (RandomAccessIterator)** 的序列容器。
+  - 任何提供**隨機存取迭代器 (Random Access Iterator)** 的序列容器。
   - 主要包括：`std::vector`、`std::deque`、`std::array` 以及 C-style 陣列。
-  - **不適用**於 `std::list`、`std::forward_list`（因為它們只有雙向或單向迭代器），也不適用於 `std::map`、`std::set`（因為它們內部已有序）。
+  - **不適用**於 `std::list` 或 `std::forward_list`，因其迭代器類型不符。
 
-- **時間複雜度**:
+- **演算法與複雜度**:
 
-  - **平均**: O(N log N)。
-  - **最壞**: O(N log N)。
-  - C++ 標準庫通常使用 **Introsort**（內省排序），它結合了快速排序、堆積排序和插入排序的優點，以保證在各種情況下都有高效能。
+  - **底層實現**: 通常為 **Introsort**（內省排序），它結合了快速排序、堆積排序和插入排序的優點，以在最壞情況下仍保持 O(N log N) 的時間複雜度。
+  - **時間複雜度**: **O(N log N)** (平均與最壞情況)。
+  - **空間複雜度**: **O(log N)**，主要來自遞迴呼叫堆疊。
 
-- **空間複雜度**:
+- **穩定性 (Stability)**:
 
-  - **O(log N)**。
-  - 這是 Introsort 遞迴呼叫堆疊所需的空間。
+  - **不保證穩定**。`std::sort` 為了追求極致的效能，可能會改變相等元素的相對順序。
 
 - **用法**:
-  - `std::sort` 是一個非成員函式，需要傳入指向序列頭尾的迭代器。
-  - **預設排序**：使用 `operator<`，結果為升序（小到大）。
-  - **自定義排序**：可傳入第三個參數作為比較器，且此參數必須是物件 (與容器不同，容器是帶入型別)。
+  - `std::sort(begin, end)`：預設使用 `operator<` 進行升序排序。
+  - `std::sort(begin, end, comparator)`：可傳入自定義比較器（如 Lambda 或函式物件）。
 
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <functional> // for std::greater
 
-int main() {
-    std::vector<int> v = {3, 1, 4, 1, 5, 9};
+// 1. 預設升序排序
+std::vector<int> v = {3, 1, 4, 1, 5, 9};
+std::sort(v.begin(), v.end()); // v is now {1, 1, 3, 4, 5, 9}
 
-    // 1. 預設升序排序
-    std::sort(v.begin(), v.end());
-    // v 現在是 {1, 1, 3, 4, 5, 9}
-
-    // 2. 使用 std::greater 進行降序排序
-    std::sort(v.begin(), v.end(), std::greater<int>());
-    // v 現在是 {9, 5, 4, 3, 1, 1}
-
-    // 3. 使用 Lambda 進行自定義排序 (例如，按絕對值大小)
-    std::vector<int> v2 = {-5, 3, -1, 4};
-    std::sort(v2.begin(), v2.end(), [](int a, int b) {
-        return std::abs(a) < std::abs(b);
-    });
-    // v2 現在是 {-1, 3, 4, -5}
-}
+// 2. 使用 Lambda 進行降序排序
+std::sort(v.begin(), v.end(), [](int a, int b) {
+    return a > b;
+}); // v is now {9, 5, 4, 3, 1, 1}
 ```
 
 ---
 
-## 2. `container.sort()` (容器成員函式)
+## 2. `std::stable_sort` (`<algorithm>` 標頭檔)
 
-某些不支援隨機存取的容器，會提供自己的成員函式 `sort()`。最典型的例子是 `std::list`。
+當需要**保持相等元素原始相對順序**時，`std::stable_sort` 是首選。
+
+- **適用容器**:
+
+  - 與 `std::sort` 相同，適用於提供**隨機存取迭代器**的容器。
+
+- **演算法與複雜度**:
+
+  - **底層實現**: 通常為**合併排序 (Merge Sort)** 或其變體（如 Timsort）。
+  - **時間複雜度**:
+    - 在有足夠額外記憶體的情況下，可達到 **O(N log N)**。
+    - 若記憶體不足，時間複雜度可能退化為 **O(N (log N)²)**。
+  - **空間複雜度**:
+    - 理想情況下為 **O(N)**，用於合併操作。若記憶體受限，則可能為 **O(log N)**。
+
+- **穩定性 (Stability)**:
+
+  - **保證穩定**。這是它與 `std::sort` 最核心的區別。
+
+- **用法**:
+  - 與 `std::sort` 完全相同。
+
+```cpp
+struct Item {
+    int key;
+    std::string value;
+};
+
+std::vector<Item> items = {{2, "B"}, {1, "A"}, {2, "C"}};
+
+// 使用 stable_sort 按 key 排序
+std::stable_sort(items.begin(), items.end(), [](const Item& a, const Item& b) {
+    return a.key < b.key;
+});
+// items is now: {{1, "A"}, {2, "B"}, {2, "C"}}
+// 注意：{2, "B"} 仍然在 {2, "C"} 之前，保持了原始順序。
+```
+
+---
+
+## 3. `container.sort()` (容器成員函式)
+
+某些不支援隨機存取的容器，會提供自己的成員函式 `sort()`，最典型的例子是 `std::list`。
 
 - **適用容器**:
 
   - `std::list`
   - `std::forward_list`
 
-- **時間複雜度**:
+- **演算法與複雜度**:
 
-  - **O(N log N)**。
-  - `std::list::sort()` 通常使用**合併排序 (Merge Sort)**，因為合併排序不需要隨機存取，且對鏈結串列這種資料結構特別高效。
+  - **底層實現**: 通常為**合併排序 (Merge Sort)**，因其不要求隨機存取，非常適合鏈結串列。
+  - **時間複雜度**: **O(N log N)**。
+  - **空間複雜度**: **O(1)**。這是其最大優勢，因為它直接重新連接節點指標，無需額外儲存空間。
 
-- **空間複雜度**:
+- **穩定性 (Stability)**:
 
-  - **O(1)** 或 **O(log N)**，取決於實作。
-  - 對於鏈結串列，合併排序可以透過重新連接節點指標來完成，因此通常可以達到 O(1) 的額外空間，遠優於 `std::sort`。
+  - **保證穩定**。`std::list::sort` 的行為類似於 `std::stable_sort`。
 
 - **用法**:
-  - `sort()` 是容器的成員函式，直接在物件上呼叫。
-  - **預設排序**：同樣使用 `operator<`，結果為升序。
-  - **自定義排序**：可傳入一個比較器作為參數，且此參數必須是物件。
+  - `l.sort()`：預設升序。
+  - `l.sort(comparator)`：使用自定義比較器。
 
 ```cpp
-#include <iostream>
 #include <list>
-#include <functional> // for std::greater
-
-int main() {
-    std::list<int> l = {3, 1, 4, 1, 5, 9};
-
-    // 1. 預設升序排序
-    l.sort();
-    // l 現在是 {1, 1, 3, 4, 5, 9}
-
-    // 2. 使用 std::greater 進行降序排序
-    l.sort(std::greater<int>());
-    // l 現在是 {9, 5, 4, 3, 1, 1}
-
-    // 3. 使用 Lambda 進行自定義排序
-    std::list<int> l2 = {-5, 3, -1, 4};
-    l2.sort([](int a, int b) {
-        return std::abs(a) < std::abs(b);
-    });
-    // l2 現在是 {-1, 3, 4, -5}
-}
+std::list<int> l = {3, 1, 4, 1, 5, 9};
+l.sort(); // l is now {1, 1, 3, 4, 5, 9}
 ```
 
 ---
 
-## 3. 總結與比較
+## 4. 總結與選擇心法
 
-| 特性           | `std::sort` (`<algorithm>`)                 | `container.sort()` (e.g., `std::list::sort`) |
-| :------------- | :------------------------------------------ | :------------------------------------------- |
-| **適用性**     | 隨機存取迭代器 (`vector`, `deque`, `array`) | 特定容器的成員 (`list`, `forward_list`)      |
-| **底層演算法** | Introsort (混合式)                          | Merge Sort (通常)                            |
-| **時間複雜度** | O(N log N)                                  | O(N log N)                                   |
-| **空間複雜度** | O(log N)                                    | O(1) 或 O(log N) (通常更優)                  |
-| **呼叫方式**   | `std::sort(v.begin(), v.end());`            | `l.sort();`                                  |
-| **優點**       | 通用性強，對快取友好 (cache-friendly)       | 針對特定容器高度優化，空間效率極高           |
+| 特性           | `std::sort`                  | `std::stable_sort`           | `container.sort()` (`list`) |
+| :------------- | :--------------------------- | :--------------------------- | :-------------------------- |
+| **適用性**     | 隨機存取 (`vector`, `deque`) | 隨機存取 (`vector`, `deque`) | 特定容器 (`list`)           |
+| **穩定性**     | **不保證**                   | **保證**                     | **保證**                    |
+| **時間複雜度** | O(N log N)                   | O(N log N) ~ O(N(log N)²)    | O(N log N)                  |
+| **空間複雜度** | O(log N)                     | O(N) 或 O(log N)             | **O(1)**                    |
+| **底層演算法** | Introsort                    | Merge Sort / Timsort         | Merge Sort                  |
 
 ### 選擇心法
 
-- 如果你的資料儲存在 `vector`、`deque` 或陣列中，**永遠使用 `std::sort`**。
-- 如果你的資料儲存在 `list` 中，**必須使用 `list::sort()`**，因為 `std::sort` 無法在其上工作。這也是 `list` 提供自己版本的原因。
-- 如果你發現自己需要在 `list` 上頻繁排序，可能需要重新評估是否 `list` 是適合該場景的資料結構。
+1. **預設選擇 `std::sort`**：對於 `std::vector`、`std::deque` 等容器，如果不需要穩定性，`std::sort` 通常是效能最佳的選擇。
+2. **需要穩定性時，選擇 `std::stable_sort`**：當你需要保持相等元素的原始順序時（例如，按多個欄位排序），請使用 `std::stable_sort`。請注意它可能需要更多的記憶體。
+3. **使用 `std::list` 時，必須用 `list::sort()`**：這是唯一適用於 `std::list` 的高效排序方法。如果你發現自己在 `list` 上頻繁排序，應重新評估 `list` 是否為當前場景的最佳資料結構。
