@@ -12,3 +12,9 @@
 - [ ] LeetCode 489. Robot Room Cleaner
 - [ ] LeetCode 215. Kth Largest Element in an Array
 - [ ] LeetCode 37. Sudoku Solver
+- [ ] LeetCode 84. Largest Rectangle in Histogram
+  - [ ] Brute Force
+  - [ ] Segment Tree for Divide and Conquer
+  - [ ] Monotonic Stack
+- [ ] LeetCode 218. The Skyline Problem
+  - [ ] Divide and Conquer
