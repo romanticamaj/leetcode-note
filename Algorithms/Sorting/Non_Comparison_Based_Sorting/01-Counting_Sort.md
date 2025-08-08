@@ -1,4 +1,4 @@
-# 01. 計數排序 (Counting Sort)
+# 計數排序 (Counting Sort)
 
 ## 1. 核心概念與分區 (Concept & Partition)
 
