@@ -1,4 +1,4 @@
-# 08. 快速排序進階與優化 (Quicksort Advanced & Optimizations)
+# 快速排序進階與優化 (Quicksort Advanced & Optimizations)
 
 標準的快速排序在平均情況下表現出色，但在特定情況下（如處理已排序或包含大量重複元素的陣列）效能會急劇下降。為了解決這些問題，社群發展出了多種優化策略。
 
