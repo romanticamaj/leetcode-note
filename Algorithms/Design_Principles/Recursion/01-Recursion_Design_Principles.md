@@ -135,7 +135,7 @@ ReturnType solve(State& current_state, /* &results, */ ...) {
         restoreState(current_state, choice); // Unchoose
 
         // 模式 B (分治法): 直接將 choice (子問題) 作為 next_state 傳入。
-        // auto sub_solution = solve(choice, ...);
+        auto sub_solution = solve(choice, ...);
 
         // Post-order Logic: 處理子問題的回傳結果。
         // - 回溯法: 通常無事可做。
