@@ -18,3 +18,6 @@
 
 - iterative cycle detection + visited count(for forest)
 - iterative unconditionally visited + edge count + visited count(for forest)
+
+- 1059. All Paths from Source Lead to Destination
+  - node-coloring variant for cycle detection
