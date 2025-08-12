@@ -13,3 +13,8 @@
 - Keep a successor
 - Flattening the BST, using a vector
 - Controlled Recursion (Iterative Stack)
+
+## 261. Graph Valid Tree
+
+- iterative cycle detection + visited count(for forest)
+- iterative unconditionally visited + edge count + visited count(for forest)
