@@ -72,7 +72,7 @@ void dijkstra(int start_node, int num_nodes, const Graph& adj) {
         int [d, u] = pq.top(); pq.pop();
 
         // 關鍵優化：提前剪枝 (處理惰性刪除的後果)
-        if (d > dist[u]) continue;
+        if (d > dist[u]) continue; // 一定是大於，若等於的話，第一個 node 就沒辦法處理
 
         for (const auto& [v, weight] : adj[u]) {
             // 鬆弛操作 (Relaxation)
