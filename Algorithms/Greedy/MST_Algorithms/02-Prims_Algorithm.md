@@ -4,20 +4,16 @@
 
 ## 1. 核心設計概念
 
-Prim 演算法採用**以點為中心**的貪婪策略來建構最小生成樹 (MST)。其核心思想是將圖中的節點分為兩組：
+Prim 演算法採用**以點為中心 (Vertex-centric)** 的貪婪策略來建構最小生成樹 (MST)。其核心思想是將圖中的節點分為兩組：
 
 1. **Decided Set**: 已經包含在 MST 中的節點集合。
 2. **Undecided Set**: 尚未被包含的節點集合。
 
-> **演算法從一個起始點開始，不斷地尋找一條連接 "Decided Set" 與 "Undecided Set" 的、權重最小的邊，並將該邊和其在 "Undecided Set" 中的端點納入 "Decided Set"，逐步擴張 MST，直到所有節點都被包含。**
+> **演算法從一個起始點開始，將其納入 "Decided Set"。接著，將該節點所有向外連接的邊都加入一個全域的最小優先佇列 (Min-Heap)。此後，不斷從 Min-Heap 中提取權重最小的邊，如果該邊連接到一個 "Undecided Set" 中的節點，就將該節點納入 "Decided Set"，並將其所有新的對外連接邊也加入 Min-Heap。重複此過程，直到所有節點都屬於 "Decided Set"。**
+>
+> 在這個過程中，Min-Heap 中存放的所有邊，就代表了從 "Decided Set" 連接到 "Undecided Set" 的所有候選邊界 (Candidate Edges)。演算法的每一步都是在這些候選邊界中，選擇最輕的一條來擴張我們的 MST。
 
 這個過程就像是在一個點上點火，然後火勢總是沿著最短的路徑蔓延到最近的未燃燒點。演算法的每一步都直接應用了 **Cut Property**。
-
-### Key Takeaways
-
-1. **Set-based Growth**: 演算法維護一個不斷增長的「已決定」節點集合。
-2. **Global Min-Heap**: 需要一個全域的最小優先佇列，來高效地管理所有從 "Decided Set" 連接到 "Undecided Set" 的候選邊。
-3. **Vertex-centric**: 演算法的每一步都是圍繞著將一個新節點加入 MST 來進行的。
 
 ---
 
@@ -26,7 +22,7 @@ Prim 演算法採用**以點為中心**的貪婪策略來建構最小生成樹 (
 1. **優先佇列 (Min-Heap)**:
 
    - **用途**: 作為 "Decided Set" 所有對外連接邊的容器。它能讓我們高效地找到連接 "Decided Set" 與 "Undecided Set" 的最輕邊。
-   - **結構**: 佇列中的元素通常是一個 `pair<int, int>` 或 `tuple<int, int>`，代表 `(weight, destination_vertex)`。
+   - **結構**: 佇列中的元素通常是一個 `pair<int, int>`，代表 `(weight, destination_vertex)`。
 
 2. **訪問標記 (Visited Vector)**:
    - **用途**: 用於區分節點屬於 "Decided Set" 還是 "Undecided Set"。`visited[i] = true` 代表節點 `i` 已經在 MST 中。
@@ -100,7 +96,8 @@ private:
 
 ### 時間複雜度
 
-- **總體**: `O(E log E)` 或 `O(E log V)` (最差情況 Pop E 條邊，每次 O(log E))
+- **總體**: `O(E log E)` 或 `O(E log V)`
+  - 最差情況 Pop E 條邊，每次 O(log E)
 
 - **精確分析**:
   - **`push` 操作**: `pushEdges` 函數總共會被呼叫 `V` 次。在整個演算法的生命週期中，每一條邊最多會被從其兩個端點推入優先佇列一次。因此，`push` 操作的總數是 `O(E)`。
