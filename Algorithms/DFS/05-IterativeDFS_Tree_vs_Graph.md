@@ -14,15 +14,15 @@
 
 ## 🔍 Iterative DFS 結構對比
 
-| 元素             | Tree 中的 DFS（通常遞迴） | Graph 中的 Iterative DFS（stack）     |
-| ---------------- | ------------------------- | ------------------------------------- |
-| 起始點           | root                      | 任一未 visited 的節點                 |
-| stack 初始內容   | root                      | 任一 component 的起點                 |
-| while 條件       | 無（由 call stack 控制）  | `!s.empty()`                          |
-| 拿出當前節點     | 由遞迴函式參數傳入        | `s.top(); s.pop();`                   |
-| 加入鄰接節點條件 | left/right 存在           | `isConnected[node][i] && !visited[i]` |
-| visited 處理     | 不一定需要                | 必須使用 visited 陣列                 |
-| 結構             | 嚴格樹狀（無環）          | 可有環，需特別處理 visited            |
+| 元素             | Tree 中的 DFS（通常遞迴） | Graph 中的 Iterative DFS（stack） |
+| ---------------- | ------------------------- | --------------------------------- |
+| 起始點           | root                      | 任一未 visited 的節點             |
+| stack 初始內容   | root                      | 任一 component 的起點             |
+| while 條件       | 無（由 call stack 控制）  | `!s.empty()`                      |
+| 拿出當前節點     | 由遞迴函式參數傳入        | `s.top(); s.pop();`               |
+| 加入鄰接節點條件 | left/right 存在           | `!visited[i]`                     |
+| visited 處理     | 不一定需要                | 必須使用 visited 陣列             |
+| 結構             | 嚴格樹狀（無環）          | 可有環，需特別判斷 visited        |
 
 ---
 
@@ -31,40 +31,39 @@
 ```cpp
 class Solution {
 public:
-    int findCircleNum(vector<vector<int>>& isConnected) {
-        std::vector<bool> visited(isConnected.size(), false);
-        int count = 0;
+    void main(vector<vector<int>>& graph) {
+        std::vector<bool> visited(graph.size(), false);
 
         // Iterate through all nodes to ensure all components are covered
-        for (int i = 0; i < isConnected.size(); ++i) {
+        for (int i = 0; i < graph.size(); ++i) {
             if (!visited[i]) {
-                iterativeDFS(isConnected, i, visited);
-                count++;
+                iterativeDFS(graph, i, visited);
             }
         }
-
-        return count;
     }
 
-    void iterativeDFS(const vector<vector<int>>& isConnected, const int node, vector<bool>& visited) {
+    void iterativeDFS(const vector<vector<int>>& graph, const int node, vector<bool>& visited) {
         std::stack<int> s;
 
         // Initialize the stack with the starting element
+        visited[node] = true;
         s.push(node);
 
         while (!s.empty()) {
             // Retrieve the next element from the stack for processing
-            const int current = s.top();
-            s.pop();
+            const int current = s.top(); s.pop();
 
-            // Mark the current element as visited
-            visited[current] = true;
+            // Option1: Mark the current element as visited, label it as processed
+            // visited[current] = true;
 
             // Explore all related elements
             // If a connection exists and the element hasn't been visited, push it onto the stack
-            for (int i = 0; i < isConnected.size(); ++i) {
-                if (isConnected[current][i] && !visited[i])
+            for (for neighbor: graph[current]) {
+                if (!visited[i]) {
+                    // Option2: Mark the neighbor as visited, and push into todo list
+                    visited[neighbor] = true;
                     s.push(i);
+                }
             }
         }
     }
@@ -75,14 +74,14 @@ public:
 
 ## 🧩 結構對應說明
 
-| DFS 元素     | 程式碼對應行為                               |
-| ------------ | -------------------------------------------- |
-| 起始點選擇   | `for (int i = 0; i < n; ++i)` loop 中        |
-| stack 初始化 | `s.push(node);`                              |
-| while 條件   | `while (!s.empty())`                         |
-| 拿出當前節點 | `vertex = s.top(); s.pop();`                 |
-| 加入鄰接節點 | `if (isConnected[vertex][i] && !visited[i])` |
-| visited 處理 | `visited[vertex] = true;`                    |
+| DFS 元素     | 程式碼對應行為                        |
+| ------------ | ------------------------------------- |
+| 起始點選擇   | `for (int i = 0; i < n; ++i)` loop 中 |
+| stack 初始化 | `s.push(node);`                       |
+| while 條件   | `while (!s.empty())`                  |
+| 拿出當前節點 | `current = s.top(); s.pop();`         |
+| 加入鄰接節點 | `if (!visited[i])`                    |
+| visited 處理 | `visited[neighbor] = true;`             |
 
 ---
 
@@ -119,11 +118,10 @@ public:
 
 ```cpp
 while (!s.empty()) {
-    const int cur = s.top();
-    s.pop();
+    const int cur = s.top(); s.pop();
 
     // DFS basic: operate on current node
-    // Here: Mark-on-Pop
+    // Here: Mark-on-Process
     visited[cur] = true;
 
     for (int nei : graph[cur]) {
