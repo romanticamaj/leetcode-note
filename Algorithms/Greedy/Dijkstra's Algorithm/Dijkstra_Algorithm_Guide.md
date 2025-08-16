@@ -1,6 +1,6 @@
-# Dijkstra 演算法深度解析：從理論到 C++ 實踐
+# Dijkstra 演算法：從理論到 C++ 實踐深度解析
 
-Dijkstra 演算法是圖論中解決「單源最短路徑問題」(Single-Source Shortest Path, SSSP) 的經典演算法，其核心應用場景是**帶有非負權重 (non-negative weights) 的圖**。
+Dijkstra 演算法是圖論中解決「單源最短路徑問題」(Single-Source Shortest Path, SSSP) 的經典演算法。其核心應用場景是**帶有非負權重 (non-negative weights) 的有向或無向圖**。
 
 本文將遵循從經典理論到現代 C++ 實踐的思路，深入探討 Dijkstra 演算法，幫助讀者建立一個完整且清晰的知識體系。
 
@@ -8,29 +8,52 @@ Dijkstra 演算法是圖論中解決「單源最短路徑問題」(Single-Source
 
 ## tl;dr - 重點摘要
 
-1. **理論核心 (CLRS)**: 演算法維護一個包含**所有**節點的優先佇列，並依賴 `DECREASE-KEY` 操作來更新節點距離。這在理論上很完美，但在標準 C++ 中難以高效實現。
-2. **C++ 實踐**: 我們不使用 `DECREASE-KEY`，而是採用「**惰性刪除 (Lazy Deletion)**」策略：當發現更短路徑時，不更新舊記錄，而是直接將 `(新距離, 節點)` **插入**優先佇列。
-3. **關鍵優化**: 為了處理「惰性刪除」產生的重複節點，我們在從佇列取出節點時，必須進行「**提前剪枝**」：`if (d > dist[u]) continue;`。這個檢查會忽略所有過時的、較長的路徑記錄。
+1. **理論核心 (CLRS)**: 演算法維護一個包含**所有**節點的優先佇列，並依賴 `DECREASE-KEY` 操作來更新節點距離。此模型在理論上完美，但在標準 C++ 中難以高效實現。
+2. **C++ 實踐**: 我們不使用 `DECREASE-KEY`，而是採用「**惰性刪除 (Lazy Deletion)**」策略：當發現更短路徑時，不更新舊有、較長的路徑記錄，而是直接將新的 `(距離, 節點)` 組**插入**優先佇列。
+3. **關鍵優化**: 為了處理「惰性刪除」產生的過時記錄，我們在從佇列取出節點時，必須進行「**提前剪枝**」：`if (d > dist[u]) continue;`。此檢查能有效忽略所有不再是最短路徑的舊記錄。
 4. **實現流程**:
-   - 維護 `dist` 陣列，初始化為無限大。
-   - 將 `(0, start_node)` 推入優先佇列。
-   - 迴圈直到佇列為空，每次取出距離最小的節點，進行剪枝檢查，然後對其鄰居執行「鬆弛 (Relaxation)」操作。
+   - 維護 `dist` 陣列，記錄起點到各節點的當前最短距離，並初始化為無限大。
+   - 將 `(0, start_node)` 推入最小優先佇列 (min-priority queue)。
+   - 迴圈直到佇列為空，每次取出距離最小的節點，進行剪枝檢查，然後對其所有鄰居執行「鬆弛 (Relaxation)」操作。
 
 ---
 
 ## 1. 經典演算法 (教科書版本)
 
-在經典演算法教科書如 _Introduction to Algorithms_ (CLRS) 中，Dijkstra 的虛擬碼通常假設優先佇列支援一個 `DECREASE-KEY` 操作。
+在經典演算法教科書如 _Introduction to Algorithms_ (CLRS) 中，Dijkstra 的虛擬碼是基於一個支援 `DECREASE-KEY` 操作的優先佇列來設計的。
+
+### CLRS 核心輔助函式
+
+Dijkstra 演算法由兩個核心的輔助程序構成：`INITIALIZE-SINGLE-SOURCE` 和 `RELAX`。
+
+```
+INITIALIZE-SINGLE-SOURCE(G, s)
+1 for each vertex v ∈ G.V
+2     v.d = ∞
+3     v.π = NIL
+4 s.d = 0
+```
+
+- **功能**: 初始化所有頂點的狀態。`v.d` 代表從源點 `s` 到頂點 `v` 的**最短路徑權重估計**，`v.π` 則指向其在前驅路徑上的節點。
+
+```
+RELAX(u, v, w)
+1 if v.d > u.d + w(u, v)
+2     v.d = u.d + w(u, v)
+3     v.π = u
+```
+
+- **功能**: 「鬆弛」操作是演算法的核心。它檢查是否可以透過頂點 `u` 來改善到達頂點 `v` 的路徑。如果從源點 `s` 到 `u`，再從 `u` 到 `v` 的路徑比當前已知的到 `v` 的路徑更短，則更新 `v` 的距離和前驅節點。
 
 ### CLRS 虛擬碼解析
 
 ```
 DIJKSTRA(G, w, s)
-1  INITIALIZE-SINGLE-SOURCE(G, s)  // 將所有節點距離設為 ∞，起點設為 0
+1  INITIALIZE-SINGLE-SOURCE(G, s)
 2  S = ∅                           // S 是已確定最短路徑的節點集合
 3  Q = G.V                         // Q 是一個包含所有節點的優先佇列
 4  while Q ≠ ∅
-5      u = EXTRACT-MIN(Q)          // 取出距離最近的節點
+5      u = EXTRACT-MIN(Q)          // 取出 Q 中距離估計值最小的節點
 6      S = S ∪ {u}
 7      for each vertex v ∈ G.Adj[u]
 8          RELAX(u, v, w)          // 鬆弛操作，內部隱含 DECREASE-KEY
@@ -39,7 +62,7 @@ DIJKSTRA(G, w, s)
 這個版本的核心在於：
 
 - **積極初始化 (Eager Initialization)**: 一開始就把所有節點放入優先佇列 `Q`。
-- **依賴 `DECREASE-KEY`**: `RELAX` 操作在更新節點距離時，會直接在 `Q` 中**更新**該節點的優先級。
+- **依賴 `DECREASE-KEY`**: `RELAX` 操作在更新節點距離時，會直接在 `Q` 中**更新**該節點的優先級，這需要特殊的資料結構支援。
 
 ---
 
@@ -55,31 +78,37 @@ DIJKSTRA(G, w, s)
 #include <queue>
 #include <limits>
 
-const int INF = std::numeric_limits<int>::max();
+// 圖的鄰接串列表示法：外層 vector 的索引代表節點，內層 vector 儲存 {鄰居, 權重} 的配對
 using Graph = std::vector<std::vector<std::pair<int, int>>>;
+const int INF = std::numeric_limits<int>::max();
 
 void dijkstra(int start_node, int num_nodes, const Graph& adj) {
     std::vector<int> dist(num_nodes, INF);
+    // 最小優先佇列，儲存 {距離, 節點}，並根據距離排序
     std::priority_queue<std::pair<int, int>,
                         std::vector<std::pair<int, int>>,
                         std::greater<std::pair<int, int>>> pq;
 
-    // 懶惰初始化 (Lazy Initialization): 只放入起點
+    // 1. 初始化：設定起點的距離為 0，並將其推入佇列
     dist[start_node] = 0;
     pq.push({0, start_node});
 
+    // 2. 主迴圈：當佇列中還有待處理的節點時
     while (!pq.empty()) {
-        int [d, u] = pq.top(); pq.pop();
+        // 3. 取出當前已知距離最小的節點
+        auto [d, u] = pq.top(); pq.pop();
 
-        // 關鍵優化：提前剪枝 (處理惰性刪除的後果)
-        if (d > dist[u]) continue; // 一定是大於，若等於的話，第一個 node 就沒辦法處理
+        // 4. 關鍵優化：提前剪枝 (處理惰性刪除的後果)
+        // 如果取出的距離 d 比目前已知的最短距離 dist[u] 還要大，
+        // 代表這是一筆過時的紀錄，直接忽略。
+        if (d > dist[u]) continue;
 
+        // 5. 遍歷鄰居，進行鬆弛操作
         for (const auto& [v, weight] : adj[u]) {
             // 鬆弛操作 (Relaxation)
             if (dist[u] + weight < dist[v]) {
                 dist[v] = dist[u] + weight;
-
-                // 不更新，直接插入新記錄
+                // 不支援 DECREASE-KEY，直接將更新後的 {距離, 節點} 插入佇列
                 pq.push({dist[v], v});
             }
         }
@@ -92,7 +121,7 @@ void dijkstra(int start_node, int num_nodes, const Graph& adj) {
 
 ## 3. 深入探討：理論與實踐的橋樑
 
-### 關鍵差異 1: `DECREASE-KEY` vs. 「惰性刪除」
+### 關鍵差異 1: 更新策略 - `DECREASE-KEY` vs. 「惰性刪除」
 
 | 特性 (Feature) | CLRS 理論版本 (`DECREASE-KEY`)     | C++ `std::priority_queue` 實作 (Lazy Deletion) |
 | :------------- | :--------------------------------- | :--------------------------------------------- |
@@ -101,15 +130,92 @@ void dijkstra(int start_node, int num_nodes, const Graph& adj) {
 | **處理冗餘**   | 無冗餘資料。                       | 依賴「提前剪枝」來**忽略**冗餘資料。           |
 
 **為什麼 C++ 採用「惰性刪除」？**
-因為 `std::priority_queue` API 簡單，不提供 `DECREASE-KEY`。而「惰性刪除」的實作非常直觀，且在保持 `O(E log V)` 時間複雜度的前提下，已經足夠高效。
+因為 `std::priority_queue` 的 API 簡單，不提供 `DECREASE-KEY`。而「惰性刪除」的實作非常直觀，且在保持 `O(E log V)` 時間複雜度的前提下，已經足夠高效。
 
-### 關鍵差異 2: 佇列初始化與 `S` 集合
+### 關鍵差異 2: 集合管理 - `S` 集合 vs. 隱式處理
 
 - **`S = S ∪ {u}` 的作用**:
-  在理論中，`S` 是**已確定最短路徑的節點集合**，是演算法正確性證明的核心。在 C++ 實作中，我們**不需要**明確的 `S` 集合。一個節點 `u` 在**首次**被從優先佇列取出並通過剪枝檢查時，就等同於被加入了 `S`。
+  在理論中，`S` 是**已確定最短路徑的節點集合**，是演算法正確性證明的核心。在 C++ 實作中，我們**不需要**明確的 `S` 集合。一個節點 `u` 在**首次**被從優先佇列取出並通過剪枝檢查時 (`d <= dist[u]`)，就等同於被加入了 `S`。
 
 - **佇列初始化策略**:
   - **CLRS (Eager)**: 一開始將所有節點放入佇列，依賴 `DECREASE-KEY`。
   - **C++ (Lazy)**: 一開始只放起點，後續只放入被鬆弛過的節點。這種方式更高效，因為它避免了處理大量距離仍為無限大的無關節點，特別是在圖不連通或稀疏時。
 
-總結來說，我們在 C++ 中看到的實作，是用**更簡單的資料結構 (`std::priority_queue`)** 和一個**巧妙的剪枝技巧**，來模擬理論上更複雜的 `DECREASE-KEY` 操作，並在實踐中達到了同樣優秀的時間複雜度。
+### 關鍵差異 3: 距離表示 - `v.d` vs. `dist[v]` 與佇列
+
+在 CLRS 的 `RELAX` 操作中，`v.d` 代表演算法當前對 `v` 節點最短路徑的**估計值**。
+
+在 C++ 實作中，這個角色由兩個部分共同承擔：
+
+1. **`dist[v]` 陣列:** 這是 `v.d` 的**主要儲存體**。它記錄了從源點到 `v` 的**當前已知最短距離**。
+2. **優先佇列中的 `d`:** 當我們執行 `pq.push({dist[v], v})` 時，我們是將**當時的 `dist[v]` 值**作為一個副本存入佇列，目的是為了讓優先佇列能根據這個距離進行排序。
+
+因此，當我們從佇列中取出 `auto [d, u] = pq.top()` 時，`d` 是 `u` **在過去某個時間點**的 `dist` 值。這就是為什麼我們需要 `if (d > dist[u])` 這個檢查：如果 `dist[u]` 在 `u` 入隊後又被其他路徑更新過（變得更小），那麼從佇列中取出的這個 `(d, u)` 就是一個過時的、較長的路徑記錄，應當被忽略。
+
+---
+
+## 4. 演算法正確性證明 (Loop Invariant)
+
+Dijkstra 演算法的正確性可以透過其 `while` 迴圈的**迴圈不變性 (Loop Invariant)** 來證明。
+
+> **迴圈不變性：** 在每一次 `while` 迴圈開始時，對於每一個已加入集合 `S` 的頂點 `u`，`dist[u]` 的值等於從源點 `s` 到 `u` 的實際最短路徑權重 `δ(s, u)`。
+
+- **初始化 (Initialization):** 迴圈開始前，`S` 是空集合，不變性自然成立。
+- **維持 (Maintenance):** 我們需要證明，當一個新的頂點 `u` 被加入 `S` 時，`dist[u] = δ(s, u)` 仍然成立。
+  1. 假設 `u` 是第一個被加入 `S` 且 `dist[u] ≠ δ(s, u)` 的頂點。因為 `u` 不是源點 `s` (對於 `s`，`dist[s] = δ(s, s) = 0` 恆成立)，所以 `dist[u]` 必定大於 `δ(s, u)` (因為演算法不會高估路徑)。
+  2. 這意味著存在一條比 `dist[u]` 更短的實際最短路徑 `p` 從 `s` 到 `u`。
+  3. 考慮這條路徑 `p`：`s -> ... -> x -> y -> ... -> u`，其中 `(x, y)` 是第一條跨越邊界，從已在 `S` 中的節點 `x` 連接到不在 `S` 中的節點 `y` 的邊。
+  4. 因為 `x` 在 `u` 之前被加入 `S`，根據迴圈不變性，我們有 `dist[x] = δ(s, x)`。
+  5. 在處理 `x` 時，演算法會對邊 `(x, y)` 進行鬆弛操作，因此 `dist[y] <= dist[x] + w(x, y) = δ(s, x) + w(x, y) = δ(s, y)`。由於 `y` 也在最短路徑 `p` 上，所以 `dist[y]` 實際上等於 `δ(s, y)`。
+  6. 又因為 `y` 在 `u` 之前出現於最短路徑上，且所有邊權重非負，所以 `δ(s, y) <= δ(s, u)`。
+  7. 結合以上，我們得到 `dist[y] = δ(s, y) <= δ(s, u) < dist[u]`。
+  8. 這個結果 `dist[y] < dist[u]` 意味著演算法在選擇 `u` 之前，應該先選擇 `y` 作為距離最小的節點。這與我們「選擇 `u` 加入 `S`」的步驟產生矛盾。
+  9. 因此，最初的假設不成立。當任何頂點 `u` 被加入 `S` 時，`dist[u]` 必定等於其實際最短路徑。
+- **終止 (Termination):** 當迴圈終止時，`Q` 為空，所有可達的頂點都已被加入 `S`。根據迴圈不變性，`dist` 陣列中儲存了所有這些頂點到源點的實際最短路徑。
+
+---
+
+## 5. 時間與空間複雜度分析
+
+此處 `V` 代表頂點數 (vertices)，`E` 代表邊數 (edges)。
+
+### C++ 實作版本 (`std::priority_queue`) 的時間複雜度
+
+- **時間複雜度: `O(E log V)`**
+  1. **優先佇列操作分析**:
+     - C++ 的 `std::priority_queue` 基於二元堆，其 `push` 和 `pop` 操作的時間複雜度為 `O(log K)`，其中 `K` 是佇列中的元素數量。
+     - 在「惰性刪除」實作中，最壞情況下每條邊都可能觸發一次 `push`，因此佇列大小 `K` 最多可達 `O(E)`。
+     - 由於圖中邊數 `E` 的上限為 `O(V^2)`，`log E` 的複雜度上界為 `O(log(V^2))`，即 `O(2 * log V)`，在大 O 表示法中等同於 `O(log V)`。因此，每次優先佇列操作的成本可視為 `O(log V)`。
+  2. **整體演算法分析**:
+     - `while` 迴圈的執行次數取決於 `push` 到佇列的次數，最多為 `E` 次。
+     - 雖然佇列中元素可能很多，但因剪枝機制，每個頂點只會被有效處理一次。
+     - 總成本 = (初始化 `dist` 陣列) + (所有邊的鬆弛與 `push` 操作)
+     - 總成本 = `O(V)` + `O(E * log V)`
+     - 因此，使用二元堆的總時間複雜度為 **`O(V + E log V)`**，在連通圖中通常簡記為 **`O(E log V)`**。
+
+### 理論版本 (CLRS) 的時間複雜度
+
+理論上的分析更關注優先佇列的抽象資料類型，其複雜度取決於具體的堆實現。
+
+- **使用二元堆 (Binary Heap):**
+
+  - `EXTRACT-MIN` 操作需要 `O(log V)`。(總共取 V 次)
+  - `DECREASE-KEY` 操作（若實現）也需要 `O(log V)`。(最多做 E 次)
+  - 總時間複雜度為 `O(V * log V + E * log V)`，即 **`O((V + E) * log V) 或 O(E log V)`**。
+
+- **使用斐波那契堆 (Fibonacci Heap):**
+  - `EXTRACT-MIN` 的攤銷成本是 `O(log V)`。
+  - `DECREASE-KEY` 的攤銷成本僅為 `O(1)`。
+  - 總成本 = (V 次 `EXTRACT-MIN`) + (E 次 `DECREASE-KEY`)
+  - 總時間複雜度為 **`O(V log V + E)`**。
+
+**結論:**
+C++ 的 `std::priority_queue` 實作對應二元堆的分析。理論上更優的斐波那契堆在稠密圖 (`E` 接近 `V^2`) 中表現更好，但因其常數因子較大且實作複雜，在實務中，除非圖極度稠密，否則二元堆的效能已足夠優秀。
+
+### 空間複雜度 (Space Complexity): `O(V + E)`
+
+1. **鄰接串列 `graph`**: 需要 `O(V + E)` 的空間來儲存所有頂點和邊。
+2. **`dist` 陣列**: 需要 `O(V)` 的空間。
+3. **優先佇列 `pq`**: 在 C++ 的「惰性刪除」實作中，最壞情況下佇列可能儲存 `O(E)` 個元素。
+
+綜合起來，總空間複雜度為 `O(V + E)`。
