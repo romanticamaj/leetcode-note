@@ -2,16 +2,16 @@
 
 ## 🔍 BFS 結構對比
 
-| 元素                    | Tree 中的 BFS（Level Order）    | Graph 中的 BFS                       |
-| ----------------------- | ------------------------------- | ------------------------------------ |
-| 起始點                  | 一定是 root                     | 需自行選擇起點（通常為每個未訪節點） |
-| queue 初始內容          | root                            | 任一未 visited 的節點                |
-| while 條件              | `!q.empty()`                    | `!q.empty()`                         |
-| 拿出當前節點            | `q.front(); q.pop();`           | `q.front(); q.pop();`                |
-| 加入鄰接節點條件        | left/right 存在                 | `!visited[i]`                        |
-| visited 處理            | 不一定需要（若為 perfect tree） | 必須使用 visited 陣列                |
-| 結構                    | 嚴格樹狀（無環）                | 可有環，需特別處理 visited           |
-| 層級處理（level order） | 可用 q.size() 控制層級          | 若需算距離也可用 q.size() 控制層級   |
+| 元素                    | Tree 中的 BFS（Level Order） | Graph 中的 BFS                       |
+| ----------------------- | ---------------------------- | ------------------------------------ |
+| 起始點                  | 一定是 root                  | 需自行選擇起點（通常為每個未訪節點） |
+| queue 初始內容          | root                         | 任一未 visited 的節點                |
+| while 條件              | `!q.empty()`                 | `!q.empty()`                         |
+| 拿出當前節點            | `q.front(); q.pop();`        | `q.front(); q.pop();`                |
+| 加入鄰接節點條件        | left/right 存在              | `!visited[i]`                        |
+| visited 處理            | 通常不需要                   | 必須使用 visited 陣列                |
+| 結構                    | 嚴格樹狀（無環）             | 可有環，需特別處理 visited           |
+| 層級處理（level order） | 可用 q.size() 控制層級       | 若需算距離也可用 q.size() 控制層級   |
 
 ## 🧪 延伸說明：為何建議「加入 queue 時就標記 visited」
 
