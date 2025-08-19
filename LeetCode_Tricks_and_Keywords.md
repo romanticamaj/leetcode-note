@@ -19,5 +19,12 @@
 - iterative cycle detection + visited count(for forest)
 - iterative unconditionally visited + edge count + visited count(for forest)
 
-- 1059. All Paths from Source Lead to Destination
-  - node-coloring variant for cycle detection
+## 1059. All Paths from Source Lead to Destination
+
+- node-coloring variant for cycle detection
+
+## 1089. Duplicate Zeros
+
+- two pointers to find new end
+- edge case: last one not duplicate (handle at two pointer stage)
+- backward fill
