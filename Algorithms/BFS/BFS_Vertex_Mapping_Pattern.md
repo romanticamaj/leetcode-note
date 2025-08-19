@@ -82,3 +82,57 @@ pair<int, int> to_coords_compact(int label, int n) {
 4. 要檢查是否有蛇或梯子，你使用映射函數：`coords = to_coords(next_label, n);`，然後檢查 `board[coords.first][coords.second]`。
 
 這種方法清晰地將「我在棋盤上的哪個位置」的邏輯與「我如何到達那裡」的圖遍歷邏輯分開。
+
+---
+
+## 5. 延伸模式：處理隱含邊與傳送 (Extended Pattern: Handling Implicit Edges & Teleportation)
+
+頂點映射模式為我們提供了一套處理複雜座標的強大工具。然而，有時圖的複雜性不僅在於節點的佈局，還在於**邊的規則**。除了標準的相鄰移動外，圖中可能存在特殊的「傳送邊」，例如「蛇與梯子」遊戲中的捷徑或陷阱。
+
+這種「落地即跳轉」的行為，可以視為頂點映射模式的一種自然延伸。核心思想是在 BFS 遍歷中，將這種跳轉模型化為一條**重定向的邊 (redirected edge)**。
+
+### 核心策略：目的地重定向 (Destination Redirection)
+
+關鍵在於**在將任何移動推入佇列並標記為已訪問之前，確定其真正的最終目的地 (final landing spot)**。
+
+1. **計算初始目的地標籤 (Calculate Initial Destination Label)**: 根據標準規則確定下一個節點的標籤（例如：`next_label = current_label + dice_roll`）。
+2. **檢查傳送規則 (Check for Teleport Rule)**: 查詢 `next_label` 是否有關聯的傳送規則。這通常需要一個額外的資料結構（如 `map` 或 `vector`）來儲存這些規則。
+3. **確定最終目的地 (Determine Final Destination)**:
+   - 如果 `board[next_label]` 有一個傳送值（例如，不等於 -1），則 `final_destination` 是 `board[next_label]`。
+   - 否則，`final_destination` 就是 `next_label`。
+4. **處理最終目的地 (Process Final Destination)**: BFS 的佇列、`visited` 集合和距離計算，都應該對這個 `final_destination` 進行操作，而不是中間的 `next_label`。
+
+### C++ 實作範例
+
+這段邏輯通常放在 BFS 的鄰居探索迴圈內部，緊跟在計算出 `next_label` 之後。
+
+```cpp
+// 假設 'board' 是一個扁平化的一維陣列，代表蛇與梯子
+// board[i] = -1 表示沒有蛇或梯子，否則其值為目的地標籤。
+
+queue<int> q;
+vector<bool> visited;
+// ... BFS 設定 ...
+
+int current_label = q.front();
+q.pop();
+
+for (int i = 1; i <= 6; ++i) { // 模擬一個六面骰
+    int next_label = current_label + i;
+    if (next_label > n * n) break;
+
+    // --- 傳送邏輯 (Teleportation Logic) ---
+    // 在處理前，先確定最終落點
+    int final_destination = (board[next_label] != -1) ? board[next_label] : next_label;
+    // ------------------------------------
+
+    if (!visited[final_destination]) {
+        visited[final_destination] = true;
+        q.push(final_destination);
+    }
+}
+```
+
+### 整合觀點
+
+「傳送模式」完美地展示了「頂點映射」的威力。我們首先使用映射函數將複雜的二維座標簡化為一維的 `label`，然後在處理這些 `label` 時，再應用「目的地重定向」邏輯來處理圖中隱含的特殊邊。這使得整個程式碼結構保持高度的模組化和清晰度。
