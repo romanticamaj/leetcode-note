@@ -22,3 +22,9 @@
 **Advanced:**
 
 - State Compression
+
+---
+
+## Sliding Window
+
+**Mantra:** 擴張、修復、更新
