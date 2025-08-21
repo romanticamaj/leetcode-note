@@ -28,3 +28,7 @@
 - two pointers to find new end
 - edge case: last one not duplicate (handle at two pointer stage)
 - backward fill
+
+## 1168. Optimize Water Distribution in a Village
+
+- super source + MST
