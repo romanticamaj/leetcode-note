@@ -29,3 +29,4 @@
 - [ ] LeetCode 1631. Path With Minimum Effort
   - [ ] Union Find - Disjoint Set
 - [ ] LeetCode 1089. Duplicate Zeros
+- [ ] LeetCode 1770. Maximum Score from Performing Multiplication Operations

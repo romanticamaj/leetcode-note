@@ -12,6 +12,26 @@
 - 特別適用於需要頻繁檢查元素存在性、查找配對元素或統計頻率的問題
 - 詳細信息請參見 [Hash Tables 文檔](../../Data_Structures/Hash_Tables/README.md)
 
+## Two Pointers on Sorted Arrays
+
+當數組已排序時，Two Pointers 是一種非常高效的技巧，通常用於查找滿足特定條件的元素對或三元組。
+
+### 核心思想
+
+- **初始化**：在已排序的數組上，一個指針（`left`）從頭開始，另一個指針（`right`）從尾部開始。
+- **移動策略**：
+  - 根據 `nums[left]` 和 `nums[right]` 的和與目標值的比較，決定如何移動指針。
+  - 如果和太小，移動 `left` 指針向右（`left++`）以增加總和。
+  - 如果和太大，移動 `right` 指針向左（`right--`）以減小總和。
+  - 如果和等於目標值，則找到一對解。根據問題要求，可能需要繼續尋找其他解（並跳過重複項）。
+- **終止條件**：當 `left` 指針與 `right` 指針相遇或交錯時（`left >= right`），搜索結束。
+
+### 適用場景
+
+- **Two Sum II - Input array is sorted (LeetCode 167)**：經典的 Two Pointers 應用。
+- **3Sum (LeetCode 15)**：固定一個元素，然後在剩餘的已排序子數組上使用 Two Pointers。
+- **Container With Most Water (LeetCode 11)**：雖然數組不一定預先排序，但其解決方案也利用了從兩端向中間收縮的 Two Pointers 思想。
+
 ## Subarray vs Subsequence
 
 ### 關鍵差異

@@ -32,3 +32,8 @@
 ## 1168. Optimize Water Distribution in a Village
 
 - super source + MST
+
+## 15. 3Sum
+
+- Sort + Two Pointers (Two Sum variant)
+- Fix k, search [k+1, n-1], skip duplicates
