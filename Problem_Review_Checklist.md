@@ -30,3 +30,4 @@
   - [ ] Union Find - Disjoint Set
 - [ ] LeetCode 1089. Duplicate Zeros
 - [ ] LeetCode 1770. Maximum Score from Performing Multiplication Operations
+- [ ] LeetCode 15. 3Sum
