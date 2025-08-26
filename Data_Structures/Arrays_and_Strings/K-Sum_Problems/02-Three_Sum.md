@@ -1,77 +1,50 @@
 # 2. Three Sum (三數之和)
 
-3Sum 問題是 2Sum 問題的延伸，要求在一個數組中找出所有總和為零且不重複的三元組 (triplets)，這使其在算法設計上增加了額外的複雜度。
+## 1. 問題定義
 
-## 可達最佳運行時間 (BCR) 分析
-
-在設計算法前，評估其理論上的最佳運行時間 (Best Conceivable Runtime, BCR) 是重要的第一步。
-
-- **Two Sum (未排序)**: 使用雜湊表可在 O(n) 時間內找到解。
-- **Two Sum II (已排序)**: 使用雙指針法同樣可在 O(n) 時間內完成。若對未排序數組先進行排序，總體時間複雜度為 O(n log n)。
-
-鑑於 3Sum 問題比 2Sum 多了一個維度（需要尋找第三個數），一個直觀的推論是，在 O(n²) 的時間複雜度內求解是合理且高效的目標。
+`Three Sum` 是 `Two Sum` 問題的延伸，要求在一個整數數組中，找出所有總和為零 (`a + b + c = 0`) 且不重複的三元組 (triplets)。
 
 ---
 
-## 經典 O(n²) 算法理論
+## 2. 從暴力法到 O(n²)
 
-### 基於雜湊表的平均情況 O(n²) 解法
+一個直觀的暴力解法是使用三層迴圈，遍歷所有可能的三元組組合，時間複雜度為 O(n³)，這在大部分情況下是無法接受的。
 
-在整數計算模型中，一種平均情況下為 O(n²) 的解法是：
+為了優化，我們可以將其降維。如果我們先固定一個元素 `a`，問題就變成在剩餘的數組中尋找一對和為 `-a` 的元素 (2-Sum 問題)。這可以將時間複雜度降至 O(n²)。
 
-1. 將數組中的每個數字 `S[i]` 插入一個雜湊表。
-2. 對於每對索引 `(i, j)`，檢查雜湊表中是否存在補數 `-(S[i] + S[j])`。
+### 理論上的 O(n²) 解法
 
-### 基於排序與雙指針的最壞情況 O(n²) 解法
-
-在不允許使用雜湊的計算模型中（如純比較模型），可以透過以下算法達到最壞情況 O(n²) 的時間複雜度。此方法避免了對每對組合進行二分搜索的需要。(因為要使用雙指針，所以必須先排序)
-
-**偽代碼：**
-
-> **注意**: 以下偽代碼假設輸入數組中的元素是唯一的。
-
-```
-sort(S);
-for i from 0 to n - 2 do
-    a = S[i];
-    start = i + 1;
-    end = n - 1;
-    while (start < end) do
-        b = S[start];
-        c = S[end];
-        if (a + b + c == 0) then
-            output a, b, c;
-            // 找到一組解後，繼續尋找其他可能的組合
-            start = start + 1;
-            end = end - 1;
-        else if (a + b + c > 0) then
-            // 和太大，需減小總和
-            end = end - 1;
-        else
-            // 和太小，需增大總和
-            start = start + 1;
-        end
-    end
-end
-```
+- **基於雜湊表**: 遍歷每對 `(S[i], S[j])`，然後在 O(1) 時間內查找補數 `-(S[i] + S[j])` 是否存在於預先填充的雜湊表中。
+- **基於排序與雙指針**: 先對數組排序 (O(n log n))。然後，固定一個元素 `a`，在剩餘的排序子數組上使用雙指針，可在 O(n) 時間內找到配對。總體為 O(n²)。
 
 ---
 
-## LeetCode 實戰策略與 C++ 解決方案
+## 3. LeetCode 實戰：處理重複項
 
-在 LeetCode 的實戰中，我們需要處理輸入數組包含重複數字，且輸出結果不能包含重複三元組的邊界情況。
+經典的理論解法通常假設元素唯一。然而，LeetCode 的核心挑戰在於：
 
-### 解法一: 排序 + 雙指針 (Sort + Two Pointers)
+1. 輸入數組可能包含**重複數字**。
+2. 輸出結果不能包含**重複三元組**。
 
-這是最經典且高效的解法，空間複雜度最優。
+為此，我們需要一個更穩健的策略。
 
-#### 核心策略
+### 通用策略：排序 + 降維打擊 + 去重
 
-1. **排序 (Sort)**：對數組進行排序是所有後續操作的基礎，時間複雜度為 O(n log n)。
-2. **固定一點 + 雙指針 (Fix one element + Two Pointers)**：遍歷數組，每次固定一個元素 `nums[k]`，然後在剩餘的 `[k+1, n-1]` 區間內使用雙指針法尋找和為 `-nums[k]` 的兩個元素。
-3. **去重 (Duplicate Prevention)**：在固定 `k` 以及移動 `left`/`right` 指針時，必須跳過所有重複的元素，以確保最終結果的唯一性。
+1. **排序 (Sort)**：對整個數組進行排序是解決去重問題的基礎。
+2. **降維 (Reduce to 2-Sum)**：遍歷排序後的數組，每次固定一個元素 `nums[k]`。
+3. **高效去重 (Duplicate Prevention)**：在遍歷 `k` 和解決 2-Sum 子問題時，跳過所有重複的元素。
 
-#### C++ 解決方案 (雙指針)
+---
+
+## 4. 實作方法：2-Sum 子問題的兩種解法
+
+基於上述通用策略，核心差異在於如何解決降維後的 2-Sum 子問題。
+
+### 解法一: 排序 + 雙指針 (最優空間解)
+
+此為最經典的解法，它將 2-Sum 部分也用雙指針實現，達到了最優的空間複雜度。
+
+#### C++ 實現
 
 ```cpp
 class Solution {
@@ -79,9 +52,9 @@ public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>> ans;
         const int n = nums.size();
-        if (n < 3) return ans; // 長度不足，不可能有三元組
+        if (n < 3) return ans;
 
-        // 1. 排序是雙指針法的基礎
+        // 1. 排序是雙指針法的基礎，同時可以去重複
         std::sort(begin(nums), end(nums));
 
         // 2. 固定一個點 k，然後使用雙指針
@@ -98,15 +71,14 @@ public:
                 const int sum = nums[k] + nums[left] + nums[right];
 
                 if (sum == 0) {
-                    ans.push_back({nums[k], nums[left++], nums[right--]});
-
+                    ans.push_back({nums[k], nums[left--], nums[right++]});
                     // 3. 找到解後，對左右指針進行去重
                     while (left < right && nums[left] == nums[left - 1]) left++;
                     while (left < right && nums[right] == nums[right + 1]) right--;
                 } else if (sum < 0) {
-                    left++;
+                    left++; // 和太小，左指針右移
                 } else {
-                    right--;
+                    right--; // 和太大，右指針左移
                 }
             }
         }
@@ -115,73 +87,55 @@ public:
 };
 ```
 
-### 解法二: 排序 + 滾動雜湊表 (Sort + Rolling Hash Map)
+#### 複雜度分析
 
-此方法同樣利用排序來處理重複問題，但在尋找 `twoSum` 的部分改用雜湊表。
+- **時間複雜度**: O(n log n) + O(n²) = **O(n²)**
+- **空間複雜度**: **O(log n)** 或 O(n)，取決於排序算法的實現。
 
-#### 核心策略
+---
 
-1. **排序 (Sort)**: 同樣先對數組排序，以便於去重。
-2. **固定一點 + 滾動雜湊表 (Fix one element + Rolling Hash Map)**: 遍歷數組固定 `nums[k]`，然後在 `[k+1, n-1]` 的範圍內，使用滾動雜湊表的方法尋找 `twoSum` 的解。
-3. **去重 (Duplicate Prevention)**:
-   - 外層循環透過 `if (k > 0 && nums[k] == nums[k - 1])` 來跳過重複的 `k`。
-   - 內層循環在找到一個解後，需要手動跳過所有與 `nums[i]` 相等的後續元素，以避免因 `nums[i]` 重複而產生重複的三元組。
+### 解法二: 排序 + 滾動雜湊表
 
-#### C++ 解決方案 (滾動雜湊表)
+此方法同樣利用排序來處理重複問題，但在 2-Sum 部分改用雜湊表，以空間換取可能的查找效率。
+
+#### C++ 實現
 
 ```cpp
 class Solution {
     vector<vector<int>> ans;
-
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         const int n = nums.size();
         if (n < 3) return ans;
 
-        std::sort(begin(nums), end(nums)); // 仍必須排序，確保 search space 可以達成無重覆
+        std::sort(begin(nums), end(nums));
 
         for (int k = 0; k < n - 2; k++) {
-            if (nums[k] > 0) break; // 優化：提前終止
-            if (k > 0 && nums[k] == nums[k - 1]) continue; // 去重
+            if (nums[k] > 0) break;
+            if (k > 0 && nums[k] == nums[k - 1]) continue;
 
             twoSumHashMap(nums, k);
         }
-
         return ans;
     }
-
+private:
     void twoSumHashMap(const vector<int>& nums, const int k) {
         const int n = nums.size();
         unordered_set<int> hashMap;
 
-        int i = k + 1;
-
-        while (i < n) {
-            const int target = -nums[k] - nums[i];
-
-            if (hashMap.contains(target)) {
-                ans.push_back({nums[k], nums[i], target});
-
-                // 關鍵：找到一個解後，必須跳過所有與當前 nums[i] 相等的後續元素
+        for (int i = k + 1; i < n; ++i) {
+            const int complement = -nums[k] - nums[i];
+            if (hashMap.count(complement)) {
+                ans.push_back({nums[k], complement, nums[i]});
                 while (i + 1 < n && nums[i + 1] == nums[i]) i++;
             }
-
-            // 滾動雜湊表：將當前元素加入 set
-            hashMap.insert(nums[i++]);
+            hashMap.insert(nums[i]);
         }
     }
 };
 ```
 
-#### 算法思路總結
+#### 複雜度分析
 
-```
-// Leetcode 提示:
-// Two-Sum 的第二種思路是，在不改變數組的情況下，
-// 我們能否使用額外的空間？例如使用雜湊表來加速查找？
-
-// 算法流程 (排序 + 雜湊表):
-// 1. 排序 -> 排序是為了方便消除重複項。
-// 2. 邊建構邊查找 -> 對於每個固定的 <nums[k], k>，
-//    在搜索空間 [k + 1, n - 1] 中查找補數 -nums[k] - nums[i]。
-```
+- **時間複雜度**: O(n log n) + O(n²) = **O(n²)**
+- **空間複雜度**: O(log n) + O(n) = **O(n)**，`HashSet` 在內層循環最壞情況下需要 O(n) 空間。
