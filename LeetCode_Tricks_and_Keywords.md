@@ -37,3 +37,8 @@
 
 - Sort + Two Pointers (Two Sum variant)
 - Fix k, search [k+1, n-1], skip duplicates
+
+## 310. Minimum Height Trees
+
+- Centroids (at most two)
+- Kahn's algorithm on leaf nodes (indegree 1)
