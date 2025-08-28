@@ -31,15 +31,19 @@
   - **Fibonacci / Climbing Stairs:** `dp[i] = dp[i-1] + dp[i-2]`
   - **House Robber:** `dp[i] = max(dp[i-1], dp[i-2] + nums[i])`
 
-#### 模式二：全歷史依賴 (Full History Dependency)
+#### 模式二：動態範圍依賴 (Dynamic Range Dependency) / 全歷史依賴
 
-在這種模式下，`dp[i]` 的計算需要回顧所有 `j < i` 的前置狀態。
+與固定依賴不同，此模式的遞迴關係是**動態的**。`dp[i]` 的計算不再是從固定的幾個選項中選擇，而是需要**迭代一個變動範圍內的所有可能選項**，從中找出最優解。這也常被稱為「全歷史依賴」，因為選擇範圍可能涵蓋所有 `j < i` 的狀態。
 
-- **特徵：** 狀態轉移需要一個內層迴圈來遍歷所有 `j < i` 的 `dp[j]`。
-- **轉移邏輯：**
-  `dp[i]` 的計算通常遵循一個「先建立自身，再尋求擴展」的兩階段過程。
-  1. **設定初始解：** `dp[i]` 有一個不依賴任何先前狀態的初始解。
-  2. **遍歷歷史以尋求更優解：** 透過內層迴圈遍歷所有 `j < i` 的狀態，檢查是否存在從 `dp[j]` 到 `dp[i]` 的合法轉移，並據此更新 `dp[i]`。
+- **核心思想：** 遞迴關係本身包含一個迭代過程 (Iteration in the recurrence relation)。
+- **特徵：** 狀態轉移方程通常寫成 `dp[i] = min/max(f(dp[j]))` for `j` in a specific range, e.g., `i-k <= j < i`。
+- **適用場景：** 問題的決策依賴於一個可變長度的歷史區間。
+- **範例：**
+  - **Climbing Stairs (k steps):** 如果一次可以爬 `1` 到 `k` 階，則 `dp[i] = sum(dp[j])` for `i-k <= j < i` (計數問題)。
+  - **Min Cost Climbing Stairs (k steps):** `dp[i] = min(dp[j] + cost[j])` for `i-k <= j < i` (最優化問題)。
+  - **Longest Increasing Subsequence:** `dp[i] = 1 + max(dp[j])` for all `j < i` where `nums[j] < nums[i]`。
+
+這種模式在 Bottom-Up 實現中，自然地會形成一個**巢狀迴圈**，外層迴圈計算 `dp[i]`，內層迴圈則實現遞迴關係中的迭代，以遍歷所有可能的決策選項。
 
 ---
 
@@ -71,7 +75,7 @@ for (int i = 2; i < n; ++i) {
 return dp[n-1];
 ```
 
-### 實現模式二：全歷史依賴
+### 實現模式二：動態範圍依賴 (全歷史依賴)
 
 ```cpp
 // 泛化模板
@@ -85,13 +89,3 @@ for (int i = 0; i < n; ++i) {
 }
 return final_result(dp);
 ```
-
----
-
-## 總結
-
-> **直觀解法的精髓在於：**
->
-> 1. **定義最優子結構** (包含狀態定義與轉移關係)。
-> 2. **識別狀態轉移的依賴模式** (固定窗口 vs. 全歷史)。
-> 3. **確定基礎案例，並選擇對應的迭代模式實現。**
