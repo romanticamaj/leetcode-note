@@ -31,3 +31,5 @@
 - [ ] LeetCode 1089. Duplicate Zeros
 - [ ] LeetCode 1770. Maximum Score from Performing Multiplication Operations
 - [ ] LeetCode 15. 3Sum
+- [ ] LeetCode 1335. Minimum Difficulty of a Job Schedule
+  - [ ] Monotonic Stack
