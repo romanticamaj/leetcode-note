@@ -115,7 +115,7 @@
 
 > **狀態壓縮註記：**
 > 回溯法為避免「組合」問題的解重複，常需 `index` 狀態來管理人為的搜索順序。然而，DP 的「最優值」問題（如求極值）通常不關心達成目標的具體路徑（是何種「排列」），因此可拋棄 `index` 維度。
-> 這正是狀態壓縮的契機，能大幅簡化設計。詳見 [`DP_State_Design_from_Solution_Properties.md`](Algorithms/Dynamic_Programming/DP_State_Design_from_Solution_Properties.md)。
+> 這正是狀態壓縮的契機，能大幅簡化設計。詳見 [`State_Reduction.md`](./State_Reduction.md)。
 
 ### (2) 遞迴關係式的設計 (Designing the Recurrence Relation)
 
