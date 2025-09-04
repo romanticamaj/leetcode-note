@@ -132,3 +132,9 @@ Kahn 演算法中 `while` 迴圈的 **Loop Invariant (迴圈不變性)** 是確�
   - `indegree` 陣列需要 `O(V)` 的空間。
   - 佇列 `q` 在最壞情況下（例如，一個星形圖的中心指向所有其他節點）可能需要儲存 `O(V)` 個頂點。
   - 綜合起來，總空間複雜度為 `O(V + E)`。
+
+---
+
+## 演算法變體與應用
+
+Kahn 演算法可以擴展來解決其他問題，例如在類樹圖中尋找重心。更多細節請參閱 [`04-Kahn_Algorithm_Variants.md`](./04-Kahn_Algorithm_Variants.md)。

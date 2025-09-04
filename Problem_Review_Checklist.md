@@ -33,3 +33,7 @@
 - [ ] LeetCode 15. 3Sum
 - [ ] LeetCode 1335. Minimum Difficulty of a Job Schedule
   - [ ] Monotonic Stack
+- [ ] LeetCode 53. Maximum Subarray
+  - [ ] Divide and Conquer
+- [ ] LeetCode 918. Maximum Sum Circular Subarray
+  - [ ] Max & Min, Space O(1)

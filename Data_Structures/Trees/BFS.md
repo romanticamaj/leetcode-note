@@ -39,8 +39,8 @@ void bfs(TreeNode* root) {
         cout << node->val << " ";
         
         // 將子節點加入隊列
-        if (node->left) q.push(node->left);
-        if (node->right) q.push(node->right);
+        if (node->left) q.push(node->left); // Pruning-before-Push
+        if (node->right) q.push(node->right); // Pruning-before-Push
     }
 }
 ```
@@ -68,8 +68,8 @@ vector<vector<int>> levelOrder(TreeNode* root) {
             // 處理當前節點
             // ...
             
-            if (node->left) q.push(node->left);
-            if (node->right) q.push(node->right);
+            if (node->left) q.push(node->left); // Pruning-before-Push
+            if (node->right) q.push(node->right); // Pruning-before-Push
         }
     }
     
