@@ -50,3 +50,7 @@
 ## ⚙️ 其他
 
 - [ ] **比較**: 在貪婪演算法的脈絡下，深入比較 Bucket Sort 與傳統比較排序 (如 `std::sort`) 和堆 (Heap) 的使用時機與複雜度。
+
+- [ ] **研究 (Bucket Sort)**:
+  - 如何根據資料分佈選擇最佳的 bucket 數量？
+  - 如何高效地建構 bucket 列表？例如 `vector<vector<int>> bucket(k);` 的適用時機與限制。
