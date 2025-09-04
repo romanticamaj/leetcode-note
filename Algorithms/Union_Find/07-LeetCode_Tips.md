@@ -26,7 +26,30 @@ Union-Find 最適合處理的節點是已經被編號為 `0` 到 `n-1` 的整數
    - 這種寫法在邏輯上更清晰，適用於需要根據「是否已連通」來做不同決策的場景（例如判斷環）。
 
 2. **無條件合併 (Unconditional Union)**:
+
    - `disjointSet.unionSet(x, y);`
    - 這種寫法更簡潔，因為 `union` 函式內部已經包含了 `find` 和 `rootX != rootY` 的檢查。適用於只關心最終連通狀態，而不在乎合併過程的場景。
+
+3. **帶有回傳值的合併 (Union with Return Value)**:
+
+   - 這是一種更強大、更推薦的實作模式。讓 `unionSet` 函式回傳一個布林值，表示這次操作是否**真正**發生了合併。
+   - **實作**:
+
+   ```cpp
+      bool unionSet(int x, int y) {
+         int rootX = find(x);
+         int rootY = find(y);
+         if (rootX != rootY) {
+               // ... 合併邏輯 ...
+               return true; // 真正發生了合併
+         }
+         return false; // 原本就已連通
+      }
+   ```
+
+- **優點**: 呼叫端可以根據回傳值來執行相應操作，讓程式碼更優雅。
+  - **計算連通分量**: `if (disjointSet.unionSet(x, y)) { count--; }`
+  - **判斷環**: `if (!disjointSet.unionSet(x, y)) { return true; } // 發現環`
+  - **提早返回**: 在某些問題中（如 Kruskal 演算法），一旦所有節點都已連通（`count == 1`），就可以提早結束迴圈。
 
 總之，如果題目給的是一個邊列表，又要判斷圖的連通性相關屬性（如環、連通分量數），Union-Find 是一個非常強大的工具。
