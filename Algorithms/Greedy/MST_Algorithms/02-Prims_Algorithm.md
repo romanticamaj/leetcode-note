@@ -30,60 +30,60 @@ Prim 演算法採用**以點為中心 (Vertex-centric)** 的貪婪策略來建�
 
 ---
 
-## 3. C++ 實作 (LeetCode 1584. Min Cost to Connect All Points)
+## 3. 通用 C++ 實作
 
-這個範例展示了 Prim 演算法如何從一個起始點（節點 0）開始，逐步擴張 MST。
+這個範例展示了一個通用的 Prim 演算法實作，它接受一個以鄰接串列表示的圖，並回傳最小生成樹的總成本。
 
 ```cpp
-class Solution {
-    using PriorityQueue = priority_queue<pair<int, int>, vector<pair<int, int>>, std::greater<pair<int, int>>>;
+class PrimMST {
+    using Edge = pair<int, int>; // {weight, destination_vertex}
+    using PriorityQueue = priority_queue<Edge, vector<Edge>, greater<Edge>>;
 
 public:
-    int minCostConnectPoints(vector<vector<int>>& points) {
-        const int n = points.size();
+    int minCost(int n, const vector<vector<int>>& edges) {
+        // 1. 根據邊列表建構鄰接串列圖
+        vector<vector<Edge>> graph(n);
+        for (const auto& edge : edges) {
+            int u = edge[0], v = edge[1], weight = edge[2];
+            graph[u].push_back({weight, v});
+            graph[v].push_back({weight, u});
+        }
 
-        // 1. 建構 visited 陣列，代表 Decided Set
+        // 2. 建構 visited 陣列 (Decided Set) 和 min-heap
         vector<bool> visited(n, false);
-        // 2. 建構全域 min-heap，存放候選邊 {weight, destination_vertex}
         PriorityQueue q;
 
-        // 選擇節點 0 作為起點
+        // 3. 選擇節點 0 作為起點
         visited[0] = true;
-        pushEdges(points, visited, q, 0);
+        for (const auto& edge : graph[0]) {
+            // edge: {weight, neighbor_node}
+            q.push(edge);
+        }
 
-        int decidedCount = 1;
+        int edgesUsed = 0;
         int minCost = 0;
 
-        // 3. 貪婪策略：持續選取 Undecided Set 中的最小邊
-        while (decidedCount < n) {
+        // 4. 貪婪策略：持續選取最輕的邊，直到連接 n-1 條邊
+        while (!q.empty() && edgesUsed < n - 1) {
             // 從 heap 中取得連接 Decided Set 與 Undecided Set 的最輕邊
-            const auto [weight, j] = q.top(); q.pop();
+            auto [weight, u] = q.top(); q.pop();
 
-            // 如果節點 j 已經在 Decided Set 中，跳過 (這是舊的、較長的邊)
-            if (visited[j]) continue;
+            // 如果節點 u 已經在 Decided Set 中，跳過 (這是舊的、較長的邊)
+            if (visited[u]) continue;
 
-            // 選擇此邊與節點 j
+            // 選擇此邊與節點 u
             minCost += weight;
-            decidedCount++;
+            edgesUsed++;
+            visited[u] = true;
 
-            // 4. 將新節點 j 納入 Decided Set，並擴張其邊界
-            visited[j] = true;
-            pushEdges(points, visited, q, j);
+            // 5. 將新節點 u 的所有對外邊加入 min-heap
+            for (const auto& edge : graph[u]) {
+                if (!visited[edge.second]) q.push(edge);
+            }
         }
 
-        return minCost;
-    }
-
-private:
-    // 將從 source 連接到所有 Undecided Set 中節點的邊加入 min-heap
-    void pushEdges(const vector<vector<int>>& points, const vector<bool>& visited, PriorityQueue& q, const int source) {
-        for (int i = 0; i < points.size(); i++) {
-            // 只考慮連接到 Undecided Set 的邊
-            if (visited[i]) continue;
-
-            const int weight = abs(points[source][0] - points[i][0]) + abs(points[source][1] - points[i][1]);
-            q.push({weight, i});
-        }
+        // 如果最終使用的邊少於 n-1，表示圖不連通
+        return edgesUsed == n - 1 ? minCost : -1;
     }
 };
 ```
@@ -97,6 +97,7 @@ private:
 ### 時間複雜度
 
 - **總體**: `O(E log E)` 或 `O(E log V)`
+
   - 最差情況 Pop E 條邊，每次 O(log E)
 
 - **精確分析**:
