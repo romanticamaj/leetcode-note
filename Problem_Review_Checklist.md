@@ -37,3 +37,7 @@
   - [ ] Divide and Conquer
 - [ ] LeetCode 918. Maximum Sum Circular Subarray
   - [ ] Max & Min, Space O(1)
+- [ ] LeetCode 718. Maximum Length of Repeated Subarray
+- [ ] LeetCode 790. Domino and Tromino Tiling
+- [ ] LeetCode 1473. Paint House III
+  - [ ] 3D Dynamic Programming
