@@ -42,3 +42,10 @@
 
 - Centroids (at most two)
 - Kahn's algorithm on leaf nodes (indegree 1)
+
+## 31. Next Permutation
+
+- Find first `less than pair` from the end
+- Reverse sorted at the end
+- Find the next big from the reverse sorted from the end
+- Reverse the reverse sorted
