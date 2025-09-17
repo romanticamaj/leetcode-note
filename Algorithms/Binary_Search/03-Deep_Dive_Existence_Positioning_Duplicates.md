@@ -23,7 +23,7 @@
 - **循環條件:** `while (left <= right)`
 - **核心邏輯:** 只要搜索區間有效（`left` 不大於 `right`），循環便持續進行。
 - **區間收縮:** `right = mid - 1` 與 `left = mid + 1`
-  - **原因:** 當 `nums[mid]` 不等於 `target` 時，`mid` 這個索引**絕對不可能是答案**。因此，我們可以安全地將其從搜索區間中徹底排除，保證循環必定會終止。
+  - **原因:** 當 `nums[mid]` 不等於 `target` 時，`mid` 這個索引**絕對不可能是答案**。因此，我們可以安全地將其從搜索區間中徹底排除(-1 或 +1 離開 `mid`)，保證循環必定會終止。
 
 ### 程式碼分析
 
@@ -114,7 +114,7 @@ int upper_bound_search(const vector<int>& nums, int target) {
 
 #### 步驟一：使用 `lower_bound` 尋找起始位置
 
-`lower_bound` 返回第一個 `>= target` 的位置。找到後，我們必須進行一次**關鍵檢查**來確認 `target` 是否真的存在。
+`lower_bound` 返回**第一個** `>= target` 的位置。找到後，我們必須進行一次**關鍵檢查**來確認 `target` 是否真的存在。
 
 ```cpp
 // 執行 lower_bound 後，得到 left...
@@ -134,7 +134,7 @@ return left;
 
 `upper_bound` 返回第一個 `> target` 的位置。這個結果有多種用途：
 
-- **用途 A：尋找 `target` 的最後一個出現位置**
+- 用途 A：尋找 `target` 的**最後一個**出現位置
 
   ```cpp
   // 執行 upper_bound 後，得到 left...
@@ -151,7 +151,7 @@ return left;
   return last_pos;
   ```
 
-- **用途 B：尋找 `> target` 的第一個元素位置**
+- 用途 B：尋找 `> target` 的**第一個**元素位置
 
   ```cpp
   // 執行 upper_bound 後，得到 left...

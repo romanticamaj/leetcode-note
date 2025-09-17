@@ -49,3 +49,8 @@
 - Reverse sorted at the end
 - Find the next big from the reverse sorted from the end
 - Reverse the reverse sorted
+
+## 222. Count Complete Tree Nodes
+
+- Use the property of complete tree -> depth (0, 1, ...)
+- Binary search and pivot/mid of binary search as direction indicator

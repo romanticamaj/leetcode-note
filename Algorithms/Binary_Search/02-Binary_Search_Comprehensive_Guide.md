@@ -51,8 +51,12 @@
 ### ⚙️ 程式碼邏輯
 
 ```cpp
+int left = 0;
+int right = arr.size() - 1;
+
 while (left <= right) {
-    int mid = left + (right - left) / 2;
+    const int mid = left + (right - left) / 2;
+
     if (arr[mid] == target) {
         return mid; // 找到，直接返回
     } else if (arr[mid] > target) {
@@ -61,6 +65,7 @@ while (left <= right) {
         left = mid + 1; // 往右半部找
     }
 }
+
 // 沒找到，left 是插入點
 return left;
 ```
@@ -68,7 +73,7 @@ return left;
 ### 🏁 最終狀態
 
 - **退出時**: `left > right`，搜尋區間為空。
-- **區間示意**: `[... right] [left ...]`
+- **區間示意**: `[...所有小於 target 元素... right] [left ...所有大於 target 元素...]`
 - **`left` 的意義**: 如果找不到 `target`，`left` 的位置是第一個大於 `target` 的元素索引，也就是 `target` 的插入點。
 
 ---
@@ -92,12 +97,17 @@ return left;
 ### ⚙️ 程式碼邏輯
 
 ```cpp
+int left = 0;
+int right = arr.size(); // possible position
+
+// loop invariant: left is
 while (left < right) {
-    int mid = left + (right - left) / 2;
+    const int mid = left + (right - left) / 2;
+
     if (arr[mid] >= target) {
         right = mid; // mid 可能是答案，試著往左邊找更好的
     } else {
-        left = mid + 1; // mid 太小，一定不是答案，往右找
+        left = mid + 1; // mid 太小，一定不是答案，往右找；同時排除 `mid`
     }
 }
 return left;
@@ -129,12 +139,16 @@ return left;
 ### ⚙️ 程式碼邏輯
 
 ```cpp
+int left = 0;
+int right = arr.size();
+
 while (left < right) {
-    int mid = left + (right - left) / 2;
+    const int mid = left + (right - left) / 2;
+
     if (arr[mid] > target) {
         right = mid; // mid 可能是答案，但試著往左邊找更好的
     } else {
-        left = mid + 1; // mid 不夠大，一定不是答案，往右找
+        left = mid + 1; // mid 不夠大，一定不是答案，往右找；同時排除 `mid`
     }
 }
 return left;
@@ -153,10 +167,10 @@ return left;
 
 - **`lower_bound`**:
   - 因為 `arr[mid] >= 1` 始終成立，會不斷執行 `right = mid`，將搜尋邊界持續向左壓縮。
-  - 最終 `right` 會收斂到 `0`。
+  - 最終 `right` 會收斂到 index `0`。
 - **`upper_bound`**:
   - 因為 `arr[mid] > 1` 始終不成立 (`1 > 1` 為 false)，會不斷執行 `left = mid + 1`，將搜尋邊界持續向右推進。
-  - 最終 `left` 會收斂到 `5` (`size`)。
+  - 最終 `left` 會收斂到 index `5` (`size`)。
 
 ---
 

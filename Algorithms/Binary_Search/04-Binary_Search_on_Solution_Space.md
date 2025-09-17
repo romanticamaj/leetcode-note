@@ -125,33 +125,32 @@ private:
 初始狀態:
 F F F F F T T T T T
 l                 r
-          m
+        m
 
-(can(m) 為 True, 表示 mid 可行, 答案可能在 [l, m-1] 之間)
-right = mid - 1;
+(can(m) 為 False, 表示 mid 不可行, 答案可能在 [m+1, r] 之間)
+left = mid + 1;
 
 第二次迭代:
 F F F F F T T T T T
-l       r
-    m
+          l       r
+              m
 
-(can(m) 為 False, 表示 mid 不可行, 答案在 [m+1, r] 之間)
-left = mid + 1;
+(can(m) 為 True, 表示 mid 可行, 答案在 [l, m-1] 之間)
+right = mid - 1;
 
 第三次迭代:
 F F F F F T T T T T
-      l r
-      m
+          l r
+          m
 
-(can(m) 為 False, 表示 mid 不可行, 答案在 [m+1, r] 之間)
-left = mid + 1;
+(can(m) 為 True, 表示 mid 可行, 答案在 [l, m-1] 之間)
+right = mid - 1;
 
 最終狀態:
 F F F F F T T T T T
-         r l
+        r l
 
 此時 left 指向第一個可行解（第一個 T），即為答案。
-因為當 left == right 時，若 can(mid) 為 False，則 left 會移到 mid+1，正好是第一個 T。
 
 尋找最大可行解的收斂過程:
 
@@ -184,7 +183,6 @@ T T T T T F F F F F
         r l
 
 此時 right 指向最後一個可行解（最後一個 T），即為答案。
-因為當 left == right 時，若 can(mid) 為 True，則 right 會移到 mid-1，正好是最後一個 T。
 ```
 
 ### 5. 返回結果與原理解析

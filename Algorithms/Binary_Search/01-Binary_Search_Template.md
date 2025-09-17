@@ -5,16 +5,17 @@
 ## 二分搜尋法的核心原則
 
 1. **已排序的輸入**：陣列或集合必須是已排序的。
-2. **無重複元素**：在此基本範本中，我們假設沒有重複的元素。
-3. **中點計算**：`mid = left + (right - left) / 2`。
+2. **搜尋範圍**：搜尋範圍為 `[0, nums.size() - 1]`，即包含陣列的第一個元素到最後一個元素。
+3. **無重複元素**：在此基本範本中，我們假設沒有重複的元素。
+4. **中點計算**：`mid = left + (right - left) / 2`。
    - 如果子陣列長度 (`right - left + 1`) 是奇數，`mid` 會是正中央的元素。
    - 如果子陣列長度是偶數，`mid` 會是中間兩個元素中偏左的那一個。
-4. **迴圈條件**：搜尋會持續進行，只要 `while (left <= right)`。
-5. **縮小搜尋範圍**：
+5. **迴圈條件**：搜尋會持續進行，只要 `while (left <= right)`。
+6. **縮小搜尋範圍**：
    - 如果 `nums[mid] == target`，表示找到元素。
    - 如果 `nums[mid] > target`，目標必定在左半邊，所以我們捨棄右半邊：`right = mid - 1`。
    - 如果 `nums[mid] < target`，目標必定在右半邊，所以我們捨棄左半邊：`left = mid + 1`。
-6. **插入點**：如果迴圈結束 (`left > right`)，`left` 的索引值就是 `target` 應該被插入的正確位置。
+7. **插入點**：如果迴圈結束 (`left > right`)，`left` 的索引值就是 `target` 應該被插入的正確位置。
 
 ## C++ 二分搜尋法範本
 
@@ -23,9 +24,9 @@
 ```cpp
 int binarySearch(const std::vector<int>& nums, int target) {
     int left = 0;
-    int right = nums.size() - 1;
+    int right = nums.size() - 1; // 設定區間 [0, size() - 1]
 
-    while (left <= right) {
+    while (left <= right) { // left 指向 target 位置，left 最後一個可能是 right，所以需判斷 left == right
         int mid = left + (right - left) / 2;
 
         if (nums[mid] == target) {
@@ -47,7 +48,7 @@ int binarySearch(const std::vector<int>& nums, int target) {
 當 `while (left <= right)` 迴圈結束時，代表 `left > right`，此時的陣列狀態可以被理解為：
 
 ```
-... [所有小於等於 target 的元素] ... [right] [left] ... [所有大於等於 target 的元素] ...
+... [所有小於 target 的元素] ... [right] [left] ... [所有大於 target 的元素] ...
 ```
 
 - **`right` 指標**: 指向的是「小於 `target` 的元素」這個區塊的 **最右邊界**。
