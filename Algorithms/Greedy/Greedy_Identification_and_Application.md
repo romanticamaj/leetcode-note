@@ -57,7 +57,7 @@
 
    - 選擇是不可分割的。要嘛**取整個物品**，要嘛**不取**。
    - 例如：選或不選一個專案、安排或不安排一個會議。
-   - 大多數貪婪問題屬於此類。
+   - 大多數貪婪問題使用此類定義。
 
 2. **部分背包問題 (Fractional Knapsack-like)**:
    - 選擇的對象是可以分割的。可以**取物品的一部分**。
@@ -150,8 +150,9 @@
      - **場景**: IPO 問題。
 
 - **參考資料**:
-  - **[雙堆平衡模式 (Two-Heaps Balancing Pattern)](../../Data_Structures/Heaps/Two_Heaps_Balancing_Pattern.md)**
-  - **[雙堆貪婪選擇模式 (Two-Heaps for Greedy Selection)](../../Data_Structures/Heaps/Two_Heaps_for_Greedy_Selection.md)**
+  - **[雙堆平衡模式 (Two-Heaps Balancing Pattern)](../../Data_Structures/Heaps/04-Two_Heaps_Balancing.md)**
+  - 
+  - **[雙堆貪婪選擇模式 (Two-Heaps for Greedy Selection)](../../Algorithms/Greedy/Two_Heaps_Greedy_Selection.md)**
 
 ---
 

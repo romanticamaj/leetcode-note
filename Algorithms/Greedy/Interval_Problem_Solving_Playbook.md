@@ -26,20 +26,21 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
     // 1. 對所有區間進行排序
     std::sort(intervals.begin(), intervals.end());
 
-    vector<vector<int>> merged;
-    // 3. 從第二個區間開始遍歷
+    vector<vector<int>> merged; // result
+
+    // 2. 開始遍歷所有區間
     for (int i = 0; i < intervals.size(); ++i) {
         const int start = intervals[i][0];
         const int end = intervals[i][1];
 
-        // 4. 檢查重疊：當前區間的 start 是否小於等於 merged 最後一個區間的 end
+        // 3. 檢查重疊：當前區間的 start 是否小於等於 merged 最後一個區間的 end
         if (!merged.empty() && start <= merged.back()[1]) {
-            // 5. 合併操作：
+            // 合併操作：
             // 從 merged list 的 back() 開始擴展 end (expand end from merged.back())
             // 更新 merged 最後一個區間的 end 為兩者 end 的最大值
             merged.back()[1] = max(merged.back()[1], end);
         } else {
-            // 6. 無重疊：直接將當前區間加入 merged 列表
+            // 無重疊：直接將當前區間加入 merged 列表
             merged.push_back(intervals[i]);
         }
     }
