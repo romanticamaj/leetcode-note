@@ -43,3 +43,5 @@
   - [ ] 3D Dynamic Programming
 - [ ] LeetCode 97. Interleaving String
 - [ ] LeetCode 222. Count Complete Tree Nodes
+- [ ] LeetCoe 425. Word Squares
+  - [ ] Trie
