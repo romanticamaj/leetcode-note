@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/garyhsieh/.claude/agents/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
