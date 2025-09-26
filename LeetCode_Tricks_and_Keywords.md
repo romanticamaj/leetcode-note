@@ -54,3 +54,8 @@
 
 - Use the property of complete tree -> depth (0, 1, ...)
 - Binary search and pivot/mid of binary search as direction indicator
+
+## 109. Convert Sorted List to Binary Search Tree
+
+- Divide And Conquer
+- In-order simulation using a global state (a pointer tracking the control state)
