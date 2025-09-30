@@ -25,6 +25,17 @@ This is a structured collection of notes, patterns, and mental models for master
 
 This repository contains markdown documentation only. There are no build, test, or lint commands needed for development.
 
+## Interview Practice Mode
+
+**IMPORTANT**: When the user pastes a LeetCode problem (identifiable by problem number, difficulty rating, or LeetCode problem format), **automatically invoke the `google-interviewer` subagent** to conduct a mock Google L5 technical interview using that problem.
+
+**Do NOT**:
+- Solve the problem directly
+- Provide solutions or hints
+- Analyze the problem yourself
+
+**Always use the google-interviewer agent for interactive interview practice** when a LeetCode problem is detected.
+
 ## Architecture & Design Patterns
 
 ### Problem-Solving Philosophy

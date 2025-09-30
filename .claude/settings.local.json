@@ -14,7 +14,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /Users/garyhsieh/Documents/smb_stage_clear.wav"
+            "command": "afplay /Users/garyhsieh/Documents/smb_powerup_appears"
           }
         ]
       }
