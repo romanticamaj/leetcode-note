@@ -6,5 +6,29 @@
     ],
     "deny": [],
     "ask": []
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /Users/garyhsieh/Documents/smb_stage_clear.wav"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /Users/garyhsieh/Documents/smb_world_clear.wav"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -59,3 +59,7 @@
 
 - Divide And Conquer
 - In-order simulation using a global state (a pointer tracking the control state)
+
+## 146. LRU Cache
+
+- Doubly linked list with dummy head and tail
