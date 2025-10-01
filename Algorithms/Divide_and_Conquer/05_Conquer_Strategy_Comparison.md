@@ -113,8 +113,8 @@ void solve(Range r, int start, Result& result, Pos pos) {
 計算型？ → Return-Based
   ↓ 否
 構造型
-  ├─ 依賴遍歷順序？ → External State
-  └─ 位置可直接算？ → In-Place
+  ├─ 位置可直接算？ → In-Place
+  └─ 依賴遍歷順序？ → External State
 ```
 
 ---
@@ -130,4 +130,5 @@ void solve(Range r, int start, Result& result, Pos pos) {
 
 ## 相關
 
-[State Design Across Recursive Paradigms](../Design_Principles/Recursion/State_Design_Across_Recursive_Paradigms.md)
+- [State Design Across Recursive Paradigms](../Design_Principles/Recursion/State_Design_Across_Recursive_Paradigms.md)
+- [External State 遍歷順序詳解](06_External_State_Traversal_Order.md) - External State 策略的進階應用

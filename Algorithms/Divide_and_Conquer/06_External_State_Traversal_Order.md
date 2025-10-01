@@ -1,4 +1,6 @@
-# Synchronized Dual-State Traversal 心法
+# External State 遍歷順序心法
+
+> 本文為 [Conquer 策略對比](05_Conquer_Strategy_Comparison.md) 中 External State 策略的進階應用
 
 ## 🧠 核心哲學
 
@@ -46,6 +48,8 @@ private:
 
         // 根據遍歷順序選擇不同的實現
         return constructInOrder(left, mid, right);
+        return constructPreOrder(left, mid, right);
+        return constructPostOrder(left, mid, right);
     }
 };
 ```
@@ -109,37 +113,10 @@ Result* constructPostOrder(int left, int mid, int right) {
 }
 ```
 
-## ⚠️ 常見陷阱
-
-### 1. 狀態推進時機錯誤
-
-```cpp
-// 錯誤：在遞迴調用之間忘記推進狀態
-auto leftResult = construct(left, mid - 1);
-Result* node = new Result(current->data);
-// 忘記 current = current->next
-node->right = construct(mid + 1, right);  // 右子樹會使用錯誤的資源
-```
-
-### 2. 範圍計算錯誤
-
-```cpp
-// 錯誤：索引範圍與資源數量不匹配
-return construct(0, n);  // 應該是 construct(0, n-1)
-```
-
-### 3. 基礎情況處理不當
-
-```cpp
-// 正確的基礎情況
-if (left > right) return nullptr;  // 空範圍
-// 不需要 if (left == right) 的特殊處理
-```
-
 ## 適用場景
 
 - **線性轉樹狀**：將 linked list、array 轉換為 tree
-- **順序限制**：外部資源只能順序訪問（如 stream、linked list）
+- **順序限制**：外部資源只能順序訪問（如 stream、linked list）或是透過遞迴順序決定的訪問順序
 - **平衡構建**：需要構建平衡結構（如 balanced BST）
 
 ## ⏱️ 複雜度分析
@@ -148,11 +125,3 @@ if (left > right) return nullptr;  // 空範圍
 | -------- | -------------------- | ----------------- |
 | 構建     | O(n)                 | O(log n) 呼叫堆疊 |
 | 資源遍歷 | 每個資源恰好訪問一次 | O(1) 外部指標     |
-
-## ✅ 設計檢查清單
-
-- [ ] 外部狀態初始化正確
-- [ ] 資源消費順序與遍歷順序一致
-- [ ] 每次消費後推進外部狀態
-- [ ] 索引範圍正確對應資源數量
-- [ ] 基礎情況返回正確的空值
