@@ -22,14 +22,16 @@
 
 ---
 
-## Return-Based ⚠️ 僅計算型
+## Return-Based ⚠️ 僅計算型 (Counting)
 
 ```cpp
 ValueType solve(Range range) {
-    if (isBase(range)) return computeBase(range);
+    if (isBase(range))
+        return computeBase(range);
 
     auto subs = split(range);
     vector<ValueType> results;
+
     for (auto& s : subs)
         results.push_back(solve(s));
 
@@ -55,6 +57,7 @@ void solve(Range range, Result& result, Position pos) {
 
     auto subs = split(range);
     auto positions = calculatePositions(pos, subs);
+
     for (int i = 0; i < subs.size(); i++)
         solve(subs[i], result, positions[i]);
 }
@@ -78,13 +81,14 @@ class Solution {
             return;
         }
 
+        // 訪問順序決定全局計數器跳動順序
         solve(sub1, result, pos1);  // 先訪問 → 編號小
         solve(sub2, result, pos2);
     }
 };
 ```
 
-### 模式 B：顯式區間
+### 模式 B：顯式區間 (區域變數傳遞)
 
 ```cpp
 void solve(Range r, int start, Result& result, Pos pos) {

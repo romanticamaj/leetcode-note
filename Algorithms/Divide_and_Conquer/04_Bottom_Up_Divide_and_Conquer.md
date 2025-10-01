@@ -52,6 +52,12 @@ while (interval < n) {
 }
 ```
 
+**討論**: 為什麼是 interval < n ? （不用考慮等於）
+
+考慮 n == 1、interval == 1，不用進去 recurrence
+
+**注意**: interval *= 2，必須兩倍擴展，才會是 O(nlogn) 的 Divide and Conquer
+
 ### 2. 配對合併策略
 
 ```cpp
