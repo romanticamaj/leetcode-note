@@ -10,6 +10,41 @@ Trie 是一種以空間換取時間的樹狀資料結構，專為高效處理字
 
 ## 一、Trie 的建構邏輯
 
+### 🧠 建構口訣 (Insertion Mantra)
+
+> **「從根出發，逐字前進；無路則建，有路則行；抵達終點，標記完成。」**
+
+> **traverse along the string and linked list**
+
+**核心流程**:
+
+1. **從 root 開始**，將當前節點指標初始化為 `root`
+2. **逐字元遍歷字串**，對每個字元 `c`:
+   - 檢查 `children[c]` 是否存在
+   - **若不存在** → 創建新節點
+   - **若存在** → 沿著指標前進
+3. **字串結束時**，標記 `isEndOfWord = true` 或設定 `word` 欄位
+
+**實作模板**:
+
+```cpp
+void insert(const string& word) {
+    TrieNode* curr = root;                    // 1. 從根出發
+
+    for (char c : word) {                     // 2. 逐字前進
+        if (!curr->children[c]) {             //    無路則建
+            curr->children[c] = make_unique<TrieNode>();
+        }
+        curr = curr->children[c].get();       //    有路則行
+    }
+
+    curr->isEndOfWord = true;                 // 3. 標記完成
+    // 或使用進階設計: curr->word = word;
+}
+```
+
+---
+
 ### 1. 標準 Trie 節點結構
 
 一個泛用的 Trie 節點至少需要一個 `children` 結構來指向下一個字元節點。`std::unique_ptr` 能確保記憶體的自動化管理，而 `children` 的容器選擇則影響性能與彈性。
@@ -22,7 +57,7 @@ Trie 是一種以空間換取時間的樹狀資料結構，專為高效處理字
 
 struct TrieNode {
     // 子節點映射：從一個字元到對應的下一個 Trie 節點
-    std::map<char, std::unique_ptr<TrieNode>> children;
+    std::unordered_map<char, std::unique_ptr<TrieNode>> children;
 
     // 標記一個單字是否在此處結束
     bool isEndOfWord = false;
@@ -30,9 +65,9 @@ struct TrieNode {
 ```
 
 - **`children` 的容器選擇**:
-  - `std::map`: 適用於任意字元集，寫法泛用，但有對數時間的開銷。
-  - `std::unordered_map`: 若不需按字元排序，平均效能更高（O(1)），是靈活性與性能的良好平衡。
   - `std::array<std::unique_ptr<TrieNode>, 26>`: 若字元集固定（如小寫英文字母），效能最佳且空間開銷固定。
+  - `std::unordered_map`: 若不需按字元排序，平均效能更高（O(1)），是靈活性與性能的良好平衡。
+  - `std::map`: 適用於任意字元集，寫法泛用，但有對數時間的開銷。
 
 ### 2. 帶有預處理資訊 (Pre-knowledge) 的節點
 
@@ -40,19 +75,24 @@ struct TrieNode {
 
 ```cpp
 struct TrieNodeWithKnowledge {
-    std::map<char, std::unique_ptr<TrieNodeWithKnowledge>> children;
+    std::unordered_map<char, std::unique_ptr<TrieNodeWithKnowledge>> children;
     bool isEndOfWord = false;
 
-    // --- 預處理資訊欄位 ---
+    // --- 進階設計：預處理資訊欄位 ---
 
-    // 1. 計數器 (Counter)
+    // 1. 完整單字 (word):
+    // 直接儲存完整單字而非只用布林值標記
+    // 優點：在需要回傳完整單字時，無需重新建構路徑
+    std::string word = "";  // 若非空字串，表示此節點為某單字的結尾
+
+    // 2. 計數器 (Counter)
     int passCount = 0; // 有多少個單字經過此節點 (即以此為前綴)
 
-    // 2. 建議快取 (Suggestion Cache)
+    // 3. 建議快取 (Suggestion Cache)
     // 儲存經過此節點的單字範例，可用於自動補全
     std::vector<std::string> suggestions;
 
-    // 3. 其他聚合資訊 (Aggregated Data)
+    // 4. 其他聚合資訊 (Aggregated Data)
     // 例如：與此節點相關的資料 ID 列表、權重、最小值等
     std::vector<int> dataIDs;
 };
@@ -96,6 +136,63 @@ struct TrieNodeWithKnowledge {
 - 獲取與前綴相關的資料 ID。
 
 **心法**: **盡可能將查詢模型化為對預處理資訊的讀取**。如果一個查詢模式會被頻繁使用，就應該考慮在 `TrieNode` 中增加一個欄位來快取其結果。
+
+### 3. Trie 與狀態空間探索的結合 (Trie + State Space Traversal)
+
+這是一種進階技巧，將 Trie 作為**狀態導航器**，結合其他資料結構（如矩陣、圖）進行同步遍歷。
+
+**核心思想**:
+
+1. **建構 Trie**: 將所有目標字串預先建構成 Trie。
+2. **同步遍歷**: 從 Trie 的 `root` 節點出發，在探索問題空間（如矩陣的 DFS）時，同步追蹤當前在 Trie 中的位置。
+3. **狀態轉移**: 每次移動到新位置時，根據當前字元嘗試在 Trie 中前進。若無法前進（子節點不存在），則提前剪枝；若到達 `isEndOfWord` 或 `word` 非空的節點，則找到一個匹配。
+
+**類似概念**: 可以將 Trie 想像成一個**多分支的鏈表**，在遍歷問題空間時，我們同步沿著 Trie 的指針前進，利用 Trie 的結構來高效地過濾無效路徑。
+
+參考範例：
+
+- **LeetCode 212. Word Search II**
+
+### 4. 動態 Trie：遍歷時修剪搜尋空間 (Dynamic Trie - Pruning While Traversing)
+
+當問題只需檢查 **存在性** 而非收集所有結果時，可以在找到答案後立即從 Trie 中移除該路徑，避免重複搜尋。
+
+需搭配 `unordered_map<char, unique_ptr<TrieNode>>` 來做 erase
+
+**核心思想**:
+
+> **「Trie 即搜尋空間；找到即刪除；已訪問不再訪。」**
+
+- **Trie 作為動態搜尋空間**: 將 Trie 視為待搜尋的候選集合
+- **找到後立即剪枝**: 一旦匹配成功，清空該節點的 `word` 欄位或刪除該 TrieNode
+
+```cpp
+    node->word = "";  // ✂️ 剪枝：清空 word，避免重複收集`
+```
+
+```cpp
+// ✂️ 進階剪枝：若子樹已空且無單字結尾，可刪除整個節點
+if (node->children.empty() && node->word.empty()) {
+    parent->children.erase(c);  // 需額外追蹤 parent
+}
+```
+
+- **避免重複檢查**: 已找到的路徑不會在後續遍歷中被重複訪問
+
+**適用場景**:
+
+- 在矩陣/圖中搜尋多個不重複的字串（如 LeetCode 212）
+- 需要去重的字串匹配問題
+- 搜尋空間會隨著找到答案而縮小的情境
+
+**剪枝策略比較**:
+
+| 策略         | 實作方式         | 效果                         | 複雜度    |
+| ------------ | ---------------- | ---------------------------- | --------- |
+| **輕量剪枝** | 清空 `word` 欄位 | 避免重複收集，但節點仍存在   | O(1)      |
+| **完全剪枝** | 刪除整個子樹節點 | 釋放記憶體，減少後續遍歷分支 | O(節點數) |
+
+**口訣**: **「找到即標記，用過即捨棄。」**
 
 ---
 

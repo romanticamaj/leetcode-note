@@ -2,6 +2,19 @@
 
 Trie，其名稱源於「re**trie**val」（檢索）一詞，凸顯了其在資料快速檢索方面的優勢。它也被廣泛稱為**前綴樹 (Prefix Tree)**，是一種專為高效處理字串集合而設計的樹狀資料結構。
 
+## TL;DR
+
+**結構**: `Trie = N 元樹 + 鏈式節點`
+
+**建構**: 逐字遍歷，無路則建 → 標記 `endOfWord` (traverse along the trie and string)
+
+**查詢**: 同步遍歷 Trie 與字串 (traverse along the trie and string)
+
+1. **搜尋完整單字** = 查詢成功 + `endOfWord == true`
+2. **檢查前綴存在** = 查詢成功（節點 `!= nullptr`）
+
+---
+
 ## Trie 核心概念泛化分析
 
 在深入探討具體實作之前，從一個更宏觀的角度來理解 Trie 的設計哲學至關重要。Trie 的核心由以下三個關鍵概念構成：
@@ -29,7 +42,7 @@ Trie 本質上是一種 N 元樹（N-ary Tree）。每個 `TrieNode` 代表序�
 
 ---
 
-## 核心實作 (動態字母表)
+## 實作 1: 動態字母表
 
 此實作採用 `std::unordered_map` 來儲存子節點，使其能靈活應對任何字元集，包括 ASCII、Unicode 等。
 
@@ -55,13 +68,15 @@ public:
     // 插入一個單字到 Trie 中
     void insert(const std::string& word) {
         TrieNode *current = &root;
-        for (char w : word) {
-            if (current->children.find(w) == current->children.end()) {
+
+        for (char w : word) { // traverse along the string and linked list
+            if (!current->children.contains(w)) { // create node if not exists
                 current->children[w] = std::make_unique<TrieNode>();
             }
-            current = current->children[w].get();
+            current = current->children[w].get(); // move to next node
         }
-        current->isEndOfWord = true;
+
+        current->isEndOfWord = true; // current at the last character of word
     }
 
     // 搜尋一個單字是否存在於 Trie 中
@@ -79,28 +94,19 @@ private:
     // 查詢前綴並返回其結尾節點
     TrieNode* query(const std::string& prefix) {
         TrieNode *current = &root;
-        for (char p : prefix) {
+
+        for (char p : prefix) { // traverse along the string and linked list
             if (current && current->children.count(p)) {
-                current = current->children[p].get();
+                current = current->children[p].get(); // move to next node
             } else {
-                return nullptr;
+                return nullptr; // not found
             }
         }
-        return current;
+
+        return current; // current at the last character of prefix
     }
 };
 ```
-
-### 程式碼分析
-
-- **`TrieNode`**: 此結構表示 Trie 中的每個節點。
-  - `children`: 一個 `unordered_map`，其鍵是字元，值是指向子 `TrieNode` 的 `unique_ptr`，用於自動管理記憶體。
-  - `isEndOfWord`: 一個布林標記，表示該節點是否為一個完整單字的結尾。
-- **`root`**: Trie 的根節點，作為所有字串的起始點。
-- **`insert(word)`**: 此函數遍歷輸入 `word` 的每個字元，並沿著樹向下遍歷。若路徑不存在，則創建新節點。最後，將字串的最終節點標記為 `isEndOfWord`。
-- **`query(prefix)`**: 一個輔助函數，根據 `prefix` 遍歷 Trie。若前綴存在，則返回其結尾節點的指標；否則返回 `nullptr`。
-- **`search(word)`**: 使用 `query` 尋找對應於 `word` 的節點，並檢查其 `isEndOfWord` 標記是否為 `true`。
-- **`startsWith(prefix)`**: 使用 `query` 檢查前綴路徑是否存在於 Trie 中，不論其是否為完整單字。
 
 ### 時間複雜度分析
 
@@ -112,7 +118,7 @@ private:
 
 值得注意的是，若 `children` 改用 `std::map` 實作，由於 `std::map` 的單次查找時間複雜度為 `O(log Σ)`（其中 `Σ` 為 map 中的字元分支數），則 `insert`、`search` 等操作的總時間複雜度將變為 **O(L \* log Σ)**。
 
-## 固定字元集實作
+## 實作 2: 固定字元集
 
 當字元集已知且受限時（例如，僅小寫英文字母 'a'-'z'），我們可以用固定大小的陣列替換 `unordered_map`，以獲得更好的性能和空間效率。
 
@@ -121,7 +127,7 @@ private:
 #include <vector>
 #include <memory>
 
-class TrieFixed {
+class Trie {
 private:
     static const int ALPHABET_SIZE = 26;
 
@@ -135,8 +141,6 @@ private:
     TrieNode root;
 
 public:
-    TrieFixed() {}
-
     void insert(const std::string& word) {
         TrieNode* current = &root;
         for (char ch : word) {
@@ -150,6 +154,7 @@ public:
     }
 
     // search 和 startsWith 方法可依此類推進行修改
+    // again, ```traverse along the string and linked list```
 };
 ```
 
@@ -166,7 +171,7 @@ Trie（前綴樹）是一種高效的樹狀資料結構，特別適用於從字�
 - **拼字檢查 (Spell Checker)**: 如文書處理器中的拼寫校正。
 - **IP 路由 (最長前綴匹配)**: 用於網路路由表中，根據最長匹配前綴選擇路由。
 - **T9 預測文本**: 用於舊式手機的九宮格鍵盤輸入法。
-- **解決文字遊戲**: 如在 Boggle 遊戲中高效地尋找所有可能的單字。
+- **解決文字遊戲 (Word Search)**: 如在 Boggle 遊戲中高效地尋找所有可能的單字。
 
 雖然平衡樹和雜湊表等資料結構也可用於搜索單字，但 Tries 在特定操作中具有顯著優勢：
 

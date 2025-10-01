@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Read(//Users/garyhsieh/.claude/agents/**)",
-      "Read(//Users/garyhsieh/**)"
+      "Read(//Users/garyhsieh/**)",
+      "Bash(git mv:*)"
     ],
     "deny": [],
     "ask": []
@@ -14,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /Users/garyhsieh/Documents/smb_powerup_appears"
+            "command": "afplay /Users/garyhsieh/Documents/smb_kick.wav"
           }
         ]
       }
@@ -25,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /Users/garyhsieh/Documents/smb_world_clear.wav"
+            "command": "afplay /Users/garyhsieh/Documents/smb_1-up.wav"
           }
         ]
       }

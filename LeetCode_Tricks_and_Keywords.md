@@ -63,3 +63,7 @@
 ## 146. LRU Cache
 
 - Doubly linked list with dummy head and tail
+
+## 212. Word Search II
+
+- Backtracking + Dynamic Trie
