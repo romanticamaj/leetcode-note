@@ -200,3 +200,34 @@ void solveWithConstraints(State& state, ...) {
   - 取消標記：`mask &= ~(1 << i)`
 
 這種方法稱為**狀態壓縮 (State Compression)**，能極大地提升效能，特別是在狀態空間龐大的問題中。
+
+### 4.4 State Transition Constraints 的陣列編碼
+
+當問題涉及**狀態轉換的限制條件**（例如：從狀態 A 能否跳到狀態 B），將規則**預先編碼到陣列**中，使 `is_valid()` 檢查達到 O(1)。
+
+**核心技巧：Constraint Matrix**
+
+```cpp
+// 預處理：編碼「從 from 到 to 需要什麼條件」
+vector<vector<int>> skip(10, vector<int>(10, 0));
+skip[1][3] = skip[3][1] = 2;  // 1↔3 需經過 2
+skip[1][7] = skip[7][1] = 4;  // 1↔7 需經過 4
+skip[1][9] = skip[9][1] = 5;  // 1↔9 需經過 5
+// ...
+
+// 使用：O(1) 的 promising 檢查
+for (int to = 1; to <= 9; to++) {
+    if (used[to]) continue;
+
+    int skipNumber = skip[from][to];
+    if (skipNumber != 0 && !used[skipNumber]) continue;  // 違反限制
+
+    // 這是有效的移動
+}
+```
+
+**優勢**：O(1) 查詢、規則與邏輯分離、易維護
+
+**適用場景**：圖/網格移動限制、狀態機轉換規則、遊戲規則編碼
+
+> **心法**：State transition 的限制條件可以用陣列來表示，避免複雜的 if-else 判斷。
