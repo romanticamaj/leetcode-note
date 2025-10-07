@@ -2,6 +2,25 @@
 
 這份清單用於追蹤需要重點複習的演算法題目。
 
+**使用說明**:
+- ✅ 標記為「需要複習」的題目
+- 📌 **標記原因**: 記錄為什麼需要複習（技巧陌生、實作細節、思路盲點等）
+- 🔗 **前置題型**: 如果技巧完全陌生，先去練習的 simpler 題目（參考 [Hard_Techniques_Reference.md](Interview_Playbook/Hard_Techniques_Reference.md)）
+- 📅 **複習計畫**: 二刷/三刷時間規劃
+
+---
+
+## 題目列表格式
+
+```markdown
+- [ ] LeetCode XXX. Problem Name
+  - 📌 標記原因: [技巧陌生 / 實作細節 / 思路盲點]
+  - 🏷️ 技巧分類: [Monotonic Stack / DP / Graph / etc.]
+  - 🔗 前置題型: [LC YYY, LC ZZZ]（如果需要）
+  - 📅 二刷: YYYY-MM-DD
+  - 📅 三刷: YYYY-MM-DD
+```
+
 ---
 
 ## 題目列表
@@ -47,3 +66,5 @@
   - [ ] Trie
 - [ ] LeetCode 212. Word Search II
   - [ ] Backtracking + Dynamic Trie
+- [ ] LeetCode 654. Maximum Binary Tree
+  - [ ] Monotonic Stack?
