@@ -265,6 +265,16 @@
 - **空間複雜度**: 取決於具體問題
 - **核心思想**: 利用數學原理（組合數學、概率論、數論等）解決問題
 
+### Binary Indexed Tree / Fenwick Tree
+
+- **難度等級**: ⭐⭐⭐
+- **常見範例**: 動態區間和查詢、計數問題、逆序對
+- **使用的資料結構**: Array
+- **時間複雜度**: Update O(log n), Query O(log n), Construction O(n)
+- **空間複雜度**: O(n)
+- **核心思想**: 利用二進制位運算（i & -i）實現高效的區間查詢和單點更新
+- **詳細文檔**: [Binary Indexed Tree 完整指南](Data_Structures/Advanced/Binary_Indexed_Tree/)
+
 ### 字典樹 (Trie)
 
 - **難度等級**: ⭐⭐⭐

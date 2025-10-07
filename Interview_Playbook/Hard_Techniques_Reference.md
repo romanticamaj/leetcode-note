@@ -72,11 +72,12 @@ Hard 題必備技巧清單，包含難度等級、核心概念、以及從簡單
 
 ### Fenwick Tree (Binary Indexed Tree)
 - **Level**: ⭐⭐ Advanced
-- **Use Case**: Prefix sums with updates, frequency counts, range queries
-- **Core Concept**: Tree structure for O(log n) update and query
+- **Use Case**: Prefix sums with updates, frequency counts, range queries, counting inversions
+- **Core Concept**: Tree structure using bit manipulation (i & -i) for O(log n) update and query
+- **詳細文檔**: [Binary Indexed Tree 完整指南](../Data_Structures/Advanced/Binary_Indexed_Tree/)
 - **Learning Path**:
-  - 📘 Easy: Understand prefix sum concept
-  - 📙 Medium: LC 307 (Range Sum Query - Mutable)
+  - 📘 Easy: LC 303 (Range Sum Query - Immutable) - 理解 prefix sum
+  - 📙 Medium: LC 307 (Range Sum Query - Mutable) - BIT 入門題 ⭐ 必做
   - 📕 Hard: LC 315 (Count of Smaller Numbers After Self), LC 493 (Reverse Pairs)
 
 ### Segment Tree / Lazy Propagation
@@ -229,7 +230,7 @@ Hard 題必備技巧清單，包含難度等級、核心概念、以及從簡單
 | **Digit DP**             | LC 1012, LC 1397                                       | LC 233 (Number of Digit One), LC 902                                 |
 | **Interval DP**          | LC 312 (Burst Balloons), LC 1000                       | LC 516 (Longest Palindromic Subsequence), LC 1039                    |
 | **Bitmask DP**           | LC 847, LC 1879                                        | LC 78 (Subsets), LC 1125, LC 1986                                    |
-| **Fenwick Tree**         | LC 315, LC 493                                         | LC 307 (Range Sum Query - Mutable)                                   |
+| **Fenwick Tree**         | LC 315, LC 493                                         | LC 303 (Immutable) → LC 307 (Mutable) ⭐                              |
 | **Segment Tree**         | LC 715, LC 732                                         | LC 307, LC 729                                                       |
 | **Monotonic Stack**      | LC 84, LC 85                                           | LC 496, LC 739 (Daily Temperatures)                                  |
 | **Trie**                 | LC 212 (Word Search II), LC 1707                       | LC 208 (Implement Trie), LC 421                                      |
