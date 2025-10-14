@@ -139,7 +139,11 @@ Would you like me to adjust any section or add more variants?"
 - **Mental Models**: Emphasize conceptual frameworks
 - **Bilingual**: Mix Chinese/English naturally per repo style
 - **Concise**: Keep explanations brief and focused
-- **Practical**: Include both theory and implementation guidance
+- **Practical Over Fancy**: Only include pitfalls and variants you're **actually likely to encounter**
+  - ❌ Don't add hypothetical edge cases
+  - ❌ Don't add "impressive but rare" variants
+  - ✅ Focus on common mistakes you've made or seen
+  - ✅ Only include design variants that solve real problems
 
 ## Repository Conventions to Follow
 

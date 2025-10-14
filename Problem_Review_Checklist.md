@@ -70,3 +70,6 @@
   - [ ] Monotonic Stack?
 - [ ] LeetCode 951. Flip Equivalent Binary Trees
   - [ ] Canonical Forms
+- [ ] LeetCode 42. Trapping Rain Water
+  - [ ] Two Pointers Technique
+  - [ ] Dynamic Programming
