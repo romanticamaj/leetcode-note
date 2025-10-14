@@ -68,3 +68,5 @@
   - [ ] Backtracking + Dynamic Trie
 - [ ] LeetCode 654. Maximum Binary Tree
   - [ ] Monotonic Stack?
+- [ ] LeetCode 951. Flip Equivalent Binary Trees
+  - [ ] Canonical Forms
