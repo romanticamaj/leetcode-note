@@ -132,6 +132,50 @@ This playbook focuses on the reusable pattern rather than the specific problem, 
 
 Would you like me to adjust any section or add more variants?"
 
+### Step 7: Self-Review and Refinement
+
+After creating the initial playbook, perform a critical review and refinement to ensure clarity and conciseness:
+
+**Review Checklist**:
+
+1. **Remove Redundancy**:
+   - Are there sections repeating the same information?
+   - Can multiple sections be merged without losing clarity?
+   - Example: "核心哲學" and "核心概念" often overlap - keep one
+
+2. **Verify Focus**:
+   - Does the document stay focused on the core pattern?
+   - Remove any tangential explanations or "nice-to-have" variants
+   - Remove complete problem implementations; keep only key techniques
+
+3. **Optimize Structure**:
+   - Can the problem/solution be presented more clearly?
+   - Use ❌/✅ comparisons to highlight wrong vs correct approaches
+   - Use concrete before/after examples instead of abstract descriptions
+
+4. **Ensure Practicality**:
+   - Remove hypothetical examples; keep only real use cases
+   - Remove "Pattern 3, 4, 5..." if they're rarely needed
+   - Only mention LeetCode problems by number, don't include full implementations
+
+5. **Quality Assurance**:
+   - Fix markdown lint issues (lists need blank lines before/after)
+   - Ensure consistent formatting
+   - Verify all code blocks have language tags (```cpp)
+   - Remove excessive blank lines (max 1 between sections)
+
+**Refinement Actions**:
+
+- If document > 200 lines, aggressively look for redundancy to remove
+- Merge sections with overlapping content (e.g., "適用場景" appearing twice)
+- Replace verbose explanations with concise bullet points
+- Keep only the 1-2 most critical pitfalls (not a comprehensive list)
+- Remove lengthy "總結" or "設計權衡" sections if they repeat earlier content
+
+**Target**: Aim for ~150 lines while keeping all essential content
+
+**Output**: After refinement, present the optimized version and briefly mention what was improved (e.g., "Optimized from 220 to 150 lines by merging overlapping sections and removing redundant examples")
+
 ## Key Principles
 
 - **Abstraction Over Examples**: Extract patterns, not problem-specific solutions
@@ -144,6 +188,12 @@ Would you like me to adjust any section or add more variants?"
   - ❌ Don't add "impressive but rare" variants
   - ✅ Focus on common mistakes you've made or seen
   - ✅ Only include design variants that solve real problems
+- **Iterative Refinement**: After initial creation, review and simplify (Step 7)
+  - ❌ Don't keep redundant sections just because they were generated
+  - ❌ Don't include complete problem implementations (only mention by number)
+  - ✅ Merge overlapping content for clarity
+  - ✅ Aim for ~150 lines while keeping all essential content
+  - ✅ Use ❌/✅ comparisons to make contrasts clear
 
 ## Repository Conventions to Follow
 

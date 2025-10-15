@@ -67,3 +67,7 @@
 ## 212. Word Search II
 
 - Backtracking + Dynamic Trie
+
+## 380. Insert Delete GetRandom O(1)
+
+- hashmap + vector + swap to the end then delete

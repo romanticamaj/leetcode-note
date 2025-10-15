@@ -4,7 +4,8 @@
       "Read(//Users/garyhsieh/.claude/agents/**)",
       "Read(//Users/garyhsieh/**)",
       "Bash(git mv:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(test:*)"
     ],
     "deny": [],
     "ask": []
