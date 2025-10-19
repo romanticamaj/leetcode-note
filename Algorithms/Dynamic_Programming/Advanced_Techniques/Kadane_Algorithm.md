@@ -87,7 +87,7 @@ result[i] = max(left[i], right[i]);
 
 **關鍵**：兩個獨立的 Kadane 過程
 
-**參考**：[Bidirectional Constraint Decomposition](../Design_Principles/Bidirectional_Constraint_Decomposition.md)
+**參考**：[Bidirectional Constraint Decomposition](../../Design_Principles/Bidirectional_Constraint_Decomposition.md)
 
 ## 適用場景 / Use Cases
 

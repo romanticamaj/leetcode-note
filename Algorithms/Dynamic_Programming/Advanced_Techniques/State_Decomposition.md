@@ -82,7 +82,7 @@ result[i] = merge(left[i], right[i]);
 
 **應用**：雙向依賴問題
 
-**參考**：[Bidirectional Constraint Decomposition](../Design_Principles/Bidirectional_Constraint_Decomposition.md)
+**參考**：[Bidirectional Constraint Decomposition](../../Design_Principles/Bidirectional_Constraint_Decomposition.md)
 
 ### Pattern 2: 動作分解
 

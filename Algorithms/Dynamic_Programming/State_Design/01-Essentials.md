@@ -11,7 +11,7 @@
 ### 1. 問題狀態 (Problem State)
 
 - **本質：** 定義一個**唯一子問題**所需的最小變數集。
-- **來源：** 通常直接來自原始問題的輸入，例如 `index`（處理到哪個元素）或 `capacity`（背包剩餘容量）。
+- **來源：** 通常直接來自原始問題的 **輸入**，例如 `index`（處理到哪個元素）或 `capacity`（背包剩餘容量）。
 - **作用：** 構成 DP `cache` 或 `table` 的維度，是 Memoization 或 Tabulation 的 `key`。`dp[index][capacity]` 代表一個獨一無二的子問題的解。
 
 ### 2. 決策空間 (Choice Space)
