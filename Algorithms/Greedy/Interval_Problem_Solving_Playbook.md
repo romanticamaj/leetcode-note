@@ -55,4 +55,21 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
 - `merged = [[1,3]]`
 - 當前 `[2,6]`：`2 <= 3` (重疊)，合併後 `merged = [[1,6]]`
 - 當前 `[8,10]`：`8 > 6` (不重疊)，`merged = [[1,6], [8,10]]`
-- 當前 `[15,18]`：`15 > 10` (不重疊)，`merged = [[1,6], [8,10], [15,18]]`
+
+## 3. Interval 問題分類與對應算法
+
+**重要**: 不是所有 Interval 問題都用 Greedy 解決！根據問題類型選擇正確的算法技術。
+
+| 問題類型 | 問題描述 | 算法技術 | 是否為 Greedy | 文檔位置 | LeetCode |
+|---------|---------|---------|--------------|---------|----------|
+| **Interval Merging** | 合併重疊區間 | Sort + Linear Scan | ✅ | 本檔案第2節 | 56 |
+| **Interval Scheduling** | 選最多不重疊區間 | Sort by End + Greedy | ✅ | 本檔案 | 435 |
+| **Maximum Concurrent** | 計算最大併發數/需要多少資源 | Sweep Line + Min Heap | ❌ | [`../Sweep_Line/02-Maximum_Concurrent_Intervals.md`](../Sweep_Line/02-Maximum_Concurrent_Intervals.md) | 253 |
+| **Interval Covering** | 用最少區間覆蓋範圍 | Sort + Greedy | ✅ | 待補充 | 1024 |
+
+**識別技巧**:
+
+- **Merging**: 關鍵字「merge」「combine」「overlap」→ 合併重疊區間
+- **Scheduling**: 關鍵字「maximum number of」「non-overlapping」→ 選最多區間
+- **Concurrent**: 關鍵字「minimum resources」「how many rooms/servers」→ Sweep Line
+- **Covering**: 關鍵字「minimum intervals to cover」→ 貪心覆蓋
