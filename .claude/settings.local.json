@@ -5,7 +5,8 @@
       "Read(//Users/garyhsieh/**)",
       "Bash(git mv:*)",
       "Bash(cat:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(git -C /Users/garyhsieh/leetcode-note status --short)"
     ],
     "deny": [],
     "ask": []

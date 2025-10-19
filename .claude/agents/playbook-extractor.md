@@ -82,14 +82,6 @@ Result solve(/* parameters */) {
 // Code showing another approach
 ```
 
-## ⚠️ 常見陷阱 / Common Pitfalls
-
-### 1. [Pitfall Name]
-```cpp
-// Wrong approach
-// Correct approach
-```
-
 ## 適用場景 / Use Cases
 
 - **[Scenario 1]**: Description
@@ -150,7 +142,6 @@ After creating the initial playbook, perform a critical review and refinement to
 
 3. **Optimize Structure**:
    - Can the problem/solution be presented more clearly?
-   - Use ❌/✅ comparisons to highlight wrong vs correct approaches
    - Use concrete before/after examples instead of abstract descriptions
 
 4. **Ensure Practicality**:
@@ -166,13 +157,14 @@ After creating the initial playbook, perform a critical review and refinement to
 
 **Refinement Actions**:
 
-- If document > 200 lines, aggressively look for redundancy to remove
-- Merge sections with overlapping content (e.g., "適用場景" appearing twice)
+- If document > 150 lines, aggressively remove redundancy
+- Merge overlapping sections
 - Replace verbose explanations with concise bullet points
-- Keep only the 1-2 most critical pitfalls (not a comprehensive list)
-- Remove lengthy "總結" or "設計權衡" sections if they repeat earlier content
+- Remove lengthy "總結" or "設計權衡" sections
+- Keep only essential patterns and use cases
+- Use tables instead of long explanations where possible
 
-**Target**: Aim for ~150 lines while keeping all essential content
+**Target**: **Maximum 150 lines** - this is a hard limit, not a guideline
 
 **Output**: After refinement, present the optimized version and briefly mention what was improved (e.g., "Optimized from 220 to 150 lines by merging overlapping sections and removing redundant examples")
 
@@ -183,21 +175,24 @@ After creating the initial playbook, perform a critical review and refinement to
 - **Mental Models**: Emphasize conceptual frameworks
 - **Bilingual**: Mix Chinese/English naturally per repo style
 - **Concise**: Keep explanations brief and focused
-- **Practical Over Fancy**: Only include pitfalls and variants you're **actually likely to encounter**
+- **150-Line Limit**: Every playbook must be ≤150 lines
+  - Use tables over prose
+  - Keep 1-2 core patterns only
+  - List problems by number only
+  - Remove all redundancy
+- **Practical Over Fancy**: Only include variants you're **actually likely to encounter**
   - ❌ Don't add hypothetical edge cases
   - ❌ Don't add "impressive but rare" variants
-  - ✅ Focus on common mistakes you've made or seen
   - ✅ Only include design variants that solve real problems
-- **Iterative Refinement**: After initial creation, review and simplify (Step 7)
-  - ❌ Don't keep redundant sections just because they were generated
-  - ❌ Don't include complete problem implementations (only mention by number)
-  - ✅ Merge overlapping content for clarity
-  - ✅ Aim for ~150 lines while keeping all essential content
-  - ✅ Use ❌/✅ comparisons to make contrasts clear
+- **Iterative Refinement**: After initial creation, review and compress (Step 7)
+  - ❌ Don't keep redundant sections
+  - ❌ Don't include complete problem implementations
+  - ✅ Merge overlapping content
+  - ✅ **Must be ≤150 lines** - hard requirement
 
 ## Repository Conventions to Follow
 
-- Use emoji markers (🧠 🧩 ⚠️ ⏱️ ✅) for section emphasis
+- Use emoji markers (🧠 🧩 ⏱️ ✅) for section emphasis
 - Focus code on algorithmic flow, not specific examples
 - Mix Chinese and English naturally
 - Provide both pseudo-code and C++ templates

@@ -66,7 +66,7 @@
 
 ### 步驟 3：設計演算法流程 (Design the Algorithm Flow)
 
-貪婪演算法的流程主要分為兩種實現思路：**靜態排序驅動**和**動態堆驅動**。
+貪婪演算法的流程主要分為三種實現思路：**靜態排序驅動**、**動態堆驅動**和**約束分解驅動**。
 
 #### 方法一：靜態排序驅動 (Sort-Driven Approach)
 
@@ -151,8 +151,37 @@
 
 - **參考資料**:
   - **[雙堆平衡模式 (Two-Heaps Balancing Pattern)](../../Data_Structures/Heaps/04-Two_Heaps_Balancing.md)**
-  - 
   - **[雙堆貪婪選擇模式 (Two-Heaps for Greedy Selection)](../../Algorithms/Greedy/Two_Heaps_Greedy_Selection.md)**
+
+#### 方法三：約束分解驅動 (Constraint-Decomposition-Driven Approach)
+
+此方法用於處理**局部雙向依賴**的問題，通過將雙向約束分解為兩個獨立的單向約束，分別求解後合併。
+
+- **核心概念**:
+
+  - **約束分解**: 將複雜的雙向約束分解為左右兩個獨立的單向約束
+  - **兩次單向掃描**: 左向掃描滿足左約束，右向掃描滿足右約束
+  - **合併操作**: 通過 max/min/+ 等操作合併兩個方向的結果
+
+- **典型流程**:
+
+  1. **左向掃描 (Left-to-Right)**: 僅考慮左約束，使用 Greedy 策略求解
+  2. **右向掃描 (Right-to-Left)**: 僅考慮右約束，使用 Greedy 策略求解
+  3. **合併 (Merge)**: 通過適當操作（通常是 max）合併兩個方向的結果
+
+- **適用場景**:
+  - 問題涉及位置 i 與左右鄰居的雙向關係
+  - 約束可以分解為兩個獨立方向
+  - 單次掃描無法同時滿足兩個方向的約束
+  - 例如：Candy 問題（雙向比較約束）、Longest Mountain（左右坡長度）
+
+- **與其他方法的區別**:
+  - **vs 排序驅動**: 不需要全局排序，位置順序固定
+  - **vs 堆驅動**: 不需要動態選擇，掃描順序固定
+  - **特點**: 結合了 Greedy 的局部最優決策和約束分解的設計思想
+
+- **參考資料**:
+  - **[雙向約束分解設計原則 (Bidirectional Constraint Decomposition)](../Design_Principles/Bidirectional_Constraint_Decomposition.md)**
 
 ---
 

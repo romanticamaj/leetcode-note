@@ -3,6 +3,7 @@
 這份清單用於追蹤需要重點複習的演算法題目。
 
 **使用說明**:
+
 - ✅ 標記為「需要複習」的題目
 - 📌 **標記原因**: 記錄為什麼需要複習（技巧陌生、實作細節、思路盲點等）
 - 🔗 **前置題型**: 如果技巧完全陌生，先去練習的 simpler 題目（參考 [Hard_Techniques_Reference.md](Interview_Playbook/Hard_Techniques_Reference.md)）
@@ -73,3 +74,7 @@
 - [ ] LeetCode 42. Trapping Rain Water
   - [ ] Two Pointers Technique
   - [ ] Dynamic Programming
+- [ ] LeetCode 253. Meeting Rooms II
+  - [ ] Chronological Ordering
+- [ ] LeetCode 135. Candy
+  - [ ] Constraint Decomposition for Greedy or DP
