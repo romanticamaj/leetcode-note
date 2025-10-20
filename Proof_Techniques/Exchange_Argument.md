@@ -32,7 +32,7 @@
 
 ## 關聯心法
 
-- **[關鍵元素優先貪婪法 (Pivotal-Element-First Greedy)](./Pivotal_Element_First_Greedy.md)**: 交換論證是**證明**貪婪策略正確性的數學工具，而「關鍵元素優先」則是**發現**正確貪婪策略的實用思考框架。兩者相輔相成，一個用於發現，一個用於證明。
+- **[關鍵元素優先貪婪法 (Pivotal-Element-First Greedy)](../Algorithms/Greedy/Pivotal_Element_First_Greedy.md)**: 交換論證是**證明**貪婪策略正確性的數學工具，而「關鍵元素優先」則是**發現**正確貪婪策略的實用思考框架。兩者相輔相成，一個用於發現，一個用於證明。
 
 ---
 
