@@ -348,4 +348,4 @@ Correctness Proof (Structural Induction):
 
 ---
 
-*最後更新: 2025-01-20*
+*最後更新: 2025-10-21*
