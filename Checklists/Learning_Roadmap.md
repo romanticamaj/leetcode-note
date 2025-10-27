@@ -6,7 +6,6 @@
 
 ## 🌳 樹 (Trees)
 
-- [ ] **實作**：實現 Iterative 的 traversal (Preorder, Inorder, Postorder)。
 - [ ] **比較**：比較 Morris Traversal 與標準遞迴/迭代 traversal 的優缺點。
 - [ ] **學習**：研究並整理 Order-Statistic Tree (OST)，了解其在 O(log n) 時間內查找第 k 小元素和計算元素排名的原理。
 - [ ] **學習**：研究 Min-Max Heap 和 Deap (Double-ended heap) 資料結構，了解其如何同時高效支援查找最小和最大元素。
@@ -16,9 +15,6 @@
 ## 📈 圖 (Graphs)
 
 - [ ] **研究**：研究 A\* 搜尋演算法，並比較它與 Dijkstra、BFS 的差異。
-- [ ] **優化**：在 Union-Find 中實現「按秩合併」（Union by Rank/Size）。
-- [ ] **學習**：整理 Disjoint Set (Union-Find) 的完整模板，包含路徑壓縮和按秩合併。
-- [ ] **研究**：深入研究 Dijkstra 演算法的實現細節，特別是使用優先佇列 (Priority Queue) 的版本。
 
 ---
 
@@ -31,7 +27,6 @@
 ## 💡 動態規劃 (Dynamic Programming)
 
 - [ ] **研究**：研究矩陣快速冪 (Matrix Exponentiation) 如何將線性遞迴的 DP 問題從 O(N) 優化到 O(logN)，以 Fibonacci 數為例。
-- [ ] **總結**：整理一份關於 DP 狀態設計的通用心法與模式，探討如何定義最小化且完備的狀態。
 
 ---
 

@@ -81,3 +81,6 @@
 - [ ] LeetCode 394. Decode String
   - [ ] Two Stacks
   - [ ] Recursion
+- [ ] LeetCode 777. Swap Adjacent in LR String
+- [ ] LeetCode 308. Range Sum Query 2D - Mutable
+  - [ ] Binary Indexed Tree for 2D
