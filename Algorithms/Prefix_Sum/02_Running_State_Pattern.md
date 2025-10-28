@@ -21,7 +21,7 @@
 
 ---
 
-## 兩大應用模式
+## 應用模式
 
 ### 模式一：利用歷史紀錄 (History-Based)
 
@@ -110,6 +110,73 @@ T conditional_reset_template(const std::vector<T>& nums) {
     return global_result;
 }
 ```
+
+### 模式三：自定義累計運算 (Custom Accumulation Operation)
+
+此模式是 Running Sum 的泛化：**核心不在於容器類型，而在於「如何更新累計值」的運算定義**。
+
+- **本質認知：**
+  - Running Sum 本質：`result = update_operation(result, current)`
+  - 傳統加法累計：`result += current`
+  - 數字解析累計：`result = result * 10 + digit`
+  - 重點是**運算本身**，而非輸入容器（可以是數字陣列、字符串、甚至任意序列）
+
+- **核心思想：** 邊遍歷邊用自定義運算更新結果，避免兩階段處理（先收集再轉換）。
+
+- **關鍵設計元素：**
+
+  1. **滾動累計變數 (`running_result`):** 存儲當前累計結果
+  2. **更新運算 (`update_op`):** 定義如何用當前元素更新累計值
+  3. **容器遍歷 (`iterate`):** 可以是任意可遍歷的序列
+
+- **運算對比：**
+
+| 應用場景 | 更新運算 | 說明 |
+|---------|---------|------|
+| 前綴和 | `result += num` | 標準加法累計 |
+| 前綴積 | `result *= num` | 乘法累計 |
+| 十進制數字解析 | `result = result * 10 + digit` | 位權累加（每次左移一位） |
+| 二進制數字解析 | `result = result * 2 + bit` | 二進制位權累加 |
+| 十六進制解析 | `result = result * 16 + hex_digit` | 十六進制位權累加 |
+
+- **字串轉數字範例：**
+
+```cpp
+// 從字串容器提取數字到整數輸出
+int parseDigits(const std::string& str, int& pos) {
+    int result = 0;  // 累計結果
+    
+    while (pos < str.size() && isdigit(str[pos])) {
+        // 更新運算：位權累加
+        result = result * 10 + (str[pos] - '0');
+        pos++;
+    }
+    
+    return result;
+}
+```
+
+- **對比傳統兩階段處理：**
+
+```cpp
+// ❌ 兩階段：先提取字串，再轉換
+int digitEnd = j;
+while (digitEnd < k && isdigit(abbr[digitEnd])) digitEnd++;
+int num = std::stoi(abbr.substr(j, digitEnd - j));  // 階段1: 提取, 階段2: 轉換
+j = digitEnd;
+
+// ✅ 單階段：邊遍歷邊用運算更新
+int num = 0;
+while (j < k && isdigit(abbr[j])) {
+    num = num * 10 + (abbr[j] - '0');  // 直接用運算更新累計值
+    j++;
+}
+```
+
+- **優勢：**
+  - **概念統一：** 將各種累計問題統一到「定義更新運算」的框架
+  - **避免中間步驟：** 不需要先收集再處理
+  - **性能提升：** 避免 `substr()` 的記憶體分配和 `stoi()` 的解析開銷
 
 ---
 
