@@ -71,3 +71,9 @@
 ## 380. Insert Delete GetRandom O(1)
 
 - hashmap + vector + swap to the end then delete
+
+## 5. Longest Palindromic Substring
+
+- Dynamic Programming boolean DP + globaling tracking
+- Two Pointers + Expand Around Center
+- Manacher's Algorithm
