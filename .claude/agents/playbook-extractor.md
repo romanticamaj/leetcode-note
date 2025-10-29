@@ -173,7 +173,11 @@ After creating the initial playbook, perform a critical review and refinement to
 - **Abstraction Over Examples**: Extract patterns, not problem-specific solutions
 - **Template-Oriented**: Provide generic, reusable code templates
 - **Mental Models**: Emphasize conceptual frameworks
-- **Bilingual**: Mix Chinese/English naturally per repo style
+- **Language Style**: 使用繁體中文為主，關鍵術語保留英文 (e.g., "Top-K heap", "ratio")
+- **Code Format**:
+  - ❌ 不要具體的問題實現代碼
+  - ✅ 只提供抽象化的模板代碼
+  - ✅ 題目引用只需題號與名稱 (e.g., "LeetCode 857 (Minimum Cost to Hire K Workers)")
 - **Concise**: Keep explanations brief and focused
 - **150-Line Limit**: Every playbook must be ≤150 lines
   - Use tables over prose
