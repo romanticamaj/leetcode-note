@@ -222,3 +222,49 @@ public:
 
 - **Inorder**: 當從堆疊中取出節點時 (`s.pop()`)，是**無條件處理**該節點，然後轉向右子樹。
 - **Postorder**: 當窺視堆疊頂部節點時 (`s.top()`)，是**有條件的**。它必須先檢查右子樹的狀態。只有當右子樹不存在或已被訪問過時，才能處理並彈出 (`s.pop()`) 該節點。如果需要訪問右子樹，節點會**暫時留在堆疊中**。這個「窺視而不立即彈出」的行為是 Postorder 的精髓。
+
+---
+
+## 4. 應用：BST Iterator 實作
+
+**Current Pointer 模式天然適合實作 Iterator**，因為它將遍歷狀態完全封裝在 `current` 和 `stack` 中。
+
+### BST Inorder Iterator 範例
+
+```cpp
+class BSTIterator {
+    stack<TreeNode*> stk;
+    TreeNode* curr;
+
+public:
+    BSTIterator(TreeNode* root) : curr(root) {}
+
+    int next() {
+        // 一路向左（與 Inorder 內嵌迴圈版相同）
+        while (curr) {
+            stk.push(curr);
+            curr = curr->left;
+        }
+
+        // 取出當前節點
+        curr = stk.top(); stk.pop();
+        int val = curr->val;
+
+        // 轉向右子樹
+        curr = curr->right;
+        return val;
+    }
+
+    bool hasNext() {
+        return curr != nullptr || !stk.empty();
+    }
+};
+```
+
+**關鍵設計**：
+
+- `curr` + `stack` 精確保存「遍歷到哪裡」的狀態
+- `next()` 就是 Inorder 遍歷的**一小步**
+- 無需額外狀態變數，完全依賴 current pointer
+
+> 💡 **推廣到其他遍歷**：同理可實作 Preorder/Postorder Iterator，只需調整 `next()` 的邏輯
