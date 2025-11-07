@@ -77,3 +77,8 @@
 - Dynamic Programming boolean DP + globaling tracking
 - Two Pointers + Expand Around Center
 - Manacher's Algorithm
+
+## 590. N-ary Tree Postorder Traversal
+
+- node + processed child count
+- visit flag (due to visit twice nature)

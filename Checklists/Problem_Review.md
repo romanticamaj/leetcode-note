@@ -85,3 +85,16 @@
 - [ ] LeetCode 308. Range Sum Query 2D - Mutable
   - [ ] Binary Indexed Tree for 2D
 - [ ] LeetCode 5. Longest Palindromic Substring
+- [ ] LeetCode 590. N-ary Tree Postorder Traversal
+  - [ ] visit flag (visit twice natural)
+- [ ] LeetCode 1249. Minimum Remove to Make Valid Parentheses
+  - [ ] Can you do it without using a stack?
+- [ ] LeetCode 431. Encode N-ary Tree to Binary Tree
+  - [ ] Can you solve it using BFS?
+- [ ] LeetCode 47. Permutations II
+  - [ ] Backtracking sorting + duplicate check trick + visited
+  - [ ] Backtracking + grouping/counting/hashmap + visited
+- [ ] LeetCode 428. Serialize and Deserialize N-ary Tree
+  - [ ] DFS
+- [ ] LeetCode 450. Delete Node in a BST
+  - [ ] Recursion Version (必做, 太有趣)
