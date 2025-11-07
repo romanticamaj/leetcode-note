@@ -1,28 +1,27 @@
-# 二元樹的迭代式 DFS 遍歷
+# Current Pointer 實作模式 / Iterative Traversal Implementations
 
-## 核心概念總結
+## 核心概念：隱式狀態追蹤
 
-在三種迭代遍歷中，`root` 指標統一表示當前正要探索的節點。`stack` 的用途則根據遍歷順序的目標而變化：
+本文展示使用 **Current Pointer + Stack** 的隱式狀態追蹤模式實作三種遍歷。這種方法不使用顯式的 state flag，而是透過指標位置和輔助變數來隱式追蹤訪問狀態。
 
-- **Preorder Traversal (前序遍歷)**:
-  - `stack`: 主要用於保存父節點，以便在完成左子樹的探索後，能返回並探索其右子樹。
+**核心組件**：
 
-- **In-order Traversal (中序遍歷)**:
-  - `stack`: 用於保存路徑上的父節點，其目的有二：(1) 在左子樹處理完畢後，返回以處理該父節點；(2) 接著探索右子樹。
+- **`TreeNode* root`/`current`**：當前正要探索的節點（狀態指標）
+- **`stack<TreeNode*> s`**：待處理的父節點（pending tasks）
+- **`TreeNode* lastVisited`**（Postorder 專用）：追蹤上一個完成的節點
 
-- **Post-order Traversal (後序遍歷)**:
-  - `stack`: 同樣用於保存路徑上的父節點，目的也是 (1) 稍後處理 和 (2) 探索右節點。
-  - 需要搭配一個額外的 `lastVisited` 標記，以確保右子樹在父節點之前被正確訪問，且 `只訪問一次`。(關鍵設計策略!!!)
+**Stack 用途隨遍歷變化**：
 
----
+| Traversal     | Stack 用途               | 額外狀態           |
+| ------------- | ------------------------ | ------------------ |
+| **Preorder**  | 保存父節點以便探索右子樹 | 無                 |
+| **Inorder**   | 保存待處理的父節點       | 無                 |
+| **Postorder** | 保存待處理的父節點       | `lastVisited` 指標 |
 
-本文件探討二元樹 Preorder、Inorder 和 Postorder 遍歷的迭代實現。其核心思想是使用一個顯式的 `stack` 資料結構和一個指向當前節點 (`root`) 的指標，來精確模擬遞迴調用堆疊（call stack）的行為。
+**為何 Postorder 需要 `lastVisited`？**
+必須區分「從左返回」vs「從右返回」，確保右子樹在父節點前被訪問，且只訪問一次。
 
-## 核心組件
-
-- **`TreeNode* root`**: 此指標代表當前處理的節點或子樹，作為遍歷過程中的「程式計數器」。
-- **`stack<TreeNode*> s`**: 此堆疊明確管理遞迴中由調用堆疊隱式處理的狀態，主要用於儲存待返回的父節點。
-- **`TreeNode* lastVisited`** (用於 Postorder): 一個額外的狀態變數，用於區分是從左子節點還是右子節點返回父節點。
+> 💡 **相關文件**：關於 `lastVisited` 的深入解析，請參見 [`04-Postorder_lastVisited_Deep_Dive.md`](04-Postorder_lastVisited_Deep_Dive.md)
 
 ---
 
