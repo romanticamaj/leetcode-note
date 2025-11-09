@@ -6,6 +6,14 @@
 
 ---
 
+## tl;dr
+
+Level as a distance -> started from 0
+Level as a layer -> started from 1
+Level store in queue (a priority queue with equal priority, degraded to FIFO)
+
+---
+
 ## 🧱 傳統 BFS Level Order 範式
 
 ```cpp
