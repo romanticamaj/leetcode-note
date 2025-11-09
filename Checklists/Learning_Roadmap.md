@@ -7,7 +7,6 @@
 ## 🌳 樹 (Trees)
 
 - [ ] **比較**：比較 Morris Traversal 與標準遞迴/迭代 traversal 的優缺點。
-- [ ] **學習**：研究並整理 Order-Statistic Tree (OST)，了解其在 O(log n) 時間內查找第 k 小元素和計算元素排名的原理。
 - [ ] **學習**：研究 Min-Max Heap 和 Deap (Double-ended heap) 資料結構，了解其如何同時高效支援查找最小和最大元素。
 
 ---
