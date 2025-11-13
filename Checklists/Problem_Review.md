@@ -98,5 +98,12 @@
   - [ ] DFS
 - [ ] LeetCode 450. Delete Node in a BST
   - [ ] Recursion Version (必做, 太有趣)
-- [ ] LeeCode 235. Lowest Common Ancestor of a Binary Search Tree
+- [ ] LeetCode 235. Lowest Common Ancestor of a Binary Search Tree
   - [ ] Iterative version
+- [ ] LeetCode 220. Contains Duplicate III
+  - [ ] O(nlogk) solution + exactly one condition
+  - [ ] Buckets: Inspired by bucket sort, we can achieve linear time complexity in our problem using buckets as window.
+- [ ] LeetCode 732. My Calendar III
+- [ ] LeetCode 297. Serialize and Deserialize Binary Tree
+  - [ ] Pre-ordering/Recursion
+  - [ ] BFS with structural optimized
