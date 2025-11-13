@@ -28,6 +28,7 @@
 - vector Swap-to-End Deletion Trick: Data_Structures/Arrays_and_Strings/Vector_O1_Deletion_Swap_to_End.md
 - Validation-Transformation Trick: Data_Structures/Hash_Tables/Validation_Transformation_Duality.md
 - Iterative Traversal Trick: Data_Structures/Trees/Iterative_Traversal
+- Visit Count Trick: Data_Structures/Trees/Iterative_Traversal/02-Visit_Nature_Quick_Reference.md
 
 ### Advanced Algorithm
 
