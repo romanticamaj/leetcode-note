@@ -7,6 +7,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Binary Search
 
 - LeetCode 153. Find Minimum in Rotated Sorted Array
+- LeetCode 33. Search in Rotated Sorted Array
+- LeetCode 378. Kth Smallest Element in a Sorted Matrix
 
 ## Two Pointers
 
