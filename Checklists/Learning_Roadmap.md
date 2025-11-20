@@ -13,7 +13,7 @@
 
 ## 📈 圖 (Graphs)
 
-- [ ] **研究**：研究 A\* 搜尋演算法，並比較它與 Dijkstra、BFS 的差異。
+- [ ] **研究**：研究 A\* 搜尋演算法，並比較它與 Dijkstra、BFS 的差異。 ([Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle/description/))
 
 ---
 
@@ -44,10 +44,10 @@
 ## 🔑 雜湊表 (Hash Tables)
 
 - [ ] **研究**：研究 hash function 的時間複雜度計算
-- [ ] **學習**：深入理解 hash function 的設計原則與實作
+- [ ] **學習**：深入理解 hash function 的設計原則與實作：key type → key range → bucket number → hash function
 - [ ] **研究 (collision handling)**：研究並比較不同的碰撞處理策略：
-  - [Separate Chaining](https://en.wikipedia.org/wiki/Hash_table#Separate_chaining): for values with the same hash key, we keep them in a *bucket*, and each bucket is independent of each other.
-  - [Open Addressing](https://en.wikipedia.org/wiki/Hash_table#Open_addressing): whenever there is a collision, we keep on *probing* on the main space with certain strategy until a free slot is found.
+  - [Separate Chaining](https://en.wikipedia.org/wiki/Hash_table#Separate_chaining): for values with the same hash key, we keep them in a _bucket_, and each bucket is independent of each other.
+  - [Open Addressing](https://en.wikipedia.org/wiki/Hash_table#Open_addressing): whenever there is a collision, we keep on _probing_ on the main space with certain strategy until a free slot is found.
   - [2-Choice Hashing](https://en.wikipedia.org/wiki/2-choice_hashing): we use two hash functions rather than one, and we pick the generated address with fewer collision.
 - [ ] **實作目標**：完成 **[705. Design HashSet](https://leetcode.com/problems/design-hashset/)** 的實作
 
