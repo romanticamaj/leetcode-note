@@ -59,6 +59,45 @@ for (int i = 0; i < nums.size(); i++) {
 
 > **實戰建議:** 方式二（哨兵節點）是競賽和面試中的首選，因為它能有效簡化代碼，減少因邊界處理而出錯的機率。
 
+## 常見陷阱與注意事項
+
+### ⚠️ Integer Overflow 風險
+
+前綴和計算中最常見的陷阱是**累計溢位 (Cumulative Overflow)**：
+
+- **問題**: 即使原陣列的每個元素都在 `int` 範圍內（≤ `2×10⁹`），但累加後的總和可能超過 `INT_MAX`
+- **心法**: **「容器要夠大」** - 前綴和陣列必須使用能容納最終結果的資料型別
+
+**錯誤範例：**
+
+```cpp
+vector<int> nums = {1000000000, 1000000000}; // 每個元素都在 int 範圍內
+vector<int> prefix(nums.size() + 1, 0);      // ❌ prefix 用 int
+for (int i = 0; i < nums.size(); i++) {
+    prefix[i + 1] = prefix[i] + nums[i];     // 溢位！
+}
+```
+
+**正確做法：**
+
+```cpp
+vector<int> nums = {1000000000, 1000000000};
+vector<long long> prefix(nums.size() + 1, 0); // ✅ 使用 long long
+for (int i = 0; i < nums.size(); i++) {
+    prefix[i + 1] = prefix[i] + nums[i];
+}
+```
+
+**判斷原則：**
+
+- 如果 `n × max(nums[i])` 可能 > `2×10⁹`，必須使用 `long long`
+- 例如：`n = 10⁵`, `max(nums) = 10⁴` → 總和 ≤ `10⁹` → `int` 安全
+- 例如：`n = 10⁵`, `max(nums) = 10⁵` → 總和 ≤ `10¹⁰` → 需要 `long long`
+
+> 📖 延伸閱讀：[`Arithmetic_Overflow_Prevention_Playbook.md`](../Math/Arithmetic_Overflow_Prevention_Playbook.md:1)
+
+---
+
 ---
 
 ## 優化技巧：從「前綴和」到「滾動和」

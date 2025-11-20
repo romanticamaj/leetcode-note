@@ -58,6 +58,19 @@
   }
 ```
 
+- **範例 (前綴和 Prefix Sum)**:
+
+```cpp
+  vector<int> nums(100000, 100000); // 10^5 個元素，每個都是 10^5
+  // vector<int> prefix(nums.size() + 1, 0); // ❌ 錯誤：最終總和 = 10^10，遠超 INT_MAX
+  vector<long long> prefix(nums.size() + 1, 0); // ✅ 正確
+  for (int i = 0; i < nums.size(); i++) {
+      prefix[i + 1] = prefix[i] + nums[i];
+  }
+```
+
+> 💡 **LeetCode 經驗**: 在 Prefix Sum、Subarray Sum、Running Sum 等問題中，這是最常見的溢位場景。詳見：[`Prefix_Sum/01_Prefix_Sum_Intro.md`](../Prefix_Sum/01_Prefix_Sum_Intro.md:62)
+
 ### 場景四：減法下溢 (Subtraction Underflow)
 
 - **識別**: `a - b`，當 `a` 遠小於 `b` 時。在無號整數中，這會導致數值「繞回」(wrap around)；在模數算術中，可能產生負數，導致後續 `%` 運算結果不符預期。
