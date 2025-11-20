@@ -43,3 +43,16 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Math & Number Theory
 
 ## Sorting & Partition
+
+---
+
+## 🎯 Technique Integration
+
+Problems that require integrating multiple advanced techniques. These are excellent for developing multi-dimensional problem-solving skills and understanding how different algorithmic paradigms synergize.
+
+### Combined Techniques
+
+- LeetCode 327. Count of Range Sum
+  - Divide and Conquer + Prefix Sum + Merge Sort + Two Pointers
+- LeetCode 212. Word Search II
+  - Trie + Backtracking
