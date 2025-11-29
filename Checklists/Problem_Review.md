@@ -107,3 +107,5 @@
 - [ ] LeetCode 297. Serialize and Deserialize Binary Tree
   - [ ] Pre-ordering/Recursion
   - [ ] BFS with structural optimized
+- [ ] LeetCode 493. Reverse Pairs
+  - [ ] BIT

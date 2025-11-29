@@ -56,3 +56,5 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Divide and Conquer + Prefix Sum + Merge Sort + Two Pointers
 - LeetCode 212. Word Search II
   - Trie + Backtracking
+- LeetCode 642. Design Search Autocomplete System
+  - Trie + DFS + Priority Queue
