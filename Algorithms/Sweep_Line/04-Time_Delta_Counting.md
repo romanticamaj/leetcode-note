@@ -24,7 +24,7 @@ events[end] -= 1;      // 區間結束: -1
 int maxConcurrent(vector<vector<int>>& intervals) {
     map<int, int> events;  // 自動排序
 
-    // Step 1: 建立事件（delta）
+    // Step 1: 建立事件（delta）+ 排序
     for (auto& interval : intervals) {
         events[interval[0]] += 1;   // 開始: +1
         events[interval[1]] -= 1;   // 結束: -1
@@ -78,7 +78,6 @@ deltas[end] -= 1;     // 狀態 -1
 - 只需要知道「最大併發數」（不需要知道是哪些區間）
 - 時間點可能重複（多個區間在同一時間開始/結束）
 - 問題可以抽象為「狀態的增減」
-- 需要簡潔的代碼實現
 
 **不適合使用**:
 
@@ -86,44 +85,6 @@ deltas[end] -= 1;     // 狀態 -1
 - 需要根據區間的額外屬性做決策
 - 區間有優先級或權重
 - 需要動態調整區間
-
-**適用問題**: LeetCode 253 (Meeting Rooms II)、1094 (Car Pooling)、370 (Range Addition)
-
-## ⚠️ 常見陷阱
-
-### 1. Delta 符號錯誤
-
-```cpp
-// ❌ 錯誤
-events[start] += 1;
-events[end] += 1;  // 應該是 -=
-
-// ✅ 正確
-events[start] += 1;
-events[end] -= 1;
-```
-
-### 2. 使用 unordered_map
-
-```cpp
-// ❌ 無序，需手動排序
-unordered_map<int, int> events;
-
-// ✅ 自動排序
-map<int, int> events;
-```
-
-### 3. 區間定義混淆
-
-```cpp
-// 閉區間 [start, end]: 包含 end 時刻
-events[end] -= 1;  // end 時刻仍活躍，之後結束
-
-// 半開區間 [start, end): 不包含 end 時刻
-events[end] -= 1;  // end 時刻已結束
-
-// 根據題目定義調整！
-```
 
 ## 🔗 相關概念
 

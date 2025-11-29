@@ -106,7 +106,7 @@ for (auto& [start, end] : intervals) {
 | Operation | Time           | Space    | Notes          |
 | --------- | -------------- | -------- | -------------- |
 | 提取事件  | O(n)           | O(n)     | n = 輸入元素數 |
-| 排序事件  | O(n log n)     | O(1)     | 主要瓶頸       |
+| 排序事件  | O(n log n)     | O(log n) | 主要瓶頸       |
 | 狀態維護  | O(n log n)     | O(n)     | 若用 heap/set  |
 | **Total** | **O(n log n)** | **O(n)** |                |
 
