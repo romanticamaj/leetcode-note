@@ -51,7 +51,7 @@
 
 **練習路徑**：
 
-- 📙 LC 327. Count of Range Sum ← merge 時統計跨區間條件
+- 📙 LC 327. Count of Range Sum ← merge 時統計跨區間條件 (這題是最難的，Claude 建議的順序錯誤，但是先寫完這題，反而其他的都變簡單了)
 - 📕 LC 315
 - 📕 LC 493
 

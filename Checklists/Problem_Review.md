@@ -109,3 +109,6 @@
   - [ ] BFS with structural optimized
 - [ ] LeetCode 493. Reverse Pairs
   - [ ] BIT
+- [ ] LeetCode 315. Count of Smaller Numbers After Self
+  - [ ] Segment Tree
+  - [ ] Binary Indexed Tree (Fenwick Tree)
