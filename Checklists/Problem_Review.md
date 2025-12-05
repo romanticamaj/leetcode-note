@@ -112,3 +112,6 @@
 - [ ] LeetCode 315. Count of Smaller Numbers After Self
   - [ ] Segment Tree
   - [ ] Binary Indexed Tree (Fenwick Tree)
+- [ ] LeetCode 8. String to Integer (atoi)
+  - [ ] Phase Based Parsing
+  - [ ] Deterministic Finite Automaton (DFA)

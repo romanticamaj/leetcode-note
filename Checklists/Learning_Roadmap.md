@@ -20,6 +20,7 @@
 ## 🔢 陣列與字串 (Arrays and Strings)
 
 - [ ] **學習**：研究 Quickselect（Hoare 選擇演算法），它能在平均 O(n) 時間內找到無序列表中的第 k 小元素。
+- [ ] **研究**：研究 Deterministic Finite Automaton (DFA) 在 string parsing 的應用，包含 explicit `enum State` + `transition()` 函數的設計模式。與 Sequential Phase Consumption（隱式 FSM）做比較。([Valid Number](https://leetcode.com/problems/valid-number/))
 
 ---
 
