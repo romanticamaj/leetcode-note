@@ -29,6 +29,7 @@
 - Validation-Transformation Trick: Data_Structures/Hash_Tables/Validation_Transformation_Duality.md
 - Iterative Traversal Trick: Data_Structures/Trees/Iterative_Traversal
 - Visit Count Trick: Data_Structures/Trees/Iterative_Traversal/02-Visit_Nature_Quick_Reference.md
+- Phase Based Traversal: Algorithms/Design_Principles/Sequential_Phase_Consumption.md
 
 ### Advanced Algorithm
 
