@@ -30,6 +30,7 @@
 - Iterative Traversal Trick: Data_Structures/Trees/Iterative_Traversal
 - Visit Count Trick: Data_Structures/Trees/Iterative_Traversal/02-Visit_Nature_Quick_Reference.md
 - Phase Based Traversal: Algorithms/Design_Principles/Sequential_Phase_Consumption.md
+- Kadane's Pattern DP: Algorithms/Dynamic_Programming/Advanced_Techniques/Kadanes_Pattern_DP.md
 
 ### Advanced Algorithm
 

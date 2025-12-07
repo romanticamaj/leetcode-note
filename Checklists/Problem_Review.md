@@ -115,3 +115,7 @@
 - [ ] LeetCode 8. String to Integer (atoi)
   - [ ] Phase Based Parsing
   - [ ] Deterministic Finite Automaton (DFA)
+- [ ] LeetCode 468. Validate IP Address
+- [ ] LeetCode 32. Longest Valid Parentheses
+  - [ ] Dynamic Programming
+  - [ ] One Stack
