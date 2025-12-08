@@ -36,8 +36,6 @@
   - [ ] Brute Force
   - [ ] Segment Tree for Divide and Conquer
   - [ ] Monotonic Stack
-- [ ] LeetCode 218. The Skyline Problem
-  - [ ] Divide and Conquer
 - [ ] LeetCode 347. Top K Frequent Elements
   - [ ] Quickselect (Hoare's selection algorithm)
 - [ ] LeetCode 285. Inorder Successor in BST
@@ -119,3 +117,4 @@
 - [ ] LeetCode 32. Longest Valid Parentheses
   - [ ] Dynamic Programming
   - [ ] One Stack
+- [ ] LeetCode 4. Median of Two Sorted Arrays

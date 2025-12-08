@@ -6,43 +6,20 @@
 
 ## 🏁 終極目標 Hard 題（按技巧分類）
 
-| 題號    | 題目名稱                            | 技巧類型                | 難度   | 面試頻率 |
-| ------- | ----------------------------------- | ----------------------- | ------ | -------- |
-| LC 4    | Median of Two Sorted Arrays         | Binary Search + D&C     | ⭐⭐⭐ | 🔥🔥🔥   |
-| LC 218  | The Skyline Problem                 | Recursive Merging       | ⭐⭐⭐ | 🔥🔥🔥   |
-| LC 315  | Count of Smaller Numbers After Self | Merge Sort Variant      | ⭐⭐   | 🔥🔥     |
-| LC 410  | Split Array Largest Sum             | Binary Search on Answer | ⭐⭐   | 🔥🔥     |
-| LC 23   | Merge k Sorted Lists                | Recursive Merging       | ⭐     | 🔥🔥     |
-| LC 973  | K Closest Points to Origin          | QuickSelect             | ⭐     | 🔥       |
-| LC 312  | Burst Balloons                      | Interval DP (D&C)       | ⭐⭐⭐ | 🔥       |
-| LC 1000 | Minimum Cost to Merge Stones        | Interval DP (D&C)       | ⭐⭐⭐ | 🔥       |
+| 題號    | 題目名稱                            | 技巧類型           | 難度   | 面試頻率 |
+| ------- | ----------------------------------- | ------------------ | ------ | -------- |
+| LC 218  | The Skyline Problem                 | Merge Sort Variant | ⭐⭐⭐ | 🔥🔥🔥   |
+| LC 315  | Count of Smaller Numbers After Self | Merge Sort Variant | ⭐⭐   | 🔥🔥     |
+| LC 23   | Merge k Sorted Lists                | Recursive Merging  | ⭐     | 🔥🔥     |
+| LC 973  | K Closest Points to Origin          | QuickSelect        | ⭐     | 🔥       |
+| LC 312  | Burst Balloons                      | Interval DP (D&C)  | ⭐⭐⭐ | 🔥       |
+| LC 1000 | Minimum Cost to Merge Stones        | Interval DP (D&C)  | ⭐⭐⭐ | 🔥       |
 
 ---
 
 ## 🧭 練習路徑總覽（依技巧類型）
 
----
-
-### 1️⃣ Binary Search on Answer + D&C
-
-**終極目標**：
-
-- LC 4. Median of Two Sorted Arrays
-- LC 410. Split Array Largest Sum
-- LC 1231. Divide Chocolate
-- LC 774. Minimize Max Distance to Gas Station
-
-**練習路徑**：
-
-- 📙 LC 875. Koko Eating Bananas ← 入門 check 函數設計
-- 📙 LC 1283. Find the Smallest Divisor
-- 📙 LC 1011. Capacity To Ship Packages
-- 📕 LC 410 / 1231 / 774
-- 📕 LC 4 ← 最後挑戰，需理解 partition + binary search
-
----
-
-### 2️⃣ Merge Sort Variants（Combine-centric D&C）
+### 1️⃣ Merge Sort Variants（Combine-centric D&C）
 
 **終極目標**：
 
@@ -57,7 +34,7 @@
 
 ---
 
-### 3️⃣ Recursive Merging（Divide-centric D&C）
+### 2️⃣ Recursive Merging（Divide-centric D&C）
 
 **終極目標**：
 
@@ -72,7 +49,7 @@
 
 ---
 
-### 4️⃣ QuickSelect / Partition-based
+### 3️⃣ QuickSelect / Partition-based
 
 **終極目標**：
 
@@ -87,7 +64,7 @@
 
 ---
 
-### 5️⃣ Interval DP（Bottom-up Divide and Conquer）
+### 4️⃣ Interval DP（Bottom-up Divide and Conquer）
 
 **終極目標**：
 
@@ -107,20 +84,21 @@
 
 ### Week 1-2: 建立核心技巧肌肉記憶
 
-- LC 875, LC 1283, LC 1011 → Binary Search on Answer
 - LC 327 → Merge Sort Variants
 - LC 21 → Recursive Merging
 - LC 215 → QuickSelect
+- LC 1039, LC 1130 → Interval DP
 
 ### Week 3-4: 挑戰 Hard 題
 
-- LC 410, LC 315, LC 23, LC 973
+- LC 315, LC 493 → Merge Sort Variants
+- LC 23 → Recursive Merging
+- LC 973, LC 347 → QuickSelect
 
 ### Week 5+: 經典難題與終極挑戰
 
 - LC 218 (Skyline)
 - LC 312, LC 1000 (Interval DP)
-- LC 4 (Median of Two Sorted Arrays)
 
 ---
 
