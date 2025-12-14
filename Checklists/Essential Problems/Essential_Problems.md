@@ -9,6 +9,9 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 153. Find Minimum in Rotated Sorted Array
 - LeetCode 33. Search in Rotated Sorted Array
 - LeetCode 378. Kth Smallest Element in a Sorted Matrix
+
+## Binary Search on Value Space
+
 - LeetCode 4. Median of Two Sorted Arrays
 
 ## Two Pointers
@@ -40,6 +43,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Prefix Sum
 
+- LeetCode 238. Product of Array Except Self
+
 ## Bit Manipulation
 
 ## Sweep Line
@@ -49,6 +54,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Tree Algorithms
 
 ## Math & Number Theory
+
+- LeetCode 7. Reverse Integer
 
 ## Sorting & Partition
 
@@ -61,6 +68,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Stack Invariant Design
 
 - LeetCode 32. Longest Valid Parentheses
+
+## Trie
+
+- LeetCode 421. Maximum XOR of Two Numbers in an Array
 
 ---
 

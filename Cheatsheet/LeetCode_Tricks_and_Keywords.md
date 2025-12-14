@@ -82,3 +82,13 @@
 
 - node + processed child count
 - visit flag (due to visit twice nature)
+
+## 7. Reverse Integer
+
+- C++ Modulo Operator Returns Negative if input is negative
+- Integer out of bound detection (Memorize: 2147483647, -2147483648)
+
+## 238. Product of Array Except Self
+
+- Prefix Sum
+- Running Sum

@@ -118,3 +118,11 @@
   - [ ] Dynamic Programming
   - [ ] One Stack
 - [ ] LeetCode 4. Median of Two Sorted Arrays
+- [ ] LeetCode 421. Maximum XOR of Two Numbers in an Array
+  - [ ] Trie
+  - [ ] Bitwise Prefixes in HashSet
+- [ ] LeetCode 336. Palindrome Pairs (Damn Hard!)
+  - [ ] HashMap
+  - [ ] Trie
+- [ ] LeetCode 238. Product of Array Except Self
+  - [ ] A Better Design of Prefix Array
