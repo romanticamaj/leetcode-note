@@ -16,6 +16,9 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Two Pointers
 
+- LeetCode 141. Linked List Cycle
+- LeetCode 202. Happy Number
+
 ## Sliding Window
 
 ## Backtracking
@@ -56,6 +59,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Math & Number Theory
 
 - LeetCode 7. Reverse Integer
+- LeetCode 202. Happy Number
 
 ## Sorting & Partition
 

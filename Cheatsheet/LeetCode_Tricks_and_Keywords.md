@@ -1,94 +1,106 @@
 # LeetCode Tricks and Keywords
 
-## 1200. Minimum Absolute Difference
+## Divide and Conquer
 
-- Sort + 1 Traversal (running minimum absolute difference)
+- LeetCode 84. Largest Rectangle in Histogram
+- LeetCode 109. Convert Sorted List to Binary Search Tree
+  - In-order simulation using a global state (a pointer tracking the control state)
 
-## 84. Largest Rectangle in Histogram
+## Sort + Traversal
 
-- Divide and Conquer
+- LeetCode 1200. Minimum Absolute Difference
+  - Sort + 1 Traversal (running minimum absolute difference)
+- LeetCode 15. 3Sum
+  - Sort + Two Pointers (Two Sum variant)
+  - Fix k, search [k+1, n-1], skip duplicates
 
-## 173. Binary Search Tree Iterator
+## Binary Search Tree Iterator
 
-- Keep a successor
-- Flattening the BST, using a vector
-- Controlled Recursion (Iterative Stack)
+- LeetCode 173. Binary Search Tree Iterator
+  - Keep a successor
+  - Flattening the BST, using a vector
+  - Controlled Recursion (Iterative Stack)
 
-## 261. Graph Valid Tree
+## Graph Cycle Detection
 
-- iterative cycle detection + visited count(for forest)
-- iterative unconditionally visited + edge count + visited count(for forest)
+- LeetCode 261. Graph Valid Tree
+  - iterative cycle detection + visited count(for forest)
+  - iterative unconditionally visited + edge count + visited count(for forest)
+- LeetCode 1059. All Paths from Source Lead to Destination
+  - node-coloring variant for cycle detection
 
-## 1059. All Paths from Source Lead to Destination
+## Two Pointers
 
-- node-coloring variant for cycle detection
+- LeetCode 1089. Duplicate Zeros
+  - two pointers to find new end
+  - edge case: last one not duplicate (handle at two pointer stage)
+  - backward fill
 
-## 1089. Duplicate Zeros
+## MST (Minimum Spanning Tree)
 
-- two pointers to find new end
-- edge case: last one not duplicate (handle at two pointer stage)
-- backward fill
+- LeetCode 1168. Optimize Water Distribution in a Village
+  - super source + MST
 
-## 1168. Optimize Water Distribution in a Village
+## Topological Sort
 
-- super source + MST
+- LeetCode 310. Minimum Height Trees
+  - Centroids (at most two)
+  - Kahn's algorithm on leaf nodes (indegree 1)
 
-## 15. 3Sum
+## Permutation
 
-- Sort + Two Pointers (Two Sum variant)
-- Fix k, search [k+1, n-1], skip duplicates
+- LeetCode 31. Next Permutation
+  - Find first `less than pair` from the end
+  - Reverse sorted at the end
+  - Find the next big from the reverse sorted from the end
+  - Reverse the reverse sorted
 
-## 310. Minimum Height Trees
+## Binary Search
 
-- Centroids (at most two)
-- Kahn's algorithm on leaf nodes (indegree 1)
+- LeetCode 222. Count Complete Tree Nodes
+  - Use the property of complete tree -> depth (0, 1, ...)
+  - Binary search and pivot/mid of binary search as direction indicator
 
-## 31. Next Permutation
+## LRU Cache
 
-- Find first `less than pair` from the end
-- Reverse sorted at the end
-- Find the next big from the reverse sorted from the end
-- Reverse the reverse sorted
+- LeetCode 146. LRU Cache
+  - Doubly linked list with dummy head and tail
 
-## 222. Count Complete Tree Nodes
+## Backtracking + Trie
 
-- Use the property of complete tree -> depth (0, 1, ...)
-- Binary search and pivot/mid of binary search as direction indicator
+- LeetCode 212. Word Search II
+  - Backtracking + Dynamic Trie
 
-## 109. Convert Sorted List to Binary Search Tree
+## Randomized Data Structure
 
-- Divide And Conquer
-- In-order simulation using a global state (a pointer tracking the control state)
+- LeetCode 380. Insert Delete GetRandom O(1)
+  - hashmap + vector + swap to the end then delete
 
-## 146. LRU Cache
+## Palindrome
 
-- Doubly linked list with dummy head and tail
+- LeetCode 5. Longest Palindromic Substring
+  - Dynamic Programming boolean DP + globaling tracking
+  - Two Pointers + Expand Around Center
+  - Manacher's Algorithm
 
-## 212. Word Search II
+## Tree Traversal
 
-- Backtracking + Dynamic Trie
+- LeetCode 590. N-ary Tree Postorder Traversal
+  - node + processed child count
+  - visit flag (due to visit twice nature)
 
-## 380. Insert Delete GetRandom O(1)
+## Integer Manipulation
 
-- hashmap + vector + swap to the end then delete
+- LeetCode 7. Reverse Integer
+  - C++ Modulo Operator Returns Negative if input is negative
+  - Integer out of bound detection (Memorize: 2147483647, -2147483648)
 
-## 5. Longest Palindromic Substring
+## Prefix Sum
 
-- Dynamic Programming boolean DP + globaling tracking
-- Two Pointers + Expand Around Center
-- Manacher's Algorithm
+- LeetCode 238. Product of Array Except Self
+  - Prefix Sum / Running Sum
 
-## 590. N-ary Tree Postorder Traversal
+## Cycle Detection (Linked List / Number)
 
-- node + processed child count
-- visit flag (due to visit twice nature)
-
-## 7. Reverse Integer
-
-- C++ Modulo Operator Returns Negative if input is negative
-- Integer out of bound detection (Memorize: 2147483647, -2147483648)
-
-## 238. Product of Array Except Self
-
-- Prefix Sum
-- Running Sum
+- LeetCode 202. Happy Number
+  - Hashmap

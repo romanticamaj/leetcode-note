@@ -6,7 +6,9 @@
       "Bash(git mv:*)",
       "Bash(cat:*)",
       "Bash(test:*)",
-      "Bash(git -C /Users/garyhsieh/leetcode-note status --short)"
+      "Bash(git -C /Users/garyhsieh/leetcode-note status --short)",
+      "Bash(git -C /Users/garyhsieh/leetcode-note diff HEAD -- Meta_Frameworks/)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
