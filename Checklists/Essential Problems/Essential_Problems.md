@@ -71,9 +71,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 13. Roman to Integer
 - LeetCode 165. Compare Version Numbers
 
-## Stack Invariant Design
+## Stack Invariant Design (Monotonic)
 
 - LeetCode 32. Longest Valid Parentheses
+- LeetCode 402. Remove K Digits
 
 ## Trie
 
@@ -82,6 +83,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Hashmap
 
 - LeetCode 49. Group Anagrams
+
+## Boyer-Moore Voting Algorithm
+
+- LeetCode 229. Majority Element II
 
 ---
 

@@ -126,3 +126,5 @@
   - [ ] Trie
 - [ ] LeetCode 238. Product of Array Except Self
   - [ ] A Better Design of Prefix Array
+- [ ] LeetCode 402. Remove K Digits
+- [ ] LeetCode 229. Majority Element II
