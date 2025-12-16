@@ -153,4 +153,7 @@ int val = dist(rng);
 
 // Fisher-Yates shuffle
 std::shuffle(v.begin(), v.end(), rng);
+
+// ✅ 零初始化（所有元素為 0）
+std::array<int, 5> arr{};
 ```

@@ -63,6 +63,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Sorting & Partition
 
+- LeetCode 49. Group Anagrams
+
 ## String Manipulation
 
 - LeetCode 8. String to Integer (atoi)
@@ -76,6 +78,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Trie
 
 - LeetCode 421. Maximum XOR of Two Numbers in an Array
+
+## Hashmap
+
+- LeetCode 49. Group Anagrams
 
 ---
 

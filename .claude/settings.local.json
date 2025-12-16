@@ -8,7 +8,8 @@
       "Bash(test:*)",
       "Bash(git -C /Users/garyhsieh/leetcode-note status --short)",
       "Bash(git -C /Users/garyhsieh/leetcode-note diff HEAD -- Meta_Frameworks/)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []
