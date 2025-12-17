@@ -48,7 +48,9 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 238. Product of Array Except Self
 
-## Bit Manipulation
+## Bit Manipulation (State Compression)
+
+- LeetCode 36. Valid Sudoku
 
 ## Sweep Line
 
@@ -83,10 +85,15 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Hashmap
 
 - LeetCode 49. Group Anagrams
+- LeetCode 36. Valid Sudoku
 
 ## Boyer-Moore Voting Algorithm
 
 - LeetCode 229. Majority Element II
+
+## Brute Force
+
+- LeetCode 36. Valid Sudoku
 
 ---
 

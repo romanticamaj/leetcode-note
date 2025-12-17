@@ -128,3 +128,7 @@
   - [ ] A Better Design of Prefix Array
 - [ ] LeetCode 402. Remove K Digits
 - [ ] LeetCode 229. Majority Element II
+- [ ] LeetCode 645. Set Mismatch
+  - [ ] Bit Manipulation
+- [ ] LeetCode 36. Valid Sudoku
+  - [ ] Bit Manipulation
