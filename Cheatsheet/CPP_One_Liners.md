@@ -144,6 +144,11 @@ int result = ((a - b) % MOD + MOD) % MOD;
 int minVal = std::numeric_limits<int>::max();
 int maxVal = std::numeric_limits<int>::min();
 
+// std::min / std::max require both arguments to be the same type
+// Common pitfall: container.size() is size_t (unsigned), not int
+int n = std::min((int)v.size(), 5);       // Option 1: Cast size to int
+int m = std::max<int>(v.size(), 5);       // Option 2: Explicit template argument
+
 // ===== Random Numbers =====
 
 // Modern C++ random (recommended for production)
