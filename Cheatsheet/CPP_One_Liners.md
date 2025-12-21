@@ -9,6 +9,10 @@ std::string binaryString = std::bitset<32>(num).to_string();
 std::priority_queue<int> maxHeap;
 // min-heap: uses std::greater so parent <= child
 std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;
+// Custom Priority Queue
+auto cmp = [](...) {...};
+using Item = ...;
+std::prioriy_queue<Item, std::vector<Item>, decltype(cmp)> q(cmp);
 
 std::string s = std::to_string(num);
 int n = std::stoi(s);
