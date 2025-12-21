@@ -56,6 +56,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Graph Algorithms
 
+- LeetCode 130. Surrounded Regions
+
 ## Tree Algorithms
 
 ## Math & Number Theory
@@ -72,6 +74,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 8. String to Integer (atoi)
 - LeetCode 13. Roman to Integer
 - LeetCode 165. Compare Version Numbers
+- LeetCode 58. Length of Last Word
 
 ## Stack Invariant Design (Monotonic)
 
@@ -109,3 +112,5 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Trie + Backtracking
 - LeetCode 642. Design Search Autocomplete System
   - Trie + DFS + Priority Queue
+- LeetCode 373. Find K Pairs with Smallest Sums
+  - Merge K Sorted Lists + Priority Queue
