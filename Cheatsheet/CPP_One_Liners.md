@@ -122,6 +122,9 @@ std::partial_sum(v.begin(), v.end(), prefix.begin() + 1);
 // Product of all elements
 long long product = std::accumulate(v.begin(), v.end(), 1LL, std::multiplies<long long>());
 
+// Check if two ranges are equal
+bool eq = std::equal(v1.begin(), v1.end(), v2.begin());
+
 int cnt = std::count(v.begin(), v.end(), target); // 可以直接找目標，不用寫 predicate
 int cnt = std::count_if(v.begin(), v.end(), [](int x) { return x > 0; });
 
