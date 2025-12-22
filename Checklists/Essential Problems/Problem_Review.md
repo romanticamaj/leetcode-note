@@ -132,3 +132,5 @@
   - [ ] Bit Manipulation
 - [ ] LeetCode 36. Valid Sudoku
   - [ ] Bit Manipulation
+- [ ] LeetCode 122. Best Time to Buy and Sell Stock II
+  - [ ] Brute Force

@@ -18,8 +18,11 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 141. Linked List Cycle
 - LeetCode 202. Happy Number
+- LeetCode 125. Valid Palindrome
 
 ## Sliding Window
+
+- LeetCode 438. Find All Anagrams in a String
 
 ## Backtracking
 
@@ -36,9 +39,12 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Greedy
 
+- LeetCode 122. Best Time to Buy and Sell Stock II
+
 ## Divide and Conquer
 
 - LeetCode 218. The Skyline Problem
+- LeetCode 190. Reverse Bits
 
 ## Union Find
 
@@ -114,3 +120,5 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Trie + DFS + Priority Queue
 - LeetCode 373. Find K Pairs with Smallest Sums
   - Merge K Sorted Lists + Priority Queue
+- LeetCode 438. Find All Anagrams in a String
+  - Sliding Window + Hashmap + matchedCount
