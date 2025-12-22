@@ -56,3 +56,7 @@
   ```
 
 這種技巧在解決旅行商問題 (TSP)、排列組合相關的 DP 問題以及需要狀態壓縮的圖論問題中非常常見且強大。
+
+## 延伸閱讀
+
+- [02-Bitmask_Set_Operations.md](02-Bitmask_Set_Operations.md) - 集合運算對照表、遍歷子集合技巧
