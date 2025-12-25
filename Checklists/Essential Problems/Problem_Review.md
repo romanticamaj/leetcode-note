@@ -134,3 +134,6 @@
   - [ ] Bit Manipulation
 - [ ] LeetCode 122. Best Time to Buy and Sell Stock II
   - [ ] Brute Force
+- [ ] LeetCode 443. String Compression
+- [ ] LeetCode 45. Jump Game II
+  - [ ] Greedy

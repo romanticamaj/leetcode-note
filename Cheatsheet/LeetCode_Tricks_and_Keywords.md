@@ -119,4 +119,9 @@
   - Bit Manipulation
 
 - LeetCode 373. Find K Pairs with Smallest Sums
+
   - Merge K Sorted Lists + Priority Queue
+
+- LeetCode 45. Jump Game II
+  - Dynamic Programming
+  - Greddy (Expand Range, maintain an expandable range, update jump count at proper timing)
