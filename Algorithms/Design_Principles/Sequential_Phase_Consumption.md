@@ -4,10 +4,10 @@
 
 當處理需要依序消費 sequential input（如 string parsing）的問題時，有兩種截然不同的設計思維：
 
-| 思維 | 特徵 | 問題 |
-|------|------|------|
+| 思維                   | 特徵                                         | 問題                    |
+| ---------------------- | -------------------------------------------- | ----------------------- |
 | **追蹤狀態，逐一驗證** | 大量 boolean flags (`spaceRead`, `signRead`) | flag 爆炸、if-else 地獄 |
-| **假設合法，遇錯即停** | Phase 結構，每個 phase 專注一件事 | 清晰、可維護 |
+| **假設合法，遇錯即停** | Phase 結構，每個 phase 專注一件事            | 清晰、可維護            |
 
 **關鍵洞察**：程式的 sequential structure 本身就是 implicit state machine，不需要 explicit `enum State`。
 
@@ -42,12 +42,12 @@ Phase 3 進行中 → 隱含「正在 Digit 狀態」
 
 ### 3️⃣ 數學公式吸收 Corner Cases
 
-| Corner Case | 如何被吸收 |
-|-------------|-----------|
-| 空字串 | Phase 3 的 while 不進入，return 0 |
-| 只有空白 | 同上 |
-| 只有 sign | 同上 |
-| Leading zeros | `0 * 10 + 0 = 0`，自然處理 |
+| Corner Case   | 如何被吸收                        |
+| ------------- | --------------------------------- |
+| 空字串        | Phase 3 的 while 不進入，return 0 |
+| 只有空白      | 同上                              |
+| 只有 sign     | 同上                              |
+| Leading zeros | `0 * 10 + 0 = 0`，自然處理        |
 
 **讓數學公式和 loop 條件自然處理邊界**，而不是逐一特判。
 
@@ -83,11 +83,11 @@ Phase N: Attempt to consume expected pattern
 
 **Phase 的三種消費模式**：
 
-| 消費模式 | 語義 | 適用場景 |
-|---------|------|---------|
-| **Greedy (`while`)** | 消費所有符合條件的 | prefix, main content |
-| **Single (`if`)** | 最多消費一個 | delimiter, sign |
-| **Conditional (`if` + validation)** | 消費並驗證 | main content with bounds check |
+| 消費模式                            | 語義               | 適用場景                       |
+| ----------------------------------- | ------------------ | ------------------------------ |
+| **Greedy (`while`)**                | 消費所有符合條件的 | prefix, main content           |
+| **Single (`if`)**                   | 最多消費一個       | delimiter, sign                |
+| **Conditional (`if` + validation)** | 消費並驗證         | main content with bounds check |
 
 **設計要點**：
 
@@ -107,11 +107,17 @@ Phase N: Attempt to consume expected pattern
 
 ---
 
-## 與 Explicit DFA 的區別
+## 相關模式
 
-| Pattern | 特徵 | 適用場景 |
-|---------|------|---------|
-| **Sequential Phase Consumption** | 隱式 FSM，程式結構即狀態 | 簡單線性 parsing |
-| **Explicit DFA** | `enum State` + `transition()` | 複雜狀態轉移、需要回溯或多路徑 |
+**Boundary-Driven Processing**：處理重複性區段結構（如 run-length encoding）時，採用「先找邊界，再處理」的策略。詳見 [Boundary_Driven_Processing.md](Boundary_Driven_Processing.md)。
+
+---
+
+## 與 Explicit DFA（Deterministic Finite Automaton）的區別
+
+| Pattern                          | 特徵                          | 適用場景                       |
+| -------------------------------- | ----------------------------- | ------------------------------ |
+| **Sequential Phase Consumption** | 隱式 FSM，程式結構即狀態      | 簡單線性 parsing               |
+| **Explicit DFA**                 | `enum State` + `transition()` | 複雜狀態轉移、需要回溯或多路徑 |
 
 當問題變得更複雜（如 LC 65 Valid Number），可能需要考慮 Explicit DFA 設計。
