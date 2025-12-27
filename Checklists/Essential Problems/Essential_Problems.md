@@ -20,6 +20,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 202. Happy Number
 - LeetCode 125. Valid Palindrome
 - LeetCode 345. Reverse Vowels of a String
+- LeetCode 86. Partition List
 
 ## Sliding Window
 
@@ -32,6 +33,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## DFS (Depth-First Search)
 
 ## Dynamic Programming
+
+- LeetCode 72. Edit Distance
 
 ## Kadane's Pattern DP
 
@@ -56,7 +59,11 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 238. Product of Array Except Self
 
-## Bit Manipulation (State Compression)
+## Bit Manipulation
+
+- LeetCode 137. Single Number II
+
+## State Compression through Bit Manipulation
 
 - LeetCode 36. Valid Sudoku
 
@@ -73,6 +80,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 7. Reverse Integer
 - LeetCode 202. Happy Number
 - LeetCode 168. Excel Sheet Column Title
+- LeetCode 263. Ugly Number
 
 ## Sorting & Partition
 
@@ -127,7 +135,14 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Sliding Window + Hashmap + matchedCount
 - LeetCode 443. String Compression
   - Two Pointer + String Manipulation
+- LeetCode 137. Single Number II
+  - Bit Manipulation + Math + Bit Invaraint Design + State Machine
 
 ### Followup Possible (Multiple Solutions)
 
 - LeetCode 45. Jump Game II
+- LeetCode 137. Single Number II
+
+## LeetCode Solution Worth Reading
+
+- LeetCode 137. Single Number II

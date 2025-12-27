@@ -137,3 +137,5 @@
 - [ ] LeetCode 443. String Compression
 - [ ] LeetCode 45. Jump Game II
   - [ ] Greedy
+- [ ] LeetCode 137. Single Number II
+  - [ ] Bit Manipulation + State Machine + Bit Invaraint
