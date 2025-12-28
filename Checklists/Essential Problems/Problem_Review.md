@@ -139,3 +139,8 @@
   - [ ] Greedy
 - [ ] LeetCode 137. Single Number II
   - [ ] Bit Manipulation + State Machine + Bit Invaraint
+- [ ] LeetCode 12. Integer to Roman
+  - [ ] Phase Based Traversal (Greedy to select possible number)
+- [ ] LeetCode 128. Longest Consecutive Sequence
+  - Hash Table + Possible Start (check num - 1)
+  - amortized analysis

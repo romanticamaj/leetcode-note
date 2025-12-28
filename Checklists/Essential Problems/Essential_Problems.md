@@ -142,6 +142,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 
 - LeetCode 45. Jump Game II
 - LeetCode 137. Single Number II
+- LeetCode 128. Longest Consecutive Sequence
 
 ## LeetCode Solution Worth Reading
 

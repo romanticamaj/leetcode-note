@@ -125,13 +125,18 @@
 - LeetCode 45. Jump Game II
 
   - Dynamic Programming
-  - Greddy (Expand Range, maintain an expandable range, update jump count at proper timing)
+  - Greedy (Expand Range, maintain an expandable range, update jump count at proper timing)
 
 - LeetCode 292. Nim Game
+
   - brainteaser
   - Considering which one you take on 5, then you must win
 
 - LeetCode 72. Edit Distance
+
   - Considering word1[0..i-1] and word2[0..j-1]
   - Comparing word1[i-1] and word2[j-1]
   - if not equal: replace check dp[i-1][j-1], insert check dp[i][j-1], remove check dp[i-1][j]
+
+- LeetCode 128. Longest Consecutive Sequence
+  - Hash Table + Possible Start (check num - 1)
