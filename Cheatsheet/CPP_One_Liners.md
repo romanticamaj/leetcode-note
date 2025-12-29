@@ -92,6 +92,10 @@ int idx = c - 'A';        // 'A' -> 0, 'Z' -> 25
 char upper = lower - 'a' + 'A';
 char lower = upper - 'A' + 'a';
 
+// ✅ 尾部插入 + reverse = O(n) (Note: 頭部插入 = O(n²) 陷阱)
+s += c;                           // amortized O(1)
+std::reverse(s.begin(), s.end()); // 最後一次 O(n)
+
 // ===== String Operations =====
 
 // O(1) space comparison - avoids creating temporary substring
