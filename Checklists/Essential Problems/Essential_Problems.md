@@ -25,6 +25,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Sliding Window
 
 - LeetCode 438. Find All Anagrams in a String
+- LeetCode 424. Longest Repeating Character Replacement
 
 ## Backtracking
 
@@ -81,6 +82,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 202. Happy Number
 - LeetCode 168. Excel Sheet Column Title
 - LeetCode 263. Ugly Number
+- LeetCode 319. Bulb Switcher
 
 ## Sorting & Partition
 
@@ -106,6 +108,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 49. Group Anagrams
 - LeetCode 36. Valid Sudoku
+- LeetCode 424. Longest Repeating Character Replacement
 
 ## Boyer-Moore Voting Algorithm
 
@@ -114,6 +117,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Brute Force
 
 - LeetCode 36. Valid Sudoku
+
+## Brainteaser
+
+- LeetCode 319. Bulb Switcher
 
 ---
 
@@ -137,6 +144,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Two Pointer + String Manipulation
 - LeetCode 137. Single Number II
   - Bit Manipulation + Math + Bit Invaraint Design + State Machine
+- LeetCode 424. Longest Repeating Character Replacement
+  - Sliding Window + Hash Table + Greedy
 
 ### Followup Possible (Multiple Solutions)
 
@@ -147,3 +156,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 ## LeetCode Solution Worth Reading
 
 - LeetCode 137. Single Number II
+
+## Gary's Choice
+
+- LeetCode 424. Longest Repeating Character Replacement

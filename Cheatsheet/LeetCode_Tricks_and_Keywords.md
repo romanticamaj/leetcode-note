@@ -139,4 +139,8 @@
   - if not equal: replace check dp[i-1][j-1], insert check dp[i][j-1], remove check dp[i-1][j]
 
 - LeetCode 128. Longest Consecutive Sequence
+
   - Hash Table + Possible Start (check num - 1)
+
+- LeetCode 424. Longest Repeating Character Replacement
+  - Sliding Window + Hash Table + Greedy (maxCount and frequency)
