@@ -83,6 +83,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 168. Excel Sheet Column Title
 - LeetCode 263. Ugly Number
 - LeetCode 319. Bulb Switcher
+- LeetCode 1925. Count Square Sum Triples
 
 ## Sorting & Partition
 
@@ -152,6 +153,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - LeetCode 45. Jump Game II
 - LeetCode 137. Single Number II
 - LeetCode 128. Longest Consecutive Sequence
+- LeetCode 1925. Count Square Sum Triples
 
 ## LeetCode Solution Worth Reading
 

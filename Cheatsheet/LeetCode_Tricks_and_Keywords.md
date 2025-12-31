@@ -143,4 +143,8 @@
   - Hash Table + Possible Start (check num - 1)
 
 - LeetCode 424. Longest Repeating Character Replacement
+
   - Sliding Window + Hash Table + Greedy (maxCount and frequency)
+
+- LeetCode 1925. Count Square Sum Triples
+  - sqrt + integer verification
