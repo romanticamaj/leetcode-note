@@ -76,6 +76,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Tree Algorithms
 
+- LeetCode 230. Kth Smallest Element in a BST
+
 ## Math & Number Theory
 
 - LeetCode 7. Reverse Integer
@@ -110,6 +112,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 49. Group Anagrams
 - LeetCode 36. Valid Sudoku
 - LeetCode 424. Longest Repeating Character Replacement
+- LeetCode 409. Longest Palindrome
 
 ## Boyer-Moore Voting Algorithm
 
@@ -122,6 +125,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Brainteaser
 
 - LeetCode 319. Bulb Switcher
+
+## Simulation
+
+- LeetCode 409. Longest Palindrome
 
 ---
 

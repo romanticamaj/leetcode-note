@@ -119,6 +119,6 @@ int getRank(Node* root, int val) {
 
 ## 相關題目
 
+- LeetCode 230 (Kth Smallest Element in BST) - 更簡單，不需 augmentation (會用 Followup 來考)
 - LeetCode 703 (Kth Largest Element in Stream)
-- LeetCode 230 (Kth Smallest Element in BST) - 更簡單，不需 augmentation
 - CLRS Chapter 14: Augmenting Data Structures
