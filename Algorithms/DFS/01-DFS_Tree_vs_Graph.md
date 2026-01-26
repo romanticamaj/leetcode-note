@@ -13,7 +13,7 @@
 
 為了深入理解，我們可以從一個基礎的 Tree DFS 模式開始，逐步演化為一個健壯且高效的 Graph DFS。
 
-### 版本 1：基礎遞迴模式
+### 版本 1：拜訪檢查加標記遞迴模式
 
 此版本直接套用樹的遍歷邏輯，在函式入口處檢查節點是否已訪問，如同在樹中檢查節點是否為 `nullptr`。
 
@@ -36,16 +36,16 @@ void dfs_v1(int u, const std::vector<std::vector<int>>& adj, std::vector<bool>& 
 
 - **評析**: 此版本邏輯正確，但效率欠佳。即使鄰居 `v` 已被訪問，仍會產生一次不必要的 `dfs_v1(v)` 函式呼叫。
 
-### 版本 2：經典遞迴模式
+### 版本 2：拜訪即標記遞迴模式
 
 此版本將 `visited` 檢查的責任從「被呼叫者」轉移到「呼叫者」，在遞迴呼叫前進行剪枝，避免了無效的函式呼叫。
 
 ```cpp
-// DFS 核心遞迴函式 - 版本 2 (經典)
+// DFS 核心遞迴函式 - 版本 2
 void dfs_v2(int u, const std::vector<std::vector<int>>& adj, std::vector<bool>& visited) {
     // 1. Mark-on-Process: 進入處理流程時標記
     visited[u] = true;
-    // Process node u...
+    // Process node u... (such as label as gray)
 
     // 2. 遍歷所有鄰居
     for (int v : adj[u]) {
@@ -54,17 +54,20 @@ void dfs_v2(int u, const std::vector<std::vector<int>>& adj, std::vector<bool>& 
             dfs_v2(v, adj, visited);
         }
     }
+
+    // Process node u... (such as label as black)
 }
 ```
 
-- **評析**: 這是標準且高效的遞迴寫法，也是從 Tree DFS 思維到 Graph DFS 思維的關鍵轉變。
+- **評析**: 這是標準且高效的遞迴寫法，也是從 Tree DFS 思維到 Graph DFS 思維的關鍵轉變 (避免無效拜訪)。
+- **應用**: 可延伸成 Node Coloring DFS (Cycle Detection, Topological Sort, etc.)
 
-### 版本 3：最高效遞迴模式
+### 版本 3：經典且最高效遞迴模式
 
 此版本將標記動作也提前至遞迴呼叫之前，在邏輯上與最高效的迭代版本完全對應，從根本上杜絕了任何重複排程的可能。
 
 ```cpp
-// DFS 核心遞迴函式 - 版本 3 (最高效)
+// DFS 核心遞迴函式 - 版本 3 (經典且最高效)
 void dfs_v3(int u, const std::vector<std::vector<int>>& adj, std::vector<bool>& visited) {
     // 處理節點 u
     // Process node u...
@@ -139,12 +142,12 @@ void traverseGraph(const std::vector<std::vector<int>>& adj) {
 
    - **組合**: `Mark-on-Process` + `Pruning-before-Push`
    - **流程**: 探索鄰居 `v` 時，檢查 `!visited[v]` (剪枝)，若通過則直接呼叫 `dfs(v)`。在 `dfs(v)` 入口處標記 `visited[v] = true` (標記)。
-   - **評價**: 非常常見且高效，邏輯清晰地將「檢查」和「標記」分離在呼叫者和被呼叫者中。
+   - **評價**: 非常常見且高效，邏輯清晰地將「檢查」和「標記」分離在呼叫者和被呼叫者中。常用在 Node Coloring DFS 延伸演算法上。
 
 3. **基礎模式 (效率較低)**
    - **組合**: `Mark-on-Process` + `Pruning-on-Entry`
    - **流程**: 直接對所有鄰居 `v` 呼叫 `dfs(v)`。在 `dfs(v)` 入口處檢查 `if (visited[v]) return;` (剪枝)，然後才標記。
-   - **評價**: 邏輯正確但效率較低，因其對已訪問鄰居產生了多餘的函式呼叫。然而，這種「信任被呼叫者自行剪枝」的模式，正是 `lambda` 表達式實現簡潔 One-Liner DFS 的關鍵，是以犧牲少許性能換取極致簡潔性。
+   - **評價**: 邏輯正確但效率較低，因其對已訪問鄰居產生了多餘的函式呼叫。這種「信任被呼叫者自行剪枝」的模式，是實現簡潔 One-Liner DFS 的關鍵，犧牲少許性能換取極致簡潔性。
 
 **結論**：標記與剪枝是可組合的工具。要實現最高效的 DFS，核心是採納 **`Pruning-before-Push`** 思想，並盡早標記（**`Mark-on-Push`**），從而杜絕任何不必要的操作。
 
