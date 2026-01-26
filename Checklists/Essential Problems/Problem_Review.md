@@ -144,3 +144,7 @@
 - [ ] LeetCode 128. Longest Consecutive Sequence
   - Hash Table + Possible Start (check num - 1)
   - amortized analysis
+- [ ] LeetCode 416. Partition Equal Subset Sum
+  - Feedback: great to think DP Optimization
+- [ ] LeetCode 494. Target Sum
+  - [ ] Convert to Subset Sum problem

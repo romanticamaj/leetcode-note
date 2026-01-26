@@ -8,16 +8,17 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 153. Find Minimum in Rotated Sorted Array
 - LeetCode 33. Search in Rotated Sorted Array
-- LeetCode 378. Kth Smallest Element in a Sorted Matrix
+- 🟡 LeetCode 378. Kth Smallest Element in a Sorted Matrix
+- 🟡 LeetCode 981. Time Based Key-Value Store
 
 ## Binary Search on Value Space
 
-- LeetCode 4. Median of Two Sorted Arrays
+- 🔴 LeetCode 4. Median of Two Sorted Arrays
 
 ## Two Pointers
 
 - LeetCode 141. Linked List Cycle
-- LeetCode 202. Happy Number
+- 🟢 LeetCode 202. Happy Number
 - LeetCode 125. Valid Palindrome
 - LeetCode 345. Reverse Vowels of a String
 - LeetCode 86. Partition List
@@ -29,6 +30,9 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Backtracking
 
+- 🟡 LeetCode 40. Combination Sum II
+- 🟡 LeetCode 78. Subsets
+
 ## BFS (Breadth-First Search)
 
 ## DFS (Depth-First Search)
@@ -36,6 +40,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Dynamic Programming
 
 - LeetCode 72. Edit Distance
+- 🟡 LeetCode 494. Target Sum
+- 🟡 LeetCode 416. Partition Equal Subset Sum
 
 ## Kadane's Pattern DP
 
@@ -55,6 +61,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Union Find
 
 ## Topological Sort
+
+- LeetCode 207. Course Schedule
 
 ## Prefix Sum
 
@@ -113,6 +121,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 36. Valid Sudoku
 - LeetCode 424. Longest Repeating Character Replacement
 - LeetCode 409. Longest Palindrome
+- 🟡 LeetCode 981. Time Based Key-Value Store
 
 ## Boyer-Moore Voting Algorithm
 
@@ -161,6 +170,8 @@ Problems that require integrating multiple advanced techniques. These are excell
 - LeetCode 137. Single Number II
 - LeetCode 128. Longest Consecutive Sequence
 - LeetCode 1925. Count Square Sum Triples
+- 🟡 LeetCode 981. Time Based Key-Value Store
+- 🟡 LeetCode 494. Target Sum
 
 ## LeetCode Solution Worth Reading
 
@@ -169,3 +180,4 @@ Problems that require integrating multiple advanced techniques. These are excell
 ## Gary's Choice
 
 - LeetCode 424. Longest Repeating Character Replacement
+- 🟡 LeetCode 494. Target Sum
