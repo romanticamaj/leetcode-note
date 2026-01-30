@@ -27,6 +27,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 438. Find All Anagrams in a String
 - LeetCode 424. Longest Repeating Character Replacement
+- 🟡 LeetCode 567. Permutation in String
 
 ## Backtracking
 
@@ -130,6 +131,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Brute Force
 
 - LeetCode 36. Valid Sudoku
+- 🟡 🔴 LeetCode 567. Permutation in String
 
 ## Brainteaser
 
@@ -172,6 +174,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - LeetCode 1925. Count Square Sum Triples
 - 🟡 LeetCode 981. Time Based Key-Value Store
 - 🟡 LeetCode 494. Target Sum
+- 🟡 🔴 LeetCode 567. Permutation in String
 
 ## LeetCode Solution Worth Reading
 
@@ -181,3 +184,4 @@ Problems that require integrating multiple advanced techniques. These are excell
 
 - LeetCode 424. Longest Repeating Character Replacement
 - 🟡 LeetCode 494. Target Sum
+- 🟡 🔴 LeetCode 567. Permutation in String

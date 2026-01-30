@@ -148,3 +148,5 @@
   - Feedback: great to think DP Optimization
 - [ ] LeetCode 494. Target Sum
   - [ ] Convert to Subset Sum problem
+- [ ] 567. Permutation in String
+  - [ ] Sliding Window (Frequency Counting)

@@ -99,7 +99,8 @@ std::reverse(s.begin(), s.end()); // 最後一次 O(n)
 // ===== String Operations =====
 
 // O(1) space comparison - avoids creating temporary substring
-if (s.compare(pos, len, pattern) == 0) { /* match */ }
+// exactly compare at start_pos_s for target_length with target
+if (s.compare(start_pos_s, target_length, target) == 0) { /* equals zero means matched */ }
 
 size_t pos = s.find("pattern");
 if (pos != std::string::npos) { /* found */ }
