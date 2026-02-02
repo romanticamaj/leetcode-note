@@ -151,3 +151,7 @@
 
 - LeetCode 40. Combination Sum II
   - Sort + Skip same value candidate at same process level
+
+- LeetCode 73. Set Matrix Zeroes
+  - Hash Table Optimization using first cell of row and col
+  - Be careful of cell (0, 0)

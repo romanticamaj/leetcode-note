@@ -28,6 +28,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 438. Find All Anagrams in a String
 - LeetCode 424. Longest Repeating Character Replacement
 - 🟡 LeetCode 567. Permutation in String
+- LeetCode 28. Find the Index of the First Occurrence in a String
 
 ## Backtracking
 
@@ -123,6 +124,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 424. Longest Repeating Character Replacement
 - LeetCode 409. Longest Palindrome
 - 🟡 LeetCode 981. Time Based Key-Value Store
+- 🟢 🟡 LeetCode 73. Set Matrix Zeroes
 
 ## Boyer-Moore Voting Algorithm
 
@@ -140,6 +142,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Simulation
 
 - LeetCode 409. Longest Palindrome
+
+## Look Simple, Easy to Make Mistakes
+
+- 🟢 🟡 LeetCode 73. Set Matrix Zeroes
 
 ---
 
@@ -175,6 +181,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 LeetCode 981. Time Based Key-Value Store
 - 🟡 LeetCode 494. Target Sum
 - 🟡 🔴 LeetCode 567. Permutation in String
+- 🟢 🟡 LeetCode 73. Set Matrix Zeroes
 
 ## LeetCode Solution Worth Reading
 

@@ -8,6 +8,7 @@
 
 - [ ] **比較**：比較 Morris Traversal 與標準遞迴/迭代 traversal 的優缺點。
 - [ ] **學習**：研究 Min-Max Heap 和 Deap (Double-ended heap) 資料結構，了解其如何同時高效支援查找最小和最大元素。
+- [ ] 子樹雜湊（Merkle hashing）/ Tree hashing
 
 ---
 
@@ -21,6 +22,7 @@
 
 - [ ] **學習**：研究 Quickselect（Hoare 選擇演算法），它能在平均 O(n) 時間內找到無序列表中的第 k 小元素。
 - [ ] **研究**：研究 Deterministic Finite Automaton (DFA) 在 string parsing 的應用，包含 explicit `enum State` + `transition()` 函數的設計模式。與 Sequential Phase Consumption（隱式 FSM）做比較。([Valid Number](https://leetcode.com/problems/valid-number/))
+- [ ] Knuth-Morris-Pratt algorithm
 
 ---
 

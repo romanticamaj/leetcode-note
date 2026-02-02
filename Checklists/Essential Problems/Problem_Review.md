@@ -148,5 +148,10 @@
   - Feedback: great to think DP Optimization
 - [ ] LeetCode 494. Target Sum
   - [ ] Convert to Subset Sum problem
-- [ ] 567. Permutation in String
+- [ ] LeetCode 567. Permutation in String
   - [ ] Sliding Window (Frequency Counting)
+- [ ] LeetCode 572. Subtree of Another Tree
+  - [ ] 序列化成字串 + KMP / Z-algorithm
+  - [ ] 子樹雜湊（Merkle hashing）/ Tree hashing
+- [ ] LeetCode 73. Set Matrix Zeroes
+  - [ ] Hash Table Optimization
