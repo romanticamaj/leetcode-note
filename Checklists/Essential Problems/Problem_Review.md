@@ -154,4 +154,6 @@
   - [ ] 序列化成字串 + KMP / Z-algorithm
   - [ ] 子樹雜湊（Merkle hashing）/ Tree hashing
 - [ ] LeetCode 73. Set Matrix Zeroes
-  - [ ] Hash Table Optimization
+  - [ ] Hash Table Optimization (Space Optimization)
+- [ ] LeetCode 131. Palindrome Partitioning
+  - [ ] Backtracking + Dynamic Programming

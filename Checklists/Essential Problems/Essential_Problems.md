@@ -182,6 +182,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 LeetCode 494. Target Sum
 - 🟡 🔴 LeetCode 567. Permutation in String
 - 🟢 🟡 LeetCode 73. Set Matrix Zeroes
+- 🟡 🔴 LeetCode 131. Palindrome Partitioning
 
 ## LeetCode Solution Worth Reading
 
@@ -192,3 +193,4 @@ Problems that require integrating multiple advanced techniques. These are excell
 - LeetCode 424. Longest Repeating Character Replacement
 - 🟡 LeetCode 494. Target Sum
 - 🟡 🔴 LeetCode 567. Permutation in String
+- 🟡 LeetCode 131. Palindrome Partitioning
