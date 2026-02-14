@@ -1,312 +1,80 @@
 # 算法技巧清單 (Algorithm Techniques Checklist)
 
-這個清單整理了常見的算法技巧，可以作為解題參考和學習指南。
-
-## 目錄
-
-- [Array 與字符串技巧](#數組與字符串技巧)
-- [Linked List 技巧](#鏈表技巧)
-- [Tree 與 Graph 技巧](#樹與圖技巧)
-- [搜索與排序技巧](#搜索與排序技巧)
-- [動態規劃技巧](#動態規劃技巧)
-- [其他常見技巧](#其他常見技巧)
-
 ## Array 與字符串技巧
 
-### 前綴和 (Prefix Sum)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 子數組和問題、區間查詢
-- **使用的資料結構**: Array
-- **時間複雜度**: 預處理 O(n)，查詢 O(1)
-- **空間複雜度**: O(n)
-- **核心思想**: 預先計算從起始位置到當前位置的累積和，用於快速計算任意區間的和
-
-### 雙指針 (Two Pointers)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 有序數組的目標和、移除重複元素、容器盛水問題
-- **使用的資料結構**: Array
-- **時間複雜度**: O(n)
-- **空間複雜度**: O(1)
-- **核心思想**: 使用兩個指針在數組上移動，通常從兩端向中間移動或同向移動
-
-### 快慢指針 (Fast and Slow Pointers)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 檢測鏈表循環、尋找鏈表中點、尋找循環起點
-- **使用的資料結構**: Linked List、Array
-- **時間複雜度**: O(n)
-- **空間複雜度**: O(1)
-- **核心思想**: 使用兩個速度不同的指針遍歷，快指針每次移動兩步，慢指針每次移動一步
-
-### K 間隔指針 (K-Gap Pointers)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 滑動窗口最大值、固定大小窗口問題
-- **使用的資料結構**: Array、Queue
-- **時間複雜度**: O(n)
-- **空間複雜度**: O(1) 或 O(k)
-- **核心思想**: 維護兩個相距 k 個元素的指針，用於處理固定大小窗口或間隔問題
-
-### 滑動窗口 (Sliding Window)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 最長無重複子串、最小覆蓋子串、子數組最大和
-- **使用的資料結構**: Array、Hash Table
-- **時間複雜度**: O(n)
-- **空間複雜度**: O(k)，k 為窗口大小或字符集大小
-- **核心思想**: 維護一個可變大小的窗口，根據條件擴大或縮小窗口
-
-### 單調棧 (Monotonic Stack)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 下一個更大元素、柱狀圖中最大矩形、接雨水問題
-- **使用的資料結構**: Stack
-- **時間複雜度**: O(n)
-- **空間複雜度**: O(n)
-- **核心思想**: 維護一個單調遞增或遞減的棧，用於解決「下一個更大/更小元素」類問題
-
-### 單調隊列 (Monotonic Queue)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 滑動窗口最大值、隊列中的最大值
-- **使用的資料結構**: Deque
-- **時間複雜度**: O(n)
-- **空間複雜度**: O(k)，k 為窗口大小
-- **核心思想**: 維護一個單調遞增或遞減的隊列，用於在滑動窗口中快速找到最大/最小值
-
-### 差分數組 (Difference Array)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 區間加法、航班預訂統計
-- **使用的資料結構**: Array
-- **時間複雜度**: 操作 O(1)，還原 O(n)
-- **空間複雜度**: O(n)
-- **核心思想**: 對區間進行操作時，只需要修改區間的起點和終點+1 位置，然後通過前綴和還原
+- Prefix Sum
+- Running Sum
+- Two Pointers
+- Fast and Slow Pointers
+- K-Gap Pointers
+- Sliding Window (with Hashtable)
+- Monotonic Stack
+- Monotonic Queue
+- Difference Array
+- Trie
+- Dynmaic Trie
+- Segment Tree
 
 ## Linked List 技巧
 
-### 虛擬頭節點 (Dummy Head)
-
-- **難度等級**: ⭐
-- **常見範例**: 刪除鏈表節點、合併有序鏈表
-- **使用的資料結構**: Linked List
-- **時間複雜度**: 取決於具體操作
-- **空間複雜度**: O(1)
-- **核心思想**: 創建一個虛擬頭節點，簡化對鏈表頭部的操作
-
-### 鏈表反轉 (Linked List Reversal)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 反轉鏈表、K 組反轉鏈表
-- **使用的資料結構**: Linked List
-- **時間複雜度**: O(n)
-- **空間複雜度**: O(1)
-- **核心思想**: 通過改變節點的 next 指針方向來反轉鏈表
+- Dummy Head
+- Two Pointers
+- Linked List Reversal
+- Trie (N-ary Tree + Linked List)
 
 ## Tree 與 Graph 技巧
 
-### 深度優先搜索 (DFS)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 二叉樹遍歷、路徑和、島嶼數量
-- **使用的資料結構**: Stack（顯式或隱式通過遞歸）
-- **時間複雜度**: O(V + E)，V 為節點數，E 為邊數
-- **空間複雜度**: O(h) 或 O(V)，h 為樹高或圖深度
-- **核心思想**: 優先探索深度，使用遞歸或棧實現
-- **迭代實現的關鍵心法**:
-  - 先做出 stack traverse 的邏輯結構
-  - 確認使用當前 node 做運算的位置 (pre-order, inorder, post-order 的差別)
-  - 掌握適當的 push pop 的時機
-
-### 廣度優先搜索 (BFS)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 層序遍歷、最短路徑、單詞接龍
-- **使用的資料結構**: Queue
-- **時間複雜度**: O(V + E)
-- **空間複雜度**: O(V)
-- **核心思想**: 優先探索廣度，按層次遍歷，使用隊列實現
-
-#### ✅ Checklist
-- [ ] 時間複雜度分析
-- [ ] 空間複雜度分析 (難!)
-
-### 拓撲排序 (Topological Sort)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 課程表、任務調度
-- **使用的資料結構**: Queue、Graph（Adjacency List）
-- **時間複雜度**: O(V + E)
-- **空間複雜度**: O(V + E)
-- **核心思想**: 對有向無環圖進行排序，使得所有的有向邊都從排序靠前的元素指向排序靠後的元素
-
-### 並查集 (Union Find)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 朋友圈、連通分量、最小生成樹
-- **使用的資料結構**: Array
-- **時間複雜度**: 接近 O(1)（帶路徑壓縮和按秩合併）
-- **空間複雜度**: O(n)
-- **核心思想**: 跟踪元素所屬的集合，支持合併集合和查詢元素所屬集合
-
-### 最短路徑算法 (Shortest Path)
-
-- **難度等級**: ⭐⭐⭐⭐
-- **常見範例**: 網絡延遲時間、最便宜的航班
-- **使用的資料結構**: Priority Queue、Graph
-- **時間複雜度**: Dijkstra: O(E log V)，Bellman-Ford: O(VE)
-- **空間複雜度**: O(V + E)
-- **核心思想**: 計算圖中兩點間的最短路徑，常用算法有 Dijkstra（無負權）和 Bellman-Ford（可處理負權）
+- DFS
+- Iterative DFS
+- DFS to Backtracking
+- Node-Coloring
+- BFS
+- Multi-source BFS
+- State-Space BFS (High-Dimensional BFS)
+- Topologoical Sort (Node-Coloring DFS)
+- Kahn's Algorithm
+- Hierholzer's Algorithm (Post-ordering DFS)
+- Union-Find
+- Dijkstra's Algorithm (Priority Queue)
+- Bellman-Ford Algorithm (Dynamic Programming, Cycle Detection)
+- 🔴 Binary Indexed Tree / Fenwick Tree
 
 ## Search 與 Sort 技巧
 
-### 二分搜索 (Binary Search)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 搜索旋轉排序數組、尋找峰值、搜索插入位置
-- **使用的資料結構**: Array
-- **時間複雜度**: O(log n)
-- **空間複雜度**: O(1)
-- **核心思想**: 在有序數組中通過不斷縮小搜索範圍來查找目標
-
-### 排序算法 (Sorting)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 合併區間、會議室問題
-- **使用的資料結構**: Array
-- **時間複雜度**: O(n log n)（快排、歸併排序）
-- **空間複雜度**: O(log n) 到 O(n)
-- **核心思想**: 將元素按特定順序排列，常用算法有快速排序、歸併排序、堆排序等
-
-### 桶排序/計數排序 (Bucket/Counting Sort)
-
-- **難度等級**: ⭐⭐
-- **常見範例**: 前 K 個高頻元素、排序字符串
-- **使用的資料結構**: Array、Hash Table
-- **時間複雜度**: O(n + k)，k 為桶的數量
-- **空間複雜度**: O(n + k)
-- **核心思想**: 將元素分配到有限數量的桶中，適用於有限範圍的整數排序
+- Binary Search
+- Lower Bound
+- Upper Bound
+- Binary Search on Solution Space
+- Binray Search on Constraint
+- Inflection Point
+- Quicksort
+- Mergesort
+- Heapsort
+- Bubble Sort
+- Insertion Sort
+- Quick Select
+- Counting Sort
+- Bucket Sort
+- Radix Sort
 
 ## Dynamic Programming 技巧
 
-### 一維動態規劃 (1D Dynamic Programming)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 爬樓梯、打家劫舍、最大子數組和
-- **使用的資料結構**: Array
-- **時間複雜度**: O(n)
-- **空間複雜度**: O(n) 或優化為 O(1)
-- **核心思想**: 將問題分解為子問題，並存儲子問題的解以避免重複計算
-
-### 二維動態規劃 (2D Dynamic Programming)
-
-- **難度等級**: ⭐⭐⭐⭐
-- **常見範例**: 最長公共子序列、編輯距離、最小路徑和
-- **使用的資料結構**: 2D Array
-- **時間複雜度**: O(mn)
-- **空間複雜度**: O(mn) 或優化為 O(min(m,n))
-- **核心思想**: 處理涉及兩個變量或兩個序列的問題，使用二維表格存儲中間結果
-
-### 狀態壓縮動態規劃 (State Compression DP)
-
-- **難度等級**: ⭐⭐⭐⭐⭐
-- **常見範例**: 旅行商問題、集合覆蓋問題
-- **使用的資料結構**: Array、Bit Manipulation
-- **時間複雜度**: 通常為指數級，但比暴力解法更優
-- **空間複雜度**: 通常為指數級
-- **核心思想**: 使用位運算壓縮狀態，減少空間使用，適用於處理與集合相關的問題
+- 1D Dynamic Programming
+- 2D Dynamic Programming
+- Memoization (Caching)
+- Tabulation (Table, Bottom-up)
+- Space Optimized Dynamic Programming
+- State Compression with Bit Manipulation
 
 ## 其他常見技巧 (Other Common Techniques)
 
-### 貪心算法 (Greedy)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 跳躍遊戲、加油站、分發餅乾
-- **使用的資料結構**: 取決於具體問題
-- **時間複雜度**: 通常為 O(n) 或 O(n log n)
-- **空間複雜度**: 通常為 O(1) 或 O(n)
-- **核心思想**: 在每一步選擇當前看起來最優的選擇，不考慮全局最優
-
-### 回溯算法 (Backtracking)
-
-- **難度等級**: ⭐⭐⭐⭐
-- **常見範例**: 全排列、子集、組合總和
-- **使用的資料結構**: Array、Recursion Call Stack
-- **時間複雜度**: 通常為指數級
-- **空間複雜度**: O(n) 到 O(n!)，取決於解的數量
-- **核心思想**: 通過嘗試所有可能的選擇來構建解決方案，在發現當前路徑不可行時回溯
-
-### 分治法 (Divide and Conquer)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 合併排序、快速排序、最大子數組和
-- **使用的資料結構**: Array、Recursion
-- **時間複雜度**: 通常為 O(n log n)
-- **空間複雜度**: 通常為 O(log n) 到 O(n)
-- **核心思想**: 將問題分解為更小的子問題，解決子問題後合併結果
-
-### 位運算 (Bit Manipulation)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 只出現一次的數字、2 的冪、位 1 的個數
-- **使用的資料結構**: 整數
-- **時間複雜度**: O(1) 到 O(log n)
-- **空間複雜度**: O(1)
-- **核心思想**: 利用位操作（與、或、異或、移位等）高效處理整數
-
-### 數學技巧 (Mathematical Techniques)
-
-- **難度等級**: ⭐⭐ 到 ⭐⭐⭐⭐
-- **常見範例**: 計數問題、概率問題、幾何問題
-- **使用的資料結構**: 取決於具體問題
-- **時間複雜度**: 取決於具體問題
-- **空間複雜度**: 取決於具體問題
-- **核心思想**: 利用數學原理（組合數學、概率論、數論等）解決問題
-
-### Binary Indexed Tree / Fenwick Tree
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 動態區間和查詢、計數問題、逆序對
-- **使用的資料結構**: Array
-- **時間複雜度**: Update O(log n), Query O(log n), Construction O(n)
-- **空間複雜度**: O(n)
-- **核心思想**: 利用二進制位運算（i & -i）實現高效的區間查詢和單點更新
-- **詳細文檔**: [Binary Indexed Tree 完整指南](Data_Structures/Advanced/Binary_Indexed_Tree/)
-
-### 字典樹 (Trie)
-
-- **難度等級**: ⭐⭐⭐
-- **常見範例**: 單詞搜索、前綴樹、自動完成
-- **使用的資料結構**: Tree
-- **時間複雜度**: 插入和查詢 O(m)，m 為字符串長度
-- **空間複雜度**: O(n*m)，n 為字符串數量，m 為平均長度
-- **核心思想**: 用於高效存儲和查詢字符串集合，特別適合前綴匹配
-
-### 線段樹 (Segment Tree)
-
-- **難度等級**: ⭐⭐⭐⭐
-- **常見範例**: 區間查詢、區間修改
-- **使用的資料結構**: Tree
-- **時間複雜度**: 構建 O(n)，查詢和更新 O(log n)
-- **空間複雜度**: O(n)
-- **核心思想**: 用於處理區間查詢和修改操作，每個節點代表一個區間
-
-### 樹狀數組 (Binary Indexed Tree / Fenwick Tree)
-
-- **難度等級**: ⭐⭐⭐⭐
-- **常見範例**: 區間和查詢、逆序對計數
-- **使用的資料結構**: Array
-- **時間複雜度**: 更新和查詢 O(log n)
-- **空間複雜度**: O(n)
-- **核心思想**: 用於高效處理前綴和查詢和單點更新操作
-
-## 使用指南
-
-1. 遇到問題時，先分析問題類型和特點
-2. 參考此清單，找出可能適用的技巧
-3. 根據難度評估和時間/空間複雜度要求選擇合適的技巧
-4. 實現解決方案並測試
-
-記住，熟練掌握這些技巧需要大量練習和實際應用。建議從簡單技巧開始，逐步挑戰更複雜的問題。
+- Greedy
+- Push-Pop Strategy
+- Two-Heaps Balancing
+- Two-Heaps Greedy Selection
+- Batracking
+- Divide-Centric Divide and Conquer
+- Combine-Centric Divide and Conquer
+- Mergesort-varaint Divide and Conquer
+- Bit Manipulation
+- Mathematical Techniques

@@ -34,6 +34,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - 🟡 LeetCode 40. Combination Sum II
 - 🟡 LeetCode 78. Subsets
+- 🟡 🔴 LeetCode 131. Palindrome Partitioning
 
 ## BFS (Breadth-First Search)
 
