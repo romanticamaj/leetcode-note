@@ -29,6 +29,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 424. Longest Repeating Character Replacement
 - 🟡 LeetCode 567. Permutation in String
 - LeetCode 28. Find the Index of the First Occurrence in a String
+- 🔴 LeetCode 76. Minimum Window Substring
 
 ## Backtracking
 
@@ -60,6 +61,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 218. The Skyline Problem
 - LeetCode 190. Reverse Bits
+- LeetCode 191. Number of 1 Bits
 
 ## Union Find
 
@@ -74,6 +76,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Bit Manipulation
 
 - LeetCode 137. Single Number II
+- LeetCode 191. Number of 1 Bits
 
 ## State Compression through Bit Manipulation
 
