@@ -42,14 +42,14 @@ matchedCount 代表 windowFreq[key] == targetFreq[key] 的 key 數量
 ### 核心原則：Before-Update-After Pattern
 
 ```cpp
-// 當元素 c 進入窗口時
+// 當元素 c 進入窗口時 (case: Enter)
 if (windowFreq[c] == targetFreq[c]) matchedCount--;  // Before: 舊狀態是匹配的，即將破壞
-windowFreq[c]++;                                      // Update: 更新頻率
+windowFreq[c]++;                                     // Update: 更新頻率
 if (windowFreq[c] == targetFreq[c]) matchedCount++;  // After: 新狀態變成匹配
 
-// 當元素 c 離開窗口時
+// 當元素 c 離開窗口時 (case: Leave)
 if (windowFreq[c] == targetFreq[c]) matchedCount--;  // Before: 舊狀態是匹配的，即將破壞
-windowFreq[c]--;                                      // Update: 更新頻率
+windowFreq[c]--;                                     // Update: 更新頻率
 if (windowFreq[c] == targetFreq[c]) matchedCount++;  // After: 新狀態變成匹配
 ```
 
@@ -91,6 +91,9 @@ bool hasMatch(const string& target, const string& source) {
     matchedCount = 0;
 
     for (int i = 0; i < source.size(); i++) {
+        // Sliding Window Pattern:
+        // Expand (Element Enter) -> Shrink (Element Leave) -> Check
+        // (basic counterpart: expand -> fix -> update)
         char in = source[i];
 
         // Element entering window
@@ -195,7 +198,9 @@ if (targetFreq.count(c)) {
 ### 3. 初始化 matchedCount 錯誤
 
 ```cpp
-// 方法 A：初始化後遍歷檢查
+// 方法 A：初始化後遍歷檢查，
+// 搭配 Sliding Window 開始就確認 matched count 是否滿足條件
+// 不用在更新後(Enter -> Leave -> Check) 確認
 for (int i = 0; i < 26; i++) {
     if (target[i] == window[i]) matched++;
 }
@@ -223,11 +228,13 @@ for (int i = 0; i < 26; i++) {
 // 注意：這裡是「至少」而非「恰好」
 
 // 進入窗口
+windowFreq[c]++;
 if (windowFreq[c] == targetFreq[c]) matchedCount++;
 // 當 windowFreq[c] 從 targetFreq[c]-1 變成 targetFreq[c]
 
 // 離開窗口
 if (windowFreq[c] == targetFreq[c]) matchedCount--;
+windowFreq[c]--; //
 // 當 windowFreq[c] 從 targetFreq[c] 變成 targetFreq[c]-1
 ```
 
@@ -253,7 +260,7 @@ if (windowFreq[c] == targetFreq[c]) matchedCount--;
   - Fixed array (26 letters): `matched == 26`
   - HashMap: `matched == targetFreq.size()`
 - [ ] **只處理 target 中的 key**：避免錯誤計算不存在的 key
-- [ ] **Variable window**：判斷「至少」匹配，而非「恰好」匹配
+- [ ] **Variable Window**：判斷「至少」匹配，而非「恰好」匹配
 
 ---
 
