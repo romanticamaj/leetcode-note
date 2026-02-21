@@ -22,6 +22,11 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 125. Valid Palindrome
 - LeetCode 345. Reverse Vowels of a String
 - LeetCode 86. Partition List
+- LeetCode 143. Reorder List
+
+## Linked List
+
+- LeetCode 143. Reorder List
 
 ## Sliding Window
 
@@ -36,6 +41,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 40. Combination Sum II
 - 🟡 LeetCode 78. Subsets
 - 🟡 🔴 LeetCode 131. Palindrome Partitioning
+- 🟡 LeetCode 90. Subsets II
 
 ## BFS (Breadth-First Search)
 
@@ -51,11 +57,18 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 53. Maximum Subarray
 - LeetCode 32. Longest Valid Parentheses
+- 🟡 🔴 LeetCode 134. Gas Station
 
 ## Greedy
 
 - LeetCode 122. Best Time to Buy and Sell Stock II
 - LeetCode 45. Jump Game II
+- LeetCode 435. Non-overlapping Intervals
+- 🟡 🔴 LeetCode 134. Gas Station
+
+## Intervals
+
+- LeetCode 435. Non-overlapping Intervals
 
 ## Divide and Conquer
 
@@ -69,9 +82,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 207. Course Schedule
 
-## Prefix Sum
+## Prefix Sum / Running Sum
 
 - LeetCode 238. Product of Array Except Self
+- 🟡 🔴 LeetCode 134. Gas Station
 
 ## Bit Manipulation
 
@@ -87,6 +101,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Graph Algorithms
 
 - LeetCode 130. Surrounded Regions
+- LeetCode 417. Pacific Atlantic Water Flow
 
 ## Tree Algorithms
 
@@ -142,6 +157,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Brainteaser
 
 - LeetCode 319. Bulb Switcher
+- 🟡 🔴 LeetCode 134. Gas Station
 
 ## Simulation
 
@@ -187,6 +203,8 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 LeetCode 567. Permutation in String
 - 🟢 🟡 LeetCode 73. Set Matrix Zeroes
 - 🟡 🔴 LeetCode 131. Palindrome Partitioning
+- 🟡 🔴 LeetCode 134. Gas Station
+- 🟡 LeetCode 678. Valid Parenthesis String
 
 ## LeetCode Solution Worth Reading
 
@@ -198,3 +216,9 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 LeetCode 494. Target Sum
 - 🟡 🔴 LeetCode 567. Permutation in String
 - 🟡 LeetCode 131. Palindrome Partitioning
+- 🟡 LeetCode 417. Pacific Atlantic Water Flow
+- 🟡 LeetCode 678. Valid Parenthesis String
+
+## Classic Optimization / Brain Development
+
+- 🟡 🔴 LeetCode 134. Gas Station
