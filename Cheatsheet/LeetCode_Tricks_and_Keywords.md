@@ -157,3 +157,5 @@
   - Be careful of cell (0, 0)
 - LeetCode 134. Gas Station
   - Running Sum or Invaraint Design or Kadane's Algorithm
+- LeetCode 678. Valid Parenthesis String
+  - Backtracking -> DP -> Greedy
