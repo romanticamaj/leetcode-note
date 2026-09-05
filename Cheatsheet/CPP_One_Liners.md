@@ -1,5 +1,13 @@
 # C++ One-Liners for LeetCode
 
+## Common
+
+```cpp
+std::string sub = s.substr(start, length);
+```
+
+## Useful
+
 ```cpp
 // Convert integer to binary string using std::bitset
 // Template argument <32> specifies bit width; adjust as needed
@@ -72,8 +80,6 @@ const int digit = (x / static_cast<int>(std::pow(10, p))) % 10;
 
 double p = std::pow(base, exp);
 double s = std::sqrt(n);
-
-std::string sub = s.substr(start, length);
 
 std::fill(v.begin(), v.end(), value);
 std::memset(arr, 0, sizeof(arr));  // only works correctly for 0 or -1
