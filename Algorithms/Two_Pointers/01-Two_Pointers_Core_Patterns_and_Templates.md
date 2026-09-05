@@ -218,6 +218,30 @@ bool fast_slow_template(ListNode* head) {
 
 ---
 
+## 🔗 為什麼對向雙指針能從 O(N²) 降到 O(N)：Greedy 視角（LC 11 紀錄）
+
+暴力是枚舉 N² 個 `(l, r)` pair。對向雙指針之所以 O(N)，**不是因為找答案更快，而是每移動一步就「安全地淘汰」一整排 pair** — N 步淘汰 N² 個。
+
+用 greedy 三要素來看：
+
+| Greedy 要素 | 在 LC 11 的對應 |
+| :--- | :--- |
+| **候選集合** | 所有 `(l, r)` pair |
+| **每步的貪婪選擇** | 丟掉較矮的那根柱子（`h[l] < h[r]` → `l++`） |
+| **選擇安全的證明（Exchange Argument）** | 以較矮的 `l` 為左端、右端在 `(l, r)` 內的所有 pair：寬度更小、高度被 `h[l]` 卡住 → **全部不可能贏過當前 `(l, r)`**，整排丟掉不會失去最優解 |
+
+```cpp
+// 每一步：淘汰「注定沒救」的那一端
+if (h[l] < h[r]) l++;   // l 這根被 min 卡死，換任何 r 都輸 → 整排淘汰
+else             r--;   // 對稱
+```
+
+**識別判準**：題目是否存在一個「較小者可以直接淘汰」的單調性？有 → 對向雙指針；沒有 → 別硬套（這也是為什麼 LC 11 不是 divide and conquer：它沒有「切開各自解再合併」的結構，只有「單調排除」）。
+
+相關：[Exchange_Argument.md](../../Proof_Techniques/Exchange_Argument.md)（證「丟掉不會變差」）、[Greedy_Identification_and_Application.md](../Greedy/Greedy_Identification_and_Application.md)（核心三元素）。
+
+---
+
 ## 總結心法
 
 > **雙指針是將 O(N^2) 的暴力窮舉優化為 O(N) 的利器。當你發現問題可以透過定義一個「有效區間」或「相對位置」，並根據某些條件單向地縮小這個區間來求解時，就應該考慮雙指針。**

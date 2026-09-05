@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：10 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：11 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -131,7 +131,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 ## Two Pointers (4)
 
-- [ ] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium`
+- [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>✔ 2026-09-05</sub>
 - [ ] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅
 - [ ] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` ✅
 - [ ] **283.** [Move Zeroes](https://leetcode.com/problems/move-zeroes/) — `Easy`

@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：10 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：11 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -25,7 +25,7 @@
 - [ ] **125.** [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — `Easy` ✅
 - [ ] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium`
 - [ ] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅
-- [ ] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium`
+- [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>✔ 2026-09-05</sub>
 - [ ] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` ✅
 
 ## Sliding Window (6)
