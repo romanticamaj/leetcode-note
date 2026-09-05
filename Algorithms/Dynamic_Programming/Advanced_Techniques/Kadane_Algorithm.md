@@ -130,6 +130,25 @@ Kadane (O(1) 空間)
 - **Conditional Reset**：條件重置決策
 - **State Decomposition**：雙向掃描的理論基礎
 
+## 🔗 Kadane 與 State Machine DP 的關係（LC 121 紀錄）
+
+Kadane 是 **state machine DP 退化後的樣子**，不是另一種想法。以買賣股票為例：
+
+```cpp
+// State machine：兩個狀態 hold / cash
+hold[i] = max(hold[i-1], -price[i]);            // 持有：繼續持有 or 今天買
+cash[i] = max(cash[i-1], hold[i-1] + price[i]); // 空手：繼續空手 or 今天賣
+
+// LC 121 只允許一次交易 → hold[i] 化簡為 -min(price[0..i])
+// 代回 cash[i] 就是 price[i] - minSoFar，即 Kadane 形式
+```
+
+**關鍵**：
+
+- State machine 不是從 121 想出來的，是從 **122（無限次交易）逼出來的**；121 是它的退化特例
+- 單題 121 用 Kadane / min-tracking 即可；題目一加「交易次數 / 冷卻 / 手續費」，單變數就不夠，要升回 `hold / cash` 多狀態
+- 設計方法見 [04-Recurrence_Design_Patterns.md 模式三：狀態機依賴](../Fundamentals/04-Recurrence_Design_Patterns.md) 與 [State_Decomposition.md Pattern 2：動作分解](./State_Decomposition.md)
+
 ## ✅ 關鍵要點 / Key Points
 
 - [ ] Kadane 是 DP 的優化，不是獨立算法
