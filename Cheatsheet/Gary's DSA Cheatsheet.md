@@ -85,6 +85,12 @@ State Definition → Recurrence → Traversal Order
 
 **Mantra:** Expand → Fix → Update
 
+1. 考慮：constraint check 的 DS, strive for O(1)
+2. expand constraint DS and then fix，Why? 因為 fix 後，DS 會進入一個 valid 的狀態，可以去 update global target
+3. 為什麼先 expand? 符合直覺，可以從 0 開始建構 DS，初始狀態不用設計
+4. fix 後會進入 valid status，所以可以拿來做 target check
+5. [left, right] 閉區間，表示 window，right 同時被拿去當 input index
+
 ---
 
 ## Number Theory

@@ -1,10 +1,16 @@
 # Sorted Sliding Window
 
-## 🧠 核心哲學
+Sliding Window 的變體：當窗口內需要**維持有序**或支援 **range query** 時使用。
+
+標準模板見 [00-Sliding_Window_Standard_Template.md](00-Sliding_Window_Standard_Template.md)。
+
+---
+
+## 1. 🧠 核心哲學
 
 當 sliding window 內的元素需要**維護排序屬性**或**支援 range query** 時，使用 Ordered Set 作為 window 容器，實現 O(log k) 的動態維護與查詢。
 
-## 核心概念
+## 2. 核心概念
 
 **Sorted Sliding Window** = Sliding Window + Ordered Set
 
@@ -22,7 +28,7 @@
 | 適合：sum, count, 頻率統計         | 適合：range query, min/max, 排序性質           |
 | **檢查 window 本身的屬性**         | **檢查 current 與 window 內 candidate 的關係** |
 
-## 🔄 演算法架構：Check → Expand → Fix
+## 3. 🔄 演算法架構：Check → Expand → Fix
 
 **與傳統 Sliding Window 的差異**：
 
@@ -43,7 +49,7 @@ Sorted：Check → Expand → Fix
 - 傳統：window 是**狀態**，檢查 window 整體
 - Sorted：window 是 **candidate set**，current 與 candidates 比較
 
-## 通用模板
+## 4. 通用模板
 
 ```cpp
 bool sortedSlidingWindow(vector<int>& nums, int windowSize) {
@@ -70,9 +76,9 @@ bool sortedSlidingWindow(vector<int>& nums, int windowSize) {
 }
 ```
 
-## 🧩 常見查詢模式
+## 5. 🧩 常見查詢模式
 
-### Pattern 1: Min/Max Query
+### 5.1 Pattern 1: Min/Max Query
 
 ```cpp
 // 取得 window 內最小值/最大值
@@ -80,7 +86,7 @@ int minVal = *window.begin();    // O(1)
 int maxVal = *window.rbegin();   // O(1)
 ```
 
-### Pattern 2: Range Query (lower_bound/upper_bound)
+### 5.2 Pattern 2: Range Query (lower_bound/upper_bound)
 
 ```cpp
 // 查詢第一個 >= target 的元素
@@ -90,7 +96,7 @@ auto it = window.lower_bound(target);  // O(log k)
 auto it = window.upper_bound(target);  // O(log k)
 ```
 
-### Pattern 3: 前驅/後繼查詢
+### 5.3 Pattern 3: 前驅/後繼查詢
 
 ```cpp
 auto it = window.find(x);
@@ -106,7 +112,7 @@ if (next(it) != window.end()) {
 }
 ```
 
-## ✅ 關鍵要點
+## 6. ✅ 關鍵要點
 
 - [ ] **容器選擇**：
   - 無重複值：`std::set`
@@ -117,7 +123,8 @@ if (next(it) != window.end()) {
 - [ ] **成員函數優先**：用 `set.lower_bound()` 而非 `std::lower_bound()`
 - [ ] **邊界檢查**：任何 iterator 操作前檢查 `!= end()` 和 `!= begin()`
 
-## 相關資源
+## 相關筆記
 
-- [傳統 Sliding Window](./00-Sliding_Window_Fundamental.md) - Expand → Fix → Update
-- [動態排序容器選擇指南](../../Data_Structures/Advanced/Dynamic_Sorted_Container_Selection.md) - 何時用 set vs heap
+- **[00-Sliding_Window_Standard_Template.md](00-Sliding_Window_Standard_Template.md)** — 標準模板（擴張 → 修復 → 結算）
+- **[01-Constraint_Tracking_and_Optimization.md](01-Constraint_Tracking_and_Optimization.md)** — 雙 Hashmap 設計、Counter Variable 優化
+- **[動態排序容器選擇指南](../../Data_Structures/Advanced/Dynamic_Sorted_Container_Selection.md)** — 何時用 set vs heap
