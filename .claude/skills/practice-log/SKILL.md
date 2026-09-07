@@ -13,6 +13,12 @@ Record what the user solved, then **always** sync the lists. The sync is not opt
    - Find the `## YYYY-MM-DD` block for the stated date (default: today). If missing, create it **at the top** (newest first), with an empty `**心得**：` line.
    - Add `- <num>. <title>` under the date. Keep the user's numbering; look up the title if only a number is given.
    - For a 心得: put it under that day's `**心得**：`. If the day has >1 problem, use `- <num>：...` bullets. Fix typos only; keep the user's voice.
+   - **LLM 點評** — when you gave the user substantive feedback on a problem in this turn (a misdiagnosis, a better direction, a link to the right note), record it under the day's `**LLM 點評**：` block, after 心得. One `- <num>：...` bullet per problem, a few lines each, in your own voice. Always include the model line. Skip the block entirely for days with nothing worth saying; never pad it.
+     ```markdown
+     **LLM 點評**：
+     model: <exact model name you are running as, e.g. Fable 5.1>
+     - 15：...
+     ```
 2. **Run the sync — every time, right after step 1:**
    ```bash
    python3 scripts/sync_lists.py

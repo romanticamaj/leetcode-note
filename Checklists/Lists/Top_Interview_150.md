@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：11 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：13 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -41,7 +41,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **392.** [Is Subsequence](https://leetcode.com/problems/is-subsequence/) — `Easy`
 - [ ] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium`
 - [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>✔ 2026-09-05</sub>
-- [ ] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅
+- [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 
 ## Sliding Window (4)
 
@@ -152,7 +152,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 ## Backtracking (7)
 
-- [ ] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium`
+- [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **77.** [Combinations](https://leetcode.com/problems/combinations/) — `Medium`
 - [ ] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium`
 - [ ] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium`

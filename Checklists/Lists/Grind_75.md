@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：11 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：13 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -45,7 +45,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [ ] **542.** [01 Matrix](https://leetcode.com/problems/01-matrix/) — `Medium`
 - [ ] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium`
 - [x] **3.** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) — `Medium` · <sub>✔ 2026-09-04</sub>
-- [ ] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅
+- [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **102.** [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) — `Medium`
 - [ ] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium`
 - [ ] **150.** [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — `Medium`
@@ -87,7 +87,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 ## Week 7 (7)
 
 - [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>✔ 2026-09-05</sub>
-- [ ] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium`
+- [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium`
 - [ ] **438.** [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) — `Medium` ✅
 - [ ] **310.** [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) — `Medium`

@@ -67,6 +67,10 @@ These were generated from authoritative sources (official LeetCode study plan pa
 **心得**：
 - 104：one-line reflection
 - 121：one-line reflection
+
+**LLM 點評**：
+model: Fable 5.1
+- 121：Claude's feedback on the problem, only when it said something substantive
 ```
 
 **Do not add tables, statistics, time tracking, spaced-repetition queues, or scripts** — the user explicitly rejected that complexity.

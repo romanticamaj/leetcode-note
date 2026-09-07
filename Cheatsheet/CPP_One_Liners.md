@@ -4,6 +4,8 @@
 
 ```cpp
 std::string sub = s.substr(start, length);
+
+const auto& v = m.at(key);  // const map/unordered_map 不能用 []，要用 .at()
 ```
 
 ## Useful
