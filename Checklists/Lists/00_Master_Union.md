@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：13 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：14 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -25,7 +25,7 @@ Easy 8 · Medium 25 · Hard 4
 - [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-05</sub>
 - [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-05</sub>
 - [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-07</sub>
-- [ ] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅
+- [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-07</sub>
 - [ ] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub>
 - [ ] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub>
 - [ ] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅

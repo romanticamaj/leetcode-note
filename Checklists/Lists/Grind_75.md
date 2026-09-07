@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：13 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：14 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -63,7 +63,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 ## Week 5 (8)
 
-- [ ] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅
+- [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [ ] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium`
 - [ ] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium`
 - [ ] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium`
