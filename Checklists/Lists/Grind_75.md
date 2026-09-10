@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：18 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：21 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -57,7 +57,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [ ] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium`
 - [ ] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` ✅
 - [ ] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — `Medium`
-- [ ] **98.** [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — `Medium`
+- [x] **98.** [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium`
 - [ ] **994.** [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) — `Medium`
 
@@ -66,7 +66,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
-- [ ] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium`
+- [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium`
 - [ ] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` ✅
 - [ ] **721.** [Accounts Merge](https://leetcode.com/problems/accounts-merge/) — `Medium`
@@ -88,7 +88,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 - [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>✔ 2026-09-05</sub>
 - [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium` · <sub>✔ 2026-09-07</sub>
-- [ ] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium`
+- [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **438.** [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) — `Medium` ✅
 - [ ] **310.** [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) — `Medium`
 - [ ] **621.** [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — `Medium`

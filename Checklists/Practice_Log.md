@@ -5,13 +5,21 @@
 ## 2026-09-10
 
 - 54. Spiral Matrix
+- 56. Merge Intervals
+- 79. Word Search
+- 98. Validate Binary Search Tree
 
 **心得**：
 - 54：方向正確，可是寫太久了。另外，在設計初始狀態跟 index boundary 的時候，可以再想一下，也許程式碼可以更精簡。如果看到 redundant 的 code，應該有地方可以再優化。
+- 56：我太小看這題了。方向是對的，但沒有正確想清楚，做 interval 這種題要先假設排序過。再來，overlap 其實是判斷「前一個的尾巴」跟「後一個的頭」：如果前一個尾巴小於後一個頭，就沒有 overlap 了；剩下的 case 就是有 overlap，這時才去更新 merge 的尾端。一直漏掉 overlap 的一些 case，太憑直覺在寫，沒有真正思考 normal case 和 test case，也沒有想清楚真正的 merge 概念，只考慮到很 naive 的 merge case。
+- 98：用 in-order（previous checking）解決了，接著也把 range 版寫出來了（用 `TreeNode*` 的 nullptr 當無界）。關鍵就是設計兩個 range，把父親的狀態往下傳遞——所以關鍵是父親要傳遞什麼狀態到下一個子問題去。
 
 **LLM 點評**：
 model: Sonnet 5
 - 54：實際做法是 direction array + 原地 visited 標記，撞到邊界或 visited 就轉向（`d = (d+1) % 4`）。看過實際 code 後找到兩處 redundant：(1) `while` 迴圈條件跟迴圈內的 if 判斷是同一組 boundary/visited check，做了兩次；(2) 「move → 發現撞牆 → undo 這步 → 轉向 → 再 move 一次」可以省掉，因為總步數已知是 `m*n`，改成 `for (k < m*n)` 驅動迴圈，並用暫存的 `ni, nj` 算出下一步候選座標、決定完方向後一次到位，不用先移動再退回。演算法本身（direction array + sentinel）沒問題，純粹是這兩處檢查重複。
+- 56：你抓到的兩點正是這題的全部核心，而且 repo 已有一篇完整對應：`Algorithms/Greedy/Interval_Problem_Solving_Playbook.md`（第 1 節「排序是第一步」、第 2 節「Overlap 判定」）。你講的判準可以再精確一句：merge 後的區間尾巴要取 `max(prev.end, cur.end)`，不能直接假設 `cur.end` 更大——因為排序只保證按 start 排序，某個區間可能被前一個完全包住（`cur.end < prev.end`），這時如果直接覆寫成 `cur.end` 會把已經合併好的範圍縮小，是這題常見的隱藏 bug。一直漏 case 的根源，通常是把「merge」想成只有一種情況（相鄰兩個部分重疊、取後者的 end），但實際要覆蓋三種：(1) 完全不重疊，直接放進 result；(2) 部分重疊，`end = max(prev.end, cur.end)`；(3) `cur` 被 `prev` 完全包住（`cur.end <= prev.end`），這時 merge 後的 end **不變**，如果沒想到這個 case、順手寫成 `prev.end = cur.end`，範圍反而會縮小。這也是為什麼要先想 normal case（隨機幾個重疊區間）+ edge case（單一區間、完全包住、首尾相接 `[1,4],[4,5]` 算不算重疊），而不是看一眼題目就開始寫——**先列出這三種 merge 情況，再對每一種寫測資，程式碼會自然對，不用邊寫邊補洞。**
+- 98：**值得寫，這次跟 104/226 的迭代版不同**——range-passing 不是同一個解法的機械改寫，是另一個 pattern：「把約束由上往下傳」（top-down constraint propagation），in-order 版則是「利用 BST 的序列性質」。前者可遷移到 LC 1373、333 這類「子樹要滿足某個從祖先繼承的界」的題，也是遞迴設計裡「參數帶約束、回傳帶結果」的標準範例。寫的時候注意一個坑：初始界不能用 `INT_MIN / INT_MAX`，節點值可能剛好等於它們，用 `long long` 或 `optional<int>` / 指標當「無界」。兩種都會之後，面試被問「還有別的做法嗎」可以直接切。
+- 98（range 版 review）：正確，且用 `nullptr` 當無界比 `long long` 乾淨，直接繞過 INT 邊界陷阱。兩處修：空間是 `O(h)` 不是 `O(n)`（平衡 `O(log n)`，鏈才 `O(n)`）；註解「parent 是右子樹最小值」不精確，parent 不在右子樹裡，它是右子樹的**嚴格下界**，這對應 code 用 `>=` 判失敗。兩版差別：in-order 是**子問題回傳狀態給父親**（`prev` 往上帶），range 是**父親傳狀態給子問題**——同一棵樹、資訊流方向相反。看樹題先問：資訊往上匡還是往下傳？ repo 對應：`Algorithms/Design_Principles/Recursion/04-Top_Down_vs_Bottom_Up_Recursion.md`（參數向下 vs 返回值向上）、`Data_Structures/Trees/Path_Based_Thinking_Aggregation.md`（祖先約束 → 沿 path 傳狀態，表格「限制範圍」列就是這題）。
 
 ---
 

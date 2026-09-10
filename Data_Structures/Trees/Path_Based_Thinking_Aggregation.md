@@ -31,7 +31,7 @@
 | 類型           | 範例需求                             | 解法策略（狀態聚合）                     |
 |----------------|--------------------------------------|-------------------------------------------|
 | 差值最大/最小   | 找祖先與子孫之間最大差值              | 傳遞 path 上的 `max` / `min`             |
-| 限制範圍        | 確保所有祖先值小於當前節點            | 傳遞 ancestor 最大值並進行檢查           |
+| 限制範圍        | 確保所有祖先值小於當前節點（LC 98）   | 傳遞 ancestor 給的 `(lower, upper)` 界並檢查 |
 | 統計條件次數    | 計算祖先節點中滿足條件者的數量        | 傳遞 counter 或累加器                    |
 | 映射條件節點    | 找到第一個符合條件的祖先節點          | 用 stack 或 path 記錄模擬 ancestor list |
 | 最近有效祖先    | 找距離最近且符合條件的 ancestor       | 模擬 DFS 並回傳相關資訊                  |
@@ -52,6 +52,7 @@
 - [Leetcode 1123 – Lowest Common Ancestor of Deepest Leaves]（使用 DFS 傳回多種 path 狀態）
 - [Leetcode 124 – Binary Tree Maximum Path Sum]（雖是任意 path，但可改為 postorder 聚合）
 - [Leetcode 235 – Lowest Common Ancestor of a BST]（利用 path 分析找最近祖先）
+- [Leetcode 98 – Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)（range 版：`(lower, upper)` 沿 path 往下傳，用 `nullptr` 表示無界；對照 in-order 版是 `prev` 往上帶 — 見 [Top_Down_vs_Bottom_Up_Recursion](../../Algorithms/Design_Principles/Recursion/04-Top_Down_vs_Bottom_Up_Recursion.md)）
 
 ---
 

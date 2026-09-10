@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：18 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：21 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -82,7 +82,7 @@
 - [ ] **102.** [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) — `Medium`
 - [ ] **199.** [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) — `Medium`
 - [ ] **1448.** [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) — `Medium`
-- [ ] **98.** [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — `Medium`
+- [x] **98.** [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **230.** [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) — `Medium` ✅
 - [ ] **105.** [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) — `Medium`
 - [ ] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard`
@@ -106,7 +106,7 @@
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **90.** [Subsets II](https://leetcode.com/problems/subsets-ii/) — `Medium` ✅
 - [ ] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium`
-- [ ] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium`
+- [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **131.** [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — `Medium` ✅
 - [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard`
@@ -185,7 +185,7 @@
 ## Intervals (6)
 
 - [ ] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium`
-- [ ] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium`
+- [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **435.** [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — `Medium` ✅
 - [ ] **252.** [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) 🔒 — `Easy`
 - [ ] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` ✅

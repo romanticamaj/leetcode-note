@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：18 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：21 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -16,7 +16,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard`
 - [ ] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅
-- [ ] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium`
+- [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **131.** [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — `Medium` ✅
 
 ## Binary Search (7)
@@ -32,7 +32,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 ## Binary Tree (14)
 
 - [ ] **94.** [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) — `Easy`
-- [ ] **98.** [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — `Medium`
+- [x] **98.** [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **101.** [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) — `Easy`
 - [ ] **102.** [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) — `Medium`
 - [x] **104.** [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
@@ -145,7 +145,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [ ] **31.** [Next Permutation](https://leetcode.com/problems/next-permutation/) — `Medium`
 - [ ] **41.** [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) — `Hard`
 - [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
-- [ ] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium`
+- [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **75.** [Sort Colors](https://leetcode.com/problems/sort-colors/) — `Medium` ✅
 - [ ] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy`
 - [ ] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy`
