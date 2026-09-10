@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：14 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：17 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -12,8 +12,8 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 - [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium`
-- [ ] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium`
-- [ ] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium`
+- [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
+- [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard`
 - [ ] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅
 - [ ] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium`
@@ -144,7 +144,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 - [ ] **31.** [Next Permutation](https://leetcode.com/problems/next-permutation/) — `Medium`
 - [ ] **41.** [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) — `Hard`
-- [ ] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅
+- [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [ ] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium`
 - [ ] **75.** [Sort Colors](https://leetcode.com/problems/sort-colors/) — `Medium` ✅
 - [ ] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy`

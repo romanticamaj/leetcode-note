@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：14 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：17 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -101,9 +101,9 @@
 ## Backtracking (10)
 
 - [ ] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅
-- [ ] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium`
+- [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **40.** [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) — `Medium` ✅
-- [ ] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium`
+- [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **90.** [Subsets II](https://leetcode.com/problems/subsets-ii/) — `Medium` ✅
 - [ ] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium`
 - [ ] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium`
@@ -173,7 +173,7 @@
 
 ## Greedy (8)
 
-- [ ] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅
+- [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [ ] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium`
 - [ ] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` ✅
 - [ ] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` ✅

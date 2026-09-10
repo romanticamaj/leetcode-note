@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：14 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：17 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -37,7 +37,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [ ] **876.** [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) — `Easy`
 - [x] **104.** [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [ ] **217.** [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — `Easy`
-- [ ] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅
+- [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 
 ## Week 3 (8)
 
@@ -64,8 +64,8 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 ## Week 5 (8)
 
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
-- [ ] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium`
-- [ ] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium`
+- [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
+- [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium`
 - [ ] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium`
 - [ ] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` ✅
