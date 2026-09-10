@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：17 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：18 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -194,7 +194,7 @@
 ## Math & Geometry (8)
 
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
-- [ ] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium`
+- [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅
 - [ ] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅
 - [ ] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy`
