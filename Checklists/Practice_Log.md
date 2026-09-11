@@ -2,17 +2,34 @@
 
 ---
 
+## 2026-09-11
+
+- 139. Word Break（Trie + DFS，TLE）
+
+**心得**：
+- 139：用 Trie 來做，但會 TLE，不知道為什麼。卡了滿久，寫了 40 分鐘，覺得還滿難的，應該是 Medium 到 Hard。之後一定要再做一次。
+
+**LLM 點評**：
+model: Fable 5.1
+- 139：TLE 的原因不在 Trie，在 **DFS 沒有記憶化**。每次 `next->word` 成立就從 `&root` 重新開始，等於在問「`s[i..]` 能不能被切」——這個子問題會被反覆問，`"aaaa…"` + `["a","aa","aaa"]` 就是指數級的切法數。所以你註解的 `O(n)` 是錯的，實際是指數。修法只要一行思維：**`ptr == &root` 時的狀態就是 `dp[i]`**，加一個 `memo[i]` 在進入 root 分支時查/存，時間就變 `O(n · L)`（L 是最長單字，Trie 走訪最多 L 步）。Trie 本身是正確的加速：它把「s[i..j) 在不在字典」從 O(L) hash 變成一路走下去、所有可能的 j 一次掃完。這題的本質是 **1-D DP（`dp[i]` = 後綴可切）+ 一個查字典的結構**，Trie 是第二部分的好選擇，但你把兩部分揉在同一個 DFS 裡，就看不出第一部分少了 memo。建議二刷時先寫最樸素的 `dp[i] = any(dp[j] && s[j..i) ∈ set)`，再把 set 換成 Trie，兩層分開會清楚很多。小處：`return ptr->word || ptr == &root` 那個 `|| ptr == &root` 只在 `s` 為空時觸發，可以直接在最外層處理。
+
+---
+
 ## 2026-09-10
 
 - 54. Spiral Matrix
 - 56. Merge Intervals
 - 79. Word Search
 - 98. Validate Binary Search Tree
+- 102. Binary Tree Level Order Traversal
+- 105. Construct Binary Tree from Preorder and Inorder Traversal
 
 **心得**：
 - 54：方向正確，可是寫太久了。另外，在設計初始狀態跟 index boundary 的時候，可以再想一下，也許程式碼可以更精簡。如果看到 redundant 的 code，應該有地方可以再優化。
 - 56：我太小看這題了。方向是對的，但沒有正確想清楚，做 interval 這種題要先假設排序過。再來，overlap 其實是判斷「前一個的尾巴」跟「後一個的頭」：如果前一個尾巴小於後一個頭，就沒有 overlap 了；剩下的 case 就是有 overlap，這時才去更新 merge 的尾端。一直漏掉 overlap 的一些 case，太憑直覺在寫，沒有真正思考 normal case 和 test case，也沒有想清楚真正的 merge 概念，只考慮到很 naive 的 merge case。
 - 98：用 in-order（previous checking）解決了，接著也把 range 版寫出來了（用 `TreeNode*` 的 nullptr 當無界）。關鍵就是設計兩個 range，把父親的狀態往下傳遞——所以關鍵是父親要傳遞什麼狀態到下一個子問題去。
+- 102：BFS 完成，DFS 版也練到了——用 parent 的狀態往下傳遞（level numbering），pre-ordering。
+- 105：有做出來，但每次找 middle（root 在 inorder 的位置）都要花額外時間，想知道這樣時間複雜度是多少。看到一個優化是先用 O(n) 把值→index 的 map 建起來，查找降到 O(1)，覺得蠻不錯。自己的版本 review 後也看到第二個優化：traverse 時 preorder 的 index 可以做成全域的——只要遞迴結構是照 preorder 建，index 就會自然前進，不用複雜運算去記 k 值。
 
 **LLM 點評**：
 model: Sonnet 5
@@ -20,6 +37,9 @@ model: Sonnet 5
 - 56：你抓到的兩點正是這題的全部核心，而且 repo 已有一篇完整對應：`Algorithms/Greedy/Interval_Problem_Solving_Playbook.md`（第 1 節「排序是第一步」、第 2 節「Overlap 判定」）。你講的判準可以再精確一句：merge 後的區間尾巴要取 `max(prev.end, cur.end)`，不能直接假設 `cur.end` 更大——因為排序只保證按 start 排序，某個區間可能被前一個完全包住（`cur.end < prev.end`），這時如果直接覆寫成 `cur.end` 會把已經合併好的範圍縮小，是這題常見的隱藏 bug。一直漏 case 的根源，通常是把「merge」想成只有一種情況（相鄰兩個部分重疊、取後者的 end），但實際要覆蓋三種：(1) 完全不重疊，直接放進 result；(2) 部分重疊，`end = max(prev.end, cur.end)`；(3) `cur` 被 `prev` 完全包住（`cur.end <= prev.end`），這時 merge 後的 end **不變**，如果沒想到這個 case、順手寫成 `prev.end = cur.end`，範圍反而會縮小。這也是為什麼要先想 normal case（隨機幾個重疊區間）+ edge case（單一區間、完全包住、首尾相接 `[1,4],[4,5]` 算不算重疊），而不是看一眼題目就開始寫——**先列出這三種 merge 情況，再對每一種寫測資，程式碼會自然對，不用邊寫邊補洞。**
 - 98：**值得寫，這次跟 104/226 的迭代版不同**——range-passing 不是同一個解法的機械改寫，是另一個 pattern：「把約束由上往下傳」（top-down constraint propagation），in-order 版則是「利用 BST 的序列性質」。前者可遷移到 LC 1373、333 這類「子樹要滿足某個從祖先繼承的界」的題，也是遞迴設計裡「參數帶約束、回傳帶結果」的標準範例。寫的時候注意一個坑：初始界不能用 `INT_MIN / INT_MAX`，節點值可能剛好等於它們，用 `long long` 或 `optional<int>` / 指標當「無界」。兩種都會之後，面試被問「還有別的做法嗎」可以直接切。
 - 98（range 版 review）：正確，且用 `nullptr` 當無界比 `long long` 乾淨，直接繞過 INT 邊界陷阱。兩處修：空間是 `O(h)` 不是 `O(n)`（平衡 `O(log n)`，鏈才 `O(n)`）；註解「parent 是右子樹最小值」不精確，parent 不在右子樹裡，它是右子樹的**嚴格下界**，這對應 code 用 `>=` 判失敗。兩版差別：in-order 是**子問題回傳狀態給父親**（`prev` 往上帶），range 是**父親傳狀態給子問題**——同一棵樹、資訊流方向相反。看樹題先問：資訊往上匡還是往下傳？ repo 對應：`Algorithms/Design_Principles/Recursion/04-Top_Down_vs_Bottom_Up_Recursion.md`（參數向下 vs 返回值向上）、`Data_Structures/Trees/Path_Based_Thinking_Aggregation.md`（祖先約束 → 沿 path 傳狀態，表格「限制範圍」列就是這題）。
+- 102：**值得，而且很便宜（5 分鐘）**。DFS 版的關鍵決策是「把 depth 當參數往下傳，用它當 `result` 的 index」——`if (depth == result.size()) result.push_back({})`。這跟 104/226 的迭代版不同，它是一個可遷移的小技巧：199 Right Side View、103 Zigzag、107、515、637 全是同一招，而且面試確實會問「不用 queue 能做嗎」。同時它又是今天 98 那個 Top-Down「參數往下傳」pattern 的再一次練習。repo 有專文：`Data_Structures/Trees/DFS_for_Level_Order_Traversal.md`。
+- 105：線性掃 inorder 找 root 的版本是 **worst case O(n²)**（每個節點掃一次，總長度加起來是 n + (n-1) + … 在退化成鏈的樹上），平衡樹是 O(n log n)。建 `val → index` 的 hashmap 後是 **O(n)**——這題保證值唯一，所以 map 才成立，這是要先確認的前提。另一個常見的隱藏 O(n²)：如果每層遞迴用 `vector(begin+a, begin+b)` 切子陣列，複製本身就是 O(n)/層，map 也救不回來；要**傳 index 範圍**不傳副本。再進一步的寫法是 preorder 用一個全域遞增的 `preIdx` 指標（root 永遠是下一個），遞迴只需帶 inorder 的 `[lo, hi]`——參數從四個變兩個，也是「parent 傳狀態給子問題」的形狀。repo 目前沒有 105 專文。
+- 105（code review）：正確，`k + (mid-start) + 1` 算對，有傳 index 沒複製。`if (k == preorder.size())` 多餘——`start > end` 已涵蓋所有終止，`k` 的合法性由算術保證。全域 `preIdx` 的真正價值不是省參數，是**把那個最易錯的算術整個消掉**：照 preorder 建樹、每 new 一個就 `preIdx++`，左子樹建完指標自然停在右子樹 root；代價是必須先左後右，這個依賴要寫進註解。兩個優化疊上後 O(n) / O(n)，到頂。
 
 ---
 

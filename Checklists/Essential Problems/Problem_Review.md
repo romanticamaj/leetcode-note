@@ -49,10 +49,17 @@
 - [ ] LeetCode 1089. Duplicate Zeros
 - [ ] LeetCode 1770. Maximum Score from Performing Multiplication Operations
 - [ ] LeetCode 15. 3Sum
+  - 📌 標記原因: 思路盲點 — 一開始沒釐清輸出是「值」不是 index，走錯 hash map 方向；後來用 running hash map 過，但 2-pointer 版還沒寫
+  - 🏷️ 技巧分類: Sort + Two Pointers / Dedup
+  - 📅 二刷: 2026-09-13（用 2-pointer 寫，重點感受「排序讓 two-pointer 成立」）
 - [ ] LeetCode 1335. Minimum Difficulty of a Job Schedule
   - [ ] Monotonic Stack
 - [ ] LeetCode 53. Maximum Subarray
   - [ ] Divide and Conquer
+  - 📌 標記原因: 思路盲點 — 看了解答才寫出 bottom-up DP，且不直觀為何 `dp[i]` 要定義成「以 i 結尾」而答案要 global max
+  - 🏷️ 技巧分類: Kadane / Local State vs Global Optimum
+  - 🔗 前置閱讀: `DP/State_Design/05-Local_State_vs_Global_Optimum.md`
+  - 📅 二刷: 2026-09-12（不看解答，要能自己說出 state 為什麼這樣定）
 - [ ] LeetCode 918. Maximum Sum Circular Subarray
   - [ ] Max & Min, Space O(1)
 - [ ] LeetCode 718. Maximum Length of Repeated Subarray
@@ -160,3 +167,24 @@
 - [ ] LeetCode 417. Pacific Atlantic Water Flow
 - [ ] LeetCode 143. Reorder List
   - [ ] Space O(1)
+
+- [ ] LeetCode 33. Search in Rotated Sorted Array
+  - 📌 標記原因: 思路盲點 — 做過多次仍錯，根源是混用 153 的「找拐點」predicate；33 是「找 sorted 半邊 → range check → prune 另一半」
+  - 🏷️ 技巧分類: Binary Search（predicate 設計）
+  - 🔗 前置閱讀: `Binary_Search/07-Inflection_Point_Binary_Search.md` 的「33 vs 153 對照」節
+  - 📅 二刷: 2026-09-12
+- [ ] LeetCode 39. Combination Sum
+  - 📌 標記原因: 已用二元「選/不選」樹過，補 N 多叉決策樹版；複雜度分析 `O(2^(N+T/M))` vs `O(N^(T/M))` 要能自己推
+  - 🏷️ 技巧分類: Backtracking（二元 vs 多叉 state space tree）
+  - 🔗 前置閱讀: `Backtracking/05-State_Space_Tree_and_N_Tuple_Representation.md`
+  - 📅 二刷: 2026-09-13
+- [ ] LeetCode 104. Maximum Depth of Binary Tree / 226. Invert Binary Tree
+  - 📌 標記原因: 遞迴版秒殺，迭代版待補；面試官會在遞迴寫太快時追問迭代。兩題同一個模板，集中一次練完
+  - 🏷️ 技巧分類: Iterative Tree Traversal（explicit stack）
+  - 🔗 前置閱讀: `Trees/Iterative_Traversal/01-Recursive_to_Iterative_Conversion.md`
+  - 📅 二刷: 累積到 4–5 題 tree DFS 後一起做
+- [ ] LeetCode 139. Word Break
+  - 📌 標記原因: 技巧盲點 — Trie + DFS 寫了 40 分鐘還 TLE，原因是把「dp[i] = 後綴可切」和「查字典」揉在同一個 DFS 裡，看不出少了 memo
+  - 🏷️ 技巧分類: 1-D DP + Trie / Memoized DFS
+  - 📅 二刷: 2026-09-13（先寫樸素 `dp[i] = any(dp[j] && s[j..i) ∈ set)`，過了再把 set 換 Trie）
+  - 📅 三刷: 2026-09-25（連 140 Word Break II 一起）
