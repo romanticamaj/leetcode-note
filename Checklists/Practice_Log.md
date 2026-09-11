@@ -4,14 +4,16 @@
 
 ## 2026-09-11
 
-- 139. Word Break（Trie + DFS，TLE）
+- 139. Word Break（Trie + DFS TLE → 改 bottom-up DP + hash set 通過）
 
 **心得**：
 - 139：用 Trie 來做，但會 TLE，不知道為什麼。卡了滿久，寫了 40 分鐘，覺得還滿難的，應該是 Medium 到 Hard。之後一定要再做一次。
+- 139（第二次）：跟 Fable 5.1 來來回回，看了解答知道是 DP。靈感是「從後面切斷、馬上查找，前面看 cache」。最難的是設計 `dp[i]` 要用 index 還是 length——為了實作簡化，直接用字串長度來查，比較直覺。前一版把查找的項目寫錯成 index（`cache[j-1]`），改成 look backward 後就能直覺看「前面那個位置的長度」`cache[i-j]`。
 
 **LLM 點評**：
 model: Fable 5.1
 - 139：TLE 的原因不在 Trie，在 **DFS 沒有記憶化**。每次 `next->word` 成立就從 `&root` 重新開始，等於在問「`s[i..]` 能不能被切」——這個子問題會被反覆問，`"aaaa…"` + `["a","aa","aaa"]` 就是指數級的切法數。所以你註解的 `O(n)` 是錯的，實際是指數。修法只要一行思維：**`ptr == &root` 時的狀態就是 `dp[i]`**，加一個 `memo[i]` 在進入 root 分支時查/存，時間就變 `O(n · L)`（L 是最長單字，Trie 走訪最多 L 步）。Trie 本身是正確的加速：它把「s[i..j) 在不在字典」從 O(L) hash 變成一路走下去、所有可能的 j 一次掃完。這題的本質是 **1-D DP（`dp[i]` = 後綴可切）+ 一個查字典的結構**，Trie 是第二部分的好選擇，但你把兩部分揉在同一個 DFS 裡，就看不出第一部分少了 memo。建議二刷時先寫最樸素的 `dp[i] = any(dp[j] && s[j..i) ∈ set)`，再把 set 換成 Trie，兩層分開會清楚很多。小處：`return ptr->word || ptr == &root` 那個 `|| ptr == &root` 只在 `s` 為空時觸發，可以直接在最外層處理。
+- 139（DP 版）：**index vs length 這個選擇有標準答案：用 length。** `dp[len]` 讓 `dp[0]` = 空前綴 = `true` 這個 sentinel 自然存在，內層 `cache[i-j]` 永遠合法、不用判 `j-1 < 0`——這就是你 09-04 做 LC 5 時寫的「把邊界拉成 base case 吃掉，子問題就不用判邊界」。用 index 版 `dp[i]` = 以 i 結尾，就得特判 `j == 0` 的情況。前一版的 bug 正是 `j` 一半當長度、一半當 index；統一成「look backward 的長度」後語意就對齊了。複雜度 `O(n² · L)`（substr 複製 L），內層 `j` 可用最長單字截斷。註解還停在 `dp[n-1]` / `dp[0] if s[0] in hashmap`，是 index 版的殘留，改一下。下一步把 set 換回 Trie，就能看出昨天那版少的是什麼。
 
 ---
 

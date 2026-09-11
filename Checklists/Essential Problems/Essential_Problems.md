@@ -52,6 +52,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 72. Edit Distance
 - 🟡 LeetCode 494. Target Sum
 - 🟡 LeetCode 416. Partition Equal Subset Sum
+- 🟡 🔴 LeetCode 139. Word Break
 
 ## Kadane's Pattern DP
 
@@ -135,6 +136,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Trie
 
 - LeetCode 421. Maximum XOR of Two Numbers in an Array
+- 🟡 🔴 LeetCode 139. Word Break
 
 ## Hashmap
 
@@ -191,6 +193,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Bit Manipulation + Math + Bit Invaraint Design + State Machine
 - LeetCode 424. Longest Repeating Character Replacement
   - Sliding Window + Hash Table + Greedy
+- LeetCode 139. Word Break
+  - 1-D DP (dp[length], look backward) + Hash Set / Trie
 
 ### Followup Possible (Multiple Solutions)
 
