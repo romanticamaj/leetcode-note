@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：24 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：25 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -101,7 +101,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [ ] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium`
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **142.** [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) — `Medium`
-- [ ] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — `Medium`
+- [x] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [ ] **148.** [Sort List](https://leetcode.com/problems/sort-list/) — `Medium`
 - [ ] **160.** [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) — `Easy`
 - [ ] **206.** [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — `Easy`

@@ -188,3 +188,8 @@
   - 🏷️ 技巧分類: 1-D DP + Trie / Memoized DFS
   - 📅 二刷: 2026-09-13（先寫樸素 `dp[i] = any(dp[j] && s[j..i) ∈ set)`，過了再把 set 換 Trie）
   - 📅 三刷: 2026-09-25（連 140 Word Break II 一起）
+- [ ] LeetCode 146. LRU Cache
+  - 📌 標記原因: 實作細節 — 思路對但四版才過（巢狀型別解析、dummy 尾、淘汰三步、get 要 refresh）；本質是 map + list 兩個結構同步維護不變量
+  - 🏷️ 技巧分類: Design / Hash Map + Doubly Linked List
+  - 📅 二刷: 2026-09-14（目標：一次寫對，先列出每個操作要維護的不變量再動手）
+  - 📅 三刷: 2026-09-25（連 460 LFU 一起）
