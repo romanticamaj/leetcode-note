@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：25 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：26 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -40,7 +40,7 @@
 ## Stack (6)
 
 - [x] **20.** [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — `Medium`
+- [x] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [ ] **150.** [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — `Medium`
 - [ ] **739.** [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) — `Medium`
 - [ ] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium`

@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：25 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：26 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -125,7 +125,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 - [x] **20.** [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [ ] **84.** [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — `Hard` ✅
-- [ ] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — `Medium`
+- [x] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [ ] **394.** [Decode String](https://leetcode.com/problems/decode-string/) — `Medium` ✅
 - [ ] **739.** [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) — `Medium`
 
