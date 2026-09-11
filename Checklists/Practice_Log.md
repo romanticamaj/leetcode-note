@@ -7,6 +7,7 @@
 - 139. Word Break（Trie + DFS TLE → 改 bottom-up DP + hash set 通過）
 - 146. LRU Cache（四版才過）
 - 155. Min Stack
+- 199. Binary Tree Right Side View
 
 **心得**：
 - 139：用 Trie 來做，但會 TLE，不知道為什麼。卡了滿久，寫了 40 分鐘，覺得還滿難的，應該是 Medium 到 Hard。之後一定要再做一次。
@@ -19,6 +20,7 @@
   4. doubly linked list 移除 / 插入 node 一直重複出現類似的程式碼，拉一個 function 出來，整體實作會容易很多。
   5. 有類似 push-pop 的 technique——k-top 那個「先更新，再 balance」的概念去更新 linked list。
 - 155：直覺是 monotonic stack。因為 monotonic stack 常常要 maintain 一個 property，直覺就聯想到 while——判斷 non-increasing 或 increasing 的那個判斷式。不過這題很特別，只要 maintain 一個 stack，不用一直更新 stack 的值：每個時間點都有一個戳記，戳記一次一次判斷就解決了。一開始用 while 只是把 monotonic stack 的習慣聯想過來，這個 case 不用。Monotonic stack 最麻煩的就是那個判斷式：要想清楚我要的是 non-increasing 還是 increasing，來決定配不配等號。
+- 199：DFS + level + pre-order，先用「每層覆寫 `view[level]`」做出來。這不是最佳解，因為每次都要更新回傳陣列。可以改 traverse 的方向從右到左：這樣每次遇到的第一個一定是還不存在的 level，直接 push 到尾巴就好；已存在的自然不用更新，因為右邊先走過了。所以更簡單的思路是：由右到左的 pre-order，一碰到回傳陣列還不存在的 level 就一定是答案。修改 traverse 方向是一個很有趣的設計概念。
 
 **LLM 點評**：
 model: Fable 5.1
@@ -27,6 +29,7 @@ model: Fable 5.1
 - 139（回顧）：這個結論完全對，而且可以推廣成一個先問的問題：**這題的瓶頸是「搜尋空間太大」還是「單次查找太慢」？** 前者靠 DP / memo 砍重複子問題，後者靠資料結構（hash / Trie / BIT）砍每次的成本。139 的瓶頸是前者——切法數指數級——所以先 DP 再談 Trie；你第一版直接上 Trie，是把第二層的優化當成第一層的解法。反過來的例子是 208/211 這種純 Trie 題，瓶頸在查找本身，沒有重複子問題可砍。以後看到「字典 + 字串」先問這一句，就不會再從 Trie 進場。
 - 146：最終版乾淨，`refresh()` 抽出來是對的。四版的錯各是一個獨立的課：(1) 成員函式**參數型別**在宣告點解析、**本體**在 class 完整後解析，巢狀型別要先宣告；(2) `end` 指向真實節點就得處處判「移的是不是 end」，**頭尾都 dummy** 讓 `removeNode` 永遠不碰 nullptr、`insert` 不用維護狀態——是 09-04「邊界拉成 base case」在資料結構上的版本；(3) 淘汰是三件事：斷鏈、erase map、delete，漏一個就是懸空指標或 size 不降；(4) LRU 的 U 是 used，`get` 也算。**這題的本質不是演算法，是「兩個資料結構要同步維護不變量」**，每個操作都要問「map 和 list 是否仍一致」。值得二刷，重點是一次寫對而不是想出來。 第 5 點的連結很準：淘汰寫成「先 insert 再看 size 超了就 pop 最舊」，跟 `Data_Structures/Heaps/03-Push_Pop_Fixed_Size_Heap.md` 的 push-then-pop 是同一個形狀，好處是永遠不用分「滿 / 沒滿」兩條路徑。
 - 155：你發現「不用 while」是對的。輔助 stack 存的形狀**確實是** non-increasing，但要分「單調是不變量」和「單調是技法」：技法意義的 monotonic stack（739/84/42）靠 push 時 **while-pop** 掉違反的元素來**主動維護**單調，被 pop 的元素是被淘汰的候選；Min Stack 的輔助 stack 是每個位置記「到此為止的 min」的戳記，prefix min 天生 non-increasing，單調是**免費的副產品**，沒有元素因 push 被淘汰——這是 `Prefix_Sum/02_Running_State_Pattern.md` 的 running min 套在 stack 上。所以它是一個單調的 stack，但不是「monotonic stack」這個技法；技法的名字指的是 while-pop 那個機制，而那正是你說最麻煩的判斷式所在。會混淆是因為有一個常見優化：輔助 stack 只在 `val <= curMin` 時才 push，這樣輔助 stack 看起來是 non-increasing 的——**而這裡就是你最後一段那個等號問題的真正出場點**：一定要 `<=` 不能 `<`，否則有重複 min 時 pop 掉一個就把另一個的紀錄弄丟了。所以你的兩段心得其實對應兩個版本：戳記版不用判斷式；優化版要判斷式且等號必須帶。
+- 199：右到左的洞察對，且 repo 已寫在 `Trees/DFS_for_Level_Order_Traversal.md` 範例 2（根→右→左，每層第一個訪到的就是答案），這是你 09-10 做 102 時我提的那篇的變形——你自己推出來了。兩個補充：(1) 兩版都是 O(n)，「不是最佳解」是指**不變量更乾淨**（「第一次到達即答案」vs「最後一次覆寫才對」），不是複雜度差異；面試講這個差別比講 big-O 有價值。(2) 「**改走訪順序讓『第一次遇到』直接成為答案**」可以推廣：left side view 就是根→左→右；`Arrays_and_Strings/Reverse_Processing_Patterns.md` 是同一個哲學在陣列上的版本（從右到左避免覆蓋）。覆寫版有一個隱含風險：`view[level] = val` 依賴「左後右」的順序才對，把遞迴順序調換就錯，而 push 版天然不會。
 
 ---
 
