@@ -8,6 +8,14 @@
 
 ---
 
+## 統一狀態框架總覽
+
+[演算法與資料結構的統一狀態框架](Meta_Frameworks/State_Transition_Algorithm_Atlas.md) · [HTML 閱讀版](Meta_Frameworks/State_Transition_Algorithm_Atlas.html)
+
+用「目標、狀態、轉換、計算順序、正確性與終止、成本」重新詮釋筆記中的算法與資料結構：212 個條目、11 個分類，附關鍵論述、適用條件與來源覆蓋對照。HTML 支援搜尋、分類篩選與展開閱讀；下載後可直接用瀏覽器開啟。
+
+---
+
 ## 核心理念
 
 1. **Pattern Extraction（模式萃取）** — 把具體題目蒸餾成抽象、可複用的模式（如 "One-Liner DFS"、"Vertex Mapping"、"Destination-as-Source Reachability"）
