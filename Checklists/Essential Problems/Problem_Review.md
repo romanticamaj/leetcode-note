@@ -193,3 +193,9 @@
   - 🏷️ 技巧分類: Design / Hash Map + Doubly Linked List
   - 📅 二刷: 2026-09-14（目標：一次寫對，先列出每個操作要維護的不變量再動手）
   - 📅 三刷: 2026-09-25（連 460 LFU 一起）
+- [ ] LeetCode 230. Kth Smallest Element in a BST
+  - 📌 標記原因: 實作細節 — 同一天做兩次都錯很多次；卡在「可變狀態 + early return + 帶答案回傳」三者的簽名設計，第一版還用了 `-1` sentinel
+  - 🏷️ 技巧分類: In-order Traversal + External State / Recursion Signature Design
+  - 🔗 前置閱讀: `Divide_and_Conquer/06_External_State_Traversal_Order.md`、`Trees/Iterative_Traversal/03-Current_Pointer_Implementations.md`
+  - 📅 二刷: 2026-09-16（直接寫 iterative in-order 版，不需要那三個欄位）
+  - 📅 三刷: 2026-09-28（加 follow-up：augmented BST subtree size）
