@@ -7,11 +7,13 @@
 - 200. Number of Islands
 - 207. Course Schedule
 - 208. Implement Trie (Prefix Tree)
+- 230. Kth Smallest Element in a BST
 
 **心得**：
 - 200：DFS 滿 trivial 的。想知道有沒有需要做 disjoint set 版本。
 - 207：用 Kahn's algorithm，BFS 變形，注意 incoming edge count（in-degree）的概念就可以了，算好實作。想知道要不要寫一個 DFS 版本。
 - 207（DFS 版）：用三色標記寫出來了。雖然知道核心是找 back edge，但還是先被 Opus 5 提示了技法名稱。看完 review 後這個做法越看越不妙——的確沒有在進 dfs 時把自己變 GREY，剛好沒 loop 所以不會踩到問題；有 loop 的話要第二次進去才會擋掉自己，等於有些 case 要多進去一次。要改成 entry-style。
+- 230：意外卡了超．級．久，一直卡在怎麼樣不遞迴下去，結果寫出很醜的 code（member `count` + `NOT_FOUND = -1` sentinel 往上傳）。第一版方向完全錯誤（把 `k-1`、`k-2` 往下傳），花了 20m34s。結論：只要用 k 來判斷就可以，把 k 當成 internal state 來用。
 
 **LLM 點評**：
 model: Opus 5 (1M context)
@@ -19,6 +21,7 @@ model: Opus 5 (1M context)
 - 207：**要寫，而且這次跟 200 的 UF 情況相反。** DFS 版不是 Kahn's 的機械改寫，它是另一個獨立技法：**三色標記**（WHITE 未訪 / GRAY 在遞迴堆疊上 / BLACK 已完成），偵測到指向 GRAY 的邊 = back edge = 有環。差別在**判準不同**：Kahn's 是「還有點沒被排出來就有環」（數量），DFS 是「走到正在堆疊上的點」（結構）。後者可遷移到 Kahn's 做不到的題：找出環本身、SCC（Tarjan/Kosaraju）、DAG 上的記憶化（GRAY 代表「正在算」，BLACK 代表「算完可用 memo」）。repo 有兩篇現成的：`Algorithms/DFS/03-Node_Coloring_DFS.md`（三色 + 邊分類）、`Algorithms/Topological_Sort/03-DFS_Based_Implementation.md`（含 post-order 逆序得拓撲序，直接餵 210）。一個常踩的坑：只用一個 `visited` 陣列偵測不出環——必須區分「這條路徑上」和「以前走過」，這正是 GRAY/BLACK 存在的理由。
 - 207（DFS code review）：**結果正確，但有一個不對稱**：`canFinish` 的外層迴圈沒有把起點染成 GREY，只有遞迴時才把 neighbor 染 GREY。起點永遠是 WHITE 進入 dfs、結束才變 BLACK。它之所以還對，是因為若有邊指回起點 r，dfs 會把 r 當成未訪問而**第二次進入** dfs(r)，這時通往 r 的那條路徑上的 child 已經是 GREY，於是被抓到；而 DAG 中不可能有邊指回 r（否則就是環），所以不會誤判。但這個正確性要繞一圈才證得出來，面試時很難說服自己。乾淨的寫法是 **entry-style**：`dfs` 一進來就 `color[node] = GREY`，離開時 `= BLACK`，呼叫端完全不用染色——repo 的 `Topological_Sort/03-DFS_Based_Implementation.md` 把這兩種寫法分成「實作一 Pruning-on-Push」和「實作二 Pruning-on-Entry」，你現在是兩種混用。其餘：邊的方向 `neighbors[edge[1]].push_back(edge[0])` 對（b → a）；複雜度 O(V+E) 對；小處 `for (auto edge: prerequisites)` 每圈複製一個 vector，改 `const auto&`；三個顏色常數是可變的 member，改 `static constexpr int` 或 `enum`。
 - 207（補充）：自己看出重複進入的問題，判讀正確。兩點精確化：(1) **只有外層迴圈的起點會被重複進入**，非起點都是被 parent 在 push 前染 GREY 的，在 dfs 裡時已是 GREY；起點是唯一「WHITE 狀態下待在 dfs 裡」的節點。(2) 多進一次的成本**有界**（那些 WHITE 子樹本來就要走，仍是 O(V+E)），所以**不是效能問題，是可驗證性問題**：現在的正確性依賴「DAG 裡不可能有邊指回 r」這個繞一圈的論證；改 entry-style 後不變量變成一句話「GREY = 正在當前遞迴路徑上」，對每個節點都成立、不用分 case，面試時要證的正是這個。
+- 230：三件事。(1) **`count` 當 member 跟 146 的 `solutions` 是同一個病**：同一個 Solution 物件呼叫兩次就壞，而且 `k` 在遞迴中從未改變、只是被一路傳下去——這就是為什麼寫起來覺得醜：**公開 API 和遞迴 helper 被硬塞成同一個函式**。拆出 `void inorder(node, int& k, int& ans)` 立刻變乾淨。(2) **`NOT_FOUND = -1` sentinel 在這題剛好安全**（題目保證 `0 <= val`），但它是「用資料值兼任控制訊號」，換一題有負值就爆——你 09-11 做 139 時 `-1` 在 `||` 裡被當 true 也是同一類問題。(3) **「怎麼樣不遞迴下去」的標準答案是 iterative in-order（顯式 stack）**：`while (cur || !st.empty())` 往左推到底、pop 一個就 `--k`、`k == 0` 直接 return——**它天然就停，不需要任何 sentinel 往上傳**。這是你待補的「迭代版」清單裡唯一一題迭代比遞迴**更好**而不只是等價的，值得現在就寫。repo：`Trees/Iterative_Traversal/03-Current_Pointer_Implementations.md`、`Binary_Search_Trees/02-In-order_Traversal_Strategy.md`。另外：你註解裡「算左子樹 node count + 1」**不是方向錯誤，那是這題的官方 follow-up**（BST 頻繁改動時如何優化）——答案就是在節點上augment subtree size，repo 已有 `Binary_Search_Trees/Augmented_BST_for_Order_Statistics.md`。你自己想到了，只是誤以為它錯。
 
 ---
 
