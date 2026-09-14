@@ -6,6 +6,7 @@
 
 - 200. Number of Islands
 - 207. Course Schedule
+- 208. Implement Trie (Prefix Tree)
 
 **心得**：
 - 200：DFS 滿 trivial 的。想知道有沒有需要做 disjoint set 版本。

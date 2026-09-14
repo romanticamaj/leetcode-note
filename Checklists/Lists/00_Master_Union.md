@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：29 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：30 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -41,7 +41,7 @@ Easy 8 · Medium 25 · Hard 4
 - [x] **199.** [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-11</sub>
 - [x] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-14</sub>
 - [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-14</sub>
-- [ ] **208.** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub>
+- [x] **208.** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-14</sub>
 - [ ] **230.** [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅
 - [ ] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅
 - [ ] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub>

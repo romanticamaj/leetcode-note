@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：29 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：30 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -113,7 +113,7 @@
 
 ## Tries (3)
 
-- [ ] **208.** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) — `Medium`
+- [x] **208.** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) — `Medium` · <sub>✔ 2026-09-14</sub>
 - [ ] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium`
 - [ ] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` ✅
 
