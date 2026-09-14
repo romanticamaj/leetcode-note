@@ -10,12 +10,14 @@
 **心得**：
 - 200：DFS 滿 trivial 的。想知道有沒有需要做 disjoint set 版本。
 - 207：用 Kahn's algorithm，BFS 變形，注意 incoming edge count（in-degree）的概念就可以了，算好實作。想知道要不要寫一個 DFS 版本。
+- 207（DFS 版）：用三色標記寫出來了。雖然知道核心是找 back edge，但還是先被 Opus 5 提示了技法名稱。看完 review 後這個做法越看越不妙——的確沒有在進 dfs 時把自己變 GREY，剛好沒 loop 所以不會踩到問題；有 loop 的話要第二次進去才會擋掉自己，等於有些 case 要多進去一次。要改成 entry-style。
 
 **LLM 點評**：
 model: Opus 5 (1M context)
 - 200：**單就 200 不用寫**，DFS/BFS 是這題的正解（O(mn)，UF 加上 α 反而略慢，還要多一個 parent 陣列）。但 **Union-Find 本身一定要練**，只是不該挑 200 當練習題——200 的網格是靜態的，一次掃完就結束，用不到 UF 的招牌能力：**動態加邊、即時查連通數**。真正逼出 UF 的是 305 Number of Islands II（陸地一格一格長出來，每次問島數）——那題 DFS 每次重掃是 O(k·mn)，UF 是 O(k·α)，這才是「非 UF 不可」。判準：**問題是不是增量的**？靜態一次性連通 → DFS/BFS；動態合併/反覆查詢 → UF。repo 的 `Union_Find/08-Connectivity_Problem_Strategy_Guide.md` 就是在講這個選擇，`07-LeetCode_Tips.md` 有題單。建議：200 到此為止，把 UF 的練習排在 305 / 684 / 547 / 721 上。
 - 207：**要寫，而且這次跟 200 的 UF 情況相反。** DFS 版不是 Kahn's 的機械改寫，它是另一個獨立技法：**三色標記**（WHITE 未訪 / GRAY 在遞迴堆疊上 / BLACK 已完成），偵測到指向 GRAY 的邊 = back edge = 有環。差別在**判準不同**：Kahn's 是「還有點沒被排出來就有環」（數量），DFS 是「走到正在堆疊上的點」（結構）。後者可遷移到 Kahn's 做不到的題：找出環本身、SCC（Tarjan/Kosaraju）、DAG 上的記憶化（GRAY 代表「正在算」，BLACK 代表「算完可用 memo」）。repo 有兩篇現成的：`Algorithms/DFS/03-Node_Coloring_DFS.md`（三色 + 邊分類）、`Algorithms/Topological_Sort/03-DFS_Based_Implementation.md`（含 post-order 逆序得拓撲序，直接餵 210）。一個常踩的坑：只用一個 `visited` 陣列偵測不出環——必須區分「這條路徑上」和「以前走過」，這正是 GRAY/BLACK 存在的理由。
 - 207（DFS code review）：**結果正確，但有一個不對稱**：`canFinish` 的外層迴圈沒有把起點染成 GREY，只有遞迴時才把 neighbor 染 GREY。起點永遠是 WHITE 進入 dfs、結束才變 BLACK。它之所以還對，是因為若有邊指回起點 r，dfs 會把 r 當成未訪問而**第二次進入** dfs(r)，這時通往 r 的那條路徑上的 child 已經是 GREY，於是被抓到；而 DAG 中不可能有邊指回 r（否則就是環），所以不會誤判。但這個正確性要繞一圈才證得出來，面試時很難說服自己。乾淨的寫法是 **entry-style**：`dfs` 一進來就 `color[node] = GREY`，離開時 `= BLACK`，呼叫端完全不用染色——repo 的 `Topological_Sort/03-DFS_Based_Implementation.md` 把這兩種寫法分成「實作一 Pruning-on-Push」和「實作二 Pruning-on-Entry」，你現在是兩種混用。其餘：邊的方向 `neighbors[edge[1]].push_back(edge[0])` 對（b → a）；複雜度 O(V+E) 對；小處 `for (auto edge: prerequisites)` 每圈複製一個 vector，改 `const auto&`；三個顏色常數是可變的 member，改 `static constexpr int` 或 `enum`。
+- 207（補充）：自己看出重複進入的問題，判讀正確。兩點精確化：(1) **只有外層迴圈的起點會被重複進入**，非起點都是被 parent 在 push 前染 GREY 的，在 dfs 裡時已是 GREY；起點是唯一「WHITE 狀態下待在 dfs 裡」的節點。(2) 多進一次的成本**有界**（那些 WHITE 子樹本來就要走，仍是 O(V+E)），所以**不是效能問題，是可驗證性問題**：現在的正確性依賴「DAG 裡不可能有邊指回 r」這個繞一圈的論證；改 entry-style 後不變量變成一句話「GREY = 正在當前遞迴路徑上」，對每個節點都成立、不用分 case，面試時要證的正是這個。
 
 ---
 
