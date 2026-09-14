@@ -5,13 +5,16 @@
 ## 2026-09-14
 
 - 200. Number of Islands
+- 207. Course Schedule
 
 **心得**：
 - 200：DFS 滿 trivial 的。想知道有沒有需要做 disjoint set 版本。
+- 207：用 Kahn's algorithm，BFS 變形，注意 incoming edge count（in-degree）的概念就可以了，算好實作。想知道要不要寫一個 DFS 版本。
 
 **LLM 點評**：
 model: Opus 5 (1M context)
 - 200：**單就 200 不用寫**，DFS/BFS 是這題的正解（O(mn)，UF 加上 α 反而略慢，還要多一個 parent 陣列）。但 **Union-Find 本身一定要練**，只是不該挑 200 當練習題——200 的網格是靜態的，一次掃完就結束，用不到 UF 的招牌能力：**動態加邊、即時查連通數**。真正逼出 UF 的是 305 Number of Islands II（陸地一格一格長出來，每次問島數）——那題 DFS 每次重掃是 O(k·mn)，UF 是 O(k·α)，這才是「非 UF 不可」。判準：**問題是不是增量的**？靜態一次性連通 → DFS/BFS；動態合併/反覆查詢 → UF。repo 的 `Union_Find/08-Connectivity_Problem_Strategy_Guide.md` 就是在講這個選擇，`07-LeetCode_Tips.md` 有題單。建議：200 到此為止，把 UF 的練習排在 305 / 684 / 547 / 721 上。
+- 207：**要寫，而且這次跟 200 的 UF 情況相反。** DFS 版不是 Kahn's 的機械改寫，它是另一個獨立技法：**三色標記**（WHITE 未訪 / GRAY 在遞迴堆疊上 / BLACK 已完成），偵測到指向 GRAY 的邊 = back edge = 有環。差別在**判準不同**：Kahn's 是「還有點沒被排出來就有環」（數量），DFS 是「走到正在堆疊上的點」（結構）。後者可遷移到 Kahn's 做不到的題：找出環本身、SCC（Tarjan/Kosaraju）、DAG 上的記憶化（GRAY 代表「正在算」，BLACK 代表「算完可用 memo」）。repo 有兩篇現成的：`Algorithms/DFS/03-Node_Coloring_DFS.md`（三色 + 邊分類）、`Algorithms/Topological_Sort/03-DFS_Based_Implementation.md`（含 post-order 逆序得拓撲序，直接餵 210）。一個常踩的坑：只用一個 `visited` 陣列偵測不出環——必須區分「這條路徑上」和「以前走過」，這正是 GRAY/BLACK 存在的理由。
 
 ---
 

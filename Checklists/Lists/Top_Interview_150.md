@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：28 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：29 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -135,7 +135,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **130.** [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) — `Medium` ✅
 - [ ] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium`
 - [ ] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium`
-- [ ] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — `Medium` ✅
+- [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
 - [ ] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium`
 
 ## Graph BFS (3)
