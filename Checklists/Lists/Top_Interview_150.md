@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：27 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：28 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -131,7 +131,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 ## Graph General (6)
 
-- [ ] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium`
+- [x] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium` · <sub>✔ 2026-09-14</sub>
 - [ ] **130.** [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) — `Medium` ✅
 - [ ] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium`
 - [ ] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium`

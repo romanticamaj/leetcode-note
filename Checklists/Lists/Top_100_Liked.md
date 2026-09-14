@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：27 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：28 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -66,7 +66,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 ## Graph (3)
 
-- [ ] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium`
+- [x] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium` · <sub>✔ 2026-09-14</sub>
 - [ ] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — `Medium` ✅
 - [ ] **994.** [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) — `Medium`
 

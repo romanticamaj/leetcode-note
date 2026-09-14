@@ -2,6 +2,19 @@
 
 ---
 
+## 2026-09-14
+
+- 200. Number of Islands
+
+**心得**：
+- 200：DFS 滿 trivial 的。想知道有沒有需要做 disjoint set 版本。
+
+**LLM 點評**：
+model: Opus 5 (1M context)
+- 200：**單就 200 不用寫**，DFS/BFS 是這題的正解（O(mn)，UF 加上 α 反而略慢，還要多一個 parent 陣列）。但 **Union-Find 本身一定要練**，只是不該挑 200 當練習題——200 的網格是靜態的，一次掃完就結束，用不到 UF 的招牌能力：**動態加邊、即時查連通數**。真正逼出 UF 的是 305 Number of Islands II（陸地一格一格長出來，每次問島數）——那題 DFS 每次重掃是 O(k·mn)，UF 是 O(k·α)，這才是「非 UF 不可」。判準：**問題是不是增量的**？靜態一次性連通 → DFS/BFS；動態合併/反覆查詢 → UF。repo 的 `Union_Find/08-Connectivity_Problem_Strategy_Guide.md` 就是在講這個選擇，`07-LeetCode_Tips.md` 有題單。建議：200 到此為止，把 UF 的練習排在 305 / 684 / 547 / 721 上。
+
+---
+
 ## 2026-09-11
 
 - 139. Word Break（Trie + DFS TLE → 改 bottom-up DP + hash set 通過）

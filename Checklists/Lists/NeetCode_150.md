@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：27 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：28 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -119,7 +119,7 @@
 
 ## Graphs (13)
 
-- [ ] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium`
+- [x] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium` · <sub>✔ 2026-09-14</sub>
 - [ ] **695.** [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) — `Medium`
 - [ ] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium`
 - [ ] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium`
