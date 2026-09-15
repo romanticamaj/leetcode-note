@@ -204,3 +204,13 @@
   - 🏷️ 技巧分類: Bottom-Up Divide and Conquer / Iterative Merge
   - 🔗 前置閱讀: `Divide_and_Conquer/04_Bottom_Up_Divide_and_Conquer.md`
   - 📅 二刷: 2026-09-18（另外再寫 priority_queue 版，比較兩者同為 O(N log k) 的來源）
+- [ ] LeetCode 229. Majority Element II（169 的延伸，下次做）
+  - 📌 標記原因: 做完 169 後的指定延伸 — 逼出 Boyer-Moore 的推廣形式（>n/k 需要 k-1 個候選），以及「第二輪驗證為何必須」（169 題目保證多數元素存在才能省，229 不保證）
+  - 🏷️ 技巧分類: Boyer-Moore Voting (n/k 推廣)
+  - 🔗 前置閱讀: `Algorithms/Boyer_Moore_Voting/Boyer_Moore_Voting_Algorithm.md` Pattern 2
+  - 📅 下次練習: 2026-09-16
+- [ ] LeetCode 169. Majority Element（D&C 版，選做）
+  - 📌 標記原因: 不是為了解這題，而是它是 **D&C 的非典型 combine** — 左右各自的多數元素未必是整體的多數元素，combine 時必須回頭數一次，這就是 O(n log n) 的來源。與 LC 23「兩條已排序 list 直接接起來」形成對照
+  - 🏷️ 技巧分類: Divide and Conquer (combine 需額外驗證)
+  - 🔗 前置閱讀: `Divide_and_Conquer/05_Conquer_Strategy_Comparison.md`
+  - 📅 選做: 229 完成後
