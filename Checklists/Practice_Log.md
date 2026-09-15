@@ -8,6 +8,7 @@
 - 322. Coin Change
 - 23. Merge k Sorted Lists
 - 125. Valid Palindrome
+- 169. Majority Element
 
 **心得**：
 - 238：寫得蠻糟糕的。一開始一直想到 Divide and Conquer，但實際上這題沒那麼複雜，用 Prefix Sum / Running Sum，概念其實很簡單。所以這題的關鍵是：沒辦法盲想到演算法的設計；關鍵的設計如果沒出來，後面就會卡住。
@@ -16,6 +17,7 @@
 - 322（完成版）：最大的 take away 是——查表時腦中要分清楚 **state** 和 **choice/candidate**，才不會把 choice 變成 state；而且既然是 choice，就**都要查過**；然後如果只記錄最佳解，choice 對應的答案可以被**壓縮成一個值**來記錄。
 - 23：最麻煩的是 (1) 暴力法不知道怎麼做——解答說直接取值出來排序、重新建 linked list，但我覺得怪怪的；(2) 時間複雜度很難分析。我的做法是 divide and conquer，時間 O(N log k)（k 是 lists 數量），空間 O(log k) 是 call stack。有趣的延伸：用 priority_queue 整理 `vector<ListNode*>`，時間剛好也是 O(N log k)；第二個延伸是 **bottom-up divide and conquer**，用長度 / interval 決定 combine 的項目，從長度 2 開始——對這個有興趣，之後回來練。
 - 125：完成。我的寫法是單層 while + 三分支（跳左 / 跳右 / 比對）。解答用 for + 兩個內層 while，覺得滿複雜的，想知道這樣有什麼好處。
+- 169：Boyer-Moore Voting Algorithm 很經典，但這題解法太多了。感覺這題應該是要考其他延伸？比方說 divide and conquer，覺得很值得寫。
 
 **LLM 點評**：
 model: Opus 5 (1M context)
@@ -28,6 +30,9 @@ model: Opus 5 (1M context)
 - 23（bottom-up D&C 的起手式）：**repo 已有專文** `Divide_and_Conquer/04_Bottom_Up_Divide_and_Conquer.md`，裡面就是你問的那個雙層迴圈。for loop 難寫的癥結只有一句話：**內層條件 `i + interval < n` 的意思是「右半邊還存在嗎」**——不是 `i < n`。因為 `interval` 這一輪要合併的是 `[i, i+interval)` 和 `[i+interval, i+2*interval)` 兩塊，若 `i + interval >= n` 就沒有右半可合，那塊直接留著進下一輪。LC 23 的版本比陣列版更簡單，因為 linked list 自己知道結尾、不需要 end index：`for (interval=1; interval<k; interval*=2) for (i=0; i+interval<k; i+=interval*2) lists[i] = merge(lists[i], lists[i+interval]); return lists[0];`
 - 125：**沒有好處，你的版本反而更安全。** 解答版唯一的優點是讀起來貼近口語描述（「兩邊各跳過雜訊 → 再比對」），但代價是 `i < j` 這個守衛要在**三個地方**各寫一次（for + 兩個 while）；漏掉任一個內層的 `i < j`，遇到 `",,,"` 這種全是雜訊的輸入就會越界——這是這題的經典 bug。你的三分支寫法**結構上不可能有這個 bug**，因為 `i < j` 只出現一次，而且比對只在兩邊都確定是 alnum 的 else 分支裡發生。解答版還有個小彆扭：兩個 while 可能讓 `i == j`，於是拿同一個字元跟自己比（無害，但要多想一步才確定沒事）。兩版都 O(n)，面試寫哪個都行，壓力下你的版本更不容易出錯。
 - 125（C++ 陷阱）：`std::isalnum` / `std::tolower` 的參數必須是**可用 `unsigned char` 表示的值或 EOF**；直接傳 `char`，當它是負數（非 ASCII 位元組）時是 **UB**。正確寫法 `isalnum(static_cast<unsigned char>(s[i]))`。LC 125 保證純 ASCII 所以沒事，但這是很常被問到的 C++ 細節，repo 的 `CPP_Reference/Type/ASCII_for_LeetCode.md` 第 5 節列了這些函式但沒提這個坑，值得補一行。
+- 169：**「解法太多」本身就是這題的考點**——它不是要你會某一招，是要你能在多個解法之間**做取捨並說明理由**（hash map O(n)/O(n)、排序取中位 O(n log n)/O(1)、隨機化期望 O(n)、D&C O(n log n)/O(log n)、Boyer-Moore O(n)/O(1)）。面試真正的問題是「你為什麼選這個」，而 Boyer-Moore 是唯一同時 O(n) 時間 + O(1) 空間的，所以它是正解，其餘是討論素材。
+- 169（D&C 值不值得寫）：**值得，但理由是「它是 D&C 的非典型用例」，不是為了解這題。** 大多數 D&C 題切的是「結構」（陣列/區間），這題切完之後的 combine 很特別：左右各自的多數元素**未必是整體的多數元素**，所以 combine 階段必須回頭數一次 → 這正是 `O(n log n)` 的來源（`T(n) = 2T(n/2) + O(n)`）。它示範了「**子問題的解不能直接合併，需要額外驗證**」這種 combine 型態，跟你 09-15 在 23 寫的「兩個已排序 list 直接接起來」形成對照。repo 的 `Boyer_Moore_Voting_Algorithm.md` 目前沒收這個對照，`Divide_and_Conquer/05_Conquer_Strategy_Comparison.md` 倒是講 combine 策略的，那才是它該去的地方。
+- 169（真正的延伸）：比 D&C 更該做的是 **LC 229 Majority Element II**（>n/3，最多兩個候選）——它逼你面對 Boyer-Moore 的推廣形式（n/k 需要 k-1 個候選）以及**第二輪驗證為何是必須的**（169 因為題目保證多數元素存在才能省掉驗證，229 不保證）。`Boyer_Moore_Voting_Algorithm.md` 的 Pattern 2 已經寫好了。
 
 ---
 

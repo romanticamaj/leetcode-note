@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：35 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：36 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -56,7 +56,7 @@ Easy 6 · Medium 24 · Hard 5
 
 - [x] **125.** [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — `Easy` · <sub>NC · G75 · TI150</sub> ✅ · <sub>✔ 2026-09-15</sub>
 - [ ] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>NC · TI150 · H100</sub>
-- [ ] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>G75 · TI150 · H100</sub>
+- [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>G75 · TI150 · H100</sub> · <sub>✔ 2026-09-15</sub>
 - [ ] **206.** [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — `Easy` · <sub>NC · G75 · H100</sub>
 - [ ] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>NC · G75 · TI150</sub>
 - [ ] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy` · <sub>NC · G75 · H100</sub>

@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：35 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：36 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -31,7 +31,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **70.** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [ ] **409.** [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) — `Easy` ✅
 - [ ] **206.** [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — `Easy`
-- [ ] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy`
+- [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
 - [ ] **67.** [Add Binary](https://leetcode.com/problems/add-binary/) — `Easy`
 - [ ] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy`
 - [ ] **876.** [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) — `Easy`

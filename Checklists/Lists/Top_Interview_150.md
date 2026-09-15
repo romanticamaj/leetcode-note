@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：35 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：36 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -14,7 +14,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **27.** [Remove Element](https://leetcode.com/problems/remove-element/) — `Easy`
 - [ ] **26.** [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) — `Easy`
 - [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium`
-- [ ] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy`
+- [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
 - [ ] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium`
 - [x] **121.** [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [ ] **122.** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) — `Medium` ✅
