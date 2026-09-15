@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：34 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：35 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -14,7 +14,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **20.** [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **21.** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **121.** [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) — `Easy` · <sub>✔ 2026-09-05</sub>
-- [ ] **125.** [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — `Easy` ✅
+- [x] **125.** [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — `Easy` ✅ · <sub>✔ 2026-09-15</sub>
 - [x] **226.** [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [ ] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy`
 - [ ] **704.** [Binary Search](https://leetcode.com/problems/binary-search/) — `Easy`

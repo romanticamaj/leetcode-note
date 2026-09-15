@@ -98,6 +98,15 @@ char lower = upper - 'A' + 'a'; // 't'
 - `tolower(c)`: 將 `c` 轉換為小寫。
 - `toupper(c)`: 將 `c` 轉換為大寫。
 
+> ⚠️ **傳 `char` 進去是 UB。** 這些函式的參數必須是**能用 `unsigned char` 表示的值**或 `EOF`。`char` 在多數平台是有號的，遇到非 ASCII 位元組（值為負）就會踩到未定義行為。
+>
+> ```cpp
+> isalnum(s[i]);                              // ❌ s[i] 可能是負值
+> isalnum(static_cast<unsigned char>(s[i]));  // ✅
+> ```
+>
+> LeetCode 題目多半保證純 ASCII 所以不會出事，但這是面試常被追問的細節。
+
 **範例：**
 
 ```cpp

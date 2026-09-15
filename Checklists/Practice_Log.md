@@ -7,6 +7,7 @@
 - 238. Product of Array Except Self
 - 322. Coin Change
 - 23. Merge k Sorted Lists
+- 125. Valid Palindrome
 
 **心得**：
 - 238：寫得蠻糟糕的。一開始一直想到 Divide and Conquer，但實際上這題沒那麼複雜，用 Prefix Sum / Running Sum，概念其實很簡單。所以這題的關鍵是：沒辦法盲想到演算法的設計；關鍵的設計如果沒出來，後面就會卡住。
@@ -14,6 +15,7 @@
 - 322：這題很精彩。一開始還是會做成二維陣列，然後必須往前找到「所有可能的換法下最好的換法」。一開始就直接往前找 `dp[k-coins[i]]` 那個，想了一下不對——那整排 `dp[k]` 都要看看，找最小的。這版還沒去算那個。但想到那個算法之後，就可以直接整合成一維，因為只要記錄一個最小換法即可。
 - 322（完成版）：最大的 take away 是——查表時腦中要分清楚 **state** 和 **choice/candidate**，才不會把 choice 變成 state；而且既然是 choice，就**都要查過**；然後如果只記錄最佳解，choice 對應的答案可以被**壓縮成一個值**來記錄。
 - 23：最麻煩的是 (1) 暴力法不知道怎麼做——解答說直接取值出來排序、重新建 linked list，但我覺得怪怪的；(2) 時間複雜度很難分析。我的做法是 divide and conquer，時間 O(N log k)（k 是 lists 數量），空間 O(log k) 是 call stack。有趣的延伸：用 priority_queue 整理 `vector<ListNode*>`，時間剛好也是 O(N log k)；第二個延伸是 **bottom-up divide and conquer**，用長度 / interval 決定 combine 的項目，從長度 2 開始——對這個有興趣，之後回來練。
+- 125：完成。我的寫法是單層 while + 三分支（跳左 / 跳右 / 比對）。解答用 for + 兩個內層 while，覺得滿複雜的，想知道這樣有什麼好處。
 
 **LLM 點評**：
 model: Opus 5 (1M context)
@@ -24,6 +26,8 @@ model: Opus 5 (1M context)
 - 322（完成版點評）：最終版正確（`coins=[1,2,5], amount=11` → 3）。你的 take away 很準，補一條可直接套用的判準：**「這個 choice 會不會改變未來可用的選項？」** 會 → 必須進 state（0/1 背包：用過的物品不能再用，所以「處理到第幾個」消不掉）；不會 → 只是每輪要枚舉的候選（完全背包：這輪用 coin i 不影響下輪還能用 coin i）。這一句同時解釋了「為什麼都要查過」和「為什麼可以壓成一個值」——正因為選項集合不隨歷史改變，每個 state 只需保留最佳值，不需要保留「靠哪個 choice 達成」。
 - 23：D&C 版正確。三件事。(1) **暴力法「怪怪的」是對的直覺**：取值 → 排序 → 重建是 O(N log N)，它之所以是暴力解，正是因為它**把「每條 list 已排序」這個給定結構整個丟掉**；你覺得浪費，就是察覺到這點。所有「已排序」的題都該問：我有沒有用上這個前提？(2) **程式碼註解的複雜度是舊的**（`O(n*m)`、`O(logn)`），你在文字裡已自己更正為 O(N log k) / O(log k)——註解要跟著改，不然二刷會被自己誤導（跟 139 的 `dp[n-1]` 殘留註解同一個毛病）。分析方法：每一層把全部 N 個節點各碰一次 = O(N)，共 log k 層。(3) 小處：`lists.size() - 1` 在空 vector 時 `size_t` 會下溢成巨大值再轉 int，C++20 定義為 -1 所以能動，但寫 `(int)lists.size() - 1` 更穩。
 - 23（bottom-up D&C 的起手式）：**repo 已有專文** `Divide_and_Conquer/04_Bottom_Up_Divide_and_Conquer.md`，裡面就是你問的那個雙層迴圈。for loop 難寫的癥結只有一句話：**內層條件 `i + interval < n` 的意思是「右半邊還存在嗎」**——不是 `i < n`。因為 `interval` 這一輪要合併的是 `[i, i+interval)` 和 `[i+interval, i+2*interval)` 兩塊，若 `i + interval >= n` 就沒有右半可合，那塊直接留著進下一輪。LC 23 的版本比陣列版更簡單，因為 linked list 自己知道結尾、不需要 end index：`for (interval=1; interval<k; interval*=2) for (i=0; i+interval<k; i+=interval*2) lists[i] = merge(lists[i], lists[i+interval]); return lists[0];`
+- 125：**沒有好處，你的版本反而更安全。** 解答版唯一的優點是讀起來貼近口語描述（「兩邊各跳過雜訊 → 再比對」），但代價是 `i < j` 這個守衛要在**三個地方**各寫一次（for + 兩個 while）；漏掉任一個內層的 `i < j`，遇到 `",,,"` 這種全是雜訊的輸入就會越界——這是這題的經典 bug。你的三分支寫法**結構上不可能有這個 bug**，因為 `i < j` 只出現一次，而且比對只在兩邊都確定是 alnum 的 else 分支裡發生。解答版還有個小彆扭：兩個 while 可能讓 `i == j`，於是拿同一個字元跟自己比（無害，但要多想一步才確定沒事）。兩版都 O(n)，面試寫哪個都行，壓力下你的版本更不容易出錯。
+- 125（C++ 陷阱）：`std::isalnum` / `std::tolower` 的參數必須是**可用 `unsigned char` 表示的值或 EOF**；直接傳 `char`，當它是負數（非 ASCII 位元組）時是 **UB**。正確寫法 `isalnum(static_cast<unsigned char>(s[i]))`。LC 125 保證純 ASCII 所以沒事，但這是很常被問到的 C++ 細節，repo 的 `CPP_Reference/Type/ASCII_for_LeetCode.md` 第 5 節列了這些函式但沒提這個坑，值得補一行。
 
 ---
 

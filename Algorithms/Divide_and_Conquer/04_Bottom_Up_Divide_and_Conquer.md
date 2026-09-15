@@ -30,7 +30,7 @@ void bottomUpDivideConquer(vector<T>& data) {
         // 條件寫成 start + interval < n：意思是「右半塊還存在嗎」
         for (int start = 0; start + interval < n; start += interval * 2) {
             int mid = start + interval;
-            int end = min(start + interval * 2, n);
+            int end = min(start + interval * 2, n); // 關鍵設計：右半的結尾
 
             // 合併相鄰的兩個長度為 interval 的子問題
             combine(data, start, mid, end);
@@ -49,32 +49,34 @@ int interval = 1;
 while (interval < n) {
     // 處理長度為 interval 的所有子問題
     processSubProblems(interval);
-    interval *= 2;  // 指數成長
+
+    // 指數成長，必須兩倍擴展，才會是 O(nlogn) 的 Divide and Conquer
+    interval *= 2;
 }
 ```
 
 **討論**: 為什麼是 interval < n ? （不用考慮等於）
 
-考慮 n == 1、interval == 1，不用進去 recurrence
-
-**注意**: interval *= 2，必須兩倍擴展，才會是 O(nlogn) 的 Divide and Conquer
+切入點 1: 還有東西沒合併完（interval >= n 表示整個陣列已是一塊）
+切入點 2: 考慮 n == 1、interval == 1，不用進去 recurrence
 
 ### 2. 配對合併策略
 
 ```cpp
 // 每次迭代將相鄰的子問題配對
-for (int i = 0; i + interval < n; i += interval * 2) {
-    // 子問題 1: [i, i + interval)
-    // 子問題 2: [i + interval, i + interval * 2)
-    SubProblem left(i, interval);
-    SubProblem right(i + interval, interval);
+for (int start = 0; start + interval < n; start += interval * 2) {
+    // 左半子問題: [start, start + interval)
+    // 右半子問題: [start + interval, min(start + interval * 2, n))
+    //            需注意 end 是否超過 n
+    SubProblem left(start, interval);
+    SubProblem right(start + interval, interval);
 
     // 合併成更大的子問題
     mergeSubProblems(left, right);
 }
 ```
 
-### 3. 邊界處理
+### 3. 右半邊界處理
 
 ```cpp
 // 優雅處理最後一個不完整的子問題
@@ -123,16 +125,16 @@ if (start + interval < n) {
 
 ### 兩個迴圈條件的意思（不用背）
 
-| 條件 | 意思 |
-| :--- | :--- |
-| `interval < n` | 還有東西沒合併完（`interval >= n` 表示整個陣列已是一塊） |
-| `i + interval < n` | **右半塊存在嗎** — 不存在就沒得合，留到下一輪 |
+| 條件               | 意思                                                     |
+| :----------------- | :------------------------------------------------------- |
+| `interval < n`     | 還有東西沒合併完（`interval >= n` 表示整個陣列已是一塊） |
+| `i + interval < n` | **右半塊存在嗎** — 不存在就沒得合，留到下一輪            |
 
 內層條件是最容易寫錯的地方：**不是 `i < n`**。這一輪要合併 `[i, i+interval)` 與 `[i+interval, i+2*interval)`，右半不存在就整塊跳過。
 
 寫成 `i + interval < n` 而不是等價的 `i < n - interval`：前者直接讀作「**右半塊的起點還在範圍內嗎**」，後者要先在腦中移項。（另外若索引型別是 `size_t`，`n - interval` 還有下溢風險。）
 
-### 對照：用「合併後大小」參數化會變醜
+### Anti-Pattern 對照：用「合併後大小」參數化會變醜
 
 ```cpp
 // ✅ A：interval = 半塊
@@ -157,7 +159,7 @@ B 不是不能寫，而是 `mid = i + 半塊`，真正需要的量本來就是�
 | 特性       | Bottom-Up        | Top-Down          |
 | ---------- | ---------------- | ----------------- |
 | 實現方式   | 迭代             | 遞迴              |
-| 空間開銷   | O(1)             | O(log n) 呼叫堆疊 |
+| 空間開銷   | **\***O(1)**\*** | O(log n) 呼叫堆疊 |
 | 快取局部性 | 較好（連續存取） | 較差（跳躍存取）  |
 | 直觀性     | 較低             | 較高              |
 | 邊界處理   | 需要明確處理     | 自然終止          |
