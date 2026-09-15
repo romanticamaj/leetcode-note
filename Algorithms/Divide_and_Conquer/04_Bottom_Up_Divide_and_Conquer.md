@@ -2,7 +2,7 @@
 
 ## 🧠 核心哲學
 
-Bottom-up 分治法從最小的子問題開始，逐層向上建構解答。關鍵在於使用 **長度 (interval/size)** 作為狀態控制變數，系統性地管理子問題的規模。
+Bottom-up 分治法從最小的子問題開始，逐層向上建構解答。關鍵在於使用 **子問題長度 (interval)** 作為狀態控制變數，系統性地管理子問題的規模。
 
 ## 子問題定義模型
 
@@ -12,7 +12,7 @@ Bottom-up 分治法從最小的子問題開始，逐層向上建構解答。關�
 struct SubProblem {
     int start;     // 起始位置
     int length;    // 子問題長度/區間大小
-    int end() { return start + length; }
+    int end() { return start + length; } // 不包含, 但可作為下一個子問題起點
 };
 ```
 
@@ -27,7 +27,8 @@ void bottomUpDivideConquer(vector<T>& data) {
     for (int interval = 1; interval < n; interval *= 2) {
 
         // 內層：遍歷所有該規模的子問題對
-        for (int start = 0; start < n - interval; start += interval * 2) {
+        // 條件寫成 start + interval < n：意思是「右半塊還存在嗎」
+        for (int start = 0; start + interval < n; start += interval * 2) {
             int mid = start + interval;
             int end = min(start + interval * 2, n);
 
@@ -62,7 +63,7 @@ while (interval < n) {
 
 ```cpp
 // 每次迭代將相鄰的子問題配對
-for (int i = 0; i < n - interval; i += interval * 2) {
+for (int i = 0; i + interval < n; i += interval * 2) {
     // 子問題 1: [i, i + interval)
     // 子問題 2: [i + interval, i + interval * 2)
     SubProblem left(i, interval);
@@ -128,6 +129,8 @@ if (start + interval < n) {
 | `i + interval < n` | **右半塊存在嗎** — 不存在就沒得合，留到下一輪 |
 
 內層條件是最容易寫錯的地方：**不是 `i < n`**。這一輪要合併 `[i, i+interval)` 與 `[i+interval, i+2*interval)`，右半不存在就整塊跳過。
+
+寫成 `i + interval < n` 而不是等價的 `i < n - interval`：前者直接讀作「**右半塊的起點還在範圍內嗎**」，後者要先在腦中移項。（另外若索引型別是 `size_t`，`n - interval` 還有下溢風險。）
 
 ### 對照：用「合併後大小」參數化會變醜
 
