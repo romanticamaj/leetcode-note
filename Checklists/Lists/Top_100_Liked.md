@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：33 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：34 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -95,7 +95,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [ ] **2.** [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) — `Medium`
 - [ ] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium`
 - [x] **21.** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard`
+- [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>✔ 2026-09-15</sub>
 - [ ] **24.** [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) — `Medium`
 - [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard`
 - [ ] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium`

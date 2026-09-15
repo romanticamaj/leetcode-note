@@ -53,6 +53,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 494. Target Sum
 - 🟡 LeetCode 416. Partition Equal Subset Sum
 - 🟡 🔴 LeetCode 139. Word Break
+- 🟡 LeetCode 322. Coin Change
 
 ## Kadane's Pattern DP
 

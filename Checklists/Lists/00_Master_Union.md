@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：33 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：34 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -45,7 +45,7 @@ Easy 8 · Medium 25 · Hard 4
 - [x] **230.** [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-14</sub>
 - [x] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-15</sub>
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-15</sub>
-- [ ] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub>
+- [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-15</sub>
 - [ ] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub> ✅
 - [ ] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub> ✅
 - [ ] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub>

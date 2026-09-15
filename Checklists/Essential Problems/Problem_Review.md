@@ -199,3 +199,8 @@
   - 🔗 前置閱讀: `Divide_and_Conquer/06_External_State_Traversal_Order.md`、`Trees/Iterative_Traversal/03-Current_Pointer_Implementations.md`
   - 📅 二刷: 2026-09-16（直接寫 iterative in-order 版，不需要那三個欄位）
   - 📅 三刷: 2026-09-28（加 follow-up：augmented BST subtree size）
+- [ ] LeetCode 23. Merge k Sorted Lists（bottom-up D&C 版）
+  - 📌 標記原因: top-down D&C 已通過；想練 bottom-up 版（interval 倍增 + 原地配對合併），for loop 的 index 設計是重點
+  - 🏷️ 技巧分類: Bottom-Up Divide and Conquer / Iterative Merge
+  - 🔗 前置閱讀: `Divide_and_Conquer/04_Bottom_Up_Divide_and_Conquer.md`
+  - 📅 二刷: 2026-09-18（另外再寫 priority_queue 版，比較兩者同為 O(N log k) 的來源）
