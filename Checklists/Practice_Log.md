@@ -2,6 +2,19 @@
 
 ---
 
+## 2026-09-15
+
+- 238. Product of Array Except Self
+
+**心得**：
+- 238：寫得蠻糟糕的。一開始一直想到 Divide and Conquer，但實際上這題沒那麼複雜，用 Prefix Sum / Running Sum，概念其實很簡單。所以這題的關鍵是：沒辦法盲想到演算法的設計；關鍵的設計如果沒出來，後面就會卡住。
+
+**LLM 點評**：
+model: Opus 5 (1M context)
+- 238：「盲想不到關鍵設計」這個診斷可以更具體——**這題的設計是被「不能用除法」這個約束逼出來的，不是靈感**。想到 prefix 的路徑是機械的：`ans[i] = (左邊全部乘積) × (右邊全部乘積)`，而「某一側的全部乘積」就是 prefix/suffix product。所以流程是**先寫出答案的定義式，再看式子裡哪一項可以預先算好**——這跟 DP 的「先定義 state 再找遞推」是同一個動作。會滑向 D&C 是因為看到「每個位置都要一個答案」就想切分治，但 D&C 需要「子問題的解能合併成父問題的解」，這題沒有那個結構（跟你 09-07 在 LC 11 判斷「有沒有單調淘汰 → 才是雙指針」是同一類判準）。repo 對應：`Prefix_Sum/01_Prefix_Sum_Intro.md`、`02_Running_State_Pattern.md`；另外這題正是 BUD 的 **D（Duplicated work）**——暴力解每個 i 都重算一次左右乘積，prefix 就是把重複的部分存起來。
+
+---
+
 ## 2026-09-14
 
 - 200. Number of Islands

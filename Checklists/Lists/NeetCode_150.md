@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：31 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：32 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -16,7 +16,7 @@
 - [ ] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅
 - [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅
 - [ ] **271.** [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) 🔒 — `Medium`
-- [ ] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` ✅
+- [x] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` ✅ · <sub>✔ 2026-09-15</sub>
 - [ ] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` ✅
 - [ ] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` ✅
 
