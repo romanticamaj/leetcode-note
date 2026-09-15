@@ -4,45 +4,6 @@
 
 Bottom-up 分治法從最小的子問題開始，逐層向上建構解答。關鍵在於使用 **長度 (interval/size)** 作為狀態控制變數，系統性地管理子問題的規模。
 
-## 🔑 起手式：為什麼用「半塊大小」當迴圈變數
-
-`interval` 代表的是**被合併的兩塊各自的大小**（半塊），不是合併後的大小。
-
-### 迴圈不變量
-
-> **進入 `interval = w` 這一輪時，所有長度為 `w` 的區塊都已經處理好了。**
-
-因此 `interval` 從 **1** 開始不需要特例 — 長度 1 的區塊天生就是已解決的。若改用「合併後長度從 2 開始」當心智模型，反而要多解釋「長度 1 去哪了」。
-
-### 兩個迴圈條件的意思（不用背）
-
-| 條件 | 意思 |
-| :--- | :--- |
-| `interval < n` | 還有東西沒合併完（`interval >= n` 表示整個陣列已是一塊） |
-| `i + interval < n` | **右半塊存在嗎** — 不存在就沒得合，留到下一輪 |
-
-內層條件是最容易寫錯的地方：**不是 `i < n`**。這一輪要合併 `[i, i+interval)` 與 `[i+interval, i+2*interval)`，右半不存在就整塊跳過。
-
-### 對照：用「合併後大小」參數化會變醜
-
-```cpp
-// ✅ A：interval = 半塊
-for (int interval = 1; interval < n; interval *= 2)
-    for (int i = 0; i + interval < n; i += 2 * interval)
-        combine(i, i + interval, min(i + 2 * interval, n));
-//               ^^^^^^^^^^^^^^ mid 直接就是 i + interval
-
-// ❌ B：size = 合併後大小
-for (int size = 2; size / 2 < n; size *= 2)
-    for (int i = 0; i + size / 2 < n; i += size)
-        combine(i, i + size / 2, min(i + size, n));
-//               ^^^^^^^^^^^^^ /2 出現三次
-```
-
-B 不是不能寫，而是 `mid = i + 半塊`，真正需要的量本來就是半塊；用合併後大小當變數，每個表達式都得再除回去。
-
----
-
 ## 子問題定義模型
 
 ### 狀態表示
@@ -148,6 +109,45 @@ if (start + interval < n) {
 - **配對策略**：每次處理相鄰的等長子問題對
 - **邊界處理**：最後的不完整子問題需特殊處理
 - **迭代優勢**：避免遞迴開銷，空間效率更高
+
+## 🔑 起手式：為什麼用「半塊大小」當迴圈變數
+
+`interval` 代表的是**被合併的兩塊各自的大小**（半塊），不是合併後的大小。
+
+### 迴圈不變量
+
+> **進入 `interval = w` 這一輪時，所有長度為 `w` 的區塊都已經處理好了。**
+
+因此 `interval` 從 **1** 開始不需要特例 — 長度 1 的區塊天生就是已解決的。若改用「合併後長度從 2 開始」當心智模型，反而要多解釋「長度 1 去哪了」。
+
+### 兩個迴圈條件的意思（不用背）
+
+| 條件 | 意思 |
+| :--- | :--- |
+| `interval < n` | 還有東西沒合併完（`interval >= n` 表示整個陣列已是一塊） |
+| `i + interval < n` | **右半塊存在嗎** — 不存在就沒得合，留到下一輪 |
+
+內層條件是最容易寫錯的地方：**不是 `i < n`**。這一輪要合併 `[i, i+interval)` 與 `[i+interval, i+2*interval)`，右半不存在就整塊跳過。
+
+### 對照：用「合併後大小」參數化會變醜
+
+```cpp
+// ✅ A：interval = 半塊
+for (int interval = 1; interval < n; interval *= 2)
+    for (int i = 0; i + interval < n; i += 2 * interval)
+        combine(i, i + interval, min(i + 2 * interval, n));
+//               ^^^^^^^^^^^^^^ mid 直接就是 i + interval
+
+// ❌ B：size = 合併後大小
+for (int size = 2; size / 2 < n; size *= 2)
+    for (int i = 0; i + size / 2 < n; i += size)
+        combine(i, i + size / 2, min(i + size, n));
+//               ^^^^^^^^^^^^^ /2 出現三次
+```
+
+B 不是不能寫，而是 `mid = i + 半塊`，真正需要的量本來就是半塊；用合併後大小當變數，每個表達式都得再除回去。
+
+---
 
 ## 與 Top-Down 的對比
 
