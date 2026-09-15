@@ -126,7 +126,7 @@
 - **優勢**: 適合需要累積多個指標的場景
 - **劣勢**:
   - 有副作用、較難測試
-  - 即使檢測到失敗，仍需遍歷全部節點（無法真正 early termination）
+  - 若**入口沒有加 guard**，即使檢測到失敗仍會遍歷全部節點；加上 `if (st.done()) return;` 後一樣能真正 early termination（見 [05-Recursion_Signature_Contract.md](05-Recursion_Signature_Contract.md)）
 - **適用**: 必須遍歷全部的統計場景、多指標累積
 
 #### 設計原則（基於 Base Case）
