@@ -143,7 +143,7 @@
   - [ ] Brute Force
 - [ ] LeetCode 443. String Compression
 - [ ] LeetCode 45. Jump Game II
-  - [ ] Greedy
+  - [ ] Greedy (嚴格說起來，是 BFS + 狀態壓縮去除 queue)
 - [ ] LeetCode 137. Single Number II
   - [ ] Bit Manipulation + State Machine + Bit Invaraint
 - [ ] LeetCode 12. Integer to Roman
@@ -167,6 +167,8 @@
 - [ ] LeetCode 417. Pacific Atlantic Water Flow
 - [ ] LeetCode 143. Reorder List
   - [ ] Space O(1)
+- [ ] LeetCode 22. Generate Parentheses
+  - 從結構唯一性的分解方式下去想 -> Divide and Conquer -> Dynamic Programming
 
 - [ ] LeetCode 33. Search in Rotated Sorted Array
   - 📌 標記原因: 思路盲點 — 做過多次仍錯，根源是混用 153 的「找拐點」predicate；33 是「找 sorted 半邊 → range check → prune 另一半」

@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：42 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：43 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -175,7 +175,7 @@
 
 - [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [ ] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium`
-- [ ] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` ✅
+- [x] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` ✅ · <sub>✔ 2026-09-17</sub>
 - [ ] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` ✅
 - [ ] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium`
 - [ ] **1899.** [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) — `Medium`

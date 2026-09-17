@@ -98,6 +98,9 @@
 | 62 / 63. Unique Paths | **980. Unique Paths III** | 必須走完所有空格 → 回溯 |
 | 312. Burst Balloons | **1039. Minimum Score Triangulation of Polygon** | 同一個區間 DP 骨架 |
 | 91. Decode Ways | **639. Decode Ways II** 🔒 | 加入萬用字元 `*` |
+| 45. Jump Game II | 🔥 **1306. Jump Game III** | **可左可右** → 可達集合不再是連續區間，區間 greedy 失效，退回真正的 BFS |
+| 45. Jump Game II | 🔥 **1696. Jump Game VI** | 骨架不變、目標換成最大分數 → 瓶頸從「枚舉落點」變「查區間最大值」→ 單調佇列 |
+| 45. Jump Game II | **1345. Jump Game IV** | 可跳到任何相同值的位置 → BFS + 值分組，用完即清空該組避免重複展開 |
 
 ## 9. Backtracking
 
