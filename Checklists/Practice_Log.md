@@ -5,12 +5,17 @@
 ## 2026-09-17
 
 - 19. Remove Nth Node From End of List
+- 22. Generate Parentheses
 
 **心得**：
 - 19：直覺是先算 size，再算 `n - k + 1` 個 gap 的 pointer，這樣需要 two-pass；follow-up 是 one-pass，直覺想到用遞迴可以做。另外發現自己一個很嚴重的問題：有些題目會**直接跳進去解法**。
+- 22：不知道為什麼判斷式可以簡化成只看 solution 長度 = `2 * n`。這題感覺最沒把握的就是 boundary condition 的設計。
 
 **LLM 點評**：
 model: Opus 5 (1M context)
+- 22（為什麼 `size == 2n` 等價）：**不是「簡化」，是把 guard already 保證的東西省略不寫。** 兩個 guard 各維護一條不變量：`if (left < n)` ⟹ 恆有 `left ≤ n`；`if (left > right)` ⟹ 恆有 `right ≤ left ≤ n`。又 `solution.size() == left + right`，所以 `left + right == 2n` 且兩者各 `≤ n` ⟹ **只可能兩個都打滿** ⟹ `left == right == n`。你那版把條件寫明白反而更誠實；面試時兩種寫法都行，能講出這段推導才是重點。
+- 22（「boundary condition 沒把握」的解法）：反過來想——**backtracking 的 guard 不是「邊界條件」，是不變量。邊界條件靠猜，不變量可以推。** 先寫兩行：`I1: 0 ≤ left ≤ n`（左括號不超過 n）、`I2: right ≤ left`（任何前綴的右括號不多於左括號 ← 這就是「合法」的定義）。剩下全部機械：加 `(` 前檢查加完 I1 還成立 → `left < n`；加 `)` 前檢查加完 I2 還成立 → `right < left`；答案 = I1、I2 都飽和 → `left == right == n`。三個條件沒有一個是猜的。**下次沒把握就做這個動作：先寫不變量，guard 從不變量倒推。**
+- 22（code review）：(1) **`if (left > n) return;` 是 dead code — 昨天 LC 19 的同一個毛病**。已經有 `if (left < n)` 才遞迴，`left` 不可能超過 n。連續兩天寫出擋不到的防禦，記一條規則：**防禦性 guard 出現時先問「什麼路徑會讓它成立？」答不出來就刪掉**。註解寫 `// base case` 也不對，真正的 base case 是下面收集答案那個分支。(2) **`LIMIT` 寫 `n/a` 錯過重點** — 這題約束是 `1 <= n <= 8`，這個小到誇張的上界正是在說「指數級枚舉就是預期解法」。LIMIT 欄位的價值不只「禁止了什麼」，也包括**規模暗示該找什麼量級的解**（若寫 `n ≤ 10^5`，枚舉整個方向就錯了）。(3) `solutions` 是成員變數且是**累積**的，物件被重用時上一組答案會留著（比 543 的 `best` 更嚴重，`n` 因每次重新指派所以沒事）；入口加 `solutions.clear();` 即可。做得好：`string& solution` + `push_back`/`pop_back` 是正確的 backtracking 寫法（傳值複製會變成 O(n) × 指數）。複雜度可更精確：每個完整解要 O(n) 複製進 `solutions`，時間 **O(n · Catalan(n)) = O(4ⁿ/√n)**，空間 O(n)**（不含輸出）**。
 - 19（code review）：正確，`n=1,k=1`、刪頭、刪尾三個邊界都對。四點：(1) **`prev` 是多餘的** — 關鍵是走到「要刪的**前一個**」而不是走到「要刪的」再回頭，`for (int i = 0; i < n - k; ++i) prev = prev->next; prev->next = prev->next->next;` 就結束了。dummy 存在的唯一理由就是讓「前一個」永遠存在（刪頭時前一個是 dummy），你用了 dummy 又維護 `prev`/`ptr` 一對指標，等於把它的功能做了兩次。(2) **`if (prev && ptr)` 是 dead code** — 題目保證 `1 <= k <= n`，這個 guard 永遠擋不到東西；面試時「擋不到的防禦」反而扣分，透露你對不變量沒把握，正確做法是把它**講出來**而不是寫成 if。(3) `k = n - k + 1` **覆寫參數**，同一個名字中途換語意（倒數第幾個 → 正數第幾個），二刷最容易看錯，給它新名字。(4) 你自己的註解底下寫了 `// k gap pointer // from the end of the list` — **答案已經在紙上卻沒用**；one-pass 的全部技巧就是那兩行字：兩個指標保持 k 的固定間距，前面撞到 null 時後面就在正確位置，這是「從尾巴數」轉成「從頭走」的機器。遞迴也能一趟但付 O(n) call stack，不是這題要的。
 - 19（依序還是跳最佳解）：**面試一定依序，但 brute force 用 15 秒講完。** 面試官買的是「你怎麼從 A 走到 B」，不是 B。這題有個必須講出來的細節：**two-pass 已經是 O(n)/O(1) 最優複雜度**，follow-up 的 one-pass 不是漸進改善而是 pass 數的改善，只在「資料只能讀一次」（streaming、超大檔案、input 是 iterator）時才有意義 — 講得出這句話比寫出 one-pass 更值錢。**練習則是依序「想」、不必依序「寫」**：brute force 口頭成立就夠，手寫留給最佳解；例外是像 42 那種「同一題多解互相對照」本身就是教材的題。
 - 19（「直接跳進解法」這個診斷要改）：翻 log — 543 搞錯 diameter 定義、238 沒讀出「不能用除法」、15 沒釐清輸入輸出格式、139 Trie 方向錯。四個裡有三個**不是選錯演算法，是還沒把題目寫成規格就開始選演算法**。選解法快是實力不是毛病；問題在選之前沒有一個能檢驗它的靶。**重新框：不是「太快跳解法」，是「在還沒立靶之前就開始射」。**

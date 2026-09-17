@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：40 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：41 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -157,7 +157,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **52.** [N-Queens II](https://leetcode.com/problems/n-queens-ii/) — `Hard`
-- [ ] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium`
+- [x] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium` · <sub>✔ 2026-09-17</sub>
 - [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium` · <sub>✔ 2026-09-10</sub>
 
 ## Divide & Conquer (4)

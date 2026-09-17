@@ -152,6 +152,8 @@ void generateSubsets(const ChoicesType& choices, const int index, PathType& path
 
 剪枝是一個**正交**於上述模式的概念，它可以應用於任何一種模式中，其目標是在「做出選擇」之前，增加一個基於**問題特定約束**的判斷 (`is_valid`)，提前砍掉無效的決策分支。
 
+> 💡 `is_valid_choice` 該寫什麼條件，不需要猜——**先寫下不變量，guard 從「加完之後不變量還成立嗎」倒推**，終止條件則是「不變量飽和」。見 [07-Guards_from_Invariants.md](07-Guards_from_Invariants.md)。
+
 ```cpp
 void solveWithConstraints(State& state, ...) {
     // ... (根據問題，可能在入口或終止條件處收集解)

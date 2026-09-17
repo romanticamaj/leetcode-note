@@ -23,6 +23,7 @@ T(n) = a * T(n/b) + f(n)
 - 子問題必須**獨立**（無重疊），否則考慮 Dynamic Programming
 - 常見分割：二分（n/2）、三分（n/3）、或 a 個子問題（n/b）
 - 分割點的選擇影響算法效率
+- 若目的是**枚舉所有解**（而非求單一答案），分割點還必須由**物件本身唯一決定**，否則同一個解會從多組參數被產生出來 → 見 [08_Canonical_Anchor_Decomposition.md](08_Canonical_Anchor_Decomposition.md)
 
 ### Step 2: 識別算法類型
 

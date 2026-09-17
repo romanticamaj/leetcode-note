@@ -54,6 +54,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 416. Partition Equal Subset Sum
 - 🟡 🔴 LeetCode 139. Word Break
 - 🟡 LeetCode 322. Coin Change
+- 🟡 22. Generate Parentheses
 
 ## Kadane's Pattern DP
 
@@ -77,6 +78,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 218. The Skyline Problem
 - LeetCode 190. Reverse Bits
 - LeetCode 191. Number of 1 Bits
+- 🟡 22. Generate Parentheses
 
 ## Union Find
 

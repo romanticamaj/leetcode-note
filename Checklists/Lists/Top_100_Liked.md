@@ -4,14 +4,14 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：40 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：41 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
 ## Backtracking (8)
 
 - [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium` · <sub>✔ 2026-09-07</sub>
-- [ ] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium`
+- [x] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium` · <sub>✔ 2026-09-17</sub>
 - [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard`
