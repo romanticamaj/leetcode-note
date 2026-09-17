@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：36 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：40 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -63,7 +63,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **383.** [Ransom Note](https://leetcode.com/problems/ransom-note/) — `Easy`
 - [ ] **205.** [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) — `Easy`
 - [ ] **290.** [Word Pattern](https://leetcode.com/problems/word-pattern/) — `Easy`
-- [ ] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy`
+- [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [ ] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [ ] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅
@@ -88,12 +88,12 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Linked List (11)
 
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
-- [ ] **2.** [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) — `Medium`
+- [x] **2.** [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) — `Medium` · <sub>✔ 2026-09-16</sub>
 - [x] **21.** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [ ] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium`
 - [ ] **92.** [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) — `Medium`
 - [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard`
-- [ ] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium`
+- [x] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium` · <sub>✔ 2026-09-17</sub>
 - [ ] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium`
 - [ ] **61.** [Rotate List](https://leetcode.com/problems/rotate-list/) — `Medium`
 - [ ] **86.** [Partition List](https://leetcode.com/problems/partition-list/) — `Medium` ✅
@@ -194,7 +194,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **67.** [Add Binary](https://leetcode.com/problems/add-binary/) — `Easy`
 - [ ] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅
 - [ ] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅
-- [ ] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy`
+- [x] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [ ] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` ✅
 - [ ] **201.** [Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/) — `Medium`
 

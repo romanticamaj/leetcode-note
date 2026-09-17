@@ -2,6 +2,63 @@
 
 ---
 
+## 2026-09-17
+
+- 19. Remove Nth Node From End of List
+
+**心得**：
+- 19：直覺是先算 size，再算 `n - k + 1` 個 gap 的 pointer，這樣需要 two-pass；follow-up 是 one-pass，直覺想到用遞迴可以做。另外發現自己一個很嚴重的問題：有些題目會**直接跳進去解法**。
+
+**LLM 點評**：
+model: Opus 5 (1M context)
+- 19（code review）：正確，`n=1,k=1`、刪頭、刪尾三個邊界都對。四點：(1) **`prev` 是多餘的** — 關鍵是走到「要刪的**前一個**」而不是走到「要刪的」再回頭，`for (int i = 0; i < n - k; ++i) prev = prev->next; prev->next = prev->next->next;` 就結束了。dummy 存在的唯一理由就是讓「前一個」永遠存在（刪頭時前一個是 dummy），你用了 dummy 又維護 `prev`/`ptr` 一對指標，等於把它的功能做了兩次。(2) **`if (prev && ptr)` 是 dead code** — 題目保證 `1 <= k <= n`，這個 guard 永遠擋不到東西；面試時「擋不到的防禦」反而扣分，透露你對不變量沒把握，正確做法是把它**講出來**而不是寫成 if。(3) `k = n - k + 1` **覆寫參數**，同一個名字中途換語意（倒數第幾個 → 正數第幾個），二刷最容易看錯，給它新名字。(4) 你自己的註解底下寫了 `// k gap pointer // from the end of the list` — **答案已經在紙上卻沒用**；one-pass 的全部技巧就是那兩行字：兩個指標保持 k 的固定間距，前面撞到 null 時後面就在正確位置，這是「從尾巴數」轉成「從頭走」的機器。遞迴也能一趟但付 O(n) call stack，不是這題要的。
+- 19（依序還是跳最佳解）：**面試一定依序，但 brute force 用 15 秒講完。** 面試官買的是「你怎麼從 A 走到 B」，不是 B。這題有個必須講出來的細節：**two-pass 已經是 O(n)/O(1) 最優複雜度**，follow-up 的 one-pass 不是漸進改善而是 pass 數的改善，只在「資料只能讀一次」（streaming、超大檔案、input 是 iterator）時才有意義 — 講得出這句話比寫出 one-pass 更值錢。**練習則是依序「想」、不必依序「寫」**：brute force 口頭成立就夠，手寫留給最佳解；例外是像 42 那種「同一題多解互相對照」本身就是教材的題。
+- 19（「直接跳進解法」這個診斷要改）：翻 log — 543 搞錯 diameter 定義、238 沒讀出「不能用除法」、15 沒釐清輸入輸出格式、139 Trie 方向錯。四個裡有三個**不是選錯演算法，是還沒把題目寫成規格就開始選演算法**。選解法快是實力不是毛病；問題在選之前沒有一個能檢驗它的靶。**重新框：不是「太快跳解法」，是「在還沒立靶之前就開始射」。**
+- 19（可執行的修正）：`Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md` 第 1 步「OBSERVATION：仔細觀察問題」執行不了 — 它沒有產出物，做完也不知道有沒有做。改成**必須留下三行字**（30 秒，寫在 code 上面）：`// IN/OUT` 輸入形狀/範圍/找不到回傳什麼、`// ANSWER` 一行話把「答案是什麼」寫死、`// LIMIT` 題目禁止了什麼/保證了什麼。套回舊坑：543 寫「答案 = 對某節點 v，左深+右深 的最大值」就不會以為要經過 root；238 寫 `ans[i] = 左邊全部乘積 × 右邊全部乘積`，prefix/suffix 是機械的下一步；19 寫「答案 = 刪掉第 `n-k+1` 個節點」就看得見 `n` 是唯一未知數，one-pass 的目標就是消掉它。**檢驗標準：寫不出 ANSWER 那一行，就代表還沒讀懂題目，這時想到的任何解法都是猜的。** 這也解釋了為什麼 brute force 不能跳過 — **暴力解是規格的可執行版本**，用途不是當優化起點，是確認「我理解的題目是對的」。
+
+---
+
+## 2026-09-16
+
+- 136. Single Number
+- 206. Reverse Linked List
+- 242. Valid Anagram
+- 543. Diameter of Binary Tree
+- 2. Add Two Numbers
+
+**心得**：
+- 206：這次想 recursive 版本還是很久。可以用 post-ordering 來想，然後 post processing 就是更新 next pointer，這麼單純而已。
+- 543：一開始就搞錯 longest path between two nodes（或者說是 diameter）的定義，我一直假設它會經過 root。但是因為它不一定會經過 root，所以必須在遞迴的過程中去記錄最大的 diameter，這時候就會多一個狀態。而這個狀態可以設計成 structure（也就是在這一個 class 底下），或者是在 function signature 內帶。不過我覺得在 function signature 內帶難寫多了，所以直接在 data structure 裡面帶。
+
+**LLM 點評**：
+model: Opus 5 (1M context)
+- 206：「post-order + post processing 只是更新 next pointer」這個總結是對的，但可以再收緊一句，變成下次能直接套用的判準：**這題的回傳值從頭到尾沒有被計算過，它只是一路往上傳的「錨點」**。
+  ```cpp
+  ListNode* reverseList(ListNode* head) {
+      if (!head || !head->next) return head;   // base case 就決定了最終答案
+      ListNode* newHead = reverseList(head->next);
+      head->next->next = head;                 // post-processing：只掉頭「我 → 兒子」這一條邊
+      head->next = nullptr;
+      return newHead;                          // 原封不動往上傳
+  }
+  ```
+  想久的原因通常是**把兩件事混在一起想**：(1) 誰是新的頭、(2) 指標怎麼接。其實 (1) 在 base case 就定了（原串的尾巴），中間每一層都不碰它；每一層真正負責的只有 (2)，而且只負責**自己和兒子之間那一條邊**。一旦把「回傳值 = 不變的錨點」和「post-processing = 只處理本地那條邊」拆開，遞迴就沒有東西要想了。
+- 206（`head->next = nullptr` 為什麼不能省）：除了原始 head 以外，每個節點的 `next` 都會被它的父層用 `head->next->next = head` 覆寫掉；唯一沒有父層的就是原 head，不清掉它就會和第二個節點互指形成環。寫在每一層是無害的冗餘，但這行的存在理由只有原 head 一個。
+- 206（歸類）：這是 repo `Design_Principles/Recursion/05-Recursion_Signature_Contract.md` 裡沒收的第三種形態 — 回傳值既不是「算出來的」（110）也不是「撞到的」（230），而是**base case 決定、中間層純傳遞**。判斷方式：如果每一層都對回傳值寫 `return f(...)` 而不做加工，那個回傳值就是錨點，遞迴的實際工作全在 post-processing 那幾行。
+- 2（要不要寫 recursive 版本）：**不用。** 這題的 recursive 只是把 `while` 換成尾遞迴，還多付 O(n) call stack，沒有任何 iterative 做不到的事——和 104/226 不同（那兩題是遞迴太快寫完、面試官要看你手動管 stack）。要練直接跳 **445. Add Two Numbers II**：高位在前且不准反轉 list，進位方向與走訪方向相反，非得用 stack 或遞迴不可（遞迴回溯的順序天然就是從低位往高位）。是「為了 445 學遞迴」，不是「為了 2 寫遞迴」。
+- 2（Code review）：正確，邊界都吃乾淨（`[9,9] + [1]` → `[0,0,1]` 會過）。加分項：`ListNode head;` 放 **stack** 上，不像 `new ListNode()` 那樣會 leak，面試時值得主動講一句。兩個小改進：(1) `bool carry` 改成 `int carry` — 現在正確（進位最多 1，因 `9+9+1=19`），但 `int` 可以寫成 `int sum = carry; ... carry = sum / 10;` 少一個分支，而且**推廣時不會壞**（加 k 條 list 或非十進位時進位可能 > 1，`bool` 版要整個重寫）；順手把「取值」和「前進」併進同一個 `if (l1) { sum += l1->val; l1 = l1->next; }`，三組 `if` 變一組。(2) 註解只寫 time，補上 space：輸出 O(max(m,n))、**額外**空間 O(1)——把「輸出不算輔助空間」講清楚是小加分。
+- 2（真正的考點在迴圈條件）：`while (l1 || l2 || carry)` 一行吃掉三種邊界——長度不等、一條先結束、最後還有進位。經典 bug 是漏掉最後的 `carry`（`[9,9] + [1]` 要得到 `[0,0,1]`）。跟 LC 5 學到的「把邊界拉進條件裡吃掉」同一個動作；carry 本身就是 running state（`Prefix_Sum/02_Running_State_Pattern.md`），配 dummy node（`Data_Structures/Linked_Lists/Dummy_Node_for_Insertion.md`）。
+- 543：「不一定經過 root」這個觀察對，但它的**正解形式**不是「多處理幾種情況」，而是換一個枚舉方式：**任何一條路徑都有唯一的最高點（= 兩端點的 LCA）**。所以不要問「路徑經不經過 root」，改成**讓每個節點都當一次最高點**——走到 `v` 時，以 `v` 為最高點的最長路徑就是 `depth(left) + depth(right)`。每個節點輪一次，所有路徑不重不漏被涵蓋。這句話是通解，124、687、1522 原封不動照套。
+- 543（「多一個狀態」的真正原因）：更精準的說法是**回傳值和答案本來就是兩個不同的量**。函式回傳的是「從 `v` 往下**單邊**的最大深度」——那是給父親接著用的；而答案是「以 `v` 為最高點的**雙邊**路徑長」——父親不需要它，所以它無處可回傳，只能往外部累積。看清這兩者不同，就不會再糾結「怎麼把答案塞進 return value」。這正是 repo `Design_Principles/Recursion/05-Recursion_Signature_Contract.md` 說的「答案是**撞到的**」形態（對照 206 是「base case 決定、往上傳的錨點」，110 是「算出來的」——三種形態這兩天剛好各碰到一次）。
+- 543（成員變數 vs 參數）：兩種寫法其實是**同一個 pattern**（external accumulator），差別只在 reentrancy。成員變數的坑：某些判題設定會**重用同一個 Solution 物件**跑多組測資，上一組的 `best` 會留著 → 必須在對外入口顯式 `best = 0;`（就是 `Prefix_Sum/02_Running_State_Pattern.md` 講的 explicit reset）。另外「參數版難寫」這個感覺，通常來自想同時回傳深度和答案；只要接受 out-parameter `int depth(TreeNode* v, int& best)`，其實只多一個參數，不比成員變數難——面試時這版更能直接講清楚「誰在算、誰在累積」。
+- 543（參數版的結論，Gary 自己收斂的）：外部變數**只被寫、不被讀**——沒有任何一層會根據它決定怎麼往下走，它純粹是個「信箱」。所以一路帶進 signature 的成本就只是多一個參數，沒有差。寫法：`int best = 0;` 宣告在**入口函式裡**，helper 收 `int&`。這比成員變數更好——局部變數每次呼叫天生是新的，reentrancy 問題自動消失，不需要 explicit reset（那行只有成員變數版才要）。⚠️ 必須是 `int&`；傳值的話每層拿到副本，更新全丟掉。
+- 543（判準：什麼該下傳）：**會不會影響子問題怎麼算？** 不會 → 只是答案往上的信箱（543 的 `best`），帶不帶都對，順手帶著就好。會 → 是真正的下傳約束（98 的 `(min, max)` range、path sum 的累積和），少傳就錯。兩者在 signature 裡長得一樣，但一個是答案往上的通道，一個是約束往下的通道。
+- 543（最常見的 off-by-one）：diameter 數的是**邊數**不是節點數。若 `depth` 定義成節點數（葉節點回 1），`left + right` 剛好就是邊數，不用 -1；若 `depth` 定義成邊數（葉節點回 0），`left + right` 也是邊數但每層的 +1 位置會不同。寫之前先把 depth 的定義講死，這題就不會卡在 ±1。
+- 543（延伸）：**124 Binary Tree Maximum Path Sum** 是同一個模子的加強版——一樣枚舉最高點、一樣回傳單邊，只多一個 `max(0, child)` 把負貢獻砍掉。這兩題一起做，「枚舉 apex + 回傳單邊」這個套路就固定下來了。
+- 206（延伸）：這題是 92 / 25 / 234 / 143 的地基，這些 follow-up 都是「反轉一小段再接回去」。接回去時必須抓住 **反轉前的頭 = 反轉後的尾**，所以會需要 dummy node 固定前驅（repo `Data_Structures/Linked_Lists/Dummy_Node_for_Insertion.md`）。迭代版 `prev/cur/next` 三指標也值得跟遞迴版並列記：遞迴是從尾巴往回接，迭代是從頭一路掉頭 — 同一件事的兩個方向。
+
+---
+
 ## 2026-09-15
 
 - 238. Product of Array Except Self

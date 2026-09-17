@@ -58,6 +58,7 @@
 | :--- | :--- | :--- |
 | 146. LRU Cache | 🔥 **460. LFU Cache** | 多一個「頻率」維度 → 兩層 hash + 每個頻率一條 list |
 | 21 / 23. Merge Lists | **（口頭）遞迴 vs 迭代兩種都寫** | 空間 O(n) vs O(1) |
+| 2. Add Two Numbers | 🔥 **445. Add Two Numbers II** | 高位在前且不准反轉 → 進位方向與走訪方向相反，必須用 stack 或遞迴 |
 
 ## 6. Tree
 

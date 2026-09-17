@@ -4,14 +4,14 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：35 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：41 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
 ## Arrays & Hashing (9)
 
 - [ ] **217.** [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — `Easy`
-- [ ] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy`
+- [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [ ] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅
 - [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅
@@ -58,13 +58,13 @@
 
 ## Linked List (11)
 
-- [ ] **206.** [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — `Easy`
+- [x] **206.** [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **21.** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **143.** [Reorder List](https://leetcode.com/problems/reorder-list/) — `Medium` ✅
-- [ ] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium`
+- [x] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium` · <sub>✔ 2026-09-17</sub>
 - [ ] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium`
-- [ ] **2.** [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) — `Medium`
+- [x] **2.** [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) — `Medium` · <sub>✔ 2026-09-16</sub>
 - [ ] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium`
 - [x] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>✔ 2026-09-15</sub>
@@ -74,7 +74,7 @@
 
 - [x] **226.** [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [x] **104.** [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
-- [ ] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy`
+- [x] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [ ] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy`
 - [ ] **100.** [Same Tree](https://leetcode.com/problems/same-tree/) — `Easy`
 - [ ] **572.** [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) — `Easy` ✅
@@ -204,7 +204,7 @@
 
 ## Bit Manipulation (7)
 
-- [ ] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy`
+- [x] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [ ] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅
 - [ ] **338.** [Counting Bits](https://leetcode.com/problems/counting-bits/) — `Easy`
 - [ ] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅
