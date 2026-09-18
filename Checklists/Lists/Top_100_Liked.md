@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：43 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：44 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -80,7 +80,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 ## Hashing (4)
 
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅
+- [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅ · <sub>✔ 2026-09-18</sub>
 - [ ] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` ✅
 - [ ] **560.** [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) — `Medium`
 

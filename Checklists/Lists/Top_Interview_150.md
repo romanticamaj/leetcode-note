@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：43 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：44 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -64,7 +64,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **205.** [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) — `Easy`
 - [ ] **290.** [Word Pattern](https://leetcode.com/problems/word-pattern/) — `Easy`
 - [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
-- [ ] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅
+- [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅ · <sub>✔ 2026-09-18</sub>
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [ ] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅
 - [ ] **219.** [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/) — `Easy`

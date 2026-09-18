@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：44 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：45 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -13,7 +13,7 @@
 - [ ] **217.** [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — `Easy`
 - [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅
+- [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅ · <sub>✔ 2026-09-18</sub>
 - [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅
 - [ ] **271.** [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) 🔒 — `Medium`
 - [x] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` ✅ · <sub>✔ 2026-09-15</sub>

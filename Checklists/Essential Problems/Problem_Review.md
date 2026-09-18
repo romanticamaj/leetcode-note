@@ -216,3 +216,13 @@
   - 🏷️ 技巧分類: Divide and Conquer (combine 需額外驗證)
   - 🔗 前置閱讀: `Divide_and_Conquer/05_Conquer_Strategy_Comparison.md`
   - 📅 選做: 229 完成後
+- [ ] LeetCode 42. Trapping Rain Water（monotonic stack 版）
+  - 📌 標記原因: 前三種解法（brute force / prefix-suffix max / two pointers）都是**逐格、直著算**；單調棧是**逐層、橫著算**，是第四種分解方式。最初卡住時那個「找下一根更高的柱子」的直覺，正是它的核心操作 — 當時走錯方向，現在回頭把它補完
+  - 🏷️ 技巧分類: Monotonic Stack / 同一題多解對照
+  - 🔗 前置閱讀: `Data_Structures/Stacks_and_Queues/` 單調棧相關筆記
+  - 📅 下次練習: 2026-09-19（寫完後把四種解法的分解方式列成一張對照表）
+- [ ] LeetCode 205 / 890. Isomorphic Strings / Find and Replace Pattern
+  - 📌 標記原因: 49 之後的正規化練習 — 正規形式從「字母計數」換成「**依首次出現順序重編號**」（`abb` 和 `xyy` 都正規化成 `0,1,1`）。這種 key 沒建過；205 另藏一個坑：**映射必須雙向**，只檢查單向會把 `ab → aa` 判成同構
+  - 🏷️ 技巧分類: Canonical Form (分組用途) / Hash Map 雙向映射
+  - 🔗 前置閱讀: `Divide_and_Conquer/08_Canonical_Anchor_Decomposition.md`「正規化的另一種用途：分組」
+  - 📅 下次練習: 2026-09-19（42 之後）

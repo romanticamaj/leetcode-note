@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：45 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：46 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -65,7 +65,7 @@ Easy 6 · Medium 24 · Hard 5
 - [x] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-09-17</sub>
 - [x] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-17</sub>
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium` · <sub>NC · TI150 · H100</sub>
-- [ ] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅
+- [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-18</sub>
 - [ ] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium` · <sub>NC · TI150 · H100</sub>
 - [ ] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium` · <sub>NC · G75 · TI150</sub>
 - [ ] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium` · <sub>NC · G75 · H100</sub>

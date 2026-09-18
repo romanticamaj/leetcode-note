@@ -6,14 +6,19 @@
 
 - 45. Jump Game II（續昨天，自己推出 O(n) 壓縮版，31 分鐘）
 - 42. Trapping Rain Water
+- 49. Group Anagrams
 
 **心得**：
 - 45：extreme compressed BFS。(1) 用 **next level 的 index**（`farthest`，需持續更新）以及 **current level 的 index**（`levelEnd`），來分別取代 queue 的 **push** 跟 **pop**；(2) 用 current level 的更新來表示進到下一個 level，藉此計算 distance。這個真的太神了，沒遇過這麼硬的狀態壓縮問題。
 - 42：一路從 brute force → prefix/suffix max → two-pointer 推導過來。關鍵設計是用 `leftMax` 跟 `rightMax` 的比較去取代掉 `min(L, R)`，把 duplicate work 清除；除此之外還要搭配 two-pointer 的 invariant 設計。超級難，今天沒力寫 monotonic stack 了，先記錄下來，安排後面練習。
   - 自己的總結：**Duplicate 的 work 在持續找出最大的人，但是其實我們不用馬上找到。只要一邊有持續推進，另一邊只要保留最大值的下界就好。**
+- 49：用 hashmap + sort 秒殺，但 best conceivable runtime 是 O(nk)（n 是清單長度、k 是字串長度）。想知道需不需要做一次 counting sort。
 
 **LLM 點評**：
 model: Opus 5 (1M context)
+- 49（要不要 counting sort）：**要，但理由不是「更快」，是「它是 BCR」** — 而且實務上它未必更快，這個矛盾正是這題能講的東西。概念升級：**你要的不是排序，是 canonical form（正規形式）** — `sort(word)` 只是讓同一組 anagram 映射到同一代表的**其中一種手段**；計數陣列是另一種，而且更直接（跳過「排出順序」這個中間步驟）。key 可以是 26 格計數：`string key(26,'0'); for (char c : word) key[c-'a']++;`，O(k) 建 key、總計 **O(n·k)** = BCR。
+- 49（為什麼未必更快）：排序 key 每字 `k log k`，計數 key 每字 `26 + k`。題目 `k ≤ 100` ⟹ `log k ≤ 7`，交叉點約在 **k ≈ 12**，**短字串用排序反而快**（排 3 個字元 vs 開 26 格）。真正的複雜度是 `O(n·(k + Σ))` vs `O(n·k log k)`。面試話術：先寫排序版（三行、不會錯），再主動補一句「字母表固定 26 所以可換成計數變 O(nk) 即 BCR，但 k ≤ 100 時 log k ≤ 7 而計數要付 26 的常數，短字串排序反而快」——**展示取捨判斷比直接寫計數版更值錢**。
+- 49（計數 key 的經典 bug）：用數字串接當 key 時 `[1, 11]` 和 `[11, 1]` 會產生同一個 `"111"`。**必須加分隔符**（`"1#11#"`）或用固定長度的字元陣列。這是這題最常見的錯誤。
 - 42（三個解法的推導路徑）：卡在暴力法的原因是**選錯分解方式** — 原本用「逐區段」（從 i 找下一根夠高的柱子），那其實是**單調棧解法的雛型**，不是暴力解的思路，難怪難寫。暴力解是**逐格**：`water[k] = min(左邊最高, 右邊最高) - height[k]`，負的當 0。把這條 `ANSWER` 式子寫下來，後面全是機械的：哪一項被重複算了？→ `maxLeft`/`maxRight` 每格重算 → BUD 的 **D** → prefix/suffix 陣列（跟 238 的 prefix/suffix **乘積**是同一個動作，這裡換成**最大值**）。**這是 45 踩過的同一個坑**：跳過「先寫答案的定義式」，直接進到一個聰明但難寫的框架。另外附帶一個有趣對照：暴力版的 `if (bar > height[i])` 是**擋得到**的 guard（`[1,5,1]` 會觸發），跟 19 / 22 那兩個 dead guard 剛好相反 — 判準一樣，問「什麼路徑會讓它成立？」，這裡答得出來。
 - 42（two-pointer 的關鍵引理）：不需要 `R` 的精確值，只需要「`R` 至少多大」的**下界** — 若已知 `L = 3` 且確定 `R ≥ 5`，`min(3, R) = 3`，R 是 5 還是 100 都一樣。下界哪來？從右端往左走，一路看到的最大值就是合法下界。不變量：`leftMax == max(height[0..left])`、`rightMax == max(height[right..n-1])`、`left 的真右最高 ≥ rightMax`、`right 的真左最高 ≥ leftMax`。引理：**若 `leftMax < rightMax`，`left` 這格的水 = `leftMax - height[left]`，與中間那一大段長什麼樣完全無關**（真右最高 ≥ rightMax > leftMax ⟹ 取 min 時左側必勝）。每輪安全淘汰較矮那側的一格 → 標準的雙指針單調淘汰，與 **LC 11** 同構。
 - 42（三個訂正）：(1) 「等號因為差值就是 0，所以放哪個判斷都可以」— **結論對但理由錯**：`leftMax == rightMax` 時差值不一定是 0（`[2,1,2]` 走到 `left=1` 時是 1）。真正的理由是**相等時兩邊都滿足「自己是較小的那個」，所以兩個分支都合法**；這個理由同時解釋了不相等時為何**只有一邊**能結算。(2) **為什麼最後一格不用結算**（面試會問）：兩指標相遇那格必定是全域最高之一，水量為 0，所以 `while (left < right)` 漏掉它是安全的。(3) `leftMax = 0` 的初值**依賴「高度非負」**這個約束，值得記進 `LIMIT`。

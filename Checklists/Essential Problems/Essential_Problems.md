@@ -23,6 +23,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 345. Reverse Vowels of a String
 - LeetCode 86. Partition List
 - LeetCode 143. Reorder List
+- 🔴 LeetCode 42. Trapping Rain Water
 
 ## Linked List
 
