@@ -77,7 +77,7 @@
 - [ ] LeetCode 951. Flip Equivalent Binary Trees
   - [ ] Canonical Forms
 - [ ] LeetCode 42. Trapping Rain Water
-  - [ ] Two Pointers Technique
+  - [ ] Two Pointers Technique (from brute force to prefix sum, then duplicate work removal through two-pointers)
   - [ ] Dynamic Programming
 - [ ] LeetCode 253. Meeting Rooms II
   - [ ] Chronological Ordering
