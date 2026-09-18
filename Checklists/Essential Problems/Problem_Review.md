@@ -143,7 +143,7 @@
   - [ ] Brute Force
 - [ ] LeetCode 443. String Compression
 - [ ] LeetCode 45. Jump Game II
-  - [ ] Greedy (嚴格說起來，是 BFS + 狀態壓縮去除 queue)
+  - [ ] Extreme State Compression BFS
 - [ ] LeetCode 137. Single Number II
   - [ ] Bit Manipulation + State Machine + Bit Invaraint
 - [ ] LeetCode 12. Integer to Roman

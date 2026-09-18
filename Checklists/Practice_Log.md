@@ -2,6 +2,22 @@
 
 ---
 
+## 2026-09-18
+
+- 45. Jump Game II（續昨天，自己推出 O(n) 壓縮版，31 分鐘）
+
+**心得**：
+- 45：extreme compressed BFS。(1) 用 **next level 的 index**（`farthest`，需持續更新）以及 **current level 的 index**（`levelEnd`），來分別取代 queue 的 **push** 跟 **pop**；(2) 用 current level 的更新來表示進到下一個 level，藉此計算 distance。這個真的太神了，沒遇過這麼硬的狀態壓縮問題。
+
+**LLM 點評**：
+model: Opus 5 (1M context)
+- 45（推導過程）：昨天卡住的那一步今天自己走出來了，關鍵是把定義寫死再動手。最準的一句是自己寫的：**「`farthest` 就是原本 queue 內存的狀態」** — queue 裡那一堆 index，唯一被用到的資訊就是「它們合起來能摸到多遠」，所以整個 queue 塌縮成一個數字。這句精確地命名了「狀態壓縮」的實質。過程中修掉的一個關鍵誤解：`levelEnd` **不是** `i + nums[i]`（那是單格），而是**這一層所有成員 `i + nums[i]` 的最大值**；`farthest` 和 `levelEnd` 是同一個量的兩個時間點——前者正在長，後者已封存。
+- 45（不變量）：`I1: i ≤ levelEnd`、`I2: distance == 到達 i 的最少步數`、`I3: levelEnd == 用 ≤ distance 步能到的最遠位置`。`I2` 是靈魂，其餘都是推論：`i == levelEnd` 時必須結算（否則違反 I1），而 `farthest` 必須在該判斷**之前**更新（因為 `i` 自己也是當前層成員）。
+- 45（最終優化，Gary 自己提的方向）：把迴圈縮到 `i < n - 1` 之後，**連檢查都不用做**——`if (farthest >= n-1) break`、`n == 1` 的 guard、`distance + 1` 的 off-by-one **三個同時消失**，直接 `return distance`。理由是 `I2` 自然延伸一格：`n-1` 與 `n-2` 同層時不觸發換層、`distance` 不變；`n-1` 在下一層時此刻 `levelEnd == n-2`、剛好 +1。**`n-2` 不是技巧，是不變量的後置條件。** 這是這幾天反覆出現的同一主題：**把邊界吃進迴圈條件，比額外寫 guard 更不容易錯**（LC 2 的 `while (l1 || l2 || carry)`、LC 22 的 dead guard 都是同一件事）。
+- 45（面試會追問）：現在這版依賴「題目保證可達」。拿掉保證後的破口是 **`levelEnd` 停止前進**——某層的 `farthest` 沒超過 `levelEnd` 就代表跳不出去。能口頭講出這句就夠，不用真的寫。
+
+---
+
 ## 2026-09-17
 
 - 19. Remove Nth Node From End of List
