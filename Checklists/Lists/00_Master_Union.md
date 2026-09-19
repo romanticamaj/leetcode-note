@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：51 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：53 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -71,8 +71,8 @@ Easy 6 · Medium 24 · Hard 5
 - [x] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium` · <sub>NC · G75 · H100</sub> · <sub>✔ 2026-09-19</sub>
 - [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-19</sub>
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-19</sub>
-- [ ] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium` · <sub>NC · TI150 · H100</sub>
-- [ ] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` · <sub>NC · G75 · H100</sub> ✅
+- [x] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-09-20</sub>
+- [x] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` · <sub>NC · G75 · H100</sub> ✅ · <sub>✔ 2026-09-20</sub>
 - [ ] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅
 - [ ] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium` · <sub>NC · G75 · TI150</sub>
 - [ ] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>NC · TI150 · H100</sub>

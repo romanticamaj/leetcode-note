@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：50 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：52 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -49,7 +49,7 @@
 ## Binary Search (7)
 
 - [ ] **704.** [Binary Search](https://leetcode.com/problems/binary-search/) — `Easy`
-- [ ] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium`
+- [x] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium` · <sub>✔ 2026-09-20</sub>
 - [ ] **875.** [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) — `Medium`
 - [ ] **153.** [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — `Medium` ✅
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
@@ -100,7 +100,7 @@
 
 ## Backtracking (10)
 
-- [ ] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅
+- [x] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 - [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **40.** [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) — `Medium` ✅
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>

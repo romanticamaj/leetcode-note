@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：42 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：43 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -78,7 +78,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [ ] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅
 - [ ] **8.** [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) — `Medium` ✅
 - [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅
+- [x] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 - [x] **199.** [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [x] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium` · <sub>✔ 2026-09-19</sub>
