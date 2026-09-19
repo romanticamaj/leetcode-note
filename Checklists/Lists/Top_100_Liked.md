@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：44 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：48 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -50,10 +50,10 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **32.** [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) — `Hard` ✅
-- [ ] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium`
+- [x] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium` · <sub>✔ 2026-09-19</sub>
 - [ ] **64.** [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) — `Medium`
 - [x] **70.** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅
+- [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **118.** [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) — `Easy`
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [ ] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium`
@@ -73,7 +73,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 ## Greedy (4)
 
 - [x] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` ✅ · <sub>✔ 2026-09-17</sub>
-- [ ] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium`
+- [x] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [x] **121.** [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [ ] **763.** [Partition Labels](https://leetcode.com/problems/partition-labels/) — `Medium`
 
@@ -111,7 +111,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
 - [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅
+- [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **240.** [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) — `Medium` ✅
 
 ## Sliding Window (4)

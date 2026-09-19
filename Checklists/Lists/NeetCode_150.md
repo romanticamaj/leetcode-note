@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：45 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：50 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -159,7 +159,7 @@
 
 ## 2-D Dynamic Programming (11)
 
-- [ ] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium`
+- [x] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium` · <sub>✔ 2026-09-19</sub>
 - [ ] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium`
 - [ ] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium`
 - [ ] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium`
@@ -167,14 +167,14 @@
 - [ ] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅
 - [ ] **329.** [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — `Hard`
 - [ ] **115.** [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) — `Hard`
-- [ ] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅
+- [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **312.** [Burst Balloons](https://leetcode.com/problems/burst-balloons/) — `Hard`
 - [ ] **10.** [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) — `Hard`
 
 ## Greedy (8)
 
 - [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
-- [ ] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium`
+- [x] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [x] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` ✅ · <sub>✔ 2026-09-17</sub>
 - [ ] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` ✅
 - [ ] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium`
@@ -184,7 +184,7 @@
 
 ## Intervals (6)
 
-- [ ] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium`
+- [x] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **435.** [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — `Medium` ✅
 - [ ] **252.** [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) 🔒 — `Easy`
@@ -195,7 +195,7 @@
 
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
 - [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅
+- [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅
 - [ ] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy`
 - [ ] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium`

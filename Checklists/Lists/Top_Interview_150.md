@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：44 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：48 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -18,7 +18,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium`
 - [x] **121.** [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [ ] **122.** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) — `Medium` ✅
-- [ ] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium`
+- [x] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [x] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` ✅ · <sub>✔ 2026-09-17</sub>
 - [ ] **274.** [H-Index](https://leetcode.com/problems/h-index/) — `Medium`
 - [ ] **380.** [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) — `Medium`
@@ -55,7 +55,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` ✅
 - [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
-- [ ] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅
+- [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **289.** [Game of Life](https://leetcode.com/problems/game-of-life/) — `Medium`
 
 ## Hashmap (9)
@@ -74,7 +74,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 - [ ] **228.** [Summary Ranges](https://leetcode.com/problems/summary-ranges/) — `Easy`
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium`
+- [x] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [ ] **452.** [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) — `Medium`
 
 ## Stack (5)
@@ -222,7 +222,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **63.** [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) — `Medium`
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅
-- [ ] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅
+- [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **123.** [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) — `Hard`
 - [ ] **188.** [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) — `Hard`
 - [ ] **221.** [Maximal Square](https://leetcode.com/problems/maximal-square/) — `Medium`

@@ -226,3 +226,8 @@
   - 🏷️ 技巧分類: Canonical Form (分組用途) / Hash Map 雙向映射
   - 🔗 前置閱讀: `Divide_and_Conquer/08_Canonical_Anchor_Decomposition.md`「正規化的另一種用途：分組」
   - 📅 下次練習: 2026-09-19（42 之後）
+- [ ] LeetCode 73. Set Matrix Zeroes（O(1) space 版，重寫一次）
+  - 📌 標記原因: 第一次自己想到「拿一列一行當標記區」但寫錯了 — 標記區整個落在掃描區內（讀到自己剛寫的標記當成原始資料），且角落那格身兼兩職。**方向是對的，死在三項機械檢查**，值得在不看筆記的情況下重寫一次驗收
+  - 🏷️ 技巧分類: In-Place Marking（把輸入當輔助空間）
+  - 🔗 前置閱讀: `Algorithms/Design_Principles/In_Place_Marking.md`
+  - 📅 下次練習: 之後安排（寫完再往下接 448 → 41，把「借正負號」與「搬到正確位置」兩種載體補齊）

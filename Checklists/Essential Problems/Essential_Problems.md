@@ -45,6 +45,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 90. Subsets II
 
 ## BFS (Breadth-First Search)
+
 - 🟡 🔴 LeetCode 45. Jump Game II
   - [ ] Greedy (嚴格說起來，是 BFS + 狀態壓縮去除 queue)
 
@@ -232,3 +233,5 @@ Problems that require integrating multiple advanced techniques. These are excell
 ## Classic Optimization / Brain Development
 
 - 🟡 🔴 LeetCode 134. Gas Station
+- 🟡 🔴 LeetCode 73. Set Matrix Zeroes
+  - Space O(1)
