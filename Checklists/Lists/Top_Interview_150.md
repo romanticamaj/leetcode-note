@@ -68,7 +68,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [ ] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅
 - [ ] **219.** [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/) — `Easy`
-- [ ] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` ✅
+- [x] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 
 ## Intervals (4)
 

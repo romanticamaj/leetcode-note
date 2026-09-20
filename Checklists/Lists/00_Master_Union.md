@@ -73,7 +73,7 @@ Easy 6 · Medium 24 · Hard 5
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-19</sub>
 - [x] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-09-20</sub>
 - [x] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` · <sub>NC · G75 · H100</sub> ✅ · <sub>✔ 2026-09-20</sub>
-- [ ] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅
+- [x] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-20</sub>
 - [ ] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium` · <sub>NC · G75 · TI150</sub>
 - [x] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-09-21</sub>
 - [ ] **150.** [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — `Medium` · <sub>NC · G75 · TI150</sub>

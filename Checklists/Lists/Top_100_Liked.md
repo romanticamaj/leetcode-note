@@ -81,7 +81,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅ · <sub>✔ 2026-09-18</sub>
-- [ ] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` ✅
+- [x] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 - [ ] **560.** [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) — `Medium`
 
 ## Heap (3)

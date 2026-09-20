@@ -202,12 +202,14 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Sliding Window + Hash Table + Greedy
 - LeetCode 139. Word Break
   - 1-D DP (dp[length], look backward) + Hash Set / Trie
+- 🟡 🔴 LeetCode 128. Longest Consecutive Sequence
+  - Hashmap + Connected Component
 
 ### Followup Possible (Multiple Solutions)
 
 - LeetCode 45. Jump Game II
 - LeetCode 137. Single Number II
-- LeetCode 128. Longest Consecutive Sequence
+- 🟡 🔴 LeetCode 128. Longest Consecutive Sequence
 - LeetCode 1925. Count Square Sum Triples
 - 🟡 LeetCode 981. Time Based Key-Value Store
 - 🟡 LeetCode 494. Target Sum

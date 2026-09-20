@@ -231,3 +231,13 @@
   - 🏷️ 技巧分類: In-Place Marking（把輸入當輔助空間）
   - 🔗 前置閱讀: `Algorithms/Design_Principles/In_Place_Marking.md`
   - 📅 下次練習: 之後安排（寫完再往下接 448 → 41，把「借正負號」與「搬到正確位置」兩種載體補齊）
+- [ ] LeetCode 78. Subsets（改用模式 B 重寫一次）
+  - 📌 標記原因: 第一次寫的是「每個元素選 / 不選」的二元遞迴（解在葉節點）。下次改用另一種形狀：**從 choice set 挑「下一個加入誰」→ `start` 當不變量的守衛（索引嚴格遞增，防重複，不是為了切子問題）→ 答案推在每個被拜訪的節點**。這是 46 / 131 / 39 / 77 共用的通用形狀，二元版只在「每個元素獨立選或不選」時才存在
+  - 🏷️ 技巧分類: Backtracking 模式 B（解在所有節點）/ 不變量驅動的參數設計
+  - 🔗 前置閱讀: `Algorithms/Backtracking/07-Guards_from_Invariants.md`「遞迴參數也是不變量推出來的」、`01-Backtracking_Templates_and_Patterns.md` 模式 A vs 模式 B
+  - 📅 下次練習: 之後安排（寫完接 90 Subsets II，把第二條去重不變量「排序 + 同層跳過相同值」補齊）
+- [ ] LeetCode 128. Longest Consecutive Sequence（錨點版，重寫一次）
+  - 📌 標記原因: 第一次是看 tag 才做出 hashmap + DFS 連通分量，答案對但常數極大（兩個 hash 容器、遞迴深度等於序列長度、`operator[]` 誤插入）。正解只有 8 行、**不需要 `visited`**：`if (s.count(x-1)) continue;` —— 只從「沒有前驅的元素」出發，每個值一生只被自己那段的起點走過一次
+  - 🏷️ 技巧分類: Canonical Anchor（結構決定的起點）/ 用結構保證取代檢查
+  - 🔗 前置閱讀: `Algorithms/Divide_and_Conquer/08_Canonical_Anchor_Decomposition.md`、`Interview_Playbook/Problem_Solving_Strategies.md` BUD Optimization
+  - 📅 下次練習: 之後安排（重點不是背那一行，是自己走完「直覺雜湊版是 O(n²) → 哪些工作重複了 → 只讓起點走」這條鏈）
