@@ -24,6 +24,7 @@ model: Opus 5 (1M context)
 - 74. Search a 2D Matrix
 - 78. Subsets
 - 128. Longest Consecutive Sequence
+- 133. Clone Graph
 
 **心得**：
 - 128：**覺得做出 time O(n) 太難了**。自己推到「排序 O(n log n) → 要打敗它就不能用比較排序 → 雜湊」就卡住，最後看 tag 提示做 hashmap + connected component（DFS 找最大連通分量）。答案對，但執行時間很差。[14m 21s → 20m 58s]
