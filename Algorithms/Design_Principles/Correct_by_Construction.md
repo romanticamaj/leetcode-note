@@ -25,7 +25,7 @@
 
 | 題 | 掛在記憶上的版本 | 掛在結構上的版本 | 手段 |
 | :--- | :--- | :--- | :--- |
-| **150** Evaluate RPN | 記得「pop 出來的順序是反的」 | `int b = pop(); int a = pop();` 之後**永遠**寫 `a OP b` | **命名**：字母序自己承載了算式的左右 |
+| **150** Evaluate RPN | 記得「pop 出來的順序是反的」 | `int rhs = pop(); int lhs = pop();` 之後寫 `lhs - rhs` | **命名**：名字本身就是算式結構，pop 的先後降級成實作細節 |
 | **138** Copy List w/ Random Ptr | 記得「`hashmap[nullptr]` 要特判」 | `unordered_map<Node*, Node*>`，`map[nullptr]` 的預設值**剛好**是 `nullptr` | **型別**：讓零值只有一種解釋 |
 | **78 / 39** Subsets / Combination Sum | 記得「這裡要傳 `i` 不是 `i + 1`」 | 先寫出不變量（嚴格遞增 / 非遞減），傳什麼由它推出來 | **不變量**：見 [`07-Guards_from_Invariants.md`](../Backtracking/07-Guards_from_Invariants.md) |
 
