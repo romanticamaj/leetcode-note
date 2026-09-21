@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：49 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：50 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -90,7 +90,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
 - [x] **2.** [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) — `Medium` · <sub>✔ 2026-09-16</sub>
 - [x] **21.** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium`
+- [x] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [ ] **92.** [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) — `Medium`
 - [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard`
 - [x] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium` · <sub>✔ 2026-09-17</sub>

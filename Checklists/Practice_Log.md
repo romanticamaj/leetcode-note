@@ -2,6 +2,23 @@
 
 ---
 
+## 2026-09-21
+
+- 138. Copy List with Random Pointer
+
+**心得**：
+- 138：hashmap + cache + two pointers，結果沒處理到 nullptr。自己也覺得這個解法一定哪裡怪怪的。想問：有辦法 one-pass 嗎？這題要 look forward，先檢查未來但不知道未來的位置（可以用 next 反查？）。另外好像可以先用 random 去存，可以省一個空間？
+
+**LLM 點評**：
+model: Opus 5 (1M context)
+- 138（怪怪的具體位置）：你用了**兩張 map 組成一個函數的複合**——`hashmap: Node* → int` 和 `cache: int → Node*`，而 `cache[hashmap[x]]` 逐字就是 `map[x]`。中間那個 `index` 給舊節點編號、再把編號解回新節點，繞一圈回到原點，**沒有任何一行程式碼真的需要那個整數**。直接一張 `unordered_map<Node*, Node*> map`（舊 → 新）就好。怪怪的感覺是對的，而且它不只是冗餘，它是 bug 的來源（下一點）。
+- 138（nullptr 那行是「對的結果、錯的理由」）：`hashmap[nullptr] = index` 存在的真正原因是——**`int` 的零值 `0` 是一個合法的索引**。少了這行，`hashmap[nullptr]` 會被 `operator[]` 預設建構成 `0`，`cache[0]` 是**第一個新節點**，於是 random 指到頭去了。而你補上的那行之所以能救，是因為 `cache[n]` 從沒被寫過，`operator[]` 又 value-initialize 出一個 `nullptr` 還給你（順便靜默插入一筆）。換成 `Node* → Node*` 之後，`map[nullptr]` 的預設值**剛好就是正確答案 nullptr**，特判不是被省掉，是根本不存在。心法：**多一層 int 編碼，就多一個「零值有歧義」的破口**；見 `CPP_Reference/Container/Operator_Bracket_Behavior_Vector_vs_Map.md`。
+- 138（one-pass 可以，靠 lazy 建立）：你卡在「要 look forward，但未來的節點還沒建」。解法是**不要等走到才建，而是遇到就建**——寫一個 `get(p)`：`p == nullptr` 回 nullptr，否則 `auto& q = map[p]; if (!q) q = new Node(p->val); return q;`。然後一趟就結束：`Node* c = get(cur); c->next = get(cur->next); c->random = get(cur->random);`。關鍵是**節點的「建立」和「填欄位」解耦**：建立可以亂序、提前，填欄位才需要照順序。這個 lazy-create 是處理「圖有前向引用」的通用手法（反序列化、克隆圖 LC 133 同一招）。
+- 138（「先用 random 去存」方向對、載體挑錯）：想省掉那 O(n) 的 map 是對的直覺，但真正的 O(1) 額外空間做法是把新節點**交錯塞進 next**：A→A'→B→B'→…；第二趟 `A'->random = A->random->next`（舊節點的 random 的「下一個」正好是它的複製品，**這就是那張 map，只是存在輸入裡**）；第三趟拆開並還原原鏈。這正是 `Algorithms/Design_Principles/In_Place_Marking.md` 的「把輸入當作輔助空間」，只是載體從陣列的正負號換成**指標欄位**——挑載體的判準一樣是「原值能不能還原」，next 能（拆的時候寫回去），所以可行。三趟 O(n)、額外空間 O(1)。
+- 138（要不要真的寫 O(1)）：**不用寫，但要能口述。** 面試的期待答案就是 hashmap 版；交錯法是 follow-up，而且它**破壞輸入**（真的要寫之前得先問面試官「可以改原鏈嗎」）。優先級：**one-pass lazy-create > 交錯法**——前者能遷移到 133 Clone Graph、tree/graph 反序列化這一整類「前向引用」問題，後者基本上只服務這一題。
+
+---
+
 ## 2026-09-20
 
 - 74. Search a 2D Matrix

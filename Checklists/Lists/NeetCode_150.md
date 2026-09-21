@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：52 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：53 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -63,7 +63,7 @@
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **143.** [Reorder List](https://leetcode.com/problems/reorder-list/) — `Medium` ✅
 - [x] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium` · <sub>✔ 2026-09-17</sub>
-- [ ] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium`
+- [x] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [x] **2.** [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) — `Medium` · <sub>✔ 2026-09-16</sub>
 - [ ] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium`
 - [x] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — `Medium` · <sub>✔ 2026-09-11</sub>

@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：53 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：54 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -75,7 +75,7 @@ Easy 6 · Medium 24 · Hard 5
 - [x] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` · <sub>NC · G75 · H100</sub> ✅ · <sub>✔ 2026-09-20</sub>
 - [ ] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅
 - [ ] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium` · <sub>NC · G75 · TI150</sub>
-- [ ] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>NC · TI150 · H100</sub>
+- [x] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-09-21</sub>
 - [ ] **150.** [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — `Medium` · <sub>NC · G75 · TI150</sub>
 - [ ] **153.** [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅
 - [ ] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium` · <sub>NC · TI150 · H100</sub>
