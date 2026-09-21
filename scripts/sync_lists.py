@@ -4,6 +4,9 @@
 Reads every `## YYYY-MM-DD` block in the log, collects `- <num>.` lines,
 and marks those problems `[x]` + `✔ <earliest date>` in every list file.
 Everything else is unchecked. Idempotent — safe to run after every log edit.
+
+All file I/O is explicitly UTF-8: on Windows Python defaults to the cp950
+locale encoding, which cannot read the Chinese text in these notes.
 """
 import glob, os, re, sys
 
@@ -13,7 +16,7 @@ LISTS = sorted(glob.glob(os.path.join(ROOT, "Checklists", "Lists", "*.md")))
 
 def parse_log():
     solved = {}
-    parts = re.split(r"^## (\d{4}-\d{2}-\d{2})\s*$", open(LOG).read(), flags=re.M)
+    parts = re.split(r"^## (\d{4}-\d{2}-\d{2})\s*$", open(LOG, encoding="utf-8").read(), flags=re.M)
     for i in range(1, len(parts), 2):
         date, body = parts[i], parts[i + 1]
         for n in re.findall(r"^- (\d+)\.", body, flags=re.M):
@@ -30,7 +33,7 @@ HEADER = re.compile(r"\*\*(?:已刷|進度)：\d+ / (\d+)\*\*")
 
 def sync(path, solved):
     out, cnt, total = [], 0, 0
-    for line in open(path).read().split("\n"):
+    for line in open(path, encoding="utf-8").read().split("\n"):
         m = BOLD.match(line)
         if m:
             n, rest = int(m.group(1)), STAMP.sub("", m.group(2))
@@ -50,7 +53,7 @@ def sync(path, solved):
                     line = f"- [ ] {n}. {rest}"
         out.append(line)
     text = HEADER.sub(lambda m: f"**已刷：{cnt} / {m.group(1)}**", "\n".join(out))
-    open(path, "w").write(text)
+    open(path, "w", encoding="utf-8").write(text)
     return cnt, total
 
 def main():

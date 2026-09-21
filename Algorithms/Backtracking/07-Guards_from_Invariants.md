@@ -6,6 +6,8 @@ Backtracking 寫起來沒把握，幾乎都卡在同一件事：`if` 要放哪�
 
 這篇講的心法只有一句：**backtracking 的 guard 不是「邊界條件」，是不變量（invariant）的守衛。** 先把不變量寫下來，所有 guard 和終止條件都是從它機械推出來的，沒有一個需要猜。
 
+> 上一層的原則：不變量是**由構造保證正確**的手段之一——見 [`Design_Principles/Correct_by_Construction.md`](../Design_Principles/Correct_by_Construction.md)。沒有狀態可講的場合（例如 stack 吐出運算元的順序），得改用命名或型別來承載。
+
 ---
 
 ## 🧠 什麼是這裡的不變量

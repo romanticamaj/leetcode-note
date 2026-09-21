@@ -5,12 +5,17 @@
 ## 2026-09-21
 
 - 138. Copy List with Random Pointer
+- 150. Evaluate Reverse Polish Notation
 
 **心得**：
+- 150：粗心兩次了，top1 是 operand 2、top2 是 operand 1，我是不是腦袋會漏東西，兩個運算元位置放錯。
 - 138：hashmap + cache + two pointers，結果沒處理到 nullptr。自己也覺得這個解法一定哪裡怪怪的。想問：有辦法 one-pass 嗎？這題要 look forward，先檢查未來但不知道未來的位置（可以用 next 反查？）。另外好像可以先用 random 去存，可以省一個空間？
 
 **LLM 點評**：
 model: Opus 5 (1M context)
+- 150（不是粗心，是你在記一件「會被順序翻轉」的事）：`a - b` 唸起來左邊先，但 stack 吐出來右邊先。人腦記「第一個 pop = 第一個 operand」是自然的類比，而它**每次都會錯**，所以這不是注意力問題，是**類比本身錯了**。修法是把順序從記憶移出來、寫進程式碼結構：**一律 `int b = pop(); int a = pop();`，然後永遠寫 `a OP b`**。變數取名 `a`/`b` 而不是 `x`/`y` 或 `op1`/`op2`，讓「字母序 = 算式從左到右」自己成立，pop 的先後就退化成一個不用想的細節。
+- 150（檢查成本極低，養成 reflex）：commutative 的 `+`、`*` 怎麼放都對，所以**錯只會在 `-` 和 `/` 上現形**——送出前心算一個 `["3","1","-"]` → 應得 **2**（不是 -2），一秒就能抓到這個 bug 的全部兩種形態。把「非交換運算就用最小例子試一次」當固定動作，比提醒自己「別粗心」有效得多。
+- 150（整數除法的暗礁）：C++ 的 `/` 對負數是**向零截斷**（`-7/2 == -3`），這題要的正是這個，所以直接用 `/` 就對；但別換成 `floor` 或 Python 的 `//`（向下取整，`-7//2 == -4`）。同一顆地雷在 29. Divide Two Integers 和 `%` 取模那一類題還會再踩到。
 - 138（怪怪的具體位置）：你用了**兩張 map 組成一個函數的複合**——`hashmap: Node* → int` 和 `cache: int → Node*`，而 `cache[hashmap[x]]` 逐字就是 `map[x]`。中間那個 `index` 給舊節點編號、再把編號解回新節點，繞一圈回到原點，**沒有任何一行程式碼真的需要那個整數**。直接一張 `unordered_map<Node*, Node*> map`（舊 → 新）就好。怪怪的感覺是對的，而且它不只是冗餘，它是 bug 的來源（下一點）。
 - 138（nullptr 那行是「對的結果、錯的理由」）：`hashmap[nullptr] = index` 存在的真正原因是——**`int` 的零值 `0` 是一個合法的索引**。少了這行，`hashmap[nullptr]` 會被 `operator[]` 預設建構成 `0`，`cache[0]` 是**第一個新節點**，於是 random 指到頭去了。而你補上的那行之所以能救，是因為 `cache[n]` 從沒被寫過，`operator[]` 又 value-initialize 出一個 `nullptr` 還給你（順便靜默插入一筆）。換成 `Node* → Node*` 之後，`map[nullptr]` 的預設值**剛好就是正確答案 nullptr**，特判不是被省掉，是根本不存在。心法：**多一層 int 編碼，就多一個「零值有歧義」的破口**；見 `CPP_Reference/Container/Operator_Bracket_Behavior_Vector_vs_Map.md`。
 - 138（one-pass 可以，靠 lazy 建立）：你卡在「要 look forward，但未來的節點還沒建」。解法是**不要等走到才建，而是遇到就建**——寫一個 `get(p)`：`p == nullptr` 回 nullptr，否則 `auto& q = map[p]; if (!q) q = new Node(p->val); return q;`。然後一趟就結束：`Node* c = get(cur); c->next = get(cur->next); c->random = get(cur->random);`。關鍵是**節點的「建立」和「填欄位」解耦**：建立可以亂序、提前，填欄位才需要照順序。這個 lazy-create 是處理「圖有前向引用」的通用手法（反序列化、克隆圖 LC 133 同一招）。
