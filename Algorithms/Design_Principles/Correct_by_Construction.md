@@ -39,7 +39,7 @@
 
 | 手段 | 什麼時候用 | 例子 |
 | :--- | :--- | :--- |
-| **命名** | 事實是一個**固定映射**，只是容易記反 | `a` / `b` 而非 `x` / `y`、`lo` / `hi` 而非 `i` / `j` |
+| **命名** | 事實是一個**固定映射**，只是容易記反 | `lhs` / `rhs` 而非 `op1` / `op2`、`lo` / `hi` 而非 `i` / `j`——名字本身說出它在結構裡的位置 |
 | **型別 / 預設值** | 特判的存在理由是「零值有歧義」 | `int` 索引 → 指標；`map` 的 value-initialization 剛好是想要的答案 |
 | **回傳型別** | 遞迴要靠全域 + guard 才能防止答案被覆蓋 | 236 LCA：`pair<bool,bool>` → `TreeNode*`，全域與 reset 同時消失；見 [`Recursion/05-Recursion_Signature_Contract.md`](Recursion/05-Recursion_Signature_Contract.md) |
 | **不變量 + guard** | 有跨迴圈 / 跨遞迴的性質要維持 | `first` 守的是「不重複」，不是「切子問題」 |
@@ -47,6 +47,37 @@
 | **刪掉那一層** | 兩個結構複合起來等於恆等函數 | 138 的 `cache[hashmap[x]] == map[x]`，中間那個 `int` 純粹是 bug 溫床 |
 
 最後一列值得單獨記：**多一層編碼，就多一個「零值有歧義」的破口**（見 [`CPP_Reference/Container/Operator_Bracket_Behavior_Vector_vs_Map.md`](../../CPP_Reference/Container/Operator_Bracket_Behavior_Vector_vs_Map.md)）。能刪掉的間接層，一定比「小心地維護它」便宜。
+
+---
+
+## 🚦 兩種 guard：哪一種才是訊號
+
+看到 `if` 就懷疑自己是過度反應——**guard 有兩種，長得一樣，意義相反**。
+
+| | 一、陳述輸入的可能性 | 二、修正自己造出來的歧義 |
+| :--- | :--- | :--- |
+| 它在說 | **問題本身的事實** | **我選的表示法有破口** |
+| 例 | 994 的 `x < 0 \|\| x >= m \|\| y < 0 \|\| y >= n`（網格真的有邊界） | 994 的 `max(level - 1, 0)`（`level` 數的是「層數」，答案要的是「分鐘數」） |
+| 刪掉它 | 錯，而且是**輸入**打爆它 | 錯，但是被**自己的表示法**打爆 |
+| 該怎麼辦 | 留著，它是規格 | **去改表示法，不要補 guard** |
+
+> ### 判準：**這個 guard 防的是「輸入可能長這樣」，還是「我自己的表示法會出錯」？**
+> 前者是規格，後者是債。
+
+配合「刪掉還對 = 優化 / 刪掉就錯 = 必要」一起用：先刪刪看，錯的話再問這一句，決定要補 guard 還是改結構。
+
+**已經出現過的第二類（同一個形狀，兩週內五次）：**
+
+| 題 | 補上去的 guard | 它在防什麼 | 改掉什麼之後 guard 消失 |
+| :--- | :--- | :--- | :--- |
+| **150** Evaluate RPN | （靠記憶維持順序，連 guard 都寫不出來） | 運算元左右放反 | 命名成 `lhs` / `rhs` |
+| **138** Copy List w/ Random Ptr | `hashmap[nullptr] = index` | `int` 的零值 `0` 是合法索引 | 型別換成 `map<Node*, Node*>` |
+| **153** Find Min in Rotated Array | 「已排序就提前結束」 | 沒旋轉時謂詞失效 | 參照點從 `nums[i]` 換成 `nums[j]` |
+| **236** Lowest Common Ancestor | reset 回傳值 **＋** 入口 `if (LCA) return` | 祖先覆蓋掉答案 | 回傳型別換成 `TreeNode*` |
+| **994** Rotting Oranges | `std::max(level - 1, 0)` | 層數 0 時 `-1` 不成立（fencepost） | 迴圈條件改成 `while (!q.empty() && fresh > 0)`，`level` 直接就是分鐘數 |
+
+> ### 推論：**同一個洞要兩個以上的 guard 才堵得住，幾乎確定是結構問題。**
+> 一個 guard 可能只是邊界；兩個 guard 防同一件事（236 的 reset 和早退都在防「祖先覆蓋答案」），是結構在漏，不是邊界很多。
 
 ---
 

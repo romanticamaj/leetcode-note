@@ -6,6 +6,7 @@
 
 - 300. Longest Increasing Subsequence
 - 416. Partition Equal Subset Sum
+- 994. Rotting Oranges
 
 **心得**：
 - 300：
@@ -18,6 +19,10 @@
   - 受不了了，去看了提示的 tag：Junior, Array, Dynamic Programming, Knapsack Problem, 0-1 Knapsack。
   - subset sum 會讓我想到 backtracking → NP-problem → dynamic programming，這樣我感覺 #2 的方向可以往下優化。
   - 純紀錄，先不給提示或回饋，我要衝一發。
+- 994：
+  1. 關鍵失誤：edge case 沒有測試清楚——`[[0]]`，所以 minute 算錯。修正方式是最後用 guard（`std::max(level - 1, 0)`），還是覺得哪裡怪怪的，感覺應該有地方可以消掉那個 `std::max`。
+  2. 這個其實不好實作，要設計的狀態除了 multi-source BFS 外，還要處理 fresh 個數、level 計數。
+  3. space 也錯了，最差是全部都是 rotten orange，塞滿 queue，O(mn)。
 
 **LLM 點評**：
 model: Opus 5 (1M context)
@@ -25,6 +30,10 @@ model: Opus 5 (1M context)
 - 300（初值不是用填的，是從定義讀出來的）：第二次錯同一類，照 `Algorithms/Design_Principles/Correct_by_Construction.md` 的判準，這已經不是粗心、是結構問題。修法：**先把 `dp[i]` 的定義一字不差寫成第一行註解**（「以 `nums[i]` **結尾**的 LIS 長度」），初值就是這個定義在最小情況下的值——任何元素自己就是長度 1 的遞增子序列，所以是 `1`，不是 `0`。答案也從同一句推出來：「以 i 結尾」→ LIS 可能在任何位置結束 → 取 `max(dp)` 而不是 `dp[n-1]`。**定義、初值、答案位置三者是同一句話的三個推論**，只要其中一個是「填的」，就會錯。（同一個形狀：139 用 length 定義讓 `dp[0] = true` 自然存在。）
 - 300（O(n log n) 的關鍵技巧：把 dp 的索引和值**對調**）：O(n²) 版是「索引 = 結尾位置、值 = 長度」。O(n log n) 版把它翻過來：`tails[k]` = **所有長度為 `k+1` 的遞增子序列中，最小的結尾值**——索引變成長度、值變成結尾。翻過來之後 `tails` **必然嚴格遞增**（更長的子序列，最小結尾一定更大），單調 → 可以二分 → 每個元素 `lower_bound` 一次，替換或延長。為什麼「留最小結尾」是對的：同長度下結尾越小，**後面能接的數越多**，它支配其他候選（exchange argument）。
 - 300（有文件，但缺的正好是「為什麼」）：`Data_Structures/Arrays_and_Strings/Subsequence_Problem_Solving_Strategies.md` §2 已經寫了 `tails` + `lower_bound` 的**步驟**，但沒寫**對調索引與值**這個動機、`tails` 為何單調、為何留最小結尾。只有步驟的筆記就是這次召回不到的原因。兩個實作陷阱一併記：(1) **嚴格遞增用 `lower_bound`，非遞減要換 `upper_bound`**；(2) `tails` **不是**真正的 LIS 本身（`[3,4,1]` 跑完是 `[1,4]`，但 `1,4` 不是子序列），只有長度是對的——要還原序列得另存 predecessor。已加進 `Checklists/Learning_Roadmap.md`。
+- 994（怪在哪：`level` 數的東西跟答案要的東西不一樣）：`level` 數的是「**處理了幾層**」，答案要的是「**過了幾分鐘**」＝層與層之間的**間隔數**＝層數 − 1——典型的 fencepost。最後一層一定是「被處理、但什麼都沒感染」的那層，所以要 `- 1`；而層數為 0（一開始就沒有腐爛橘子，如 `[[0]]`）時 `0 - 1 = -1` 不成立，`std::max` 就是在補這個洞。**guard 在修正一個語意錯了的計數器**，跟 153 選錯參照點、236 回傳型別太弱是同一個形狀（見 `Algorithms/Design_Principles/Correct_by_Construction.md`）。
+- 994（消掉 `std::max`：把目標寫進迴圈條件）：`while (!q.empty() && fresh > 0)`，結尾 `return fresh == 0 ? level : -1;`。現在每跑一圈都**真的過了一分鐘、而且感染了東西**，`level` 的語意直接就是「經過的分鐘數」：沒有新鮮橘子 → 迴圈一次都不跑 → 0（`[[0]]`、`[[2]]` 自動正確）；感染完最後一顆就停 → 不會多數那一層空轉。`-1` 和 `max` 同時消失，`fresh` 也從「只拿來驗答案」升級成同時負責**提前結束**。另一條路是 `Algorithms/BFS/MultiSource_BFS_Thinking_Framework.md` 的 `dist` 寫法：來源的距離是 0，答案＝最大距離，**根本不需要 level 計數器**，fencepost 也就不存在。
+- 994（space 的修正是對的，原本的直覺從哪來也值得說清楚）：O(max(m, n)) 是**單源** BFS 在空曠網格上的直覺——波前是一條對角線，長度 O(m + n)。**多源**時這個上界不成立：初始 queue 本身就可以是全部格子（全是 2），所以是 O(mn)。一般化：**BFS 的空間看的是「最寬的一層」有多寬，multi-source 的第 0 層就可能是全部。**
+- 994（小地方）：`for (const auto neighbor : neighbors)` 每次迭代都**複製一個 `vector<int>`**，改成 `const auto&`，或乾脆用 `int dirs[5] = {0, 1, 0, -1, 0}` 配 `dirs[k], dirs[k+1]`。另外 `grid[x][y] = 2` 會改到輸入，面試時先問一句可不可以改。心得第 1 點正好就是昨天加進 checklist 的「至少跑一個 classic、一個 edge」——這題範例全都過，只有 `[[0]]` 會爆。
 
 ---
 
