@@ -5,12 +5,19 @@
 ## 2026-09-22
 
 - 300. Longest Increasing Subsequence
+- 416. Partition Equal Subset Sum
 
 **心得**：
-1. 一開始很關鍵的暴力法想錯級數，導致我一直以為往前查全部表的概念是錯的 O(n²)。
-2. 這是最近第二次，dp / cache 初值填錯。
-
-follow-up：O(n log n) 關鍵技巧是什麼，我有開文件嗎？記錄下來之後做。
+- 300：
+  1. 一開始很關鍵的暴力法想錯級數，導致我一直以為往前查全部表的概念是錯的 O(n²)。
+  2. 這是最近第二次，dp / cache 初值填錯。
+  - follow-up：O(n log n) 關鍵技巧是什麼，我有開文件嗎？記錄下來之後做。
+- 416：
+  - 不能用 backtracking ?!?!?! 可能還是因為 `1 <= nums.length <= 200`，我本來就有一個感覺，這個 size 還是有點大……
+  - 不能用 sort 然後加總，因為竟然有反例？！`[2, 2, 1, 1]` → 答案是 `{1, 2}` `{1, 2}`，這個演算法不 work!!!!!!!!
+  - 受不了了，去看了提示的 tag：Junior, Array, Dynamic Programming, Knapsack Problem, 0-1 Knapsack。
+  - subset sum 會讓我想到 backtracking → NP-problem → dynamic programming，這樣我感覺 #2 的方向可以往下優化。
+  - 純紀錄，先不給提示或回饋，我要衝一發。
 
 **LLM 點評**：
 model: Opus 5 (1M context)
