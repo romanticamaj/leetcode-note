@@ -52,6 +52,12 @@
   - 📌 標記原因: 思路盲點 — 一開始沒釐清輸出是「值」不是 index，走錯 hash map 方向；後來用 running hash map 過，但 2-pointer 版還沒寫
   - 🏷️ 技巧分類: Sort + Two Pointers / Dedup
   - 📅 二刷: 2026-09-13（用 2-pointer 寫，重點感受「排序讓 two-pointer 成立」）
+- [ ] LeetCode 236. Lowest Common Ancestor of a Binary Tree
+  - [ ] 用 `TreeNode*` 當回傳值重寫（無全域變數、無 reset）
+  - 📌 標記原因: 思路盲點 — 二刷仍只想到 `pair<bool,bool>` + 全域 `LCA`，回傳型別太弱導致要補 reset 與早退兩個補丁
+  - 🏷️ 技巧分類: 後序遞迴 / 回傳型別即子問題答案
+  - 🔗 後續題型: LC 235（BST 版）、LC 1644（不保證 p、q 存在，才需要布林增強）
+  - 📅 二刷: 2026-09-21（仍是舊寫法）
 - [ ] LeetCode 1335. Minimum Difficulty of a Job Schedule
   - [ ] Monotonic Stack
 - [ ] LeetCode 53. Maximum Subarray

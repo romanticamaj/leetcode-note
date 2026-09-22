@@ -2,13 +2,37 @@
 
 ---
 
+## 2026-09-22
+
+- 300. Longest Increasing Subsequence
+
+**心得**：
+1. 一開始很關鍵的暴力法想錯級數，導致我一直以為往前查全部表的概念是錯的 O(n²)。
+2. 這是最近第二次，dp / cache 初值填錯。
+
+follow-up：O(n log n) 關鍵技巧是什麼，我有開文件嗎？記錄下來之後做。
+
+**LLM 點評**：
+model: Opus 5 (1M context)
+- 300（暴力法算錯級數的代價，比算錯本身大）：LIS 真正的暴力法是**列舉所有子序列**，O(2ⁿ · n)。O(n²) 的「往前查全部表」**已經是優化過的版本**——它把指數級的子序列壓成 n 個狀態，每個狀態 O(n) 轉移。把 O(n²) 誤當成暴力，就會以為這個方向「還沒優化、是錯的」而去找別條路，其實人已經站在正確的路上。教訓：**暴力法的級數是整趟推導的座標原點**，原點錯了，後面每一步對「我優化了多少」的判斷都會偏。先寫下「暴力 = 列舉什麼、共幾個」再開始想。
+- 300（初值不是用填的，是從定義讀出來的）：第二次錯同一類，照 `Algorithms/Design_Principles/Correct_by_Construction.md` 的判準，這已經不是粗心、是結構問題。修法：**先把 `dp[i]` 的定義一字不差寫成第一行註解**（「以 `nums[i]` **結尾**的 LIS 長度」），初值就是這個定義在最小情況下的值——任何元素自己就是長度 1 的遞增子序列，所以是 `1`，不是 `0`。答案也從同一句推出來：「以 i 結尾」→ LIS 可能在任何位置結束 → 取 `max(dp)` 而不是 `dp[n-1]`。**定義、初值、答案位置三者是同一句話的三個推論**，只要其中一個是「填的」，就會錯。（同一個形狀：139 用 length 定義讓 `dp[0] = true` 自然存在。）
+- 300（O(n log n) 的關鍵技巧：把 dp 的索引和值**對調**）：O(n²) 版是「索引 = 結尾位置、值 = 長度」。O(n log n) 版把它翻過來：`tails[k]` = **所有長度為 `k+1` 的遞增子序列中，最小的結尾值**——索引變成長度、值變成結尾。翻過來之後 `tails` **必然嚴格遞增**（更長的子序列，最小結尾一定更大），單調 → 可以二分 → 每個元素 `lower_bound` 一次，替換或延長。為什麼「留最小結尾」是對的：同長度下結尾越小，**後面能接的數越多**，它支配其他候選（exchange argument）。
+- 300（有文件，但缺的正好是「為什麼」）：`Data_Structures/Arrays_and_Strings/Subsequence_Problem_Solving_Strategies.md` §2 已經寫了 `tails` + `lower_bound` 的**步驟**，但沒寫**對調索引與值**這個動機、`tails` 為何單調、為何留最小結尾。只有步驟的筆記就是這次召回不到的原因。兩個實作陷阱一併記：(1) **嚴格遞增用 `lower_bound`，非遞減要換 `upper_bound`**；(2) `tails` **不是**真正的 LIS 本身（`[3,4,1]` 跑完是 `[1,4]`，但 `1,4` 不是子序列），只有長度是對的——要還原序列得另存 predecessor。已加進 `Checklists/Learning_Roadmap.md`。
+
+---
+
 ## 2026-09-21
 
 - 138. Copy List with Random Pointer
 - 150. Evaluate Reverse Polish Notation
 - 153. Find Minimum in Rotated Sorted Array
+- 198. House Robber
+- 215. Kth Largest Element in an Array
+- 236. Lowest Common Ancestor of a Binary Tree
 
 **心得**：
+- 236：第二次做，還是只有想到 maintain 兩個回傳值去做 or operator。兩個回傳值都 true 表示找到，但還要去處理 stack rewind 後面遇到的 node 不能再次更新的問題，總之就很醜。follow-up：空間不夠好，因為會 maintain 兩個 boolean，**如何用 LCA 本身來當回傳值——必重做一次**。
+- 215：top-k min heap 就解了。紀錄一下要做 quickselect，必做——quickselect 我似乎一直沒整理，這題感覺就可以做很多 follow-up。
 - 153：這次的解法是找到 inflection point 出現的那邊，排除其他邊。
 - 153（二版，一行判斷式）：思考順序是——(1) 先確認 `i` 跟 `j` 互相比較得不到有用資訊（`nums[i] < nums[j]` 只夠用來提前結束）；(2) 再由 rotated sorted 的特性想到拿 `mid` 跟 `j` 比：`mid > j` 去掉左半，`mid <= j` 去掉右半（`mid` 也可能是答案）。至於為什麼不能拿 `mid` 跟 `i` 比——rotated sorted 保證的是「某一段已排序」，而 `nums[mid] > nums[i]` 不表示任何事情，不能當結構上的判斷式。
 - 150：粗心兩次了，top1 是 operand 2、top2 是 operand 1，我是不是腦袋會漏東西，兩個運算元位置放錯。
@@ -21,6 +45,15 @@ model: Opus 5 (1M context)
 - 153（真正該記住的是：為什麼跟**右**端比，不是左端）：因為 `nums[m] > nums[右端]` 這個謂詞在整個陣列上是**單調的**（false…false true…true 反過來也是一刀切），二分搜尋能work的前提就是謂詞單調。跟左端比不具這個性質——`[1,2,3]` 沒旋轉時 `nums[mid]=2 > nums[i]=1`，照「大於就往右」會直接丟掉答案。**選擇比較對象不是風格問題，是在選一個單調謂詞。**
 - 153（break 的代價，以及它在 154 第一個死）：早退要付「每輪多一次比較」，而提前結束只在已排序的子區間才發生，平均省不到什麼。更重要的是它是**最脆弱的那一段**：`154 Find Minimum II`（可重複）一來，`[3, 3, 1, 3]` 會走到 `nums[i] == nums[mid] == nums[j]`，你的 `break` 直接回傳 `nums[i] = 3`，錯。有重複值時「兩端相等」根本無法判斷拐點在哪邊，只能 `j--` 退化成 O(n)。
 - 153（`j = mid` 和 `i = mid + 1` 的不對稱不是隨意的）：往左收時 **mid 本身可能就是答案**，所以不能 `mid - 1`；往右收時 `nums[mid] > nums[j]` 已經證明 mid 不是最小值，所以可以也**必須** `+1`。而 `mid` 下取整保證 `mid < j`，`j = mid` 一定讓區間變小、不會死迴圈。不變量一句話：**答案永遠在 `[i, j]` 內**——邊界怎麼移是從它推出來的，不是試出來的（見 `Algorithms/Backtracking/07-Guards_from_Invariants.md` 的同一套讀法）。
+- 236（先確認：你的版本是對的，別被「醜」蓋過去）：`pair<bool,bool>` + 全域 + reset 的組合**正確性沒問題**（p 是 q 的祖先那種 case 也對），複雜度 O(n) / O(h)，跟正規解同級。所以這不是解法錯，是**表達**的問題——而且醜在哪裡可以精確指出來，見下一條。
+- 236（醜的根源只有一個：回傳型別太弱）：`pair<bool,bool>` 只回報「子樹裡有沒有」，**丟掉了「是哪個節點」**。答案是一個節點，回傳值卻答不出節點，於是那個資訊只能另外找地方存 → 全域 `LCA`。而全域一旦可以被寫第二次，就得再補兩個補丁：`found = {false,false}` 的 reset 和 `if (LCA) return found` 的早退。**兩個補丁都是在防止同一件事：祖先把答案覆蓋掉。** 這跟 153 選錯參照點就得補「已排序」特判、138 用 `int` 中介就得補 `nullptr` 特判，是同一個形狀（見 `Algorithms/Design_Principles/Correct_by_Construction.md`）。
+- 236（可直接複用的判準）：**遞迴需要全域變數 + guard 來維持正確性時，先回頭質疑回傳型別，而不是去加固 guard。** 骨架 `ReturnType solve(root)` 裡那個 `ReturnType` 應該是**子問題的答案型別**，不是「子樹的狀態」——見 `Data_Structures/Trees/Recursive_Design_Pattern_Pruning_and_Aggregation.md` 的萬用骨架。你已經在註解裡寫出 `TreeNode*` 這個方向了，這題就是照它重寫一次。
+- 236（重做時給自己的三個問題，不看答案）：(1) base case 回傳什麼才能讓上層不用特判？(2) 走到 `root == p` 或 `root == q` 時，該繼續往下找還是可以直接回傳？為什麼不會漏掉「p 是 q 的祖先」？(3) 左右各自回傳結果後，只有**一邊非空**代表什麼、**兩邊都非空**又代表什麼——這兩句話寫出來，aggregation 就只剩一行。寫完檢查：**全域變數和 reset 應該都不存在了**。
+- 236（你的布林直覺不是錯的，只是用早了）：正規解能省掉布林，是因為本題**保證 p、q 都在樹裡**。一旦不保證（`1644. LCA of a Binary Tree II`），「回傳非空」就不再等於「找到 LCA」，那時才真的需要補計數／布林（回傳 `pair<TreeNode*, int>` 或先驗證存在）。所以正確的記憶方式是：**布林是 1644 的工具，236 不需要**——條件放寬才引入它，不是反過來。
+- 215（min heap 是對的選擇，先把取捨講清楚）：`priority_queue` 維持大小 k 的 **min heap**，堆頂就是目前第 k 大，時間 O(n log k)、空間 O(k)。相對 quickselect 的平均 O(n)：**n 很大而 k 很小時 heap 常常更快**（log k 是小常數且 cache 友善），而且它天然支援 **streaming / 資料放不進記憶體**，quickselect 則必須整份在手上、還會改動輸入。面試講出這組取捨，比直接寫 quickselect 更有價值。
+- 215（quickselect 的核心是「只遞迴一邊」）：跟 quicksort 唯一的差別——partition 完看 pivot 落點，**只往包含答案的那半邊繼續**，另一半直接丟掉。均攤 T(n) = T(n/2) + O(n) = **O(n)**；最壞 O(n²)（每次都切在邊界），修法是**隨機選 pivot**（或 median-of-medians 保證最壞 O(n)，但常數大、面試只需口述）。repo 已有 `Algorithms/Partition/01-Lomuto_Partition_Scheme.md` 可以直接接上去，缺的是「選擇」這一層。
+- 215（實作最容易錯的兩點，先記下來）：(1) **k 要先轉成索引**——第 k 大 = 排序後的索引 `n - k`，之後整趟都用索引比較，別在迴圈裡反覆換算；(2) 遞迴/迴圈的**終止條件是 `pivot_index == target`**，不是區間長度 1。另外務必寫成 while 迴圈而非遞迴（尾遞迴，省 stack）。
+- 215（follow-up 你的直覺對，它是一整個家族的入口）：**347 Top K Frequent**（同一招套在 frequency 上，另有 bucket sort O(n) 解）、**703 Kth Largest in a Stream**（streaming → 只有 heap 能做，quickselect 出局）、**973 K Closest Points**、**295 Find Median from Data Stream**（雙 heap）、**4 Median of Two Sorted Arrays**（同樣是選擇問題，但要 O(log) → 改用 binary search on partition）。這條線值得開一篇 `Algorithms/Partition/` 底下的 Quickselect 心法，已加進 `Checklists/Learning_Roadmap.md`。
 - 153（二版收斂到模板了）：`if (nums[mid] > nums[j]) i = mid + 1; else j = mid;` 就是 `Algorithms/Binary_Search/07-Inflection_Point_Binary_Search.md` 的通用模板逐字對應（`beforeInflection(m) → nums[m] > nums[r]`）。三分支塌成二分支之後，`else` 那支自動涵蓋了原本要 `break` 的已排序情形——**不是把 break 刪掉，是它不再是一個獨立的 case**。
 - 153（「mid 跟 i 比沒有意義」要修正——真正的差別更有用）：`nums[mid] < nums[i]` 其實**是**有意義的，它確定拐點在左半（這正是你第一版的第一條分支，而且它是對的）。沒有意義的是**反過來**：`nums[mid] > nums[i]` 什麼都不能斷定。所以精確的說法是——**跟 `i` 比只有一個方向能下結論，跟 `j` 比兩個方向都能**。二分搜尋要的是每個 mid 都能做出決定的**完整二分**，只能單向決定的謂詞湊不出 `if/else`。
 - 153（更漂亮的判準，而且跟 138 是同一件事）：拿 `i` 當參照其實**也做得出來**（`P(m) = nums[m] < nums[i]` 在區間上同樣單調），但它有一個洞：完全沒旋轉時 `[1,2,3]` 沒有任何元素滿足 `P`，答案就漏掉了——**必須**靠「已排序就提前結束」那個特判把它補回來。拿 `j` 當參照則不需要，已排序的情形自動落進 `else`。兩個參照點的真正差別不是「有沒有意義」，是**其中一個讓特殊情況消失，另一個讓特殊情況變成必要條件**。這跟 138 換成 `map<Node*, Node*>` 之後 `nullptr` 特判自動消失是同一個形狀，見 `Algorithms/Design_Principles/Correct_by_Construction.md`：選對承載結構的東西，例外就不存在。

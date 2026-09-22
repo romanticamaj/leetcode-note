@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：53 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：57 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -42,7 +42,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **199.** [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **226.** [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [x] **230.** [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
-- [ ] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium`
+- [x] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [ ] **437.** [Path Sum III](https://leetcode.com/problems/path-sum-iii/) — `Medium`
 - [x] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-16</sub>
 
@@ -57,9 +57,9 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [ ] **118.** [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) — `Easy`
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [ ] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium`
-- [ ] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium`
+- [x] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [ ] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium`
-- [ ] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium`
+- [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>✔ 2026-09-15</sub>
 - [ ] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅
 - [ ] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium`
@@ -86,7 +86,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 ## Heap (3)
 
-- [ ] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅
+- [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [ ] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard`
 - [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅
 

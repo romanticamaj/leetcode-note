@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：54 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：58 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -114,7 +114,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard`
 - [ ] **173.** [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/) — `Medium`
 - [ ] **222.** [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) — `Medium` ✅
-- [ ] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium`
+- [x] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium` · <sub>✔ 2026-09-21</sub>
 
 ## Binary Tree BFS (4)
 
@@ -184,7 +184,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 ## Heap (4)
 
-- [ ] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅
+- [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [ ] **502.** [IPO](https://leetcode.com/problems/ipo/) — `Hard`
 - [ ] **373.** [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) — `Medium` ✅
 - [ ] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard`
@@ -210,10 +210,10 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## 1D DP (5)
 
 - [x] **70.** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium`
+- [x] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>✔ 2026-09-15</sub>
-- [ ] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium`
+- [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
 
 ## Multidimensional DP (9)
 

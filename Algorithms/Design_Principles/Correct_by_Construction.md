@@ -41,6 +41,7 @@
 | :--- | :--- | :--- |
 | **命名** | 事實是一個**固定映射**，只是容易記反 | `a` / `b` 而非 `x` / `y`、`lo` / `hi` 而非 `i` / `j` |
 | **型別 / 預設值** | 特判的存在理由是「零值有歧義」 | `int` 索引 → 指標；`map` 的 value-initialization 剛好是想要的答案 |
+| **回傳型別** | 遞迴要靠全域 + guard 才能防止答案被覆蓋 | 236 LCA：`pair<bool,bool>` → `TreeNode*`，全域與 reset 同時消失；見 [`Recursion/05-Recursion_Signature_Contract.md`](Recursion/05-Recursion_Signature_Contract.md) |
 | **不變量 + guard** | 有跨迴圈 / 跨遞迴的性質要維持 | `first` 守的是「不重複」，不是「切子問題」 |
 | **把中繼資料寫進資料本身** | 兩份資訊必須同步，分開存就會不同步 | [`In_Place_Marking.md`](In_Place_Marking.md)、138 的交錯法 |
 | **刪掉那一層** | 兩個結構複合起來等於恆等函數 | 138 的 `cache[hashmap[x]] == map[x]`，中間那個 `int` 純粹是 bug 溫床 |

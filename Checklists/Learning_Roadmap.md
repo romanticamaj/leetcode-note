@@ -20,7 +20,8 @@
 
 ## 🔢 陣列與字串 (Arrays and Strings)
 
-- [ ] **學習**：研究 Quickselect（Hoare 選擇演算法），它能在平均 O(n) 時間內找到無序列表中的第 k 小元素。
+- [ ] **【必做】整理 Quickselect 心法**（Hoare 選擇演算法，平均 O(n) 找第 k 小）——2026-09-21 刷 [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) 時發現一直沒整理。要點：只遞迴一邊、隨機 pivot 避開最壞 O(n²)、median-of-medians 只需口述、第 k 大 → 索引 `n - k`、寫成 while 迴圈。接 [`Algorithms/Partition/01-Lomuto_Partition_Scheme.md`](../Algorithms/Partition/01-Lomuto_Partition_Scheme.md)，並對照 heap 解的取捨（streaming / 記憶體放不下 → 只能 heap）。
+  - follow-up 家族：347 Top K Frequent、703 Kth Largest in a Stream、973 K Closest Points、295 Find Median from Data Stream、4 Median of Two Sorted Arrays。
 - [ ] **研究**：研究 Deterministic Finite Automaton (DFA) 在 string parsing 的應用，包含 explicit `enum State` + `transition()` 函數的設計模式。與 Sequential Phase Consumption（隱式 FSM）做比較。([Valid Number](https://leetcode.com/problems/valid-number/))
 - [ ] Knuth-Morris-Pratt algorithm
 
@@ -28,6 +29,11 @@
 
 ## 💡 動態規劃 (Dynamic Programming)
 
+- [ ] **實作 LIS O(n log n)**（[300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)，2026-09-22 做完 O(n²) 版後排入）：自己寫一次 `tails` + `lower_bound`，並把**「為什麼」**補進 [`Data_Structures/Arrays_and_Strings/Subsequence_Problem_Solving_Strategies.md`](../Data_Structures/Arrays_and_Strings/Subsequence_Problem_Solving_Strategies.md) §2（目前只有步驟）：
+  - 關鍵：把 dp 的**索引與值對調**——`dp[i]`（結尾位置 → 長度）翻成 `tails[k]`（長度 → 最小結尾），翻過來後單調才能二分
+  - `tails` 為何嚴格遞增；為何同長度只留最小結尾（exchange argument：結尾越小後面能接越多）
+  - 陷阱：嚴格遞增 `lower_bound` / 非遞減 `upper_bound`；`tails` 不是真正的 LIS，只有長度對
+  - 延伸：354 Russian Doll Envelopes（排序後降成 LIS）、673 Number of LIS、1671 Minimum Removals to Make Mountain Array
 - [ ] **研究**：研究矩陣快速冪 (Matrix Exponentiation) 如何將線性遞迴的 DP 問題從 O(N) 優化到 O(logN)，以 Fibonacci 數為例。
 
 ---

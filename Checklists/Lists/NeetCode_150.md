@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：57 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：60 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -93,7 +93,7 @@
 - [ ] **703.** [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) — `Easy`
 - [ ] **1046.** [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) — `Easy`
 - [ ] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium`
-- [ ] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅
+- [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [ ] **621.** [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — `Medium`
 - [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium`
 - [ ] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard`
@@ -146,7 +146,7 @@
 
 - [x] **70.** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [ ] **746.** [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) — `Easy`
-- [ ] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium`
+- [x] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [ ] **213.** [House Robber II](https://leetcode.com/problems/house-robber-ii/) — `Medium`
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **647.** [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — `Medium`
@@ -154,7 +154,7 @@
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>✔ 2026-09-15</sub>
 - [ ] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium`
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
-- [ ] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium`
+- [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
 - [ ] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅
 
 ## 2-D Dynamic Programming (11)
