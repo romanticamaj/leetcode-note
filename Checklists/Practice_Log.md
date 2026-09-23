@@ -2,6 +2,31 @@
 
 ---
 
+## 2026-09-23
+
+- 35. Search Insert Position
+- 66. Plus One
+- 67. Add Binary
+
+**心得**：
+- 35：這是 easy?! 我是用 search space 去想的，知道這題是問 lower bound（我的反射），但最後做出來是因為慢慢從 search space 跟「answer = 第一個 `nums[i] >= target` 的 i」推，search space 是 `[0, n]`，然後配上適當的 movement（less → `[mid + 1, j]`；otherwise → `[i, mid]`，保留 mid）。但是之前筆記的思考方式好像不是這樣。
+- 67：媽媽樂……這題意外難寫！！
+  - 因為它有三個狀態要 maintain，有點難直接控制三個狀態在 while 迴圈上。一開始為了寫漂亮的 guard，一直在設計怎麼減少狀態，想說可不可以只保留一個 index 跟一個 carry。愈寫愈發現，少一個狀態後沒有比較簡單，因為當 while 不成立時反而要繼續做——只要還有狀態合法（search space 合法），就要繼續做。
+  - 最後想一個簡單的 invariant：`i || j || carry`，任一個人有效就繼續做，才比較簡單地思考這題。
+  - 另外在思考時設計了兩個讓我頭腦混亂的變數：
+    1. 為了讓回傳值可以直接沿用 input，我做 swap 把長的人放前面，然後直接更新長的人，反而把事情搞複雜，一直在處理長的變成 return 值時的更新。
+    2. 因為長的跟回傳值卡在一起，腦袋很混亂。
+
+**LLM 點評**：
+model: Opus 5.5 (1M context)
+- 35（你的感覺是對的：筆記裡有兩套互相打架的模板）：`Algorithms/Binary_Search/01-Binary_Search_Template.md` 是**閉區間 `[0, n-1]` + `left <= right` + 三路比較（`==` 就 return）**，插入點靠「迴圈結束時 `left` 恰好停在對的地方」這個事後解釋；`02-Binary_Search_Comprehensive_Guide.md` 的 lower_bound 才是你今天這套：**半開 `[0, n]` + `i < j` + 二分判斷**。你這次的推法（先定義答案 = 第一個滿足 predicate 的位置 → 答案可能是 n 所以 search space 含 n → 不滿足就丟掉 mid、滿足就留住 mid → 收斂到 `i == j` 那格就是答案）是**從定義推出來的**，比 01 那套「背下來、結束時 left 剛好是插入點」可靠得多，也能直接推廣到 04 的 binary search on answer。照 repo 慣例，Binary_Search 資料夾還缺 `00-*_Standard_Template.md`，今天這版就是該升格的那一個，01 應該降為 ⚠️ rejected alternative。
+- 35（程式碼最後的 note 寫反了）：`nums[i] <= target → lower bound`、`nums[i] < target → upper bound` 是錯的。正確是看「往右丟」的條件：`nums[mid] < target` 時 `i = mid + 1` → **lower_bound**（第一個 `>=`）；`nums[mid] <= target` 時 `i = mid + 1` → **upper_bound**（第一個 `>`）。記法：丟掉的是「不是答案」的那一側，**predicate 的否定就是 move-right 條件**。
+- 67（「少一個狀態」為什麼沒有變簡單）：你縮減的不是狀態，是**迴圈條件**。`i`、`j`、`carry` 是三個**獨立的剩餘工作來源**，少寫一個進 `while`，那份工作就被推到迴圈外，得再補一段收尾（「while 不成立時反而要繼續做」正是這個症狀）。`while (i >= 0 || j >= 0 || carry)` 的意思是「**還有任何一份工作沒做完就繼續**」，迴圈體內用 `i >= 0 ? a[i--] - '0' : 0` 把「已經用完的來源」補成 0，三條路徑合成一條，外面就不需要任何收尾。跟 994 把 `fresh > 0` 寫進 `while` 是同一個動作：**讓迴圈條件精確等於「還有事要做」**（`Algorithms/Design_Principles/Correct_by_Construction.md`）。同一個骨架直接套 2 Add Two Numbers、415 Add Strings、66 Plus One（66 就是只有一個來源 + `carry` 初值為 1）。
+- 67（用詞小修正）：`i || j || carry` 是**迴圈的繼續條件**，不是 invariant。這題的 invariant 是「`res` 已經存了兩個字串低位部分的和，`carry` 是還沒寫出去的進位」——它說明了**為什麼**三者都耗盡時 `res` 就是答案。
+- 67（swap + 原地改長的那個：一個變數扛兩個角色）：輸入和輸出共用同一個字串，就要一直在腦中追蹤「這一格現在是加數還是結果」，而且最後進位還可能讓長度 +1，原地改也省不了。先讓**輸入唯讀、輸出另開**（`res.push_back` 後 `reverse`，O(n)），寫對之後再考慮省空間。這個 O(n) 本來就是答案本身的大小，省不掉什麼。
+
+---
+
 ## 2026-09-22
 
 - 300. Longest Increasing Subsequence

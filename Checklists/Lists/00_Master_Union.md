@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：64 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：67 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -94,9 +94,9 @@ Easy 6 · Medium 24 · Hard 5
 
 Easy 13 · Medium 26 · Hard 5
 
-- [ ] **35.** [Search Insert Position](https://leetcode.com/problems/search-insert-position/) — `Easy` · <sub>TI150 · H100</sub>
-- [ ] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>NC · TI150</sub>
-- [ ] **67.** [Add Binary](https://leetcode.com/problems/add-binary/) — `Easy` · <sub>G75 · TI150</sub>
+- [x] **35.** [Search Insert Position](https://leetcode.com/problems/search-insert-position/) — `Easy` · <sub>TI150 · H100</sub> · <sub>✔ 2026-09-23</sub>
+- [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>NC · TI150</sub> · <sub>✔ 2026-09-23</sub>
+- [x] **67.** [Add Binary](https://leetcode.com/problems/add-binary/) — `Easy` · <sub>G75 · TI150</sub> · <sub>✔ 2026-09-23</sub>
 - [ ] **100.** [Same Tree](https://leetcode.com/problems/same-tree/) — `Easy` · <sub>NC · TI150</sub>
 - [ ] **101.** [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) — `Easy` · <sub>TI150 · H100</sub>
 - [ ] **108.** [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) — `Easy` · <sub>TI150 · H100</sub>

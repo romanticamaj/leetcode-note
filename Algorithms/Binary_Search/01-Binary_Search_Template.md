@@ -1,5 +1,7 @@
 # 二分搜尋法範本與插入點解釋
 
+> ⚠️ **已被取代**：標準寫法見 [00-Binary_Search_Standard_Template.md](00-Binary_Search_Standard_Template.md)（半開區間 + 找第一個 true）。本篇的閉區間三路比較寫法保留作對照，不要背。
+
 本文件提供一個二分搜尋法的標準範本，並直觀地解釋為何當找不到目標時，迴圈不變數 (loop invariant) 能幫助我們找到正確的插入點。
 
 ## 二分搜尋法的核心原則

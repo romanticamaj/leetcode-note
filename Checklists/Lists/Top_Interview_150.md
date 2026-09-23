@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：58 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：61 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -174,7 +174,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 ## Binary Search (7)
 
-- [ ] **35.** [Search Insert Position](https://leetcode.com/problems/search-insert-position/) — `Easy`
+- [x] **35.** [Search Insert Position](https://leetcode.com/problems/search-insert-position/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [x] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium` · <sub>✔ 2026-09-20</sub>
 - [ ] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium`
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
@@ -191,7 +191,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 ## Bit Manipulation (6)
 
-- [ ] **67.** [Add Binary](https://leetcode.com/problems/add-binary/) — `Easy`
+- [x] **67.** [Add Binary](https://leetcode.com/problems/add-binary/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [ ] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅
 - [ ] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅
 - [x] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>✔ 2026-09-16</sub>
@@ -201,7 +201,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Math (6)
 
 - [ ] **9.** [Palindrome Number](https://leetcode.com/problems/palindrome-number/) — `Easy`
-- [ ] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy`
+- [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [ ] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium`
 - [ ] **69.** [Sqrt(x)](https://leetcode.com/problems/sqrtx/) — `Easy`
 - [ ] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium`

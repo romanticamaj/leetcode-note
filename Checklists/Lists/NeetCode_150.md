@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：62 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：63 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -197,7 +197,7 @@
 - [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅
-- [ ] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy`
+- [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [ ] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium`
 - [ ] **43.** [Multiply Strings](https://leetcode.com/problems/multiply-strings/) — `Medium`
 - [ ] **2013.** [Detect Squares](https://leetcode.com/problems/detect-squares/) — `Medium`
