@@ -2,6 +2,40 @@
 
 ---
 
+## 2026-09-25
+
+- 110. Balanced Binary Tree
+
+**心得**：
+- 把「遞迴」跟「全局追蹤」兩個狀態拆開，比較簡單直覺。
+- 但是可以嘗試另一個做法，都用 return value 來處理，但是因為兩個狀態，所以實務上拆兩個遞迴式比較好實作。
+
+**LLM 點評**：
+model: Opus 5.5 (1M context)
+- 110（「拆兩個遞迴式」要看怎麼拆）：如果是 `isBalanced(root)` 每層呼叫 `height(left)`、`height(right)` 再遞迴自己，每個節點的高度會被重算，**worst case（歪斜樹）O(n²)**，這是這題的經典陷阱，面試會被追問。你的「height 遞迴 + 全局 flag」是 O(n)，沒問題。
+- 110（兩個狀態用一個 return value 帶）：不用拆，用**哨兵值編碼**：`height()` 回 `-1` 代表「這棵子樹已經不平衡」，否則回真實高度。子樹是 `-1` 或 `abs(l - r) > 1` 就往上傳 `-1`。高度永遠 `>= 0`，所以 `-1` 不會跟合法值撞，一個 `int` 就同時帶了「高度」跟「是否平衡」，還能提早剪枝。判斷準則：第二個狀態是**「失敗了就不用再算」的 bool**時，把它塞進回傳值的不可能區域；兩個狀態都是**獨立的真實數值**（例如 543 直徑要回傳高度、同時更新全局最長路徑）時，才用 `pair` 或全局變數。
+
+---
+
+## 2026-09-24
+
+- 100. Same Tree
+- 101. Symmetric Tree
+- 108. Convert Sorted Array to Binary Search Tree
+
+**心得**：
+- 100：有需要做 queue iterative 版本嗎？
+- 101：這次可以做 iterative 版本了？
+- 108：需要做其他解法嗎？
+
+**LLM 點評**：
+model: Opus 5.5 (1M context)
+- 100（iterative 要不要練）：不必當成另一題練。recursive 就是這題的標準答案：base case 是「兩個都 null → true；只有一個 null 或 `val` 不同 → false」，然後 `left && right`。iterative 版本只是把**同一段比較搬進迴圈**：queue（或 stack）裡放 `pair<TreeNode*, TreeNode*>`，pop 出來做一模一樣的三個判斷，再成對 push `(p->left, q->left)`、`(p->right, q->right)`。重點是「**成對**入隊」，不是 BFS 本身，所以 queue 還是 stack 都行。值得會寫的理由只有一個：面試官 follow-up「樹很深會 stack overflow 怎麼辦」時能當場改寫。會了 101 Symmetric Tree（成對 push 改成交叉：`(l->left, r->right)`、`(l->right, r->left)`）就等於一起練到了。
+- 101（對，這題就是練 iterative 的時機）：跟 100 是同一個骨架，只改兩處：① **起點**是一棵樹拆成兩半，push `(root->left, root->right)`，不是兩棵樹；② **成對 push 改交叉**：`(l->left, r->right)`、`(l->right, r->left)`（外側對外側、內側對內側）。pop 後的三個判斷一字不改。所以寫 iterative 時要驗證的只有「配對規則」，這也說明 100/101 的本質都是**同步走兩個指標**（見 `Data_Structures/Trees/DFS.md`），recursive 與 iterative 只是 call stack 顯式或隱式的差別。
+- 108（不用另練解法，要練的是下一題）：「取中點當 root、左半建左子樹、右半建右子樹」就是這題唯一值得記的解法，O(n)。iterative（stack 放 `(node, lo, hi)`）只是把遞迴手動展開，沒有新觀念，不必練。偶數長度時取左中或右中都對（題目允許多解），重點是**區間定義一開始就定死**（`[lo, hi)` 半開 → `lo == hi` 回 null，見 `Algorithms/Divide_and_Conquer/03_Interval_Design_in_Divide_and_Conquer.md`）。真正「換一個解法」的是 **109 Convert Sorted List to BST**：linked list 不能 O(1) 取中點，改成先算長度、照 **inorder 順序**遞迴建樹，外部指標每建一個節點就往前走一步，O(n)，也就是 `Algorithms/Divide_and_Conquer/06_External_State_Traversal_Order.md` 在講的：遞迴區間管結構，外部指標管取值。
+
+---
+
 ## 2026-09-23
 
 - 35. Search Insert Position

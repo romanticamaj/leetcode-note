@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：61 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：64 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -102,9 +102,9 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Binary Tree General (14)
 
 - [x] **104.** [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
-- [ ] **100.** [Same Tree](https://leetcode.com/problems/same-tree/) — `Easy`
+- [x] **100.** [Same Tree](https://leetcode.com/problems/same-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [x] **226.** [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
-- [ ] **101.** [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) — `Easy`
+- [x] **101.** [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [x] **105.** [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **106.** [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) — `Medium`
 - [ ] **117.** [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/) — `Medium`
@@ -162,7 +162,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 ## Divide & Conquer (4)
 
-- [ ] **108.** [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) — `Easy`
+- [x] **108.** [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [ ] **148.** [Sort List](https://leetcode.com/problems/sort-list/) — `Medium`
 - [ ] **427.** [Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/) — `Medium`
 - [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>✔ 2026-09-15</sub>

@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：60 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：62 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -33,11 +33,11 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 - [ ] **94.** [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) — `Easy`
 - [x] **98.** [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **101.** [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) — `Easy`
+- [x] **101.** [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [x] **102.** [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **104.** [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [x] **105.** [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **108.** [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) — `Easy`
+- [x] **108.** [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [ ] **114.** [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) — `Medium`
 - [x] **199.** [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **226.** [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
