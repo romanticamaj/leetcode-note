@@ -60,6 +60,8 @@ bool isValid() {
 
 引入計數變量追蹤「已滿足的獨立條件數量」，將驗證從 O(k) 降為 O(1)。
 
+> 下面的範例是「update 放在 fix 裡、`formed` 會減」的寫法。另一種寫法是 fix 只丟多餘的元素、update 在 fix 後、`formed` 只增不減，見 [03-Fix_Condition_from_Invariant.md](03-Fix_Condition_from_Invariant.md)。計數器的設計（只在狀態轉換時更新）兩種寫法都適用。
+
 ### 實現模式
 
 ```cpp
@@ -124,5 +126,6 @@ for (int left = 0, right = 0; right < s.size(); right++) {
 
 - **[00-Sliding_Window_Standard_Template.md](00-Sliding_Window_Standard_Template.md)** — 標準模板、update 時機、Fixed window
 - **[02-Sorted_Sliding_Window.md](02-Sorted_Sliding_Window.md)** — 窗口內需維持有序時的變體（Ordered Set）
+- **[03-Fix_Condition_from_Invariant.md](03-Fix_Condition_from_Invariant.md)** — 進階：從不變量推 fix 條件
 - **[Frequency_Matching_Counting_Invariant](../../Data_Structures/Hash_Tables/Frequency_Matching_Counting_Invariant.md)** — 頻率匹配的計數不變量
 - **[Sliding_Window_Frequency_Matching_Playbook](../../Checklists/Trick%20Practice/Sliding_Window_Frequency_Matching_Playbook.md)** — 專題練習

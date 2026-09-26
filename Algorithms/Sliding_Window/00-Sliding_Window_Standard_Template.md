@@ -117,6 +117,8 @@ for (right...) {
 | **求最大窗口** | fix **後** | 窗口有效且已最大化 |
 | **求最小窗口** | fix **中** | 找到有效窗口後嘗試縮小 |
 
+> 進階：求最小窗口也可以把 update 放在 fix **後**，改成「移掉左端仍合法就縮」，見 [03-Fix_Condition_from_Invariant.md](03-Fix_Condition_from_Invariant.md)。
+
 ## 7. 特定類型：Fixed Window Size
 
 固定長度窗口：在右側添加一個元素，同時在左側移除一個元素以維持窗口長度不變。
@@ -145,3 +147,4 @@ for (right...) {
 
 - **[01-Constraint_Tracking_and_Optimization.md](01-Constraint_Tracking_and_Optimization.md)** — 雙 Hashmap 設計、Counter Variable 優化（O(n×k) → O(n)）
 - **[02-Sorted_Sliding_Window.md](02-Sorted_Sliding_Window.md)** — 窗口內需維持有序時的變體（Ordered Set）
+- **[03-Fix_Condition_from_Invariant.md](03-Fix_Condition_from_Invariant.md)** — 進階：從不變量推 fix 條件，求最短也能 update 在 fix 後

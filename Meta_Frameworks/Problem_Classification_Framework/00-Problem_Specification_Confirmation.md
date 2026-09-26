@@ -3,6 +3,8 @@
 > 在動手設計演算法之前，先確認「我到底在解什麼問題」，
 > 避免隱含假設、誤讀規格，確保解法落在正確的問題空間。
 
+> **📌 定位：這份是面試開場跟面試官對齊規格用的溝通清單。** 平常練習不用跑完五步，只要寫一行展開後的 `ANSWER`，見 [Problem_Solving_Process_and_Assumption_Checklist.md](../../Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md) 第 1 步。
+
 ---
 
 ## 核心精神
