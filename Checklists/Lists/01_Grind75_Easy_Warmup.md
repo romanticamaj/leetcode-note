@@ -21,7 +21,7 @@
 - [ ] 704. Binary Search — *Binary Search* · 15 min
 - [ ] 733. Flood Fill — *Graph DFS* · 20 min
 - [ ] 235. Lowest Common Ancestor of a BST — *BST* · 20 min ✅
-- [x] 110. Balanced Binary Tree — *Tree DFS* · 15 min · <sub>✔ 2026-09-25</sub>
+- [x] 110. Balanced Binary Tree — *Tree DFS* · 15 min · <sub>✔ 2026-09-24</sub>
 - [x] 141. Linked List Cycle — *Fast/Slow Pointer* · 20 min ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] 232. Implement Queue using Stacks — *Stack Design* · 20 min
 

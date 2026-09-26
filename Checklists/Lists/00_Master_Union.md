@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：71 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：77 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -47,7 +47,7 @@ Easy 8 · Medium 25 · Hard 4
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-15</sub>
 - [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-15</sub>
 - [x] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-18</sub>
-- [ ] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub> ✅
+- [x] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-25</sub>
 - [ ] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>NC · G75 · TI150 · H100</sub>
 
 ## 🔥🔥🔥 三份有 — 高共識 (35 題)
@@ -100,15 +100,15 @@ Easy 13 · Medium 26 · Hard 5
 - [x] **100.** [Same Tree](https://leetcode.com/problems/same-tree/) — `Easy` · <sub>NC · TI150</sub> · <sub>✔ 2026-09-24</sub>
 - [x] **101.** [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) — `Easy` · <sub>TI150 · H100</sub> · <sub>✔ 2026-09-24</sub>
 - [x] **108.** [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) — `Easy` · <sub>TI150 · H100</sub> · <sub>✔ 2026-09-24</sub>
-- [x] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy` · <sub>NC · G75</sub> · <sub>✔ 2026-09-25</sub>
-- [ ] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` · <sub>NC · TI150</sub> ✅
-- [ ] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` · <sub>NC · TI150</sub> ✅
-- [ ] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` · <sub>NC · TI150</sub> ✅
+- [x] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy` · <sub>NC · G75</sub> · <sub>✔ 2026-09-24</sub>
+- [x] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` · <sub>NC · TI150</sub> ✅ · <sub>✔ 2026-09-26</sub>
+- [x] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` · <sub>NC · TI150</sub> ✅ · <sub>✔ 2026-09-26</sub>
+- [x] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` · <sub>NC · TI150</sub> ✅ · <sub>✔ 2026-09-26</sub>
 - [ ] **217.** [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — `Easy` · <sub>NC · G75</sub>
 - [ ] **383.** [Ransom Note](https://leetcode.com/problems/ransom-note/) — `Easy` · <sub>G75 · TI150</sub>
 - [ ] **704.** [Binary Search](https://leetcode.com/problems/binary-search/) — `Easy` · <sub>NC · G75</sub>
-- [ ] **34.** [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) — `Medium` · <sub>TI150 · H100</sub>
-- [ ] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` · <sub>NC · TI150</sub> ✅
+- [x] **34.** [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) — `Medium` · <sub>TI150 · H100</sub> · <sub>✔ 2026-09-26</sub>
+- [x] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` · <sub>NC · TI150</sub> ✅ · <sub>✔ 2026-09-26</sub>
 - [ ] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium` · <sub>NC · TI150</sub>
 - [ ] **64.** [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) — `Medium` · <sub>TI150 · H100</sub>
 - [ ] **75.** [Sort Colors](https://leetcode.com/problems/sort-colors/) — `Medium` · <sub>G75 · H100</sub> ✅

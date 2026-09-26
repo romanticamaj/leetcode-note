@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：65 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：70 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -17,7 +17,7 @@
 - [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅
 - [ ] **271.** [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) 🔒 — `Medium`
 - [x] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` ✅ · <sub>✔ 2026-09-15</sub>
-- [ ] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` ✅
+- [x] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 
 ## Two Pointers (5)
@@ -34,7 +34,7 @@
 - [x] **3.** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) — `Medium` · <sub>✔ 2026-09-04</sub>
 - [ ] **424.** [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) — `Medium` ✅
 - [ ] **567.** [Permutation in String](https://leetcode.com/problems/permutation-in-string/) — `Medium` ✅
-- [ ] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` ✅
+- [x] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` ✅ · <sub>✔ 2026-09-25</sub>
 - [ ] **239.** [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) — `Hard`
 
 ## Stack (6)
@@ -75,7 +75,7 @@
 - [x] **226.** [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [x] **104.** [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [x] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-16</sub>
-- [x] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy` · <sub>✔ 2026-09-25</sub>
+- [x] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [x] **100.** [Same Tree](https://leetcode.com/problems/same-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [ ] **572.** [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) — `Easy` ✅
 - [ ] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` ✅
@@ -196,7 +196,7 @@
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
 - [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
-- [ ] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅
+- [x] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [ ] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium`
 - [ ] **43.** [Multiply Strings](https://leetcode.com/problems/multiply-strings/) — `Medium`
@@ -205,9 +205,9 @@
 ## Bit Manipulation (7)
 
 - [x] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>✔ 2026-09-16</sub>
-- [ ] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅
+- [x] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [ ] **338.** [Counting Bits](https://leetcode.com/problems/counting-bits/) — `Easy`
-- [ ] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅
+- [x] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [ ] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — `Easy`
 - [ ] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium`
 - [ ] **7.** [Reverse Integer](https://leetcode.com/problems/reverse-integer/) — `Medium` ✅

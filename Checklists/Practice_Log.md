@@ -2,16 +2,48 @@
 
 ---
 
+## 2026-09-26
+
+- 190. Reverse Bits
+- 191. Number of 1 Bits
+- 202. Happy Number
+- 34. Find First and Last Position of Element in Sorted Array
+- 36. Valid Sudoku
+
+**心得**：
+- 190：有需要練 divide and conquer 嗎？還是留著之後 follow-up 就好？divide and conquer 會變成 medium 到 hard。
+- 191：跟 190 之後一起排 follow-up：divide and conquer 和 fixed precalculated（查表）。
+- 36：
+  - 這題超級白痴的。題目只有問數獨是否合法，不是有沒有解（合法也不一定要有解），結果一開始就跳下去做 backtracking 看有沒有解。
+  - 合法狀態發生的條件，就是那三個限制沒有出現重複的，所以直覺用 hash map 一次就可以做完了。
+  - 主要的流程概念拆解應該是：暴力法（brute force）的時間會到 N 三次方，然後可以用 hash map 降到 N 平方。
+  - 一開始題目搞錯了，後面花了超多時間都是浪費的，直接把 medium 變 hard，而且還不會通過，因為根本搞錯題目了。
+
+**LLM 點評**：
+model: Opus 5.5
+- 190（不用練，知道一句話就夠）：這裡的 divide and conquer 不是會把題目升級成 medium/hard 的那種遞迴分治，而是固定 5 行的 bit trick：先交換左右 16 bits，再用 mask 在每一半裡交換 8 bits、4、2、1（`0xFF00FF00`、`0xF0F0F0F0`、`0xCCCCCCCC`、`0xAAAAAAAA`），O(log w) 次操作、沒有迴圈。它屬於「背 mask」的技巧，不是可遷移的思考方式，練了 CP 味道重、面試回報低。面試官對這題常見的 follow-up 是「被呼叫很多次怎麼優化」，比較好講的答案是**查表**：預先算好 256 個 byte 的反轉結果，每次拆成 4 個 byte 查表再拼回去。能口頭講出「查表」和「mask 分治交換」這兩句就夠，不用實作。同一組 mask 也用在 191 Number of 1 Bits 的 popcount follow-up，真的想練時兩題一起看。
+- 36（「合法」被換成了「可解」）：動詞沒讀錯，錯在把「合法」的定義換成了自己的直覺。題目明確定義了合法：已填的格子在行、列、宮裡沒有重複，Note 還特地寫了 *valid but not necessarily solvable*。但數獨的日常語感是「合法 = 能解完」，這個直覺蓋過了題目的定義，目標就從「檢查約束」變成「搜尋一個解」，backtracking 是被錯的目標帶出來的。教訓：**題目有自己定義的詞（valid、balanced、happy…），就照字面用它的定義，不要帶入領域常識**；開始設計前，先把「合法」改寫成可以直接檢查的條件（這題是「三組 set 都沒有重複」），寫得出來，目標就不會跑掉。解法本身：三組 set（row、col、box），box 編號 `(r / 3) * 3 + c / 3`，每格查一次。複雜度你的分析是對的（每格掃整行整列整宮是 O(N³)，hash 是 O(N²)），但面試時可以補一句：棋盤固定 9×9，嚴格說兩者都是 O(1)，N² 是對一般 N×N 的推廣。
+
+---
+
 ## 2026-09-25
 
+- 76. Minimum Window Substring
 - 110. Balanced Binary Tree
 
 **心得**：
-- 把「遞迴」跟「全局追蹤」兩個狀態拆開，比較簡單直覺。
-- 但是可以嘗試另一個做法，都用 return value 來處理，但是因為兩個狀態，所以實務上拆兩個遞迴式比較好實作。
+- 76：
+  - 大概念是：hashmap 跟 `matchCount`，我是用我最熟悉的心法 expand → fix → update 來想。一直卡在 fix 要怎麼設計，一直設計不出來。
+  - 主要概念就是我希望 expand 之後，要可以有效的 fix，就想到要看 window 最左邊的人，而最左邊的人只有兩種可能：在 target 或不在 target。
+  - 問題被收斂到：他是否值得移除？如果不在 target，當然就無腦移除；如果在，就要確認數量是不是有貢獻最終的合法 window，沒有貢獻，就可以安全移除。
+  - 最後歸納下來是滿簡單的……但是這個過程繞了滿多的＠＠
+- 110：
+  - 把「遞迴」跟「全局追蹤」兩個狀態拆開，比較簡單直覺。
+  - 但是可以嘗試另一個做法，都用 return value 來處理，但是因為兩個狀態，所以實務上拆兩個遞迴式比較好實作。
 
 **LLM 點評**：
 model: Opus 5.5 (1M context)
+- 76（你的框架不用換，要重新定義的是 fix）：我一開始的提示推你改成「while 合法就縮、update 放在 fix 裡」那套，其實沒必要。expand → fix → update 對求最短一樣成立，只要把 fix 定義成「**丟掉左邊多餘的字元**」：`while (多餘(s[i])) { counting[s[i]]--; i++; }`，fix 完就是以 `j` 結尾的最短窗口，update 照樣放在 fix 後面。關鍵是把「在不在 t 裡」換成「**砍掉它還 match 嗎**」→ `counting[x] > target[x]`（不在 t 裡的字元，需要量是 0，自動涵蓋）。因為只丟多餘的字元，窗口不會被砍到不合法，`matchCount` 全程只增不減：**fix 管最短，`matchCount` 管合法**，兩件事分開。實作陷阱：`target[x]` 對不存在的 key 會插入 0，讓 `target.size()` 變大，你用 `!target.contains(x) ||` 短路避開了。過程中的 bug：`while` 條件寫成 `matchCount == target.size()`（迴圈裡不會變，一路砍到空）、每輪覆寫答案沒比大小、用迴圈結束時的 `i`/`j` 切答案。最終版：update 只在合法且更短時記 `start` + `length`，最後切一次。
 - 110（「拆兩個遞迴式」要看怎麼拆）：如果是 `isBalanced(root)` 每層呼叫 `height(left)`、`height(right)` 再遞迴自己，每個節點的高度會被重算，**worst case（歪斜樹）O(n²)**，這是這題的經典陷阱，面試會被追問。你的「height 遞迴 + 全局 flag」是 O(n)，沒問題。
 - 110（兩個狀態用一個 return value 帶）：不用拆，用**哨兵值編碼**：`height()` 回 `-1` 代表「這棵子樹已經不平衡」，否則回真實高度。子樹是 `-1` 或 `abs(l - r) > 1` 就往上傳 `-1`。高度永遠 `>= 0`，所以 `-1` 不會跟合法值撞，一個 `int` 就同時帶了「高度」跟「是否平衡」，還能提早剪枝。判斷準則：第二個狀態是**「失敗了就不用再算」的 bool**時，把它塞進回傳值的不可能區域；兩個狀態都是**獨立的真實數值**（例如 543 直徑要回傳高度、同時更新全局最長路徑）時，才用 `pair` 或全局變數。
 
@@ -22,17 +54,20 @@ model: Opus 5.5 (1M context)
 - 100. Same Tree
 - 101. Symmetric Tree
 - 108. Convert Sorted Array to Binary Search Tree
+- 110. Balanced Binary Tree
 
 **心得**：
 - 100：有需要做 queue iterative 版本嗎？
 - 101：這次可以做 iterative 版本了？
 - 108：需要做其他解法嗎？
+- 110：多嘗試了雙遞迴，從定義設計去解決（balanced ⇔ 左右子樹都 balanced 且高度差 <= 1，所以需要 `isBalanced` 跟 `height` 兩個遞迴），我覺得不錯，但是需注意時間分析。
 
 **LLM 點評**：
 model: Opus 5.5 (1M context)
 - 100（iterative 要不要練）：不必當成另一題練。recursive 就是這題的標準答案：base case 是「兩個都 null → true；只有一個 null 或 `val` 不同 → false」，然後 `left && right`。iterative 版本只是把**同一段比較搬進迴圈**：queue（或 stack）裡放 `pair<TreeNode*, TreeNode*>`，pop 出來做一模一樣的三個判斷，再成對 push `(p->left, q->left)`、`(p->right, q->right)`。重點是「**成對**入隊」，不是 BFS 本身，所以 queue 還是 stack 都行。值得會寫的理由只有一個：面試官 follow-up「樹很深會 stack overflow 怎麼辦」時能當場改寫。會了 101 Symmetric Tree（成對 push 改成交叉：`(l->left, r->right)`、`(l->right, r->left)`）就等於一起練到了。
 - 101（對，這題就是練 iterative 的時機）：跟 100 是同一個骨架，只改兩處：① **起點**是一棵樹拆成兩半，push `(root->left, root->right)`，不是兩棵樹；② **成對 push 改交叉**：`(l->left, r->right)`、`(l->right, r->left)`（外側對外側、內側對內側）。pop 後的三個判斷一字不改。所以寫 iterative 時要驗證的只有「配對規則」，這也說明 100/101 的本質都是**同步走兩個指標**（見 `Data_Structures/Trees/DFS.md`），recursive 與 iterative 只是 call stack 顯式或隱式的差別。
 - 108（不用另練解法，要練的是下一題）：「取中點當 root、左半建左子樹、右半建右子樹」就是這題唯一值得記的解法，O(n)。iterative（stack 放 `(node, lo, hi)`）只是把遞迴手動展開，沒有新觀念，不必練。偶數長度時取左中或右中都對（題目允許多解），重點是**區間定義一開始就定死**（`[lo, hi)` 半開 → `lo == hi` 回 null，見 `Algorithms/Divide_and_Conquer/03_Interval_Design_in_Divide_and_Conquer.md`）。真正「換一個解法」的是 **109 Convert Sorted List to BST**：linked list 不能 O(1) 取中點，改成先算長度、照 **inorder 順序**遞迴建樹，外部指標每建一個節點就往前走一步，O(n)，也就是 `Algorithms/Divide_and_Conquer/06_External_State_Traversal_Order.md` 在講的：遞迴區間管結構，外部指標管取值。
+- 110（雙遞迴的時間，`O(n²)?` 其實猜鬆了）：這版是 top-down，成本 = 每個「被走到的節點」各付一次 `height` = 其子樹大小。但 `&&` 會**先檢查高度差、失敗就短路**，所以最常被舉的「歪斜鏈」反而在 root 就 return false，只花 O(n)；完全平衡樹則是每層 O(n) × O(log n) 層 = **O(n log n)**。真正的上界：一個節點 x 被重算的次數 = 它「通過檢查」的祖先數 k；每個通過的祖先，另一側子樹高度至少要跟 x 這側差不到 1，這些旁支互不重疊，總節點數 ≳ k²/2 ≤ n，所以 k = O(√n)，最壞 **Θ(n√n)**，不是 O(n²)。面試時說「O(n·h)，平衡時 O(n log n)」最穩。那段 `looks lots of redundant` 的直覺是對的：重算來自「高度」和「是否平衡」分兩趟算，合成一趟就是 09-25 點評講的 `-1` 哨兵 bottom-up，O(n)。定義先寫出雙遞迴、再看出重算、再融合，這個推導順序本身就是面試想看的。
 
 ---
 

@@ -62,6 +62,14 @@
 
 ---
 
+## 🧮 位元運算 (Bit Manipulation)
+
+- [ ] **follow-up（190 + 191 一起做）**：[190. Reverse Bits](https://leetcode.com/problems/reverse-bits/)、[191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)
+  - **divide and conquer（mask 分治）**：用 `0x55555555`、`0x33333333`、`0x0F0F0F0F`… 這組 mask，190 是在每一層交換左右半，191 是在每一層把左右半的 1 的個數相加
+  - **fixed precalculated（查表）**：預先算好 256 格的 byte 表（190 存反轉結果、191 存 1 的個數），每次拆成 4 個 byte 查表再合併
+
+---
+
 ## ⚙️ 其他
 
 - [ ] **比較**: 在貪婪演算法的脈絡下，深入比較 Bucket Sort 與傳統比較排序 (如 `std::sort`) 和堆 (Heap) 的使用時機與複雜度。

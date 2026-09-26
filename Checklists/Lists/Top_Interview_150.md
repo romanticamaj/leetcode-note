@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：64 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：70 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -48,11 +48,11 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **209.** [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) — `Medium`
 - [x] **3.** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) — `Medium` · <sub>✔ 2026-09-04</sub>
 - [ ] **30.** [Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/) — `Hard`
-- [ ] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` ✅
+- [x] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` ✅ · <sub>✔ 2026-09-25</sub>
 
 ## Matrix (5)
 
-- [ ] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` ✅
+- [x] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
@@ -66,7 +66,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅ · <sub>✔ 2026-09-18</sub>
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅
+- [x] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [ ] **219.** [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/) — `Easy`
 - [x] **128.** [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 
@@ -178,7 +178,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium` · <sub>✔ 2026-09-20</sub>
 - [ ] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium`
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
-- [ ] **34.** [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) — `Medium`
+- [x] **34.** [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) — `Medium` · <sub>✔ 2026-09-26</sub>
 - [x] **153.** [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [ ] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` ✅
 
@@ -192,8 +192,8 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Bit Manipulation (6)
 
 - [x] **67.** [Add Binary](https://leetcode.com/problems/add-binary/) — `Easy` · <sub>✔ 2026-09-23</sub>
-- [ ] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅
-- [ ] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅
+- [x] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
+- [x] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [ ] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` ✅
 - [ ] **201.** [Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/) — `Medium`
