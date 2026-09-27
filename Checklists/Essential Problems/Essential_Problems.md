@@ -82,7 +82,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 218. The Skyline Problem
 - LeetCode 190. Reverse Bits
 - LeetCode 191. Number of 1 Bits
-- 🟡 22. Generate Parentheses
+- 🟡 LeetCode 22. Generate Parentheses
+- 🟢 🟡 LeetCode 50. Pow(x, n)
 
 ## Union Find
 

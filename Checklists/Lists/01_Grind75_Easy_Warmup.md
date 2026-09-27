@@ -5,7 +5,7 @@
 - 目標：每題 **15–20 分鐘內** 從頭寫完、一次 AC、不查資料
 - 超過 20 分鐘 → 標 ⚠️，代表那個技法生鏽了，回去看 `Algorithms/<技法>/` 的心法
 - 建議節奏：**每天 4 題，6 天做完**
-- **已刷：15 / 24**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄，仍建議重寫一次計時）
+- **已刷：17 / 24**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄，仍建議重寫一次計時）
 
 ---
 
@@ -28,7 +28,7 @@
 ## Week 2 (11 題)
 
 - [ ] 278. First Bad Version — *Binary Search* · 20 min
-- [ ] 383. Ransom Note — *Hash Table* · 15 min
+- [x] 383. Ransom Note — *Hash Table* · 15 min · <sub>✔ 2026-09-27</sub>
 - [x] 70. Climbing Stairs — *DP 1-D* · 20 min · <sub>✔ 2026-09-04</sub>
 - [ ] 409. Longest Palindrome — *Hash Table / Greedy* · 20 min ✅
 - [x] 206. Reverse Linked List — *Linked List* · 20 min · <sub>✔ 2026-09-16</sub>
@@ -37,7 +37,7 @@
 - [x] 543. Diameter of Binary Tree — *Tree DFS 回傳值設計* · 30 min · <sub>✔ 2026-09-16</sub>
 - [ ] 876. Middle of the Linked List — *Fast/Slow Pointer* · 20 min
 - [x] 104. Maximum Depth of Binary Tree — *Tree DFS* · 15 min · <sub>✔ 2026-09-05</sub>
-- [ ] 217. Contains Duplicate — *Hash Set* · 15 min
+- [x] 217. Contains Duplicate — *Hash Set* · 15 min · <sub>✔ 2026-09-27</sub>
 
 ---
 

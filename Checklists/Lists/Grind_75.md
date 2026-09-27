@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：51 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：54 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -27,7 +27,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 ## Week 2 (12)
 
 - [ ] **278.** [First Bad Version](https://leetcode.com/problems/first-bad-version/) — `Easy`
-- [ ] **383.** [Ransom Note](https://leetcode.com/problems/ransom-note/) — `Easy`
+- [x] **383.** [Ransom Note](https://leetcode.com/problems/ransom-note/) — `Easy` · <sub>✔ 2026-09-27</sub>
 - [x] **70.** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [ ] **409.** [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) — `Easy` ✅
 - [x] **206.** [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — `Easy` · <sub>✔ 2026-09-16</sub>
@@ -36,7 +36,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [ ] **876.** [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) — `Easy`
 - [x] **104.** [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
-- [ ] **217.** [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — `Easy`
+- [x] **217.** [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — `Easy` · <sub>✔ 2026-09-27</sub>
 - [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 
 ## Week 3 (8)
@@ -100,7 +100,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` ✅ · <sub>✔ 2026-09-25</sub>
 - [ ] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — `Hard` ✅
 - [x] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` ✅ · <sub>✔ 2026-09-18</sub>
-- [ ] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard`
+- [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>✔ 2026-09-27</sub>
 - [ ] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard`
 - [ ] **224.** [Basic Calculator](https://leetcode.com/problems/basic-calculator/) — `Hard`
 - [ ] **1235.** [Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) — `Hard`

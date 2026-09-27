@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：70 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：74 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -60,7 +60,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 ## Hashmap (9)
 
-- [ ] **383.** [Ransom Note](https://leetcode.com/problems/ransom-note/) — `Easy`
+- [x] **383.** [Ransom Note](https://leetcode.com/problems/ransom-note/) — `Easy` · <sub>✔ 2026-09-27</sub>
 - [ ] **205.** [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) — `Easy`
 - [ ] **290.** [Word Pattern](https://leetcode.com/problems/word-pattern/) — `Easy`
 - [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
@@ -187,7 +187,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [ ] **502.** [IPO](https://leetcode.com/problems/ipo/) — `Hard`
 - [ ] **373.** [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) — `Medium` ✅
-- [ ] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard`
+- [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>✔ 2026-09-27</sub>
 
 ## Bit Manipulation (6)
 
@@ -204,7 +204,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [ ] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium`
 - [ ] **69.** [Sqrt(x)](https://leetcode.com/problems/sqrtx/) — `Easy`
-- [ ] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium`
+- [x] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium` · <sub>✔ 2026-09-27</sub>
 - [ ] **149.** [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) — `Hard`
 
 ## 1D DP (5)
@@ -218,7 +218,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Multidimensional DP (9)
 
 - [ ] **120.** [Triangle](https://leetcode.com/problems/triangle/) — `Medium`
-- [ ] **64.** [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) — `Medium`
+- [x] **64.** [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) — `Medium` · <sub>✔ 2026-09-27</sub>
 - [ ] **63.** [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) — `Medium`
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅

@@ -4,13 +4,13 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：70 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：73 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
 ## Arrays & Hashing (9)
 
-- [ ] **217.** [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — `Easy`
+- [x] **217.** [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — `Easy` · <sub>✔ 2026-09-27</sub>
 - [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅ · <sub>✔ 2026-09-18</sub>
@@ -96,7 +96,7 @@
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [ ] **621.** [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — `Medium`
 - [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium`
-- [ ] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard`
+- [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>✔ 2026-09-27</sub>
 
 ## Backtracking (10)
 
@@ -198,7 +198,7 @@
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [x] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
-- [ ] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium`
+- [x] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium` · <sub>✔ 2026-09-27</sub>
 - [ ] **43.** [Multiply Strings](https://leetcode.com/problems/multiply-strings/) — `Medium`
 - [ ] **2013.** [Detect Squares](https://leetcode.com/problems/detect-squares/) — `Medium`
 

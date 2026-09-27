@@ -9,6 +9,9 @@
 - [ ] **比較**：比較 Morris Traversal 與標準遞迴/迭代 traversal 的優缺點。
 - [ ] **學習**：研究 Min-Max Heap 和 Deap (Double-ended heap) 資料結構，了解其如何同時高效支援查找最小和最大元素。
 - [ ] 子樹雜湊（Merkle hashing）/ Tree hashing
+- [ ] **follow-up（295 Approach 4）**：[295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) 用 **`multiset` + 中位數 iterator** 取代 two heaps。`std::multiset` 底層是自平衡 BST（紅黑樹），插入 O(log n)；維護一到兩個指向中間的 iterator，每次插入後依新值落在左邊或右邊，把 iterator 往前或往後移一格。
+  - 比較：two heaps 只能看兩個堆頂；ordered set 整組有序，所以能**刪除任意元素** → 直接推到 [480. Sliding Window Median](https://leetcode.com/problems/sliding-window-median/)
+  - 相關筆記：`Algorithms/Sliding_Window/02-Sorted_Sliding_Window.md`（Ordered Set 版窗口）、`Data_Structures/Heaps/04-Two_Heaps_Balancing.md`
 
 ---
 

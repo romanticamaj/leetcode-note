@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：64 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：66 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -51,7 +51,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **32.** [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) — `Hard` ✅
 - [x] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium` · <sub>✔ 2026-09-19</sub>
-- [ ] **64.** [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) — `Medium`
+- [x] **64.** [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) — `Medium` · <sub>✔ 2026-09-27</sub>
 - [x] **70.** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **118.** [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) — `Easy`
@@ -87,7 +87,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 ## Heap (3)
 
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
-- [ ] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard`
+- [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>✔ 2026-09-27</sub>
 - [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅
 
 ## Linked Lists (14)

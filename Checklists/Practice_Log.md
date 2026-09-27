@@ -2,6 +2,33 @@
 
 ---
 
+## 2026-09-27
+
+- 217. Contains Duplicate
+- 383. Ransom Note
+- 50. Pow(x, n)
+- 64. Minimum Path Sum
+- 295. Find Median from Data Stream
+
+**心得**：
+- 383：看了解答後，他的時間複雜度可以設計在 O(m)，不是我們的 O(max(m, n))，因為他多了長度比較：如果 ransom 比 magazine 長的話，一定組不出來，就直接回傳。
+- 50：
+  - recursive divide and conquer 寫完，還是超時，現在要考什麼？
+  - 這題一直給提示，而且其實蠻多 edge case 的坑。要處理的包括：1. 負數的反轉值域；2. 遞迴深度超過，需要用 subproblem 的問題。
+- 295：
+  - 因為之前寫過了，是很經典的 two heaps 問題，所以就是順順把它想出來。你一定要先知道時間的 bottleneck 在哪，還有 invariant 的設計是最重要的。
+  - 我的第一版還漏了一個很大的問題：沒有先把 max heap（左邊）的 top 跟插入的值比較，找出比較大的那個再插入右邊，然後才去 rebalance 來 maintain invariant。一開始就直接插入右邊，會導致我的 invariant 被 break，也就是左邊的 heap 裡不總是放左半部比較小的元素。因為如果先插到右邊，就會有元素插錯位置，導致有 test case 不會過。
+
+**LLM 點評**：
+model: Opus 5.5
+- 383（長度檢查不會讓複雜度變成 O(m)）：early return 只處理 `m > n` 的情況；`m <= n` 時還是得把 magazine 整個數完，O(m + n) = O(n)，所以整體仍是 O(m + n)（跟 O(max(m, n)) 是同一件事）。長度檢查是常數級的捷徑，不是複雜度的改進。而且 O(n) 是下界：你需要的那個字母可能就在 magazine 最後一格，不讀完無法確定。能改的只有「提前結束」：先數 ransom（O(m)），再掃 magazine 扣需求，需求歸零就停，平均快一些，最壞還是 O(n)。
+- 383（真正的 bug：`array<int, 26> counts;` 沒有初始化）：區域變數的 `std::array<int, N>` 不會自動歸零，裡面是垃圾值，能過是運氣。要寫 `array<int, 26> counts{};`（或 `= {}`）。`int cnt[26];` 也一樣，要寫 `int cnt[26] = {};`；`vector<int>(26)` 才會自動歸零。
+- 50（只給提示，未給解）：① 超時的原因：`myPow(x, n / 2) * myPow(x, n / 2)` 呼叫了**兩次**同一個子問題，遞迴式是 T(n) = 2T(n/2) + O(1)，展開後是 O(n)，不是 O(log n)，跟暴力法一樣。問自己：同一個值需要算兩次嗎？② 修好之後的下一個坑：`n` 的範圍是 `[-2³¹, 2³¹ - 1]`，`n = INT_MIN` 時 `-n` 是多少？③ 這題要考的是**快速冪**（binary exponentiation）：每一層把指數砍半，只算一次子問題，再依奇偶決定要不要多乘一個 `x`。會了遞迴版之後，可以想想 iterative 版怎麼用 `n` 的二進位表示來做。
+- 50（通過，修正一個說法）：超時不是「遞迴深度超過」，深度一直都是 O(log n)；問題是同一個子問題算了兩次，**呼叫次數**變成 O(n)。存成 `cache` 只算一次，就回到 T(n) = T(n/2) + O(1) = O(log n)。`INT_MIN` 用 `1 / (x^INT_MAX · x)` 繞過是對的；另一個常見寫法是先轉 `long long` 再取負號（`CPP_Reference/Type/Integer_Overflow_Prevention.md` 場景六就是用這題當範例）。快速冪（遞迴版、迭代版、陷阱）整理在 `Algorithms/Math/Fast_Exponentiation.md`。
+- 295（正確，而且第一版的 bug 有名字）：`Data_Structures/Heaps/04-Two_Heaps_Balancing.md` 把這題拆成兩個不變式：**分割**（左邊全部 ≤ 右邊全部）和**平衡**（`left.size() == right.size()` 或多 1），對應三步「插入 → 轉移 → 再平衡」。你第一版直接插右邊，就是跳過了「轉移」這一步，所以壞掉的是分割不變式，不是大小。你最後的版本等價於筆記的模板：筆記是無條件 `left.push(num)` 再把 `left.top()` 移到右邊，你用 `if (left.top() > num)` 只在需要時才繞一圈，省一組 push/pop；無條件版少一個分支、比較不會寫錯，兩者都 O(log n)。註解裡 `always add to heap 2` 要改成「把 `max(num, left.top())` 加到 heap 2」，不然下次讀會以為是第一版。小細節：`right.top() + left.top()` 是 `int` 相加，這題值域 ±10⁵ 不會溢位，一般情況先轉 `double` 或 `long long` 再加比較保險。
+
+---
+
 ## 2026-09-26
 
 - 190. Reverse Bits

@@ -74,6 +74,10 @@
 
 ## Data Structures
 
+### Hash Set (Seen-Set)
+
+- LeetCode 217. Contains Duplicate
+
 ### Monotonic Stack
 
 ### Prefix Sum
