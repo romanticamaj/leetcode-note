@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：73 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：75 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -48,7 +48,7 @@
 
 ## Binary Search (7)
 
-- [ ] **704.** [Binary Search](https://leetcode.com/problems/binary-search/) — `Easy`
+- [x] **704.** [Binary Search](https://leetcode.com/problems/binary-search/) — `Easy` · <sub>✔ 2026-09-28</sub>
 - [x] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium` · <sub>✔ 2026-09-20</sub>
 - [ ] **875.** [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) — `Medium`
 - [x] **153.** [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
@@ -164,7 +164,7 @@
 - [ ] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium`
 - [ ] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium`
 - [ ] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` ✅
-- [ ] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅
+- [x] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
 - [ ] **329.** [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — `Hard`
 - [ ] **115.** [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) — `Hard`
 - [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>

@@ -35,6 +35,8 @@ int randomizedPartition(vector<int>& nums, int start, int end) {
 
 三向切分（也稱為**荷蘭國旗問題 (Dutch National Flag Problem)**）將陣列劃分為**三個**部分，而不是兩個：
 
+> 四段 invariant、`i` 為什麼換 0 前進、換 2 不動的正確性論證，見 [02-Dutch_National_Flag.md](../../Partition/02-Dutch_National_Flag.md)。
+
 - `[start...lt-1]`：所有元素都 **<** 基準值。
 - `[lt...gt]`：所有元素都 **==** 基準值。
 - `[gt+1...end-1]`：所有元素都 **>** 基準值。

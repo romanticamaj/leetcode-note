@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：66 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：67 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -146,7 +146,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [ ] **41.** [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) — `Hard`
 - [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **75.** [Sort Colors](https://leetcode.com/problems/sort-colors/) — `Medium` ✅
+- [x] **75.** [Sort Colors](https://leetcode.com/problems/sort-colors/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
 - [x] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
 - [ ] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium`

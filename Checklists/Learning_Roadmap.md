@@ -37,6 +37,11 @@
   - `tails` 為何嚴格遞增；為何同長度只留最小結尾（exchange argument：結尾越小後面能接越多）
   - 陷阱：嚴格遞增 `lower_bound` / 非遞減 `upper_bound`；`tails` 不是真正的 LIS，只有長度對
   - 延伸：354 Russian Doll Envelopes（排序後降成 LIS）、673 Number of LIS、1671 Minimum Removals to Make Mountain Array
+- [ ] **follow-up（97 Bottom-up）**：[97. Interleaving String](https://leetcode.com/problems/interleaving-string/) 2026-09-28 寫完 top-down memo 後排入。改寫成 bottom-up，再壓成一維。
+  - 狀態改講 **prefix**：`dp[i][j]` = `s1` 前 `i` 個 + `s2` 前 `j` 個能否交錯成 `s3` 前 `i+j` 個；base `dp[0][0] = true`；讀字元是 `s1[i-1]` / `s2[j-1]` / `s3[i+j-1]`
+  - 第 0 列、第 0 欄要單獨處理（只能從一個字串拿），或在轉移裡用 `i > 0` / `j > 0` 守衛
+  - 空間 O(mn) → **滾動陣列 O(n)**：`dp[j]` 更新前的值是「上一列」，`dp[j-1]` 是「這一列」；再把較短的字串放內層可到 O(min(m, n))
+  - 相關筆記：[`Data_Structures/Arrays_and_Strings/Index_as_Cut.md`](../Data_Structures/Arrays_and_Strings/Index_as_Cut.md)（suffix ↔ prefix 對照表）、`Algorithms/Dynamic_Programming/Fundamentals/03-TopDown_to_BottomUp.md`（滾動陣列）
 - [ ] **研究**：研究矩陣快速冪 (Matrix Exponentiation) 如何將線性遞迴的 DP 問題從 O(N) 優化到 O(logN)，以 Fibonacci 數為例。
 
 ---

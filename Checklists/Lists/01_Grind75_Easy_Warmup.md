@@ -5,7 +5,7 @@
 - 目標：每題 **15–20 分鐘內** 從頭寫完、一次 AC、不查資料
 - 超過 20 分鐘 → 標 ⚠️，代表那個技法生鏽了，回去看 `Algorithms/<技法>/` 的心法
 - 建議節奏：**每天 4 題，6 天做完**
-- **已刷：17 / 24**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄，仍建議重寫一次計時）
+- **已刷：18 / 24**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄，仍建議重寫一次計時）
 
 ---
 
@@ -18,7 +18,7 @@
 - [x] 125. Valid Palindrome — *Two Pointers* · 15 min ✅ · <sub>✔ 2026-09-15</sub>
 - [x] 226. Invert Binary Tree — *Tree DFS* · 15 min · <sub>✔ 2026-09-05</sub>
 - [x] 242. Valid Anagram — *Hash Table* · 15 min · <sub>✔ 2026-09-16</sub>
-- [ ] 704. Binary Search — *Binary Search* · 15 min
+- [x] 704. Binary Search — *Binary Search* · 15 min · <sub>✔ 2026-09-28</sub>
 - [ ] 733. Flood Fill — *Graph DFS* · 20 min
 - [ ] 235. Lowest Common Ancestor of a BST — *BST* · 20 min ✅
 - [x] 110. Balanced Binary Tree — *Tree DFS* · 15 min · <sub>✔ 2026-09-24</sub>

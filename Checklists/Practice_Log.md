@@ -2,6 +2,38 @@
 
 ---
 
+## 2026-09-28
+
+- 704. Binary Search
+- 75. Sort Colors
+- 97. Interleaving String
+
+**心得**：
+- 75：
+  - 腦袋當機了，在想 [sorted, unsorted]，結果直接用 insertion + swap 直接炸掉……
+  - 後來想到 [sorted, unsorted]，要 in-place，那其實是在 unsorted 內找 minimum，那就是 selection；否則整個 unsorted 要 reallocation（input 是 array，除非用 linked list）。
+  - 這個就是 insertion sort，沒有 select one then swap in 的概念，就是找到某個位置，然後其他人不能動，要把選的人 "insert"。以 array 的例子，除非額外開空間，否則要大量 reallocation，所以常見就是沒辦法 in-place。理解正確嗎？
+  - 第二次做：荷蘭國旗問題的標準解法，要使用到 input 的特性：只有 0, 1, 2。invariant：[sorted 0, unsorted, sorted 2]，`[0...left)` 是 0，`(right...n-1]` 是 2；`left` 是下一個放 0 的位置，`right` 是下一個放 2 的位置。
+  - movement：`nums[i] == 0` 跟 `left` swap，`left++`、`i++`；`== 1` 什麼都不做，`i++`；`== 2` 跟 `right` swap，`right--`，`i` 不動。
+  - search space 是 `i <= right`：每一格都要檢查，`i == right` 那格也可能沒放對（例如 `[1, 0]`）。time O(n)，space O(1)。
+- 97：
+  - Top-Down Dynamic Programming。標準可以從 dfs / backtracking / brute force 一路走到 cache 的題目，其實不好寫。尤其是這種字串類的，我好像常常搞不清楚何時是 index、何時設計 length。
+  - 像這一次 cache，其實它是有一點像 lens 的概念來做，但是 traverse 的時候是用 index 去往下遞增的。兩個混在一起之後，我反而會讓 index 跟 lens 有點搞混。然後它的 base case 是 index 越界嗎？還是兩個相加變成某一個長度的比較然後越界？我覺得好像也沒那麼清楚。
+  - Code review：1. 幾乎跟 #6 一樣；2. `if (i + j > s3.length()) return 0;` 這個 base case 是多餘的，因為開頭已排除。
+
+**LLM 點評**：
+model: Opus 5.5
+- 75（insertion sort 是 in-place 的，這個理解要修正）：[sorted | unsorted] 的框架對 selection 和 insertion 都成立，差別在**哪一邊是固定的**：selection 是「位置固定（邊界那格），去 unsorted 裡**挑人**（找 min）再 swap 進來」；insertion 是「人固定（unsorted 的第一個），去 sorted 裡**找位置**」。找位置時不需要 reallocation：先把 key 存到 temp，sorted 裡比 key 大的元素往右挪一格（或一路相鄰 swap 往左推），空出來的洞放 key。額外空間 O(1)，所以是 in-place（`Algorithms/Sorting/Comparison_Based_Sorting/03-Insertion_Sort.md` 也這樣寫）。代價是**時間**：每次插入最多挪 O(n) 格，總共 O(n²)，但這是元素搬移，不是記憶體重配。in-place 的意思是 O(1) 額外空間，不是「元素不能動」。
+- 75（所以「insertion + swap 炸掉」是實作 bug，不是概念錯）：n ≤ 300，O(n²) 完全能過，insertion sort 本身寫對就會 AC。常見的炸法：內層 `j` 從 `i - 1` 往左走時越界（`j >= 0` 要先判斷），或是 swap 後沒有跟著 `j--` 繼續往左推。
+- 75（這題真正要考的）：值只有 0/1/2，不需要一般排序。**荷蘭國旗 / 三向切分**：三個指標維持 `[0, lo) = 0`、`[lo, mid) = 1`、`[mid, hi]` 未處理、`(hi, n) = 2`，一次掃描 O(n)、O(1) 空間。坑是 `nums[mid] == 2` 跟 `hi` swap 後 **`mid` 不能前進**，因為換回來的值還沒看過。見 `Algorithms/Sorting/Comparison_Based_Sorting/07-Quicksort_Advanced.md` 三向切分那段；兩趟的 counting sort（`Non_Comparison_Based_Sorting/01-Counting_Sort.md`）也可以，但 follow-up 要求 one pass。
+- 75（第二次，正確；invariant 少寫了一段）：code 沒問題，`i <= right` 和「換 2 之後 `i` 不動」都對。但 invariant 其實是**四段**：`[0, left)` 是 0、`[left, i)` 是 1、`[i, right]` 未處理、`(right, n)` 是 2。只寫 [0 | unsorted | 2] 的話，解釋不了換 0 之後為什麼 `i` **可以**前進：因為從 `left` 換過來的一定是 `[left, i)` 裡的 1（或 `left == i`，換自己），是已經看過的值；而從 `right` 換過來的在未處理區，還沒看過，所以 `i` 不能動。兩個分支不對稱的原因就在這個 1 的區段。
+- 97（index 跟 length 是同一個數字，不用二選一）：`i` 同時是「s1 **已經用掉幾個字元**」（length）和「s1 **下一個要用的 index**」，因為用掉 `i` 個，下一個就是 `s1[i]`。你註解最後一行已經寫出來了。把狀態講成**後綴**就不會混：`dp(i, j)` = 「`s1[i:]` 和 `s2[j:]` 能不能交錯成 `s3[i+j:]`」。
+- 97（兩種邊界檢查，分開想）：① **終止狀態**：兩個後綴都空了，也就是 `i == m && j == n`；開頭已檢查 `m + n == s3.length()`，所以等價於 `i + j == s3.length()`。`i == m` 是**合法狀態**（s1 用完了），不是越界，所以 cache 開 `(m+1) × (n+1)`。② **轉移守衛**：要讀 `s1[i]` 之前先確認 `i < m`，這是「還能不能再拿一個」，不是 base case。你的 code 兩個都有，而且放在對的位置。Review 第 2 點也對：`i ≤ m`、`j ≤ n` 保證 `i + j` 不會超過 `m + n`，那行永遠不會執行。Top-down 的邊界放法見 `Algorithms/Dynamic_Programming/Implementation/Boundary_Condition_Handling.md`（入口剪枝）。
+- 97（複雜度註解要改）：暴力法每一步最多兩個分支，深度 `m + n`，所以是 O(2^(m+n))，不是 O(2^mn)。加 cache 之後每個 `(i, j)` 只算一次，**time O(mn)**；**space O(mn)**（cache），外加遞迴深度 O(m + n)。你寫的 O(max(m, n)) 漏了 cache。Follow-up 常問 O(n) 空間：改 bottom-up，只留一列 `dp[j]`，見 `Algorithms/Dynamic_Programming/Fundamentals/03-TopDown_to_BottomUp.md`。
+- 97（index / length 混淆的根源：`i` 是**切點**，不是元素）：`i` 指的是字元之間的縫（0..m，共 m + 1 個），左邊 `[0, i)` 是已用、長度 `i`，右邊 `[i, m)` 是剩下、從 `s1[i]` 開始。「已用長度 = 下一個 index」不是巧合，是 0-indexed + 半開區間造成的，從後往前走就會分開，所以要記「切點」而不是「i 就是長度」。今天 75 的 `[0, left)` 是同一件事。會搞混是因為腦中用 prefix 的長度，函式卻在回答 suffix 的問題。一個讀法只負責一件事：狀態定義講一邊（top-down 講 suffix、bottom-up 講 prefix），長度只拿來定邊界（`i == m` 合法 → 表開 m + 1）。試金石：「`i` 可不可以等於 `m`？」整理在 `Data_Structures/Arrays_and_Strings/Index_as_Cut.md`；bottom-up + 滾動陣列的 follow-up 已加進 `Checklists/Learning_Roadmap.md`。
+
+---
+
 ## 2026-09-27
 
 - 217. Contains Duplicate

@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：54 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：56 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -17,7 +17,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **125.** [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — `Easy` ✅ · <sub>✔ 2026-09-15</sub>
 - [x] **226.** [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
-- [ ] **704.** [Binary Search](https://leetcode.com/problems/binary-search/) — `Easy`
+- [x] **704.** [Binary Search](https://leetcode.com/problems/binary-search/) — `Easy` · <sub>✔ 2026-09-28</sub>
 - [ ] **733.** [Flood Fill](https://leetcode.com/problems/flood-fill/) — `Easy`
 - [ ] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` ✅
 - [x] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
@@ -70,7 +70,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [ ] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` ✅
 - [ ] **721.** [Accounts Merge](https://leetcode.com/problems/accounts-merge/) — `Medium`
-- [ ] **75.** [Sort Colors](https://leetcode.com/problems/sort-colors/) — `Medium` ✅
+- [x] **75.** [Sort Colors](https://leetcode.com/problems/sort-colors/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
 
 ## Week 6 (9)
 

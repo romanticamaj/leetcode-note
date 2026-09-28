@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：74 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：75 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -221,7 +221,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **64.** [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) — `Medium` · <sub>✔ 2026-09-27</sub>
 - [ ] **63.** [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) — `Medium`
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
-- [ ] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅
+- [x] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
 - [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **123.** [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) — `Hard`
 - [ ] **188.** [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) — `Hard`

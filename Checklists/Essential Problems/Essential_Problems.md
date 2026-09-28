@@ -24,6 +24,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 86. Partition List
 - LeetCode 143. Reorder List
 - 🔴 LeetCode 42. Trapping Rain Water
+- LeetCode 75. Sort Colors
 
 ## Linked List
 
@@ -58,7 +59,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 416. Partition Equal Subset Sum
 - 🟡 🔴 LeetCode 139. Word Break
 - 🟡 LeetCode 322. Coin Change
-- 🟡 22. Generate Parentheses
+- 🟡 LeetCode 22. Generate Parentheses
+- 🟡 LeetCode 97. Interleaving String
 
 ## Kadane's Pattern DP
 
