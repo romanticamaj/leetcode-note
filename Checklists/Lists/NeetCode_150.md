@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：75 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：76 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -125,7 +125,7 @@
 - [ ] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium`
 - [x] **994.** [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) — `Medium` · <sub>✔ 2026-09-22</sub>
 - [ ] **417.** [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) — `Medium` ✅
-- [ ] **130.** [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) — `Medium` ✅
+- [x] **130.** [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) — `Medium` ✅ · <sub>✔ 2026-09-30</sub>
 - [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
 - [ ] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium`
 - [ ] **261.** [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) 🔒 — `Medium` ✅
