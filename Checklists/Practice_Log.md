@@ -2,6 +2,17 @@
 
 ---
 
+## 2026-09-29
+
+- 9. Palindrome Number
+
+**心得**：
+- 其實這題滿有面試性的，因為可以做滿多最佳化概念的。然後已經遇到第二次 `std::pow` 是浮點數、`%` 只能吃整數導致編譯不過的問題。
+
+**LLM 點評**：
+model: Opus 5.5
+- 9（`pow` 踩第二次，根治法是不用它）：`std::pow` 永遠回傳 `double`，就算參數都是 `int`；`%` 只吃整數型別，所以編譯錯誤。硬要用的話得 `(long long)std::pow(10, k)`，但浮點誤差可能讓 `pow(10, k)` 變成 `99.999…` 截成 99。整數次方直接用迴圈 `p *= 10` 累乘。這題最佳解（反轉後半：`while (x > rev) { rev = rev * 10 + x % 10; x /= 10; }`，最後比 `x == rev || x == rev / 10`；前提是先排除負數和 `x % 10 == 0 && x != 0`）本來就不需要算位數或次方，也順便避開 overflow。`CPP_Reference/Type/Floating_Point_and_Scientific_Notation.md` 目前只寫到 `ceil` 回傳浮點數，還沒有 `pow` + `%` 這個坑。
+
 ## 2026-09-28
 
 - 704. Binary Search

@@ -209,8 +209,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - 1-D DP (dp[length], look backward) + Hash Set / Trie
 - 🟡 🔴 LeetCode 128. Longest Consecutive Sequence
   - Hashmap + Connected Component
-- - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
-  - Tree + Diviede and Conquer
+- 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
+  - Tree + Divide and Conquer
 
 ### Followup Possible (Multiple Solutions)
 
