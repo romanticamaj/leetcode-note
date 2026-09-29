@@ -6,6 +6,7 @@
 
 ## 🌳 樹 (Trees)
 
+- [ ] **重做 114**：[114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)：自己做出 time O(n)、extra space O(1) 的 iterative 作法。
 - [ ] **比較**：比較 Morris Traversal 與標準遞迴/迭代 traversal 的優缺點。
 - [ ] **學習**：研究 Min-Max Heap 和 Deap (Double-ended heap) 資料結構，了解其如何同時高效支援查找最小和最大元素。
 - [ ] 子樹雜湊（Merkle hashing）/ Tree hashing
@@ -23,6 +24,7 @@
 
 ## 🔢 陣列與字串 (Arrays and Strings)
 
+- [ ] **follow-up（13）**：[13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)：之後練習從右到左解析。
 - [ ] **【必做】整理 Quickselect 心法**（Hoare 選擇演算法，平均 O(n) 找第 k 小）——2026-09-21 刷 [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) 時發現一直沒整理。要點：只遞迴一邊、隨機 pivot 避開最壞 O(n²)、median-of-medians 只需口述、第 k 大 → 索引 `n - k`、寫成 while 迴圈。接 [`Algorithms/Partition/01-Lomuto_Partition_Scheme.md`](../Algorithms/Partition/01-Lomuto_Partition_Scheme.md)，並對照 heap 解的取捨（streaming / 記憶體放不下 → 只能 heap）。
   - follow-up 家族：347 Top K Frequent、703 Kth Largest in a Stream、973 K Closest Points、295 Find Median from Data Stream、4 Median of Two Sorted Arrays。
 - [ ] **研究**：研究 Deterministic Finite Automaton (DFA) 在 string parsing 的應用，包含 explicit `enum State` + `transition()` 函數的設計模式。與 Sequential Phase Consumption（隱式 FSM）做比較。([Valid Number](https://leetcode.com/problems/valid-number/))

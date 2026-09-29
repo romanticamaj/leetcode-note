@@ -97,3 +97,39 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+## 3. ⚠️ `pow` 回傳浮點數，不能直接接 `%`
+
+`std::pow` **永遠回傳 `double`**（參數都是 `int` 也一樣），而 `%` 只吃整數型別，所以直接拿來取餘數會**編譯失敗**。
+
+```cpp
+int x = 12321, k = 4;
+int d = x / std::pow(10, k) % 10;   // ❌ compile error: invalid operands of types 'double' and 'int' to binary 'operator%'
+```
+
+### 為什麼 cast 也不是好解法
+
+```cpp
+int d = x / (int)std::pow(10, k) % 10;   // 編譯會過，但有風險
+```
+
+- **浮點誤差**：`pow(10, k)` 可能算出 `99.99999…`，`(int)` 截斷後變成 `99`，結果悄悄錯掉。
+- **大數精度**：`double` 只有 53 bits mantissa，超過 `2^53` 的整數無法精確表示。
+
+### ✅ 正解：整數次方用迴圈累乘
+
+```cpp
+long long p = 1;
+for (int i = 0; i < k; ++i) p *= 10;   // 純整數運算，無誤差
+int d = x / p % 10;
+```
+
+- 需要「最高位的 base」時，通常可以邊走邊算：`while (x / p >= 10) p *= 10;`
+- 大次方（尤其要 mod）用快速冪，見 [Fast Exponentiation](../../Algorithms/Math/Fast_Exponentiation.md)。
+- **最好的解法常常是完全不需要次方**：例如 LC 9 Palindrome Number 反轉後半 `rev = rev * 10 + x % 10`，不必算位數或 `10^k`。
+
+### 口訣
+
+> **`pow` 是浮點數函數，整數次方自己乘。**

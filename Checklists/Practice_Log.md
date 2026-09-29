@@ -5,13 +5,27 @@
 ## 2026-09-29
 
 - 9. Palindrome Number
+- 13. Roman to Integer
+- 14. Longest Common Prefix
+- 114. Flatten Binary Tree to Linked List
 
 **心得**：
 - 其實這題滿有面試性的，因為可以做滿多最佳化概念的。然後已經遇到第二次 `std::pow` 是浮點數、`%` 只能吃整數導致編譯不過的問題。
+- 13：follow-up：之後練習從右到左解析。
+- 14：其實覺得沒有很好寫。看了答案，這題最一開始沒這麼複雜，只是考 string 操作；我用 pointer / state 設計方式非常 overkill。延伸可以做 divide and conquer、binary search、Trie 等等。
+  - 設計上最有趣的觀察：比較時，第一個人／初值很難設計，因為 `compare(x, y)` 本來就是二元運算子，要先決定一個 operand。當沒有假設時，第一個 string 在某個位置可能已經沒有字元。觀察到 common prefix 不可能比 `strs[0]` 長後，就能直接拿 `strs[0]` 當初值，實作會變簡單；vertical scan 只要顧好比較初值，也可以很精簡。
+- 114：這題超好玩：tree + divide and conquer + linked list，conquer 部分不容易設計。真正的 O(1) extra space 用的是 iterative；in-place 滿難的＠＠。關鍵是先想到遞迴／子問題，再正確設計回傳值；最難的是回傳值和如何 conquer。這就是 divide and conquer 等級的題目。
+  - 看到一個有趣解法：先 visit right，再 visit left，最後用一個 head 串接訪問過的 node。
+  - Code review：`leftLast->right = root->right`、`root->right = root->left`、`root->left = nullptr` 可以合併在一個判斷式裡，因為子問題有回傳 Node 就代表子問題非空。
+  - 這題一定要再做一次，超好玩！
+  - 下次目標：自己做出 time O(n)、extra space O(1) 的 iterative 作法。
 
 **LLM 點評**：
 model: Opus 5.5
-- 9（`pow` 踩第二次，根治法是不用它）：`std::pow` 永遠回傳 `double`，就算參數都是 `int`；`%` 只吃整數型別，所以編譯錯誤。硬要用的話得 `(long long)std::pow(10, k)`，但浮點誤差可能讓 `pow(10, k)` 變成 `99.999…` 截成 99。整數次方直接用迴圈 `p *= 10` 累乘。這題最佳解（反轉後半：`while (x > rev) { rev = rev * 10 + x % 10; x /= 10; }`，最後比 `x == rev || x == rev / 10`；前提是先排除負數和 `x % 10 == 0 && x != 0`）本來就不需要算位數或次方，也順便避開 overflow。`CPP_Reference/Type/Floating_Point_and_Scientific_Notation.md` 目前只寫到 `ceil` 回傳浮點數，還沒有 `pow` + `%` 這個坑。
+- 9（`pow` 踩第二次，根治法是不用它）：`std::pow` 永遠回傳 `double`，就算參數都是 `int`；`%` 只吃整數型別，所以編譯錯誤。硬要用的話得 `(long long)std::pow(10, k)`，但浮點誤差可能讓 `pow(10, k)` 變成 `99.999…` 截成 99。整數次方直接用迴圈 `p *= 10` 累乘。這題最佳解（反轉後半：`while (x > rev) { rev = rev * 10 + x % 10; x /= 10; }`，最後比 `x == rev || x == rev / 10`；前提是先排除負數和 `x % 10 == 0 && x != 0`）本來就不需要算位數或次方，也順便避開 overflow。`CPP_Reference/Type/Floating_Point_and_Scientific_Notation.md` 目前只寫到 `ceil` 回傳浮點數，已補上第 3 節 `pow` + `%` 這個坑。
+model: GPT-6
+- 14：以 `strs[0]` 為候選前綴的觀察是對的；如果它是空字串，答案也必定是空字串。Vertical scan 可以直接用它的字元當比較基準，每次讀其他字串前先檢查長度，就不需要 `'-'` sentinel 或額外的 `common` 狀態。時間 O(字串數 × 最短字串長度)，額外空間 O(1)（不含輸出字串）。
+- 114：若 helper 對非空左子樹必定回傳尾節點，`leftLast != nullptr` 就足以 guard 那三行串接，這個簡化成立。先右後左、用 head 串接是反向 preorder；若透過遞迴實作，head 指標雖然只佔 O(1)，呼叫堆疊仍需 O(h) 空間。真正 O(1) 額外空間要看迭代版。
 
 ## 2026-09-28
 

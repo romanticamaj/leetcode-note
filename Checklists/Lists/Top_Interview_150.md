@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：76 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：79 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -26,10 +26,10 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` ✅
 - [ ] **135.** [Candy](https://leetcode.com/problems/candy/) — `Hard` ✅
 - [x] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` ✅ · <sub>✔ 2026-09-18</sub>
-- [ ] **13.** [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) — `Easy` ✅
+- [x] **13.** [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) — `Easy` ✅ · <sub>✔ 2026-09-29</sub>
 - [ ] **12.** [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) — `Medium` ✅
 - [ ] **58.** [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) — `Easy` ✅
-- [ ] **14.** [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) — `Easy`
+- [x] **14.** [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) — `Easy` · <sub>✔ 2026-09-29</sub>
 - [ ] **151.** [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) — `Medium`
 - [ ] **6.** [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) — `Medium`
 - [ ] **28.** [Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) — `Easy` ✅
@@ -108,7 +108,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **105.** [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **106.** [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) — `Medium`
 - [ ] **117.** [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/) — `Medium`
-- [ ] **114.** [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) — `Medium`
+- [x] **114.** [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) — `Medium` · <sub>✔ 2026-09-29</sub>
 - [ ] **112.** [Path Sum](https://leetcode.com/problems/path-sum/) — `Easy`
 - [ ] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium`
 - [ ] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard`
