@@ -26,6 +26,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🔴 LeetCode 42. Trapping Rain Water
 - LeetCode 75. Sort Colors
 - LeetCode 9. Palindrome Number
+- 🟢 🟡 LeetCode 26. Remove Duplicates from Sorted Array
 
 ## Linked List
 

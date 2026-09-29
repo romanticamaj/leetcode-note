@@ -62,7 +62,6 @@ find . -name '00-*_Standard_Template.md'
 |---|---|---|
 | **`Interview_Playbook/`** | 7 | 面試全流程策略：解題前 checklist、面試階段拆解、Hard 題學習法、code review 原則 |
 | **`Meta_Frameworks/`** | 7 | 問題分類框架、Quick Decision Map、問題轉換（Problem Transformation）、正交性思考 |
-| **`Test_Case_Construction/`** | 7 | 測試案例設計框架，含 tree/graph 專用策略與記法 |
 | **`Proof_Techniques/`** | 3 | Exchange Argument、Loop Invariant、Structural Induction — 用來證明貪心與迴圈正確性 |
 
 ### 📋 清單與速查

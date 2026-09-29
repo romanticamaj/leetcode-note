@@ -99,4 +99,4 @@
 - [ ] 有沒有哪一行的正確性，我只能用「因為我記得」來解釋？
 - [ ] 有的話，它能不能改成命名 / 型別 / 不變量來承載？
 
-> 相關：[`Test_Case_Construction/`](../../Test_Case_Construction/) —— 同樣的精神：測資的價值在於**能分辨對錯**，不在於數量。
+> 相關：[`Problem_Solving_Process_and_Assumption_Checklist.md`](../../Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md) 的 classic / edge dry run —— 測資的價值在於**能分辨對錯**，不在於數量。

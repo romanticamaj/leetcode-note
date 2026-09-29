@@ -4,15 +4,15 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：79 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：81 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
 ## Array / String (24)
 
 - [ ] **88.** [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) — `Easy`
-- [ ] **27.** [Remove Element](https://leetcode.com/problems/remove-element/) — `Easy`
-- [ ] **26.** [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) — `Easy`
+- [x] **27.** [Remove Element](https://leetcode.com/problems/remove-element/) — `Easy` · <sub>✔ 2026-09-30</sub>
+- [x] **26.** [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) — `Easy` · <sub>✔ 2026-09-30</sub>
 - [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium`
 - [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
 - [ ] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium`

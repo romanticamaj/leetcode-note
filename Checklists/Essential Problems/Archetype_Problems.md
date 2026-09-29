@@ -34,7 +34,11 @@
 
 ### Opposite Direction (相向雙指針)
 
+- 🟢 🟡 LeetCode 27. Remove Element
+
 ### Fast-Slow Pointers (快慢指針)
+
+- 🟢 🟡 LeetCode 26. Remove Duplicates from Sorted Array
 
 ---
 

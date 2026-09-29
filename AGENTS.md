@@ -20,7 +20,6 @@ This is a structured collection of notes, patterns, and mental models (心法) f
 
 - **`Interview_Playbook/`** (7) — Pre-solve checklists, interview stage breakdown, hard-problem learning strategy, code review principles
 - **`Meta_Frameworks/`** (7) — Problem Classification Framework, Quick Decision Map, Problem Transformation, Orthogonality
-- **`Test_Case_Construction/`** (7) — Test case design frameworks with tree/graph-specific strategies
 - **`Proof_Techniques/`** (3) — Exchange Argument, Loop Invariant, Structural Induction
 
 ### Checklists & Reference

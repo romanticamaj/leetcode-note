@@ -2,6 +2,22 @@
 
 ---
 
+## 2026-09-30
+
+- 26. Remove Duplicates from Sorted Array
+- 27. Remove Element
+
+**心得**：
+- 26：寫了兩個版本：
+  1. 從 0 開始 check，current 跟 next 比較；如果不同，就更新進 `k`（next position to write）。因為往後看，要注意 `n - 1` 的位置。
+  2. 從 1 開始 check，current 跟 previous 比較，設計方式同 1。不用注意 `n - 1`，因為比較位置都合法；但我先處理了 `n == 1` 的 base case。
+- 27：第一個做法用 two pointers，設計成 `[...checked, not checked...]`，需要掃完 array。另一個做法類似荷蘭國旗問題，設計成 `[...keep, ..., discard...]`，把不要的往後丟；當 `keep > discard` 就停止。
+
+**LLM 點評**：
+model: GPT-6
+- 26：兩版的差異是比較方向決定邊界落在哪裡。第二版若設 `k = 1`、`i = 1`，迴圈只在 `i < n` 時讀 `nums[i]` 和 `nums[i-1]`，`n == 1` 會直接回傳 1，不必另設 base case；若實作會在迴圈前讀 `nums[1]`，才需要先 guard。
+- 27：第二版可把三段明確寫成 `[keep | unchecked | discard]`；從右邊換來的值尚未檢查，所以換完後左指標不能前進。它能在未檢查區清空時停止，但最壞時間仍是 O(n)。
+
 ## 2026-09-29
 
 - 9. Palindrome Number
