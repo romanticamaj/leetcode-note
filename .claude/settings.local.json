@@ -15,29 +15,5 @@
     ],
     "deny": [],
     "ask": []
-  },
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "afplay /Users/garyhsieh/Documents/smb_kick.wav"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "afplay /Users/garyhsieh/Documents/smb_1-up.wav"
-          }
-        ]
-      }
-    ]
   }
 }

@@ -25,6 +25,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 143. Reorder List
 - 🔴 LeetCode 42. Trapping Rain Water
 - LeetCode 75. Sort Colors
+- LeetCode 9. Palindrome Number
 
 ## Linked List
 
@@ -86,6 +87,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 191. Number of 1 Bits
 - 🟡 LeetCode 22. Generate Parentheses
 - 🟢 🟡 LeetCode 50. Pow(x, n)
+- 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
 
 ## Union Find
 
@@ -207,6 +209,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - 1-D DP (dp[length], look backward) + Hash Set / Trie
 - 🟡 🔴 LeetCode 128. Longest Consecutive Sequence
   - Hashmap + Connected Component
+- - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
+  - Tree + Diviede and Conquer
 
 ### Followup Possible (Multiple Solutions)
 
@@ -221,6 +225,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 LeetCode 131. Palindrome Partitioning
 - 🟡 🔴 LeetCode 134. Gas Station
 - 🟡 LeetCode 678. Valid Parenthesis String
+- 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
 
 ## LeetCode Solution Worth Reading
 
@@ -234,6 +239,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 LeetCode 131. Palindrome Partitioning
 - 🟡 LeetCode 417. Pacific Atlantic Water Flow
 - 🟡 LeetCode 678. Valid Parenthesis String
+- 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
 
 ## Classic Optimization / Brain Development
 
