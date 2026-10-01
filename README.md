@@ -64,6 +64,10 @@ find . -name '00-*_Standard_Template.md'
 | **`Meta_Frameworks/`** | 7 | 問題分類框架、Quick Decision Map、問題轉換（Problem Transformation）、正交性思考 |
 | **`Proof_Techniques/`** | 3 | Exchange Argument、Loop Invariant、Structural Induction — 用來證明貪心與迴圈正確性 |
 
+### 📚 題目的歷史與出處
+
+[Problem_History/](Problem_History/README.md) — 每題一篇，記錄可確認的文獻來源、數學原型與解題方法的關係。從 [134. Gas Station：汽油謎題與前綴和的最低谷](Problem_History/LC_0134_Gas_Station.md) 開始。
+
 ### 📋 清單與速查
 
 | 目錄 | 內容 |

@@ -37,7 +37,6 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 438. Find All Anagrams in a String
 - LeetCode 424. Longest Repeating Character Replacement
 - 🟡 LeetCode 567. Permutation in String
-- LeetCode 28. Find the Index of the First Occurrence in a String
 - 🔴 LeetCode 76. Minimum Window Substring
 
 ## Backtracking
@@ -133,6 +132,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Sorting & Partition
 
 - LeetCode 49. Group Anagrams
+
+## String Matching
+
+- LeetCode 28. Find the Index of the First Occurrence in a String
 
 ## String Manipulation
 
@@ -244,6 +247,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 
 ## Classic Optimization / Brain Development
 
-- 🟡 🔴 LeetCode 134. Gas Station
+- 🔴 LeetCode 134. Gas Station
+  - Greedy / Reset Argument / Running Sum
 - 🟡 🔴 LeetCode 73. Set Matrix Zeroes
   - Space O(1)

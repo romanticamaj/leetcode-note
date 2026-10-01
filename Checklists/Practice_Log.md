@@ -2,6 +2,19 @@
 
 ---
 
+## 2026-10-01
+
+- 28. Find the Index of the First Occurrence in a String
+- 58. Length of Last Word
+- 134. Gas Station
+
+**心得**：
+- 這題可延伸的太多了，必再做，必再做，再做!!
+- 134：這題要觀察的東西太多了，要先想出所有 cost diff / remaining，然後要去判斷 reset 的位置，又有點像 Kadane's algorithm...這題幾乎是 brain teaser 等級。
+
+**LLM 點評**：
+model: GPT-6
+- 134：令每站變化量為 `gas[i] - cost[i]`。若掃描到 `j` 時累積油量首次變負，下一個候選起點是 `j + 1`，並將局部累積歸零；全程總和小於 0 則無解，否則最後留下的候選起點可走完全程。它和 Kadane 一樣有累積失敗後重設的形式，但保留候選起點的理由來自路段可排除性。
 ## 2026-09-30
 
 - 26. Remove Duplicates from Sorted Array

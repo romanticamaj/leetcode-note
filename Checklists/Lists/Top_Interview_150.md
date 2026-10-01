@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：82 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：85 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -23,16 +23,16 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **274.** [H-Index](https://leetcode.com/problems/h-index/) — `Medium`
 - [ ] **380.** [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) — `Medium`
 - [x] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` ✅ · <sub>✔ 2026-09-15</sub>
-- [ ] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` ✅
+- [x] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` ✅ · <sub>✔ 2026-10-01</sub>
 - [ ] **135.** [Candy](https://leetcode.com/problems/candy/) — `Hard` ✅
 - [x] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` ✅ · <sub>✔ 2026-09-18</sub>
 - [x] **13.** [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) — `Easy` ✅ · <sub>✔ 2026-09-29</sub>
 - [ ] **12.** [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) — `Medium` ✅
-- [ ] **58.** [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) — `Easy` ✅
+- [x] **58.** [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) — `Easy` ✅ · <sub>✔ 2026-10-01</sub>
 - [x] **14.** [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) — `Easy` · <sub>✔ 2026-09-29</sub>
 - [ ] **151.** [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) — `Medium`
 - [ ] **6.** [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) — `Medium`
-- [ ] **28.** [Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) — `Easy` ✅
+- [x] **28.** [Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) — `Easy` ✅ · <sub>✔ 2026-10-01</sub>
 - [ ] **68.** [Text Justification](https://leetcode.com/problems/text-justification/) — `Hard`
 
 ## Two Pointers (5)

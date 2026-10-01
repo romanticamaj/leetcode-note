@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：92 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：95 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -116,7 +116,7 @@ Easy 13 · Medium 26 · Hard 5
 - [x] **114.** [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) — `Medium` · <sub>TI150 · H100</sub> · <sub>✔ 2026-09-29</sub>
 - [x] **130.** [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) — `Medium` · <sub>NC · TI150</sub> ✅ · <sub>✔ 2026-09-30</sub>
 - [ ] **131.** [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — `Medium` · <sub>NC · H100</sub> ✅
-- [ ] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` · <sub>NC · TI150</sub> ✅
+- [x] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` · <sub>NC · TI150</sub> ✅ · <sub>✔ 2026-10-01</sub>
 - [ ] **148.** [Sort List](https://leetcode.com/problems/sort-list/) — `Medium` · <sub>TI150 · H100</sub>
 - [ ] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>NC · H100</sub>
 - [ ] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium` · <sub>NC · TI150</sub>
@@ -148,8 +148,8 @@ Easy 34 · Medium 81 · Hard 19
 - [x] **14.** [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-09-29</sub>
 - [x] **26.** [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-09-30</sub>
 - [x] **27.** [Remove Element](https://leetcode.com/problems/remove-element/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-09-30</sub>
-- [ ] **28.** [Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) — `Easy` · <sub>TI150</sub> ✅
-- [ ] **58.** [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) — `Easy` · <sub>TI150</sub> ✅
+- [x] **28.** [Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) — `Easy` · <sub>TI150</sub> ✅ · <sub>✔ 2026-10-01</sub>
+- [x] **58.** [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) — `Easy` · <sub>TI150</sub> ✅ · <sub>✔ 2026-10-01</sub>
 - [ ] **69.** [Sqrt(x)](https://leetcode.com/problems/sqrtx/) — `Easy` · <sub>TI150</sub>
 - [ ] **88.** [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) — `Easy` · <sub>TI150</sub>
 - [ ] **94.** [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) — `Easy` · <sub>H100</sub>
