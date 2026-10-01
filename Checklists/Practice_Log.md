@@ -9,12 +9,15 @@
 - 134. Gas Station
 
 **心得**：
-- 這題可延伸的太多了，必再做，必再做，再做!!
+- 28：這題可延伸的太多了，必再做，必再做，再做!!
 - 134：這題要觀察的東西太多了，要先想出所有 cost diff / remaining，然後要去判斷 reset 的位置，又有點像 Kadane's algorithm...這題幾乎是 brain teaser 等級。
 
 **LLM 點評**：
 model: GPT-6
 - 134：令每站變化量為 `gas[i] - cost[i]`。若掃描到 `j` 時累積油量首次變負，下一個候選起點是 `j + 1`，並將局部累積歸零；全程總和小於 0 則無解，否則最後留下的候選起點可走完全程。它和 Kadane 一樣有累積失敗後重設的形式，但保留候選起點的理由來自路段可排除性。
+
+---
+
 ## 2026-09-30
 
 - 26. Remove Duplicates from Sorted Array
@@ -34,6 +37,8 @@ model: GPT-6
 - 27：第二版可把三段明確寫成 `[keep | unchecked | discard]`；從右邊換來的值尚未檢查，所以換完後左指標不能前進。它能在未檢查區清空時停止，但最壞時間仍是 O(n)。
 - 130：關鍵轉換是先找「不會被包圍」的邊界可達區；標記與改寫分成兩趟後，不必在搜尋途中猜測整個連通塊是否要還原。既有心法見 `Algorithms/Design_Principles/Transformation_Patterns/Destination_as_Source_Reachability.md`。
 
+---
+
 ## 2026-09-29
 
 - 9. Palindrome Number
@@ -42,7 +47,7 @@ model: GPT-6
 - 114. Flatten Binary Tree to Linked List
 
 **心得**：
-- 其實這題滿有面試性的，因為可以做滿多最佳化概念的。然後已經遇到第二次 `std::pow` 是浮點數、`%` 只能吃整數導致編譯不過的問題。
+- 9：其實這題滿有面試性的，因為可以做滿多最佳化概念的。然後已經遇到第二次 `std::pow` 是浮點數、`%` 只能吃整數導致編譯不過的問題。
 - 13：follow-up：之後練習從右到左解析。
 - 14：其實覺得沒有很好寫。看了答案，這題最一開始沒這麼複雜，只是考 string 操作；我用 pointer / state 設計方式非常 overkill。延伸可以做 divide and conquer、binary search、Trie 等等。
   - 設計上最有趣的觀察：比較時，第一個人／初值很難設計，因為 `compare(x, y)` 本來就是二元運算子，要先決定一個 operand。當沒有假設時，第一個 string 在某個位置可能已經沒有字元。觀察到 common prefix 不可能比 `strs[0]` 長後，就能直接拿 `strs[0]` 當初值，實作會變簡單；vertical scan 只要顧好比較初值，也可以很精簡。
@@ -58,6 +63,8 @@ model: Opus 5.5
 model: GPT-6
 - 14：以 `strs[0]` 為候選前綴的觀察是對的；如果它是空字串，答案也必定是空字串。Vertical scan 可以直接用它的字元當比較基準，每次讀其他字串前先檢查長度，就不需要 `'-'` sentinel 或額外的 `common` 狀態。時間 O(字串數 × 最短字串長度)，額外空間 O(1)（不含輸出字串）。
 - 114：若 helper 對非空左子樹必定回傳尾節點，`leftLast != nullptr` 就足以 guard 那三行串接，這個簡化成立。先右後左、用 head 串接是反向 preorder；若透過遞迴實作，head 指標雖然只佔 O(1)，呼叫堆疊仍需 O(h) 空間。真正 O(1) 額外空間要看迭代版。
+
+---
 
 ## 2026-09-28
 
