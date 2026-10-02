@@ -169,7 +169,8 @@
 - [ ] LeetCode 73. Set Matrix Zeroes
   - [ ] Hash Table Optimization (Space Optimization)
 - [ ] LeetCode 131. Palindrome Partitioning
-  - [ ] Backtracking + Dynamic Programming
+  - [ ] Backtracking
+  - [ ] Dynamic Programming
 - [ ] LeetCode 417. Pacific Atlantic Water Flow
 - [ ] LeetCode 143. Reorder List
   - [ ] Space O(1)

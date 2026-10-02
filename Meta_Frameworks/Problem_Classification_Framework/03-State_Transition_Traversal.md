@@ -5,6 +5,8 @@
 > 「狀態（State）→ 轉移（Transition）→ 遍歷（Traversal）」
 > 是從暴力到最優化的共同底層結構。
 
+> **🧭 使用順序：先用 State／Transition／Traversal 描述一個正確的 brute force，再分析成本，用 BUD 找可省的工作、用 BCR 判斷優化空間。** 三連問先幫你建出可驗證的基準；優化要能說明相對這個基準省了什麼。詳見 [解題指北星](../../Interview_Playbook/Problem_Solving_Strategies.md)。
+
 ---
 
 ## 🧠 一、三連問核心概念

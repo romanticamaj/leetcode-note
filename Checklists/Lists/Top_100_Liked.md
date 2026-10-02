@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：68 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：69 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -17,7 +17,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [ ] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard`
 - [x] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 - [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **131.** [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — `Medium` ✅
+- [x] **131.** [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — `Medium` ✅ · <sub>✔ 2026-10-02</sub>
 
 ## Binary Search (7)
 

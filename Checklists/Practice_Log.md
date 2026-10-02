@@ -2,6 +2,37 @@
 
 ---
 
+## 2026-10-02
+
+- 131. Palindrome Partitioning
+
+**心得**：
+- 131：做不出來，想了兩天。第二天用 backtracking 方向對了，可是實作不出來，很慘。問題不是在切法，在於紀錄方式。
+  - [ Time taken: 50m 24s ]
+  - 這題太驚人了……想了兩天，還想去 Catalan Number，什麼從中間找每個切點，然後用 Divide and Conquer。
+    ```text
+    a a b
+    "" aab
+    a ab
+    aa b
+    aab ""
+    ```
+    結果發現會有重複計算……
+  - 最後跟 GPT-6.1-sol 討論，只要從 string 來想，其實就是超級經典 backtracking，而且它的結構跟 string permutation 超級像。
+  - 設計邏輯：backtracking，從當下這個點去看後面的 search space，找 candidate 來，然後 save / restore。
+  - invariant：`[chosen, non-chosen]`；`solution` 會 maintain 有哪些完成的 palindrome；promising 用 palindrome 設計。
+  - 它甚至還有 dynamic programming 的優化……窩滴媽啊。
+  - 然後遇到 string 問題，我發現現在都會跳進去用 character 當 state 在操作。其實做了不少，有些問題把 string 當 primitive type 好像比較好想？
+  - 這題一定要再重做一次。
+
+**LLM 點評**：
+model: GPT-6
+- 131：使用者指出卡在紀錄方式。實際程式同時保留「逐字合併／另開一段」和「枚舉下一段結尾」兩種決策方式，導致共享的字串 path 與段落列表 solution 難以一起還原。既然 for 已枚舉整段，就讓候選字串是 local variable，solution 保存已選段落；加入候選、遞迴、pop_back，修改與還原一一對應。另有兩個具體錯誤：遞迴仍傳 start，沒有前進；非回文時反而加入 solution。完整解用 ans.push_back(solution) 複製保存，這行本身正確。
+  - 完成後的關鍵觀察是「選擇的單位」：本題每次選一整段 substring，遞迴狀態仍可用 start index 表示剩餘後綴，不必逐字維護未完成段落。精確 invariant 是 solution 串接後恰好等於 `s[0:start)`，且每段都是回文；剩餘區是 `s[start:n)`。與 permutation 共用 choose / recurse / unchoose 骨架，但本題依原順序切段，不重排字元。可對照 [State and Solution Design](../Algorithms/Backtracking/04-State_and_Solution_Design.md)。
+  - DP 優化可預先計算各區間是否為回文，讓候選檢查變成 O(1)；列舉所有分割的 backtracking 仍保留，最壞輸出規模仍是指數級。
+
+---
+
 ## 2026-10-01
 
 - 28. Find the Index of the First Occurrence in a String
