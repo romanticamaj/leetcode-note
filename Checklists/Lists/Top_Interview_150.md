@@ -4,13 +4,13 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：85 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：89 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
 ## Array / String (24)
 
-- [ ] **88.** [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) — `Easy`
+- [x] **88.** [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) — `Easy` · <sub>✔ 2026-10-03</sub>
 - [x] **27.** [Remove Element](https://leetcode.com/problems/remove-element/) — `Easy` · <sub>✔ 2026-09-30</sub>
 - [x] **26.** [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) — `Easy` · <sub>✔ 2026-09-30</sub>
 - [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium`
@@ -109,7 +109,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **106.** [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) — `Medium`
 - [ ] **117.** [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/) — `Medium`
 - [x] **114.** [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) — `Medium` · <sub>✔ 2026-09-29</sub>
-- [ ] **112.** [Path Sum](https://leetcode.com/problems/path-sum/) — `Easy`
+- [x] **112.** [Path Sum](https://leetcode.com/problems/path-sum/) — `Easy` · <sub>✔ 2026-10-03</sub>
 - [ ] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium`
 - [ ] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard`
 - [ ] **173.** [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/) — `Medium`
@@ -163,7 +163,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Divide & Conquer (4)
 
 - [x] **108.** [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
-- [ ] **148.** [Sort List](https://leetcode.com/problems/sort-list/) — `Medium`
+- [x] **148.** [Sort List](https://leetcode.com/problems/sort-list/) — `Medium` · <sub>✔ 2026-10-03</sub>
 - [ ] **427.** [Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/) — `Medium`
 - [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>✔ 2026-09-15</sub>
 
@@ -203,7 +203,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **9.** [Palindrome Number](https://leetcode.com/problems/palindrome-number/) — `Easy` · <sub>✔ 2026-09-29</sub>
 - [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [ ] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium`
-- [ ] **69.** [Sqrt(x)](https://leetcode.com/problems/sqrtx/) — `Easy`
+- [x] **69.** [Sqrt(x)](https://leetcode.com/problems/sqrtx/) — `Easy` · <sub>✔ 2026-10-02</sub>
 - [x] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium` · <sub>✔ 2026-09-27</sub>
 - [ ] **149.** [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) — `Hard`
 

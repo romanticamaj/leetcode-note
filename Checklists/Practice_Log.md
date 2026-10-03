@@ -2,9 +2,43 @@
 
 ---
 
+## 2026-10-03
+
+- 88. Merge Sorted Array
+- 94. Binary Tree Inorder Traversal
+- 112. Path Sum
+- 148. Sort List
+
+**心得**：
+- 88：設計出 invariant: `[... sorted, unsorted...]` + 3 pointers 就差不多了。
+
+- 94：把 stack 跟 root 的角色確認清楚，演算法就出來了。
+  - loop invariant:
+    - stack: visited but not processed
+    - root: next to visit
+    - termination: stack empty and root is nullptr
+
+- 148：異常的硬，bottom-up divide and conquer 難，list 的狀態管理難。
+  - 一開始看到這一題的直覺，暴力法就是 selection sort，它的時間是 O(n²)。那如果要讓時間降到 O(n log n) 的話（這是 comparison-based sort 的 BCR），就可以用 divide and conquer 來做。
+  - Divide and conquer 有 merge sort 或者是 quick sort。因為題目有問能不能做到 space 是 O(1)，所以我直覺就是 bottom-up 的 divide and conquer。
+  - 方向正確之後，其實程式碼是非常非常難寫的。最終切入的點是要能夠先把長度算出來，然後要把欲比較的片段先 split 出來，讓它結尾先清空、指向空指標，才有辦法寫出比較漂亮的 while 迴圈。
+  - 然後再做 interval 的設計，初值是 1，用 1 當作 interval 的初始值。但是因為每一段的段落要能夠正確，要去比較總長度，這邊也是另外一個坑。起手勢看起來就是：`interval = 1; until interval >= n`；所以判斷式 `interval < n`。
+  - 再來就是每一段做完之後要存哪一些指標，讓它更新到 sorted 的 list，以及下一段要怎麼起頭。這些都是裡面 merge / combine 相關的部分，也是 divide and "conquer" 最難的部分。
+
+**LLM 點評**：
+model: GPT-6
+- 88：先定義完成區與未處理區，再讓三個指標分別代表兩個來源和寫入位置，這個設計方向成立。若採用從尾端往前填的原地合併，區段應寫成 `[未處理區 | 已完成的 sorted suffix]`；兩個來源剩餘部分本來也各自有序，所以「未處理」比「unsorted」精確。Invariant 不只是 suffix 有序，而是它已放好合併結果中最大的那批元素；每次取兩個來源尾端的較大值，填入下一個寫入位置，並維持不覆蓋尚未讀取的 nums1 元素。
+
+- 94：先定義 stack 與 root 的角色，再推導操作，是用 invariant 引導設計。這裡 visited 建議明確指「已遇到並入棧」，processed 指「已輸出」，避免與 traversal 常用的 visit = 處理／輸出混淆。Stack 保存已遇到但尚未輸出的節點與返回順序；root 指向下一棵要探索的子樹，非空時先往左探索，不一定是下一個要輸出的節點。當 root 為 nullptr 且 stack 非空，stack top 的左子樹已處理完，才可輸出它並轉往右子樹；不是所有 stack 節點都已完成左子樹。stack empty 且 root 為 nullptr 是停止條件；完整 correctness invariant 還應包含 ans 始終是整棵樹 inorder 序列的正確前綴。見 [Current Pointer 實作模式](../Data_Structures/Trees/Iterative_Traversal/03-Current_Pointer_Implementations.md)。
+
+- 148：這次的關鍵是用 split 把區段邊界轉成 nullptr，讓 merge 只處理兩條獨立的有序 list，並回傳 head / tail；外層負責接回結果及保存下一段起點。最終程式的 length / interval 表示「單段長度」，合併後最多是 2 × interval；外層 invariant 是每輪開始時，各段各自有序，除最後一段外長度皆為 interval。內層已完成前綴由合併後的有序段組成，並非整個前綴已全域有序；curr 是其尾端，head 是尚未處理的區段起點。interval < n 才能處理不滿兩個完整段的最後一輪。單次 split / merge 是 O(interval)，整輪合計 O(n)，共 O(log n) 輪；沒有遞迴堆疊，額外空間 O(1)。O(n log n) 是一般比較排序的最壞情況下界，但不限定必須用 divide and conquer，quick sort 也不保證最壞 O(n log n)。按 divide / conquer / combine 的標準分工，你卡住的接回與合併主要是 combine。見 [Loop Invariant](../Proof_Techniques/Loop_Invariant.md)。
+
+---
+
 ## 2026-10-02
 
 - 131. Palindrome Partitioning
+- 69. Sqrt(x)
 
 **心得**：
 - 131：做不出來，想了兩天。第二天用 backtracking 方向對了，可是實作不出來，很慘。問題不是在切法，在於紀錄方式。
@@ -24,12 +58,20 @@
   - 它甚至還有 dynamic programming 的優化……窩滴媽啊。
   - 然後遇到 string 問題，我發現現在都會跳進去用 character 當 state 在操作。其實做了不少，有些問題把 string 當 primitive type 好像比較好想？
   - 這題一定要再重做一次。
+- 69：這類 easy 題目其實超多延伸的，而且很多時候跟 primitive type 操作很有關係。像這次寫，有一個 `k * k < x` 的運算，我用 integer 去乘法，就 overflow 了。
+  - 我是先把 linear search 做出來，想知道有沒有需要再做 binary search 版本。
+  - Binary search 版本一開始就搞錯 invariant，或是說 movement 條件：想成找第一個平方 >= x，又把回傳選錯成 i，整個大混亂。後來釐清是找第一個平方 > x，再減一。
+  - 這應該是最基本最基本的 search on value，很重要。
+  - 這題 follow-up 有點多，感覺很棒，之後再刷。
 
 **LLM 點評**：
 model: GPT-6
 - 131：使用者指出卡在紀錄方式。實際程式同時保留「逐字合併／另開一段」和「枚舉下一段結尾」兩種決策方式，導致共享的字串 path 與段落列表 solution 難以一起還原。既然 for 已枚舉整段，就讓候選字串是 local variable，solution 保存已選段落；加入候選、遞迴、pop_back，修改與還原一一對應。另有兩個具體錯誤：遞迴仍傳 start，沒有前進；非回文時反而加入 solution。完整解用 ans.push_back(solution) 複製保存，這行本身正確。
   - 完成後的關鍵觀察是「選擇的單位」：本題每次選一整段 substring，遞迴狀態仍可用 start index 表示剩餘後綴，不必逐字維護未完成段落。精確 invariant 是 solution 串接後恰好等於 `s[0:start)`，且每段都是回文；剩餘區是 `s[start:n)`。與 permutation 共用 choose / recurse / unchoose 骨架，但本題依原順序切段，不重排字元。可對照 [State and Solution Design](../Algorithms/Backtracking/04-State_and_Solution_Design.md)。
   - DP 優化可預先計算各區間是否為回文，讓候選檢查變成 O(1)；列舉所有分割的 backtracking 仍保留，最壞輸出規模仍是指數級。
+- 69：這次的重點是中間運算的型別與值域：兩個 int 相乘仍以 int 計算，即使最後存進 long long，也可能在賦值前就發生 signed overflow（undefined behavior）。要在乘法前提升型別，例如 `1LL * k * k` 或 `static_cast<long long>(k) * k`；`static_cast<long long>(k * k)` 則太晚。32-bit signed int 的 `46341 * 46341` 已超出上限，候選值的平方可能超界，即使 x 與最後答案都放得進 int。見 [整數溢位防範心法](../CPP_Reference/Type/Integer_Overflow_Prevention.md)。
+  - 建議再做 binary search，練習從已完成的基準解推導優化。若 linear search 從 0 逐一試到平方超過 x，時間為 O(√x)；BUD 的瓶頸是候選值逐一檢查，`k² <= x` 在非負候選區間呈現 true → false 的單調性，因而能二分尋找最後一個可行值，把搜尋降到 O(log x)（x ≥ 2），額外空間 O(1)。目標是 floor sqrt(x)，判定要包含等號並防止平方溢位；完成後用 x = 0、1、完全平方數、相鄰非平方數與 int 上限 dry run。見 [答案空間上的二分搜尋](../Algorithms/Binary_Search/04-Binary_Search_on_Solution_Space.md)。
+  - 提供的 binary search 版本正確，是 search on value 的基本題：候選數值本身有序，predicate `ok(k) = k² > x` 為 false → true。找第一個 true，再減一得到 floor sqrt；若改成 >=，完全平方數會被錯誤減一。Invariant：`[1, i)` 的平方都 <= x，`[j, x]` 的平方都 > x；未判定候選是 `[i, j)`，邊界答案在 `[i, j]`。x > 1 時 x² > x，因此 j = x 可作已知 true 的右界，不必設 x + 1；x = 0、1 由開頭處理。迴圈结束時 i == j，回傳 i - 1 或 j - 1 都正確，差別在 predicate 與答案轉換，不在變數名稱。口訣：定 predicate → 定空間 → 定移動 → 定回傳。見 [Binary Search 標準模板](../Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md)。
 
 ---
 

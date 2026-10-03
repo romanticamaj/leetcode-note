@@ -10,6 +10,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 33. Search in Rotated Sorted Array
 - 🟡 LeetCode 378. Kth Smallest Element in a Sorted Matrix
 - 🟡 LeetCode 981. Time Based Key-Value Store
+- 🟢 LeetCode 69. Sqrt(x)
 
 ## Binary Search on Value Space
 
@@ -88,6 +89,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 22. Generate Parentheses
 - 🟢 🟡 LeetCode 50. Pow(x, n)
 - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
+- 🟡 🔴 LeetCOde 148. Sort List
 
 ## Union Find
 

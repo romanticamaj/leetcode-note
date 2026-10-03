@@ -46,6 +46,8 @@
 
 ### Binary Search on Answer
 
+- 🟢 🟡 LeetCode 69. Sqrt(x)
+
 ### Lower/Upper Bound
 
 ---
