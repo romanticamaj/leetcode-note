@@ -1,139 +1,93 @@
 # Divide and Conquer vs Dynamic Programming 比較分析
 
-## 🧠 核心差異
+## 🧠 核心差異：看子問題是否重複，不只看大小怎麼變
 
-兩者都將問題分解為子問題，但處理方式根本不同：
+兩者都透過子問題的解計算當前答案。典型分治把工作分成互不重疊的子問題，各自求解再 combine；DP 則**定義可重用的狀態，保存其答案，避免同一個子問題被反覆計算**。
 
-- **Divide and Conquer**：子問題**獨立**，直接遞迴求解
-- **Dynamic Programming**：子問題**重疊**，記憶化避免重複計算
+判斷時先問：「這些呼叫是否在求同一個狀態的答案？」`n/2` 或 `n-1` 描述的是規模變化，不能單獨決定演算法分類。
 
-## 關鍵特徵對比
+## 1. 🧩 子問題重疊性：遞迴樹還是共享狀態圖？
 
-### 1. 子問題重疊性
-
-#### Divide and Conquer：無重疊
+### Divide and Conquer：分解後各自求解
 
 ```cpp
-// MergeSort：左右子數組完全獨立
-void mergeSort(arr, left, right) {
-    int mid = (left + right) / 2;
-    mergeSort(arr, left, mid);    // 獨立子問題 1
-    mergeSort(arr, mid+1, right);  // 獨立子問題 2
-    merge(arr, left, mid, right);
+// 半開區間 [left, right)，merge 的實作省略
+void mergeSort(vector<int>& a, int left, int right) {
+    if (right - left <= 1) return;
+    int mid = left + (right - left) / 2;
+    mergeSort(a, left, mid);
+    mergeSort(a, mid, right);
+    merge(a, left, mid, right);
 }
 ```
 
-#### Dynamic Programming：有重疊
+兩段可能長度相同，但輸入區間不同，因此是不同子問題。每個區間在這次遞迴中只需求解一次，沒有用記憶化重用答案的必要。
+
+### Dynamic Programming：同一狀態只計算一次
 
 ```cpp
-// Fibonacci：子問題大量重疊
-int fib(n) {
+// memo 初值為 -1；示意小 n，忽略數值溢位
+int fibDP(int n, vector<int>& memo) {
     if (n <= 1) return n;
-    return fib(n-1) + fib(n-2);  // fib(n-2) 被多次計算
-}
-
-// DP 解法：記憶化
-int fibDP(n, memo) {
-    if (memo[n] != -1) return memo[n];  // 避免重複計算
-    memo[n] = fibDP(n-1, memo) + fibDP(n-2, memo);
-    return memo[n];
+    if (memo[n] != -1) return memo[n];
+    return memo[n] = fibDP(n - 1, memo) + fibDP(n - 2, memo);
 }
 ```
 
-### 2. 問題分割方式
+未記憶化時，`fib(n-2)` 會由不同路徑被重複呼叫。DP 把它們視為同一個狀態，計算一次後重用結果。
 
-| 特性     | Divide and Conquer      | Dynamic Programming          |
-| -------- | ----------------------- | ---------------------------- |
-| 分割模式 | 通常等分（n/2, n/3）    | 減少固定量（n-1, n-k）       |
-| 子問題數 | 通常固定（2 個、3 個）  | 可變（取決於狀態轉移）       |
-| 遞迴結構 | T(n) = a\*T(n/b) + f(n) | T(n) = T(n-1) + T(n-2) + ... |
+## 2. 🧩 查表的重點：狀態定義與依賴順序
 
-### 3. 最優子結構 vs 分治結構
+把 DP 理解成「查表」很實用，但**表格不要求只能往前查固定距離，也不限一維或二維**。重點是索引能完整表示子問題，而且被依賴的答案已經算好。
 
-#### Divide and Conquer：分治結構
+例如定義 `F(0) = F(1) = 1`，對 `i >= 2` 有 `F(i) = F(i/2) + F(i/3)`，其中除法取整數商：
 
 ```cpp
-// QuickSort：不需要「最優」，只需要正確分割
-int partition(arr, left, right) {
-    // 任何正確的分割都可行
-    // 不需要保證子問題的「最優性」
-}
+vector<long long> dp(n + 1, 1); // 示意小 n，忽略數值溢位
+for (int i = 2; i <= n; ++i)
+    dp[i] = dp[i / 2] + dp[i / 3];
 ```
 
-#### Dynamic Programming：最優子結構
+這仍是合法的 DP：`i/2`、`i/3` 都小於 `i`，從小到大填表即可；若用遞迴求解，相同狀態也可能重複出現。依賴不連續並不妨礙查表。
+
+| 比較面向 | 典型 Divide and Conquer | Dynamic Programming |
+|---|---|---|
+| 子問題身分 | 常以輸入區間或資料子集表示 | 以足以決定答案的狀態表示 |
+| 規模變化 | 常見切半，也可以不均分 | 可減一、切半，或依其他狀態轉移 |
+| 答案如何使用 | 子問題各自求解後合併 | 保存狀態答案，供多個依賴者重用 |
+| 計算安排 | Top-down 遞迴，也能 bottom-up 合併 | Top-down 記憶化或 bottom-up 填表 |
+
+注意 `T(n) = 2T(n/2) + O(n)` 是**執行時間**的 recurrence；`dp[i] = dp[i-1] + dp[i-2]` 是**答案**的 recurrence。兩者描述不同事物，不宜直接拿來當分類依據。
+
+## 3. 🧩 正確的合併關係：DP 不一定求最優解
+
+兩者都需要證明：子問題的解足以構造當前答案。分治排序要證明 merge 能產生有序結果；DP 要證明狀態轉移涵蓋正確的選擇或計數。
+
+**最優子結構是最佳化 DP 的重點，但 DP 也能處理計數與可行性問題。** Fibonacci、路徑計數沒有「取最優」的操作，仍可用 DP。
 
 ```cpp
-// 最短路徑：子問題必須是最優的
-dp[i][j] = min(
-    dp[i-1][j] + cost,   // 必須是到 (i-1,j) 的最短路
-    dp[i][j-1] + cost    // 必須是到 (i,j-1) 的最短路
-);
+// 只允許向右、向下移動的網格；假設前驅存在且邊界已初始化
+minCost[i][j] = min(minCost[i - 1][j], minCost[i][j - 1]) + cost[i][j];
+ways[i][j] = ways[i - 1][j] + ways[i][j - 1];
 ```
 
-## 🧩 算法選擇決策樹
+第一行依賴前驅的最小成本；第二行加總互不重複的兩類路徑。兩者都查表，但合併的語意不同。
 
-```
-問題可以分解為子問題？
-    ├─ 否 → 其他算法
-    └─ 是
-        └─ 子問題是否重疊？
-            ├─ 否（獨立子問題）
-            │   └─ Divide and Conquer
-            │       ├─ 主要工作在分割 → Divide-centric
-            │       └─ 主要工作在合併 → Combine-centric
-            └─ 是（重疊子問題）
-                └─ Dynamic Programming
-                    ├─ 有最優子結構 → 標準 DP
-                    └─ 無最優子結構 → 記憶化搜索
-```
+## ✅ 設計時的判斷流程
 
-## 典型問題分類
+1. **定義子問題**：它的答案由哪些輸入或狀態完整決定？
+2. **定義依賴與合併**：需要哪些更小的解，如何推出當前答案？
+3. **檢查重複**：不同路徑是否會求解同一個狀態？會，就考慮保存結果。
+4. **安排計算順序**：按需遞迴並記憶化，或依依賴順序填表；獨立區段也可逐層合併。
 
-### Divide and Conquer 適用
+| 問題 | 核心觀察 | 常見方法 |
+|---|---|---|
+| Merge Sort | 左右區間獨立，結果可合併 | Divide and Conquer |
+| Quick Sort | Partition 後，兩側可各自排序 | Divide and Conquer |
+| Fibonacci | 多條路徑依賴相同的 n | DP |
+| 0-1 Knapsack | 相同的物品位置、剩餘容量反覆出現 | DP |
+| Edit Distance | 相同的兩個前綴長度反覆出現 | DP |
 
-- **排序**：MergeSort, QuickSort
-- **搜索**：Binary Search, Find K-th element
-- **幾何**：Closest Pair, Convex Hull
-- **數學**：Fast Power, Karatsuba Multiplication
+口訣：**先定狀態，再看依賴；有重複就重用，按依賴安排計算順序。**
 
-### Dynamic Programming 適用
-
-- **優化問題**：背包、最短路徑
-- **計數問題**：組合數、路徑計數
-- **決策問題**：股票買賣、遊戲策略
-- **字符串**：編輯距離、最長公共子序列
-
-## ⚠️ 常見誤區
-
-### 1. 強行使用分治解決有重疊的問題
-
-```cpp
-// 錯誤：用分治解 0-1 背包
-int knapsack(items, capacity) {
-    // 子問題 capacity-w[i] 會被重複計算
-    return max(
-        knapsack(items-1, capacity),
-        knapsack(items-1, capacity-w[i]) + v[i]
-    );
-}
-```
-
-### 2. 對獨立子問題使用 DP
-
-```cpp
-// 過度設計：MergeSort 不需要記憶化
-unordered_map<pair<int,int>, void> memo;  // 無意義
-void mergeSort(arr, left, right) {
-    // 每個 [left, right] 區間只會處理一次
-}
-```
-
-## ✅ 選擇指南
-
-| 使用 Divide and Conquer     | 使用 Dynamic Programming |
-| --------------------------- | ------------------------ |
-| ✓ 子問題完全獨立            | ✓ 子問題有重疊           |
-| ✓ 分割後規模顯著縮小（n/2） | ✓ 規模逐步縮小（n-1）    |
-| ✓ 不需要記憶化              | ✓ 需要記憶化避免重複     |
-| ✓ 只需要正確性              | ✓ 需要最優性             |
-| ✓ 空間要求嚴格              | ✓ 可以犧牲空間換時間     |
+延伸閱讀：[Bottom-Up 分治框架](04_Bottom_Up_Divide_and_Conquer.md)、[分治設計策略](01_Divide_and_Conquer_Design_Strategy.md)。

@@ -6,6 +6,8 @@
 
 ## Dynamic Programming
 
+- LeetCode 118. Pascal's Triangle
+
 ### 0/1 Knapsack
 
 - LeetCode 494. Target Sum

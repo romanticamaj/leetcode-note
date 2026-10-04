@@ -20,10 +20,10 @@ T(n) = a * T(n/b) + f(n)
 
 **分割原則：**
 
-- 子問題必須**獨立**（無重疊），否則考慮 Dynamic Programming
+- 固定一次分解後，子問題應能**獨立求解**；若不同呼叫路徑重算同一個狀態，可加 memoization 重用答案，兩者並不衝突
 - 常見分割：二分（n/2）、三分（n/3）、或 a 個子問題（n/b）
 - 分割點的選擇影響算法效率
-- 若目的是**枚舉所有解**（而非求單一答案），分割點還必須由**物件本身唯一決定**，否則同一個解會從多組參數被產生出來 → 見 [08_Canonical_Anchor_Decomposition.md](08_Canonical_Anchor_Decomposition.md)
+- 若目的是**枚舉所有解**，可讓子問題回傳所有解，再配對 combine；以結果可唯一反推的錨點設計分解，有助於避免重複生成 → 見 [枚舉式分治與錨點分解](08_Canonical_Anchor_Decomposition.md#枚舉式分治子問題回傳一整組解)
 
 ### Step 2: 識別算法類型
 
@@ -144,7 +144,7 @@ if (right - left <= 10) {
 
 ## ✅ 設計檢查清單
 
-- [ ] 子問題是否獨立（無重疊）？
+- [ ] 固定分解後，子問題是否能獨立求解？跨路徑重算是否值得 memoize？
 - [ ] 識別主要工作在 divide 還是 combine？
 - [ ] divide/combine 的複雜度是否低於暴力法？
 - [ ] 是否滿足 Master Theorem 的優化條件？

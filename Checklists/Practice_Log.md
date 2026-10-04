@@ -2,6 +2,27 @@
 
 ---
 
+## 2026-10-04
+
+- 95. Unique Binary Search Trees II
+- 118. Pascal's Triangle
+
+**心得**：
+- 95：這題的關鍵其實就是標準的 brute force backtracking，只要 recursive 可以設計出來就沒問題。
+  - 關鍵是找到決定性的切點。這之前在某一篇有提到（但我現在忘記在哪一篇提到決定性的切點了），只要這個切點定好之後，自然就可以把遞迴式做出唯一解，然後遞迴進去就出來了。
+  - 這題比較 confusing 的部分是那些 pointer 可不可以被 reuse。後來我做了 cache 的版本，reuse 是 work 的，所以應該是可以被 reuse。
+  - 再來是因為這題的 backtracking 裡面很明顯有重複子問題，所以很自然就可以延伸到 dynamic programming，用 cache 的方式去記錄已經完成的項目。但不知道為什麼，cache 的版本執行時間反而變長了。
+- 118：用定義，dynamic programming，好像沒什麼特別的。
+
+**LLM 點評**：
+model: GPT-6
+- 95：你想到的是 [Canonical Anchor Decomposition](../Algorithms/Divide_and_Conquer/08_Canonical_Anchor_Decomposition.md)：每棵 BST 的 root 是唯一可讀出的錨點，固定 root 後，左右值域也確定。唯一的是每棵結果的分解，不是固定切點後只有一個解；左右各自仍可有多種樹，需組合所有配對。若遞迴回傳區間內的所有樹，再組合左右結果，更精確是枚舉式 divide and conquer，不必有共享 path 的 choose / undo。以值域區間作為狀態，保存重複區間的結果就是 memoization（top-down DP）。
+  - Pointer reuse 代表不同結果可能共享同一棵 subtree；只讀、不修改共享節點時，邏輯樹形仍可正確。若要求各結果可獨立修改或釋放，就需複製或明確管理共享所有權，不能只由測試通過推論節點彼此獨立。
+  - Cache 減少重複子問題計算，但仍要列舉與組合輸出。查表、容器配置、結果複製等成本可能抵銷收益，單次執行時間也有波動；未看到兩個版本程式碼，不能判定這次變慢的原因。比較時可先統計區間實際計算次數、cache hit，以及 vector 是否按值複製，再做多次同條件測量。
+- 118：直接依定義逐列建構就是 bottom-up DP：兩側為 1，內部元素等於上一列相鄰兩項之和；計算順序自然符合依賴關係。
+
+---
+
 ## 2026-10-03
 
 - 88. Merge Sorted Array

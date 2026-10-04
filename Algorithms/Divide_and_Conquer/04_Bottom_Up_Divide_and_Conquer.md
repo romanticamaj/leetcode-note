@@ -83,6 +83,7 @@ ListNode* split(ListNode* head, int interval) {
 
     ListNode* nextHead = head->next; // 先保存後續入口
     head->next = nullptr;           // 再建立本段邊界
+
     return nextHead;
 }
 ```
