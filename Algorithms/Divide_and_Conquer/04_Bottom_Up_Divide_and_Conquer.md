@@ -13,22 +13,31 @@ Bottom-up 的出發點是**已解好的最小子問題**：先把相鄰的小問
 
 ## 1. 🧩 子問題規模：從 base case 決定 interval
 
-**`interval` 是 combine 的輸入子問題大小。** 若單一元素已解好，就從 1 開始；不必先猜合併後大小，再除以 2 推回輸入大小。
+**`interval` 是 combine 的輸入子問題大小。** 排序的 base case 是單一元素天然有序，因此初值 1；最後一段允許較短。
 
-排序的 base case 是單一元素天然有序，因此初值 1；最後一段允許較短。
+直覺上可能會用「合併後的大小」作為狀態，但定位左右子問題時，又得不斷除以 2，推回輸入大小。直接以 **subproblem size 作為 `interval`**，就能讓狀態定義與操作所需的大小一致，程式碼也更簡潔。
 
 ```cpp
 // 以下索引使用 long long，假設 n 在 int 範圍內
 for (long long interval = 1; interval < n; interval *= 2) {
-    // 本輪：將相鄰、各自已解好的 interval 大小子問題配對合併
+    // interval：本輪輸入的單段大小
+    // 將相鄰、各自已解好的子問題配對合併，結果大小最多為 2 * interval
 }
 ```
+
+當 `interval >= n`，整體已成為單一已解好的段。因此**停止條件是 `interval >= n`，繼續迭代的條件是 `interval < n`**。每次 combine 兩個子問題，下一輪的單段規模便加倍。
+
+### 兩層迭代：外層控制規模，內層走訪配對
+
+**外層控制合併的層次**：每輪固定一個 `interval`，處理完這個規模的所有配對，再進入下一個規模。
 
 ```text
 輸入單段大小：1 → 2 → 4 → 8 → …
 interval = 2：[已解 2][已解 2] | [已解 2][已解 1]
 合併後：     [    已解 4    ] | [    已解 3    ]
 ```
+
+**內層負責子問題的 traversal**：依照 `interval` 找出相鄰兩段，執行 combine，再前進到下一組。Combine 內部如何讀取兩段，則由具體操作決定。
 
 | 迴圈條件 | 意義 |
 |---|---|
@@ -68,29 +77,35 @@ Index 能直接定位；`end` 同時是右段的 exclusive end 與下一組起�
 ```cpp
 ListNode* split(ListNode* head, int interval) {
     if (!head) return nullptr;
+
     for (int i = 1; i < interval && head->next; ++i)
         head = head->next;
+
     ListNode* nextHead = head->next; // 先保存後續入口
     head->next = nullptr;           // 再建立本段邊界
     return nextHead;
 }
 ```
 
+這裡的關鍵是**讓指標停在段尾，而不是走到段尾之後**。先排除空的 `head`，再用 `head->next` 提前判斷是否還能前進，迴圈結束時就能直接修改段尾的 `next`。
+
+若採用「先走一步，再檢查目前指標是否為空」的方式，走到 `nullptr` 時就無法直接取得段尾，通常還要用 `prev` 保存前一個節點。提前看 `next` 能省去這個狀態，也符合 split 需要修改段尾連結的目的。
+
 ## 3. 🧩 合併與前進：結果出口、後續入口都要保留
 
-Array 的合併結果仍位於 `[start, end)`，下一組直接從 `end` 開始。Linked list 的 merge 逐次接出兩段中較小的節點，直到輸入耗盡；需要回傳結果 head／tail，並保留未處理後綴的入口。
+Array 的合併結果仍位於 `[start, end)`，下一組直接從 `end` 開始。
 
-```cpp
-ListNode* rightHead = split(head, interval);
-ListNode* nextHead = split(rightHead, interval); // merge 前保存下一組
-// merge 接受空右段，回傳合併結果的 head 與 tail
-auto [mergedHead, mergedTail] = merge(head, rightHead);
-curr->next = mergedHead; // 接到已完成前綴
-curr = mergedTail;       // 更新結果出口
-head = nextHead;         // 前進到下一組
-```
+Linked list 的 merge 逐次接出兩段中較小的節點；其中一段耗盡後，接上另一段剩餘的節點。外層則負責接回合併結果，並繼續處理後面的子問題。
 
-使用 `dummy(0, originalHead)` 統一第一組與後續組的接法。**每輪開始都重設 `curr = &dummy`、`head = dummy.next`**；整輪完成後，`dummy.next` 是更新後的整體入口，再將 `interval` 倍增。
+這裡有三個介面設計要點：
+
+- **Split 建立邊界**：呼叫兩次，準備好兩個 subproblem，將各段尾節點的 `next` 設成 `nullptr`，讓 merge 的耗盡判斷保持簡單。
+- **Split 回傳後續入口**：第一次取得右段起點，第二次取得下一組起點。先保存入口再斷鏈，同一個 split 就能重複使用，也不會遺失後續工作。
+- **Merge 回傳結果 head／tail**：head 用來接到上一組的尾端，tail 用來接下一組的結果。
+
+因此，外層需要明確保存**整體入口、已完成前綴的尾端，以及下一組起點**。連結可以暫時斷開，但不能失去取得這些區段的指標。
+
+使用區域變數 `ListNode dummy(0, originalHead)` 作為 dummy head，可以統一第一組與後續組的串接。每輪開始重設 `curr = &dummy`、`head = dummy.next`；整輪完成後，`dummy.next` 就是更新後的整體入口。
 
 ## 🔑 Loop Invariant：為什麼可以一輪接一輪？
 
@@ -104,26 +119,6 @@ head = nextHead;         // 前進到下一組
 
 已完成前綴**不一定全域有序**；只有各段有序。Split 與接回期間也可能暫時斷鏈，但保存的入口必須讓所有未處理節點仍可取得。更多證明觀點見 [Loop Invariant](../../Proof_Techniques/Loop_Invariant.md)。
 
-## ⚠️ 常見陷阱與設計比較
-
-| 容易踩到的設計 | 問題與應採用的思路 |
-|---|---|
-| 從合併後長度反推切半 | 可行但每次要 `/ 2`；直接讓 `interval` 表示已解好的輸入單段 |
-| 外層用 `2 * interval <= n` | 漏掉不足兩個完整段的最後一輪；用 `interval < n` |
-| 只檢查 array 的 `start < n` 就直接合併 | 不保證右段存在；還需檢查 `start + interval < n` |
-| 假設右段完整 | Array 截斷 end；list 的 split 與 merge 接受較短段、空右段 |
-| 斷鏈／merge 後才找下一組 | 原連結可能已改變；先保存下一組入口 |
-| 每輪忘記重設掃描入口 | 必須從更新後的整體 head 重新掃描，並重設接回用的 tail |
-
-```cpp
-// 建議：interval = 輸入單段長度，從 1 開始
-mid = start + interval; end = min(start + 2 * interval, n);
-// 對照：size = 合併後長度，從 2 開始，使用時要反推半段
-mid = start + size / 2; end = min(start + size, n);
-```
-
-這是公式對照；重點是統一輸入規模的語意。內層也可以用 `start < n` 搭配空右段處理，條件本身不是錯誤；`start + interval < n` 則直接表達「右段存在嗎」，比移項成 `start < n - interval` 更容易對照邊界。
-
 ## ⏱️ Bottom-Up 與 Top-Down 比較
 
 | 面向 | Bottom-Up 配對合併 | Top-Down 二分後合併 |
@@ -136,7 +131,7 @@ mid = start + size / 2; end = min(start + size, n);
 
 每輪若合計 `O(n)`，配對倍增共 `O(log n)` 輪，總時間才是 `O(n log n)`。List 的定位與 merge 即使各走一次，整輪仍為 `O(n)`；單次則為 `O(interval)`。
 
-**控制空間與 combine 空間要分開算**：array merge sort 通常另需 `O(n)` buffer；list 使用迭代 merge 重接節點，可做到總額外空間 `O(1)`。兩種遍歷都可能連續存取 array，不能只因 bottom-up 就斷言快取表現一定較好。
+**控制空間與 combine 空間要分開算**：array merge sort 通常另需 `O(n)` buffer 做 merge；list 使用迭代 merge 重接節點，可做到總額外空間 `O(1)`。兩種遍歷都可能連續存取 array，不能只因 bottom-up 就斷言快取表現一定較好。
 
 ## 📚 實際範例索引
 
