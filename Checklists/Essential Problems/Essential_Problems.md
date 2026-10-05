@@ -39,6 +39,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 424. Longest Repeating Character Replacement
 - 🟡 LeetCode 567. Permutation in String
 - 🔴 LeetCode 76. Minimum Window Substring
+- 🟢 LeetCode 219. Contains Duplicate II
 
 ## Backtracking
 
@@ -165,6 +166,11 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 981. Time Based Key-Value Store
 - 🟢 🟡 LeetCode 73. Set Matrix Zeroes
 
+## Mapping & Canonicalization
+
+- LeetCode 205. Isomorphic Strings
+  - 一對一映射（bijection）；也可比較字元的出現模式，或依首次出現順序正規化。
+
 ## Boyer-Moore Voting Algorithm
 
 - LeetCode 229. Majority Element II
@@ -232,6 +238,8 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 LeetCode 134. Gas Station
 - 🟡 LeetCode 678. Valid Parenthesis String
 - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
+- 🟢 LeetCode 219. Contains Duplicate II
+  - brute force -> hashmap -> sliding window
 
 ## LeetCode Solution Worth Reading
 

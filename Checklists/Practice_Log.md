@@ -2,6 +2,28 @@
 
 ---
 
+## 2026-10-05
+
+- 160. Intersection of Two Linked Lists
+- 205. Isomorphic Strings
+- 219. Contains Duplicate II
+
+**心得**：
+- 205：這題沒有想像中簡單，已經做第二次了，都是漏 mapping 的項目不能重複的問題。
+  - 而且幾乎都是用兩個 cache 的解法（一個放 mapping，一個放重複）。感覺有更簡單的、乾淨的做法才對。
+  - 核心是設計「1–1 mapping」的實作：用 forward + reverse mapping，兩個方向各自記錄對應關係；已做出雙向 map 的版本。
+  - 另一個思路是設計 mapping function，把兩個 input 各自轉到共同的值域，再比較轉換後的結果；這就是 canonicalization，repo 裡也有討論。
+- 219：做了暴力法、hashmap。看了解答發現 hashmap 時間 O(n)，空間是 O(n)。有需要做看看 sliding window 版本嗎？
+
+**LLM 點評**：
+model: GPT-6
+- 205：Invariant 是已處理的字元配對維持一對一映射：同一來源不能映到不同目標，不同來源也不能共用目標。單向 mapping 允許多對一，例如 ab → aa；mapping + used set 分別維持來源對應一致、目標不被其他來源占用。提供的 forward + reverse map 程式正確，先檢查雙向衝突，再同時建立對應，兩份狀態與判斷對稱，適合作為通用 1–1 mapping 的基本實作。時間平均 O(n)，空間 O(k)，k 為不同字元数；固定字元集下可視為 O(1)。
+  - Last-seen 是另一種驗證方式，不是 mapping + used set：兩側各記錄上次出現位置，每步比較目前兩字元是否曾在同一位置一起出現，再更新為 i + 1（0 表示未出現）。它間接檢查出現模式的一致性，不是檢查「這次與上次位置不同」，也不是實作一對一映射的必要步驟。
+  - Canonicalization 則先把兩個輸入各自轉成共同標準形式，再比較。例如 paper 與 title 都依首次出現順序編成 0,1,0,2,3。每個輸入內的字元到編號是一對一，但整個字串的正規化不是一對一：等價字串刻意得到相同結果。雙向 mapping 直接驗證兩個輸入間的對應；正規化則保留重複模式、消去字元名稱。見 [Canonicalization：用於分組／判等](../Algorithms/Design_Principles/Canonicalization.md)。
+- 219：若 hashmap 保存每個值最近一次出現的位置，時間平均 O(n)，空間最壞 O(n)；最近位置已足以判斷，因為它與目前 index 的距離最小。建議再做 sliding window，練習把「距離 <= k」轉成有效候選範圍：檢查 nums[i] 前，set 只保存 nums[max(0, i-k):i) 的值。只保留仍可能配對的最近 k 個元素，時間仍平均 O(n)，k >= 1 時空間 O(min(n,k))；k = 0 可直接判定 false。重點是過期資料何時移除，以及距離恰為 k 時仍須納入檢查；見 [Sliding Window 標準模板](../Algorithms/Sliding_Window/00-Sliding_Window_Standard_Template.md)。
+
+---
+
 ## 2026-10-04
 
 - 95. Unique Binary Search Trees II

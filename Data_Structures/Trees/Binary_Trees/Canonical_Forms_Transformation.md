@@ -1,196 +1,103 @@
 # Binary Tree Canonical Forms 標準形式轉換 Playbook
 
-## TL;DR
+## 🧠 核心哲學：先定義樹的等價，再設計簽章
 
-**核心思想**: 透過 Post-order 結構重組，將任意二元樹轉換為唯一標準形式，使同構樹具有相同結構。
+**讓等價子樹得到相同簽章，再由子樹簽章構造父節點的簽章。** 正確的簽章必須滿足：兩棵樹等價，若且唯若它們的簽章相同。
 
-**適用場景**: 同構判斷、鏡像對稱檢測、重複子樹識別
+本篇聚焦有根二元樹，節點值需要保留。通用框架與字串案例見 [Canonicalization](../../../Algorithms/Design_Principles/Canonicalization.md)。
 
-**口訣**: 「後序先整子，左大右小定標準」
+## 1. 🧩 哪些差異可以消去？
 
----
+| 題目的等價定義 | 必須保留 | 簽章組合方式 |
+|---|---|---|
+| **Ordered tree**：相同節點值與左右結構 | 左右順序 | `(value, left, right)` |
+| **Flip-equivalent tree**：允許在任意節點交換左右子樹 | 子樹內容，不保留排列方向 | `(value, min(left,right), max(left,right))` |
 
-## 🧠 核心哲學
+LC 652. Find Duplicate Subtrees 屬於第一種；LC 951. Flip Equivalent Binary Trees 屬於第二種。交換左右子樹會改變第一種等價關係，不能在兩題中套用同一個交換規則。
 
-判斷兩棵樹是否同構，與其同步遞歸比對，不如**先標準化，後比對**。
+若只判斷不含值的樹形，可從簽章中移除 value；若是無根樹，還需要處理 root 的選擇，不能直接拿任意兩個 root 比較。
 
-這是一種 **Problem Transformation**: 複雜的多樹同步比對 → 先標準化，後單樹比對
-
-**關鍵洞察**: 同構的樹經標準化後會變成完全相同的結構。
-
----
-
-## 核心概念：Canonical Form 定義
-
-對每個節點，必須符合以下其中一個條件：
-
-1. **節點沒有子節點** (葉節點)
-2. **節點只有左子節點** (右為空)
-3. **左子節點的值 > 右子節點的值** (雙子節點時)
-
-這確保了：**唯一性**、**鏡像消除**、**統一方向**
-
----
-
-## 🔧 核心算法：Post-Order 標準化
-
-### 為何使用 Post-Order?
-
-**關鍵**: 必須先將子樹轉為標準形式，再調整當前節點。
-
-### 標準化算法
-
-```cpp
-void toCanonicalForm(TreeNode* root) {
-    if (!root) return;
-
-    // Post-order: 先遞歸處理子樹
-    toCanonicalForm(root->left);
-    toCanonicalForm(root->right);
-
-    // 處理當前節點
-    // Case 1: 只有右子節點 → 移到左邊
-    if (!root->left && root->right) {
-        root->left = root->right;
-        root->right = nullptr;
-        return;
-    }
-
-    // Case 2: 兩子節點 → 確保左值 > 右值
-    if (root->left && root->right) {
-        if (root->left->val < root->right->val) {
-            swap(root->left, root->right);
-        }
-    }
-}
-```
-
-### 處理順序
+## 2. 🧩 Post-Order：先取得完整的子樹表示
 
 ```text
-1. 遞歸左子樹 → 左子樹變標準形式
-2. 遞歸右子樹 → 右子樹變標準形式
-3. 調整當前節點 → 整棵樹變標準形式
-
-決策: 無子節點? → 完成
-      只有右節點? → 移到左邊
-      雙子節點? → 確保 left.val > right.val
+取得左子樹簽章 → 取得右子樹簽章
+→ 按等價定義保留／消去左右順序
+→ 組合父節點值與子樹簽章
 ```
 
----
+排序比較的是**完整子樹簽章**，因此必須先完成子問題。這裡 post-order 來自資料依賴，而不只是遍歷習慣。
 
-## 💡 深度探討：為何必須 Post-Order？
+## 3. 🧩 核心實作：用完整簽章比較
 
-### 技術觀察
-
-對於**當前實作**（比較 `root->left->val` vs `root->right->val`），Pre-order 技術上也能產生正確結果：
-
-1. `!root->left && root->right` - 只看子節點是否存在
-2. `root->left->val < root->right->val` - 只看子節點的值
-
-這兩個決策**不依賴子樹內部的標準化狀態**，父節點操作與子樹內部調整解耦。
-
-### 為何仍建議 Post-Order？
-
-Post-order 的必要性體現在**通用場景**。假設規則改為比較**整個子樹結構**：
+以下模板以 flip equivalence 為目標，不修改原樹。使用括號與空節點標記，避免不同結構得到相同編碼。
 
 ```cpp
-// 規則變更：比較子樹的結構簽章
-if (serialize(root->left) < serialize(root->right)) {
-    swap(root->left, root->right);
+std::string canonicalSignature(TreeNode* root) {
+    if (!root) return "#";
+    auto left = canonicalSignature(root->left);
+    auto right = canonicalSignature(root->right);
+    if (right < left) std::swap(left, right); // 子樹順序可交換
+    return "(" + std::to_string(root->val) + "," + left + "," + right + ")";
 }
+// 判等：canonicalSignature(p) == canonicalSignature(q)
 ```
 
-此時：
+**遞迴契約**：返回時，簽章完整描述該子樹的節點值與結構，且不受左右翻轉影響。
 
-- **Pre-order 失敗**: 子樹未標準化，序列化基於「錯誤的中間狀態」
-- **Post-order 成功**: 先標準化子樹，再序列化，保證決策正確性
+葉節點的表示唯一；若子樹的正規表示已正確，排序後的兩個表示保留子樹的多重集合，再加上 root 值，就能唯一描述父節點的等價類。相同子簽章仍要保留兩份，不能改用 set 消掉重複。
 
-### 實際應用：LeetCode 652 (Find Duplicate Subtrees)
+### Ordered tree 的調整
 
-需要序列化子樹來識別重複結構時，**必須先標準化**：
+若左右方向有意義，省去 `swap`，按原本左、右順序組合簽章即可。LC 652 在每次 post-order 返回時記錄簽章次數，第二次出現時收集一個代表 root；**不用重排原樹**。
 
-```cpp
-string dfs(TreeNode* node) {
-    if (!node) return "#";
+## 4. ⚠️ 原先「比較子節點值」的適用邊界
 
-    // ✅ 先標準化，再序列化 (Post-order 思維)
-    toCanonicalForm(node);
-    string sig = to_string(node->val) + "," +
-                 dfs(node->left) + "," + dfs(node->right);
+只比較 `left->val`、`right->val` 來決定是否交換，在節點值互異且目標為 flip equivalence 時，可以固定子樹方向；但**不能保證含重複值的一般樹有唯一表示**。
 
-    if (++count[sig] == 2) result.push_back(node);
-    return sig;
-}
+```text
+某節點的兩棵子樹：A 的 root 值為 2，B 的 root 值也為 2
+A、B 的內部結構不同
+(A,B) 與 (B,A) 可以翻轉得到彼此，但只比較 2 與 2 不會統一順序
 ```
 
-### 結論
+因此，通用模板比較完整子樹簽章。只有右子樹時也會由空簽章參與排序，不需要另一個「把右子樹移到左邊」的特例。
 
-- **當前簡化版**（比較 `val`）: Pre-order 恰好可行
-- **通用場景**（比較結構）: 必須 Post-order
-- **最佳實踐**: 養成 Post-order 習慣，確保演算法的**穩健性**和**可擴展性**
+## 5. 🧩 大量比較：將簽章 Intern 成整數 ID
 
----
+完整字串方便理解，但會重複複製子樹內容。若要為每個節點保存簽章，可用共用字典將結構 key 編成 ID：
 
-## 🧩 應用場景
-
-### 同構判斷
-
-```cpp
-bool isIsomorphic(TreeNode* p, TreeNode* q) {
-    toCanonicalForm(p);
-    toCanonicalForm(q);
-    return isSameTree(p, q);
-}
+```text
+null → ID 0
+key = (value, leftID, rightID)
+若允許翻轉，先將 leftID、rightID 排序
+相同 key → 同一 ID；新 key → 新 ID
 ```
 
-### 鏡像對稱 / 重複子樹
+**兩棵樹必須共用字典。** ID 是字典內的代表，不是可以跨獨立執行任意比較的全域編碼。對 unordered rooted tree，將所有孩子 ID 排序後組成 key；保留每個 ID 的出現次數。
 
-標準化後結合序列化或結構簽章即可實現。
-
----
-
-## ⚠️ 常見陷阱
-
-### 1. 邊界條件檢查順序
-
-必須先處理「只有右子節點」，再處理「兩個子節點」，且第一個 case 要 `return`。
-
-### 2. In-Place 修改
-
-標準化會修改原樹，需保留時請先複製。
-
----
-
-## 🎯 關鍵設計決策
-
-### 為何「只保留左子節點」？
-
-確保唯一性：`1 → 2` 只有一種表示（左子），而非兩種。
-
-### 節點值 vs 結構？
-
-- **含值**: 判斷完全相同
-- **純結構**: 判斷同構（用結構簽章，忽略值）
-
----
+McGill 講義的 §1（pp. 2–5）以兩棵樹共同的逐層排序與編號，建立可比較的子樹標籤；此處的共用字典是相同設計觀點的實作形式。
 
 ## ⏱️ 複雜度
 
-| 操作 | 時間 | 空間 |
-|------|------|------|
-| 標準化 | O(n) | O(h) |
-| 比對 | O(n) | O(h) |
+| 表示方式 | 時間 | 空間 |
+|---|---|---|
+| 完整字串簽章 | 最壞 O(n²)，鏈狀樹反覆串接長字串 | 單次判等的峰值 O(n)，另有 O(h) 堆疊 |
+| 固定長度 key + 共用 hash dictionary（有根二元樹） | 平均 O(n) | O(n) 字典與 O(h) 堆疊 |
 
----
+若保存每個節點的完整字串簽章，總字串空間也可能達 O(n²)。一般多子樹的 unordered tree 另有排序成本，不能直接套用二元樹的界限。
 
-## ✅ 檢查清單
+## ✅ 設計檢查
 
-- [ ] 使用 Post-order（子樹先標準化）
-- [ ] 處理三種情況（無、單、雙子節點）
-- [ ] 檢查順序正確（先處理只有右子節點）
-- [ ] 考慮 in-place 副作用
+- [ ] 定義是否保留值、左右順序與 root。
+- [ ] 簽章包含完整子樹與空節點資訊，編碼不產生歧義。
+- [ ] 子簽章已完成後才組合父簽章。
+- [ ] 允許排序時仍保留相同子樹的重複份數。
+- [ ] ID 跨樹比較時，共用編號字典。
+- [ ] 將字串建立／保存成本與遞迴堆疊計入複雜度。
 
----
+## 📚 題目與參考
 
-**最終心法：後序先整子，規則保唯一，同構變相同。**
+- LC 652. Find Duplicate Subtrees：保留左右順序，簽章分組。
+- LC 951. Flip Equivalent Binary Trees：消去左右翻轉差異。
+- [McGill：Tree Isomorphism，Assignment 5（2002）](../../../Reading/McGill_Tree_Isomorphism_Assignment_5_2002.pdf)：§1 說明有根樹的共同標籤；§2 說明無根樹的中心選擇。
+- [Canonical Anchor Decomposition](../../../Algorithms/Divide_and_Conquer/08_Canonical_Anchor_Decomposition.md)：另一種唯一性設計，用於分解與列舉。
