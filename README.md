@@ -1,153 +1,159 @@
-# Engineering Problem-Solving Playbook
+<div align="center">
 
-這個 repository 是一份結構化的筆記集合，收錄解題模式（心法）、設計原則與思考框架，目標是準備技術面試與培養工程問題解決能力。
+# DSA Pattern Playbook
 
-它刻意**不收錄題解**。價值在於 **"how" 與 "why"** — 那些可以跨題目重複使用的策略、設計原則與測試框架。
+**Learn to derive algorithms, recognize patterns, and explain why they work.**
 
-> 目前約 300 篇筆記。語言以繁體中文為主，技術術語保留英文。
+A framework-first guide to data structures and algorithms.<br>
+Reusable mental models · C++ templates · Curated practice · Correctness reasoning
 
----
+**English** · [繁體中文](README.zh-TW.md)
 
-## 統一狀態框架總覽
+[Start Learning](#start-learning) · [Core Frameworks](#core-frameworks) · [Pattern Library](#pattern-library) · [Practice Lists](#practice-with-purpose) · [Beyond the Algorithm](#beyond-the-algorithm)
 
-[演算法與資料結構的統一狀態框架](Meta_Frameworks/State_Transition_Algorithm_Atlas.md) · [HTML 閱讀版](Meta_Frameworks/State_Transition_Algorithm_Atlas.html)
-
-用「目標、狀態、轉換、計算順序、正確性與終止、成本」重新詮釋筆記中的算法與資料結構：212 個條目、11 個分類，附關鍵論述、適用條件與來源覆蓋對照。HTML 支援搜尋、分類篩選與展開閱讀；下載後可直接用瀏覽器開啟。
-
----
-
-## 核心理念
-
-1. **Pattern Extraction（模式萃取）** — 把具體題目蒸餾成抽象、可複用的模式（如 "One-Liner DFS"、"Vertex Mapping"、"Destination-as-Source Reachability"）
-2. **Systematic Thinking（系統化思考）** — 對測試設計、演算法設計等複雜任務套用結構化框架
-3. **Best Practices Documentation** — 記錄語言慣用法、常見陷阱與效能考量（C++ STL 實作細節、integer overflow 等）
+</div>
 
 ---
 
-## Repository 結構
+What information should an algorithm keep? Which work can it avoid? Why is it safe to discard a candidate?
 
-### 📐 標準模板慣例
+**DSA Pattern Playbook connects these questions to concrete patterns and practice problems.** Built from Gary Hsieh’s ongoing study notes, it organizes learning around reusable reasoning: define the answer, establish a correct baseline, identify wasted work, and derive an improvement you can justify.
 
-每個技法資料夾底下，`00-` 這個編號**保留給該技法的標準模板**：
+> **Language:** Both READMEs provide a complete learning guide. The underlying notes are primarily in **Traditional Chinese**, with English technical terms and **C++** implementations. English translations of the full library are not yet available.
 
-```
-Algorithms/<技法>/00-<技法>_Standard_Template.md
-```
+## Start learning
 
-例：`Algorithms/Sliding_Window/00-Sliding_Window_Standard_Template.md`
+You’ll get the most from this collection if you can already write basic programs and understand arrays, loops, functions, and recursion. Choose an entry point:
 
-這樣任何技法的「就背這個」模板永遠排在第一個，也能一次列出全部：
-
-```bash
-find . -name '00-*_Standard_Template.md'
-```
-
-標準模板文件包含：**唯一要背的 C++ 模板 · 步驟口訣表 · 循環不變量 · ⚠️ 被淘汰的寫法與原因 · 面試話術**。
-
-> 原則：當一個技法有明顯較優的寫法時，**砍掉其他選項，不要並列**。目標是每個技法只有一個模板，內化成肌肉記憶。
-
----
-
-### 🧠 核心知識
-
-| 目錄 | 篇數 | 內容 |
+| Your starting point | Start here | What to do next |
 |---|---|---|
-| **`Algorithms/`** | 152 | 20 個技法分類的心法與模板：Two Pointers、Sliding Window、Binary Search、DFS/BFS、DP、Greedy、Divide & Conquer、Union Find、Topological Sort、Sweep Line、Bit Manipulation… |
-| **`Data_Structures/`** | 63 | 實作細節、trade-off 與使用模式：Trees、Graphs、Heaps、Trie、Monotonic Stack、BIT… |
-| **`CPP_Reference/`** | 30 | C++ 慣用法、STL 容器行為、型別陷阱、常見編碼錯誤 |
+| Learning DSA patterns | [Two Pointers](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md) + [24 Easy warm-up problems](Checklists/Lists/01_Grind75_Easy_Warmup.md) | Work at your own pace; use each problem to understand a pattern before timing yourself. |
+| Can code, but struggle to find an approach | [Problem-solving workflow](Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md) + [optimization strategy](Interview_Playbook/Problem_Solving_Strategies.md) | Describe a correct brute force, then identify the work to eliminate. |
+| Know individual algorithms, want the connections | [State → Transition → Traversal](Meta_Frameworks/Problem_Classification_Framework/03-State_Transition_Traversal.md) | Compare familiar techniques in the [Algorithm Atlas](Meta_Frameworks/State_Transition_Algorithm_Atlas.md). |
+| Preparing for coding interviews | [Pre-solve checklist](Interview_Playbook/Pre_Solve_Interview_Checklist.md) + [Master Union](Checklists/Lists/00_Master_Union.md) | Start with the problems shared by all four lists, then practice [follow-ups](Checklists/Lists/02_Followup_Problems.md). |
 
-### 🚀 策略與框架
+**A first session:** Read the [Binary Search template](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md), find a matching problem in the [practice lists](Checklists/Lists/), and explain the monotone predicate, interval invariant, and termination condition before coding.
 
-| 目錄 | 篇數 | 內容 |
+## The learning loop
+
+```text
+Define the answer → Build a correct baseline → Identify wasted work
+        ↑                                             ↓
+Transfer to a related problem ← Prove and test ← Derive a pattern
+```
+
+For each problem, leave yourself four things you can reconstruct later:
+
+1. **Answer definition:** A condition or formula precise enough to check.
+2. **Baseline and cost:** What you enumerate, how you evaluate it, and where the time goes.
+3. **Pattern and preconditions:** What work the technique saves, and which property makes that valid.
+4. **Correctness and transfer:** An invariant or proof, boundary tests, and what changes in a follow-up.
+
+## Core frameworks
+
+These are the conceptual backbone of the repository. Read them alongside practice rather than trying to finish every note first.
+
+| Framework | The question it helps answer |
+|---|---|
+| [Define the answer before coding](Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md) | Can I turn the statement into an explicit, testable `ANSWER`? |
+| [Brute Force → BUD ↔ BCR](Interview_Playbook/Problem_Solving_Strategies.md) | Where are the bottlenecks, unnecessary work, and duplicated work? What runtime target can I justify? |
+| [Problem Transformation](Meta_Frameworks/Problem_Transformation.md) | How do I translate a story into entities, relationships, constraints, and a computational model? |
+| [Quick Decision Map](Meta_Frameworks/Problem_Classification_Framework/02-Quick_Decision_Map.md) | How do output goals, input structure, constraints, and input size narrow my options? |
+| [State → Transition → Traversal](Meta_Frameworks/Problem_Classification_Framework/03-State_Transition_Traversal.md) | What must I remember, how can it change, and what must be processed first? |
+| [Orthogonality](Meta_Frameworks/Orthogonality-Problem-Solving.md) | Which design decisions can I reason about separately before checking how they fit together? |
+| [Loop Invariants](Proof_Techniques/Loop_Invariant.md) · [Structural Induction](Proof_Techniques/Structural_Induction.md) · [Exchange Arguments](Proof_Techniques/Exchange_Argument.md) | How do I justify an iteration, a recursive composition, or a greedy choice? |
+
+### One map for the bigger picture
+
+The **[State–Transition Algorithm Atlas](Meta_Frameworks/State_Transition_Algorithm_Atlas.md)** describes algorithms and data structures through shared questions: **goal, state, transition, computation order, correctness, termination, and cost**.
+
+Its September 2026 snapshot contains **212 entries across 11 categories**, with source-note mappings. Entries include variants and combined patterns; they are not 212 distinct algorithms.
+
+[Read the Markdown atlas](Meta_Frameworks/State_Transition_Algorithm_Atlas.md) · [Downloadable HTML reader](Meta_Frameworks/State_Transition_Algorithm_Atlas.html)
+
+The HTML reader supports search, category filters, and expandable entries. Download it and open it locally in a browser.
+
+## Pattern library
+
+Each entry below gives you a concrete starting point and a deeper modeling question.
+
+| Topic | Start with | Then explore |
 |---|---|---|
-| **`Interview_Playbook/`** | 7 | 面試全流程策略：解題前 checklist、面試階段拆解、Hard 題學習法、code review 原則 |
-| **`Meta_Frameworks/`** | 7 | 問題分類框架、Quick Decision Map、問題轉換（Problem Transformation）、正交性思考 |
-| **`Proof_Techniques/`** | 3 | Exchange Argument、Loop Invariant、Structural Induction — 用來證明貪心與迴圈正確性 |
+| Two Pointers | [Core patterns and templates](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md) | [Fast and slow pointers](Algorithms/Two_Pointers/02_Fast_and_Slow_Pointers.md) |
+| Sliding Window | [Expand → repair → evaluate](Algorithms/Sliding_Window/00-Sliding_Window_Standard_Template.md) | [Constraint tracking](Algorithms/Sliding_Window/01-Constraint_Tracking_and_Optimization.md) |
+| Binary Search | [Find the first true predicate](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md) | [Search the solution space](Algorithms/Binary_Search/04-Binary_Search_on_Solution_Space.md) |
+| Prefix Sum | [Core concepts](Algorithms/Prefix_Sum/01_Prefix_Sum_Intro.md) | [Running-state patterns](Algorithms/Prefix_Sum/02_Running_State_Pattern.md) |
+| Recursion & Trees | [Recursion design principles](Algorithms/Design_Principles/Recursion/01-Recursion_Design_Principles.md) | [State design across recursive paradigms](Algorithms/Design_Principles/Recursion/State_Design_Across_Recursive_Paradigms.md) |
+| Backtracking | [Templates and patterns](Algorithms/Backtracking/01-Backtracking_Templates_and_Patterns.md) | [Decided vs. undecided candidates](Algorithms/Backtracking/03-Backtracking_Candidate_Modeling.md) |
+| Dynamic Programming | [From exhaustive search to DP](Algorithms/Dynamic_Programming/Fundamentals/02-Problem_Solving_Framework.md) | [State design](Algorithms/Dynamic_Programming/State_Design/01-Essentials.md) |
+| Graph Search | [Graph problem-solving principles](Data_Structures/Graphs/Graph_Problem_Solving_Principles.md) | [Constructing implicit graph nodes](Data_Structures/Graphs/Implicit_Graph_Node_Construction.md) |
+| Greedy & Heaps | [Recognizing greedy approaches](Algorithms/Greedy/Greedy_Identification_and_Application.md) | [Heap decision-making](Data_Structures/Heaps/01-Heap_Decision_Making.md) |
+| Monotonic Stack & Queue | [Core concepts](Data_Structures/Stacks_and_Queues/Monotonic_Stacks/01-Monotonic_Stack_and_Queue.md) | [Search-space conversion](Data_Structures/Stacks_and_Queues/Monotonic_Stacks/02-Search_Space_Conversion.md) |
+| Connectivity & Dependencies | [Union Find](Algorithms/Union_Find/01-Core_Concepts.md) | [Topological Sort](Algorithms/Topological_Sort/01-Core_Concepts_and_Applications.md) |
 
-### 📚 題目的歷史與出處
+Browse all [algorithms](Algorithms/), [data structures](Data_Structures/), or the [technique checklist](Checklists/Algorithm_Techniques_Checklist.md).
 
-[Problem_History/](Problem_History/README.md) — 每題一篇，記錄可確認的文獻來源、數學原型與解題方法的關係。從 [134. Gas Station：汽油謎題與前綴和的最低谷](Problem_History/LC_0134_Gas_Station.md) 開始。
+**Template convention:** Files named `00-<Technique>_Standard_Template.md` identify a canonical template, with a mnemonic, invariant, pitfalls, and interview explanation. Start with the Binary Search and Sliding Window templates linked above.
 
-### 📋 清單與速查
+## Practice with purpose
 
-| 目錄 | 內容 |
+Use a list to choose problems, then return to the pattern library to explain what you learned.
+
+| Collection | Learning purpose |
 |---|---|
-| **`Checklists/`** | 技法檢查表、學習 roadmap、刷題清單、刷題日誌（見下方「刷題準備途徑」） |
-| **`Cheatsheet/`** | `Gary's DSA Cheatsheet`、`LeetCode_Tricks_and_Keywords`、`CPP_One_Liners` |
-| **`Reading/`** | 參考書 PDF（CLRS、Kleinberg & Tardos、EPI、CtCI、劉汝佳） |
+| [Master Union — 250 problems](Checklists/Lists/00_Master_Union.md) | A deduplicated snapshot of four lists, grouped by overlap. The 37 problems in all four are a compact starting set; overlap is a prioritization heuristic. |
+| [24 Easy warm-ups](Checklists/Lists/01_Grind75_Easy_Warmup.md) | Refresh fundamentals. Its timing goals are intended for returning learners. |
+| [NeetCode 150](Checklists/Lists/NeetCode_150.md) | Practice by pattern category. |
+| [Grind 75](Checklists/Lists/Grind_75.md) | Follow a week-based practice sequence. |
+| [Top Interview 150](Checklists/Lists/Top_Interview_150.md) · [Top 100 Liked](Checklists/Lists/Top_100_Liked.md) | Broaden coverage with the collected LeetCode study-plan lists. |
+| [Essential Problems](Checklists/Essential%20Problems/Essential_Problems.md) | Explore the maintainer’s curated selection by technique. |
+| [Technique Integration](Checklists/Essential%20Problems/Technique_Integration_Problems.md) | Practice combining techniques and comparing approaches. |
+| [Follow-up Problems](Checklists/Lists/02_Followup_Problems.md) | Change a constraint, handle a variant, or explain a trade-off. Frequency labels are editorial judgments. |
+| [Focused practice playbooks](Checklists/Trick%20Practice/) | Deepen a specific technique: answer-space binary search, Kadane, knapsack, KMP, and more. |
 
----
+> List checkboxes, completion dates, and progress totals reflect **the maintainer’s practice**, not prerequisites for readers. `✅` means a problem also appears in the personal collection; `🔒` marks Premium problems. Use your own copy to track your progress.
 
-## 📈 刷題準備途徑
+**When a Hard problem stalls:** Use the [Hard-problem learning strategy](Interview_Playbook/Hard_Problem_Learning_Strategy.md) and [technique reference](Interview_Playbook/Hard_Techniques_Reference.md) to distinguish a missing insight from an unfamiliar technique, then return to simpler prerequisites when needed.
 
-### 清單體系 — `Checklists/Lists/`
+## Beyond the algorithm
 
-四份主流面試清單，全部附 LeetCode 題號、難度、連結，Premium 題標 🔒：
+A selection of notes that connect implementation, modeling, mathematics, and history:
 
-| 檔案 | 內容 |
+| Read this | Take away this idea |
 |---|---|
-| **`00_Master_Union.md`** | **四份清單去重母集合（250 題）**，按「出現在幾份清單」分四層排序 — 共識度越高越該先刷 |
-| `01_Grind75_Easy_Warmup.md` | Grind 75 的 24 題 Easy 暖身組，附技法覆蓋檢查表 |
-| `NeetCode_150.md` | NeetCode 150（18 分類） |
-| `Grind_75.md` | Grind 75（官方 8 週順序） |
-| `Top_Interview_150.md` | LeetCode 官方 Top Interview 150（19 分類） |
-| `Top_100_Liked.md` | LeetCode 官方 Hot 100 |
-| **`02_Followup_Problems.md`** | **母題的 follow-up 清單** — 面試官解完一題後最常追加的那題，含一節「沒有題號但一定會被問」的口頭 follow-up |
+| [Correct by Construction](Algorithms/Design_Principles/Correct_by_Construction.md) | Encode correctness in names, types, and structure so it survives forgetting a detail. |
+| [Destination as Source](Algorithms/Design_Principles/Transformation_Patterns/Destination_as_Source_Reachability.md) | Reverse reachability to share work across many starting points. |
+| [Multi-source BFS](Algorithms/BFS/MultiSource_BFS_Thinking_Framework.md) | Let all sources expand together instead of repeating nearest-source searches. |
+| [Canonical Anchor Decomposition](Algorithms/Divide_and_Conquer/08_Canonical_Anchor_Decomposition.md) | Use a structurally determined anchor to reason about unique decomposition. |
+| [Bidirectional Constraint Decomposition](Algorithms/Design_Principles/Bidirectional_Constraint_Decomposition.md) | Solve directional constraints separately, then combine them. |
+| [Gas Station: history and the prefix-sum minimum](Problem_History/LC_0134_Gas_Station.md) | Connect a coding problem to a mathematical puzzle and its documented sources. |
+| [Linked List Cycle II — interactive walkthrough](Visualizations/142-Linked_List_Cycle_II.html) | Follow fast and slow pointers visually; download the HTML and open it locally. |
 
-**共識分層**：🔥🔥🔥🔥 四份都有 37 題 · 🔥🔥🔥 三份 35 題 · 🔥🔥 兩份 44 題 · 🔥 單份 134 題
+Explore the [problem-history collection](Problem_History/README.md), [C++ reference](CPP_Reference/), [pattern and keyword cheatsheet](Cheatsheet/LeetCode_Tricks_and_Keywords.md), and [C++ one-liners](Cheatsheet/CPP_One_Liners.md).
 
-### 建議路徑
+## Repository map
 
-```
-1. 暖身    Lists/01_Grind75_Easy_Warmup.md  (24 題 Easy，找回手感)
-2. 核心    Lists/00_Master_Union.md 的 🔥🔥🔥🔥 + 🔥🔥🔥  (72 題，社群鐵共識)
-3. 主線    Lists/NeetCode_150.md 全通
-4. 補強    Top_Interview_150 的實作繁瑣型題目
-5. 衝刺    公司 tag + Last 6 months（面試前 2 週）
-```
-
-### 個人題庫 — `Checklists/Essential Problems/`
-
-- `Essential_Problems.md` — 個人精選必做題，按技法分類
-- `Archetype_Problems.md` — 各領域的原型問題
-- `Technique_Integration_Problems.md` — 需要組合多種技法的題目
-- `Problem_Review.md` — 待複習題目追蹤
-
-### 進階練習
-
-- `Checklists/Trick Practice/` — 7 份專題 playbook（Binary Search on Answer、Kadane、KMP、Knapsack、D&C Hard…）
-- `Checklists/Super_Hard/` — 單題深度拆解
-- `Checklists/Algorithm_Techniques_Checklist.md` — 技法總表，含難度評級與複雜度
-- `Checklists/Learning_Roadmap.md` — 解題時遇到的 follow-up 待辦
-
-### 刷題日誌 — `Checklists/Practice_Log.md`
-
-極簡格式，每天一個日期區塊：題目列表 + 本日心得。
-
----
-
-## 🤖 Claude Code 整合
-
-`.claude/agents/` 內建三個 subagent：
-
-| Agent | 用途 |
+| Directory | What you’ll find |
 |---|---|
-| **`google-interviewer`** | 模擬 Google L5 技術面試（繁體中文）。**貼上 LeetCode 題目時會自動觸發** — 不直接給解法，只在要求時給最小提示 |
-| **`playbook-extractor`** | 從解法萃取模式，產出結構化 playbook 文件 |
-| **`pattern-trick-extractor`** | 從多題解法中萃取共通心法，產出精簡版 playbook |
+| [`Meta_Frameworks/`](Meta_Frameworks/) | Modeling, classification, and connections between techniques |
+| [`Algorithms/`](Algorithms/) · [`Data_Structures/`](Data_Structures/) | Pattern notes, implementations, and trade-offs |
+| [`Proof_Techniques/`](Proof_Techniques/) | Tools for correctness reasoning |
+| [`Checklists/`](Checklists/) | Practice collections and technique coverage |
+| [`Interview_Playbook/`](Interview_Playbook/) | Communication, testing, review, and learning strategies |
+| [`CPP_Reference/`](CPP_Reference/) · [`Cheatsheet/`](Cheatsheet/) | Language details and quick reference |
+| [`Problem_History/`](Problem_History/README.md) · [`Visualizations/`](Visualizations/) | Historical context and standalone visual explainers |
 
-專案慣例（文件風格、命名、章節模板）記錄在 `CLAUDE.md`。
+<details>
+<summary><strong>Maintainer’s learning journal and AI-assisted workflows</strong></summary>
 
----
+The [practice log](Checklists/Practice_Log.md), [learning roadmap](Checklists/Learning_Roadmap.md), and [review list](Checklists/Essential%20Problems/Problem_Review.md) remain part of this repository. They document how the collection evolves through actual practice.
 
-## 如何使用
+Project skills support [mock interviews](.agents/skills/mock-interview/SKILL.md), [pattern extraction](.agents/skills/extract-pattern/SKILL.md), [Hard-problem coaching](.agents/skills/hard-coach/SKILL.md), and [practice logging](.agents/skills/practice-log/SKILL.md). Repository conventions live in [AGENTS.md](AGENTS.md); Claude Code reads them through [CLAUDE.md](CLAUDE.md).
 
-1. **先讀 Playbook** — 從 `Interview_Playbook/` 和 `Meta_Frameworks/` 建立解題流程的基礎
-2. **照清單刷題** — 依上方「建議路徑」，用 `Checklists/Lists/` 追蹤進度
-3. **卡住就回查心法** — 到 `Algorithms/<技法>/` 或 `Data_Structures/` 找對應筆記
-4. **語言問題查 Reference** — `CPP_Reference/` 與 `Cheatsheet/`
-5. **解完就抽象化** — 不要只存解法。想清楚底層模式，用 `playbook-extractor` 寫進對應章節
+</details>
 
----
+## Help improve the playbook
 
-這是一份持續演進的文件。它的價值來自「學習 → 抽象 → 精煉」的循環，而不是題目數量。
+Corrections, clearer explanations, counterexamples, translations, and connections between existing notes are welcome. For a proposed change, identify the note, explain the issue, and include a small example or correctness argument when relevant.
+
+If this collection helps you understand a pattern, consider starring it or sharing the note that helped you.
