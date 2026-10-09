@@ -2,11 +2,89 @@
 
 ---
 
+## 2026-10-09
+
+- 143. Reorder List
+- 142. Linked List Cycle II
+- 287. Find the Duplicate Number
+
+**心得**：
+- 143：這題是 middle to hard，因為結合 list reverse + merge。
+  - 主要是卡在 middle 找到之後，因為後半被 reverse，而前半還串在後半的 tail。我一直設計不出一個好的 termination condition。
+  - 後來想到之前有做過一個 intersection 的題目，只要他們有交會，最後一定會在同一個位置相遇。以這題為例，後半我用 pointer swap 的技巧（兩個 list 一直交換誰當頭），一定會有一個時間點，兩個人同時指向同一個位置。
+  - 所以就用這個當終止條件：兩個人指向同一個位置時。最厲害的是，edge case 都會過，包含單一 node 以及空串列。
+  - 一開始還在想辦法把前半鏈結斷掉……但是有好的 termination condition，其實不用斷掉前半。
+  - 這個靈感……可遇不可求。
+- 142：我不知道怎麼證明，但是我感覺跟找 intersection、交換 traverse 起點的 O(1) space 問題解法的感覺有點像……？
+  - 我是想到，找到交匯處時，有什麼狀態可以用？發現有交匯處跟起頭，所以靈感來源是……交匯處的下一個就是起點？proof？
+  - 從交匯處跟從頭再等速走一次？
+- 287：這題太難了，解法也太多了，一定要重做，加入 review list，而且不同的做法都要試試看。
+  - 超級難……難到不可思議……完全靠解答跟 gpt-6.1-sol 提示的。
+  - 下次要做看看 Array as HashMap (Recursion) 與 Array as HashMap (Iterative)，space 分別是 O(n) 與 O(1)，也是短到不可思議；但我現在還不知道要做什麼，先記錄一下，下次先提示，再重做看看。
+  - 1. 要先參考 LeetCode 142，先找到 intersect point。
+    2. Two pointers：一個從頭，一個從 intersect point，等速走。
+    3. 遇到的第一個 index 就是重複的 value。
+  - 關鍵想法：**入口的 index 本身就是重複值**，因為有不同的 index，其 `nums[index]` 都指向它。
+  - 就很像是 cycle detection 入口處，有「兩個人都指向它」的這個特性來設計出來的。
+  - 關鍵設計：
+    1. 先理解鴿籠原理，所以可以在 index [1, n] 裡面盡情地 traverse。
+    2. 用「cycle 入口有不同來源 index 指向它」的觀察來找到重複值（同 LeetCode 142 的 cycle entry point 解法）。
+    3. 把 duplicate 問題類比到 cycle entry point 問題。
+  - Pitfall 1：開頭要讓 slow 跟 fast 同一個起點，這樣走過的量跟交會的點在後面做 cycle entry point 才有意義。
+  - Pitfall 2：找到 cycle entry point 後，它的 index 就是我們發現的 duplicate 值，不用再去取那個位置對應的值（`nums[nums[slow]]` 這是多餘的）。可以想像，那個位置被走過兩次的概念，所以是重複值。
+
+**LLM 點評**：
+model: GPT-6
+- 143：提供的程式正確，時間 O(n)、額外空間 O(1)，不需要先斷開前半。抓到共享節點可以作為 merge 的終止訊號，是把鏈結結構轉成控制條件。不過「有交會就一定會同時相遇」本身不夠：Intersection 題的換頭走訪靠路程對齊保證相遇，這題則靠兩段長度關係與交替消耗節點，不能直接套用同一個證明。
+  - 令 m 為 reverse 前的中點。反轉後兩段只共享尾節點 m，且 m->next 為 nullptr。每輪 ptr1 是已接好前綴的最後一個節點，也是其中一段剩餘鏈的頭；ptr2 是下一個要接的另一段頭。先保存 ptr1->next、接上 ptr2，再交換角色，相當於消耗第一段的一個非共享節點。
+  - 用 a、b 表示兩個指標距 m 的邊數，初始 a == b 或 a == b + 1；每輪變成 (b, a - 1)，仍維持同一關係，且 a + b 減一。因此 ptr1 != ptr2 時 ptr1 尚未到 m、可以安全讀取 next；最後必在 m 相遇。相遇即停，不會寫出 m->next = m，尾端保持 nullptr。空串列時 reverse(nullptr) 安全且兩指標皆為 nullptr；單節點時兩指標一開始就相同，皆跳過 merge。
+  - 可把靈感整理成可重複推導的步驟：定義每輪兩個指標代表的未處理部分、確認共享節點與 next 的狀態，再證明每輪消耗未處理節點且不會越過相遇狀態；停止時檢查每個原節點恰好出現一次、尾端為 nullptr。空串列與單節點能否安全通過，也包含找中點和 reverse 階段，不能只看 merge 的終止條件。見 [相鄰指針：終止條件須配合循環操作](../Algorithms/Two_Pointers/04_Adjacent_Pointers.md)。
+- 142：提供的程式正確。與 Intersection 換頭解法的共同心法是「利用路程關係對齊指標」；Intersection 靠交換路徑補齊長度差，本題靠 1:2 速度造成的模環長關係。相遇點的下一個不一定是環入口。
+  - 令 a 為 head 到環入口的距離、L 為環長、b 為入口沿 next 到相遇點的距離。相遇時 slow 已走 t 步、fast 已走 2t 步；兩者位置相同，因此路程差 t 是 L 的整數倍。又 t ≡ a + b (mod L)，所以 a + b ≡ 0 (mod L)。從相遇點再走 a 步便回到入口，同時從 head 走 a 步也到入口；前 a 步 head 尚在環外，因此兩者首次相遇就在入口。a = 0 時兩者已在入口，第二段直接跳過。
+  - 無環時 fast 或 fast->next 為 nullptr，直接回傳；空串列、單節點無環與單節點自環皆能處理。時間 O(a + L)、額外空間 O(1)；「two passes」宜說成兩階段，因為環內可能繞行，不是字面上的完整走訪兩次。見 [快慢指針](../Algorithms/Two_Pointers/02_Fast_and_Slow_Pointers.md)。
+- 287：最後提供的版本正確，時間 O(n)、額外空間 O(1)，且不修改陣列。核心建模是 index 為節點、nums[index] 為 next。從完整路徑 0 出發，0 沒有入邊，必在環外；入口有環外與環內兩個不同前驅，因此入口編號是重複值。即使實作從 nums[0] 出發，也會找到同一入口。見 [快慢指針](../Algorithms/Two_Pointers/02_Fast_and_Slow_Pointers.md)。
+  - Pitfall 1 更精確是兩階段使用同一個概念起點。兩指標同值初始化搭配 do-while 很清楚；slow = nums[0]、fast = nums[nums[0]] 也可以代表從 index 0 已先走一輪，第二階段就應重設到 0，不是要求初始化變數一定相等。
+  - Pitfall 2：停止時回傳 slow；連 nums[slow] 都是再往下一個節點，更不用說 nums[nums[slow]]。理由是不同來源 index 指向同一入口，不是「同一位置被走過兩次」；繞環會反覆走過所有環節點，不能用重訪次數區分答案。已加入複習清單，安排重寫 Floyd 並嘗試其他做法、比較各自是否符合限制。
+  - 關鍵設計可再分清三層：值域 [1, n] 保證每次 next = nums[index] 都落在合法 index；有限節點上持續沿固定 next 走，依鴿籠原理必重訪並形成環；從無入邊的 0 出發，入口有兩個不同前驅，才把「找重複值」轉成「找環入口」。鴿籠原理保證重複／重訪，走訪不越界則來自值域限制。
+
+---
+
+## 2026-10-07
+
+- 876. Middle of the Linked List
+
+**心得**：
+
+---
+
+## 2026-10-06
+
+- 228. Summary Ranges
+- 232. Implement Queue using Stacks
+- 234. Palindrome Linked List
+
+**心得**：
+- 232：把兩個 stack invariant 想清楚就很好解了
+  - 目前版本的 peek 是攤銷 O(1)；下次要做出單次最壞 O(1) 的 peek。
+- 234：用遞迴 + 外部狀態，只要想到外部狀態，就可以在遞迴回來時，開始比較。
+  - 至於 space O(1) 解法要想到可以破壞 input 的 reverse。
+
+**LLM 點評**：
+model: GPT-6
+- 232：用 invariant 定義兩個 stack 的角色，確實能直接推導操作規則。以延遲搬移的版本為例：out 從頂到底是較早入隊、接下來要取出的元素；in 從底到頂是較晚入隊、尚未搬移的元素。整個 queue 的 FIFO 順序就是這兩段串接，因此只有 out 為空時，才能把 in 全部搬到 out，否則會讓新元素插到舊元素前面。每個元素最多搬移一次，所以 push、pop、peek 的攤銷時間皆為 O(1)，但觸發搬移的單次 pop／peek 最壞為 O(n)。
+  - 提供的程式符合上述 invariant，peek 觸發搬移，因此 peek 與 pop 都是攤銷 O(1)。若要讓 peek 單次最壞也 O(1)，可在 pushStack 為空時的 push 快取其底部元素 front；peek 優先讀 popStack.top()，popStack 為空才讀 front，搬移則改由 pop 觸發。front 只在 pushStack 非空時有效，不需要隨 pop 更新。
+- 234：兩個版本都正確。遞迴返回時 ptr 由尾向頭，外部 head 由頭向尾，每次比較一組鏡像位置；每成功比較一次才推進 head。時間 O(n)，call stack 深度 O(n)，所以空間 O(n)；此版會比較全部 n 組，包含重複的鏡像配對，但不影響正確性或複雜度。
+  - 第二版從 index floor(n/2) 開始反轉，偶數長度比較後半，奇數長度包含中點、最後讓中點與自己比較，因此不必另外跳過中點。多次線性走訪的總時間仍為 O(n)，iterative reverse 只用固定數量指標，額外空間 O(1)。
+  - compare 的指標按值傳入，不會改掉呼叫端保存的 ptr；即使比較失敗，也先保存 ret 再 reverse(ptr)，確保還原。前半段原本連到反轉區起點的 next 未被修改，第二次反轉會恢復整條鏈，不需要額外接回。心得可精確表達為「暫時重接 input 的指標，利用原節點完成反向走訪，再還原」。先算長度找中點已符合要求，快慢指標只是省掉一次完整的長度走訪。
+
+---
+
 ## 2026-10-05
 
 - 160. Intersection of Two Linked Lists
 - 205. Isomorphic Strings
 - 219. Contains Duplicate II
+- 152. Maximum Product Subarray
 
 **心得**：
 - 205：這題沒有想像中簡單，已經做第二次了，都是漏 mapping 的項目不能重複的問題。
@@ -14,13 +92,21 @@
   - 核心是設計「1–1 mapping」的實作：用 forward + reverse mapping，兩個方向各自記錄對應關係；已做出雙向 map 的版本。
   - 另一個思路是設計 mapping function，把兩個 input 各自轉到共同的值域，再比較轉換後的結果；這就是 canonicalization，repo 裡也有討論。
 - 219：做了暴力法、hashmap。看了解答發現 hashmap 時間 O(n)，空間是 O(n)。有需要做看看 sliding window 版本嗎？
+- 152：想超久……超超級久，有靈感，但是 invariant 一直寫不出來，寫出後就解了。
+  - 關鍵設計：
+    1. 要查兩個表：維護最大值來找最大，and 維護最小值來找最小。
+    2. Kadane's Algorithm：當前更好的話，reset 值。
+  - 比較單純的思路，是先解決最大值的 Kadane's invariant，然後因為負數出現兩次有機會變更大的值，所以要 maintain 一個最小值。
+  - 很容易優化成 O(1) space。
+  - 下次要重新講一次暴力法的做法跟時間。
 
 **LLM 點評**：
 model: GPT-6
-- 205：Invariant 是已處理的字元配對維持一對一映射：同一來源不能映到不同目標，不同來源也不能共用目標。單向 mapping 允許多對一，例如 ab → aa；mapping + used set 分別維持來源對應一致、目標不被其他來源占用。提供的 forward + reverse map 程式正確，先檢查雙向衝突，再同時建立對應，兩份狀態與判斷對稱，適合作為通用 1–1 mapping 的基本實作。時間平均 O(n)，空間 O(k)，k 為不同字元数；固定字元集下可視為 O(1)。
+- 205：Invariant 是已處理的字元配對維持一對一映射：同一來源不能映到不同目標，不同來源也不能共用目標。單向 mapping 允許多對一，例如 ab → aa；mapping + used set 分別維持來源對應一致、目標不被其他來源占用。提供的 forward + reverse map 程式正確，先檢查雙向衝突，再同時建立對應，兩份狀態與判斷對稱，適合作為通用 1–1 mapping 的基本實作。時間平均 O(n)，空間 O(k)，k 為不同字元數；固定字元集下可視為 O(1)。
   - Last-seen 是另一種驗證方式，不是 mapping + used set：兩側各記錄上次出現位置，每步比較目前兩字元是否曾在同一位置一起出現，再更新為 i + 1（0 表示未出現）。它間接檢查出現模式的一致性，不是檢查「這次與上次位置不同」，也不是實作一對一映射的必要步驟。
   - Canonicalization 則先把兩個輸入各自轉成共同標準形式，再比較。例如 paper 與 title 都依首次出現順序編成 0,1,0,2,3。每個輸入內的字元到編號是一對一，但整個字串的正規化不是一對一：等價字串刻意得到相同結果。雙向 mapping 直接驗證兩個輸入間的對應；正規化則保留重複模式、消去字元名稱。見 [Canonicalization：用於分組／判等](../Algorithms/Design_Principles/Canonicalization.md)。
 - 219：若 hashmap 保存每個值最近一次出現的位置，時間平均 O(n)，空間最壞 O(n)；最近位置已足以判斷，因為它與目前 index 的距離最小。建議再做 sliding window，練習把「距離 <= k」轉成有效候選範圍：檢查 nums[i] 前，set 只保存 nums[max(0, i-k):i) 的值。只保留仍可能配對的最近 k 個元素，時間仍平均 O(n)，k >= 1 時空間 O(min(n,k))；k = 0 可直接判定 false。重點是過期資料何時移除，以及距離恰為 k 時仍須納入檢查；見 [Sliding Window 標準模板](../Algorithms/Sliding_Window/00-Sliding_Window_Standard_Template.md)。
+- 152：關鍵 invariant 要加上「恰好以 i 結尾、非空且連續」：maxEnd 是這些子陣列的最大乘積，minEnd 是最小乘積；整體答案則是所有已處理 maxEnd 的最大值。兩個狀態互相依賴，不是各自獨立跑最大／最小 Kadane：令 x = nums[i]，兩者都從 x、x × prevMax、x × prevMin 中分別取最大／最小，負數乘法會反轉大小順序。Reset 的意思是選單獨的 x，而不是延伸上一段；0 也由相同候選自然處理。轉移只依賴上一輪的兩個極值，因此時間 O(n)，可用 rolling states 將額外空間降至 O(1)；更新前須保留舊值，避免第二個狀態讀到本輪已更新的值。見 [Kadane's Algorithm](../Algorithms/Dynamic_Programming/Advanced_Techniques/Kadane_Algorithm.md)。
 
 ---
 

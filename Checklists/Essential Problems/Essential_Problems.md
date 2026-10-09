@@ -23,7 +23,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 125. Valid Palindrome
 - LeetCode 345. Reverse Vowels of a String
 - LeetCode 86. Partition List
-- LeetCode 143. Reorder List
+- 🟡 🔴 LeetCode 143. Reorder List
 - 🔴 LeetCode 42. Trapping Rain Water
 - 🟡 LeetCode 75. Sort Colors
 - LeetCode 9. Palindrome Number
@@ -31,7 +31,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Linked List
 
-- LeetCode 143. Reorder List
+- 🟡 🔴 LeetCode 143. Reorder List
+- 🟡 🔴 287. Find the Duplicate Number
 
 ## Sliding Window
 
@@ -64,6 +65,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 322. Coin Change
 - 🟡 LeetCode 22. Generate Parentheses
 - 🟡 LeetCode 97. Interleaving String
+- 🟡 🔴 LeetCode 152. Maximum Product Subarray
+  - 需要特別設計的查表邏輯 (其實就是遞迴式的設計)
 
 ## Kadane's Pattern DP
 
@@ -223,6 +226,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Hashmap + Connected Component
 - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
   - Tree + Divide and Conquer
+- 🟡 🔴 LeetCode 143. Reorder List
+  - Middle Point + Rerverse + Merge
 
 ### Followup Possible (Multiple Solutions)
 
@@ -240,6 +245,12 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
 - 🟢 LeetCode 219. Contains Duplicate II
   - brute force -> hashmap -> sliding window
+- 🟢 🟡 LeetCode 234. Palindrome Linked List
+  - Time O(n) + Space O(1)
+- 🟢 🟡 142. Linked List Cycle II
+  - Time O(n) + Space O(1)
+- 🟡 🔴 287. Find the Duplicate Number
+  - Time O(n) + Space O(1)
 
 ## LeetCode Solution Worth Reading
 
@@ -261,3 +272,7 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Greedy / Reset Argument / Running Sum
 - 🟡 🔴 LeetCode 73. Set Matrix Zeroes
   - Space O(1)
+- 🟢 🟡 142. Linked List Cycle II
+  - Time O(n) + Space O(1)
+- 🟡 🔴 287. Find the Duplicate Number
+  - Based on LeetCode 142.

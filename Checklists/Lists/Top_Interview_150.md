@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：91 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：92 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -72,7 +72,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 ## Intervals (4)
 
-- [ ] **228.** [Summary Ranges](https://leetcode.com/problems/summary-ranges/) — `Easy`
+- [x] **228.** [Summary Ranges](https://leetcode.com/problems/summary-ranges/) — `Easy` · <sub>✔ 2026-10-06</sub>
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [ ] **452.** [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) — `Medium`

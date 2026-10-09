@@ -29,7 +29,7 @@ ListNode* fast_and_slow_template(ListNode* head) {
     ListNode* fast = head;
 
     // 2. 循環遍歷：條件是保證 fast 指針及其下一步的有效性
-    while (fast != nullptr && fast->next != nullptr) {
+    while (fast && fast->next) {
         // a. 移動指針
         slow = slow->next;        // 慢指針移動一步
         fast = fast->next->next;  // 快指針移動兩步
@@ -58,7 +58,7 @@ ListNode* fast_and_slow_template(ListNode* head) {
 **設計原則:**
 
 - **安全性優先:** 終止條件的首要目標是防止對 `nullptr` 進行訪問，避免執行期錯誤。
-- **目標導向:** 條件的選擇直接決定了循環結束時 `slow` 指針的位置。例如，若條件改為 `while (fast->next && fast->next->next)`，則在偶數長度鏈表中，`slow` 會停在中間兩節點的第二個。
+- **目標導向:** 兩個指針都從 `head` 開始時，使用 `while (fast && fast->next)`，`slow` 會停在 index `floor(n/2)`（0-based）：奇數長度為唯一中點，偶數長度為中間兩節點的第二個。若已確認 `head` 非空，條件改為 `while (fast->next && fast->next->next)`，則偶數長度會停在中間兩節點的第一個。
 - **邊界處理:** 此條件能優雅地處理空鏈表或單節點鏈表的情況，此時循環不會執行。
 
 ### 2. 指針前進邏輯 (Movement Logic)
@@ -80,6 +80,29 @@ ListNode* fast_and_slow_template(ListNode* head) {
 
 - **檢測鏈表中的環 (Cycle Detection):** 如果 `fast` 與 `slow` 相遇，則存在環。
 - **找到鏈表的中間節點 (Finding Middle Node):** 當 `fast` 到達末尾時，`slow` 就在中點。
+
+### 找中點：slow / fast 指標的起手式
+
+```cpp
+ListNode *slow = head;
+ListNode *fast = head;
+
+while (fast && fast->next) {
+    slow = slow->next;
+    fast = fast->next->next;
+}
+
+// 迴圈結束時，fast 停在尾節點或 nullptr：
+// 奇數長度：尾節點
+// 偶數長度：nullptr
+
+// slow 則停在中點：奇數長度是正中間，偶數長度是右半段的起點。
+// 可以類比 array 的中點公式：mid = i + (j - i) / 2
+// 當 i = 0、j = n - 1，偶數長度的 mid 會落在左中點。
+// 當 i = 0、j = n，偶數長度的 mid 會落在右中點，對應這個 slow / fast 起手式。
+// 奇數長度時，兩種公式都會落在正中間。
+```
+
 - **判斷鏈表是否為回文 (Palindrome Linked List):** 先用快慢指針找到中點，反轉後半部分，再進行比較。
 
 ---

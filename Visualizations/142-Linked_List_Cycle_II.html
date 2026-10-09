@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src data:; font-src data:; media-src data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>142：為什麼回頭就能找到環入口？</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f4ef;color:#202b36;font-family:system-ui,-apple-system,sans-serif}main{max-width:850px;margin:auto;padding:32px 20px}h1{font-size:clamp(25px,4vw,36px);margin:0 0 12px}p{line-height:1.7}.muted{color:#596673}.panel{background:#fff;border-radius:20px;padding:20px;margin-top:20px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}button{font:inherit;border:1px solid #b6c2cc;background:#fff;color:#202b36;padding:10px 15px;border-radius:9px;cursor:pointer;min-height:44px}button.primary{background:#253f60;color:#fff;border-color:#253f60}button:disabled{opacity:.45;cursor:default}button:focus-visible{outline:3px solid #bf6c00;outline-offset:3px}h2{font-size:25px;margin:4px 0 12px}.phase{color:#2768ac;font-weight:700}.legend{display:flex;gap:22px;flex-wrap:wrap;font-size:15px}.slow{color:#176eae}.fast{color:#a24527}svg{display:block;width:100%;height:auto}#message{min-height:56px;margin:8px 0}.equation{font:600 clamp(18px,3vw,25px) ui-monospace,monospace;background:#f0f4f8;padding:16px;border-radius:10px;line-height:1.65;overflow-wrap:anywhere}#distance{margin-top:12px}.lane{display:flex;align-items:center;gap:10px;margin:10px 0}.lane label{width:82px;flex-shrink:0}.cells{display:flex;gap:3px;flex:1}.cell{height:17px;flex:1;background:#e6edf2;border-radius:2px}.cell.on.blue{background:#176eae}.cell.on.orange{background:#a24527}.cell.entry{outline:2px solid #4b8055;outline-offset:1px}#caption{font-size:14px}.recap{margin-top:22px;font-weight:650} @media(max-width:500px){main{padding:20px 12px}.panel{padding:15px}.lane label{width:70px;font-size:14px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body><main>
+<h1>為什麼回頭就能找到入口？</h1>
+<p class="muted">固定例子：入口距離 a = 3，環長 L = 5。</p>
+<div class="toolbar"><button id="play" class="primary">播放</button><button id="next">下一步 →</button><button id="back">← 上一步</button><button id="reset">重播</button></div>
+<section class="panel">
+<div id="phase" class="phase">01 ／ 快慢相遇</div><h2 id="heading">每輪：slow 一步，fast 兩步</h2>
+<div class="legend"><span class="slow">● slow／回頭者</span><span class="fast">◆ fast／留在相遇點者</span><span>◎ 環入口</span></div>
+<svg id="graph" role="img" aria-label="三步直線接上五節點環；藍色圓與橘色菱形顯示兩個指標"></svg>
+<p id="message" aria-live="polite"></p>
+<div id="equation" class="equation"></div>
+<div id="distance"></div><p id="caption" class="muted"></p>
+</section>
+<p class="recap">相遇留下距離關係；回頭讓入口同時抵達。</p>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id), ns='http://www.w3.org/2000/svg';
+const states=[];for(let t=0;t<=5;t++)states.push({phase:1,t,p:pos(t),q:pos(2*t)});
+states.push({phase:2,s:0,p:0,q:5});for(let s=1;s<=3;s++)states.push({phase:2,s,p:s,q:pos(5+s)});
+let index=0,timer=null,frame=null;
+function pos(d){return d<3?d:3+(d-3)%5}
+function el(tag,attrs,parent=$('graph')){const e=document.createElementNS(ns,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);parent.appendChild(e);return e}
+function text(x,y,str,attrs={}){const e=el('text',{x,y,fill:'#202b36','font-size':16,'text-anchor':'middle',...attrs});e.textContent=str;return e}
+function geometry(){const w=Math.max(280,$('graph').getBoundingClientRect().width),small=w<560,h=small?470:380;let points=[];const cx=small?w/2:w*.69,cy=small?330:210,r=small?100:105,start=small?-Math.PI/2:Math.PI;
+for(let i=0;i<3;i++)points.push(small?{x:cx,y:42+i*57}:{x:45+i*(cx-r-45)/3,y:cy});for(let i=0;i<5;i++){let a=start+i*2*Math.PI/5;points.push({x:cx+r*Math.cos(a),y:cy+r*Math.sin(a)})}return {w,h,points}}
+function draw(p,q){const svg=$('graph'),g=geometry();svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${g.w} ${g.h}`);const defs=el('defs',{}),marker=el('marker',{id:'arrow',viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:6,markerHeight:6,orient:'auto-start-reverse'},defs);el('path',{d:'M 0 0 L 10 5 L 0 10 z',fill:'#9ca9b2',stroke:'none'},marker);
+for(let i=0;i<8;i++){const a=g.points[i],b=g.points[i===7?3:i+1],dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy);el('line',{x1:a.x+dx/len*21,y1:a.y+dy/len*21,x2:b.x-dx/len*24,y2:b.y-dy/len*24,stroke:'#9ca9b2','stroke-width':2,'marker-end':'url(#arrow)'})}
+g.points.forEach((a,i)=>{if(i===3)el('circle',{cx:a.x,cy:a.y,r:25,fill:'#e6f2e8',stroke:'#4b8055','stroke-width':2});el('circle',{cx:a.x,cy:a.y,r:18,fill:'#fff',stroke:'#9ca9b2','stroke-width':1.5});text(a.x,a.y+6,i===3?'E':String(i));});
+const a=g.points[0],e=g.points[3],m=g.points[5];text(a.x+36,a.y+5,'head',{'text-anchor':'start','font-size':14});text(e.x,e.y-34,'入口',{'font-size':15,fill:'#35623c'});text(m.x,m.y+40,'相遇點',{'font-size':15});
+function token(d,kind){const a=typeof d==='number'?g.points[d]:d,x=a.x,y=a.y,offset=kind==='slow'?-28:28; if(kind==='slow')el('circle',{cx:x+offset,cy:y,r:9,fill:'#176eae',stroke:'#fff','stroke-width':2});else el('path',{d:`M ${x+offset} ${y-11} l 11 11 l -11 11 l -11 -11 Z`,fill:'#a24527',stroke:'#fff','stroke-width':2})}
+token(p,'slow');token(q,'fast');
+}
+function lane(label,count,total,color,entry){const row=document.createElement('div');row.className='lane';const name=document.createElement('label');name.textContent=label+' '+count;row.appendChild(name);const cells=document.createElement('div');cells.className='cells';for(let i=0;i<total;i++){const c=document.createElement('span');c.className='cell'+(i<count?' on '+color:'')+(i===entry?' entry':'');cells.appendChild(c)}row.appendChild(cells);$('distance').appendChild(row)}
+function render(){const s=states[index];draw(s.p,s.q);$('back').disabled=index===0;$('next').disabled=index===states.length-1;$('distance').replaceChildren();
+if(s.phase===1){$('phase').textContent='01 ／ 快慢相遇';$('heading').textContent='每輪：slow 一步，fast 兩步';$('message').textContent=s.t===0?'從 head 出發；初始重合不算偵測到環。':s.t===5?'相遇！fast 比 slow 多走 5 步，剛好一整圈。':'兩個指標沿 next 前進。';$('equation').textContent=s.t===5?'slow = 5，fast = 10\n10 − 5 = L = 5':`slow = ${s.t} 步，fast = ${2*s.t} 步`;lane('slow',s.t,10,'blue',-1);lane('fast',2*s.t,10,'orange',-1);$('caption').textContent='每格一步；比較累積路程，不是節點編號。';}
+else{$('phase').textContent='02 ／ 等速找入口';$('heading').textContent=s.s===3?'兩人同時抵達入口':'藍色回 head；橘色留在相遇點';$('message').textContent=s.s===0?'現在兩人都每輪走一步。':s.s===3?'藍色走完直線 3 步；橘色走完環上剩餘 3 步。':'藍色仍在環外，橘色仍在環內，還不可能相遇。';$('equation').textContent='a + b = 3 + 2 = L = 5\n相遇點 → 入口：L − b = a = 3';lane('從 head',s.s,3,'blue',2);lane('從相遇點',s.s,3,'orange',2);$('caption').textContent='兩條路各 3 步；綠框是抵達入口的那一步。';}
+$('equation').style.whiteSpace='pre-line';if(index===states.length-1)stop();}
+function stop(){clearInterval(timer);timer=null;$('play').textContent='播放'}
+function move(to){if(frame)cancelAnimationFrame(frame);const old=states[index];index=to;render();const now=states[index];if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+// Animate along each actual next edge; fast traverses its intermediate node.
+const route=(from,to,phaseSwitch)=>{if(phaseSwitch)return [from,to];const arr=[from];let p=from;for(let k=0;k<3&&p!==to;k++){p=p===7?3:p+1;arr.push(p)}return p===to?arr:[from,to]};
+if(to>=0&&now.phase===old.phase&&to===states.indexOf(old)+1){const pr=route(old.p,now.p,false),qr=route(old.q,now.q,false),begin=performance.now();function tick(time){const f=Math.min(1,(time-begin)/650);function locate(r){const z=f*(r.length-1),i=Math.min(r.length-2,Math.floor(z));if(r.length<2)return r[0];const points=geometry().points,a=points[r[i]],b=points[r[i+1]],v=z-i;return {x:a.x+(b.x-a.x)*v,y:a.y+(b.y-a.y)*v}}draw(locate(pr),locate(qr));if(f<1)frame=requestAnimationFrame(tick);else draw(now.p,now.q)}frame=requestAnimationFrame(tick)}
+}
+$('next').onclick=()=>{stop();if(index<states.length-1)move(index+1)};$('back').onclick=()=>{stop();if(index>0)move(index-1)};$('reset').onclick=()=>{stop();move(0)};$('play').onclick=()=>{if(timer){stop();return}if(index===states.length-1)move(0);$('play').textContent='暫停';timer=setInterval(()=>{if(index<states.length-1)move(index+1);else stop()},1600)};new ResizeObserver(()=>draw(states[index].p,states[index].q)).observe($('graph'));render();
+})();
+</script></body></html>

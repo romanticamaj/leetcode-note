@@ -6,7 +6,7 @@ This file provides guidance to AI coding agents (Claude Code, Codex) working in 
 
 This is a structured collection of notes, patterns, and mental models (心法) for mastering technical interviews and engineering problem-solving. It focuses on extracting reusable strategies, design principles, and testing frameworks rather than collecting solutions.
 
-**Markdown documentation only** — there are no build, test, or lint commands. ~300 notes, written primarily in Traditional Chinese with English technical terms.
+**Primarily Markdown documentation**, with self-contained HTML visualizations — there are no build, test, or lint commands. ~300 notes, written primarily in Traditional Chinese with English technical terms.
 
 ## Repository Structure
 
@@ -27,6 +27,7 @@ This is a structured collection of notes, patterns, and mental models (心法) f
 - **`Checklists/`** — Practice lists, technique checklist, roadmap, practice log (see below)
 - **`Cheatsheet/`** — `Gary's DSA Cheatsheet.md`, `LeetCode_Tricks_and_Keywords.md`, `CPP_One_Liners.md`
 - **`Reading/`** — Reference book PDFs (not tracked as notes)
+- **`Visualizations/`** — 圖解與互動 HTML 動畫統一放在這裡。LeetCode 圖解以 `<編號>-<英文題名，空格改為底線>.html` 命名，例如 `142-Linked_List_Cycle_II.html`；保持單檔可直接用瀏覽器開啟。
 
 ### Key Files
 

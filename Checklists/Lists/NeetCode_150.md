@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：78 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：81 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -61,11 +61,11 @@
 - [x] **206.** [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **21.** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
-- [ ] **143.** [Reorder List](https://leetcode.com/problems/reorder-list/) — `Medium` ✅
+- [x] **143.** [Reorder List](https://leetcode.com/problems/reorder-list/) — `Medium` ✅ · <sub>✔ 2026-10-09</sub>
 - [x] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium` · <sub>✔ 2026-09-17</sub>
 - [x] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [x] **2.** [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) — `Medium` · <sub>✔ 2026-09-16</sub>
-- [ ] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium`
+- [x] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium` · <sub>✔ 2026-10-09</sub>
 - [x] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>✔ 2026-09-15</sub>
 - [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard`
@@ -152,7 +152,7 @@
 - [ ] **647.** [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — `Medium`
 - [ ] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium`
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>✔ 2026-09-15</sub>
-- [ ] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium`
+- [x] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>✔ 2026-10-05</sub>
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
 - [x] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅ · <sub>✔ 2026-09-22</sub>

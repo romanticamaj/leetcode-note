@@ -26,6 +26,17 @@
 
 ## 題目列表
 
+- [ ] LeetCode 287. Find the Duplicate Number
+  - 📌 標記原因: 非常困難，首次完全靠解答與 gpt-6.1-sol 提示；必須重做，並嘗試不同解法。
+  - [ ] Array as HashMap (Recursion)：space O(n)，下次先給方向性提示，再自行重做，不直接給解法或程式碼。
+  - [ ] Array as HashMap (Iterative)：space O(1)，下次先給方向性提示，再自行重做，不直接給解法或程式碼。
+  - 🏷️ 技巧分類: Array as Functional Graph / Floyd Cycle Detection / Pigeonhole Principle
+  - 🔗 前置題型: LeetCode 142. Linked List Cycle II
+  - [ ] Floyd：不看解答重寫；說明入口為何是重複值、兩階段起點如何一致，以及為何回傳入口 index。
+  - [ ] 值域二分 + 計數：推導鴿籠原理如何決定搜尋方向。
+  - [ ] Bit counting：比較 nums 與 1～n 的各 bit 計數，說明重複值出現超過兩次時為何仍成立。
+  - [ ] 暴力、Hash Set、排序：實作並比較時間、空間與是否修改輸入；指出哪些不符合題目限制。
+
 - [ ] LeetCode 95. Unique Binary Search Trees II
 - [ ] LeetCode 240. Search a 2D Matrix II
 - [ ] LeetCode 489. Robot Room Cleaner

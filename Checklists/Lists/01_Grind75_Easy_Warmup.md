@@ -5,7 +5,7 @@
 - 目標：每題 **15–20 分鐘內** 從頭寫完、一次 AC、不查資料
 - 超過 20 分鐘 → 標 ⚠️，代表那個技法生鏽了，回去看 `Algorithms/<技法>/` 的心法
 - 建議節奏：**每天 4 題，6 天做完**
-- **已刷：18 / 24**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄，仍建議重寫一次計時）
+- **已刷：20 / 24**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄，仍建議重寫一次計時）
 
 ---
 
@@ -23,7 +23,7 @@
 - [ ] 235. Lowest Common Ancestor of a BST — *BST* · 20 min ✅
 - [x] 110. Balanced Binary Tree — *Tree DFS* · 15 min · <sub>✔ 2026-09-24</sub>
 - [x] 141. Linked List Cycle — *Fast/Slow Pointer* · 20 min ✅ · <sub>✔ 2026-09-05</sub>
-- [ ] 232. Implement Queue using Stacks — *Stack Design* · 20 min
+- [x] 232. Implement Queue using Stacks — *Stack Design* · 20 min · <sub>✔ 2026-10-06</sub>
 
 ## Week 2 (11 題)
 
@@ -35,7 +35,7 @@
 - [x] 169. Majority Element — *Boyer-Moore* · 20 min · <sub>✔ 2026-09-15</sub>
 - [x] 67. Add Binary — *String / Bit* · 15 min · <sub>✔ 2026-09-23</sub>
 - [x] 543. Diameter of Binary Tree — *Tree DFS 回傳值設計* · 30 min · <sub>✔ 2026-09-16</sub>
-- [ ] 876. Middle of the Linked List — *Fast/Slow Pointer* · 20 min
+- [x] 876. Middle of the Linked List — *Fast/Slow Pointer* · 20 min · <sub>✔ 2026-10-07</sub>
 - [x] 104. Maximum Depth of Binary Tree — *Tree DFS* · 15 min · <sub>✔ 2026-09-05</sub>
 - [x] 217. Contains Duplicate — *Hash Set* · 15 min · <sub>✔ 2026-09-27</sub>
 

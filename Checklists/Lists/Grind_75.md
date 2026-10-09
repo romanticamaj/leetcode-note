@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：56 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：58 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -22,7 +22,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [ ] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` ✅
 - [x] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
-- [ ] **232.** [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) — `Easy`
+- [x] **232.** [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) — `Easy` · <sub>✔ 2026-10-06</sub>
 
 ## Week 2 (12)
 
@@ -34,7 +34,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
 - [x] **67.** [Add Binary](https://leetcode.com/problems/add-binary/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [x] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-16</sub>
-- [ ] **876.** [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) — `Easy`
+- [x] **876.** [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) — `Easy` · <sub>✔ 2026-10-07</sub>
 - [x] **104.** [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [x] **217.** [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — `Easy` · <sub>✔ 2026-09-27</sub>
 - [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>

@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：105 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：113 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -118,13 +118,13 @@ Easy 13 · Medium 26 · Hard 5
 - [x] **131.** [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — `Medium` · <sub>NC · H100</sub> ✅ · <sub>✔ 2026-10-02</sub>
 - [x] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` · <sub>NC · TI150</sub> ✅ · <sub>✔ 2026-10-01</sub>
 - [x] **148.** [Sort List](https://leetcode.com/problems/sort-list/) — `Medium` · <sub>TI150 · H100</sub> · <sub>✔ 2026-10-03</sub>
-- [ ] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>NC · H100</sub>
+- [x] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>NC · H100</sub> · <sub>✔ 2026-10-05</sub>
 - [ ] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium` · <sub>NC · TI150</sub>
 - [ ] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium` · <sub>TI150 · H100</sub>
 - [ ] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium` · <sub>NC · TI150</sub>
 - [ ] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium` · <sub>NC · TI150</sub>
 - [ ] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` · <sub>NC · G75</sub> ✅
-- [ ] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium` · <sub>NC · H100</sub>
+- [x] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium` · <sub>NC · H100</sub> · <sub>✔ 2026-10-09</sub>
 - [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` · <sub>NC · H100</sub> ✅
 - [ ] **438.** [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) — `Medium` · <sub>G75 · H100</sub> ✅
 - [ ] **621.** [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — `Medium` · <sub>NC · G75</sub>
@@ -158,9 +158,9 @@ Easy 34 · Medium 81 · Hard 19
 - [x] **160.** [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) — `Easy` · <sub>H100</sub> · <sub>✔ 2026-10-05</sub>
 - [x] **205.** [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-10-05</sub>
 - [x] **219.** [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-10-05</sub>
-- [ ] **228.** [Summary Ranges](https://leetcode.com/problems/summary-ranges/) — `Easy` · <sub>TI150</sub>
-- [ ] **232.** [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) — `Easy` · <sub>G75</sub>
-- [ ] **234.** [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) — `Easy` · <sub>H100</sub>
+- [x] **228.** [Summary Ranges](https://leetcode.com/problems/summary-ranges/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-10-06</sub>
+- [x] **232.** [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) — `Easy` · <sub>G75</sub> · <sub>✔ 2026-10-06</sub>
+- [x] **234.** [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) — `Easy` · <sub>H100</sub> · <sub>✔ 2026-10-06</sub>
 - [ ] **252.** [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) 🔒 — `Easy` · <sub>NC</sub>
 - [ ] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — `Easy` · <sub>NC</sub>
 - [ ] **278.** [First Bad Version](https://leetcode.com/problems/first-bad-version/) — `Easy` · <sub>G75</sub>
@@ -175,7 +175,7 @@ Easy 34 · Medium 81 · Hard 19
 - [ ] **703.** [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) — `Easy` · <sub>NC</sub>
 - [ ] **733.** [Flood Fill](https://leetcode.com/problems/flood-fill/) — `Easy` · <sub>G75</sub>
 - [ ] **746.** [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) — `Easy` · <sub>NC</sub>
-- [ ] **876.** [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) — `Easy` · <sub>G75</sub>
+- [x] **876.** [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) — `Easy` · <sub>G75</sub> · <sub>✔ 2026-10-07</sub>
 - [ ] **1046.** [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) — `Easy` · <sub>NC</sub>
 - [ ] **6.** [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) — `Medium` · <sub>TI150</sub>
 - [ ] **7.** [Reverse Integer](https://leetcode.com/problems/reverse-integer/) — `Medium` · <sub>NC</sub> ✅
@@ -202,8 +202,8 @@ Easy 34 · Medium 81 · Hard 19
 - [ ] **122.** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) — `Medium` · <sub>TI150</sub> ✅
 - [ ] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium` · <sub>TI150</sub>
 - [ ] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` · <sub>TI150</sub> ✅
-- [ ] **142.** [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) — `Medium` · <sub>H100</sub>
-- [ ] **143.** [Reorder List](https://leetcode.com/problems/reorder-list/) — `Medium` · <sub>NC</sub> ✅
+- [x] **142.** [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) — `Medium` · <sub>H100</sub> · <sub>✔ 2026-10-09</sub>
+- [x] **143.** [Reorder List](https://leetcode.com/problems/reorder-list/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-09</sub>
 - [ ] **151.** [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) — `Medium` · <sub>TI150</sub>
 - [ ] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium` · <sub>TI150</sub>
 - [ ] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium` · <sub>TI150</sub>

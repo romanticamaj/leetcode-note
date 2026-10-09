@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：73 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：77 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -56,7 +56,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [x] **118.** [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) — `Easy` · <sub>✔ 2026-10-04</sub>
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
-- [ ] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium`
+- [x] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>✔ 2026-10-05</sub>
 - [x] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [ ] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium`
 - [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
@@ -100,12 +100,12 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard`
 - [x] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
-- [ ] **142.** [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) — `Medium`
+- [x] **142.** [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) — `Medium` · <sub>✔ 2026-10-09</sub>
 - [x] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **148.** [Sort List](https://leetcode.com/problems/sort-list/) — `Medium` · <sub>✔ 2026-10-03</sub>
 - [x] **160.** [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) — `Easy` · <sub>✔ 2026-10-05</sub>
 - [x] **206.** [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — `Easy` · <sub>✔ 2026-09-16</sub>
-- [ ] **234.** [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) — `Easy`
+- [x] **234.** [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) — `Easy` · <sub>✔ 2026-10-06</sub>
 
 ## Matrix (4)
 
@@ -151,4 +151,4 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
 - [ ] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium`
 - [x] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` ✅ · <sub>✔ 2026-09-15</sub>
-- [ ] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium`
+- [x] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium` · <sub>✔ 2026-10-09</sub>
