@@ -25,7 +25,7 @@
 ## 典型遞迴式
 
 **Divide and Conquer**: `T(n) = a*T(n/b) + f(n)`
-**Decrease and Conquer**: `T(n) = T(n-1) + f(n)`
+**Decrease and Conquer**: `T(n) = T(g(n)) + f(n)`，其中 `g(n) < n`；可減去常數、縮小固定比例，或依輸入決定縮減量。
 **Dynamic Programming**: `T(state) = min/max/sum { T(smaller_states) }`
 **Backtracking**: `T(state) = Σ T(state + choice)`
 
@@ -51,6 +51,16 @@
 **Backtracking**: 所有解、組合、排列 (N-Queens、全排列)
 
 ---
+
+## 原型：BST LCA 的單一路徑搜尋
+
+LC 235 利用 BST 順序：p、q 同側就只搜尋該側；分居兩側或 root 等於其中之一時，root 就是 LCA。每次保留的子樹仍包含兩個目標，這是剪枝的正確性依據。
+
+這是 decrease and conquer：只解一個更小的子問題，無須合併左右答案。時間 O(h)；BST 不保證平衡，不能假設每次規模減半。
+
+遞迴版本直接回傳子問題答案，沒有回程工作（尾遞迴），可改為更新 root 的 while 迴圈，將輔助空間由 O(h) 降至 O(1)。**只剩一個子問題不代表一定能省 stack，還要檢查回程工作與必要狀態。**
+
+完整推導與 C++ 實作見 [尾遞迴消除：單一路徑搜尋](06-Tail_Recursion_to_Iteration.md)。
 
 ## 心法總結
 

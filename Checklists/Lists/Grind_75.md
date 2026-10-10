@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：58 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：62 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -18,18 +18,18 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **226.** [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **704.** [Binary Search](https://leetcode.com/problems/binary-search/) — `Easy` · <sub>✔ 2026-09-28</sub>
-- [ ] **733.** [Flood Fill](https://leetcode.com/problems/flood-fill/) — `Easy`
-- [ ] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` ✅
+- [x] **733.** [Flood Fill](https://leetcode.com/problems/flood-fill/) — `Easy` · <sub>✔ 2026-10-10</sub>
+- [x] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` ✅ · <sub>✔ 2026-10-10</sub>
 - [x] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
 - [x] **232.** [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) — `Easy` · <sub>✔ 2026-10-06</sub>
 
 ## Week 2 (12)
 
-- [ ] **278.** [First Bad Version](https://leetcode.com/problems/first-bad-version/) — `Easy`
+- [x] **278.** [First Bad Version](https://leetcode.com/problems/first-bad-version/) — `Easy` · <sub>✔ 2026-10-10</sub>
 - [x] **383.** [Ransom Note](https://leetcode.com/problems/ransom-note/) — `Easy` · <sub>✔ 2026-09-27</sub>
 - [x] **70.** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **409.** [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) — `Easy` ✅
+- [x] **409.** [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) — `Easy` ✅ · <sub>✔ 2026-10-10</sub>
 - [x] **206.** [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
 - [x] **67.** [Add Binary](https://leetcode.com/problems/add-binary/) — `Easy` · <sub>✔ 2026-09-23</sub>

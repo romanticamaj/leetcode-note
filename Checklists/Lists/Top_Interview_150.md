@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：92 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：95 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -15,7 +15,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **26.** [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) — `Easy` · <sub>✔ 2026-09-30</sub>
 - [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium`
 - [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
-- [ ] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium`
+- [x] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium` · <sub>✔ 2026-10-09</sub>
 - [x] **121.** [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [ ] **122.** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) — `Medium` ✅
 - [x] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium` · <sub>✔ 2026-09-18</sub>
@@ -31,7 +31,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **58.** [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) — `Easy` ✅ · <sub>✔ 2026-10-01</sub>
 - [x] **14.** [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) — `Easy` · <sub>✔ 2026-09-29</sub>
 - [ ] **151.** [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) — `Medium`
-- [ ] **6.** [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) — `Medium`
+- [x] **6.** [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) — `Medium` · <sub>✔ 2026-10-10</sub>
 - [x] **28.** [Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) — `Easy` ✅ · <sub>✔ 2026-10-01</sub>
 - [ ] **68.** [Text Justification](https://leetcode.com/problems/text-justification/) — `Hard`
 
@@ -39,7 +39,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 - [x] **125.** [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — `Easy` ✅ · <sub>✔ 2026-09-15</sub>
 - [ ] **392.** [Is Subsequence](https://leetcode.com/problems/is-subsequence/) — `Easy`
-- [ ] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium`
+- [x] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium` · <sub>✔ 2026-10-09</sub>
 - [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>✔ 2026-09-05</sub>
 - [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 

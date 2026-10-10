@@ -26,6 +26,30 @@
 
 ## 題目列表
 
+- [ ] LeetCode 409. Longest Palindrome
+  - 📌 標記原因: 已完成先計數、再掃描頻率表的版本，下次練習 one-pass traversal。
+  - [ ] 重寫 one-pass traversal 版本：只遍歷輸入字串一次，不再額外遍歷頻率表。
+  - [ ] 用 unordered_map 實作 one-pass traversal，想清楚為什麼可行。
+  - [ ] 用 unordered_set 實作 one-pass traversal，想清楚為什麼可行；比較兩者維護的資訊。
+  - 🏷️ 技巧分類: Hash Table / Counting / One-pass Traversal
+
+- [ ] LeetCode 6. Zigzag Conversion
+  - 📌 標記原因: 已完成依 row 分桶的版本，下次練習省去分桶暫存空間。
+  - [ ] 重寫 O(n) 時間、O(1) 額外空間的版本（不計回傳字串所需的 O(n) 空間）。
+  - 🏷️ 技巧分類: String / Index Mapping / Periodicity
+
+- [ ] LeetCode 268. Missing Number
+  - 📌 標記原因: 已做 hashmap 與加總版本；bit manipulation 版本直接看解答仍無感、不直觀，需要重做。
+  - [ ] Bit manipulation：不看解答自行推導並重寫，說清楚為什麼能找出遺失的數字。
+  - 🏷️ 技巧分類: Bit Manipulation / XOR
+
+- [ ] LeetCode 189. Rotate Array
+  - 📌 標記原因: 整題之後再做一次；reverse 解法不直觀，暴力法也值得重做。
+  - [ ] 暴力右移：保存尾元素、由右往左搬移、放回開頭；先 k %= n，檢查 k = 0、k >= n。
+  - [ ] 三次 reverse：從 A|B → B|A 自行推導，不只背操作順序；說明先整條反轉時切在 k、先兩段反轉時切在 n-k。
+  - 🔗 歷史與理解線索: [Rotate Array：三次反轉的歷史](../../Problem_History/LC_0189_Rotate_Array.md)
+  - 🏷️ 技巧分類: Array Rotation / Simulation / Reversal
+
 - [ ] LeetCode 287. Find the Duplicate Number
   - 📌 標記原因: 非常困難，首次完全靠解答與 gpt-6.1-sol 提示；必須重做，並嘗試不同解法。
   - [ ] Array as HashMap (Recursion)：space O(n)，下次先給方向性提示，再自行重做，不直接給解法或程式碼。
@@ -119,8 +143,8 @@
   - [ ] DFS
 - [ ] LeetCode 450. Delete Node in a BST
   - [ ] Recursion Version (必做, 太有趣)
-- [ ] LeetCode 235. Lowest Common Ancestor of a Binary Search Tree
-  - [ ] Iterative version
+- [x] LeetCode 235. Lowest Common Ancestor of a Binary Search Tree
+  - [x] Iterative version（2026-10-10：時間 O(h)、輔助空間 O(1)）
 - [ ] LeetCode 220. Contains Duplicate III
   - [ ] O(nlogk) solution + exactly one condition
   - [ ] Buckets: Inspired by bucket sort, we can achieve linear time complexity in our problem using buckets as window.

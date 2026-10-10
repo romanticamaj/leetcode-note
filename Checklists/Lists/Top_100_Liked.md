@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：77 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：78 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -149,6 +149,6 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **75.** [Sort Colors](https://leetcode.com/problems/sort-colors/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
 - [x] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
-- [ ] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium`
+- [x] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium` · <sub>✔ 2026-10-09</sub>
 - [x] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` ✅ · <sub>✔ 2026-09-15</sub>
 - [x] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium` · <sub>✔ 2026-10-09</sub>

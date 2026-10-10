@@ -2,11 +2,72 @@
 
 ---
 
+## 2026-10-10
+
+- 278. First Bad Version
+- 6. Zigzag Conversion
+- 409. Longest Palindrome
+- 733. Flood Fill
+- 235. Lowest Common Ancestor of a Binary Search Tree
+
+**心得**：
+- 278：就是 Binary Search，滿無聊的，練習 search space 設計。
+
+- 6：硬做……
+  1. 先分組出一個 zigzag 區塊。
+  2. 用區塊內的 index 再推出是在直線還是斜線。
+  3. 用暫存空間收集。
+  - 不確定自己有得到什麼，這個算是 simulation 嗎？Simulate Zig-Zag Movement？
+  - 加入複習清單：下次做 O(n) 時間、O(1) 額外空間的解法（不計回傳字串）。
+
+- 409：用了很直觀的做法，先計數，每個字元取 count / 2 * 2，有奇數次數就再加一個放中間。
+  - 一開始不小心搞錯，寫成單純只取出現偶數次的字元來用；像 "ccc" 也可以拿來用，只是要取偶數個 count / 2 * 2。
+  - 一開始 input 要取什麼來做想錯，演算法設計就錯了。
+  - 加入複習清單：下次做 one-pass traversal 版本，不再額外遍歷頻率表。
+  - One-pass traversal 用 unordered_map 跟 unordered_set 都可以達成，個別想一下為什麼。
+
+- 733：我是用 DFS 完成，程式碼精簡，但是要很小心設計 color 作為 visited 來使用。用 BFS 也可以，想問現在需要練嗎？
+
+- 235：就是標準的 post-ordering / divide and conquer，去做 combine-centric 的解法；但是沒用到 BST 特性。想問需要再用 BST 特性寫一次嗎？
+  - 補做利用 BST 特性的遞迴版本：root 跟 p、q 比較，若在同一側就往那側找，剪掉 root 與另一個子樹；若各在一側，root 就是答案。
+  - 這比較像 top-down approach，從 root 開始 decrease，而且可以 early return。用 search pruning / decrease and conquer 來想，有機會變直觀。
+  - 補做 iterative version，時間 O(height)、space O(1)。太酷了……因為 BST 特性，可以把 divide and conquer 變成 decrease and conquer；相較於 LC 236 的 O(n)，時間優化到 O(height)，space 甚至可以到 O(1)，是一個超酷的 recursion 轉 iterative 題目。
+
+**LLM 點評**：
+model: GPT-6
+- 278：這題適合驗收 search space 設計：isBadVersion 是單調的 F…F T…T，目標是第一個 T；能說清楚答案為何不會被排除，以及首版／末版就是答案時仍能收斂，就抓到重點。見 [Binary Search 標準模板](../Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md)。
+
+- 6：程式正確，可歸類為 Simulation；更精確是用週期性 index mapping 直接求 row，再依 row 分桶。沒有逐步維護方向，而是把移動規律寫成公式。
+  - 可複用的推導是「找週期 → 取餘得到週期內位置 → 分段映射」。r 行的 row 序列為 0,1,…,r-1,r-2,…,1，週期 C = (r-1)+(r-1) = 2r-2；對 t = i % C，下行用 t，上行用 C-t。你的 (r-1)-(t-(r-1)) 正是 C-t。r = 1 的提前回傳也避免了模零。
+  - 另一個收穫是只建模輸出需要的資訊：輸出只需按 row 收集，欄位與二維空格不必保存。逐字掃描並 append，保留同 row 字元的原始先後順序。這可連結 [正交性心法](../Meta_Frameworks/Orthogonality-Problem-Solving.md)：分開處理 row 映射與結果收集。
+  - 令 n 為字串長度、r 為 numRows，時間與額外空間嚴格說都是 O(n+r)，因為建立並走訪了 r 個 string；在 r <= n 時即 O(n)。若先對 r >= n 回傳 s，可避免配置大量空 row。字串 append 的時間以攤銷分析計。
+
+- 409：提供的程式正確。關鍵區分是「原始頻率必須為偶數」與「選用數量必須能配對」：對稱位置用的是字元對，因此每個頻率 f 都能貢獻 2*floor(f/2)，不論 f 的奇偶；剩下的字元最多選一個當中心。"ccc" 能形成長度 3，但 "cccddd" 更能抓出錯誤模型：兩種奇數頻率都能提供一對，另取一個中心，答案為 5。
+  - 這是把合法性條件誤套到原始輸入，而非可選取的結果；可先寫 ANSWER：「所有可用字元對的長度總和，加上至多一個剩餘字元」，再用多個奇數頻率測試。見 [答案定義與假設檢查](../Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md)。
+  - 固定 52 種英文字母下，計數與掃描時間 O(n)、計數表額外空間 O(1)。但 string s 按值傳入，若計入從呼叫端複製輸入的成本，該副本另需 O(n) 空間；允許調整簽名時可用 const string& 避免複製。
+
+
+- 733：改色能兼任 visited 的前提是保留 originalColor，且 newColor != originalColor；兩色相同時先回傳，否則改色無法讓格子退出可走訪集合。每格在展開鄰居前先改色，確保不被重複展開。
+  - 現在不必為同一題補寫 BFS，除非 queue traversal 還不熟。能說清楚「入隊時就改色」以避免重複入隊即可；之後用最短路徑／多源擴散題練 BFS，更能體會它的用途。本題 DFS、BFS 都能找出連通區域，最壞時間與輔助空間皆 O(mn)，DFS 的遞迴堆疊也要計入。見 [連通性問題的 DFS 與 BFS](../Algorithms/Traversal_Strategies/DFS_vs_BFS_for_Connectivity.md)。
+
+
+- 235：提供的通用 Binary Tree LCA 程式正確（題目保證 p、q 存在），時間 O(n)、遞迴空間 O(h)。回傳值是子樹找到的 p／q，或已合成的 LCA；左右都有結果時在當前節點合成，單側有結果則往上傳。遇到 p／q 提前回傳，涵蓋其中一個是另一個祖先的情況；因此是 post-order combine，但不必完整走訪所有後代。註解中「兩側都空再檢查 root」已由開頭 base case 處理。見 [遞迴剪枝與聚合](../Data_Structures/Trees/Recursive_Design_Pattern_Pruning_and_Aggregation.md)。
+  - 建議現在再寫一次利用 BST 特性的 iterative 版本：目標 O(h) 時間、O(1) 輔助空間。練習把 BST 順序轉成只搜尋一側的依據，並說明何時當前節點就是 LCA；這是不同於左右搜尋後合成的設計。h 不保證是 log n，退化樹仍可能是 n。
+  - 已補做的 BST 遞迴版本正確，分類為 top-down search pruning／decrease and conquer 很貼切：每次只保留一個子問題，回傳時不需 combine。Invariant 是目前子樹仍包含 p、q，因此也包含其 LCA；兩者同側時，LCA 必在該側子樹，各在一側時任何更低的節點都不能同時涵蓋兩者，所以當前 root 就是最低共同祖先。root 等於其中一個目標時，另一個仍在目前子樹內，也可直接回傳。每次下降一層，有限樹高保證終止。
+  - 複雜度更精確為時間 O(h)、遞迴輔助空間 O(h)；原註解 O(n) 是退化樹的最壞界。此版尚非 iterative，不能算 O(1) 空間；BST 也不保證每次將搜尋規模減半。
+  - 新增的 iterative 版本正確，時間 O(h)、輔助空間 O(1)。兩次優化來源分開看：BST 順序性使搜尋只沿一條路徑；尾遞迴沒有回程工作，才能只更新 root、消除 stack。Decrease and conquer 本身不保證 O(1) 空間。else 註解應是 p、q 分居左右子樹，不必是直接 children。已加入 Essential、Archetype 的「尾遞迴消除：單一路徑搜尋」與 Decrease and Conquer，並完成原 iterative review 項目。
+
+---
+
 ## 2026-10-09
 
 - 143. Reorder List
 - 142. Linked List Cycle II
 - 287. Find the Duplicate Number
+- 167. Two Sum II - Input Array Is Sorted
+- 189. Rotate Array
+- 252. Meeting Rooms
+- 268. Missing Number
 
 **心得**：
 - 143：這題是 middle to hard，因為結合 list reverse + merge。
@@ -33,6 +94,17 @@
   - Pitfall 1：開頭要讓 slow 跟 fast 同一個起點，這樣走過的量跟交會的點在後面做 cycle entry point 才有意義。
   - Pitfall 2：找到 cycle entry point 後，它的 index 就是我們發現的 duplicate 值，不用再去取那個位置對應的值（`nums[nums[slow]]` 這是多餘的）。可以想像，那個位置被走過兩次的概念，所以是重複值。
 
+- 189：這題意外地難，reverse 基本上解法不可能想得出來。
+  - 如果要暴力法，是 O(k * n)，但是為什麼是 k 要設計，暴力法值得再做一次。
+  - 如果是先反轉整條，那就可以拆成 [0, k)、[k, n) 兩串再反轉（如果一開始就跳進去先反轉前半跟後半，這樣會遇到偶數長度時出錯，但是我不知道為什麼）。
+  - 如果是用額外空間，則在拿值時，不要用 i - k % n 去做，一來減法會讓值 overflow，跟 % 運算也不友善。
+  - 應該還是要用 i + k % n 位置，拿 i 值去填才不會錯，也不用處理 k 遠大於 n 的情況。
+
+- 252：用 sort，依 start time 排序，比較目前的 start time 跟前一個 end time。好像沒什麼特別的，是不是可以做到 O(n)？是的話只給目標，不說作法。
+
+- 268：做了 hashmap 跟加總找遺失數字的版本。
+  - Bit manipulation 版本直接看解答無感、不直觀，加入複習清單，下次重做。
+
 **LLM 點評**：
 model: GPT-6
 - 143：提供的程式正確，時間 O(n)、額外空間 O(1)，不需要先斷開前半。抓到共享節點可以作為 merge 的終止訊號，是把鏈結結構轉成控制條件。不過「有交會就一定會同時相遇」本身不夠：Intersection 題的換頭走訪靠路程對齊保證相遇，這題則靠兩段長度關係與交替消耗節點，不能直接套用同一個證明。
@@ -46,6 +118,13 @@ model: GPT-6
   - Pitfall 1 更精確是兩階段使用同一個概念起點。兩指標同值初始化搭配 do-while 很清楚；slow = nums[0]、fast = nums[nums[0]] 也可以代表從 index 0 已先走一輪，第二階段就應重設到 0，不是要求初始化變數一定相等。
   - Pitfall 2：停止時回傳 slow；連 nums[slow] 都是再往下一個節點，更不用說 nums[nums[slow]]。理由是不同來源 index 指向同一入口，不是「同一位置被走過兩次」；繞環會反覆走過所有環節點，不能用重訪次數區分答案。已加入複習清單，安排重寫 Floyd 並嘗試其他做法、比較各自是否符合限制。
   - 關鍵設計可再分清三層：值域 [1, n] 保證每次 next = nums[index] 都落在合法 index；有限節點上持續沿固定 next 走，依鴿籠原理必重訪並形成環；從無入邊的 0 出發，入口有兩個不同前驅，才把「找重複值」轉成「找環入口」。鴿籠原理保證重複／重訪，走訪不越界則來自值域限制。
+- 189：暴力法可以定義為每輪右移一格（先保存尾元素，再由右往左搬移，最後放回開頭），做 k 輪，因此時間 O(kn)、額外空間 O(1)；先令 k %= n，則實際是 O(n * (k mod n)) 的搬移工作，最壞 O(n²)。n 須非零才能取餘，k = 0 時不必搬移。已加入複習清單重做此版本。
+  - Reverse 可從區塊交換推導：原陣列 A|B，其中 B 是最後 k 個元素，目標 B|A。整條反轉得到 reverse(B)|reverse(A)，在 k 切開各自反轉即可。先反轉兩段再反轉整條也正確，但原陣列要切在 n-k：reverse(A)|reverse(B) → B|A。若先切在 k，通常會變成左轉 k；不是奇偶長度造成，未看到程式碼不能判定實際錯誤。
+  - 額外陣列版本用 out[(i + k) % n] = nums[i] 最直觀；括號必須包住 i + k，因為 i + k % n 等於 i + (k % n)。先 k %= n 可處理多餘圈數並縮小加法範圍，但一般整數範圍仍須注意。反向取值也可用 out[i] = nums[(i - k + n) % n]（k 已正規化、使用足夠寬的 signed 型別）。i-k 為負不等於 signed overflow，C++ 負數取餘可能仍為負，unsigned 減法則可能 wrap around；因此正向安排目的地較容易避免這些陷阱。
+
+- 252：提供的程式正確。依 start 排序後，只要相鄰區間都不重疊，就能串起 end[i-1] <= start[i] < end[i]，因此不必兩兩比較；start == 前一個 end 可接續開會，使用 < 正確。屬於排序後線性掃描。
+  - 時間 O(n log n)；掃描本身額外空間 O(1)，但常見 C++ std::sort 實作有 O(log n) 的 stack，整體額外空間通常記 O(log n)。
+  - 一般未排序、只靠端點比較的模型，最壞需要 Ω(n log n)，目前已達該模型的最佳漸近時間。若額外利用有界整數時間範圍等條件，才可能追求線性時間；目標可設為 O(n + U)（U 為時間值域大小），僅在 U = O(n) 時可寫成 O(n)，此處不透露作法。見 [Interval 問題解題心法](../Algorithms/Greedy/Interval_Problem_Solving_Playbook.md)。
 
 ---
 

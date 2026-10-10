@@ -31,8 +31,9 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Linked List
 
+- 🟡 LeetCode 142. Linked List Cycle II
 - 🟡 🔴 LeetCode 143. Reorder List
-- 🟡 🔴 287. Find the Duplicate Number
+- 🟡 🔴 LeetCode 287. Find the Duplicate Number
 
 ## Sliding Window
 
@@ -95,6 +96,11 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
 - 🟡 🔴 LeetCOde 148. Sort List
 
+## Decrease and Conquer
+
+- LeetCode 235. Lowest Common Ancestor of a Binary Search Tree
+  - BST 順序剪枝 → 單一路徑搜尋 → 尾遞迴轉 iterative；時間 O(h)、輔助空間 O(1)。
+
 ## Union Find
 
 ## Topological Sort
@@ -134,6 +140,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 263. Ugly Number
 - LeetCode 319. Bulb Switcher
 - LeetCode 1925. Count Square Sum Triples
+- 🟡 LeetCode 189. Rotate Array
 
 ## Sorting & Partition
 
@@ -249,8 +256,10 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Time O(n) + Space O(1)
 - 🟢 🟡 142. Linked List Cycle II
   - Time O(n) + Space O(1)
-- 🟡 🔴 287. Find the Duplicate Number
+- 🟡 🔴 LeetCode 287. Find the Duplicate Number
   - Time O(n) + Space O(1)
+- 🟡 LeetCode 189. Rotate Array
+  - Reverse Trick
 
 ## LeetCode Solution Worth Reading
 
@@ -276,3 +285,4 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Time O(n) + Space O(1)
 - 🟡 🔴 287. Find the Duplicate Number
   - Based on LeetCode 142.
+- 🟡 LeetCode 189. Rotate Array

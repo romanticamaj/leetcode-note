@@ -7,6 +7,7 @@
 | 題目 | 歷史／數學原型 | 記憶線索 |
 |---|---|---|
 | [134. Gas Station](LC_0134_Gas_Station.md) | Gasoline Puzzle、Gasoline Lemma；相關的 Cycle Lemma | 從前綴和的最低谷出發 |
+| [189. Rotate Array](LC_0189_Rotate_Array.md) | 文字編輯器的區塊搬移、三次反轉；Bentley 記載 1971 年已有使用 | 把 rotation 看成 A\|B → B\|A |
 
 ## 檔名與組織
 

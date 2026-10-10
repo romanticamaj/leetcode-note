@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：81 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：85 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -23,7 +23,7 @@
 ## Two Pointers (5)
 
 - [x] **125.** [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — `Easy` ✅ · <sub>✔ 2026-09-15</sub>
-- [ ] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium`
+- [x] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium` · <sub>✔ 2026-10-09</sub>
 - [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>✔ 2026-09-05</sub>
 - [x] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` ✅ · <sub>✔ 2026-09-18</sub>
@@ -78,7 +78,7 @@
 - [x] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [x] **100.** [Same Tree](https://leetcode.com/problems/same-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [ ] **572.** [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) — `Easy` ✅
-- [ ] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` ✅
+- [x] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` ✅ · <sub>✔ 2026-10-10</sub>
 - [x] **102.** [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **199.** [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [ ] **1448.** [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) — `Medium`
@@ -187,7 +187,7 @@
 - [x] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [ ] **435.** [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — `Medium` ✅
-- [ ] **252.** [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) 🔒 — `Easy`
+- [x] **252.** [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) 🔒 — `Easy` · <sub>✔ 2026-10-09</sub>
 - [ ] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` ✅
 - [ ] **1851.** [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) — `Hard`
 
@@ -208,6 +208,6 @@
 - [x] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [ ] **338.** [Counting Bits](https://leetcode.com/problems/counting-bits/) — `Easy`
 - [x] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
-- [ ] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — `Easy`
+- [x] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — `Easy` · <sub>✔ 2026-10-09</sub>
 - [ ] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium`
 - [ ] **7.** [Reverse Integer](https://leetcode.com/problems/reverse-integer/) — `Medium` ✅
