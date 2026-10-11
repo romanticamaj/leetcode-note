@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：95 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：97 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -136,7 +136,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium` · <sub>✔ 2026-09-20</sub>
 - [ ] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium`
 - [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
-- [ ] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium`
+- [x] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium` · <sub>✔ 2026-10-11</sub>
 
 ## Graph BFS (3)
 
@@ -147,7 +147,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Trie (3)
 
 - [x] **208.** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) — `Medium` · <sub>✔ 2026-09-14</sub>
-- [ ] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium`
+- [x] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium` · <sub>✔ 2026-10-11</sub>
 - [ ] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` ✅
 
 ## Backtracking (7)

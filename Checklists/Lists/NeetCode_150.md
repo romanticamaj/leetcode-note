@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：87 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：89 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -114,7 +114,7 @@
 ## Tries (3)
 
 - [x] **208.** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) — `Medium` · <sub>✔ 2026-09-14</sub>
-- [ ] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium`
+- [x] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium` · <sub>✔ 2026-10-11</sub>
 - [ ] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` ✅
 
 ## Graphs (13)
@@ -127,7 +127,7 @@
 - [ ] **417.** [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) — `Medium` ✅
 - [x] **130.** [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) — `Medium` ✅ · <sub>✔ 2026-09-30</sub>
 - [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
-- [ ] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium`
+- [x] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium` · <sub>✔ 2026-10-11</sub>
 - [ ] **261.** [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) 🔒 — `Medium` ✅
 - [ ] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium`
 - [ ] **684.** [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — `Medium`

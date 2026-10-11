@@ -7,6 +7,8 @@
 - 347. Top K Frequent Elements
 - 1143. Longest Common Subsequence
 - 283. Move Zeroes
+- 210. Course Schedule II
+- 211. Design Add and Search Words Data Structure
 
 **心得**：
 - 347：使用 count + sort O(nlogn)，中規中矩。
@@ -17,6 +19,10 @@
 
 - 283：Bubble sort-like，從右往左找 zero，透過相鄰 swap 移到尾端的下一個位置；two pointers，時間 O(n²)、space O(1)。這個太慢了，想要提示。
   - 一開始腦袋打結，想去 bubble-sort like，一路 swap；重新設計成 [...non-zero, zero...]。Two-pointer technique：前半用 k 維持 non-zero 的下一個位置，i 一路推進找下一個 non-zero，swap(nums[i], nums[k]) 後 k++，用 swap 維持 invariant。非零元素順序穩定；時間 O(n)、space O(1)。
+
+- 210：用 Kahn's algorithm，沒什麼特別的，有學過就會，就是 BFS 的 indegree 變體。
+
+- 211：Trie 跟 DFS 兩個技巧同時考。
 
 **LLM 點評**：
 model: GPT-6
@@ -29,6 +35,10 @@ model: GPT-6
 
 - 283：目前解法正確，逐次相鄰交換保留非零元素的相對順序；最壞 O(n²)，因為同一個非零元素可能被多個零反覆推動。提示：先想最終答案的前綴應該按順序包含哪些元素，再問能否讓每個保留元素直接到下一個應放的位置；目標 O(n) 時間、O(1) 輔助空間，尚待實作。
   - 已完成的線性 swap 版本正確。每輪開始時，[0,k) 是已掃描元素中依原順序排列的所有非零值，[k,i) 全為零，[i,n) 尚未處理。遇到非零值，若 k<i，nums[k] 必為零，交換後非零值接到前綴尾端、零留在已掃描區；若 k==i 則自我交換。故不會交換兩個不同的非零元素，非零順序穩定。i 每輪前進，結束時 [k,n) 全為零；總時間 O(n)、輔助空間 O(1)。k 同時是非零元素數量、下一個寫入位置，以及非零前綴的切點。
+
+- 210：可用 queue-driven BFS 的形式理解，但入隊條件是剩餘 indegree 歸零，表示所有前置依賴已完成，而非首次被發現。indegree 維持的是尚未移除的入邊數；輸出數量等於課程數才得到完整拓撲序，否則剩餘依賴含環。使用 adjacency list 時時間與空間 O(V+E)。見 [Kahn Algorithm](../Algorithms/Topological_Sort/02-Kahn_Algorithm_BFS.md)。
+
+- 211：Trie 保存共享字首，DFS 處理搜尋中的分支：一般字元只沿對應 child，遇到 . 才探索所有存在的 children。搜尋狀態可定義為 (node, i)，表示前 i 個字元已匹配；i 到字尾時仍須檢查 isWord，避免把存在的前綴誤認為完整單字。
 
 ---
 

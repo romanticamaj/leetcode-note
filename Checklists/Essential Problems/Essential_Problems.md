@@ -166,6 +166,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 421. Maximum XOR of Two Numbers in an Array
 - 🟡 🔴 LeetCode 139. Word Break
+- 🟡 LeetCode 211. Design Add and Search Words Data Structure
 
 ## Hashmap
 
@@ -235,6 +236,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Tree + Divide and Conquer
 - 🟡 🔴 LeetCode 143. Reorder List
   - Middle Point + Rerverse + Merge
+- 🟡 LeetCode 211. Design Add and Search Words Data Structure
+  - Trie + DFS
 
 ### Followup Possible (Multiple Solutions)
 

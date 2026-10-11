@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：125 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：127 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -121,8 +121,8 @@ Easy 13 · Medium 26 · Hard 5
 - [x] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>NC · H100</sub> · <sub>✔ 2026-10-05</sub>
 - [x] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium` · <sub>NC · TI150</sub> · <sub>✔ 2026-10-09</sub>
 - [x] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium` · <sub>TI150 · H100</sub> · <sub>✔ 2026-10-09</sub>
-- [ ] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium` · <sub>NC · TI150</sub>
-- [ ] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium` · <sub>NC · TI150</sub>
+- [x] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium` · <sub>NC · TI150</sub> · <sub>✔ 2026-10-11</sub>
+- [x] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium` · <sub>NC · TI150</sub> · <sub>✔ 2026-10-11</sub>
 - [x] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` · <sub>NC · G75</sub> ✅ · <sub>✔ 2026-10-10</sub>
 - [x] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium` · <sub>NC · H100</sub> · <sub>✔ 2026-10-09</sub>
 - [x] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` · <sub>NC · H100</sub> ✅ · <sub>✔ 2026-10-11</sub>
