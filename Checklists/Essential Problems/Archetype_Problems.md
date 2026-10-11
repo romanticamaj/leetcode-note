@@ -97,6 +97,20 @@
 
 ---
 
+## Bucket Sort（桶排序）
+
+- 🟢 🟡 LeetCode 347. Top K Frequent Elements
+
+---
+
+## Priority Queue（priority_queue）
+
+### Bounded Min-Heap — Top K（固定容量最小堆）
+
+- 🟢 🟡 LeetCode 347. Top K Frequent Elements
+
+---
+
 ## Data Structures
 
 ### Linked List — Find Middle + Reverse + Merge（找中點、反轉、交錯合併）

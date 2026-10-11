@@ -42,7 +42,6 @@ This is a structured collection of notes, patterns, and mental models (心法) f
 All entries carry LeetCode number, title, difficulty, and link. Premium problems are marked 🔒. Problems already covered by `Essential Problems/` are marked ✅ with a pre-checked box.
 
 - **`00_Master_Union.md`** — Deduplicated union of the four lists below (250 problems), sorted into four tiers by how many lists contain each problem (🔥🔥🔥🔥 = all four, 37 problems). **This tier ordering is the recommended grind priority.**
-- `01_Grind75_Easy_Warmup.md` — 24 Easy problems from Grind 75 weeks 1–2, plus a technique coverage table
 - `NeetCode_150.md`, `Grind_75.md`, `Top_Interview_150.md`, `Top_100_Liked.md` — the individual source lists
 
 These were generated from authoritative sources (official LeetCode study plan pages, `krmanik/Anki-NeetCode` JSON) with numbers resolved via the LeetCode `/api/problems/all/` endpoint. **Do not edit problem numbers by hand or regenerate them from memory** — re-fetch from source if they need updating.

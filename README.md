@@ -27,7 +27,7 @@ You’ll get the most from this collection if you can already write basic progra
 
 | Your starting point | Start here | What to do next |
 |---|---|---|
-| Learning DSA patterns | [Two Pointers](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md) + [24 Easy warm-up problems](Checklists/Lists/01_Grind75_Easy_Warmup.md) | Work at your own pace; use each problem to understand a pattern before timing yourself. |
+| Learning DSA patterns | [Two Pointers](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md) + [Grind 75](Checklists/Lists/Grind_75.md) | Work at your own pace; use each problem to understand a pattern before timing yourself. |
 | Can code, but struggle to find an approach | [Problem-solving workflow](Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md) + [optimization strategy](Interview_Playbook/Problem_Solving_Strategies.md) | Describe a correct brute force, then identify the work to eliminate. |
 | Know individual algorithms, want the connections | [State → Transition → Traversal](Meta_Frameworks/Problem_Classification_Framework/03-State_Transition_Traversal.md) | Compare familiar techniques in the [Algorithm Atlas](Meta_Frameworks/State_Transition_Algorithm_Atlas.md). |
 | Preparing for coding interviews | [Pre-solve checklist](Interview_Playbook/Pre_Solve_Interview_Checklist.md) + [Master Union](Checklists/Lists/00_Master_Union.md) | Start with the problems shared by all four lists, then practice [follow-ups](Checklists/Lists/02_Followup_Problems.md). |
@@ -102,7 +102,6 @@ Use a list to choose problems, then return to the pattern library to explain wha
 | Collection | Learning purpose |
 |---|---|
 | [Master Union — 250 problems](Checklists/Lists/00_Master_Union.md) | A deduplicated snapshot of four lists, grouped by overlap. The 37 problems in all four are a compact starting set; overlap is a prioritization heuristic. |
-| [24 Easy warm-ups](Checklists/Lists/01_Grind75_Easy_Warmup.md) | Refresh fundamentals. Its timing goals are intended for returning learners. |
 | [NeetCode 150](Checklists/Lists/NeetCode_150.md) | Practice by pattern category. |
 | [Grind 75](Checklists/Lists/Grind_75.md) | Follow a week-based practice sequence. |
 | [Top Interview 150](Checklists/Lists/Top_Interview_150.md) · [Top 100 Liked](Checklists/Lists/Top_100_Liked.md) | Broaden coverage with the collected LeetCode study-plan lists. |

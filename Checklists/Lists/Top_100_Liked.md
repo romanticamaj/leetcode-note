@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：78 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：81 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -62,7 +62,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>✔ 2026-09-15</sub>
 - [x] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅ · <sub>✔ 2026-09-22</sub>
-- [ ] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium`
+- [x] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium` · <sub>✔ 2026-10-11</sub>
 
 ## Graph (3)
 
@@ -88,7 +88,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>✔ 2026-09-27</sub>
-- [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅
+- [x] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅ · <sub>✔ 2026-10-11</sub>
 
 ## Linked Lists (14)
 
@@ -134,7 +134,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>✔ 2026-09-05</sub>
 - [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [x] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` ✅ · <sub>✔ 2026-09-18</sub>
-- [ ] **283.** [Move Zeroes](https://leetcode.com/problems/move-zeroes/) — `Easy`
+- [x] **283.** [Move Zeroes](https://leetcode.com/problems/move-zeroes/) — `Easy` · <sub>✔ 2026-10-11</sub>
 
 ## Trie (1)
 

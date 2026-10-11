@@ -27,7 +27,7 @@
 
 | 你目前的狀況 | 從這裡開始 | 接下來怎麼做 |
 |---|---|---|
-| 正在學習 DSA Pattern | [Two Pointers 核心模式](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md)＋[24 題 Easy 暖身組](Checklists/Lists/01_Grind75_Easy_Warmup.md) | 按自己的速度練習，先理解每題的模式，再考慮計時。 |
+| 正在學習 DSA Pattern | [Two Pointers 核心模式](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md)＋[Grind 75](Checklists/Lists/Grind_75.md) | 按自己的速度練習，先理解每題的模式，再考慮計時。 |
 | 會寫程式，但常常沒有思路 | [解題流程與假設檢查](Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md)＋[優化指北星](Interview_Playbook/Problem_Solving_Strategies.md) | 先說清楚正確的暴力解，再指出要省掉哪些工作。 |
 | 學過演算法，想把概念串起來 | [State → Transition → Traversal](Meta_Frameworks/Problem_Classification_Framework/03-State_Transition_Traversal.md) | 用[統一狀態框架](Meta_Frameworks/State_Transition_Algorithm_Atlas.md)比較熟悉的技法。 |
 | 正在準備技術面試 | [解題前 Checklist](Interview_Playbook/Pre_Solve_Interview_Checklist.md)＋[四大清單母集合](Checklists/Lists/00_Master_Union.md) | 從四份清單共同收錄的題目起步，再練習 [follow-up](Checklists/Lists/02_Followup_Problems.md)。 |
@@ -102,7 +102,6 @@ HTML 版支援搜尋、分類篩選與展開閱讀。下載後可直接用瀏覽
 | 題庫 | 學習用途 |
 |---|---|
 | [四大清單母集合 — 250 題](Checklists/Lists/00_Master_Union.md) | 四份清單合併去重的快照，按重疊程度分層。四份共同收錄的 37 題適合當起點；重疊程度是選題參考。 |
-| [24 題 Easy 暖身組](Checklists/Lists/01_Grind75_Easy_Warmup.md) | 找回基礎手感。文件的計時目標適合已學過、回來複習的讀者。 |
 | [NeetCode 150](Checklists/Lists/NeetCode_150.md) | 依 Pattern 分類練習。 |
 | [Grind 75](Checklists/Lists/Grind_75.md) | 依週次安排練習順序。 |
 | [Top Interview 150](Checklists/Lists/Top_Interview_150.md) · [Top 100 Liked](Checklists/Lists/Top_100_Liked.md) | 用整理收錄的 LeetCode 學習清單擴充題型覆蓋。 |

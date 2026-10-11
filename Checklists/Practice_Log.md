@@ -2,6 +2,36 @@
 
 ---
 
+## 2026-10-11
+
+- 347. Top K Frequent Elements
+- 1143. Longest Common Subsequence
+- 283. Move Zeroes
+
+**心得**：
+- 347：使用 count + sort O(nlogn)，中規中矩。
+  - 使用 count + priority queue 可以達到 O(n + dlogk)。
+  - 另外一個做法：先觀察到 frequency 一定在 1 到 n 的範圍內，因為就只有 n 個元素。每個數字的頻率一定落在這個範圍的其中一個位置，就可以用 bucket sort，然後 traverse 取 top k，達成 O(n) 時間。超神的做法，先記下來，下次做。
+
+- 1143：Bottom-up dynamic programming 概念都懂，但是發現用「在 i、j 結尾的 LCS」去設計，其實滿難想的，因為初始值變得很醜。使用 m × n 的 dp，先處理 dp[0][0]，再讓第一列、第一欄傳遞先前找到的匹配；時間與空間 O(mn)。
+
+- 283：Bubble sort-like，從右往左找 zero，透過相鄰 swap 移到尾端的下一個位置；two pointers，時間 O(n²)、space O(1)。這個太慢了，想要提示。
+  - 一開始腦袋打結，想去 bubble-sort like，一路 swap；重新設計成 [...non-zero, zero...]。Two-pointer technique：前半用 k 維持 non-zero 的下一個位置，i 一路推進找下一個 non-zero，swap(nums[i], nums[k]) 後 k++，用 swap 維持 invariant。非零元素順序穩定；時間 O(n)、space O(1)。
+
+**LLM 點評**：
+model: GPT-6
+- 347：令 d 為 distinct 元素數。計數後排序的是 d 個項目，因此時間更精確為期望 O(n + d log d)，O(n log n) 是有效上界。若用只保留 k 個候選的 min-heap，時間為期望 O(n + d log(k+1))；priority queue 本身不保證此界，要看 heap 大小如何維持。
+  - Bucket 方法的關鍵是排序依據「頻率」有界，而非元素值有界。配置 n+1 個桶 O(n)、放入 d 個項目 O(d)，由高頻往下掃描並取滿 k 個，總計期望 O(n)、輔助空間 O(n)。以 unordered_map 計數時，線性時間依賴平均／期望常數時間的雜湊操作；bucket 版本尚待下次實作。
+
+
+- 1143：提供的程式在兩個字串非空時正確，時間與空間皆 O(mn)。狀態實際是 text1[0..i] 與 text2[0..j] 兩個前綴的 LCS 長度，不要求答案使用 text1[i]、text2[j]；因此「截至 i、j」比「以 i、j 結尾」精確。第一列／欄需要傳遞先前找到的匹配，程式已處理，底下註解則未完整寫出。
+  - 改以長度定義 dp[i][j]：text1[0,i) 與 text2[0,j) 的 LCS 長度。配置 (m+1) × (n+1)，讓空前綴自然成為 dp[0][j] = dp[i][0] = 0；從 i、j = 1 開始，比較 text1[i-1] 與 text2[j-1]，沿用相同遞推，答案為 dp[m][n]。這是把 base case 納入狀態空間，並非只為方便多開一列；也可自然處理空字串。
+
+- 283：目前解法正確，逐次相鄰交換保留非零元素的相對順序；最壞 O(n²)，因為同一個非零元素可能被多個零反覆推動。提示：先想最終答案的前綴應該按順序包含哪些元素，再問能否讓每個保留元素直接到下一個應放的位置；目標 O(n) 時間、O(1) 輔助空間，尚待實作。
+  - 已完成的線性 swap 版本正確。每輪開始時，[0,k) 是已掃描元素中依原順序排列的所有非零值，[k,i) 全為零，[i,n) 尚未處理。遇到非零值，若 k<i，nums[k] 必為零，交換後非零值接到前綴尾端、零留在已掃描區；若 k==i 則自我交換。故不會交換兩個不同的非零元素，非零順序穩定。i 每輪前進，結束時 [k,n) 全為零；總時間 O(n)、輔助空間 O(1)。k 同時是非零元素數量、下一個寫入位置，以及非零前綴的切點。
+
+---
+
 ## 2026-10-10
 
 - 278. First Bad Version

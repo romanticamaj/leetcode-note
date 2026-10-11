@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：122 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：125 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -125,14 +125,14 @@ Easy 13 · Medium 26 · Hard 5
 - [ ] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium` · <sub>NC · TI150</sub>
 - [x] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` · <sub>NC · G75</sub> ✅ · <sub>✔ 2026-10-10</sub>
 - [x] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium` · <sub>NC · H100</sub> · <sub>✔ 2026-10-09</sub>
-- [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` · <sub>NC · H100</sub> ✅
+- [x] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` · <sub>NC · H100</sub> ✅ · <sub>✔ 2026-10-11</sub>
 - [ ] **438.** [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) — `Medium` · <sub>G75 · H100</sub> ✅
 - [ ] **621.** [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — `Medium` · <sub>NC · G75</sub>
 - [ ] **739.** [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) — `Medium` · <sub>NC · H100</sub>
 - [ ] **763.** [Partition Labels](https://leetcode.com/problems/partition-labels/) — `Medium` · <sub>NC · H100</sub>
 - [ ] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium` · <sub>NC · G75</sub>
 - [ ] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` · <sub>NC · G75</sub> ✅
-- [ ] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium` · <sub>NC · H100</sub>
+- [x] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium` · <sub>NC · H100</sub> · <sub>✔ 2026-10-11</sub>
 - [ ] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard` · <sub>NC · H100</sub>
 - [ ] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` · <sub>NC · TI150</sub> ✅
 - [ ] **224.** [Basic Calculator](https://leetcode.com/problems/basic-calculator/) — `Hard` · <sub>G75 · TI150</sub>
@@ -164,7 +164,7 @@ Easy 34 · Medium 81 · Hard 19
 - [x] **252.** [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) 🔒 — `Easy` · <sub>NC</sub> · <sub>✔ 2026-10-09</sub>
 - [x] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — `Easy` · <sub>NC</sub> · <sub>✔ 2026-10-09</sub>
 - [x] **278.** [First Bad Version](https://leetcode.com/problems/first-bad-version/) — `Easy` · <sub>G75</sub> · <sub>✔ 2026-10-10</sub>
-- [ ] **283.** [Move Zeroes](https://leetcode.com/problems/move-zeroes/) — `Easy` · <sub>H100</sub>
+- [x] **283.** [Move Zeroes](https://leetcode.com/problems/move-zeroes/) — `Easy` · <sub>H100</sub> · <sub>✔ 2026-10-11</sub>
 - [ ] **290.** [Word Pattern](https://leetcode.com/problems/word-pattern/) — `Easy` · <sub>TI150</sub>
 - [ ] **338.** [Counting Bits](https://leetcode.com/problems/counting-bits/) — `Easy` · <sub>NC</sub>
 - [ ] **392.** [Is Subsequence](https://leetcode.com/problems/is-subsequence/) — `Easy` · <sub>TI150</sub>

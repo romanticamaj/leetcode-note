@@ -71,6 +71,7 @@
   - [ ] Segment Tree for Divide and Conquer
   - [ ] Monotonic Stack
 - [ ] LeetCode 347. Top K Frequent Elements
+  - [ ] Bucket sort：利用 frequency 在 1 到 n 的範圍內，時間 O(n)；先記下來，下次實作。
   - [ ] Quickselect (Hoare's selection algorithm)
 - [ ] LeetCode 285. Inorder Successor in BST
   - [ ] iterative with BST property

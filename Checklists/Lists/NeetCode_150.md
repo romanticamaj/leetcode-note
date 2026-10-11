@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：85 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：87 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -14,7 +14,7 @@
 - [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅ · <sub>✔ 2026-09-18</sub>
-- [ ] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅
+- [x] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — `Medium` ✅ · <sub>✔ 2026-10-11</sub>
 - [ ] **271.** [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) 🔒 — `Medium`
 - [x] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — `Medium` ✅ · <sub>✔ 2026-09-15</sub>
 - [x] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` ✅ · <sub>✔ 2026-09-26</sub>
@@ -160,7 +160,7 @@
 ## 2-D Dynamic Programming (11)
 
 - [x] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium` · <sub>✔ 2026-09-19</sub>
-- [ ] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium`
+- [x] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium` · <sub>✔ 2026-10-11</sub>
 - [ ] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium`
 - [ ] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium`
 - [ ] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` ✅
