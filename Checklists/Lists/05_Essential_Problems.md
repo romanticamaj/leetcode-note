@@ -106,6 +106,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Topological Sort
 
 - LeetCode 207. Course Schedule
+- 🟡 LeetCode 310. Minimum Height Trees
 
 ## Prefix Sum / Running Sum
 

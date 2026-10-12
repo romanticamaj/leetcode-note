@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：131 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：132 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -222,7 +222,7 @@ Easy 34 · Medium 81 · Hard 19
 - [ ] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium` · <sub>NC</sub>
 - [ ] **289.** [Game of Life](https://leetcode.com/problems/game-of-life/) — `Medium` · <sub>TI150</sub>
 - [ ] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium` · <sub>NC</sub>
-- [ ] **310.** [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) — `Medium` · <sub>G75</sub>
+- [x] **310.** [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) — `Medium` · <sub>G75</sub> · <sub>✔ 2026-10-12</sub>
 - [ ] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium` · <sub>NC</sub>
 - [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium` · <sub>NC</sub>
 - [ ] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium` · <sub>NC</sub>

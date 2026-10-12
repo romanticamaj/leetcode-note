@@ -1,18 +1,25 @@
 #!/usr/bin/env python3
-"""Sync Checklists/Lists/*.md against Checklists/Practice_Log.md.
+"""Sync the five source-based Checklists/Lists/ files against Checklists/Practice_Log.md.
 
 Reads every `## YYYY-MM-DD` block in the log, collects `- <num>.` lines,
-and marks those problems `[x]` + `✔ <earliest date>` in every list file.
+and marks those problems `[x]` + `✔ <earliest date>` in the master union and four source lists.
 Everything else is unchecked. Idempotent — safe to run after every log edit.
 
 All file I/O is explicitly UTF-8: on Windows Python defaults to the cp950
 locale encoding, which cannot read the Chinese text in these notes.
 """
-import glob, os, re, sys
+import os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG = os.path.join(ROOT, "Checklists", "Practice_Log.md")
-LISTS = sorted(glob.glob(os.path.join(ROOT, "Checklists", "Lists", "*.md")))
+# Personal selections, follow-ups, and review notes keep their own format.
+LISTS = [os.path.join(ROOT, "Checklists", "Lists", name) for name in (
+    "00_Master_Union.md",
+    "01_NeetCode_150.md",
+    "02_Grind_75.md",
+    "03_Top_Interview_150.md",
+    "04_Top_100_Liked.md",
+)]
 
 def parse_log():
     solved = {}

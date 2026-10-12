@@ -69,7 +69,7 @@ flowchart TD
 ### 階段 4: 重寫與復習
 - [ ] 當下是否能不看答案重寫一次？
 - [ ] 是否已經加入二刷/三刷計畫？
-- [ ] 是否在 `Checklists/Essential Problems/Problem_Review.md` 中標記，並記入 `Checklists/Practice_Log.md`？
+- [ ] 是否在 `Checklists/Lists/09_Problem_Review.md` 中標記，並記入 `Checklists/Practice_Log.md`？
 
 ---
 
@@ -117,7 +117,7 @@ flowchart TD
 ## 🔗 相關資源
 
 - **技巧清單**: [Hard_Techniques_Reference.md](Hard_Techniques_Reference.md)
-- **問題追蹤**: [Problem_Review.md](../Checklists/Essential%20Problems/Problem_Review.md) · [Practice_Log.md](../Checklists/Practice_Log.md)
+- **問題追蹤**: [09_Problem_Review.md](../Checklists/Lists/09_Problem_Review.md) · [Practice_Log.md](../Checklists/Practice_Log.md)
 - **通用策略**: [Problem_Solving_Strategies.md](Problem_Solving_Strategies.md)
 
 ---

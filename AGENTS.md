@@ -37,21 +37,26 @@ This is a structured collection of notes, patterns, and mental models (心法) f
 
 ## Practice Tracking System
 
-### `Checklists/Lists/` — Curated problem lists
+### `Checklists/Lists/` — Unified problem lists
 
-All entries carry LeetCode number, title, difficulty, and link. Premium problems are marked 🔒. Problems already covered by `Essential Problems/` are marked ✅ with a pre-checked box.
+Files are numbered by role: `00` master union, `01–04` source lists, `05–07` personal selections, `08` follow-ups, and `09` review. These numbers organize the files; the Master Union tiers determine practice priority.
+
+**Master union and source lists (`00–04`)**
+
+Source-list entries carry LeetCode number, title, difficulty, and link. Premium problems are marked 🔒. Problems already covered by `05_Essential_Problems.md` are marked ✅. Completion checkboxes are determined only by `Practice_Log.md`.
 
 - **`00_Master_Union.md`** — Deduplicated union of the four lists below (250 problems), sorted into four tiers by how many lists contain each problem (🔥🔥🔥🔥 = all four, 37 problems). **This tier ordering is the recommended grind priority.**
-- `NeetCode_150.md`, `Grind_75.md`, `Top_Interview_150.md`, `Top_100_Liked.md` — the individual source lists
+- `01_NeetCode_150.md`, `02_Grind_75.md`, `03_Top_Interview_150.md`, `04_Top_100_Liked.md` — the individual source lists
 
 These were generated from authoritative sources (official LeetCode study plan pages, `krmanik/Anki-NeetCode` JSON) with numbers resolved via the LeetCode `/api/problems/all/` endpoint. **Do not edit problem numbers by hand or regenerate them from memory** — re-fetch from source if they need updating.
 
-### `Checklists/Essential Problems/` — Gary's personal collection
+**Personal selections, follow-ups, and review (`05–09`)**
 
-- `Essential_Problems.md` — curated must-do problems by technique
-- `Archetype_Problems.md` — prototype problem per algorithm family
-- `Technique_Integration_Problems.md` — problems requiring multiple techniques
-- `Problem_Review.md` — problems flagged for review
+- `05_Essential_Problems.md` — curated must-do problems by technique
+- `06_Archetype_Problems.md` — prototype problem per algorithm family
+- `07_Technique_Integration_Problems.md` — problems requiring multiple techniques
+- `08_Followup_Problems.md` — variations and follow-up questions
+- `09_Problem_Review.md` — problems flagged for review
 
 ### `Checklists/Practice_Log.md` — Daily practice diary
 
@@ -78,7 +83,7 @@ model: Fable 5.1
 
 **Governed by the project skill `practice-log`** (`.agents/skills/practice-log/SKILL.md`). Invoke it whenever the user reports a finished problem, gives a 心得, or asks to sync lists.
 
-The non-negotiable rule: **every edit to `Practice_Log.md` is immediately followed by `python3 scripts/sync_lists.py`.** The script marks solved problems `[x]` + `✔ date` across all `Checklists/Lists/*.md` and refreshes each `**已刷：n / total**` header. Never hand-edit those checkboxes; the `✅` marker (from `Essential Problems/`) is separate and left alone.
+The non-negotiable rule: **every edit to `Practice_Log.md` is immediately followed by `python3 scripts/sync_lists.py`.** The script marks solved problems `[x]` + `✔ date` in the master union and four source lists (`Checklists/Lists/00–04`) and refreshes each `**已刷：n / total**` header. Never hand-edit those checkboxes; the `✅` marker (from `05_Essential_Problems.md`) is separate and left alone.
 
 For a conceptual question about a problem just solved: answer it, and if the user wants it recorded, append a few key lines with links to the **existing** technique note rather than creating a new file.
 

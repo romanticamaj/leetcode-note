@@ -213,6 +213,6 @@ Problems are organized by interview frequency, from most common to advanced chal
 
 ## 🔗 Related Resources
 
-- [Divide and Conquer Hard Problems](Divide_and_Conquer_Hard_Problem_Playbook.md)
-- [Essential Problems](Essential_Problems.md)
-- [Hard Techniques Reference](../Interview_Playbook/Hard_Techniques_Reference.md)
+- [Divide and Conquer Hard Problems](../Trick%20Practice/Divide_and_Conquer_Hard_Problem_Playbook.md)
+- [Essential Problems](05_Essential_Problems.md)
+- [Hard Techniques Reference](../../Interview_Playbook/Hard_Techniques_Reference.md)

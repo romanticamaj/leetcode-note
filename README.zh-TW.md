@@ -27,10 +27,10 @@
 
 | 你目前的狀況 | 從這裡開始 | 接下來怎麼做 |
 |---|---|---|
-| 正在學習 DSA Pattern | [Two Pointers 核心模式](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md)＋[Grind 75](Checklists/Lists/Grind_75.md) | 按自己的速度練習，先理解每題的模式，再考慮計時。 |
+| 正在學習 DSA Pattern | [Two Pointers 核心模式](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md)＋[Grind 75](Checklists/Lists/02_Grind_75.md) | 按自己的速度練習，先理解每題的模式，再考慮計時。 |
 | 會寫程式，但常常沒有思路 | [解題流程與假設檢查](Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md)＋[優化指北星](Interview_Playbook/Problem_Solving_Strategies.md) | 先說清楚正確的暴力解，再指出要省掉哪些工作。 |
 | 學過演算法，想把概念串起來 | [State → Transition → Traversal](Meta_Frameworks/Problem_Classification_Framework/03-State_Transition_Traversal.md) | 用[統一狀態框架](Meta_Frameworks/State_Transition_Algorithm_Atlas.md)比較熟悉的技法。 |
-| 正在準備技術面試 | [解題前 Checklist](Interview_Playbook/Pre_Solve_Interview_Checklist.md)＋[四大清單母集合](Checklists/Lists/00_Master_Union.md) | 從四份清單共同收錄的題目起步，再練習 [follow-up](Checklists/Lists/02_Followup_Problems.md)。 |
+| 正在準備技術面試 | [解題前 Checklist](Interview_Playbook/Pre_Solve_Interview_Checklist.md)＋[四大清單母集合](Checklists/Lists/00_Master_Union.md) | 從四份清單共同收錄的題目起步，再練習 [follow-up](Checklists/Lists/08_Followup_Problems.md)。 |
 
 **第一次閱讀可以這樣做：** 打開 [Binary Search 標準模板](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md)，從[題庫](Checklists/Lists/)挑一道對應題目，先說明單調 predicate、區間不變量與終止條件，再開始實作。
 
@@ -102,12 +102,12 @@ HTML 版支援搜尋、分類篩選與展開閱讀。下載後可直接用瀏覽
 | 題庫 | 學習用途 |
 |---|---|
 | [四大清單母集合 — 250 題](Checklists/Lists/00_Master_Union.md) | 四份清單合併去重的快照，按重疊程度分層。四份共同收錄的 37 題適合當起點；重疊程度是選題參考。 |
-| [NeetCode 150](Checklists/Lists/NeetCode_150.md) | 依 Pattern 分類練習。 |
-| [Grind 75](Checklists/Lists/Grind_75.md) | 依週次安排練習順序。 |
-| [Top Interview 150](Checklists/Lists/Top_Interview_150.md) · [Top 100 Liked](Checklists/Lists/Top_100_Liked.md) | 用整理收錄的 LeetCode 學習清單擴充題型覆蓋。 |
-| [Essential Problems](Checklists/Essential%20Problems/Essential_Problems.md) | 依技法探索維護者挑選的精選題目。 |
-| [Technique Integration](Checklists/Essential%20Problems/Technique_Integration_Problems.md) | 練習組合多種技法、比較不同思路。 |
-| [Follow-up 題型](Checklists/Lists/02_Followup_Problems.md) | 改變限制、處理變形，或口述 trade-off；頻率標記是編輯判斷。 |
+| [NeetCode 150](Checklists/Lists/01_NeetCode_150.md) | 依 Pattern 分類練習。 |
+| [Grind 75](Checklists/Lists/02_Grind_75.md) | 依週次安排練習順序。 |
+| [Top Interview 150](Checklists/Lists/03_Top_Interview_150.md) · [Top 100 Liked](Checklists/Lists/04_Top_100_Liked.md) | 用整理收錄的 LeetCode 學習清單擴充題型覆蓋。 |
+| [Essential Problems](Checklists/Lists/05_Essential_Problems.md) | 依技法探索維護者挑選的精選題目。 |
+| [Technique Integration](Checklists/Lists/07_Technique_Integration_Problems.md) | 練習組合多種技法、比較不同思路。 |
+| [Follow-up 題型](Checklists/Lists/08_Followup_Problems.md) | 改變限制、處理變形，或口述 trade-off；頻率標記是編輯判斷。 |
 | [專題練習 Playbook](Checklists/Trick%20Practice/) | 集中練習答案二分、Kadane、Knapsack、KMP 等技巧。 |
 
 > 清單中的勾選、完成日期與進度總數，是**維護者的練習狀態**，不是讀者的先修要求。`✅` 表示也收錄於個人精選集，`🔒` 表示 Premium 題目。你可以用自己的副本記錄學習進度。
@@ -145,7 +145,7 @@ HTML 版支援搜尋、分類篩選與展開閱讀。下載後可直接用瀏覽
 <details>
 <summary><strong>維護者的學習紀錄與 AI 輔助流程</strong></summary>
 
-[練習日誌](Checklists/Practice_Log.md)、[學習 Roadmap](Checklists/Learning_Roadmap.md)與[複習清單](Checklists/Essential%20Problems/Problem_Review.md)會繼續保留，記錄這份資源如何從實際練習持續演進。
+[練習日誌](Checklists/Practice_Log.md)、[學習 Roadmap](Checklists/Learning_Roadmap.md)與[複習清單](Checklists/Lists/09_Problem_Review.md)會繼續保留，記錄這份資源如何從實際練習持續演進。
 
 專案 Skills 支援[模擬面試](.agents/skills/mock-interview/SKILL.md)、[Pattern 萃取](.agents/skills/extract-pattern/SKILL.md)、[Hard 題學習教練](.agents/skills/hard-coach/SKILL.md)與[練習紀錄](.agents/skills/practice-log/SKILL.md)。文件慣例收錄於 [AGENTS.md](AGENTS.md)，Claude Code 透過 [CLAUDE.md](CLAUDE.md)讀取。
 

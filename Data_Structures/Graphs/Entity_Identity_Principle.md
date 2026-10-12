@@ -82,7 +82,7 @@ int dfs(const vector<Entity>& all_entities, const int currentId, vector<bool>& v
 
 ## 5. 關聯心法
 
-- **[心法：使用索引作為參考](../Common_Patterns/Index_as_Reference.md)**: 本原則解釋了**為什麼**必須使用唯一識別符（索引）。而「使用索引作為參考」則進一步闡述了這種模式在實作上的**空間與效能優勢**，特別是在 Top-K 問題和圖演算法中的應用。
+- **[心法：使用索引作為參考](../../Algorithms/Design_Principles/Index_as_Reference.md)**: 本原則解釋了**為什麼**必須使用唯一識別符（索引）。而「使用索引作為參考」則進一步闡述了這種模式在實作上的**空間與效能優勢**，特別是在 Top-K 問題和圖演算法中的應用。
 
 ## ✅ 總結
 

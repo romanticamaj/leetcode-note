@@ -27,10 +27,10 @@ You’ll get the most from this collection if you can already write basic progra
 
 | Your starting point | Start here | What to do next |
 |---|---|---|
-| Learning DSA patterns | [Two Pointers](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md) + [Grind 75](Checklists/Lists/Grind_75.md) | Work at your own pace; use each problem to understand a pattern before timing yourself. |
+| Learning DSA patterns | [Two Pointers](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md) + [Grind 75](Checklists/Lists/02_Grind_75.md) | Work at your own pace; use each problem to understand a pattern before timing yourself. |
 | Can code, but struggle to find an approach | [Problem-solving workflow](Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md) + [optimization strategy](Interview_Playbook/Problem_Solving_Strategies.md) | Describe a correct brute force, then identify the work to eliminate. |
 | Know individual algorithms, want the connections | [State → Transition → Traversal](Meta_Frameworks/Problem_Classification_Framework/03-State_Transition_Traversal.md) | Compare familiar techniques in the [Algorithm Atlas](Meta_Frameworks/State_Transition_Algorithm_Atlas.md). |
-| Preparing for coding interviews | [Pre-solve checklist](Interview_Playbook/Pre_Solve_Interview_Checklist.md) + [Master Union](Checklists/Lists/00_Master_Union.md) | Start with the problems shared by all four lists, then practice [follow-ups](Checklists/Lists/02_Followup_Problems.md). |
+| Preparing for coding interviews | [Pre-solve checklist](Interview_Playbook/Pre_Solve_Interview_Checklist.md) + [Master Union](Checklists/Lists/00_Master_Union.md) | Start with the problems shared by all four lists, then practice [follow-ups](Checklists/Lists/08_Followup_Problems.md). |
 
 **A first session:** Read the [Binary Search template](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md), find a matching problem in the [practice lists](Checklists/Lists/), and explain the monotone predicate, interval invariant, and termination condition before coding.
 
@@ -102,12 +102,12 @@ Use a list to choose problems, then return to the pattern library to explain wha
 | Collection | Learning purpose |
 |---|---|
 | [Master Union — 250 problems](Checklists/Lists/00_Master_Union.md) | A deduplicated snapshot of four lists, grouped by overlap. The 37 problems in all four are a compact starting set; overlap is a prioritization heuristic. |
-| [NeetCode 150](Checklists/Lists/NeetCode_150.md) | Practice by pattern category. |
-| [Grind 75](Checklists/Lists/Grind_75.md) | Follow a week-based practice sequence. |
-| [Top Interview 150](Checklists/Lists/Top_Interview_150.md) · [Top 100 Liked](Checklists/Lists/Top_100_Liked.md) | Broaden coverage with the collected LeetCode study-plan lists. |
-| [Essential Problems](Checklists/Essential%20Problems/Essential_Problems.md) | Explore the maintainer’s curated selection by technique. |
-| [Technique Integration](Checklists/Essential%20Problems/Technique_Integration_Problems.md) | Practice combining techniques and comparing approaches. |
-| [Follow-up Problems](Checklists/Lists/02_Followup_Problems.md) | Change a constraint, handle a variant, or explain a trade-off. Frequency labels are editorial judgments. |
+| [NeetCode 150](Checklists/Lists/01_NeetCode_150.md) | Practice by pattern category. |
+| [Grind 75](Checklists/Lists/02_Grind_75.md) | Follow a week-based practice sequence. |
+| [Top Interview 150](Checklists/Lists/03_Top_Interview_150.md) · [Top 100 Liked](Checklists/Lists/04_Top_100_Liked.md) | Broaden coverage with the collected LeetCode study-plan lists. |
+| [Essential Problems](Checklists/Lists/05_Essential_Problems.md) | Explore the maintainer’s curated selection by technique. |
+| [Technique Integration](Checklists/Lists/07_Technique_Integration_Problems.md) | Practice combining techniques and comparing approaches. |
+| [Follow-up Problems](Checklists/Lists/08_Followup_Problems.md) | Change a constraint, handle a variant, or explain a trade-off. Frequency labels are editorial judgments. |
 | [Focused practice playbooks](Checklists/Trick%20Practice/) | Deepen a specific technique: answer-space binary search, Kadane, knapsack, KMP, and more. |
 
 > List checkboxes, completion dates, and progress totals reflect **the maintainer’s practice**, not prerequisites for readers. `✅` means a problem also appears in the personal collection; `🔒` marks Premium problems. Use your own copy to track your progress.
@@ -145,7 +145,7 @@ Explore the [problem-history collection](Problem_History/README.md), [C++ refere
 <details>
 <summary><strong>Maintainer’s learning journal and AI-assisted workflows</strong></summary>
 
-The [practice log](Checklists/Practice_Log.md), [learning roadmap](Checklists/Learning_Roadmap.md), and [review list](Checklists/Essential%20Problems/Problem_Review.md) remain part of this repository. They document how the collection evolves through actual practice.
+The [practice log](Checklists/Practice_Log.md), [learning roadmap](Checklists/Learning_Roadmap.md), and [review list](Checklists/Lists/09_Problem_Review.md) remain part of this repository. They document how the collection evolves through actual practice.
 
 Project skills support [mock interviews](.agents/skills/mock-interview/SKILL.md), [pattern extraction](.agents/skills/extract-pattern/SKILL.md), [Hard-problem coaching](.agents/skills/hard-coach/SKILL.md), and [practice logging](.agents/skills/practice-log/SKILL.md). Repository conventions live in [AGENTS.md](AGENTS.md); Claude Code reads them through [CLAUDE.md](CLAUDE.md).
 

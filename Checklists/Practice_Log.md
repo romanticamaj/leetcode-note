@@ -8,6 +8,7 @@
 - 338. Counting Bits
 - 4. Median of Two Sorted Arrays
 - 392. Is Subsequence
+- 310. Minimum Height Trees
 
 **心得**：
 - 290：Bijection……第二次遇到，就是做雙向 mapping 或是 used hashmap。但是要注意的東西還有數量，也許可先把兩邊拆解出來，然後再做 1-1 mapping？
@@ -32,6 +33,9 @@
   - Follow-up 用 hashmap + upper_bound binary search：固定 t，記錄 letter to index 的位置列表；對 s 找一組嚴格遞增的 index。實作使用 vector<vector<int>>(26) 作為字元到位置列表的對照。
   - 好像可以做 DP follow-up：預先建立 next-position table，讓每個 s 查詢只需 O(|s|)；尚待實作。
 
+- 310：Kahn's algorithm like, keep removing degree 1 node until one or two left. 解答把剩下的節點稱作 centroid，但照最小樹高的定義，這裡應是 center。
+  - 深入查出處：樹中心與重心是兩個不同目標；LeetCode 解答沿用 centroid 一詞，但最小樹高找的是 center。Jordan 1869 的樹研究、Harary 1969 的剝葉證明都早於此題；Kahn 1962 原論文處理 DAG 拓撲排序。詳見 [310. Minimum Height Trees：樹中心的出處與歷史](../Problem_History/LC_0310_Minimum_Height_Trees.md)。
+
 **LLM 點評**：
 model: GPT-6
 - 290：程式正確。mapping 保證同一個 pattern 字元對應同一個 word，indexMapping 保證同一個 word 不被不同字元共用；每輪成功後，已處理的兩側前綴維持一對一映射。若用 forward mapping + used set，只在建立新 mapping 時檢查 word 是否已被使用。
@@ -46,6 +50,7 @@ model: GPT-6
   - l1 > r2 時，i 再增大只會讓 l1 不減、r2 不增，故可排除 i 及其右側；l2 > r1 時，i 再減小只會讓 l2 不減、r1 不增，故可排除 i 及其左側。合法切點始終留在候選範圍內，每次失敗至少排除目前切點，保證進展；兩個交錯都不存在時得到合法分界。時間 O(log(min(m,n)+2))、額外空間 O(1)。
 - 392：位置列表 + upper_bound 的單次判斷正確。由左至右建表使每個列表自然有序；lastIndex 是目前 s 前綴可匹配到的最早結尾，upper_bound 找嚴格大於它的最早位置，避免重用同一個 t 元素，也為後續保留最多選擇。空 s 回傳 true；找不到下一個位置即失敗。實作是固定 26 格的直接索引表，不是 hashmap。
   - 令 m = s.size()、n = t.size()，建表 O(n)、索引空間 O(n)，所有列表合計只有 n 個位置；每個字元查詢 O(log(n+1)) 上界，整個 s 查詢 O(m log(n+1))，不是 O(log n)。目前函式每次重建索引，整次呼叫為 O(n + m log(n+1))，仍未實作 follow-up 的跨查詢重用；應把建表移到初始化階段，後續只傳入 s，並以 const string& 避免每次按值複製 t。
+- 310：類似 Kahn's algorithm 的消除流程，但維護的是無向樹的 degree，門檻是 1；必須每輪移除完整一層葉節點，讓新葉留到下一輪，直到剩下 1 或 2 個節點。這些是最小化最大距離的樹中心（centers），與最小化最大分支大小的重心（centroids）不同。剝掉一層葉後，對剩餘節點而言最遠距離皆減 1，因此保留中心；n == 1 需直接回傳唯一節點。每個節點與每條邊只處理常數次，時間 O(n)、空間 O(n)。
 
 ---
 

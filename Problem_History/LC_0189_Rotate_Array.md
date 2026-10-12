@@ -62,7 +62,7 @@ A|B
 
 Rotation 也能用循環搬移（juggling）或區塊交換（block swap）完成；它們不是三次反轉的別名。這篇聚焦 reversal 的歷史與理解線索。
 
-重做目標見 [Problem Review](../Checklists/Essential%20Problems/Problem_Review.md)：先推導 `A|B → B|A`，再決定反轉順序與切點。
+重做目標見 [Problem Review](../Checklists/Lists/09_Problem_Review.md)：先推導 `A|B → B|A`，再決定反轉順序與切點。
 
 ## 來源與延伸閱讀
 

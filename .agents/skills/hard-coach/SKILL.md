@@ -147,7 +147,7 @@ Compute real dates from today (`date +%F`), then give the Problem_Review entry b
 
 ## Review Tracker
 
-The tracker is `Checklists/Essential Problems/Problem_Review.md`. Use its existing entry format:
+The tracker is `Checklists/Lists/09_Problem_Review.md`. Use its existing entry format:
 
 ```markdown
 - [ ] LeetCode XXX. Problem Name

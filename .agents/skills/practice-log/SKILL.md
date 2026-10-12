@@ -34,10 +34,10 @@ Give this feedback in the user-facing reply and record its key points under **LL
 
 ## What the sync does
 
-`scripts/sync_lists.py` reads every dated block in the log and marks solved problems `[x]` + `✔ <earliest date>` in **all** `Checklists/Lists/*.md`, updating each header's `**已刷：n / total**`. Idempotent. The `✅` marker (in `Essential Problems/`) is separate and untouched.
+`scripts/sync_lists.py` reads every dated block in the log and marks solved problems `[x]` + `✔ <earliest date>` in the master union and four source lists (`00–04`) under `Checklists/Lists/`, updating each header's `**已刷：n / total**`. Idempotent. Personal selections (`05–07`), follow-ups (`08`), and review notes (`09`) keep their own format and are not rewritten. The `✅` marker means a problem was previously included in `05_Essential_Problems.md`; it is separate and untouched.
 
 ## Don'ts
 
 - Don't add tables, timing, stats, or review queues to the log — the user rejected that.
 - Don't invoke `mock-interview` on a bare "完成 X" / problem-title list; it's a log entry, not a problem to interview on.
-- Don't hand-edit checkboxes in `Checklists/Lists/` — the script owns them.
+- Don't hand-edit completion checkboxes in the master union and four source lists — the script owns them.

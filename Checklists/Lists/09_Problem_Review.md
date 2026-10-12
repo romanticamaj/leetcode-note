@@ -6,7 +6,7 @@
 
 - ✅ 標記為「需要複習」的題目
 - 📌 **標記原因**: 記錄為什麼需要複習（技巧陌生、實作細節、思路盲點等）
-- 🔗 **前置題型**: 如果技巧完全陌生，先去練習的 simpler 題目（參考 [Hard_Techniques_Reference.md](Interview_Playbook/Hard_Techniques_Reference.md)）
+- 🔗 **前置題型**: 如果技巧完全陌生，先去練習的 simpler 題目（參考 [Hard_Techniques_Reference.md](../../Interview_Playbook/Hard_Techniques_Reference.md)）
 - 📅 **複習計畫**: 二刷/三刷時間規劃
 
 ---
