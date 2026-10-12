@@ -120,6 +120,7 @@ s.find_first_of("aeiou");          // find any char in set
 std::stringstream ss(s);
 std::string token;
 while (std::getline(ss, token, ',')) { /* process token */ }
+while (ss >> token) { /* process token */ } // 以空白為分割單位
 
 // Parse with specified base (2=binary, 16=hex)
 int bin = std::stoi("1010", nullptr, 2);   // -> 10

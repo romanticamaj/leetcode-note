@@ -117,6 +117,13 @@
 
 ---
 
+## Bit Manipulation
+
+- LeetCode 338. Counting Bits
+  - 清除最低位的 1：`dp[x] = dp[x & (x - 1)] + 1`；移除一個固定貢獻，剩下仍是同一種子問題。
+
+---
+
 ## Data Structures
 
 ### Linked List — Find Middle + Reverse + Merge（找中點、反轉、交錯合併）
@@ -126,6 +133,11 @@
 ### Hash Set (Seen-Set)
 
 - LeetCode 217. Contains Duplicate
+
+### Bijection（一對一映射）
+
+- LeetCode 290. Word Pattern
+  - 雙向 mapping，或 forward mapping + used set；另須確認 pattern 長度與 word 數量一致。
 
 ### Monotonic Stack
 

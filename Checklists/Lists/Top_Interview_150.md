@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：97 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：100 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -38,7 +38,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Two Pointers (5)
 
 - [x] **125.** [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — `Easy` ✅ · <sub>✔ 2026-09-15</sub>
-- [ ] **392.** [Is Subsequence](https://leetcode.com/problems/is-subsequence/) — `Easy`
+- [x] **392.** [Is Subsequence](https://leetcode.com/problems/is-subsequence/) — `Easy` · <sub>✔ 2026-10-12</sub>
 - [x] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — `Medium` · <sub>✔ 2026-10-09</sub>
 - [x] **11.** [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — `Medium` · <sub>✔ 2026-09-05</sub>
 - [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
@@ -62,7 +62,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 - [x] **383.** [Ransom Note](https://leetcode.com/problems/ransom-note/) — `Easy` · <sub>✔ 2026-09-27</sub>
 - [x] **205.** [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) — `Easy` · <sub>✔ 2026-10-05</sub>
-- [ ] **290.** [Word Pattern](https://leetcode.com/problems/word-pattern/) — `Easy`
+- [x] **290.** [Word Pattern](https://leetcode.com/problems/word-pattern/) — `Easy` · <sub>✔ 2026-10-12</sub>
 - [x] **242.** [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — `Medium` ✅ · <sub>✔ 2026-09-18</sub>
 - [x] **1.** [Two Sum](https://leetcode.com/problems/two-sum/) — `Easy` · <sub>✔ 2026-09-04</sub>
@@ -180,7 +180,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [x] **34.** [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) — `Medium` · <sub>✔ 2026-09-26</sub>
 - [x] **153.** [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
-- [ ] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` ✅
+- [x] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` ✅ · <sub>✔ 2026-10-12</sub>
 
 ## Heap (4)
 

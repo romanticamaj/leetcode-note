@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：127 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
+**已刷：131 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）
 
 ---
 
@@ -84,7 +84,7 @@ Easy 6 · Medium 24 · Hard 5
 - [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-09-22</sub>
 - [x] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` · <sub>NC · G75 · H100</sub> ✅ · <sub>✔ 2026-09-22</sub>
 - [x] **994.** [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) — `Medium` · <sub>NC · G75 · H100</sub> · <sub>✔ 2026-09-22</sub>
-- [ ] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` · <sub>NC · TI150 · H100</sub> ✅
+- [x] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` · <sub>NC · TI150 · H100</sub> ✅ · <sub>✔ 2026-10-12</sub>
 - [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard` · <sub>NC · TI150 · H100</sub>
 - [ ] **84.** [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — `Hard` · <sub>NC · G75 · H100</sub> ✅
 - [ ] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard` · <sub>NC · TI150 · H100</sub>
@@ -165,9 +165,9 @@ Easy 34 · Medium 81 · Hard 19
 - [x] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — `Easy` · <sub>NC</sub> · <sub>✔ 2026-10-09</sub>
 - [x] **278.** [First Bad Version](https://leetcode.com/problems/first-bad-version/) — `Easy` · <sub>G75</sub> · <sub>✔ 2026-10-10</sub>
 - [x] **283.** [Move Zeroes](https://leetcode.com/problems/move-zeroes/) — `Easy` · <sub>H100</sub> · <sub>✔ 2026-10-11</sub>
-- [ ] **290.** [Word Pattern](https://leetcode.com/problems/word-pattern/) — `Easy` · <sub>TI150</sub>
-- [ ] **338.** [Counting Bits](https://leetcode.com/problems/counting-bits/) — `Easy` · <sub>NC</sub>
-- [ ] **392.** [Is Subsequence](https://leetcode.com/problems/is-subsequence/) — `Easy` · <sub>TI150</sub>
+- [x] **290.** [Word Pattern](https://leetcode.com/problems/word-pattern/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-10-12</sub>
+- [x] **338.** [Counting Bits](https://leetcode.com/problems/counting-bits/) — `Easy` · <sub>NC</sub> · <sub>✔ 2026-10-12</sub>
+- [x] **392.** [Is Subsequence](https://leetcode.com/problems/is-subsequence/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-10-12</sub>
 - [x] **409.** [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) — `Easy` · <sub>G75</sub> ✅ · <sub>✔ 2026-10-10</sub>
 - [ ] **530.** [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst/) — `Easy` · <sub>TI150</sub>
 - [ ] **572.** [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) — `Easy` · <sub>NC</sub> ✅

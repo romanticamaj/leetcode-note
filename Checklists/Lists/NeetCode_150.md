@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：89 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：91 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -54,7 +54,7 @@
 - [x] **153.** [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [ ] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` ✅
-- [ ] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` ✅
+- [x] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` ✅ · <sub>✔ 2026-10-12</sub>
 
 ## Linked List (11)
 
@@ -206,7 +206,7 @@
 
 - [x] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
-- [ ] **338.** [Counting Bits](https://leetcode.com/problems/counting-bits/) — `Easy`
+- [x] **338.** [Counting Bits](https://leetcode.com/problems/counting-bits/) — `Easy` · <sub>✔ 2026-10-12</sub>
 - [x] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — `Easy` · <sub>✔ 2026-10-09</sub>
 - [ ] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium`

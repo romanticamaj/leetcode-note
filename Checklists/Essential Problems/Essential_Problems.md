@@ -116,6 +116,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 137. Single Number II
 - LeetCode 191. Number of 1 Bits
+- LeetCode 338. Counting Bits
+  - Bit manipulation + bottom-up DP；移除最低位，或清除最低位的 1，重用較小數字的答案。
 
 ## State Compression through Bit Manipulation
 
@@ -263,6 +265,7 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Time O(n) + Space O(1)
 - 🟡 LeetCode 189. Rotate Array
   - Reverse Trick
+- 🟢 LeetCode 392. Is Subsequence
 
 ## LeetCode Solution Worth Reading
 

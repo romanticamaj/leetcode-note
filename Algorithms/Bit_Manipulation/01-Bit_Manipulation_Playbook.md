@@ -11,7 +11,7 @@
 | 清除位元 | `x & ~(1 << i)` | 將第 i 位設為 0 |
 | 翻轉位元 | `x ^ (1 << i)` | 翻轉第 i 位 |
 | 取最低位 1 | `x & -x` | Lowbit，取出最右邊的 1 |
-| 清除最低位 1 | `x & (x - 1)` | 移除最右邊的 1 |
+| 清除最低位 1 | `x & (x - 1)` | 移除最右邊的 1 (zeroing out the least significant nonzero bit) |
 | 全部位元為 1 | `~0` | 產生 0xFFFFFFFF |
 | 計算 1 的個數 | `__builtin_popcount(x)` | GCC/Clang 內建 |
 
@@ -179,6 +179,8 @@ while (x) {
     count++;
 }
 ```
+
+**與 Binary Indexed Tree（Fenwick Tree）的連結：** Prefix Query 的 `i -= i & -i` 等價於 `i &= i - 1`，都是清除最低位的 1。前者強調扣掉剛處理完的區間長度，後者強調位元變化；詳見 [BIT Query](../../Data_Structures/Advanced/Binary_Indexed_Tree/01-Core_Concepts.md#為什麼-query-減掉-lowbit與清除最低位-1-的關係)。
 
 ## 延伸閱讀
 

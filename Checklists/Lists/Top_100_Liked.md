@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：81 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：82 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `Essential Problems/` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -21,7 +21,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 ## Binary Search (7)
 
-- [ ] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` ✅
+- [x] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` ✅ · <sub>✔ 2026-10-12</sub>
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [x] **34.** [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) — `Medium` · <sub>✔ 2026-09-26</sub>
 - [x] **35.** [Search Insert Position](https://leetcode.com/problems/search-insert-position/) — `Easy` · <sub>✔ 2026-09-23</sub>

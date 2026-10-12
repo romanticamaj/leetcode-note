@@ -2,6 +2,53 @@
 
 ---
 
+## 2026-10-12
+
+- 290. Word Pattern
+- 338. Counting Bits
+- 4. Median of Two Sorted Arrays
+- 392. Is Subsequence
+
+**心得**：
+- 290：Bijection……第二次遇到，就是做雙向 mapping 或是 used hashmap。但是要注意的東西還有數量，也許可先把兩邊拆解出來，然後再做 1-1 mapping？
+- 338：Review 後，有一些 bit 的 trick 可以學：
+  1. x % 2 就是看最後一位是不是 1，改成用 x & 1 即可。
+  2. x &= x - 1; // zeroing out the least significant nonzero bit
+  - 一開始用暴力法 O(nlogn)，這題可以進階到查表，是 CPU 最佳化很常出現的題目。
+  - ans[x] = ans[x & (x - 1)] + 1 的定義滿跳脫思考的：原本是按「位數」拆，移除最低位再補回它的值；也可以按「答案的組成」拆，移除一個 1，剩下的答案再加一。先想到「拿掉一個 1 後仍是同一種問題」，再接上 x & (x - 1) 這個操作。
+  - 兩種 DP 每個 x 都只查一次表，所以都是 O(n)；不能把暴力法「逐位移除」與「只移除 1」的迴圈次數差異，直接套到 DP 上。
+
+- 4：還是做不出來……經 gpt-6.1-sol 討論後完成，目前還不能獨立推導。
+  - 先理解 median 的定義：左側所有元素 <= 右側所有元素；偶數時左右數量相同，奇數時左側多一個。
+  1. 維持 leftSize 是目標的數量：leftSize = (m + n + 1) / 2，讓 i + j = leftSize 成為不變量。
+  2. Binary search i 應該在的位置；因為左側數量已固定，j = leftSize - i 自然出現，不需要同時搜尋兩個切點。
+  3. 拿切點位置的左側最大跟右側最小比較；不合法時，根據哪個跨陣列順序被違反，縮小搜尋範圍。
+  - 還有一個要特別設計的是左右側最大／最小值：l1、r1、l2、r2 是值，不是 index；空的左側用最小值、空的右側用最大值當 sentinel。
+  - 這題用 string 問題常用的 cut position 去想設計，就很合理：empty 也是一種合法分割，所以設計成 [0, i) 與 [i, m)，i 是 0 ~ m。
+  - 分成兩個 subarray，因為這是分段，不是搜尋空間，自然用 [0, i) 來表示更流暢；i 自然就是左段的數量。另用 [lo, hi] 表示候選切點的搜尋空間。
+  - 背後設計比特定切點模板更重要：從答案定義拆出條件，先用構造固定數量不變量，再搜尋滿足左右順序條件的解。
+
+- 392：Naive two pointers 已經做出來了。
+  - Follow-up 用 hashmap + upper_bound binary search：固定 t，記錄 letter to index 的位置列表；對 s 找一組嚴格遞增的 index。實作使用 vector<vector<int>>(26) 作為字元到位置列表的對照。
+  - 好像可以做 DP follow-up：預先建立 next-position table，讓每個 s 查詢只需 O(|s|)；尚待實作。
+
+**LLM 點評**：
+model: GPT-6
+- 290：程式正確。mapping 保證同一個 pattern 字元對應同一個 word，indexMapping 保證同一個 word 不被不同字元共用；每輪成功後，已處理的兩側前綴維持一對一映射。若用 forward mapping + used set，只在建立新 mapping 時檢查 word 是否已被使用。
+  - 數量檢查與 mapping 檢查是兩個條件：迴圈內 i == pattern.length() 擋住 word 過多並防止越界；最後 i == pattern.length() 擋住 word 過少。這兩處註解寫「word 數量必須等於 pattern 長度」更精確。可先 tokenize 再比較數量，也可沿用目前邊讀邊配對，無須另存所有 words。
+  - 空字串作為未設定標記安全，因為 ss >> word 不會讀出空 token。先填缺少的 mapping 再檢查也正確，衝突時立即 return false；若要讓 invariant 更好讀，可先驗證既有對應，再建立新對應。令 m = s.size()，一般雜湊分析下時間期望 O(m)、輔助空間 O(m)，stringstream 也保存字串副本；26 個 mapping slot 不代表字串儲存量是 O(1)。見 [Canonicalization：與直接驗證 Mapping 的比較](../Algorithms/Design_Principles/Canonicalization.md#與直接驗證-mapping-的比較)。
+- 338：程式正確。bits[i] 定義為 i 的二進位表示中 1 的數量；i / 2 移除最低位，i % 2 補回該位的貢獻。bits[0] = 0，且 i / 2 < i，因此由小到大計算時依賴已完成。時間 O(n)，含回傳陣列的空間 O(n)，不計輸出時額外空間 O(1)，原註解應說清楚計算口徑。
+  - 對本題非負整數，遞推可寫成 bits[i] = bits[i >> 1] + (i & 1)。i & (i - 1) 清掉最低位的 1，因此也可推得 bits[i] = bits[i & (i - 1)] + 1；每個 i 只查一次已完成狀態，同樣 O(n)。見 [Bit Manipulation Playbook](../Algorithms/Bit_Manipulation/01-Bit_Manipulation_Playbook.md)。
+  - 從逐個數字反覆除以 2 的 O(n log n)，進步到重用較小數字答案的 O(n)，關鍵是子問題重用，並非只把除法換成位元運算。查表還可指預先存好固定寬度區塊（例如 8 bits）的 popcount，再拆塊加總；與目前 bottom-up DP 有關，但不是同一個實作，也不能僅憑改寫成 bit operator 就斷言實際 CPU 執行更快。
+  - 可重用的子問題設計：移除一個對答案有固定貢獻的部分，讓剩下的仍是同一種問題。此處 ans[0] = 0；x > 0 時，x & (x - 1) 恰好少一個 1，故 ans[x] = ans[x & (x - 1)] + 1。移除後數值小於 x，保證 bottom-up 查到的狀態已完成。
+- 4：最終程式在題目條件下正確，平均值先用 1.0 * 轉成浮點再相加，也避免 int 加法溢位。這次是經討論後完成，尚不代表能獨立推導。關鍵收穫是「答案條件 → 數量不變量 → 消去 j 的自由度 → 搜尋剩餘順序條件」；不是只記住切點的寫法。可連結 [Correct by Construction](../Algorithms/Design_Principles/Correct_by_Construction.md)。
+  - [0,i) 與 [i,m) 描述資料分段，i 同時是切點與左段數量；[lo,hi] 描述尚未排除的候選切點。兩者層次不同，不應混用。先搜尋較短陣列，保證 i ∈ [0,m] 時 j ∈ [0,n]；sentinel 統一處理空段。固定 leftSize 是數量 invariant，不是終止條件。
+  - l1 > r2 時，i 再增大只會讓 l1 不減、r2 不增，故可排除 i 及其右側；l2 > r1 時，i 再減小只會讓 l2 不減、r1 不增，故可排除 i 及其左側。合法切點始終留在候選範圍內，每次失敗至少排除目前切點，保證進展；兩個交錯都不存在時得到合法分界。時間 O(log(min(m,n)+2))、額外空間 O(1)。
+- 392：位置列表 + upper_bound 的單次判斷正確。由左至右建表使每個列表自然有序；lastIndex 是目前 s 前綴可匹配到的最早結尾，upper_bound 找嚴格大於它的最早位置，避免重用同一個 t 元素，也為後續保留最多選擇。空 s 回傳 true；找不到下一個位置即失敗。實作是固定 26 格的直接索引表，不是 hashmap。
+  - 令 m = s.size()、n = t.size()，建表 O(n)、索引空間 O(n)，所有列表合計只有 n 個位置；每個字元查詢 O(log(n+1)) 上界，整個 s 查詢 O(m log(n+1))，不是 O(log n)。目前函式每次重建索引，整次呼叫為 O(n + m log(n+1))，仍未實作 follow-up 的跨查詢重用；應把建表移到初始化階段，後續只傳入 s，並以 const string& 避免每次按值複製 t。
+
+---
+
 ## 2026-10-11
 
 - 347. Top K Frequent Elements

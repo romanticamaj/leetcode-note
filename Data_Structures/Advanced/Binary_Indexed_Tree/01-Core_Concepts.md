@@ -189,6 +189,28 @@ sum = tree[6] + tree[4]
 
 **公式**：`queryPath(i) = i - (i & -i)`
 
+#### 為什麼 Query 減掉 Lowbit？與清除最低位 1 的關係
+
+`tree[i]` 管理的區間是 `[i - lowbit(i) + 1, i]`，長度為 `lowbit(i) = i & -i`。
+累加 `tree[i]` 後，這段已經處理完；剩下要查的是 `[1, i - lowbit(i)]`，因此下一個右端點是：
+
+```cpp
+i -= i & -i;       // 扣掉剛處理完的區間長度
+// 等價寫法（二選一，不要連續執行）：
+i = i & (i - 1);   // 清除最低位的 1
+```
+
+對正整數 `i`，`lowbit(i)` 取出最低位的 1；減掉它不需向其他位元借位，恰好只清除該位，因此兩式等價。
+
+```text
+i = 12：tree[12] 管理 [9,12]，lowbit(12) = 4
+累加後剩下 [1,8]，所以下一個 i = 12 - 4 = 8
+位元角度：1100 → 1000，清除最低位的 1
+```
+
+**記憶方式**：`i -= lowbit(i)` 解釋「為什麼跳到這裡」；`i &= i - 1` 解釋「位元如何改變」。Query 可用後者記憶；Update 仍是 `i += lowbit(i)`，不能直接套用清除最低位的公式。
+見 [Bit Manipulation：清除最低位的 1](../../../Algorithms/Bit_Manipulation/01-Bit_Manipulation_Playbook.md#清除最低位的-1)。
+
 #### Range Sum
 
 ```cpp

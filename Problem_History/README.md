@@ -6,6 +6,7 @@
 
 | 題目 | 歷史／數學原型 | 記憶線索 |
 |---|---|---|
+| [4. Median of Two Sorted Arrays](LC_0004_Median_of_Two_Sorted_Arrays.md) | 1976 年 Shamos 記載、Jefferson 私人通信；後續 selection／co-ranking 與平行合併研究 | 先固定前綴總數，再找兩個輸入各提供多少 |
 | [134. Gas Station](LC_0134_Gas_Station.md) | Gasoline Puzzle、Gasoline Lemma；相關的 Cycle Lemma | 從前綴和的最低谷出發 |
 | [189. Rotate Array](LC_0189_Rotate_Array.md) | 文字編輯器的區塊搬移、三次反轉；Bentley 記載 1971 年已有使用 | 把 rotation 看成 A\|B → B\|A |
 

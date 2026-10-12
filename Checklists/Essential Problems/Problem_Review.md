@@ -26,6 +26,12 @@
 
 ## 題目列表
 
+- [ ] LeetCode 392. Is Subsequence
+  - 📌 標記原因: 已完成 two pointers 與位置列表 + upper_bound；下次理解並實作提供的 LCS DP 版本。
+  - [ ] 從兩個前綴的狀態意義推導轉移，說明為何 LCS 長度等於 s.length() 就能判定 subsequence；先自行思考，需要時只給一句話提示。
+  - [ ] 大量查詢 follow-up：另外練習預處理固定 t 的 next-position table，與上述 LCS DP 區分；尚待實作。
+  - 🏷️ 技巧分類: String / Two Pointers / Binary Search / DP
+
 - [ ] LeetCode 409. Longest Palindrome
   - 📌 標記原因: 已完成先計數、再掃描頻率表的版本，下次練習 one-pass traversal。
   - [ ] 重寫 one-pass traversal 版本：只遍歷輸入字串一次，不再額外遍歷頻率表。
