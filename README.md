@@ -126,6 +126,7 @@ A selection of notes that connect implementation, modeling, mathematics, and his
 | [Canonical Anchor Decomposition](Algorithms/Divide_and_Conquer/08_Canonical_Anchor_Decomposition.md) | Use a structurally determined anchor to reason about unique decomposition. |
 | [Bidirectional Constraint Decomposition](Algorithms/Design_Principles/Bidirectional_Constraint_Decomposition.md) | Solve directional constraints separately, then combine them. |
 | [Gas Station: history and the prefix-sum minimum](Problem_History/LC_0134_Gas_Station.md) | Connect a coding problem to a mathematical puzzle and its documented sources. |
+| [Minimum Height Trees: the history of tree centers](Problem_History/LC_0310_Minimum_Height_Trees.md) | Trace leaf pruning and the distinction between tree centers and centroids to their sources. |
 | [Linked List Cycle II — interactive walkthrough](Visualizations/142-Linked_List_Cycle_II.html) | Follow fast and slow pointers visually; download the HTML and open it locally. |
 
 Explore the [problem-history collection](Problem_History/README.md), [C++ reference](CPP_Reference/), [pattern and keyword cheatsheet](Cheatsheet/LeetCode_Tricks_and_Keywords.md), and [C++ one-liners](Cheatsheet/CPP_One_Liners.md).

@@ -66,15 +66,21 @@
 - Space Optimized Dynamic Programming
 - State Compression with Bit Manipulation
 
-## 其他常見技巧 (Other Common Techniques)
+## Divide and Conquer
 
-- Greedy
-- Push-Pop Strategy
-- Two-Heaps Balancing
-- Two-Heaps Greedy Selection
-- Batracking
 - Divide-Centric Divide and Conquer
 - Combine-Centric Divide and Conquer
 - Mergesort-varaint Divide and Conquer
+
+## Priority Queue
+
+- Two-Heaps Balancing
+- Two-Heaps Greedy Selection
+- Push-Pop Strategy
+
+## 其他常見技巧 (Other Common Techniques)
+
+- Greedy
+- Backtracking
 - Bit Manipulation
 - Mathematical Techniques

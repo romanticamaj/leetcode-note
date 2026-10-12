@@ -126,6 +126,7 @@ HTML 版支援搜尋、分類篩選與展開閱讀。下載後可直接用瀏覽
 | [錨點分解](Algorithms/Divide_and_Conquer/08_Canonical_Anchor_Decomposition.md) | 用結構決定的錨點，推理分解的唯一性。 |
 | [雙向約束分解](Algorithms/Design_Principles/Bidirectional_Constraint_Decomposition.md) | 分別處理單向約束，再組合結果。 |
 | [Gas Station：歷史與前綴和的最低谷](Problem_History/LC_0134_Gas_Station.md) | 把程式題連回數學謎題與可查證的文獻。 |
+| [Minimum Height Trees：樹中心的出處與歷史](Problem_History/LC_0310_Minimum_Height_Trees.md) | 追溯剝葉法，並釐清樹中心與重心的差別。 |
 | [Linked List Cycle II 互動圖解](Visualizations/142-Linked_List_Cycle_II.html) | 用視覺追蹤快慢指標；下載 HTML 後可在本機開啟。 |
 
 繼續探索[題目的歷史與出處](Problem_History/README.md)、[C++ Reference](CPP_Reference/)、[Pattern 與關鍵字速查](Cheatsheet/LeetCode_Tricks_and_Keywords.md)，以及 [C++ One-liners](Cheatsheet/CPP_One_Liners.md)。
