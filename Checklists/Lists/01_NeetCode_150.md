@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：91 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：95 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -42,7 +42,7 @@
 - [x] **20.** [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **150.** [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — `Medium` · <sub>✔ 2026-09-21</sub>
-- [ ] **739.** [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) — `Medium`
+- [x] **739.** [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) — `Medium` · <sub>✔ 2026-10-14</sub>
 - [ ] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium`
 - [ ] **84.** [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — `Hard` ✅
 
@@ -77,7 +77,7 @@
 - [x] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-16</sub>
 - [x] **110.** [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
 - [x] **100.** [Same Tree](https://leetcode.com/problems/same-tree/) — `Easy` · <sub>✔ 2026-09-24</sub>
-- [ ] **572.** [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) — `Easy` ✅
+- [x] **572.** [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) — `Easy` ✅ · <sub>✔ 2026-10-13</sub>
 - [x] **235.** [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — `Medium` ✅ · <sub>✔ 2026-10-10</sub>
 - [x] **102.** [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **199.** [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) — `Medium` · <sub>✔ 2026-09-11</sub>
@@ -90,11 +90,11 @@
 
 ## Heap / Priority Queue (7)
 
-- [ ] **703.** [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) — `Easy`
+- [x] **703.** [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) — `Easy` · <sub>✔ 2026-10-14</sub>
 - [ ] **1046.** [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) — `Easy`
 - [ ] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium`
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
-- [ ] **621.** [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — `Medium`
+- [x] **621.** [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — `Medium` · <sub>✔ 2026-10-14</sub>
 - [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium`
 - [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>✔ 2026-09-27</sub>
 

@@ -116,6 +116,7 @@
 ### Bounded Min-Heap — Top K（固定容量最小堆）
 
 - 🟢 🟡 LeetCode 347. Top K Frequent Elements
+- 🟢 LeetCode 703. Kth Largest Element in a Stream
 
 ---
 
@@ -142,5 +143,7 @@
   - 雙向 mapping，或 forward mapping + used set；另須確認 pattern 長度與 word 數量一致。
 
 ### Monotonic Stack
+
+- 🟡 LeetCode 739. Daily Temperatures
 
 ### Prefix Sum

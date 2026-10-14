@@ -26,6 +26,12 @@
 
 ## 題目列表
 
+- [ ] LeetCode 703. Kth Largest Element in a Stream
+  - 📌 標記原因: 已用 k-size min heap 完成；之後想練 Augmented BST 的動態 order statistics 版本。
+  - [ ] 用 subtree size 維護動態 BST，實作插入與第 k 大查詢，說明每次更新如何保持 size 不變量。
+  - 🏷️ 技巧分類: Augmented BST / Order Statistics
+  - 🔗 前置閱讀: [Augmented BST for Order Statistics](../../Data_Structures/Trees/Binary_Search_Trees/Augmented_BST_for_Order_Statistics.md)
+
 - [ ] LeetCode 392. Is Subsequence
   - 📌 標記原因: 已完成 two pointers 與位置列表 + upper_bound；下次理解並實作提供的 LCS DP 版本。
   - [ ] 從兩個前綴的狀態意義推導轉移，說明為何 LCS 長度等於 s.length() 就能判定 subsequence；先自行思考，需要時只給一句話提示。
@@ -205,8 +211,13 @@
 - [ ] LeetCode 567. Permutation in String
   - [ ] Sliding Window (Frequency Counting)
 - [ ] LeetCode 572. Subtree of Another Tree
-  - [ ] 序列化成字串 + KMP / Z-algorithm
-  - [ ] 子樹雜湊（Merkle hashing）/ Tree hashing
+  - 📌 標記原因: 已用逐點遞迴 + Same Tree 完成；想另外練 string matching 與 canonical form compare，並各做一系列相關題目。
+  - [ ] String matching 系列：LC 28. Find the Index of the First Occurrence in a String 練 KMP / Z-algorithm → 回來做 LC 572 的先序序列化 + 字串比對；保留空節點與值的邊界，避免不同樹得到相同字串。
+  - [ ] Canonical form 系列：LC 652. Find Duplicate Subtrees 練有序子樹簽章 → 回來用 post-order `(value, leftID, rightID)` 比較 LC 572 的子樹；兩棵樹共用 ID 字典。
+  - [ ] LC 951. Flip Equivalent Binary Trees：延伸比較允許左右翻轉時的 canonical form；此題也已在本清單獨立列出。
+  - [ ] 子樹雜湊（Merkle hashing）/ Tree hashing：若用固定長度 hash 判等，釐清碰撞風險與驗證方式。
+  - 🏷️ 技巧分類: String Matching / Tree Serialization / Canonical Form / Tree Hashing
+  - 🔗 前置閱讀: [KMP String Matching 練習路徑](../Trick%20Practice/KMP_String_Matching_Playbook.md)、[Canonicalization](../../Algorithms/Design_Principles/Canonicalization.md)、[Binary Tree Canonical Forms](../../Data_Structures/Trees/Binary_Trees/Canonical_Forms_Transformation.md)
 - [ ] LeetCode 73. Set Matrix Zeroes
   - [ ] Hash Table Optimization (Space Optimization)
 - [ ] LeetCode 131. Palindrome Partitioning

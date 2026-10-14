@@ -2,6 +2,48 @@
 
 ---
 
+## 2026-10-14
+
+- 438. Find All Anagrams in a String
+- 621. Task Scheduler
+- 739. Daily Temperatures
+- 637. Average of Levels in Binary Tree
+- 703. Kth Largest Element in a Stream
+
+**心得**：
+- 438：Sliding Window，關鍵是設計夠好的 constraint metrics（letter count and equal count）。
+  - 程式用 `right - left + 1 > p.length()` 判斷何時 fix；固定大小 k 的視窗也可以由目前的 right 推得離開的 index 是 `right - k`。
+- 621：一開始方向對，但是設計到 cold queue 時，沒想到可以把 next 可以執行時間直接放進去 queue，讓每回合可以看 queue 的頭。Simulation + Greedy / Priority Queue。
+- 739：code review...不用存數值，存 index，拿 index 去取數值即可。糟糕...看完解答，我發現我做反了：其實很直觀地 maintain 一個 non-increasing 的 monotonic stack，判斷當前跟 top；如果比 top 大，那些被 pop 出來的人就找到答案了。原本是從右往左 traverse，維護下一個更高溫的候選。
+- 637：nothing special...tree 的 level ordering 怎麼做？好像 BFS 最直覺；有需要做 DFS 版本嗎？
+- 703：k-size min heap。code review...只要無腦 push 到 min heap 就好了，根本不用去比 top 是否比新的小，因為 push 進去後，小的就會被 pop 出來了。
+
+**LLM 點評**：
+model: GPT-6
+- 438：實際程式的 `equal` 不是「目前頻率恰好相等」的種類數，而是目標字元中 `letters[c] >= target[c]` 的種類數：加入字元升到目標值時加一，移除字元從目標值降到不足時減一；超過目標值仍維持達標。先 expand、視窗長度超過 `k = p.size()` 時移除左端一字元，再 update，可維持長度至多 k。長度恰為 k 時，所有目標字元都達標當且僅當頻率完全相等；長度小於 k 時不可能全部達標，所以 `equal == targetCount` 的判定正確。若目前右端為 `right`，超長時移除的是 `right-k`，修正後 `left = right-k+1`；改用索引直接推導時仍須更新離開字元的計數。時間 O(|s|+|p|)、固定 26 字母的額外空間 O(1)。[Frequency Matching Counting Invariant](../Data_Structures/Hash_Tables/Frequency_Matching_Counting_Invariant.md) 使用的是「頻率恰好相等」的另一種計數定義，更新規則不同。
+- 621：分開維護可執行的 task 與冷卻中的 task。時間 t 執行某 task 後，若還有剩餘次數，記錄 `readyTime = t + n + 1`；每回合先讓到期者回到候選集合，再從中挑選。因時間單調前進且 n 固定，後加入冷卻 queue 的 readyTime 不會早於前者，所以檢查 queue 頭就夠。這是冷卻 queue 可用 FIFO 的不變量；目前未看到完成版程式，僅評估設計思路。
+- 739：貼出的反向走訪程式正確；方向與解答相反，但並未做錯。從右往左時，stack 保存右側仍可能成為「下一個嚴格較高溫」的候選 index；遇到 `temperatures[i] >= top` 就 pop，因目前 i 更近且溫度不低於被移除者，後者不可能再是更左側位置的最近較高溫。pop 後的 top 是 i 的最近較高溫位置；相等溫度必須 pop，因題目要求嚴格較高。正向走訪則保存尚未找到答案的 index，當前溫度嚴格高於 top 時，才替被 pop 的 index 填答案。兩種方向皆 O(n) 攤銷時間、O(n) stack 空間；只存 index 即可由 `temperatures[index]` 取值，也能直接算距離。見 [Monotonic Stack and Queue](../Data_Structures/Stacks_and_Queues/Monotonic_Stacks/01-Monotonic_Stack_and_Queue.md)。
+- 637：按層 BFS 在每輪開始先固定 `levelSize = queue.size()`，只取出這麼多個節點並累加 sum；新加入的子節點留給下一輪，處理完用 `sum / levelSize` 得到該層平均。DFS 也可傳入 `depth`，對每個深度分別維護 sum 與 count；它會深入子樹，並不真的依層走訪。這題用 BFS 已足夠，DFS 只在想練「依深度聚合」時再做。兩者皆 O(N) 時間；BFS queue O(W)，DFS 遞迴堆疊加每層統計 O(H)。見 [BFS](../Data_Structures/Trees/BFS.md)、[DFS for Level Order Traversal](../Data_Structures/Trees/DFS_for_Level_Order_Traversal.md)。
+- 703：每次 `add` 先 push，再於 heap 大小超過 k 時 pop 最小值；不變量是 heap 保留至今最大的 `min(k, 已見元素數)` 個值（包含重複值）。至少見過 k 個元素後，top 就是第 k 大。事前比較新值與 top 只是可省去部分 push/pop 的最佳化，並非必要。每次 `add` 時間 O(log k)，heap 空間 O(k)。
+
+---
+
+## 2026-10-13
+
+- 530. Minimum Absolute Difference in BST
+- 572. Subtree of Another Tree
+
+**心得**：
+- 530：一開始看錯題目，想成一般的 tree，用 hashmap + traverse hashmap。後來看到是 BST，改用 inorder + external state 解決。
+- 572：就是無腦遞迴比較，過程中還要先做出一個 same tree 的函式，可以說是比 same tree 還要難一點的題目。
+
+**LLM 點評**：
+model: GPT-6
+- 530：BST 的 inorder 會依值遞增走訪；在排序後的序列中，最小絕對差必定出現在相鄰值之間，因此只需用 external state 保存前一個值與目前最小差。第一個節點沒有前值，要跳過比較。若用遞迴走訪，時間 O(n)、遞迴堆疊 O(h)，其中 h 是樹高；未看到程式，無法判定具體實作細節。
+- 572：可拆成兩層遞迴：對原樹每個節點試作候選根節點，再用 Same Tree 比較兩棵樹的值與左右結構。只要有一個候選完全相同就成立；所有候選都失敗才不成立。令原樹與目標樹分別有 n、m 個節點，逐點比較的最壞時間 O(nm)；遞迴堆疊最多 O(h₁+h₂)。
+
+---
+
 ## 2026-10-12
 
 - 290. Word Pattern
