@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：95 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：102 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -53,7 +53,7 @@
 - [ ] **875.** [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) — `Medium`
 - [x] **153.** [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
-- [ ] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` ✅
+- [x] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` ✅ · <sub>✔ 2026-10-15</sub>
 - [x] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` ✅ · <sub>✔ 2026-10-12</sub>
 
 ## Linked List (11)
@@ -91,8 +91,8 @@
 ## Heap / Priority Queue (7)
 
 - [x] **703.** [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) — `Easy` · <sub>✔ 2026-10-14</sub>
-- [ ] **1046.** [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) — `Easy`
-- [ ] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium`
+- [x] **1046.** [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) — `Easy` · <sub>✔ 2026-10-15</sub>
+- [x] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium` · <sub>✔ 2026-10-15</sub>
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [x] **621.** [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — `Medium` · <sub>✔ 2026-10-14</sub>
 - [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium`
@@ -109,7 +109,7 @@
 - [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **131.** [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — `Medium` ✅ · <sub>✔ 2026-10-02</sub>
 - [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium` · <sub>✔ 2026-09-07</sub>
-- [ ] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard`
+- [x] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard` · <sub>✔ 2026-10-15</sub>
 
 ## Tries (3)
 
@@ -145,7 +145,7 @@
 ## 1-D Dynamic Programming (12)
 
 - [x] **70.** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **746.** [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) — `Easy`
+- [x] **746.** [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) — `Easy` · <sub>✔ 2026-10-15</sub>
 - [x] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [ ] **213.** [House Robber II](https://leetcode.com/problems/house-robber-ii/) — `Medium`
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
@@ -179,7 +179,7 @@
 - [x] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` ✅ · <sub>✔ 2026-10-01</sub>
 - [ ] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium`
 - [ ] **1899.** [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) — `Medium`
-- [ ] **763.** [Partition Labels](https://leetcode.com/problems/partition-labels/) — `Medium`
+- [x] **763.** [Partition Labels](https://leetcode.com/problems/partition-labels/) — `Medium` · <sub>✔ 2026-10-15</sub>
 - [ ] **678.** [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) — `Medium` ✅
 
 ## Intervals (6)
@@ -210,4 +210,4 @@
 - [x] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — `Easy` · <sub>✔ 2026-10-09</sub>
 - [ ] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium`
-- [ ] **7.** [Reverse Integer](https://leetcode.com/problems/reverse-integer/) — `Medium` ✅
+- [x] **7.** [Reverse Integer](https://leetcode.com/problems/reverse-integer/) — `Medium` ✅ · <sub>✔ 2026-10-15</sub>

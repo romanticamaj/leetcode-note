@@ -85,6 +85,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Intervals
 
 - LeetCode 435. Non-overlapping Intervals
+- 🟡 LeetCode 763. Partition Labels
 
 ## Divide and Conquer
 

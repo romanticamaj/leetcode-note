@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：84 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：86 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -14,7 +14,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium` · <sub>✔ 2026-09-17</sub>
 - [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
-- [ ] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard`
+- [x] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard` · <sub>✔ 2026-10-15</sub>
 - [x] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 - [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **131.** [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — `Medium` ✅ · <sub>✔ 2026-10-02</sub>
@@ -75,7 +75,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` ✅ · <sub>✔ 2026-09-17</sub>
 - [x] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [x] **121.** [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) — `Easy` · <sub>✔ 2026-09-05</sub>
-- [ ] **763.** [Partition Labels](https://leetcode.com/problems/partition-labels/) — `Medium`
+- [x] **763.** [Partition Labels](https://leetcode.com/problems/partition-labels/) — `Medium` · <sub>✔ 2026-10-15</sub>
 
 ## Hashing (4)
 

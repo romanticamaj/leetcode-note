@@ -7,6 +7,7 @@
 ## Dynamic Programming
 
 - LeetCode 118. Pascal's Triangle
+- LeetCode 746. Min Cost Climbing Stairs
 
 ### 0/1 Knapsack
 
@@ -117,6 +118,10 @@
 
 - 🟢 🟡 LeetCode 347. Top K Frequent Elements
 - 🟢 LeetCode 703. Kth Largest Element in a Stream
+
+### Bounded Max-Heap — K Smallest（固定容量最大堆）
+
+- 🟢 LeetCode 973. K Closest Points to Origin
 
 ---
 

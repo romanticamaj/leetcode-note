@@ -2,6 +2,31 @@
 
 ---
 
+## 2026-10-15
+
+- 746. Min Cost Climbing Stairs
+- 763. Partition Labels
+- 973. K Closest Points to Origin
+- 981. Time Based Key-Value Store
+- 51. N-Queens
+- 1046. Last Stone Weight
+- 7. Reverse Integer
+
+**心得**：
+- 763：用 left & right bound 轉化成 interval merge 的問題...這是靈感吧？！程式碼好像可以更精簡？
+- 981：根本就是在考 upper bound 的實作。
+- 1046：沒注意到...至多一個回傳值，如果沒有剩餘，要回傳 0。超粗心...另外 priority_queue 輸出的第一個一定比較大，根本不用比較 top1 跟 top2 大小。
+- 7：硬做正負兩個 case，把負轉正再做，還要排除最小負數，怕轉正會 overflow，整個很複雜。但發現負數 `% 10` 其實也會取出帶負號的 digit：`-3 % 10 == -3`，不是 7。這個我們筆記有嗎？
+
+**LLM 點評**：
+model: GPT-6
+- 763：轉成區間合併是正確的結構推導：同一字元的所有出現位置必須同段，因此其 first～last 是不可拆的區間；交疊區間必須合併，互不交疊的合併結果可各自成段，得到最多段數。程式的排序與合併條件可行；不同字元的端點不會佔同一位置，故用 `>` 判斷交疊成立。令 k 為不同字元數，時間 O(n + k log k)、輔助空間 O(k)；英文小寫字元使 k ≤ 26，所以可寫 O(n) 時間、O(1) 輔助空間。可只預處理每個字元的 last index，再由左至右維持目前段的最遠結束位置 `end = max(end, last[s[i]])`，走到 `i == end` 就輸出段長；這是直接掃描已排序的出現位置，省去 first bound、區間列表、排序與合併列表。
+- 981：`get(key, t)` 要找該 key 最後一個 timestamp `<= t`：`upper_bound(t)` 找第一個 `> t`，其前一筆才是答案；若結果位於開頭，代表沒有符合時間的版本，回傳空字串。每個 key 的時間序列因 `set` 的 timestamp 遞增保證而有序，才能二分搜尋。也可直接二分「最後一個 `<= t`」。目前沒有程式碼，因此只評估這個搜尋觀察；見 [Binary Search Standard Template](../Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md)。
+- 1046：使用預設的 `priority_queue<int>`（max heap），連續取出兩次時第一顆 `x` 必定不小於第二顆 `y`，直接計算 `x - y` 即可；若相等則兩顆都消失，不必放回 0。每輪取出兩顆後，石頭數至少減一，所以最後 heap 只可能空或剩一顆；回傳時先判斷 `empty()`，空則回傳 0，否則回傳 `top()`。未看到程式碼，因此不判定具體錯誤位置。
+- 7：有， [LeetCode Tricks and Keywords](../Cheatsheet/LeetCode_Tricks_and_Keywords.md) 的 LC 7 條目已記「C++ Modulo Operator Returns Negative if input is negative」。C++ 有號整數除法向零截斷，且 `a == (a / b) * b + a % b`，所以 `-3 / 10 == 0`、`-3 % 10 == -3`；`-123` 依序取到 `-3, -2, -1`。可直接在負值上做 `% 10`、`/ 10` 並累積反轉，不必先取負而碰到 `-INT_MIN`。每次計算 `rev * 10 + digit` 前仍須檢查 32-bit 上下界：`rev > INT_MAX/10` 或等於時 `digit > 7`；`rev < INT_MIN/10` 或等於時 `digit < -8`。未看到程式碼，因此不判定原實作細節。
+
+---
+
 ## 2026-10-14
 
 - 438. Find All Anagrams in a String

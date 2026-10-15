@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：65 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：67 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -43,7 +43,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 - [x] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [ ] **542.** [01 Matrix](https://leetcode.com/problems/01-matrix/) — `Medium`
-- [ ] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium`
+- [x] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium` · <sub>✔ 2026-10-15</sub>
 - [x] **3.** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) — `Medium` · <sub>✔ 2026-09-04</sub>
 - [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [x] **102.** [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) — `Medium` · <sub>✔ 2026-09-10</sub>
@@ -68,7 +68,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium` · <sub>✔ 2026-09-21</sub>
-- [ ] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` ✅
+- [x] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` ✅ · <sub>✔ 2026-10-15</sub>
 - [ ] **721.** [Accounts Merge](https://leetcode.com/problems/accounts-merge/) — `Medium`
 - [x] **75.** [Sort Colors](https://leetcode.com/problems/sort-colors/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
 
