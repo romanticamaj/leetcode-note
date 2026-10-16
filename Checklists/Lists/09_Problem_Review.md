@@ -2,6 +2,66 @@
 
 這份清單用於追蹤需要重點複習的演算法題目。
 
+## 重練追蹤
+
+從 [刷題日誌](../Practice_Log.md) 與下方複習目標整理，聚焦已練過的題目；尚未練過的題目保留在下方清單。**前次練習**是整理時日誌裡最近一次記錄該題的日期（已完成的列保留重做前的練習日）；**重做日期**只填已確認完成這項目標的日期，`—` 表示仍待做。舊筆記中的「二刷日期」是當時的計畫，不能當作已完成紀錄。同一題的不同版本分開追蹤。之後重做時先記入日誌；達成該目標才把狀態改成「已完成」並填上實際日期。
+
+| 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
+|:---|:---|:---:|:---:|
+| 待做 | 43. Multiply Strings：獨立重做位數對齊、進位與前導零處理 | 2026-10-16 | — |
+| 待做 | 31. Next Permutation：再做一次 | 2026-10-16 | — |
+| 待做 | 8. String to Integer (atoi)：Phase Based Parsing | 2026-10-16 | — |
+| 待做 | 40. Combination Sum II：獨立重做同層去重 | 2026-10-16 | — |
+| 待做 | 12. Integer to Roman：固定面額表／Greedy | 2026-10-16 | — |
+| 待做 | 703. Kth Largest Element in a Stream：Augmented BST | 2026-10-14 | — |
+| 待做 | 572. Subtree of Another Tree：字串比對／canonical form | 2026-10-13 | — |
+| 待做 | 4. Median of Two Sorted Arrays：獨立推導 | 2026-10-12 | — |
+| 待做 | 392. Is Subsequence：LCS DP／next-position table | 2026-10-12 | — |
+| 待做 | 347. Top K Frequent Elements：bucket sort／quickselect | 2026-10-11 | — |
+| 待做 | 6. Zigzag Conversion：O(1) 額外空間 | 2026-10-10 | — |
+| 待做 | 409. Longest Palindrome：one-pass | 2026-10-10 | — |
+| 待做 | 143. Reorder List：O(1) 額外空間 | 2026-10-09 | — |
+| 待做 | 268. Missing Number：bit manipulation | 2026-10-09 | — |
+| 待做 | 287. Find the Duplicate Number：Floyd 與其他做法 | 2026-10-09 | — |
+| 待做 | 189. Rotate Array：暴力法／三次反轉 | 2026-10-09 | — |
+| 待做 | 232. Implement Queue using Stacks：最壞 O(1) peek | 2026-10-06 | — |
+| 待做 | 152. Maximum Product Subarray：重講暴力法與時間 | 2026-10-05 | — |
+| 待做 | 95. Unique Binary Search Trees II：複習 | 2026-10-04 | — |
+| 待做 | 131. Palindrome Partitioning：獨立重做 | 2026-10-02 | — |
+| 待做 | 69. Sqrt(x)：再刷並驗收 binary search | 2026-10-02 | — |
+| 待做 | 28. Find the Index of the First Occurrence in a String：再做 | 2026-10-01 | — |
+| 待做 | 13. Roman to Integer：從右到左解析 | 2026-09-29 | — |
+| 待做 | 114. Flatten Binary Tree to Linked List：O(1) 空間迭代版 | 2026-09-29 | — |
+| 待做 | 97. Interleaving String：bottom-up／空間壓縮 | 2026-09-28 | — |
+| 待做 | 36. Valid Sudoku：bit manipulation | 2026-09-26 | — |
+| 待做 | 300. Longest Increasing Subsequence：O(n log n) | 2026-09-22 | — |
+| 待做 | 416. Partition Equal Subset Sum：DP 最佳化 | 2026-09-22 | — |
+| 待做 | 215. Kth Largest Element in an Array：quickselect | 2026-09-21 | — |
+| 待做 | 236. Lowest Common Ancestor of a Binary Tree：用節點當回傳值 | 2026-09-21 | — |
+| 待做 | 78. Subsets：模式 B | 2026-09-20 | — |
+| 待做 | 128. Longest Consecutive Sequence：起點錨定版 | 2026-09-20 | — |
+| 待做 | 73. Set Matrix Zeroes：O(1) 空間版 | 2026-09-19 | — |
+| 待做 | 42. Trapping Rain Water：monotonic stack | 2026-09-18 | — |
+| 待做 | 22. Generate Parentheses：D&C／DP | 2026-09-17 | — |
+| 待做 | 238. Product of Array Except Self：prefix 設計 | 2026-09-15 | — |
+| 待做 | 23. Merge k Sorted Lists：bottom-up D&C／heap | 2026-09-15 | — |
+| 選做 | 169. Majority Element：D&C 版 | 2026-09-15 | — |
+| 待做 | 230. Kth Smallest Element in a BST：iterative inorder／Augmented BST | 2026-09-14 | — |
+| 待做 | 139. Word Break：樸素 DP 再到 Trie | 2026-09-11 | — |
+| 待做 | 146. LRU Cache：一次寫對 | 2026-09-11 | — |
+| 待做 | 15. 3Sum：sort + two pointers | 2026-09-07 | — |
+| 待做 | 33. Search in Rotated Sorted Array：獨立重寫 | 2026-09-07 | — |
+| 待做 | 39. Combination Sum：多叉決策樹 | 2026-09-07 | — |
+| 待做 | 53. Maximum Subarray：獨立推導 Kadane | 2026-09-07 | — |
+| 待做 | 5. Longest Palindromic Substring：複習 | 2026-09-05 | — |
+| 待做 | 104／226. Maximum Depth／Invert Binary Tree：迭代版 | 2026-09-05 | — |
+| 已完成 | 8. String to Integer (atoi)：FSM／DFA | 2026-10-16 | 2026-10-16 |
+| 已完成 | 283. Move Zeroes：O(n) 雙指標 | 2026-10-11 | 2026-10-11 |
+| 已完成 | 235. Lowest Common Ancestor of a BST：迭代版 | 2026-10-10 | 2026-10-10 |
+| 已完成 | 45. Jump Game II：O(n) 壓縮 BFS | 2026-09-17 | 2026-09-18 |
+| 已完成 | 42. Trapping Rain Water：two pointers | 2026-09-18 | 2026-09-18 |
+| 已完成 | 15. 3Sum：running hash map | 2026-09-05 | 2026-09-07 |
+
 **使用說明**:
 
 - ✅ 標記為「需要複習」的題目
@@ -25,6 +85,16 @@
 ---
 
 ## 題目列表
+
+- [ ] LeetCode 40. Combination Sum II
+  - 📌 標記原因: 題目難，想再做一次；需分清排序剪枝、同層去重與不同層選用另一個相同值。
+  - [ ] 不看解答重做一次，說明 `i > start` 與下一層 `i + 1` 各自保證什麼。
+  - 🏷️ 技巧分類: Backtracking / Same-level Deduplication
+
+- [ ] LeetCode 31. Next Permutation
+  - 📌 標記原因: 第一次完成後仍覺得難，想再練習一次；特別確認重複值、pivot 與非遞增 suffix 的關係。
+  - [ ] 不看解答再做一次。
+  - 🏷️ 技巧分類: Permutation / Non-increasing Suffix
 
 - [ ] LeetCode 703. Kth Largest Element in a Stream
   - 📌 標記原因: 已用 k-size min heap 完成；之後想練 Augmented BST 的動態 order statistics 版本。
@@ -129,8 +199,8 @@
   - [ ] Monotonic Stack?
 - [ ] LeetCode 951. Flip Equivalent Binary Trees
   - [ ] Canonical Forms
-- [ ] LeetCode 42. Trapping Rain Water
-  - [ ] Two Pointers Technique (from brute force to prefix sum, then duplicate work removal through two-pointers)
+- [x] LeetCode 42. Trapping Rain Water（two pointers，2026-09-18；monotonic stack 仍待做）
+  - [x] Two Pointers Technique (from brute force to prefix sum, then duplicate work removal through two-pointers)
   - [ ] Dynamic Programming
 - [ ] LeetCode 253. Meeting Rooms II
   - [ ] Chronological Ordering
@@ -172,7 +242,7 @@
   - [ ] Binary Indexed Tree (Fenwick Tree)
 - [ ] LeetCode 8. String to Integer (atoi)
   - [ ] Phase Based Parsing
-  - [ ] Deterministic Finite Automaton (DFA)
+  - [x] Deterministic Finite Automaton (DFA)（2026-10-16：心得記錄 FSM 解法）
 - [ ] LeetCode 468. Validate IP Address
 - [ ] LeetCode 32. Longest Valid Parentheses
   - [ ] Dynamic Programming
@@ -195,8 +265,8 @@
 - [ ] LeetCode 122. Best Time to Buy and Sell Stock II
   - [ ] Brute Force
 - [ ] LeetCode 443. String Compression
-- [ ] LeetCode 45. Jump Game II
-  - [ ] Extreme State Compression BFS
+- [x] LeetCode 45. Jump Game II（2026-09-18）
+  - [x] Extreme State Compression BFS
 - [ ] LeetCode 137. Single Number II
   - [ ] Bit Manipulation + State Machine + Bit Invaraint
 - [ ] LeetCode 12. Integer to Roman

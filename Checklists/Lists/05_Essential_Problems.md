@@ -28,6 +28,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 75. Sort Colors
 - LeetCode 9. Palindrome Number
 - 🟢 🟡 LeetCode 26. Remove Duplicates from Sorted Array
+- 🟡 🔴 LeetCode 31. Next Permutation
+  - 找出最長非遞增 suffix，再調整 pivot 與 suffix。
 
 ## Linked List
 
@@ -158,6 +160,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 8. String to Integer (atoi)
 - LeetCode 13. Roman to Integer
+- 🟡 🔴 LeetCode 43. Multiply Strings
+  - Medium 偏難；反轉後按位累加乘積，再統一處理進位與前導零。
 - LeetCode 165. Compare Version Numbers
 - LeetCode 58. Length of Last Word
 

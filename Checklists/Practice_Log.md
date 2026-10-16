@@ -2,6 +2,31 @@
 
 ---
 
+## 2026-10-16
+
+- 31. Next Permutation
+- 8. String to Integer (atoi)
+- 40. Combination Sum II
+- 12. Integer to Roman
+- 43. Multiply Strings
+
+**心得**：
+- 31：靠杯難...花了約 25 分鐘。先找到右半 reverse sorted 的起點，再把 suffix 反轉，找第一個比 pivot 大的值往前 swap；最麻煩的是 duplicate case。用 `i - 1` 看前一個 index，擔心越界；看到另一種從 `n - 2` 開始、看 `i + 1` 的作法，感覺自己沒練到往後看 pair 的肌肉記憶。這題再練習一次。
+- 8：這題很硬...結合了 Finite State Machine 還要溢位判斷。溢位跟前幾天刷的 7. Reverse Integer 幾乎一樣，可以記錄兩題的關聯；起始式都是在 append digit 前檢查 `result * 10 + digit`。
+- 40：關鍵兩個設計：1. sort，讓 state 可以往下，trim 掉不可能的 path。2. 在 candidate promising 確認時，同數值的只可以用一次，避免重複答案；但同數值仍可一起出現在答案裡，因為 backtracking 的下一個狀態從當前位置的下一個位置開始。確認同數值的起點要用 `start`，不要越界去確認。這題一定要再做一次。
+- 12：鳥鳥的...想少用空間，結果判斷式變多。去年寫死全部數字，這次只寫死一半、用位數、`pow` 和 mapping 逐步扣掉 `num`；`6` 先扣 `1` 變成 `5`，下一輪就選到 `V`，所以這版仍正確，只是不夠有效率地讓 `num` 接近 0。最簡單的 simulation 應是把合法面額按大到小列成表；**羅馬面額的排序是重點**，每次選第一個扣得掉的面額，讓 `num` 逐步降到 0。
+- 43：做了 35m 46s。這題太複雜了，這次沒辦法獨立完工，一路靠 gpt-6.1-sol 提示。先 reverse 兩個字串，讓 index 好處理；用大小為 `m + n` 的 extra space，把每對 digit 的 product 放到對應位置；最後走訪 extra space，處理進位並組成結果，再 reverse 回來。要去掉 leading zero，也要處理其中一個數值為零的情況（或一開始就特判）。列入 Essential Problem；體感 Medium 偏難。這題一定要重做一次。
+
+**LLM 點評**：
+model: GPT-6
+- 31：程式在題目 `n >= 1` 的條件下正確；以含重複值的小陣列做了窮舉比對。`i` 是最長非遞增 suffix 的起點，`i - 1` 才是 pivot；`i > 0 && ...` 的短路判斷避免 `i - 1` 越界，`n = 1` 也安全。`>=` 把相等元素留在 suffix，反轉後它非遞減；從左找第一個嚴格大於 pivot 的值並交換後，suffix 仍非遞減，因此結果是恰好下一個排列。若 `i == 0`，整列已是最大排列，反轉即回到最小排列。常見寫法從 `n - 2` 找 pivot，先交換，再反轉 suffix；與目前「先反轉，再找最小較大值交換」等價。`j < n` 的保護在有 pivot 時其實不會觸發；註解 `first bigger then nums[i]` 應改為「比 pivot `nums[i - 1]` 大」。時間 O(n)、額外空間 O(1)。見 [LeetCode Tricks and Keywords](../Cheatsheet/LeetCode_Tricks_and_Keywords.md)。
+- 8：FSM／階段解析決定哪些字元可被接受：前導空白、可選符號、連續數字，遇到後續非數字就停止；溢位判斷只在 append digit 時發生。與 LC 7 共用 `result * 10 + digit` 的「先檢查、再更新」模式；直接計算後才比較可能已溢位。若 LC 8 用非負 magnitude 累積，正數上限是 `2147483647`，負數上限可到 `2147483648`，所以末位臨界值分別是 7、8；判斷 `result > limit / 10` 或等於且 `digit > limit % 10`。LC 7 的 `% 10` 直接產生帶符號 digit，超界回傳 0；LC 8 從字元讀非負 digit 並另存 sign，超界要夾到對應上下界。見 [整數溢位防範心法](../CPP_Reference/Type/Integer_Overflow_Prevention.md#場景七overflow-判斷移項技巧)。未看到程式碼，故只評估概念關聯。
+- 40：兩個設計要分清：`start` 限制下一層只能選目前位置以後的元素，遞迴傳 `i + 1` 才保證同一個輸入位置只用一次；排序讓較大的候選可用 `candidate > remaining` 安全剪枝，也讓相同值相鄰以便去重。去重只發生在同一層：`i > start && candidates[i] == candidates[i - 1]` 時跳過這個分支；下一層有新的 `start`，仍可選另一個相同值，例如 `[1,1,6]` 能構成 8。若寫成 `i > 0`，會錯刪合法答案。這是「同層同值只展開一次、不同層可選不同位置」的不變量；見 [Guards from Invariants](../Algorithms/Backtracking/07-Guards_from_Invariants.md)。未看到程式碼，因此不評斷具體實作。
+- 12：先前誤判 `6` 會輸出 `IIIIII`，是漏看每輪的 `num -= value`；實際流程是 `6 → 5 → 0`，依序前置 `I`、`V`，得到 `VI`。重新以相同流程檢查題目範圍 `1..3999`，結果皆與標準表示相符。這版按位數處理，`6`、`7`、`8` 先逐次扣該位的 1，再落到 5；前置串接讓低位先產生也能排在高位後。固定表格的 Greedy 關鍵是**面額由大到小排序**（包含 `4/9` 的減法形式）：從頭找到第一個 `value <= num`，它才是目前最大的可用面額；扣掉並把符號接到尾端。若排序錯了，第一個可扣面額未必正確。每次都有正的扣減，因此會終止於 0。這是較直接的 simulation，但兩種寫法在本題固定範圍內都是 O(1) 額外空間；差別主要是選面額的規則與程式複雜度。
+- 43：反轉後從低位開始，位於 `i`、`j` 的 digit 乘積貢獻到結果的 `i + j` 位；先全部累加，再從低位向高位統一傳遞進位。`m + n` 格足夠，因為兩個長度為 `m`、`n` 的非負整數相乘最多有 `m + n` 位。這樣把「乘積對齊」與「進位」拆成兩趟，避免在內層迴圈同步操作結果字串；最後移除前導零時要保留單一的 `"0"`。最後貼出的版本邏輯正確，時間 O(mn)、額外空間 O(m+n)；`num1`、`num2` 按值傳入並反轉，還包含兩份字串副本。可對照 [Simulation Design Framework](../Algorithms/Simulation/01-Simulation_Design_Framework.md)。
+
+---
+
 ## 2026-10-15
 
 - 746. Min Cost Climbing Stairs
@@ -11,6 +36,7 @@
 - 51. N-Queens
 - 1046. Last Stone Weight
 - 7. Reverse Integer
+- 24. Swap Nodes in Pairs
 
 **心得**：
 - 763：用 left & right bound 轉化成 interval merge 的問題...這是靈感吧？！程式碼好像可以更精簡？

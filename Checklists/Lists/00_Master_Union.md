@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：146 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：152 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -143,6 +143,8 @@ Easy 13 · Medium 26 · Hard 5
 
 Easy 34 · Medium 81 · Hard 19
 
+Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下做第一題未勾選的題目即可。
+
 - [x] **9.** [Palindrome Number](https://leetcode.com/problems/palindrome-number/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-09-29</sub>
 - [x] **13.** [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) — `Easy` · <sub>TI150</sub> ✅ · <sub>✔ 2026-09-29</sub>
 - [x] **14.** [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) — `Easy` · <sub>TI150</sub> · <sub>✔ 2026-09-29</sub>
@@ -179,85 +181,85 @@ Easy 34 · Medium 81 · Hard 19
 - [x] **1046.** [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) — `Easy` · <sub>NC</sub> · <sub>✔ 2026-10-15</sub>
 - [x] **6.** [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-10</sub>
 - [x] **7.** [Reverse Integer](https://leetcode.com/problems/reverse-integer/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-15</sub>
-- [ ] **8.** [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) — `Medium` · <sub>G75</sub> ✅
-- [ ] **12.** [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) — `Medium` · <sub>TI150</sub> ✅
-- [ ] **24.** [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) — `Medium` · <sub>H100</sub>
-- [ ] **31.** [Next Permutation](https://leetcode.com/problems/next-permutation/) — `Medium` · <sub>H100</sub>
-- [ ] **40.** [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **43.** [Multiply Strings](https://leetcode.com/problems/multiply-strings/) — `Medium` · <sub>NC</sub>
+- [x] **8.** [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) — `Medium` · <sub>G75</sub> ✅ · <sub>✔ 2026-10-16</sub>
+- [x] **12.** [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) — `Medium` · <sub>TI150</sub> ✅ · <sub>✔ 2026-10-16</sub>
+- [x] **24.** [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) — `Medium` · <sub>H100</sub> · <sub>✔ 2026-10-15</sub>
+- [x] **31.** [Next Permutation](https://leetcode.com/problems/next-permutation/) — `Medium` · <sub>H100</sub> ✅ · <sub>✔ 2026-10-16</sub>
+- [x] **40.** [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-16</sub>
+- [x] **142.** [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) — `Medium` · <sub>H100</sub> · <sub>✔ 2026-10-09</sub>
+- [x] **143.** [Reorder List](https://leetcode.com/problems/reorder-list/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-09</sub>
+- [x] **310.** [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) — `Medium` · <sub>G75</sub> · <sub>✔ 2026-10-12</sub>
+- [x] **43.** [Multiply Strings](https://leetcode.com/problems/multiply-strings/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-16</sub>
 - [ ] **61.** [Rotate List](https://leetcode.com/problems/rotate-list/) — `Medium` · <sub>TI150</sub>
 - [ ] **63.** [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) — `Medium` · <sub>TI150</sub>
 - [ ] **71.** [Simplify Path](https://leetcode.com/problems/simplify-path/) — `Medium` · <sub>TI150</sub>
 - [ ] **77.** [Combinations](https://leetcode.com/problems/combinations/) — `Medium` · <sub>TI150</sub>
-- [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium` · <sub>TI150</sub>
-- [ ] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium` · <sub>TI150</sub>
-- [ ] **86.** [Partition List](https://leetcode.com/problems/partition-list/) — `Medium` · <sub>TI150</sub> ✅
-- [ ] **90.** [Subsets II](https://leetcode.com/problems/subsets-ii/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium` · <sub>NC</sub>
-- [ ] **92.** [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) — `Medium` · <sub>TI150</sub>
-- [ ] **103.** [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) — `Medium` · <sub>TI150</sub>
-- [ ] **106.** [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) — `Medium` · <sub>TI150</sub>
-- [ ] **117.** [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/) — `Medium` · <sub>TI150</sub>
-- [ ] **120.** [Triangle](https://leetcode.com/problems/triangle/) — `Medium` · <sub>TI150</sub>
-- [ ] **122.** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) — `Medium` · <sub>TI150</sub> ✅
-- [ ] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium` · <sub>TI150</sub>
-- [ ] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` · <sub>TI150</sub> ✅
-- [x] **142.** [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) — `Medium` · <sub>H100</sub> · <sub>✔ 2026-10-09</sub>
-- [x] **143.** [Reorder List](https://leetcode.com/problems/reorder-list/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-09</sub>
-- [ ] **151.** [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) — `Medium` · <sub>TI150</sub>
-- [ ] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium` · <sub>TI150</sub>
-- [ ] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium` · <sub>TI150</sub>
-- [ ] **173.** [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/) — `Medium` · <sub>TI150</sub>
-- [ ] **201.** [Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/) — `Medium` · <sub>TI150</sub>
-- [ ] **209.** [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) — `Medium` · <sub>TI150</sub>
-- [ ] **213.** [House Robber II](https://leetcode.com/problems/house-robber-ii/) — `Medium` · <sub>NC</sub>
-- [ ] **221.** [Maximal Square](https://leetcode.com/problems/maximal-square/) — `Medium` · <sub>TI150</sub>
-- [ ] **222.** [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) — `Medium` · <sub>TI150</sub> ✅
-- [ ] **240.** [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) — `Medium` · <sub>H100</sub> ✅
-- [ ] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` · <sub>NC</sub> ✅
-- [ ] **261.** [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) 🔒 — `Medium` · <sub>NC</sub> ✅
-- [ ] **271.** [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) 🔒 — `Medium` · <sub>NC</sub>
-- [ ] **274.** [H-Index](https://leetcode.com/problems/h-index/) — `Medium` · <sub>TI150</sub>
-- [ ] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium` · <sub>H100</sub>
-- [ ] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium` · <sub>NC</sub>
-- [ ] **289.** [Game of Life](https://leetcode.com/problems/game-of-life/) — `Medium` · <sub>TI150</sub>
-- [ ] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium` · <sub>NC</sub>
-- [x] **310.** [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) — `Medium` · <sub>G75</sub> · <sub>✔ 2026-10-12</sub>
-- [ ] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium` · <sub>NC</sub>
-- [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium` · <sub>NC</sub>
-- [ ] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium` · <sub>NC</sub>
-- [ ] **373.** [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) — `Medium` · <sub>TI150</sub> ✅
-- [ ] **380.** [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) — `Medium` · <sub>TI150</sub>
-- [ ] **394.** [Decode String](https://leetcode.com/problems/decode-string/) — `Medium` · <sub>H100</sub> ✅
 - [ ] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium` · <sub>TI150</sub>
+- [ ] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium` · <sub>NC</sub>
+- [ ] **103.** [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) — `Medium` · <sub>TI150</sub>
+- [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium` · <sub>TI150</sub>
+- [ ] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium` · <sub>TI150</sub>
+- [ ] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium` · <sub>TI150</sub>
+- [ ] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` · <sub>TI150</sub> ✅
 - [ ] **417.** [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **424.** [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **427.** [Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/) — `Medium` · <sub>TI150</sub>
+- [ ] **209.** [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) — `Medium` · <sub>TI150</sub>
+- [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium` · <sub>NC</sub>
+- [ ] **106.** [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) — `Medium` · <sub>TI150</sub>
+- [ ] **120.** [Triangle](https://leetcode.com/problems/triangle/) — `Medium` · <sub>TI150</sub>
+- [ ] **394.** [Decode String](https://leetcode.com/problems/decode-string/) — `Medium` · <sub>H100</sub> ✅
 - [ ] **433.** [Minimum Genetic Mutation](https://leetcode.com/problems/minimum-genetic-mutation/) — `Medium` · <sub>TI150</sub>
 - [ ] **435.** [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **437.** [Path Sum III](https://leetcode.com/problems/path-sum-iii/) — `Medium` · <sub>H100</sub>
-- [ ] **452.** [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) — `Medium` · <sub>TI150</sub>
-- [ ] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium` · <sub>NC</sub>
+- [ ] **117.** [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/) — `Medium` · <sub>TI150</sub>
+- [ ] **213.** [House Robber II](https://leetcode.com/problems/house-robber-ii/) — `Medium` · <sub>NC</sub>
+- [ ] **151.** [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) — `Medium` · <sub>TI150</sub>
 - [ ] **542.** [01 Matrix](https://leetcode.com/problems/01-matrix/) — `Medium` · <sub>G75</sub>
-- [ ] **560.** [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) — `Medium` · <sub>H100</sub>
-- [ ] **567.** [Permutation in String](https://leetcode.com/problems/permutation-in-string/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **647.** [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — `Medium` · <sub>NC</sub>
-- [ ] **678.** [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) — `Medium` · <sub>NC</sub> ✅
+- [ ] **90.** [Subsets II](https://leetcode.com/problems/subsets-ii/) — `Medium` · <sub>NC</sub> ✅
+- [ ] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium` · <sub>TI150</sub>
+- [ ] **122.** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) — `Medium` · <sub>TI150</sub> ✅
+- [ ] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium` · <sub>TI150</sub>
+- [ ] **221.** [Maximal Square](https://leetcode.com/problems/maximal-square/) — `Medium` · <sub>TI150</sub>
 - [ ] **684.** [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — `Medium` · <sub>NC</sub>
+- [ ] **289.** [Game of Life](https://leetcode.com/problems/game-of-life/) — `Medium` · <sub>TI150</sub>
+- [ ] **373.** [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) — `Medium` · <sub>TI150</sub> ✅
+- [ ] **560.** [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) — `Medium` · <sub>H100</sub>
+- [ ] **647.** [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — `Medium` · <sub>NC</sub>
+- [ ] **86.** [Partition List](https://leetcode.com/problems/partition-list/) — `Medium` · <sub>TI150</sub> ✅
 - [ ] **695.** [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) — `Medium` · <sub>NC</sub>
+- [ ] **173.** [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/) — `Medium` · <sub>TI150</sub>
+- [ ] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium` · <sub>H100</sub>
+- [ ] **274.** [H-Index](https://leetcode.com/problems/h-index/) — `Medium` · <sub>TI150</sub>
+- [ ] **201.** [Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/) — `Medium` · <sub>TI150</sub>
+- [ ] **380.** [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) — `Medium` · <sub>TI150</sub>
+- [ ] **424.** [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) — `Medium` · <sub>NC</sub> ✅
+- [ ] **678.** [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) — `Medium` · <sub>NC</sub> ✅
 - [ ] **721.** [Accounts Merge](https://leetcode.com/problems/accounts-merge/) — `Medium` · <sub>G75</sub>
+- [ ] **222.** [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) — `Medium` · <sub>TI150</sub> ✅
+- [ ] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium` · <sub>NC</sub>
+- [ ] **240.** [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) — `Medium` · <sub>H100</sub> ✅
 - [ ] **743.** [Network Delay Time](https://leetcode.com/problems/network-delay-time/) — `Medium` · <sub>NC</sub>
-- [ ] **787.** [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) — `Medium` · <sub>NC</sub>
 - [ ] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium` · <sub>NC</sub>
-- [ ] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium` · <sub>NC</sub>
-- [ ] **875.** [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) — `Medium` · <sub>NC</sub>
+- [ ] **427.** [Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/) — `Medium` · <sub>TI150</sub>
+- [ ] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` · <sub>NC</sub> ✅
+- [ ] **452.** [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) — `Medium` · <sub>TI150</sub>
+- [ ] **787.** [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) — `Medium` · <sub>NC</sub>
+- [ ] **92.** [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) — `Medium` · <sub>TI150</sub>
+- [ ] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium` · <sub>NC</sub>
+- [ ] **437.** [Path Sum III](https://leetcode.com/problems/path-sum-iii/) — `Medium` · <sub>H100</sub>
+- [ ] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium` · <sub>NC</sub>
+- [ ] **567.** [Permutation in String](https://leetcode.com/problems/permutation-in-string/) — `Medium` · <sub>NC</sub> ✅
 - [ ] **909.** [Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders/) — `Medium` · <sub>TI150</sub>
+- [ ] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium` · <sub>NC</sub>
+- [ ] **2013.** [Detect Squares](https://leetcode.com/problems/detect-squares/) — `Medium` · <sub>NC</sub>
+- [ ] **875.** [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) — `Medium` · <sub>NC</sub>
+- [ ] **1899.** [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) — `Medium` · <sub>NC</sub>
 - [ ] **918.** [Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/) — `Medium` · <sub>TI150</sub> ✅
 - [ ] **1448.** [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) — `Medium` · <sub>NC</sub>
 - [ ] **1584.** [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) — `Medium` · <sub>NC</sub>
-- [ ] **1899.** [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) — `Medium` · <sub>NC</sub>
-- [ ] **2013.** [Detect Squares](https://leetcode.com/problems/detect-squares/) — `Medium` · <sub>NC</sub>
+- [ ] **261.** [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) 🔒 — `Medium` · <sub>NC</sub> ✅
+- [ ] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` · <sub>NC</sub> ✅
+- [ ] **271.** [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) 🔒 — `Medium` · <sub>NC</sub>
+- [ ] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium` · <sub>NC</sub>
+- [ ] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium` · <sub>NC</sub>
 - [ ] **10.** [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) — `Hard` · <sub>NC</sub>
 - [ ] **30.** [Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/) — `Hard` · <sub>TI150</sub>
 - [ ] **32.** [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) — `Hard` · <sub>H100</sub> ✅

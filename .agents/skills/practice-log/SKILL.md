@@ -30,6 +30,7 @@ Give this feedback in the user-facing reply and record its key points under **LL
    ```bash
    python3 scripts/sync_lists.py
    ```
+   Then check the [review tracker](../../../Checklists/Lists/09_Problem_Review.md) for this problem. If the user asks to redo it, add or update its row with the practice date and leave the redo date blank. If the user later confirms completing the specific review goal, mark that row complete and record the actual date. Keep different variants of one problem separate; a general completion report does not prove that a particular variant was done. Do not treat an old planned date as a completed redo.
 3. **Reply with the substantive feedback**, including answers to questions in the reflection, followed by a brief recording confirmation with today's count and the Master Union tally from the script output. For a request with no new technical reflection, the confirmation alone can be one or two lines.
 
 ## What the sync does

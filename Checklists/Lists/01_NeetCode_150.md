@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：102 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：104 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -102,7 +102,7 @@
 
 - [x] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 - [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
-- [ ] **40.** [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) — `Medium` ✅
+- [x] **40.** [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) — `Medium` ✅ · <sub>✔ 2026-10-16</sub>
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **90.** [Subsets II](https://leetcode.com/problems/subsets-ii/) — `Medium` ✅
 - [x] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium` · <sub>✔ 2026-09-17</sub>
@@ -199,7 +199,7 @@
 - [x] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [x] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium` · <sub>✔ 2026-09-27</sub>
-- [ ] **43.** [Multiply Strings](https://leetcode.com/problems/multiply-strings/) — `Medium`
+- [x] **43.** [Multiply Strings](https://leetcode.com/problems/multiply-strings/) — `Medium` ✅ · <sub>✔ 2026-10-16</sub>
 - [ ] **2013.** [Detect Squares](https://leetcode.com/problems/detect-squares/) — `Medium`
 
 ## Bit Manipulation (7)

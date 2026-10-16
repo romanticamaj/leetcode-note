@@ -157,29 +157,28 @@ long long result = a * b;
   2. result == INT_MAX / 10 && digit > INT_MAX % 10  → 乘 10 後剛好在邊界，加 digit 會溢位
   ```
 
-- **範例 (LeetCode 8. String to Integer (atoi))**:
+- **範例 (LeetCode 8. String to Integer (atoi))**：若先累積非負的 magnitude，負數要容許到 `2147483648`，比正數上限多 1。
 
   ```cpp
-  // INT_MAX = 2147483647
-  // INT_MAX / 10 = 214748364
-  // INT_MAX % 10 = 7
-
-  if ((result > INT_MAX / 10) ||
-      (result == INT_MAX / 10 && digit > INT_MAX % 10)) {
-      // overflow!
+  // sign 已解析為 +1 或 -1；digit 是目前的 0..9 數字
+  long long limit = sign == 1 ? INT_MAX : 1LL * INT_MAX + 1;
+  // result 是 long long 的非負 magnitude，初始為 0
+  if (result > limit / 10 ||
+      (result == limit / 10 && digit > limit % 10)) {
       return sign == 1 ? INT_MAX : INT_MIN;
   }
-
   result = result * 10 + digit;
+  // 全部 digit 處理完：return static_cast<int>(sign == 1 ? result : -result);
   ```
 
-- **為什麼這個判斷是完備的？**
+- **為什麼這個判斷是完備的？** 若超過上限，在乘 10 前即可判定；等於 `limit / 10` 時，只需檢查最後一位。
 
-  | 條件 | 含義 |
-  |------|------|
-  | `result > INT_MAX / 10` | `result >= 214748365`，乘 10 後 >= 2147483650，必溢位 |
-  | `result == INT_MAX / 10 && digit > 7` | `result * 10 = 2147483640`，加 8 或以上會溢位 |
-  | `result == INT_MAX / 10 && digit <= 7` | `result * 10 + digit <= 2147483647`，安全 |
+  | 符號 | `limit` | 臨界最後一位 |
+  |------|---------|--------------|
+  | 正 | `2147483647` | `7` |
+  | 負 | `2147483648` | `8` |
+
+  LC 7. Reverse Integer 也在每輪計算 `result * 10 + digit` 前做同一種檢查；差別是它從整數 `% 10` 取到帶符號的 digit，超界時回傳 `0`。LC 8 從字元讀出非負 digit、另存 sign，超界時夾到 `INT_MAX` 或 `INT_MIN`。兩題共用的推導是：**先判定下一次 append digit 是否安全，再更新結果**。
 
 ---
 
