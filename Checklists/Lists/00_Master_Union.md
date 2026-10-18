@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：152 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：157 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -29,7 +29,7 @@ Easy 8 · Medium 25 · Hard 4
 - [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-07</sub>
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-07</sub>
 - [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-07</sub>
-- [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-10</sub>
+- [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-10</sub>
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-10</sub>
 - [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-10</sub>
 - [x] **98.** [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — `Medium` · <sub>NC · G75 · TI150 · H100</sub> · <sub>✔ 2026-09-10</sub>
@@ -190,11 +190,11 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **143.** [Reorder List](https://leetcode.com/problems/reorder-list/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-09</sub>
 - [x] **310.** [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) — `Medium` · <sub>G75</sub> · <sub>✔ 2026-10-12</sub>
 - [x] **43.** [Multiply Strings](https://leetcode.com/problems/multiply-strings/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-16</sub>
-- [ ] **61.** [Rotate List](https://leetcode.com/problems/rotate-list/) — `Medium` · <sub>TI150</sub>
-- [ ] **63.** [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) — `Medium` · <sub>TI150</sub>
-- [ ] **71.** [Simplify Path](https://leetcode.com/problems/simplify-path/) — `Medium` · <sub>TI150</sub>
-- [ ] **77.** [Combinations](https://leetcode.com/problems/combinations/) — `Medium` · <sub>TI150</sub>
-- [ ] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium` · <sub>TI150</sub>
+- [x] **61.** [Rotate List](https://leetcode.com/problems/rotate-list/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-17</sub>
+- [x] **63.** [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-17</sub>
+- [x] **71.** [Simplify Path](https://leetcode.com/problems/simplify-path/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-17</sub>
+- [x] **77.** [Combinations](https://leetcode.com/problems/combinations/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-18</sub>
+- [x] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-18</sub>
 - [ ] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium` · <sub>NC</sub>
 - [ ] **103.** [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) — `Medium` · <sub>TI150</sub>
 - [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium` · <sub>TI150</sub>

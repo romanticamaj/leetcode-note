@@ -133,6 +133,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 130. Surrounded Regions
 - LeetCode 417. Pacific Atlantic Water Flow
+- 🟡 🔴 LeetCode 399. Evaluate Division
 
 ## Tree Algorithms
 
@@ -164,6 +165,13 @@ A curated list of must-do problems that build core competencies. Completing thes
   - Medium 偏難；反轉後按位累加乘積，再統一處理進位與前導零。
 - LeetCode 165. Compare Version Numbers
 - LeetCode 58. Length of Last Word
+
+## Finite State Machine (FSM)
+
+- 🟡 LeetCode 8. String to Integer (atoi)
+  - 空白 → 可選符號 → 數字；解析階段決定下一個字元能否被接受。
+- 🟡 LeetCode 54. Spiral Matrix
+  - 方向是四種狀態；下一格越界或已走過時，轉到下一個方向。
 
 ## Stack Invariant Design (Monotonic)
 
@@ -246,6 +254,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Middle Point + Rerverse + Merge
 - 🟡 LeetCode 211. Design Add and Search Words Data Structure
   - Trie + DFS
+- 🟡 🔴 LeetCode 399. Evaluate Division
+  - DFS and Math
 
 ### Followup Possible (Multiple Solutions)
 

@@ -22,7 +22,15 @@ std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;
 // Custom Priority Queue
 auto cmp = [](...) {...};
 using Item = ...;
-std::prioriy_queue<Item, std::vector<Item>, decltype(cmp)> q(cmp);
+std::priority_queue<Item, std::vector<Item>, decltype(cmp)> q(cmp);
+
+// Need LIFO operations and bottom-to-top traversal? Use vector as a stack.
+std::vector<std::string> dirs;
+dirs.push_back("home");
+dirs.push_back("user");
+for (const auto& dir : dirs) { /* home, then user: bottom -> top */ }
+if (!dirs.empty()) dirs.pop_back(); // remove top ("user")
+// std::stack has no begin()/end(); it cannot be used in a range-based for.
 
 std::string s = std::to_string(num);
 int n = std::stoi(s);
@@ -121,6 +129,9 @@ std::stringstream ss(s);
 std::string token;
 while (std::getline(ss, token, ',')) { /* process token */ }
 while (ss >> token) { /* process token */ } // 以空白為分割單位
+// For paths, use '/' as delimiter; repeated '/' can produce empty tokens.
+std::stringstream pathStream("/a//b");
+while (std::getline(pathStream, token, '/')) { if (token.empty()) continue; /* process token */ }
 
 // Parse with specified base (2=binary, 16=hex)
 int bin = std::stoi("1010", nullptr, 2);   // -> 10

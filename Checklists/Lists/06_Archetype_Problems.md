@@ -9,6 +9,11 @@
 - LeetCode 118. Pascal's Triangle
 - LeetCode 746. Min Cost Climbing Stairs
 
+### Counting DP
+
+- 🟡 LeetCode 63. Unique Paths II
+  - `dp[r][c]` 是到達該格的路徑數；障礙格為 0，其餘累加上方與左方的路徑數。
+
 ### 0/1 Knapsack
 
 - LeetCode 494. Target Sum
@@ -86,6 +91,11 @@
 ---
 
 ## Backtracking
+
+### Combinations（固定長度組合）
+
+- 🟡 LeetCode 77. Combinations
+  - `start` 保證選出的數嚴格遞增；還缺 `k - path.size()` 個時，候選上界是 `n - (k - path.size()) + 1`，只展開仍能湊滿的分支。
 
 ### Subsets
 

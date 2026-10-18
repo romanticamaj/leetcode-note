@@ -2,6 +2,41 @@
 
 ---
 
+## 2026-10-18
+
+- 77. Combinations
+- 399. Evaluate Division
+
+**心得**：
+- 77：這題就是標準的 backtracking，但是在考數學以及極致的 promising 設計。
+- 399：滿複雜的 DFS 問題搭配遞迴求值，尤其要小心倒數也成立；下次練習 weighted Union-Find。
+
+**LLM 點評**：
+model: GPT-6
+- 77：`start` 限制後續只選更大的數，讓每個大小為 `k` 的組合恰好出現一次。promising 可從「剩餘數量至少要補足缺口」推導：目前還缺 `k - sol.size()` 個，候選 `i` 選下去後，`i..n` 至少要有這麼多數，因此 `i <= n - (k - sol.size()) + 1`；超過此界的分支不可能完成，可在選取前停止迴圈。完整解的檢查必須先於 `start > n`，否則最後選到 `n` 的合法組合會被略過。見 [Backtracking Templates and Patterns](../Algorithms/Backtracking/01-Backtracking_Templates_and_Patterns.md)。
+- 399：你的 DFS 回傳值語意是 `node / dst`；邊權為 `node / neighbor`，乘上子遞迴的 `neighbor / dst` 即得到 `node / dst`，因此回溯時相乘正確。`a / b = v` 必須同時建立反向邊 `b / a = 1 / v`；同一 query 的 `visited` 不需還原，題目保證關係一致，找到任一路徑即可回傳。時間 O(E + Q(V + E))，額外空間 O(V + E)，另有 O(Q) 答案空間。下次另練 [Weighted Union-Find](../Algorithms/Union_Find/10-Weighted_Union_Find_with_Path_Compression.md)，目前只記錄 DFS 版本完成。
+
+---
+
+## 2026-10-17
+
+- 61. Rotate List
+- 63. Unique Paths II
+- 71. Simplify Path
+
+**心得**：
+- 61：先算串列長度 `n`，把右旋步數縮成 `k % n`；新 head 在原 head 往前走 `n - k` 步的位置。這版切在新 head 前，再找到原 tail 接回原 head；時間 O(n)、額外空間 O(1)。小 trick：算長度時順便記住 tail，就能在處理完 `k % n` 後把 tail 接到 head，當成環來找切點。
+- 63：Counting DP，沒有什麼特別的；加入 Archetype Problems 的 Counting DP。
+- 71：string tokenization + stack；tokenization 還不太熟。看到 stack-like 容器可以用 for loop 從底到頂走訪，覺得很酷，想記進 C++ one-liner。
+
+**LLM 點評**：
+model: GPT-6
+- 61：程式正確處理空串列、單節點、`k % n == 0`；其餘情況 `1 <= n - k <= n - 1`，因此 `prev`、`newHead` 和最後的 tail 都存在。切斷 `prev->next` 後，將舊 tail 接到舊 head，即得到右旋結果。最小的改進是在第一次走訪同時取得 `n` 與 tail，沿用目前切點寫法，直接用已保存的 tail 接回 head，不必再找一次。也可先算 `shift = k % n`，若非 0，再設 `tail->next = head` 形成環；從原 head 走到第 `n - shift - 1` 個節點作為 newTail，令 `newHead = newTail->next`，最後斷開 `newTail->next`。不要在 `shift == 0` 時留下環。兩種寫法都是 O(n) 時間、O(1) 額外空間；差別只有常數步數與接點順序。
+- 63：分類正確；`dp[r][c]` 計算到達該格的路徑數，開放格累加上方與左方，障礙格的路徑數為 0。起點是障礙時答案為 0，否則起點要以 1 作為計數基底；第一列、第一欄也要遵守同一個規則。這是 LC 62 的轉移加上無法通行格的限制；見 [Counting DP](../Algorithms/Dynamic_Programming/Problem_Types/Counting_DP.md)。未看到程式碼，因此只評估題型與狀態設計。
+- 71：用 `std::getline(stream, token, '/')` 切出路徑片段，空片段與 `.` 跳過，`..` 在非空時移除最後一個目錄，其他片段加入。若使用 `std::vector<std::string>` 當 stack，`push_back`／`pop_back` 是 LIFO，而 range-based `for` 會依插入順序從底到頂走訪，方便組回路徑。真正的 `std::stack` 是容器配接器，沒有 `begin()`／`end()`，不能直接用 range-based `for`；已補進 [C++ One-Liners](../Cheatsheet/CPP_One_Liners.md)，既有 [Container Iteration Order](../CPP_Reference/Container/Container_Iteration_Order.md) 也有相同區分。未看到程式碼，因此不判定具體實作。
+
+---
+
 ## 2026-10-16
 
 - 31. Next Permutation

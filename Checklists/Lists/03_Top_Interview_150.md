@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：103 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：108 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -53,7 +53,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Matrix (5)
 
 - [x] **36.** [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — `Medium` ✅ · <sub>✔ 2026-09-26</sub>
-- [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
+- [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` ✅ · <sub>✔ 2026-09-10</sub>
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **289.** [Game of Life](https://leetcode.com/problems/game-of-life/) — `Medium`
@@ -80,7 +80,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Stack (5)
 
 - [x] **20.** [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) — `Easy` · <sub>✔ 2026-09-04</sub>
-- [ ] **71.** [Simplify Path](https://leetcode.com/problems/simplify-path/) — `Medium`
+- [x] **71.** [Simplify Path](https://leetcode.com/problems/simplify-path/) — `Medium` · <sub>✔ 2026-10-17</sub>
 - [x] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **150.** [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [ ] **224.** [Basic Calculator](https://leetcode.com/problems/basic-calculator/) — `Hard`
@@ -95,7 +95,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard`
 - [x] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium` · <sub>✔ 2026-09-17</sub>
 - [ ] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium`
-- [ ] **61.** [Rotate List](https://leetcode.com/problems/rotate-list/) — `Medium`
+- [x] **61.** [Rotate List](https://leetcode.com/problems/rotate-list/) — `Medium` · <sub>✔ 2026-10-17</sub>
 - [ ] **86.** [Partition List](https://leetcode.com/problems/partition-list/) — `Medium` ✅
 - [x] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — `Medium` · <sub>✔ 2026-09-11</sub>
 
@@ -134,7 +134,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium` · <sub>✔ 2026-09-14</sub>
 - [x] **130.** [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) — `Medium` ✅ · <sub>✔ 2026-09-30</sub>
 - [x] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium` · <sub>✔ 2026-09-20</sub>
-- [ ] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium`
+- [x] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium` · <sub>✔ 2026-10-18</sub>
 - [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
 - [x] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium` · <sub>✔ 2026-10-11</sub>
 
@@ -153,7 +153,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Backtracking (7)
 
 - [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — `Medium` · <sub>✔ 2026-09-07</sub>
-- [ ] **77.** [Combinations](https://leetcode.com/problems/combinations/) — `Medium`
+- [x] **77.** [Combinations](https://leetcode.com/problems/combinations/) — `Medium` · <sub>✔ 2026-10-18</sub>
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [ ] **52.** [N-Queens II](https://leetcode.com/problems/n-queens-ii/) — `Hard`
@@ -219,7 +219,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 - [ ] **120.** [Triangle](https://leetcode.com/problems/triangle/) — `Medium`
 - [x] **64.** [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) — `Medium` · <sub>✔ 2026-09-27</sub>
-- [ ] **63.** [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) — `Medium`
+- [x] **63.** [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) — `Medium` · <sub>✔ 2026-10-17</sub>
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [x] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
 - [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>

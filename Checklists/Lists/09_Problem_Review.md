@@ -8,6 +8,7 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | 399. Evaluate Division：改用 [Weighted Union-Find](../../Algorithms/Union_Find/10-Weighted_Union_Find_with_Path_Compression.md) 練習比值關係維護 | 2026-10-18 | — |
 | 待做 | 43. Multiply Strings：獨立重做位數對齊、進位與前導零處理 | 2026-10-16 | — |
 | 待做 | 31. Next Permutation：再做一次 | 2026-10-16 | — |
 | 待做 | 8. String to Integer (atoi)：Phase Based Parsing | 2026-10-16 | — |
@@ -85,6 +86,11 @@
 ---
 
 ## 題目列表
+
+- [ ] LeetCode 43. Multiply Strings
+  - 📌 標記原因: 第一次花 35m 46s，過程中持續依靠提示，還沒獨立完成；體感 Medium 偏難。
+  - [ ] 不看提示獨立重做，確認位數對齊、進位與前導零（包含零乘零）的處理。
+  - 🏷️ 技巧分類: String / Simulation / Digit Alignment
 
 - [ ] LeetCode 40. Combination Sum II
   - 📌 標記原因: 題目難，想再做一次；需分清排序剪枝、同層去重與不同層選用另一個相同值。

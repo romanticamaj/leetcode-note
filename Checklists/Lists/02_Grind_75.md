@@ -77,7 +77,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅ · <sub>✔ 2026-09-22</sub>
 - [x] **8.** [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) — `Medium` ✅ · <sub>✔ 2026-10-16</sub>
-- [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
+- [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` ✅ · <sub>✔ 2026-09-10</sub>
 - [x] **78.** [Subsets](https://leetcode.com/problems/subsets/) — `Medium` ✅ · <sub>✔ 2026-09-20</sub>
 - [x] **199.** [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>

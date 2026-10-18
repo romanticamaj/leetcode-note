@@ -194,7 +194,7 @@
 ## Math & Geometry (8)
 
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
-- [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` · <sub>✔ 2026-09-10</sub>
+- [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` ✅ · <sub>✔ 2026-09-10</sub>
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [x] **202.** [Happy Number](https://leetcode.com/problems/happy-number/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
