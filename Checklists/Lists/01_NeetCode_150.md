@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：104 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：105 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -68,7 +68,7 @@
 - [x] **287.** [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) — `Medium` · <sub>✔ 2026-10-09</sub>
 - [x] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>✔ 2026-09-15</sub>
-- [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard`
+- [x] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard` · <sub>✔ 2026-10-19</sub>
 
 ## Trees (15)
 
@@ -85,7 +85,7 @@
 - [x] **98.** [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **230.** [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
 - [x] **105.** [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard`
+- [x] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard` · <sub>✔ 2026-10-19</sub>
 - [ ] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — `Hard` ✅
 
 ## Heap / Priority Queue (7)
@@ -155,7 +155,7 @@
 - [x] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>✔ 2026-10-05</sub>
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
-- [x] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅ · <sub>✔ 2026-09-22</sub>
+- [ ] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅
 
 ## 2-D Dynamic Programming (11)
 

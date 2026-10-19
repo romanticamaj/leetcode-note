@@ -2,6 +2,29 @@
 
 ---
 
+## 2026-10-19
+
+- 25. Reverse Nodes in k-Group
+- 124. Binary Tree Maximum Path Sum
+
+**心得**：
+- 25：一路最佳化才慢慢寫出來……其實思路很簡單：
+  1. 使用 k-gap pointer 去找 tail。
+  2. 實作 space O(1) 的 reverse。
+  3. 處理 reverse 完的頭尾要前後接回去。
+  4. 當尾巴不夠 k，就提前結束。
+- 124：關鍵設計沒有處理好：path 只可以從一個 child 去組成。
+  1. tree dp: top-down dynamic programming。
+  2. global tracking。
+  3. conquer 的部分要注意組成 path 的條件：path 只可以從一個 child 去組成。
+
+**LLM 點評**：
+model: GPT-6
+- 124：要區分「回傳給父節點的可延伸路徑」與「更新全域答案的完整路徑」。前者以當前節點為端點，最多接一個 child，否則再接父節點會產生三叉；後者可以在當前節點接左右兩側，形成合法的 child → node → child 路徑。若左右回傳值為 L、R，向上回傳 `node->val + max(0, L, R)`，全域候選為 `node->val + max(0, L) + max(0, R)`。負貢獻可以不接，但答案必須包含至少一個節點，全域答案不能初始化為 0，以免全負數時錯誤。計算須先取得左右子樹結果再合併，因此是 postorder、由下而上的 Tree DP；遞迴呼叫從 root 開始，不代表狀態是 top-down DP。每條非空路徑都有唯一最高節點，在該節點合併兩側即可涵蓋所有候選；每個節點處理一次，時間 O(n)、遞迴空間 O(h)，最壞 O(n)。可對照 [Path-Based Thinking 與 Postorder 聚合](../Data_Structures/Trees/Path_Based_Thinking_Aggregation.md)。未提供程式碼，以上只評估概念與狀態設計。
+- 25：最終程式在題目條件下正確，時間 O(n)、額外空間 O(1)。外層的 `head` 實際是「下一組的前驅」，可命名為 `groupPrev`；每輪開始時，它以前的完整群組皆已反轉並接好，`head->next` 是尚未處理的 suffix。先往前走 k 步確認整組存在，不足就不修改；反轉後舊 `start` 成為組尾，也是下一輪的前驅，因此每輪確實推進 k 個節點。`reverse` 先保存 `end = tail->next`，讓 `dummy.next` 初始指向後繼；逐一把節點前插到它前面，維持「已反轉前綴接到 end」，所以組尾會自動接回後段，外層只需把前驅接到新組頭。找組尾與反轉各走一次該組，合計仍為 O(n)，尾端不足 k 的區段最多再掃一次。真正要固定的是三個角色：組前驅、反轉後的組尾、區段後繼；見 [Linked Lists：K-Gap 與 Dummy Node](../Data_Structures/Linked_Lists/README.md)。註解 `if not enough, just reverse until end` 與題意及實作相反，應改為「不足 k 個時保持原順序」。
+
+---
+
 ## 2026-10-18
 
 - 77. Combinations
@@ -723,7 +746,7 @@ model: Opus 5.5 (1M context)
 ## 2026-09-22
 
 - 300. Longest Increasing Subsequence
-- 416. Partition Equal Subset Sum
+- 未完成：416. Partition Equal Subset Sum
 - 994. Rotting Oranges
 
 **心得**：

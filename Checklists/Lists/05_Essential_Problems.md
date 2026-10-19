@@ -70,6 +70,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 97. Interleaving String
 - 🟡 🔴 LeetCode 152. Maximum Product Subarray
   - 需要特別設計的查表邏輯 (其實就是遞迴式的設計)
+- 🟡 🔴 LeetCode 124. Binary Tree Maximum Path Sum
+  - Tree DP
 
 ## Kadane's Pattern DP
 
@@ -256,6 +258,10 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Trie + DFS
 - 🟡 🔴 LeetCode 399. Evaluate Division
   - DFS and Math
+- 🟡 🔴 LeetCode 25. Reverse Nodes in k-Group
+  - k-gap pointer and revese (hard to implement and easy to forget to update links)
+- 🔴 🟡 LeetCode 124. Binary Tree Maximum Path Sum
+  - Post-ordering + Tree Dynamic Programming
 
 ### Followup Possible (Multiple Solutions)
 
@@ -296,6 +302,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 LeetCode 417. Pacific Atlantic Water Flow
 - 🟡 LeetCode 678. Valid Parenthesis String
 - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
+- 🟡 🔴 LeetCode 124. Binary Tree Maximum Path Sum
 
 ## Classic Optimization / Brain Development
 

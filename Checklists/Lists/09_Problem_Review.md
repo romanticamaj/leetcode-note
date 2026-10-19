@@ -36,7 +36,7 @@
 | 待做 | 97. Interleaving String：bottom-up／空間壓縮 | 2026-09-28 | — |
 | 待做 | 36. Valid Sudoku：bit manipulation | 2026-09-26 | — |
 | 待做 | 300. Longest Increasing Subsequence：O(n log n) | 2026-09-22 | — |
-| 待做 | 416. Partition Equal Subset Sum：DP 最佳化 | 2026-09-22 | — |
+| 待做 | 416. Partition Equal Subset Sum：尚未解出，繼續完成 | 2026-09-22 | — |
 | 待做 | 215. Kth Largest Element in an Array：quickselect | 2026-09-21 | — |
 | 待做 | 236. Lowest Common Ancestor of a Binary Tree：用節點當回傳值 | 2026-09-21 | — |
 | 待做 | 78. Subsets：模式 B | 2026-09-20 | — |
@@ -281,7 +281,8 @@
   - Hash Table + Possible Start (check num - 1)
   - amortized analysis
 - [ ] LeetCode 416. Partition Equal Subset Sum
-  - Feedback: great to think DP Optimization
+  - 📌 標記原因: 2026-09-22 嘗試後尚未解出；曾嘗試 backtracking、排序累加，並查看 DP / Knapsack tags，尚未完成解法。
+  - 🎯 練習方式: 接續當時的 DP 思路，完成解題；完成前不標記為已解。
 - [ ] LeetCode 494. Target Sum
   - [ ] Convert to Subset Sum problem
 - [ ] LeetCode 567. Permutation in String

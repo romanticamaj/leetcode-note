@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：157 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：158 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -82,12 +82,12 @@ Easy 6 · Medium 24 · Hard 5
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` · <sub>NC · TI150 · H100</sub> ✅ · <sub>✔ 2026-09-21</sub>
 - [x] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium` · <sub>G75 · TI150 · H100</sub> · <sub>✔ 2026-09-21</sub>
 - [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-09-22</sub>
-- [x] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` · <sub>NC · G75 · H100</sub> ✅ · <sub>✔ 2026-09-22</sub>
+- [ ] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` · <sub>NC · G75 · H100</sub> ✅
 - [x] **994.** [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) — `Medium` · <sub>NC · G75 · H100</sub> · <sub>✔ 2026-09-22</sub>
 - [x] **4.** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — `Hard` · <sub>NC · TI150 · H100</sub> ✅ · <sub>✔ 2026-10-12</sub>
-- [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard` · <sub>NC · TI150 · H100</sub>
+- [x] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-10-19</sub>
 - [ ] **84.** [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — `Hard` · <sub>NC · G75 · H100</sub> ✅
-- [ ] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard` · <sub>NC · TI150 · H100</sub>
+- [x] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-10-19</sub>
 - [ ] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard` · <sub>NC · G75 · TI150</sub>
 
 ## 🔥🔥 兩份有 — 中共識 (44 題)

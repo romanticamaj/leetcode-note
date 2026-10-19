@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：108 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：110 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -92,7 +92,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **21.** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [ ] **92.** [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) — `Medium`
-- [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard`
+- [x] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard` · <sub>✔ 2026-10-19</sub>
 - [x] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium` · <sub>✔ 2026-09-17</sub>
 - [ ] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium`
 - [x] **61.** [Rotate List](https://leetcode.com/problems/rotate-list/) — `Medium` · <sub>✔ 2026-10-17</sub>
@@ -111,7 +111,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **114.** [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) — `Medium` · <sub>✔ 2026-09-29</sub>
 - [x] **112.** [Path Sum](https://leetcode.com/problems/path-sum/) — `Easy` · <sub>✔ 2026-10-03</sub>
 - [ ] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium`
-- [ ] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard`
+- [x] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard` · <sub>✔ 2026-10-19</sub>
 - [ ] **173.** [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/) — `Medium`
 - [ ] **222.** [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) — `Medium` ✅
 - [x] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium` · <sub>✔ 2026-09-21</sub>

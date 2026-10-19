@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：88 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：89 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -26,7 +26,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **34.** [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) — `Medium` · <sub>✔ 2026-09-26</sub>
 - [x] **35.** [Search Insert Position](https://leetcode.com/problems/search-insert-position/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [x] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium` · <sub>✔ 2026-09-20</sub>
-- [ ] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard`
+- [x] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard` · <sub>✔ 2026-10-19</sub>
 - [x] **153.** [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 
 ## Binary Tree (14)
@@ -61,7 +61,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [ ] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium`
 - [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>✔ 2026-09-15</sub>
-- [x] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅ · <sub>✔ 2026-09-22</sub>
+- [ ] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅
 - [x] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium` · <sub>✔ 2026-10-11</sub>
 
 ## Graph (3)
@@ -97,7 +97,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **21.** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>✔ 2026-09-15</sub>
 - [x] **24.** [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) — `Medium` · <sub>✔ 2026-10-15</sub>
-- [ ] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard`
+- [x] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard` · <sub>✔ 2026-10-19</sub>
 - [x] **138.** [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [x] **141.** [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — `Easy` ✅ · <sub>✔ 2026-09-05</sub>
 - [x] **142.** [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) — `Medium` · <sub>✔ 2026-10-09</sub>
