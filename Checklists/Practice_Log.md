@@ -6,6 +6,8 @@
 
 - 25. Reverse Nodes in k-Group
 - 124. Binary Tree Maximum Path Sum
+- 84. Largest Rectangle in Histogram
+- 416. Partition Equal Subset Sum
 
 **心得**：
 - 25：一路最佳化才慢慢寫出來……其實思路很簡單：
@@ -17,9 +19,22 @@
   1. tree dp: top-down dynamic programming。
   2. global tracking。
   3. conquer 的部分要注意組成 path 的條件：path 只可以從一個 child 去組成。
+- 84：我覺得這題的出發點跟裝水題還是很像，要先想到從自己出發，然後要去左右找比自己小的當邊界（可以擴展的最遠）。然後因為有 redundant work，所以要記錄下來。還是要從暴力法開始想，這個 O(n) 解才有可能想到。
+  1. 要先想到假設自己全拿，從自己出發，往左往右找邊界。
+  2. 找邊界可以用 monotonic stack 去記錄右邊跟左邊最大的（因為再來都比它小，就不可能是邊界了）。
+  3. 只要最大的人比自己小，那就是邊界，所以就可以用 top 當邊界。
+  4. 最後，two pass，拿邊界來算每個人擴展後的面積。
+  - follow-up：這題要再做一次，優化 monotonic stack 解法；另外再做 divide and conquer 版本。
+  - 下次想試單一 monotonic stack：從左到右掃描，彈出時直接計算面積，最後處理 stack 剩餘項目。感覺是某種設計模式，這次先不深入，下次再理解與實作；目前尚未完成此版本。
+- 416：從頭到尾都是靠 gpt-6.1 提示的……而且我不知道這在幹嘛。這題根本就是經典的想從 backtracking（暴力法）推導到 top-down dynamic programming（caching）而已吧。
+  - 補充：這題真的是經典的 Knapsack Problem、0/1 Knapsack、dynamic programming。感覺只要可以設計出數值（sum / remaining）的範圍，就幾乎可以改成查表；想釐清候選與值域的 pseudo-polynomial 類型。
+  - 發現這題根本是把問題轉成「是否存在子集和為 target」。應該先做一些直接給定 target 的 Subset Sum 前置練習。
+  - **必做、再做一次**：先理解固定 target 的原始問題，再回來獨立重做 416；目前經提示完成不代表已理解。
 
 **LLM 點評**：
 model: GPT-6
+- 416：這條推導方向正確，但關鍵不是只加 cache，而是先確認哪些搜尋分支代表同一個剩餘問題。總和為 S 時，只需判定能否選出總和 S/2 的子集，另一組就是未選元素；S 為奇數直接失敗。`dp(i, remaining)` 的語義是「從 nums[i..n) 各元素最多選一次，能否湊出 remaining」。選／不選都前進到 i+1，維持每個元素只用一次；不同歷史只要 i 與 remaining 相同，可用元素及目標就相同，因此後續布林答案可以共用，這才是 memoization 成立的理由，也是 0/1 subset sum 的狀態。最終程式正確，cache 三態 0／1／-1 區分未算／可行／不可行；只在元素用完且 remaining 為 0 時成功也成立，因為中途湊滿後仍可一路不選到結尾。令 T=S/2，總和計算 O(n)，偶數分支配置與搜尋為 O(nT)，cache O(nT)，另有 O(n) 遞迴堆疊；更精確可寫 O(n(T+1))，且這是依數值目標 T 計算的偽多項式界。這次是經提示完成，不代表已能獨立重建狀態與轉移；見 [DP Problem-Solving Framework](../Algorithms/Dynamic_Programming/Fundamentals/02-Problem_Solving_Framework.md)。 數值有界只是可查表的重要訊號，還須確認狀態充分、依賴有進度、所有維度乘積與每格轉移成本可負擔；候選數 n 在 0/1 模型是進度軸，在可重用模型也可能是每格枚舉 choices 的成本。已補強 [候選進度 × 數值範圍與偽多項式時間](../Algorithms/Dynamic_Programming/Subset_Sum/01-Subset_Sum_and_NP_Completeness.md)。
+- 84：最終雙 stack／左右邊界陣列版本正確，時間 O(n)、額外空間 O(n)。推導是先固定 `heights[i]` 為矩形高度，找左右最近嚴格較矮的位置，再計算 `heights[i] * (right[i] - left[i] - 1)`；任一矩形都有最低柱子，以它為高度延伸到完整合法區間，面積不會更小，因此涵蓋最優解。心得第 2、3 點要精確化：stack 存的是「最近較矮邊界的候選 index」，不是左右最大值；對應高度由底到頂嚴格遞增，彈掉所有 `>=` 自己的候選後，top 才是最近嚴格較矮的位置，相等高度不能阻擋擴張。被彈出的候選已被目前這根更近且不更高的柱子取代，對未來查詢不再有用；每個 index 在每個 stack 各入棧、出棧至多一次，避免暴力法反覆掃描，總時間才降為 O(n)。`left/right` 是 boundary arrays，沒有 hashmap。程式把左右兩個方向的掃描交錯在同一個迴圈，再用另一個迴圈算面積；邏輯上是兩次邊界掃描加一次求值，三次線性走訪仍是 O(n)。與裝水題共同點是從當前柱子分析邊界，但本題遇到較矮柱子即不能維持原高度擴張。見 [Monotonic Stack：Search Space Conversion](../Data_Structures/Stacks_and_Queues/Monotonic_Stacks/02-Search_Space_Conversion.md)。這次經提示完成兩側掃描與邊界記錄，尚不代表已能獨立重建。
 - 124：要區分「回傳給父節點的可延伸路徑」與「更新全域答案的完整路徑」。前者以當前節點為端點，最多接一個 child，否則再接父節點會產生三叉；後者可以在當前節點接左右兩側，形成合法的 child → node → child 路徑。若左右回傳值為 L、R，向上回傳 `node->val + max(0, L, R)`，全域候選為 `node->val + max(0, L) + max(0, R)`。負貢獻可以不接，但答案必須包含至少一個節點，全域答案不能初始化為 0，以免全負數時錯誤。計算須先取得左右子樹結果再合併，因此是 postorder、由下而上的 Tree DP；遞迴呼叫從 root 開始，不代表狀態是 top-down DP。每條非空路徑都有唯一最高節點，在該節點合併兩側即可涵蓋所有候選；每個節點處理一次，時間 O(n)、遞迴空間 O(h)，最壞 O(n)。可對照 [Path-Based Thinking 與 Postorder 聚合](../Data_Structures/Trees/Path_Based_Thinking_Aggregation.md)。未提供程式碼，以上只評估概念與狀態設計。
 - 25：最終程式在題目條件下正確，時間 O(n)、額外空間 O(1)。外層的 `head` 實際是「下一組的前驅」，可命名為 `groupPrev`；每輪開始時，它以前的完整群組皆已反轉並接好，`head->next` 是尚未處理的 suffix。先往前走 k 步確認整組存在，不足就不修改；反轉後舊 `start` 成為組尾，也是下一輪的前驅，因此每輪確實推進 k 個節點。`reverse` 先保存 `end = tail->next`，讓 `dummy.next` 初始指向後繼；逐一把節點前插到它前面，維持「已反轉前綴接到 end」，所以組尾會自動接回後段，外層只需把前驅接到新組頭。找組尾與反轉各走一次該組，合計仍為 O(n)，尾端不足 k 的區段最多再掃一次。真正要固定的是三個角色：組前驅、反轉後的組尾、區段後繼；見 [Linked Lists：K-Gap 與 Dummy Node](../Data_Structures/Linked_Lists/README.md)。註解 `if not enough, just reverse until end` 與題意及實作相反，應改為「不足 k 個時保持原順序」。
 

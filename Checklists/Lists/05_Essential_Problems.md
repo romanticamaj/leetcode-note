@@ -64,6 +64,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 72. Edit Distance
 - 🟡 LeetCode 494. Target Sum
 - 🟡 LeetCode 416. Partition Equal Subset Sum
+  - **必做、再做一次。0/1 Knapsack／Subset Sum 判定型**：先練固定 target 的原始子集和，再回來獨立推導等和分割。每個元素最多選一次；由選／不選的暴力搜尋，推導 `(index, remaining)` 的 memoization。見 [背包 DP 筆記](../../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
 - 🟡 🔴 LeetCode 139. Word Break
 - 🟡 LeetCode 322. Coin Change
 - 🟡 LeetCode 22. Generate Parentheses

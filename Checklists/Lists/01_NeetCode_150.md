@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：105 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：107 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -44,7 +44,7 @@
 - [x] **150.** [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [x] **739.** [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) — `Medium` · <sub>✔ 2026-10-14</sub>
 - [ ] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium`
-- [ ] **84.** [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — `Hard` ✅
+- [x] **84.** [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — `Hard` ✅ · <sub>✔ 2026-10-19</sub>
 
 ## Binary Search (7)
 
@@ -155,7 +155,7 @@
 - [x] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>✔ 2026-10-05</sub>
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
-- [ ] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅
+- [x] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅ · <sub>✔ 2026-10-19</sub>
 
 ## 2-D Dynamic Programming (11)
 

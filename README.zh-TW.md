@@ -56,6 +56,7 @@
 | 框架 | 幫你回答的問題 |
 |---|---|
 | [先定義答案，再開始寫程式](Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md) | 能不能把題目展開成明確、可驗證的一行 `ANSWER`？ |
+| [暴力法設計心法](Algorithms/Brute_Force/README.md) | 如何選對枚舉單位、建立不漏解的基準，再從具體工作推導優化？ |
 | [Brute Force → BUD ↔ BCR](Interview_Playbook/Problem_Solving_Strategies.md) | 瓶頸、不必要與重複工作在哪？合理的時間目標有什麼依據？ |
 | [Problem Transformation](Meta_Frameworks/Problem_Transformation.md) | 如何把故事轉成實體、關係、限制與計算模型？ |
 | [Quick Decision Map](Meta_Frameworks/Problem_Classification_Framework/02-Quick_Decision_Map.md) | 輸出目標、資料結構、限制與輸入規模，如何縮小技法選擇？ |
@@ -86,6 +87,7 @@ HTML 版支援搜尋、分類篩選與展開閱讀。下載後可直接用瀏覽
 | Recursion & Trees | [遞迴設計原則](Algorithms/Design_Principles/Recursion/01-Recursion_Design_Principles.md) | [遞迴四大流派的狀態設計](Algorithms/Design_Principles/Recursion/State_Design_Across_Recursive_Paradigms.md) |
 | Backtracking | [模板與模式](Algorithms/Backtracking/01-Backtracking_Templates_and_Patterns.md) | [已定 vs. 待定的候選者建模](Algorithms/Backtracking/03-Backtracking_Candidate_Modeling.md) |
 | Dynamic Programming | [從暴力搜尋推導 DP](Algorithms/Dynamic_Programming/Fundamentals/02-Problem_Solving_Framework.md) | [狀態設計](Algorithms/Dynamic_Programming/State_Design/01-Essentials.md) |
+| Knapsack DP／背包型 DP | [背包型 DP 與原始 Subset Sum](Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md) | [候選進度 × 數值範圍與偽多項式時間](Algorithms/Dynamic_Programming/Subset_Sum/01-Subset_Sum_and_NP_Completeness.md) |
 | Graph Search | [圖論解題原則](Data_Structures/Graphs/Graph_Problem_Solving_Principles.md) | [隱性圖的節點建構](Data_Structures/Graphs/Implicit_Graph_Node_Construction.md) |
 | Greedy & Heaps | [辨識與運用貪心](Algorithms/Greedy/Greedy_Identification_and_Application.md) | [Heap 決策心法](Data_Structures/Heaps/01-Heap_Decision_Making.md) |
 | Monotonic Stack & Queue | [核心概念](Data_Structures/Stacks_and_Queues/Monotonic_Stacks/01-Monotonic_Stack_and_Queue.md) | [搜尋空間轉換](Data_Structures/Stacks_and_Queues/Monotonic_Stacks/02-Search_Space_Conversion.md) |

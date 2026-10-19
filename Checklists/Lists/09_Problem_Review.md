@@ -8,6 +8,9 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | **【必做】416. Partition Equal Subset Sum：先練固定 target 的 Subset Sum，再獨立重做** | 2026-10-19 | — |
+| 待做 | 84. Largest Rectangle in Histogram：重做並練單一 stack，彈出時結算、掃描後處理剩餘項目 | 2026-10-19 | — |
+| 待做 | 84. Largest Rectangle in Histogram：Divide and Conquer | 2026-10-19 | — |
 | 待做 | 399. Evaluate Division：改用 [Weighted Union-Find](../../Algorithms/Union_Find/10-Weighted_Union_Find_with_Path_Compression.md) 練習比值關係維護 | 2026-10-18 | — |
 | 待做 | 43. Multiply Strings：獨立重做位數對齊、進位與前導零處理 | 2026-10-16 | — |
 | 待做 | 31. Next Permutation：再做一次 | 2026-10-16 | — |
@@ -36,7 +39,6 @@
 | 待做 | 97. Interleaving String：bottom-up／空間壓縮 | 2026-09-28 | — |
 | 待做 | 36. Valid Sudoku：bit manipulation | 2026-09-26 | — |
 | 待做 | 300. Longest Increasing Subsequence：O(n log n) | 2026-09-22 | — |
-| 待做 | 416. Partition Equal Subset Sum：尚未解出，繼續完成 | 2026-09-22 | — |
 | 待做 | 215. Kth Largest Element in an Array：quickselect | 2026-09-21 | — |
 | 待做 | 236. Lowest Common Ancestor of a Binary Tree：用節點當回傳值 | 2026-09-21 | — |
 | 待做 | 78. Subsets：模式 B | 2026-09-20 | — |
@@ -57,6 +59,7 @@
 | 待做 | 5. Longest Palindromic Substring：複習 | 2026-09-05 | — |
 | 待做 | 104／226. Maximum Depth／Invert Binary Tree：迭代版 | 2026-09-05 | — |
 | 已完成 | 8. String to Integer (atoi)：FSM／DFA | 2026-10-16 | 2026-10-16 |
+| 已完成 | 416. Partition Equal Subset Sum：經提示完成 top-down memoization 版本 | 2026-09-22 | 2026-10-19 |
 | 已完成 | 283. Move Zeroes：O(n) 雙指標 | 2026-10-11 | 2026-10-11 |
 | 已完成 | 235. Lowest Common Ancestor of a BST：迭代版 | 2026-10-10 | 2026-10-10 |
 | 已完成 | 45. Jump Game II：O(n) 壓縮 BFS | 2026-09-17 | 2026-09-18 |
@@ -155,9 +158,12 @@
 - [ ] LeetCode 215. Kth Largest Element in an Array
 - [ ] LeetCode 37. Sudoku Solver
 - [ ] LeetCode 84. Largest Rectangle in Histogram
-  - [ ] Brute Force
-  - [ ] Segment Tree for Divide and Conquer
-  - [ ] Monotonic Stack
+  - 📌 標記原因: 2026-10-19 經提示完成暴力法與雙向 monotonic stack／邊界陣列版本；使用者指定再做一次、優化 monotonic stack，並另練 divide and conquer。
+  - [x] Brute Force：2026-10-19 完成逐柱尋找左右最近較矮邊界的 O(n²) 版本。
+  - [x] Monotonic Stack：2026-10-19 經提示完成雙向掃描、記錄左右邊界後計算面積的 O(n) 版本。
+  - [ ] Monotonic Stack：再做一次，練單一 stack；從左到右掃描，彈出時直接結算面積，最後處理剩餘項目。下次再理解其設計模式並實作，目前尚未完成。
+  - [ ] Divide and Conquer：另做此版本。
+    - [ ] Segment Tree for Divide and Conquer（保留原有延伸目標）
 - [ ] LeetCode 347. Top K Frequent Elements
   - [ ] Bucket sort：利用 frequency 在 1 到 n 的範圍內，時間 O(n)；先記下來，下次實作。
   - [ ] Quickselect (Hoare's selection algorithm)
@@ -281,8 +287,11 @@
   - Hash Table + Possible Start (check num - 1)
   - amortized analysis
 - [ ] LeetCode 416. Partition Equal Subset Sum
-  - 📌 標記原因: 2026-09-22 嘗試後尚未解出；曾嘗試 backtracking、排序累加，並查看 DP / Knapsack tags，尚未完成解法。
-  - 🎯 練習方式: 接續當時的 DP 思路，完成解題；完成前不標記為已解。
+  - **【必做】再做一次**，目前仍待獨立重建。
+  - 📌 標記原因: 2026-09-22 嘗試後未解出；2026-10-19 經提示完成 top-down memoization，但自述仍不理解，尚未能獨立重建。
+  - [x] 2026-10-19 經提示完成 `(index, remaining)` 的選／不選遞迴與 cache 版本。
+  - [ ] 前置練習：直接給定正整數陣列與 target，每個位置最多一次，判斷是否存在子集和恰好為 target；先理解原始 Subset Sum，再回到 416 的轉換。見 [背包 DP 筆記](../../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
+  - [ ] 理解與獨立重建：說清楚狀態語義、base case、每個元素最多用一次，以及不同歷史何時能共用 cache 答案；重做日期待確認。
 - [ ] LeetCode 494. Target Sum
   - [ ] Convert to Subset Sum problem
 - [ ] LeetCode 567. Permutation in String

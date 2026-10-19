@@ -16,7 +16,12 @@
 
 ### 0/1 Knapsack
 
+筆記：[Knapsack DP：物品使用限制、數值目標與偽多項式成本](../../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
+
+- 🟡 LeetCode 416. [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
+  - **判定型原型**：`dp(i, remaining)` 表示剩餘物品能否湊出目標；選／不選都前進到 `i + 1`。同一狀態共用答案；令 `T = sum / 2`，時間 O(nT)、cache 空間 O(nT)。見 [數值範圍如何形成可負擔的狀態表](../../Algorithms/Dynamic_Programming/Subset_Sum/01-Subset_Sum_and_NP_Completeness.md)。
 - LeetCode 494. Target Sum
+  - **計數型延伸**：由加減符號分配轉為子集和計數；與判定型的狀態值、聚合方式不同。
 
 ### Unbounded Knapsack
 

@@ -2,6 +2,8 @@
 
 本文檔詳細說明如何用動態規劃解決 Subset Sum 問題，包括從 2D DP 到 1D 空間優化的完整推導。
 
+若還不確定為何物品進度與剩餘目標可以形成表格，先讀 [候選進度 × 數值範圍與偽多項式時間](01-Subset_Sum_and_NP_Completeness.md)；本篇接續處理 bottom-up 與空間壓縮。
+
 ---
 
 ## 1. 標準 Subset Sum 問題

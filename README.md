@@ -56,6 +56,7 @@ These are the conceptual backbone of the repository. Read them alongside practic
 | Framework | The question it helps answer |
 |---|---|
 | [Define the answer before coding](Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md) | Can I turn the statement into an explicit, testable `ANSWER`? |
+| [Brute Force Design](Algorithms/Brute_Force/README.md) | How do I choose what to enumerate, establish a complete baseline, and derive optimizations from its work? |
 | [Brute Force → BUD ↔ BCR](Interview_Playbook/Problem_Solving_Strategies.md) | Where are the bottlenecks, unnecessary work, and duplicated work? What runtime target can I justify? |
 | [Problem Transformation](Meta_Frameworks/Problem_Transformation.md) | How do I translate a story into entities, relationships, constraints, and a computational model? |
 | [Quick Decision Map](Meta_Frameworks/Problem_Classification_Framework/02-Quick_Decision_Map.md) | How do output goals, input structure, constraints, and input size narrow my options? |
@@ -86,6 +87,7 @@ Each entry below gives you a concrete starting point and a deeper modeling quest
 | Recursion & Trees | [Recursion design principles](Algorithms/Design_Principles/Recursion/01-Recursion_Design_Principles.md) | [State design across recursive paradigms](Algorithms/Design_Principles/Recursion/State_Design_Across_Recursive_Paradigms.md) |
 | Backtracking | [Templates and patterns](Algorithms/Backtracking/01-Backtracking_Templates_and_Patterns.md) | [Decided vs. undecided candidates](Algorithms/Backtracking/03-Backtracking_Candidate_Modeling.md) |
 | Dynamic Programming | [From exhaustive search to DP](Algorithms/Dynamic_Programming/Fundamentals/02-Problem_Solving_Framework.md) | [State design](Algorithms/Dynamic_Programming/State_Design/01-Essentials.md) |
+| Knapsack DP | [Knapsack DP and Subset Sum foundations](Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md) | [Item progress, numeric state ranges, and pseudopolynomial time](Algorithms/Dynamic_Programming/Subset_Sum/01-Subset_Sum_and_NP_Completeness.md) |
 | Graph Search | [Graph problem-solving principles](Data_Structures/Graphs/Graph_Problem_Solving_Principles.md) | [Constructing implicit graph nodes](Data_Structures/Graphs/Implicit_Graph_Node_Construction.md) |
 | Greedy & Heaps | [Recognizing greedy approaches](Algorithms/Greedy/Greedy_Identification_and_Application.md) | [Heap decision-making](Data_Structures/Heaps/01-Heap_Decision_Making.md) |
 | Monotonic Stack & Queue | [Core concepts](Data_Structures/Stacks_and_Queues/Monotonic_Stacks/01-Monotonic_Stack_and_Queue.md) | [Search-space conversion](Data_Structures/Stacks_and_Queues/Monotonic_Stacks/02-Search_Space_Conversion.md) |
