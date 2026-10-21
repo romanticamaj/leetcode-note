@@ -2,6 +2,40 @@
 
 ---
 
+## 2026-10-21
+
+- 494. Target Sum（經提示練習，尚未掌握）
+- 103. Binary Tree Zigzag Level Order Traversal
+
+**心得**：
+- 494：recursive 到 top-down Counting DP 好寫，但是 bottom-up Counting DP 實在太難了……又是這種 bottom-up 超難的題目，第二次了（前一次是 91. Decode Ways）。
+  - 這個 range 很難想：要先想到總和，然後還要處理值域超過 index 的問題。完全是靠 gpt-6.1-sol 幫忙 review……目前這題還是不行，尚未能獨立完成。
+  - 複習重點：自己推導可達總和範圍、值域到下標的映射與轉移來源的邊界；本次經提示練習不代表已掌握。
+
+**LLM 點評**：
+model: GPT-6
+- 494：這次難點可拆成狀態語義、計算順序與值域表示。你貼出的 bottom-up 定義是「使用 nums[0..i] 得到總和 W 的方法數」；若 top-down 問的是「從 i 開始，剩下能完成 target 的方法數」，兩者不只遞迴／迴圈不同，也改了子問題的意義。可先保留原遞迴狀態與轉移，再依依賴安排填表，避免同時改變多個設計。此表依最後一次符號選擇分成兩類：選負號由 W+nums[i] 轉入，選正號由 W-nums[i] 轉入，累加的是來源狀態的全部方法數。nums[i]=0 時兩種符號仍是不同選擇，故即使來源格相同也要加兩次，初始化須用 +=。另須區分元素數 n、數學總和 W 與陣列下標 W+S；初版缺 target 在 [-S,S] 外直接回傳 0 的檢查，否則讀取答案時可能越界；後續已貼出補上檢查的正確版本，但仍保留獨立推導的複習目標。令 S=sum(nums)，時間、空間為 O(n(S+1))，屬依數值範圍計算的偽多項式界。與 LC 91 的共同學習點是「狀態定義與求值順序分開設計」，不是所有 bottom-up 都必須改成前綴狀態；見 [Counting DP](../Algorithms/Dynamic_Programming/Problem_Types/Counting_DP.md) 與 [Knapsack DP](../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
+
+---
+
+## 2026-10-20
+
+- 15. 3Sum
+- 91. Decode Ways
+
+**心得**：
+- 91：top-down DP 好做，從 recursive 推導過來，但是 bottom-up Counting DP 異常難做。加入複習清單，再推導一次。
+- 15：從 brute force 才有辦法推導出 O(n³) 到 O(n²) 的解法，關鍵是 brute force。這題最難的是移除重複的項目，要把 index 做聰明的移動。
+  - Running hashmap：time O(n²)、space O(n)。內層去重複的邏輯不好想，很不直覺，很像湊出來的。關鍵就是：要先確認存在後，才跳 index（這樣相同值才有機會被加入，真的很像湊出來的判斷式）。
+  - 後續狀態確認：sort + two pointers 已完成，目前只剩 no-sort 版本尚未嘗試，列入後續練習。
+
+**LLM 點評**：
+model: GPT-6
+- 91：前綴計數轉移正確；`dp[i]` 是前 i 個字元 `s[0..i)` 的解碼方式數，i 是長度／切點，答案為 `dp[n]`。依最後一個編碼使用 1 或 2 字元分組，兩類互斥且完整：單字元合法時加 `dp[i-1]`，雙字元在 10..26 時加 `dp[i-2]`。加的是來源前綴的全部解法數，不是 +1；每種前綴解法接上固定合法編碼，各產生一種新解法。`dp[0]=1` 表示空前綴有一種完成方式。尾端註解的 +1、`dp[n-1]` 與實作不符，須修正。Top-down 若使用 suffix 狀態，可以保留同一語義由右往左填表，不必同時改成 prefix；先固定狀態，再依依賴關係決定填表方向。`count==0` 提前結束在本題成立：若完整解碼跨過該切點，跨界兩位編碼的首位必為 1 或 2，可暫時獨立解碼，因此任何可延伸的完整答案都會使此前綴可解碼。時間 O(n)、空間 O(n)，substr/stoi 僅處理固定 2 字元。另有整數風險：46 個 1 接一個 0，最終答案為 1836311903，但長度 46 的前綴計數為 2971215073，超過 signed 32-bit；已以任意精度計算確認，不能只憑最終答案界認定 int 中間狀態安全。複習聚焦狀態、最後一步分類、空前綴基底與 0 的合法性；見 [Counting DP](../Algorithms/Dynamic_Programming/Problem_Types/Counting_DP.md)。
+- 15：這次推導從排序後枚舉 i < j < k 開始，先確保覆蓋所有三元組，再把第三層搜尋轉成補數存在性查詢：固定 i、j，只需判斷補數的最右 index 是否 > j，以預期 O(1) 查詢得到整體預期 O(n²) 時間、O(n) 額外空間。去重的依據是輸出比較 value 組合，而非 index 組合；同一層的目前值處理完後跳過相同值，下一層仍可使用另一個相同值的位置，因此不會漏掉含重複值的合法答案。對固定 i、j，找到一個合法補數位置即可，不應把所有相同補數的位置各輸出一次。你也已想到固定 i 後，在排序區間 [i+1, n-1] 用 two pointers 找和為 -nums[i]；目前未提供該版本程式碼，因此保留其獨立實作與去重驗證目標。這次經驗適合對照 [Brute Force 關鍵設計](../Algorithms/Brute_Force/README.md)：先建立正確枚舉，再辨認可替換的重複搜尋。 本日接著完成排序後的 running hashmap 版本：固定末端位置 end，在前綴用 set 查補數。查詢時 set 只包含目前位置之前看過的值，先查再加入可保證使用不同位置；找到答案前不能直接跳過相同值，因為相同值的第二個位置仍可能形成合法配對。固定 target 與目前值 x 後，補數 target-x 唯一；一旦已輸出這組值配對，後續相同 x 不會形成新答案，因此可跳到這段相同值的最後位置，再由 for 前進至下一個不同值。這是依輸出值等價性去重，有明確依據；重點是保留合法位置的機會，而不只是讓相同值加入 set。時間為預期 O(n²)，額外空間 O(n)，不含輸出；ans 為 member，重複呼叫時須清空。Running hashmap 已於 2026-10-20 完成，與先前誤記的九月完成狀態分開；稍後使用者亦確認 two pointers 完成，目前只剩 no-sort 待練。
+
+---
+
 ## 2026-10-19
 
 - 25. Reverse Nodes in k-Group
@@ -1123,7 +1157,7 @@ model: Sonnet 5
 
 ## 2026-09-07
 
-- 15. 3Sum（重做，通過 — running hash map）
+- 未完成：15. 3Sum（running hashmap 版本未實作；2026-10-20 更正先前誤記的完成狀態）
 - 17. Letter Combinations of a Phone Number
 - 33. Search in Rotated Sorted Array
 - 39. Combination Sum
@@ -1132,12 +1166,7 @@ model: Sonnet 5
 
 **心得**：
 - 15：我個人覺得是 medium 到 hard。思路一開始是先處理 duplicate，用 sort 解決之後，開始想 loop iterate (i, j) 這個 pair、再去找對應的 k。直覺是放一個 cache 做快速查找，但發現 hash map 一直沒辦法很好地建構出來，特別是去掉重複出現的 index 這部分，就是 build 不出來。
-- 15（第二次）：用 running hash map 做出來了。關鍵是透過 sort 去 eliminate output duplicate。running hash map 的關鍵是：candidate 一路往下找，最後那個補數用 hash map 來記 — 但它不是往後找，是找**前面曾經看過的**；沒有的話就繼續往下，而當下 traverse 到的那個人，就成為 running hash map 裡「曾經出現過」的項目。
-  ```
-  // [i, ...., j, ...]
-  //      *      <- 往前找有沒有出現過可用的人，有就把它當 k 取出來
-  ```
-  再過幾天要回來用 2-pointer 再做一次，也要熟悉「running hash map 是查看當前，然後它成為下一個 candidate 可查找的項目」這個核心概念。
+- 15（紀錄更正，2026-10-20）：先前「用 running hashmap 做出來了」是誤記，實際沒有寫過此版本。Running hashmap 與 sort + two pointers 都仍待實作；2026-10-20 完成的是先建立完整索引表、用補數最右 index 判斷合法位置的版本。
 - 17：大概沒什麼問題，就想到 backtracking。不小心又把 const 的 `unordered_map` 忘記用 `.at()` 存取，這樣 compile 會有問題。
 - 33：已經做了蠻多次，每次都還是錯得一塌糊塗。這次的關鍵點在於，它確實會有一個 inflection point，但用 inflection point 去切出左半跟右半其實很沒有效率。更直覺的做法是看哪一半是 normal sorted，然後去 sorted 的那一半裡找：在裡面就往那個方向前進；沒有的話就直接把另外一半 prune 掉。所以應該是判斷哪一半 sorted → 往 sorted 那半前進，其餘 prune。
 - 39：我的做法是「選或不選」。常見方式是直接做成多叉決策樹，我做的是二元決策樹。最麻煩的是時間複雜度計算：選或不選是 2 的某個次方，次方看有幾個元素，也就是 target 最大除以最小值，就知道指數級數了。一開始沒想到可以用數字的範圍來推導需要分叉幾次。之後可以再回來算一次，用 N 多叉決策樹的做法做一遍。
@@ -1145,7 +1174,7 @@ model: Sonnet 5
 
 **LLM 點評**：
 model: Fable 5.1
-- 15：hash map build 不出來，是因為方向選錯，不是 dedup 沒做好。「固定 (i, j)、用 map 找 k」在 2Sum 可行是因為它回傳 index 且只要一組；3Sum 回傳**值**、要**所有不重複組合**，map 這條路要同時處理「k 的 index ≠ i, j」和「值重複」，天生就髒。排序後的標準解只用一個 outer loop：固定 i，剩下區間用對向雙指針找 j, k — 就是 LC 11 那個 greedy 淘汰（`sum < 0` 丟左、`sum > 0` 丟右）。排序的價值不只是 dedup，**它讓 two pointer 成立**，所以 map 根本不需要；dedup 只剩三處 `while (nums[x] == nums[x-1]) skip`。看 `K-Sum_Problems/02-Three_Sum.md` 後重寫，通過後 16、18 是同一個模板。
+- 15（2026-10-20 更正）：先前將 hashmap 方向判為不適合 3Sum 的評論過度武斷。固定 i、j 後查詢補數，配合合法 index 判斷與值去重，可以得到正確解；2026-10-20 已提供完整索引表版本。Running hashmap 尚未實作，不應記為通過；sort + two pointers 也仍待實作。
 - 15（第二次）：你做出來的就是「固定 i，內層跑 Two Sum I（seen-set）」— 「往前找曾經看過的」正是 LC 1 的 seen-set 概念，只是把 target 換成 `-nums[i]`，所以 hash map 其實是內層 2Sum 的 cache，不是 3Sum 層級的。它和 two-pointer 一樣 O(N²)，差別在 dedup：two-pointer 靠有序跳過三處相同值就乾淨；seen-set 版要在 i 跳重複 + 內層用 set 收 (j, k) 值對，比較容易漏。二刷時兩種都寫，重點感受「排序讓 two-pointer 成立」這件事。
 - 17：queue（BFS）版不用另外寫。它和 backtracking 是同一棵 state space tree 的 BFS / DFS 兩種走法，沒有新的設計決策，面試也極少追問（這題的 follow-up 通常是 digits 為空、或 mapping 動態給定）。真正值得留意的是這題把 backtracking 的三要素展示得很乾淨：path、candidates 由 `digits[depth]` 決定、terminate 在 `depth == digits.size()`。`const` map 用 `.at()` 這個坑 repo 已有：`CPP_Reference/Container/Const_Map_and_Operator_Bracket.md`。
 - 33：你這次抓到的判準是對的，而且它和 153 是**兩種不同的 binary search**，混用就是你一直錯的原因。153 找 inflection point，predicate 是 `nums[m] > nums[r]`（跟右端比）；33 不找 inflection，每輪只問「`[l, m]` 是否 sorted」（`nums[l] <= nums[m]`），sorted 那半可以用普通 range check 決定 target 在不在，不在就整半 prune。**是「兩段 binary search」壓成一段**，不是「先找 pivot 再二分」。注意 `<=` 而非 `<`：`l == m` 時單元素也算 sorted，否則會漏。repo 的 `07-Inflection_Point_Binary_Search.md` 目前只收 153 / 162，這個「找 sorted 半邊」的 predicate 還沒寫進去，值得補一段對照。

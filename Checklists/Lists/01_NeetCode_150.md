@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：107 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：109 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -150,7 +150,7 @@
 - [ ] **213.** [House Robber II](https://leetcode.com/problems/house-robber-ii/) — `Medium`
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **647.** [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — `Medium`
-- [ ] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium`
+- [x] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium` · <sub>✔ 2026-10-20</sub>
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>✔ 2026-09-15</sub>
 - [x] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>✔ 2026-10-05</sub>
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
@@ -163,7 +163,7 @@
 - [x] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium` · <sub>✔ 2026-10-11</sub>
 - [ ] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium`
 - [ ] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium`
-- [ ] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` ✅
+- [x] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` ✅ · <sub>✔ 2026-10-21</sub>
 - [x] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
 - [ ] **329.** [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — `Hard`
 - [ ] **115.** [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) — `Hard`

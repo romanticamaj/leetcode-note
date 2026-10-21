@@ -62,7 +62,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Dynamic Programming
 
 - LeetCode 72. Edit Distance
-- 🟡 LeetCode 494. Target Sum
+- 🟡 🔴 LeetCode 494. Target Sum
+  - Counting Dynamic Programming，設計 value range 很難，但是 Top-Down DP 很直觀
 - 🟡 LeetCode 416. Partition Equal Subset Sum
   - **必做、再做一次。0/1 Knapsack／Subset Sum 判定型**：先練固定 target 的原始子集和，再回來獨立推導等和分割。每個元素最多選一次；由選／不選的暴力搜尋，推導 `(index, remaining)` 的 memoization。見 [背包 DP 筆記](../../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
 - 🟡 🔴 LeetCode 139. Word Break
@@ -73,6 +74,8 @@ A curated list of must-do problems that build core competencies. Completing thes
   - 需要特別設計的查表邏輯 (其實就是遞迴式的設計)
 - 🟡 🔴 LeetCode 124. Binary Tree Maximum Path Sum
   - Tree DP
+- 🟡 LeetCode 91. Decode Ways
+  - bottom-up counting dynamic programming 不好寫
 
 ## Kadane's Pattern DP
 
@@ -263,6 +266,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - k-gap pointer and revese (hard to implement and easy to forget to update links)
 - 🔴 🟡 LeetCode 124. Binary Tree Maximum Path Sum
   - Post-ordering + Tree Dynamic Programming
+- 🟡 🔴 LeetCode 15. 3Sum
+  - sort + hashmap or sort + two-pointer
 
 ### Followup Possible (Multiple Solutions)
 
@@ -271,7 +276,6 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 LeetCode 128. Longest Consecutive Sequence
 - LeetCode 1925. Count Square Sum Triples
 - 🟡 LeetCode 981. Time Based Key-Value Store
-- 🟡 LeetCode 494. Target Sum
 - 🟡 🔴 LeetCode 567. Permutation in String
 - 🟢 🟡 LeetCode 73. Set Matrix Zeroes
 - 🟡 🔴 LeetCode 131. Palindrome Partitioning
@@ -289,6 +293,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 LeetCode 189. Rotate Array
   - Reverse Trick
 - 🟢 LeetCode 392. Is Subsequence
+- 🟡 🔴 LeetCode 15. 3Sum
 
 ## LeetCode Solution Worth Reading
 
@@ -297,13 +302,14 @@ Problems that require integrating multiple advanced techniques. These are excell
 ## Gary's Choice
 
 - LeetCode 424. Longest Repeating Character Replacement
-- 🟡 LeetCode 494. Target Sum
+- 🟡 🔴 LeetCode 494. Target Sum
 - 🟡 🔴 LeetCode 567. Permutation in String
 - 🟡 LeetCode 131. Palindrome Partitioning
 - 🟡 LeetCode 417. Pacific Atlantic Water Flow
 - 🟡 LeetCode 678. Valid Parenthesis String
 - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
 - 🟡 🔴 LeetCode 124. Binary Tree Maximum Path Sum
+- 🟡 🔴 LeetCode 15. 3Sum
 
 ## Classic Optimization / Brain Development
 
@@ -316,3 +322,4 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 287. Find the Duplicate Number
   - Based on LeetCode 142.
 - 🟡 LeetCode 189. Rotate Array
+- 🟡 🔴 LeetCode 15. 3Sum

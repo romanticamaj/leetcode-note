@@ -8,6 +8,8 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | 494. Target Sum：經提示仍未掌握；獨立推導總和值域、offset 邊界與 bottom-up Counting DP | 2026-10-21 | — |
+| 待做 | 91. Decode Ways：重新推導 bottom-up Counting DP，釐清切點狀態與計數轉移 | 2026-10-20 | — |
 | 待做 | **【必做】416. Partition Equal Subset Sum：先練固定 target 的 Subset Sum，再獨立重做** | 2026-10-19 | — |
 | 待做 | 84. Largest Rectangle in Histogram：重做並練單一 stack，彈出時結算、掃描後處理剩餘項目 | 2026-10-19 | — |
 | 待做 | 84. Largest Rectangle in Histogram：Divide and Conquer | 2026-10-19 | — |
@@ -52,7 +54,9 @@
 | 待做 | 230. Kth Smallest Element in a BST：iterative inorder／Augmented BST | 2026-09-14 | — |
 | 待做 | 139. Word Break：樸素 DP 再到 Trie | 2026-09-11 | — |
 | 待做 | 146. LRU Cache：一次寫對 | 2026-09-11 | — |
-| 待做 | 15. 3Sum：sort + two pointers | 2026-09-07 | — |
+| 已完成 | 15. 3Sum：sort + two pointers（使用者確認） | 2026-10-20 | 2026-10-20 |
+| 已完成 | 15. 3Sum：running hashmap（九月完成紀錄誤記，本次完成） | 2026-10-20 | 2026-10-20 |
+| 待做 | 15. 3Sum：no-sort follow-up | 2026-10-20 | — |
 | 待做 | 33. Search in Rotated Sorted Array：獨立重寫 | 2026-09-07 | — |
 | 待做 | 39. Combination Sum：多叉決策樹 | 2026-09-07 | — |
 | 待做 | 53. Maximum Subarray：獨立推導 Kadane | 2026-09-07 | — |
@@ -64,7 +68,7 @@
 | 已完成 | 235. Lowest Common Ancestor of a BST：迭代版 | 2026-10-10 | 2026-10-10 |
 | 已完成 | 45. Jump Game II：O(n) 壓縮 BFS | 2026-09-17 | 2026-09-18 |
 | 已完成 | 42. Trapping Rain Water：two pointers | 2026-09-18 | 2026-09-18 |
-| 已完成 | 15. 3Sum：running hash map | 2026-09-05 | 2026-09-07 |
+
 
 **使用說明**:
 
@@ -177,8 +181,16 @@
   - [ ] Union Find - Disjoint Set
 - [ ] LeetCode 1089. Duplicate Zeros
 - [ ] LeetCode 1770. Maximum Score from Performing Multiplication Operations
+- [ ] LeetCode 91. Decode Ways
+  - 📌 標記原因: top-down 從 recursion 容易推導，但 bottom-up Counting DP 仍不直覺。
+  - 🏷️ 技巧分類: Counting DP / Prefix Length / Cut Position
+  - 重練目標: 獨立定義狀態，從最後一個編碼長度推導轉移，說明為何累加前綴方案數而非 +1，以及空前綴的計數基底；驗證含 0 的情況與中間計數溢位風險。
+  - 重做日期: —
 - [ ] LeetCode 15. 3Sum
-  - 📌 標記原因: 思路盲點 — 一開始沒釐清輸出是「值」不是 index，走錯 hash map 方向；後來用 running hash map 過，但 2-pointer 版還沒寫
+  - 📌 標記原因: 九月 running hashmap「已完成」是誤記；2026-10-20 先完成完整索引表版本，接著完成排序後 running hashmap。使用者確認 sort + two pointers 亦已完成，目前僅 no-sort 尚未嘗試。
+  - [x] Running hashmap：2026-10-20 完成；經提示修正內層去重，找到配對後才跨過相同值。
+  - [x] Sort + two pointers：2026-10-20 使用者確認完成。
+  - [ ] No-sort follow-up：探索不排序時如何確保合法位置與輸出去重。
   - 🏷️ 技巧分類: Sort + Two Pointers / Dedup
   - 📅 二刷: 2026-09-13（用 2-pointer 寫，重點感受「排序讓 two-pointer 成立」）
 - [ ] LeetCode 236. Lowest Common Ancestor of a Binary Tree
@@ -293,6 +305,9 @@
   - [ ] 前置練習：直接給定正整數陣列與 target，每個位置最多一次，判斷是否存在子集和恰好為 target；先理解原始 Subset Sum，再回到 416 的轉換。見 [背包 DP 筆記](../../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
   - [ ] 理解與獨立重建：說清楚狀態語義、base case、每個元素最多用一次，以及不同歷史何時能共用 cache 答案；重做日期待確認。
 - [ ] LeetCode 494. Target Sum
+  - 📌 標記原因: 2026-10-21 經提示練習，使用者表示完全靠 gpt-6.1-sol review，目前仍不行、尚未獨立完成。尤其難以自行想到用總和界定 range，再處理 offset 與 index 越界；不能視為已掌握。Recursive → top-down Counting DP 較直覺，bottom-up 則與 LC 91 是第二次遇到同類障礙。
+  - 重練目標: 分開處理狀態語義與填表順序；解釋 W±nums[i] 的來源、0 的兩種符號計數、值域 offset 與 target 越界檢查。
+  - [ ] 獨立重建：從 S=sum(nums) 推導 [-S,S]，說明為何配置 2S+1 格、如何映射 W+S，並區分 target 範圍與轉移來源範圍；重做日期：—。
   - [ ] Convert to Subset Sum problem
 - [ ] LeetCode 567. Permutation in String
   - [ ] Sliding Window (Frequency Counting)

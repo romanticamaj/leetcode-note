@@ -159,6 +159,7 @@
 | 🔥 **238. Product of Array Except Self** | 「輸出陣列不算，能 O(1) 額外空間嗎？」 | 回傳陣列先存 prefix，再用一個變數 running suffix 掃回來 |
 | 🔥 **73. Set Matrix Zeroes** | 「能 O(1) 空間嗎？」 | 用第一行/第一列當標記，額外一個變數記第一列本身 |
 | 🔥 **138. Copy List with Random Pointer** | 「能 O(1) 額外空間嗎？」 | 把複本交錯插在原節點後面 → 接 random → 拆開 |
+| **15. 3Sum** | 「不排序也能做嗎？」（待練習） | 思考合法 index 與 value triplet 去重；與 running hashmap、sort + two pointers 分別追蹤，見 [複習清單](09_Problem_Review.md) |
 | 🔥 **215. Kth Largest Element** | 「不用堆呢？」 | Quickselect，平均 O(n)、最壞 O(n²)，隨機化 pivot |
 | 🔥 **230. Kth Smallest in BST** | 「如果 BST 頻繁被修改？」 | 節點上 augment **subtree size**，查詢降到 O(h) |
 | 🔥 **141. Linked List Cycle** | 「為什麼快慢指針一定會相遇？」「起點怎麼找？」 | 相對速度差 1 必相遇；142 的數學推導 |

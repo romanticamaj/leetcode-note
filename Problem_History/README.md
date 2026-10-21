@@ -7,6 +7,7 @@
 | 題目 | 歷史／數學原型 | 記憶線索 |
 |---|---|---|
 | [4. Median of Two Sorted Arrays](LC_0004_Median_of_Two_Sorted_Arrays.md) | 1976 年 Shamos 記載、Jefferson 私人通信；後續 selection／co-ranking 與平行合併研究 | 先固定前綴總數，再找兩個輸入各提供多少 |
+| [15. 3Sum](LC_0015_3Sum.md) | 經典教材的暴力法改進；1995 年 3SUM-hard 框架與後續判定問題研究 | 固定部分選擇，再降低剩餘搜尋成本；合法性看 index、去重看 value |
 | [31. Next Permutation](LC_0031_Next_Permutation.md) | 字典序排列生成；Sedgewick 回溯 1812 年文獻，1960 年代電腦演算法，1994 年 STL 提案 | 最長非遞增 suffix 已最大；最小幅度增加 pivot，再讓 suffix 最小 |
 | [124. Binary Tree Maximum Path Sum](LC_0124_Binary_Tree_Maximum_Path_Sum.md) | 樹直徑與最大子陣列的相關原型；至少 2012 年已有 LeetCode 同題公開紀錄，最初來源未知 | 向上交出單支路徑，在最高點合併兩支 |
 | [134. Gas Station](LC_0134_Gas_Station.md) | Gasoline Puzzle、Gasoline Lemma；相關的 Cycle Lemma | 從前綴和的最低谷出發 |

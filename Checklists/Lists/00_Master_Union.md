@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：160 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：163 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -195,8 +195,8 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **71.** [Simplify Path](https://leetcode.com/problems/simplify-path/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-17</sub>
 - [x] **77.** [Combinations](https://leetcode.com/problems/combinations/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-18</sub>
 - [x] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-18</sub>
-- [ ] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium` · <sub>NC</sub>
-- [ ] **103.** [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) — `Medium` · <sub>TI150</sub>
+- [x] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-20</sub>
+- [x] **103.** [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-21</sub>
 - [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium` · <sub>TI150</sub>
 - [ ] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium` · <sub>TI150</sub>
 - [ ] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium` · <sub>TI150</sub>
@@ -239,7 +239,7 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [ ] **743.** [Network Delay Time](https://leetcode.com/problems/network-delay-time/) — `Medium` · <sub>NC</sub>
 - [ ] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium` · <sub>NC</sub>
 - [ ] **427.** [Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/) — `Medium` · <sub>TI150</sub>
-- [ ] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` · <sub>NC</sub> ✅
+- [x] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-21</sub>
 - [ ] **452.** [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) — `Medium` · <sub>TI150</sub>
 - [ ] **787.** [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) — `Medium` · <sub>NC</sub>
 - [ ] **92.** [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) — `Medium` · <sub>TI150</sub>
