@@ -6,6 +6,7 @@
 
 - 494. Target Sum（經提示練習，尚未掌握）
 - 103. Binary Tree Zigzag Level Order Traversal
+- 416. Partition Equal Subset Sum（經提示修正 bottom-up，仍待獨立重做）
 
 **心得**：
 - 494：recursive 到 top-down Counting DP 好寫，但是 bottom-up Counting DP 實在太難了……又是這種 bottom-up 超難的題目，第二次了（前一次是 91. Decode Ways）。
@@ -14,6 +15,7 @@
 
 **LLM 點評**：
 model: GPT-6
+- 416：本次 bottom-up 嘗試的轉移式正確：dp[i][w] 表示從 nums[0..i] 選取子集，能否恰好湊到 w；選／不選分別來自 dp[i-1][w-nums[i]] 與 dp[i-1][w]。主要問題是 base case 與表格維度：n 應與元素數 nums.size() 一致，目前減 1 卻仍拿來配置列數，單元素偶數輸入會配置零列後存取 dp[0]；即使一般等分判定可利用互補性省略一個元素，這也不是本次表格設計已說明的假設。需設定 dp[0][0]=true，讓不選第一個元素的後續分支能從空集合出發；只有 nums[0]<=target 時才能寫入 dp[0][nums[0]]，否則越界。以 [1,2,1] 為例，缺少空集合基底會漏掉單選 2 的合法方案；[3,1] 則在第一列初始化越界。尾端註解 dp[0,target]=true 也不符合狀態，target 不一定只用第一個元素就能達成。後續已依提示修正為 n=nums.size()、dp[0][0]=true，並以 if 保護 dp[0][nums[0]] 的存取，最終貼出的 bottom-up 程式正確。已釐清「比較式只決定寫入值，if 才能保護下標存取」；也討論了以前 i 個元素定義狀態，可用第 0 列表示空問題、統一第一個元素的轉移。這次經提示修正，不將待獨立重建的複習目標標為完成。見 [Knapsack DP](../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
 - 494：這次難點可拆成狀態語義、計算順序與值域表示。你貼出的 bottom-up 定義是「使用 nums[0..i] 得到總和 W 的方法數」；若 top-down 問的是「從 i 開始，剩下能完成 target 的方法數」，兩者不只遞迴／迴圈不同，也改了子問題的意義。可先保留原遞迴狀態與轉移，再依依賴安排填表，避免同時改變多個設計。此表依最後一次符號選擇分成兩類：選負號由 W+nums[i] 轉入，選正號由 W-nums[i] 轉入，累加的是來源狀態的全部方法數。nums[i]=0 時兩種符號仍是不同選擇，故即使來源格相同也要加兩次，初始化須用 +=。另須區分元素數 n、數學總和 W 與陣列下標 W+S；初版缺 target 在 [-S,S] 外直接回傳 0 的檢查，否則讀取答案時可能越界；後續已貼出補上檢查的正確版本，但仍保留獨立推導的複習目標。令 S=sum(nums)，時間、空間為 O(n(S+1))，屬依數值範圍計算的偽多項式界。與 LC 91 的共同學習點是「狀態定義與求值順序分開設計」，不是所有 bottom-up 都必須改成前綴狀態；見 [Counting DP](../Algorithms/Dynamic_Programming/Problem_Types/Counting_DP.md) 與 [Knapsack DP](../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
 
 ---

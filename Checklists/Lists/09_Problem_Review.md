@@ -10,7 +10,7 @@
 |:---|:---|:---:|:---:|
 | 待做 | 494. Target Sum：經提示仍未掌握；獨立推導總和值域、offset 邊界與 bottom-up Counting DP | 2026-10-21 | — |
 | 待做 | 91. Decode Ways：重新推導 bottom-up Counting DP，釐清切點狀態與計數轉移 | 2026-10-20 | — |
-| 待做 | **【必做】416. Partition Equal Subset Sum：先練固定 target 的 Subset Sum，再獨立重做** | 2026-10-19 | — |
+| 待做 | **【必做】416. Partition Equal Subset Sum：先練固定 target 的 Subset Sum，再獨立重做** | 2026-10-21 | — |
 | 待做 | 84. Largest Rectangle in Histogram：重做並練單一 stack，彈出時結算、掃描後處理剩餘項目 | 2026-10-19 | — |
 | 待做 | 84. Largest Rectangle in Histogram：Divide and Conquer | 2026-10-19 | — |
 | 待做 | 399. Evaluate Division：改用 [Weighted Union-Find](../../Algorithms/Union_Find/10-Weighted_Union_Find_with_Path_Compression.md) 練習比值關係維護 | 2026-10-18 | — |
@@ -300,6 +300,7 @@
   - amortized analysis
 - [ ] LeetCode 416. Partition Equal Subset Sum
   - **【必做】再做一次**，目前仍待獨立重建。
+  - 2026-10-21 bottom-up 重做經提示修正列數 n、空集合 base case 與 nums[0] 超過 target 時的初始化越界，最終程式正確；獨立重建目標仍待完成，重做日期保持空白。
   - 📌 標記原因: 2026-09-22 嘗試後未解出；2026-10-19 經提示完成 top-down memoization，但自述仍不理解，尚未能獨立重建。
   - [x] 2026-10-19 經提示完成 `(index, remaining)` 的選／不選遞迴與 cache 版本。
   - [ ] 前置練習：直接給定正整數陣列與 target，每個位置最多一次，判斷是否存在子集和恰好為 target；先理解原始 Subset Sum，再回到 416 的轉換。見 [背包 DP 筆記](../../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
