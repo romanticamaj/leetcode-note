@@ -8,6 +8,7 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | 137. Single Number II：單次掃描、無 array，以 ones / twos 保存各 bit 的 mod 3 狀態；自行推導與實作 | 2026-10-22 | — |
 | 待做 | 494. Target Sum：經提示仍未掌握；獨立推導總和值域、offset 邊界與 bottom-up Counting DP | 2026-10-21 | — |
 | 待做 | 91. Decode Ways：重新推導 bottom-up Counting DP，釐清切點狀態與計數轉移 | 2026-10-20 | — |
 | 待做 | **【必做】416. Partition Equal Subset Sum：先練固定 target 的 Subset Sum，再獨立重做** | 2026-10-21 | — |
@@ -292,7 +293,8 @@
 - [x] LeetCode 45. Jump Game II（2026-09-18）
   - [x] Extreme State Compression BFS
 - [ ] LeetCode 137. Single Number II
-  - [ ] Bit Manipulation + State Machine + Bit Invaraint
+  - [ ] Bit Manipulation + State Machine + Bit Invariant：單次掃描、無 array，用 `ones` / `twos` 兩個變數保存各 bit 的 mod 3 狀態；之後自行推導轉移、確認更新順序並實作。
+  - 📌 標記原因：2026-10-22 經提示完成逐位計數陣列版；目前覺得狀態機版難以思考，先留作 follow-up，尚未完成，重做日期保持空白。
 - [ ] LeetCode 12. Integer to Roman
   - [ ] Phase Based Traversal (Greedy to select possible number)
 - [ ] LeetCode 128. Longest Consecutive Sequence

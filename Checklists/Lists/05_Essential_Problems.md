@@ -11,6 +11,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 378. Kth Smallest Element in a Sorted Matrix
 - 🟡 LeetCode 981. Time Based Key-Value Store
 - 🟢 LeetCode 69. Sqrt(x)
+- 🟢 🟡 LeetCode 162. Find Peak Element
 
 ## Binary Search on Value Space
 
@@ -124,7 +125,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Bit Manipulation
 
-- LeetCode 137. Single Number II
+- 🟢 🟡 LeetCode 137. Single Number II
 - LeetCode 191. Number of 1 Bits
 - LeetCode 338. Counting Bits
   - Bit manipulation + bottom-up DP；移除最低位，或清除最低位的 1，重用較小數字的答案。
@@ -272,7 +273,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 ### Followup Possible (Multiple Solutions)
 
 - LeetCode 45. Jump Game II
-- LeetCode 137. Single Number II
+- 🟢 🟡 LeetCode 137. Single Number II
 - 🟡 🔴 LeetCode 128. Longest Consecutive Sequence
 - LeetCode 1925. Count Square Sum Triples
 - 🟡 LeetCode 981. Time Based Key-Value Store
@@ -323,3 +324,4 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Based on LeetCode 142.
 - 🟡 LeetCode 189. Rotate Array
 - 🟡 🔴 LeetCode 15. 3Sum
+- 🟢 🟡 LeetCode 162. Find Peak Element

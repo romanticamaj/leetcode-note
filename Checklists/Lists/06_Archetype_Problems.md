@@ -148,6 +148,7 @@
 
 - LeetCode 338. Counting Bits
   - 清除最低位的 1：`dp[x] = dp[x & (x - 1)] + 1`；移除一個固定貢獻，剩下仍是同一種子問題。
+- 🟢 🟡 LeetCode 137. Single Number II
 
 ---
 

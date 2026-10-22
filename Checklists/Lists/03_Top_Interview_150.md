@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：111 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：115 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -13,7 +13,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **88.** [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) — `Easy` · <sub>✔ 2026-10-03</sub>
 - [x] **27.** [Remove Element](https://leetcode.com/problems/remove-element/) — `Easy` · <sub>✔ 2026-09-30</sub>
 - [x] **26.** [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) — `Easy` · <sub>✔ 2026-09-30</sub>
-- [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium`
+- [x] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium` · <sub>✔ 2026-10-22</sub>
 - [x] **169.** [Majority Element](https://leetcode.com/problems/majority-element/) — `Easy` · <sub>✔ 2026-09-15</sub>
 - [x] **189.** [Rotate Array](https://leetcode.com/problems/rotate-array/) — `Medium` · <sub>✔ 2026-10-09</sub>
 - [x] **121.** [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) — `Easy` · <sub>✔ 2026-09-05</sub>
@@ -94,7 +94,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [ ] **92.** [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) — `Medium`
 - [x] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard` · <sub>✔ 2026-10-19</sub>
 - [x] **19.** [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — `Medium` · <sub>✔ 2026-09-17</sub>
-- [ ] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium`
+- [x] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium` · <sub>✔ 2026-10-22</sub>
 - [x] **61.** [Rotate List](https://leetcode.com/problems/rotate-list/) — `Medium` · <sub>✔ 2026-10-17</sub>
 - [ ] **86.** [Partition List](https://leetcode.com/problems/partition-list/) — `Medium` ✅
 - [x] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — `Medium` · <sub>✔ 2026-09-11</sub>
@@ -176,7 +176,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 - [x] **35.** [Search Insert Position](https://leetcode.com/problems/search-insert-position/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [x] **74.** [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — `Medium` · <sub>✔ 2026-09-20</sub>
-- [ ] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium`
+- [x] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium` · <sub>✔ 2026-10-22</sub>
 - [x] **33.** [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
 - [x] **34.** [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) — `Medium` · <sub>✔ 2026-09-26</sub>
 - [x] **153.** [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
@@ -195,7 +195,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **191.** [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **136.** [Single Number](https://leetcode.com/problems/single-number/) — `Easy` · <sub>✔ 2026-09-16</sub>
-- [ ] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` ✅
+- [x] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` ✅ · <sub>✔ 2026-10-22</sub>
 - [ ] **201.** [Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/) — `Medium`
 
 ## Math (6)

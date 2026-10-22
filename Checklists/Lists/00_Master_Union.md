@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：163 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：167 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -197,10 +197,10 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **399.** [Evaluate Division](https://leetcode.com/problems/evaluate-division/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-18</sub>
 - [x] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-20</sub>
 - [x] **103.** [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-21</sub>
-- [ ] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium` · <sub>TI150</sub>
-- [ ] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium` · <sub>TI150</sub>
-- [ ] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium` · <sub>TI150</sub>
-- [ ] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` · <sub>TI150</sub> ✅
+- [x] **80.** [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-22</sub>
+- [x] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-22</sub>
+- [x] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-22</sub>
+- [x] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` · <sub>TI150</sub> ✅ · <sub>✔ 2026-10-22</sub>
 - [ ] **417.** [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) — `Medium` · <sub>NC</sub> ✅
 - [ ] **209.** [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) — `Medium` · <sub>TI150</sub>
 - [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium` · <sub>NC</sub>
