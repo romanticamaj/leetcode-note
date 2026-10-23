@@ -295,6 +295,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Reverse Trick
 - 🟢 LeetCode 392. Is Subsequence
 - 🟡 🔴 LeetCode 15. 3Sum
+- 🟢 🟡 LeetCode 120. Triangle
+  - Dynamic Programing with different space tradeoff
 
 ## LeetCode Solution Worth Reading
 

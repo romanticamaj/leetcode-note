@@ -8,6 +8,7 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | 106. Construct Binary Tree from Inorder and Postorder Traversal：再做一次，搭配 hashmap 獨立實作預期 O(n) 解法；預建 value → inorder index，維持兩種 traversal 區間語義與參數順序 | 2026-10-23 | — |
 | 待做 | 137. Single Number II：單次掃描、無 array，以 ones / twos 保存各 bit 的 mod 3 狀態；自行推導與實作 | 2026-10-22 | — |
 | 待做 | 494. Target Sum：經提示仍未掌握；獨立推導總和值域、offset 邊界與 bottom-up Counting DP | 2026-10-21 | — |
 | 待做 | 91. Decode Ways：重新推導 bottom-up Counting DP，釐清切點狀態與計數轉移 | 2026-10-20 | — |
@@ -328,6 +329,7 @@
   - [ ] Backtracking
   - [ ] Dynamic Programming
 - [ ] LeetCode 417. Pacific Atlantic Water Flow
+  - 2026-10-22 已練反向 DFS／destination as source；程式邊界初始化漏掉 Pacific 左下角與 Atlantic 右上角，待確認修正，暫不標記複習完成。
 - [ ] LeetCode 143. Reorder List
   - [ ] Space O(1)
 - [ ] LeetCode 22. Generate Parentheses

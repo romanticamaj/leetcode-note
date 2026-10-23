@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：167 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：171 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -201,11 +201,11 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **162.** [Find Peak Element](https://leetcode.com/problems/find-peak-element/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-22</sub>
 - [x] **82.** [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-22</sub>
 - [x] **137.** [Single Number II](https://leetcode.com/problems/single-number-ii/) — `Medium` · <sub>TI150</sub> ✅ · <sub>✔ 2026-10-22</sub>
-- [ ] **417.** [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **209.** [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) — `Medium` · <sub>TI150</sub>
+- [x] **417.** [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-22</sub>
+- [x] **209.** [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-22</sub>
 - [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium` · <sub>NC</sub>
-- [ ] **106.** [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) — `Medium` · <sub>TI150</sub>
-- [ ] **120.** [Triangle](https://leetcode.com/problems/triangle/) — `Medium` · <sub>TI150</sub>
+- [x] **106.** [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-23</sub>
+- [x] **120.** [Triangle](https://leetcode.com/problems/triangle/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-23</sub>
 - [ ] **394.** [Decode String](https://leetcode.com/problems/decode-string/) — `Medium` · <sub>H100</sub> ✅
 - [ ] **433.** [Minimum Genetic Mutation](https://leetcode.com/problems/minimum-genetic-mutation/) — `Medium` · <sub>TI150</sub>
 - [ ] **435.** [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — `Medium` · <sub>NC</sub> ✅

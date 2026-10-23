@@ -2,12 +2,33 @@
 
 ---
 
+## 2026-10-23
+
+- 106. Construct Binary Tree from Inorder and Postorder Traversal
+- 120. Triangle
+
+**心得**：
+- 106：Divide and conquer，不是太難……但是一開始放錯 argument 位置。
+  - **再做一次**：搭配 hashmap 預建 value → inorder index，獨立實作預期 O(n) 的解法；目前待做。
+
+- 120：標準的 dynamic programming，上下都算好做。但是就要注意 invalid 位置的查表，要從 index check 去避開。
+
+**LLM 點評**：
+model: GPT-6
+- 106：拆分思路正確：postorder 對應區間的最後一個值決定 root，再由它在 inorder 的位置確定左右子樹的範圍與大小。數值不重複使 value → inorder index 的查表結果唯一；若原本每個子問題都線性尋找 root，最壞時間 O(n²)，預先建表並以 index 區間傳遞、避免切片複製，可降為預期 O(n) 時間，查表空間 O(n)，另有 O(h) 遞迴堆疊。Argument 放錯可藉由固定兩種 traversal 的參數順序、明確命名區間，並確認兩區間長度相同且表示同一棵子樹來降低風險；未提供程式碼，不判定具體錯位原因。Hashmap 版本保留為待完成目標。
+
+- 120：要區分兩種 invalid：索引越界必須在讀取前檢查；索引合法但沒有對應可達狀態，則可用無限大表示，不能初始化成免費的 0。這次一維前綴 DP 的右端 dp[j] 位於已配置陣列內，但上一列沒有該 parent，屬後者；最終以全陣列 INT_MAX、僅 dp[0]=0 初始化，正確統一左右邊界。每輪更新前 dp[j] 是上一列正上方答案、prev 是上一列左上方答案，先 prev=dp[j] 再覆寫才能保留依賴；每個有效位置至少有一個可達 parent，所以 min 不會選到 INT_MAX 再相加。相較原本從當前位置走到底的 suffix 狀態，這版改成從頂端走到當前位置的 prefix 狀態，末列取最小；n 列時時間 O(n²)、額外空間 O(n)。原 top-down 的 cache 檢查另須查 cache[i].contains(j)，不能把兩個座標都查在外層 map。
+
+---
+
 ## 2026-10-22
 
 - 80. Remove Duplicates from Sorted Array II
 - 162. Find Peak Element（經提示解出）
 - 82. Remove Duplicates from Sorted List II
 - 137. Single Number II（經提示完成逐位計數版）
+- 417. Pacific Atlantic Water Flow
+- 209. Minimum Size Subarray Sum
 
 **心得**：
 - 80：[...checked, unchecked] + two pointer technique。好像滿經典的，只要想清楚 invariant 就算好做。
@@ -18,12 +39,18 @@
 
 - 137：經提示想到用 array<int,32> 記錄每個 bit 的次數，再取 % 3 重建答案。One-loop、用 ones / twos 當 state 的做法太 crazy 了，現在有點難思考，先當 follow-up，之後 problem review 再做；目前尚未完成此版本。
 
+- 417：DFS + caching，起點要換位置，destination as source。
+
+- 209：滿經典的 sliding window，要特別注意 update global answer 的時機（這次把 update 跟 fix 做在一起）。
+
 **LLM 點評**：
 model: GPT-6
 - 80：關鍵確實是先定義區間語義：read 指向下一個待檢查元素，write 指向下一個寫入位置；nums[0..write) 是原始前綴 [0..read) 壓縮後的合法結果，每個值最多保留兩次，而 [write..read) 是已掃描但不屬於有效輸出的區域，不必維護內容。因此 checked 不等於全部保留。常見寫法在 write<2 或 nums[read]!=nums[write-2] 時接納元素；排序保證相同值連續，若與有效結果倒數第二個值相同，再保留就會超過兩次。維持 write<=read，寫入不會破壞未讀資料；read 每輪前進，時間 O(n)、額外空間 O(1)。後續提供的 counter 版本在非空、非遞減排序輸入下正確：每輪開始時 nums[0..k) 是原始前綴 [0..i) 的合法壓縮結果，nums[k-1] 仍等於上一個已掃描值；count 是該值在原始輸入當前連續段的已掃描次數，可能超過 LIMIT，並非已保留次數。相同值超額時雖不寫入，最後保留值仍相同；遇到不同值便重設為 0 再加 1，新段第一個元素必定寫入。寫入前 k<=i，故不破壞尚未讀取資料。k 是下一個寫入位置兼有效長度，註解 last position to place 應改為 next write position / valid length。空陣列會回傳 1；若要支援空輸入，需先回傳 0。此版本已足夠清楚，不必為了省 count 強制改寫。
 - 162：這次提示補上的是「用局部坡度證明某一半必有答案」的觀察；之後你已自行說出沿上坡方向必遇到 peak（持續上升則邊界是 peak，否則在首次下降前形成 peak），並推導 [i,j] 至少包含一個 peak 的 invariant 與 i=mid+1 / j=mid 的更新。不是要求整段有序，也不是尋找唯一 peak；捨棄側仍可能有答案，只要保留側必有一個即可。更完整的存在性證明可維持區間端點高於各自外側鄰居（原陣列外視為負無限大），比較 mid 與 mid+1 後更新仍保留此性質；區間最大值因此必是原陣列的 peak。這次是經提示完成，尚不能據此認定已能獨立想到此觀察，但也不能從一次卡住斷定未來不可能推導。後續學習重點是從「哪半不可能有答案」擴展到「哪半能保證存在答案」。未提供完成版本程式碼，未驗證具體實作。
 - 82：程式正確，時間 O(n)、額外空間 O(1)。排序讓相同值形成連續段；每輪開始時，duplicate 表示目前這一段在 head 之前是否已看過相同值，與下一個節點相同時設為 true，直到離開該段才結算並重設。ptr 是最後保留節點（尚未保留時為 dummy），dummy.next 到 ptr 的鏈段只含已確認出現一次的完整段；ptr->next 在掃描中仍可能連到待排除節點，需最後收尾。迴圈以 head 與 head->next 判斷段落結束，尾端沒有右鄰居，因此迴圈後依 duplicate 結算最後節點；空串列也能安全處理。最後 if (ptr) ptr->next=nullptr 是必要的斷尾，例如 [1,2,2] 若不斷尾仍會保留重複尾段。每輪 head 前進一步，寫入只修改已掃描節點的 next，不影響後續掃描。單次表現不足以判定精神狀態，但這份程式可觀察到 dummy、輸出尾指標、連續段旗標與收尾都有處理到；與 LC 80 共通的是把掃描位置和有效輸出邊界分開。
 - 137：XOR 記錄各 bit 次數的奇偶性，無法消掉出現三次的數；逐位計數取 % 3 可消掉三倍貢獻並保留答案位元。固定 32 位時，計數陣列的額外空間 O(32)=O(1)，時間 O(32n)=O(n)，已符合題目漸近界。交換迴圈只會讓計數器可重用，並非本次指定的單次掃描狀態解法；ones / twos 狀態機版本保留為待完成的獨立目標。
+- 417：關鍵是將「每格能否流到海洋」轉成「從各海洋邊界反向找哪些格子能流到它」；正向走向較低或等高，反向必須走向較高或等高。兩個海洋分別維護可達標記，最後取交集。若 caching 指的是這些標記，其作用是記錄已證明的可達性並避免重複展開，不必視為一般遞迴回傳值的 memoization；等高格子可以成環，標記應在展開鄰居前完成。每格對每個海洋最多展開一次，標準反向 DFS 時間 O(mn)、標記與最壞遞迴堆疊空間 O(mn)。後續程式的反向高度條件、分海洋標記與先標記再展開都正確，但邊界初始化漏掉 Pacific 的左下角與 Atlantic 的右上角：第二個 for 排除兩端，而第一個 for 只替 Pacific 初始化上排、Atlantic 初始化下排。反例 [[2,2],[1,2]] 中左下角直接接觸兩海，卻未被 Pacific 標記；已用獨立正向可達性搜尋核對。第二個 for 應遍歷 i=0..m-1，角落重複呼叫由 visited 擋掉即可，單列／單欄也適用。總時間是 O(mn)，不能把每個邊界起點都視為重新走完整張圖，因為同一海洋所有起點共用 visited；額外空間 O(mn)，含最壞 DFS stack。此版尚待確認邊界修正；見 [Destination-as-Source Reachability](../Algorithms/Design_Principles/Transformation_Patterns/Destination_as_Source_Reachability.md)。
+- 209：把 update 放在 fix 裡是合理的：若以 while (sum>=target) 持續縮窗，應在移除左端元素前，用目前仍合法的窗口長度更新最小值；縮到不合法才離開迴圈，這時不能直接把該窗口當候選答案。全正數保證右擴增加總和、左縮減少總和，使左端能單向前進；每個元素最多加入與移除一次，時間 O(n)、額外空間 O(1)。更新位置取決於 fix 停下來時的 invariant，並非一律放在 fix 前或後：若改以「移除左端後仍合法」作為縮窗條件，則可在 fix 後確認合法再更新。未提供程式碼，此處只評估觀念；見 [Fix Condition from Invariant](../Algorithms/Sliding_Window/03-Fix_Condition_from_Invariant.md)。
 
 ---
 
