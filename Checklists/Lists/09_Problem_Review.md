@@ -8,6 +8,10 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | 355. Design Twitter：回來獨立實作 k-way merge＋max-heap；目前已實作固定大小 min-heap 的 Top-k 版本，此版本尚未完成 | 2026-10-24 | — |
+| 待做 | **【必做】394. Decode String：再做一次，獨立重建解析狀態、stack 各層上下文與片段合併順序，分析字串複製成本** | 2026-10-24 | — |
+| 待做 | 394. Decode String：獨立實作 recursive 版本 | 2026-10-24 | — |
+| 待做 | 394. Decode String：獨立實作 two-stack 版本 | 2026-10-24 | — |
 | 待做 | 106. Construct Binary Tree from Inorder and Postorder Traversal：再做一次，搭配 hashmap 獨立實作預期 O(n) 解法；預建 value → inorder index，維持兩種 traversal 區間語義與參數順序 | 2026-10-23 | — |
 | 待做 | 137. Single Number II：單次掃描、無 array，以 ones / twos 保存各 bit 的 mod 3 狀態；自行推導與實作 | 2026-10-22 | — |
 | 待做 | 494. Target Sum：經提示仍未掌握；獨立推導總和值域、offset 邊界與 bottom-up Counting DP | 2026-10-21 | — |
@@ -233,8 +237,10 @@
 - [ ] LeetCode 135. Candy
   - [ ] Constraint Decomposition for Greedy or DP
 - [ ] LeetCode 394. Decode String
-  - [ ] Two Stacks
-  - [ ] Recursion
+  - **【必做】再做一次**：2026-10-24 覺得異常困難，stack 操作與解析狀態仍需重練；本次單一 stack＋sentinel 版經修正完成，不代表以下其他版本已完成。
+  - [ ] 獨立重建解析狀態、每層上下文與合併順序，確認 string 建構方式並分析字串複製成本。
+  - [ ] Two Stacks：獨立實作 two-stack 版本，尚未完成。
+  - [ ] Recursion：獨立實作 recursive 版本，尚未完成。
 - [ ] LeetCode 777. Swap Adjacent in LR String
 - [ ] LeetCode 308. Range Sum Query 2D - Mutable
   - [ ] Binary Indexed Tree for 2D

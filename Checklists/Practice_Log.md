@@ -2,6 +2,31 @@
 
 ---
 
+## 2026-10-24
+
+- 394. Decode String
+- 355. Design Twitter
+- 433. Minimum Genetic Mutation
+- 435. Non-overlapping Intervals
+
+**心得**：
+- 394：異常難欸……stack 處理不好做，finite state machine 也要想。
+  - **這題一定要再做一次**：重新釐清解析狀態與 stack 操作，目前待做。
+
+- 355：結果竟然是考 top-k priority_queue。
+
+- 435：基本上算是跟 gpt-6.1-sol 討論，確認我的想法，因為我不想做白工。Greedy：sort by end time，最早結束的人留著，讓後面空間更大；維護最後保留區間的 end time，下一個 start 比它小就不能用。
+
+**LLM 點評**：
+model: GPT-6
+- 394：難點同時包含字元分類／解析進度，以及巢狀括號中各層上下文的保存與恢復；可以用狀態轉移整理數字、字母與括號的處理，但一般不定深度的巢狀結構仍需 stack 或遞迴記憶，單靠有限狀態不夠。這次單一 stack＋sentinel 的修正版在合法輸入下解碼邏輯正確；已修正 string{1,c} 選到 initializer_list、產生兩字元的問題，應用 string(1,c)，以及最後組合時必須恢復 stack 的反向彈出順序。複雜度不能只依輸入長度 n 寫 O(n)：反覆前插會複製累積字串，即使純字母輸入也可能 Θ(n²)；還須計入解碼輸出長度 L，空間 O(n+L)。後續重練聚焦每層保存什麼、何時合併、片段順序與字串複製成本；原有 Two Stacks／Recursion 目標仍待完成，不以本次單一 stack 版本代替。
+
+- 355：Top-k 可以用固定大小 min-heap 維持最新 10 則：依 timestamp 排序，超過 10 則就移除最舊者；取出時由舊到新，最後需反轉。另一種 k-way merge 才是用 max-heap 保存各作者的最新候選，每次取出全域最新者，再補同作者的前一則。先前未看到 priority_queue 程式碼就將心得指定為 k-way merge，過度推定，已更正。前面的全域時間線版本已修正追蹤方向，但查詢最壞 O(T)，使用者回報超時；heap 方向取決於維持 top 10 淘汰最舊，或直接逐次取最新，不能只由題目名稱決定。
+
+- 435：程式正確。按 end 遞增排序，endTime 始終表示最後一個保留區間的結束時間，count 表示已移除數量；start<endTime 才算重疊，端點相接可以保留。重疊時只增加 count、不更新 endTime，保留已選且不晚結束的區間。Exchange argument：將最佳解的第一個可選區間換成最早結束者，不會妨礙原先後續選擇，故最大保留數不減；最少移除數就是總數減最大保留數。這次最早結束的 greedy 想法由使用者先提出，討論用於確認與補強證明。排序 O(n log n)、掃描 O(n)；掃描本身額外空間 O(1)，常見 std::sort 實作計入遞迴堆疊為 O(log n)。見 [Exchange Argument](../Proof_Techniques/Exchange_Argument.md)。
+
+---
+
 ## 2026-10-23
 
 - 106. Construct Binary Tree from Inorder and Postorder Traversal

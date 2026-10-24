@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：110 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：112 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -95,7 +95,7 @@
 - [x] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium` · <sub>✔ 2026-10-15</sub>
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [x] **621.** [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — `Medium` · <sub>✔ 2026-10-14</sub>
-- [ ] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium`
+- [x] **355.** [Design Twitter](https://leetcode.com/problems/design-twitter/) — `Medium` · <sub>✔ 2026-10-24</sub>
 - [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>✔ 2026-09-27</sub>
 
 ## Backtracking (10)
@@ -186,7 +186,7 @@
 
 - [x] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
-- [ ] **435.** [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — `Medium` ✅
+- [x] **435.** [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — `Medium` ✅ · <sub>✔ 2026-10-24</sub>
 - [x] **252.** [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) 🔒 — `Easy` · <sub>✔ 2026-10-09</sub>
 - [ ] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` ✅
 - [ ] **1851.** [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) — `Hard`

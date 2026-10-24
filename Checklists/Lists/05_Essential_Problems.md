@@ -163,6 +163,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## String Matching
 
 - LeetCode 28. Find the Index of the First Occurrence in a String
+- 🟡 LeetCode 394. Decode String
+  - Stack + Finite State Machine
 
 ## String Manipulation
 
@@ -179,6 +181,18 @@ A curated list of must-do problems that build core competencies. Completing thes
   - 空白 → 可選符號 → 數字；解析階段決定下一個字元能否被接受。
 - 🟡 LeetCode 54. Spiral Matrix
   - 方向是四種狀態；下一格越界或已走過時，轉到下一個方向。
+- 🟡 LeetCode 394. Decode String
+  - Stack + Finite State Machine
+
+## Priority Queue
+
+- 🟡 LeetCode 355. Design Twitter
+  - Top-k：用固定大小 min-heap 維持最新 10 則，超過容量時淘汰最舊者；取出後反轉成由新到舊。另可用 max-heap 做 k-way merge，兩者的 heap 語義不同。
+
+## Stack Operations
+
+- 🟡 LeetCode 394. Decode String
+  - 巢狀上下文的保存與恢復、sentinel 邊界、片段彈出與合併順序；注意字串組合成本。
 
 ## Stack Invariant Design (Monotonic)
 
