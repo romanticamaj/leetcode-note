@@ -31,6 +31,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟢 🟡 LeetCode 26. Remove Duplicates from Sorted Array
 - 🟡 🔴 LeetCode 31. Next Permutation
   - 找出最長非遞增 suffix，再調整 pivot 與 suffix。
+- 🟡 LeetCode 151. Reverse Words in a String
 
 ## Linked List
 
@@ -173,9 +174,11 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 8. String to Integer (atoi)
 - LeetCode 13. Roman to Integer
 - 🟡 🔴 LeetCode 43. Multiply Strings
-  - Medium 偏難；反轉後按位累加乘積，再統一處理進位與前導零。
+  - 反轉後按位累加乘積，再統一處理進位與前導零。
 - LeetCode 165. Compare Version Numbers
 - LeetCode 58. Length of Last Word
+- 🟡 LeetCode 151. Reverse Words in a String
+  - Two Pointers + In-place + Reverse
 
 ## Finite State Machine (FSM)
 
@@ -332,6 +335,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 LeetCode 114. Flatten Binary Tree to Linked List
 - 🟡 🔴 LeetCode 124. Binary Tree Maximum Path Sum
 - 🟡 🔴 LeetCode 15. 3Sum
+- 🟡 LeetCode 151. Reverse Words in a String
 
 ## Classic Optimization / Brain Development
 

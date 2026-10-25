@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：120 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：121 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -30,7 +30,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **12.** [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) — `Medium` ✅ · <sub>✔ 2026-10-16</sub>
 - [x] **58.** [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) — `Easy` ✅ · <sub>✔ 2026-10-01</sub>
 - [x] **14.** [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) — `Easy` · <sub>✔ 2026-09-29</sub>
-- [ ] **151.** [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) — `Medium`
+- [x] **151.** [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) — `Medium` · <sub>✔ 2026-10-25</sub>
 - [x] **6.** [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) — `Medium` · <sub>✔ 2026-10-10</sub>
 - [x] **28.** [Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) — `Easy` ✅ · <sub>✔ 2026-10-01</sub>
 - [ ] **68.** [Text Justification](https://leetcode.com/problems/text-justification/) — `Hard`

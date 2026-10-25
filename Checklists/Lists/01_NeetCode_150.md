@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：112 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：113 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -147,7 +147,7 @@
 - [x] **70.** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) — `Easy` · <sub>✔ 2026-09-04</sub>
 - [x] **746.** [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) — `Easy` · <sub>✔ 2026-10-15</sub>
 - [x] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium` · <sub>✔ 2026-09-21</sub>
-- [ ] **213.** [House Robber II](https://leetcode.com/problems/house-robber-ii/) — `Medium`
+- [x] **213.** [House Robber II](https://leetcode.com/problems/house-robber-ii/) — `Medium` · <sub>✔ 2026-10-25</sub>
 - [x] **5.** [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
 - [ ] **647.** [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — `Medium`
 - [x] **91.** [Decode Ways](https://leetcode.com/problems/decode-ways/) — `Medium` · <sub>✔ 2026-10-20</sub>
