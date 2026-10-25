@@ -8,6 +8,9 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | 117. Populating Next Right Pointers in Each Node II：獨立實作迭代版，真正 O(1) 額外空間（無 queue、無遞迴堆疊）；沿當前層 next 鏈走訪，以固定數量指標建立下一層 | 2026-10-25 | — |
+| 已完成 | 117. Populating Next Right Pointers in Each Node II：不使用額外 queue 的 recursive follow-up（經提示修正為先右後左；實際呼叫堆疊 O(h)） | 2026-10-25 | 2026-10-25 |
+| 待做 | **【必做】117. Populating Next Right Pointers in Each Node II：獨立重做 recursive 版本，重建 parent 更新 children、先右後左與右側 next 鏈已建立的 invariant；驗證稀疏樹跨層／跨子樹連結** | 2026-10-25 | — |
 | 待做 | 355. Design Twitter：回來獨立實作 k-way merge＋max-heap；目前已實作固定大小 min-heap 的 Top-k 版本，此版本尚未完成 | 2026-10-24 | — |
 | 待做 | **【必做】394. Decode String：再做一次，獨立重建解析狀態、stack 各層上下文與片段合併順序，分析字串複製成本** | 2026-10-24 | — |
 | 待做 | 394. Decode String：獨立實作 recursive 版本 | 2026-10-24 | — |

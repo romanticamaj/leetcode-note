@@ -2,6 +2,24 @@
 
 ---
 
+## 2026-10-25
+
+- 117. Populating Next Right Pointers in Each Node II
+
+**心得**：
+- 117：沒 trace 到 queue 裡面還是會有下一個 level 的 node……腦中要一直思考每個工具的狀態。
+  - 後續完成不使用額外 queue 的 recursive 版本（經提示修正為先右後左）；一般空間分析仍計入 O(h) 呼叫堆疊。
+  - 太酷了……這題的遞迴：divide and conquer。
+    1. 先知道 root 的 next 可以用，從更新 child 的 link 的視角來設計。
+    2. conquer 順序要對，invariant：進入某個節點處理 children 前，該節點及其右側所需的同層 next 鏈已建立。
+  - **再做一次**：獨立重建先右後左的處理順序與 invariant，並用跨越多個無 child 節點的稀疏樹驗證；目前待做。
+
+**LLM 點評**：
+model: GPT-6
+- 117：這份 BFS 程式正確。每層先固定 count=q.size()，處理該層第 i 個節點並 pop 後，queue 前段是本層剩餘節點、後段是已加入的下一層節點；只有 i<count-1 時，q.front() 才保證是同層右鄰居。最後一個必須設 next=nullptr，即使 queue 還有下一層節點也不能接過去。時間 O(n) 正確，queue 空間應為 O(w)，w 為最大層寬，最壞 O(n)，不是 O(log n)；掃描中可能同時保存相鄰兩層的部分節點，但仍為 O(w)。本日接著完成不依賴 queue 的 recursive 版本；題目明確允許遞迴且不計 implicit stack，但一般空間分析仍須計入實際呼叫堆疊，不能把「無 queue」直接等同真正 O(1) 空間。見 [題目 follow-up](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)。 後續 recursive 程式的 parent 更新 children 觀點正確：用當前 next 鏈找到右側第一個有 child 的 parent，連接最右 child。初版先左後右會讀到尚未接好的右側鏈；先右後左修正此依賴，提供的稀疏樹反例已確認。使用者以 divide and conquer 理解遞迴拆分；更精確的執行結構是先連 children，再做 right-first preorder DFS，左右子樹因跨樹 next 鏈而有依賴，並非互相獨立的子問題。時間 O(n)：每個 parent 處理一次，每層搜尋時沒有 child 的連續區段只會由其左側最近有 child 的 parent 掃過一次，合計線性；一般空間 O(h)，最壞 O(n)。本次經提示完成與日後獨立重做分開追蹤。
+
+---
+
 ## 2026-10-24
 
 - 394. Decode String

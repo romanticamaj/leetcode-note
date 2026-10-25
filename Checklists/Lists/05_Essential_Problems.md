@@ -88,12 +88,12 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 122. Best Time to Buy and Sell Stock II
 - LeetCode 45. Jump Game II
-- LeetCode 435. Non-overlapping Intervals
+- 🟢 🟡 LeetCode 435. Non-overlapping Intervals
 - 🟡 🔴 LeetCode 134. Gas Station
 
 ## Intervals
 
-- LeetCode 435. Non-overlapping Intervals
+- 🟢 🟡 LeetCode 435. Non-overlapping Intervals
 - 🟡 LeetCode 763. Partition Labels
 
 ## Divide and Conquer
@@ -144,6 +144,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Tree Algorithms
 
+- 🟡 🔴 LeetCode 117. Populating Next Right Pointers in Each Node II
+  - Parent 更新 children 的 next；先右後左的遞迴依賴，同層鏈必須在使用前建立。
 - LeetCode 230. Kth Smallest Element in a BST
 
 ## Math & Number Theory
@@ -249,6 +251,8 @@ Problems that require integrating multiple advanced techniques. These are excell
 
 ### Combined Techniques
 
+- 🟡 🔴 LeetCode 117. Populating Next Right Pointers in Each Node II
+  - Tree DFS + Linked List Traversal + Invariant；沿 parent 的 next 鏈尋找下一個 child，right-first preorder 確保跨子樹鏈已備妥。
 - LeetCode 327. Count of Range Sum
   - Divide and Conquer + Prefix Sum + Merge Sort + Two Pointers
 - LeetCode 212. Word Search II
@@ -318,6 +322,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 
 ## Gary's Choice
 
+- 🟡 🔴 LeetCode 117. Populating Next Right Pointers in Each Node II
 - LeetCode 424. Longest Repeating Character Replacement
 - 🟡 🔴 LeetCode 494. Target Sum
 - 🟡 🔴 LeetCode 567. Permutation in String
