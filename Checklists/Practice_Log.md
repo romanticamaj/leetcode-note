@@ -2,17 +2,33 @@
 
 ---
 
+## 2026-10-28
+
+- 373. Find K Pairs with Smallest Sums
+
+**心得**：
+- 373：k-way merge + heap。跟 gpt-6.1-sol 一路討論：暴力法先 sort／heap 取 top-k 沒問題，可是不用把 m*n 看完。使用 non-decreasing sorted 特性，總是取下一個最小的，只考慮下一個候選。這就是 k-way merge！heap 存 index，comparator 透過 nums1、nums2 比較總和。
+
+**LLM 點評**：
+model: GPT-6
+- 373：在兩陣列非空且 k 不超過配對總數的前提下，提供的程式正確。固定 i 後，(i,0)、(i,1)…形成總和非遞減的一列；heap 始終保存每列尚未取出的第一組，因此全域下一個最小值必在 heap 中。取出 (i,j) 後只補 (i,j+1)，每個索引配對只生成一次。這是利用有序性延後生成候選，不是證明後續配對永遠不會入選。初始化依 i 遞增 push (i,0)，總和非遞減，在標準 binary min-heap 中新元素不需上浮，故此特定初始化可為 O(m)；一般任意順序逐一 push 的上界則為 O(m log(m+1))。後續 k 次取出／補入為 O(k log(m+1))，heap 額外空間 O(m)，輸出另需 O(k)。while(k--) 依賴有足夠配對的前提，通用版本可加 !pq.empty()；nums2 為空也應先返回。還可只初始化前 min(m,k) 列：更後面的列首已有至少 k 個不大的前列列首，因此不影響取得任意合法的前 k 組。
+
+---
+
 ## 2026-10-27
 
 - 221. Maximal Square
 - 684. Redundant Connection
+- 289. Game of Life
 
 **心得**：
 - 221：做了這麼多次，還是覺得這題很難……再做一次，加入 Problem Review、Gary's Choice 與 Essential Problems 的 DP 分類。
 - 684：先參考筆記的 Union-Find 怎麼寫，因為有點忘了。加入 Union-Find 原型題與 Essential Problems。
+- 289：用 even / odd 來區分 simulation 後的值，難在要 in-place 處理。
 
 **LLM 點評**：
 model: GPT-6
+- 289：重點是同步更新的語意：第一趟計算每格下一代時，所有鄰居都必須讀取上一代狀態，不能被已更新的格子污染。因此一格需暫存新舊兩個狀態，並明確定義奇偶代表哪一代；常見編碼為 old + 2 * next，此時奇偶（% 2）保留舊值，/ 2 取出新值，第二趟才統一還原。未提供程式碼，不推定本次採用的具體編碼。這是以值域編碼保留原資料的 in-place 技巧；固定檢查八個鄰居，兩趟合計 O(mn) 時間、O(1) 額外空間。見 [In-Place Marking：一格存兩個值](../Algorithms/Design_Principles/In_Place_Marking.md)。
 - 684：本次參考筆記複習 Union-Find 寫法後完成。程式在「樹加一條邊」的本題條件下正確：首次 connected 為 true 的邊已是唯一環中輸入順序最後的邊，可直接回傳。原程式 break 後由後往前搜尋也能得到同一條邊：其後的邊若兩端都在當時的連通分量內，就會產生第二個環，與題設矛盾；但此掃描與 representation 均可省略。只有同分量不能在一般圖中區分環邊與橋，此論證依賴題設與輸入順序。實作有 path compression，但沒有 union by rank/size，不宜直接標為嚴格 O(n)；若加入按秩／大小合併，整體為 O(n α(n)) 均攤時間、O(n) 空間。見 [Union-Find 推薦實作](../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。
 - 221：本次經 code review 修正後完成逐邊長 boolean DP。每輪 width 開始時，dp[i][j] 表示以 (i,j) 為右下角、邊長 width-1 的正方形是否全為 1；左上、左側、上方三個小正方形加當前格，恰好覆蓋目標正方形，故偏移固定為一格，不隨 width 增加。主要卡點是狀態定位與座標轉移的一致性，另需處理字元 '1'、邊長 1 的答案與全 0 情況。時間 O(mn · min(m,n))、額外空間 O(mn) 正確；後續完成 O(mn) 時間的 top-down memoization：將每個位置各邊長的可行性改存為最大可行邊長，以左上角為定位，取右、下、右下三者最小值加一。最後版本在判斷當前格之前必定呼叫三個方向，因此從 (0,0) 出發也能走訪所有位置；當前格為 0 只令本格答案為 0，不阻斷走訪。cache 為 O(mn)，遞迴堆疊為 O(m+n)，總空間 O(mn)。已完成討論後的版本與日後獨立重做分開追蹤。
 

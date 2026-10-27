@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：124 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：126 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -56,7 +56,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` ✅ · <sub>✔ 2026-09-10</sub>
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
-- [ ] **289.** [Game of Life](https://leetcode.com/problems/game-of-life/) — `Medium`
+- [x] **289.** [Game of Life](https://leetcode.com/problems/game-of-life/) — `Medium` · <sub>✔ 2026-10-27</sub>
 
 ## Hashmap (9)
 
@@ -186,7 +186,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — `Medium` ✅ · <sub>✔ 2026-09-21</sub>
 - [ ] **502.** [IPO](https://leetcode.com/problems/ipo/) — `Hard`
-- [ ] **373.** [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) — `Medium` ✅
+- [x] **373.** [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) — `Medium` ✅ · <sub>✔ 2026-10-28</sub>
 - [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>✔ 2026-09-27</sub>
 
 ## Bit Manipulation (6)

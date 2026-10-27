@@ -8,6 +8,7 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | 373. Find K Pairs with Smallest Sums：獨立重做 k-way merge；從隱式有序序列推導每列一個候選的 invariant、同列補位與 min-heap comparator | 2026-10-28 | — |
 | 待做 | **【必做】221. Maximal Square：再做一次，獨立重建固定右下角、逐邊長 DP 的狀態與三個小正方形的覆蓋證明；檢查邊長 1、全 0 與座標偏移** | 2026-10-27 | — |
 | 待做 | **【高優先級】542. 01 Matrix：獨立推導並實作 two-pass DP（distance transform）；說明為何一次掃描不足、兩次足夠，以及無障礙四鄰接網格的適用條件** | 2026-10-26 | — |
 | 待做 | 117. Populating Next Right Pointers in Each Node II：獨立實作迭代版，真正 O(1) 額外空間（無 queue、無遞迴堆疊）；沿當前層 next 鏈走訪，以固定數量指標建立下一層 | 2026-10-25 | — |
@@ -104,6 +105,13 @@
 ---
 
 ## 題目列表
+
+- [ ] **K-way Merge（多路合併）專題重練**
+  - 🔗 前置閱讀：[K-way Merge 的演算法與文獻歷史](../../Problem_History/LC_0373_Find_K_Pairs_with_Smallest_Sums.md)。
+  - [ ] 373. Find K Pairs with Smallest Sums：不看本次討論，獨立辨識隱式有序列、實作 heap frontier，證明每次取出的配對是全域剩餘最小值。
+  - [ ] 23. Merge k Sorted Lists：練 heap 版本，與原有 bottom-up D&C 目標分開驗收。
+  - [ ] 355. Design Twitter：完成既有待做的 max-heap k-way merge 目標，不以固定大小 min-heap Top-k 版本代替。
+  - 📌 重點：多條有序來源、每來源只保留一個前端、取出後只補同來源；區分「來源數 r」與「取出數 q」，分析 O(r + q log(r+1))（線性建堆）與 O(r) heap 空間。
 
 - [ ] **【必做】LeetCode 221. Maximal Square**
   - 📌 標記原因：做了這麼多次，還是覺得這題很難；本次經 code review 修正後完成逐邊長 boolean DP，並在討論後完成 O(mn) top-down 版本，仍需獨立重做。

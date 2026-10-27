@@ -13,6 +13,7 @@
 | [134. Gas Station](LC_0134_Gas_Station.md) | Gasoline Puzzle、Gasoline Lemma；相關的 Cycle Lemma | 從前綴和的最低谷出發 |
 | [189. Rotate Array](LC_0189_Rotate_Array.md) | 文字編輯器的區塊搬移、三次反轉；Bentley 記載 1971 年已有使用 | 把 rotation 看成 A\|B → B\|A |
 | [310. Minimum Height Trees](LC_0310_Minimum_Height_Trees.md) | Jordan 的樹中心、Harary 的剝葉證明、網路設施選址與 LeetCode 解答的術語混用 | 剝葉或取直徑中點，找最遠距離最小的 center |
+| [373. Find K Pairs with Smallest Sums](LC_0373_Find_K_Pairs_with_Smallest_Sums.md) | 磁帶外部排序、多路合併、heap 與 tournament tree；最初發明者與 LeetCode 直接來源未確認 | 每個有序來源只保留一個前端，取出誰就向誰補下一個 |
 
 ## 檔名與組織
 

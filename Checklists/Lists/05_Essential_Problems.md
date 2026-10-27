@@ -199,6 +199,15 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 355. Design Twitter
   - Top-k：用固定大小 min-heap 維持最新 10 則，超過容量時淘汰最舊者；取出後反轉成由新到舊。另可用 max-heap 做 k-way merge，兩者的 heap 語義不同。
 
+### K-way Merge（多路合併）
+
+概念整理：[K-way Merge／Heap Frontier](../../Meta_Frameworks/State_Transition_Algorithm_Atlas.md#merge-k)。
+演算法推導與文獻歷史：[373：K-way Merge 與外部排序](../../Problem_History/LC_0373_Find_K_Pairs_with_Smallest_Sums.md)。
+
+- 🟡 LeetCode 373. Find K Pairs with Smallest Sums
+  - **隱式有序序列的合併**：固定 i，(i,0)、(i,1)…的總和非遞減；min-heap 只保留每列尚未取出的第一組，取出 (i,j) 後補 (i,j+1)，不必先生成全部 m*n 組配對。
+  - 相關題：23. Merge k Sorted Lists（直接合併有序串列）、355. Design Twitter（各作者依時間排序，用 max-heap 合併最新候選；此版本仍待練習）。既有參考：[Heap 使用場景](../../Data_Structures/Heaps/01-Heap_Decision_Making.md)。
+
 ## Stack Operations
 
 - 🟡 LeetCode 394. Decode String
@@ -268,7 +277,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 - LeetCode 642. Design Search Autocomplete System
   - Trie + DFS + Priority Queue
 - LeetCode 373. Find K Pairs with Smallest Sums
-  - Merge K Sorted Lists + Priority Queue
+  - K-way Merge + Priority Queue：將配對空間拆成多條隱式有序序列，見上方 K-way Merge 分類。
 - LeetCode 438. Find All Anagrams in a String
   - Sliding Window + Hashmap + matchedCount
 - LeetCode 443. String Compression
