@@ -8,6 +8,8 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | **【必做】221. Maximal Square：再做一次，獨立重建固定右下角、逐邊長 DP 的狀態與三個小正方形的覆蓋證明；檢查邊長 1、全 0 與座標偏移** | 2026-10-27 | — |
+| 待做 | **【高優先級】542. 01 Matrix：獨立推導並實作 two-pass DP（distance transform）；說明為何一次掃描不足、兩次足夠，以及無障礙四鄰接網格的適用條件** | 2026-10-26 | — |
 | 待做 | 117. Populating Next Right Pointers in Each Node II：獨立實作迭代版，真正 O(1) 額外空間（無 queue、無遞迴堆疊）；沿當前層 next 鏈走訪，以固定數量指標建立下一層 | 2026-10-25 | — |
 | 已完成 | 117. Populating Next Right Pointers in Each Node II：不使用額外 queue 的 recursive follow-up（經提示修正為先右後左；實際呼叫堆疊 O(h)） | 2026-10-25 | 2026-10-25 |
 | 待做 | **【必做】117. Populating Next Right Pointers in Each Node II：獨立重做 recursive 版本，重建 parent 更新 children、先右後左與右側 next 鏈已建立的 invariant；驗證稀疏樹跨層／跨子樹連結** | 2026-10-25 | — |
@@ -102,6 +104,22 @@
 ---
 
 ## 題目列表
+
+- [ ] **【必做】LeetCode 221. Maximal Square**
+  - 📌 標記原因：做了這麼多次，還是覺得這題很難；本次經 code review 修正後完成逐邊長 boolean DP，並在討論後完成 O(mn) top-down 版本，仍需獨立重做。
+  - [ ] 明確定義每輪開始時 dp 的邊長與右下角語意，推導三個小正方形加當前格的充分必要條件。
+  - [ ] 獨立處理邊長 1 的答案、全 0、單列／單欄、字元比較，以及隨邊長變動的迴圈起點與固定座標偏移。
+  - [ ] 說明時間 O(mn · min(m,n))、額外空間 O(mn)；再獨立推導以最大可行邊長取代 boolean 邊長維度的 O(mn) 版本，說明局部狀態與全域答案的差別，以及遇到 0 時是否仍走訪其他位置。
+  - 🏷️ 技巧分類：Grid DP / 狀態定義 / 幾何覆蓋
+
+- [ ] **【高優先級】LeetCode 542. 01 Matrix：Two-pass DP / Distance Transform**
+  - 📌 標記原因：已完成 Multi-source BFS；two-pass DP 尚未練習，優先補足以掃描順序傳播距離的思考方式。
+  - [ ] 獨立定義距離狀態、初始化與兩次掃描的轉移；釐清第二趟使用第一趟已更新的結果。
+  - [ ] 解釋一次掃描為何不足、兩次為何足夠；利用無障礙、四方向等成本移動下的 Manhattan 最短路徑結構證明，不能直接推廣到有障礙的網格。
+  - [ ] 實作並分析 O(mn) 時間；區分距離表的 O(mn) 儲存與表以外的 O(1) 工作空間。
+  - 🏷️ 技巧分類：DP / Two-pass Relaxation / Distance Transform
+  - 🔗 相關筆記：[雙向約束分解](../../Algorithms/Design_Principles/Bidirectional_Constraint_Decomposition.md)、[State Decomposition](../../Algorithms/Dynamic_Programming/Advanced_Techniques/State_Decomposition.md)。這些是相關的方向分解概念；本題第二趟承接第一趟結果，不是兩個獨立方向求解後合併。
+  - 🔗 已完成解法：[Multi-source BFS](../../Algorithms/BFS/MultiSource_BFS_Thinking_Framework.md)。
 
 - [ ] LeetCode 43. Multiply Strings
   - 📌 標記原因: 第一次花 35m 46s，過程中持續依靠提示，還沒獨立完成；體感 Medium 偏難。

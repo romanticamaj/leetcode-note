@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：178 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：184 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -212,13 +212,13 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **117.** [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-25</sub>
 - [x] **213.** [House Robber II](https://leetcode.com/problems/house-robber-ii/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-25</sub>
 - [x] **151.** [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-25</sub>
-- [ ] **542.** [01 Matrix](https://leetcode.com/problems/01-matrix/) — `Medium` · <sub>G75</sub>
-- [ ] **90.** [Subsets II](https://leetcode.com/problems/subsets-ii/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium` · <sub>TI150</sub>
+- [x] **542.** [01 Matrix](https://leetcode.com/problems/01-matrix/) — `Medium` · <sub>G75</sub> · <sub>✔ 2026-10-26</sub>
+- [x] **90.** [Subsets II](https://leetcode.com/problems/subsets-ii/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-26</sub>
+- [x] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-26</sub>
 - [ ] **122.** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) — `Medium` · <sub>TI150</sub> ✅
-- [ ] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium` · <sub>TI150</sub>
-- [ ] **221.** [Maximal Square](https://leetcode.com/problems/maximal-square/) — `Medium` · <sub>TI150</sub>
-- [ ] **684.** [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — `Medium` · <sub>NC</sub>
+- [x] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-26</sub>
+- [x] **221.** [Maximal Square](https://leetcode.com/problems/maximal-square/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-27</sub>
+- [x] **684.** [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-27</sub>
 - [ ] **289.** [Game of Life](https://leetcode.com/problems/game-of-life/) — `Medium` · <sub>TI150</sub>
 - [ ] **373.** [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) — `Medium` · <sub>TI150</sub> ✅
 - [ ] **560.** [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) — `Medium` · <sub>H100</sub>

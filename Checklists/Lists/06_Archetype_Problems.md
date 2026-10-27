@@ -43,11 +43,19 @@
 
 ### BFS Shortest Path
 
+#### Multi-source BFS（多源 BFS）
+
+- 🟡 LeetCode 542. [01 Matrix](https://leetcode.com/problems/01-matrix/)
+  - 將所有 `0` 同時作為距離為 0 的起點入隊，逐層向外擴展；每格首次被發現時，就得到到最近 `0` 的最短距離。入隊時標記，避免重複加入；m × n 矩陣的時間與最壞額外空間皆為 O(mn)。
+
 ### Topological Sort
 
 - 🟢 🟡 LeetCode 210. Course Schedule II
 
 ### Union-Find
+
+- 🟡 LeetCode 684. [Redundant Connection](https://leetcode.com/problems/redundant-connection/)
+  - **無向圖增量判環原型**：依輸入順序加入邊；兩端已在同一連通分量時，當前邊閉合唯一環，也就是環中輸入順序最後的邊。見 [Union-Find 推薦實作](../../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。
 
 ---
 

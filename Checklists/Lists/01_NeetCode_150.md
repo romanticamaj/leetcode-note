@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：113 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：115 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -104,7 +104,7 @@
 - [x] **39.** [Combination Sum](https://leetcode.com/problems/combination-sum/) — `Medium` · <sub>✔ 2026-09-07</sub>
 - [x] **40.** [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) — `Medium` ✅ · <sub>✔ 2026-10-16</sub>
 - [x] **46.** [Permutations](https://leetcode.com/problems/permutations/) — `Medium` · <sub>✔ 2026-09-07</sub>
-- [ ] **90.** [Subsets II](https://leetcode.com/problems/subsets-ii/) — `Medium` ✅
+- [x] **90.** [Subsets II](https://leetcode.com/problems/subsets-ii/) — `Medium` ✅ · <sub>✔ 2026-10-26</sub>
 - [x] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — `Medium` · <sub>✔ 2026-09-17</sub>
 - [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **131.** [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — `Medium` ✅ · <sub>✔ 2026-10-02</sub>
@@ -130,7 +130,7 @@
 - [x] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium` · <sub>✔ 2026-10-11</sub>
 - [ ] **261.** [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) 🔒 — `Medium` ✅
 - [ ] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium`
-- [ ] **684.** [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — `Medium`
+- [x] **684.** [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — `Medium` · <sub>✔ 2026-10-27</sub>
 - [ ] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard`
 
 ## Advanced Graphs (6)

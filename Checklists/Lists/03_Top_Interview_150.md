@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：121 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：124 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -110,7 +110,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **117.** [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/) — `Medium` · <sub>✔ 2026-10-25</sub>
 - [x] **114.** [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) — `Medium` · <sub>✔ 2026-09-29</sub>
 - [x] **112.** [Path Sum](https://leetcode.com/problems/path-sum/) — `Easy` · <sub>✔ 2026-10-03</sub>
-- [ ] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium`
+- [x] **129.** [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) — `Medium` · <sub>✔ 2026-10-26</sub>
 - [x] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard` · <sub>✔ 2026-10-19</sub>
 - [ ] **173.** [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/) — `Medium`
 - [ ] **222.** [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) — `Medium` ✅
@@ -202,7 +202,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 - [x] **9.** [Palindrome Number](https://leetcode.com/problems/palindrome-number/) — `Easy` · <sub>✔ 2026-09-29</sub>
 - [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
-- [ ] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium`
+- [x] **172.** [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) — `Medium` · <sub>✔ 2026-10-26</sub>
 - [x] **69.** [Sqrt(x)](https://leetcode.com/problems/sqrtx/) — `Easy` · <sub>✔ 2026-10-02</sub>
 - [x] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium` · <sub>✔ 2026-09-27</sub>
 - [ ] **149.** [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) — `Hard`
@@ -225,4 +225,4 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **123.** [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) — `Hard`
 - [ ] **188.** [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) — `Hard`
-- [ ] **221.** [Maximal Square](https://leetcode.com/problems/maximal-square/) — `Medium`
+- [x] **221.** [Maximal Square](https://leetcode.com/problems/maximal-square/) — `Medium` · <sub>✔ 2026-10-27</sub>

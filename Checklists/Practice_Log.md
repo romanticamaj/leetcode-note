@@ -2,6 +2,42 @@
 
 ---
 
+## 2026-10-27
+
+- 221. Maximal Square
+- 684. Redundant Connection
+
+**心得**：
+- 221：做了這麼多次，還是覺得這題很難……再做一次，加入 Problem Review、Gary's Choice 與 Essential Problems 的 DP 分類。
+- 684：先參考筆記的 Union-Find 怎麼寫，因為有點忘了。加入 Union-Find 原型題與 Essential Problems。
+
+**LLM 點評**：
+model: GPT-6
+- 684：本次參考筆記複習 Union-Find 寫法後完成。程式在「樹加一條邊」的本題條件下正確：首次 connected 為 true 的邊已是唯一環中輸入順序最後的邊，可直接回傳。原程式 break 後由後往前搜尋也能得到同一條邊：其後的邊若兩端都在當時的連通分量內，就會產生第二個環，與題設矛盾；但此掃描與 representation 均可省略。只有同分量不能在一般圖中區分環邊與橋，此論證依賴題設與輸入順序。實作有 path compression，但沒有 union by rank/size，不宜直接標為嚴格 O(n)；若加入按秩／大小合併，整體為 O(n α(n)) 均攤時間、O(n) 空間。見 [Union-Find 推薦實作](../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。
+- 221：本次經 code review 修正後完成逐邊長 boolean DP。每輪 width 開始時，dp[i][j] 表示以 (i,j) 為右下角、邊長 width-1 的正方形是否全為 1；左上、左側、上方三個小正方形加當前格，恰好覆蓋目標正方形，故偏移固定為一格，不隨 width 增加。主要卡點是狀態定位與座標轉移的一致性，另需處理字元 '1'、邊長 1 的答案與全 0 情況。時間 O(mn · min(m,n))、額外空間 O(mn) 正確；後續完成 O(mn) 時間的 top-down memoization：將每個位置各邊長的可行性改存為最大可行邊長，以左上角為定位，取右、下、右下三者最小值加一。最後版本在判斷當前格之前必定呼叫三個方向，因此從 (0,0) 出發也能走訪所有位置；當前格為 0 只令本格答案為 0，不阻斷走訪。cache 為 O(mn)，遞迴堆疊為 O(m+n)，總空間 O(mn)。已完成討論後的版本與日後獨立重做分開追蹤。
+
+---
+
+## 2026-10-26
+
+- 542. 01 Matrix
+- 90. Subsets II
+- 172. Factorial Trailing Zeroes
+- 129. Sum Root to Leaf Numbers
+
+**心得**：
+- 542：Multi-source BFS。
+- 90：一開始只有在 start == nums.size() 時才加入 solution list。但是 set 是空集合也會收集，所以收集的位置是在拜訪的時候。
+- 129：滿無聊的遞迴。
+
+**LLM 點評**：
+model: GPT-6
+- 129：程式正確。進入 sum(node, value) 時，value 表示從根到 parent 所形成數字的 10 倍（根節點為 0）；value + node->val 才是到當前節點的完整數字。葉節點直接回傳該數字，非葉節點把它乘 10 後傳給 children，左右回傳值相加就是此子樹所有 root-to-leaf 數字的總和；空節點回傳 0，不把缺少的 child 當成一條完成路徑。每個節點處理一次，時間 O(n)；呼叫堆疊 O(h)，平衡樹 O(log n)、最壞鏈狀樹 O(n)。練習點是向下傳遞路徑狀態、向上聚合結果；參數提前乘 10 的寫法可行，只要清楚維持其語意。
+- 172：已完成逐一分解 1 到 n、累加因子 2 與 5 的數量並取 min 的正確版本，時間 Θ(n)、額外空間 O(1)；對固定因子 p，成功除法總次數為 floor(n/p) + floor(n/p²) + …，合計 O(n)，不因巢狀迴圈直接變成 O(n log n)。先算完整階乘再數尾零是合理的 brute force，但固定寬度整數會 overflow；改為只統計答案需要的因子，避開巨大中間結果。本次未確認完成更進一步的整體計數優化，不將其記為已實作。
+- 90：若採用 for 迴圈枚舉下一個選取元素、遞迴傳 i + 1 的建樹方式，每個節點的 path 都已是合法子集，因此應在遞迴入口收集；根節點對應空集合，中間節點也不能漏掉。start == nums.size() 表示沒有下一個候選，不是子集唯一成立的條件；收集答案與停止擴展是兩件事。但若使用逐元素「選／不選」的二元決策樹，在 index == n 的葉節點收集也能涵蓋空集合與所有子集，不能只由空集合推出所有寫法都必須入口收集。Subsets II 另須去重：常見做法是排序後跳過同層相同值（i > start && nums[i] == nums[i-1]），仍允許跨層選取相同值。見 [收集時機與模式 B](../Algorithms/Backtracking/01-Backtracking_Templates_and_Patterns.md) 與 [由 invariant 推導 guard](../Algorithms/Backtracking/07-Guards_from_Invariants.md)；未提供程式碼，不判定具體實作。
+
+---
+
 ## 2026-10-25
 
 - 117. Populating Next Right Pointers in Each Node II

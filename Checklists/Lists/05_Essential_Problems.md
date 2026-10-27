@@ -58,11 +58,13 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - 🟡 🔴 LeetCode 45. Jump Game II
   - [ ] Greedy (嚴格說起來，是 BFS + 狀態壓縮去除 queue)
+- 🟢 🟡 LeetCode 542. 01 Matrix
 
 ## DFS (Depth-First Search)
 
 ## Dynamic Programming
 
+- 🟡 🔴 LeetCode 221. Maximal Square
 - LeetCode 72. Edit Distance
 - 🟡 🔴 LeetCode 494. Target Sum
   - Counting Dynamic Programming，設計 value range 很難，但是 Top-Down DP 很直觀
@@ -113,6 +115,9 @@ A curated list of must-do problems that build core competencies. Completing thes
   - BST 順序剪枝 → 單一路徑搜尋 → 尾遞迴轉 iterative；時間 O(h)、輔助空間 O(1)。
 
 ## Union Find
+
+- 🟡 LeetCode 684. Redundant Connection
+  - 無向圖增量判環：加入邊前，若兩端已連通，該邊就閉合環。見 [Union-Find 推薦實作](../../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。
 
 ## Topological Sort
 
@@ -325,6 +330,7 @@ Problems that require integrating multiple advanced techniques. These are excell
 
 ## Gary's Choice
 
+- 🟡 LeetCode 221. Maximal Square
 - 🟡 🔴 LeetCode 117. Populating Next Right Pointers in Each Node II
 - LeetCode 424. Longest Repeating Character Replacement
 - 🟡 🔴 LeetCode 494. Target Sum

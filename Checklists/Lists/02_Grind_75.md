@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：69 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：70 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -42,7 +42,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 ## Week 3 (8)
 
 - [x] **57.** [Insert Interval](https://leetcode.com/problems/insert-interval/) — `Medium` · <sub>✔ 2026-09-18</sub>
-- [ ] **542.** [01 Matrix](https://leetcode.com/problems/01-matrix/) — `Medium`
+- [x] **542.** [01 Matrix](https://leetcode.com/problems/01-matrix/) — `Medium` · <sub>✔ 2026-10-26</sub>
 - [x] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — `Medium` · <sub>✔ 2026-10-15</sub>
 - [x] **3.** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) — `Medium` · <sub>✔ 2026-09-04</sub>
 - [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — `Medium` ✅ · <sub>✔ 2026-09-05</sub>
