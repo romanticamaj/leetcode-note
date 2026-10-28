@@ -8,25 +8,29 @@ Sliding Window 的唯一標準寫法：**閉區間 `[left, right]`**，節奏是
 
 ## 1. 🧠 核心心法
 
-> **Sliding Window 最難的不是指針移動，是 constraint check 的資料結構設計與優化**
+> **先證明邊界可以安全前進，再設計 constraint check。**
 
-成功運用 Sliding Window 的關鍵在於：
-
-1. **識別 constraint metric** — 窗口需要滿足什麼條件？
+1. **驗證適用性與識別 constraint metric** — 為什麼 `left` 不必回頭？窗口需要滿足什麼條件？
 2. **設計狀態追蹤** — 用什麼資料結構追蹤窗口狀態？
 3. **優化驗證邏輯** — 如何 O(1) 判斷窗口是否有效？
 
-指針怎麼移動是機械的（就是下面那個模板）；真正的難度在第 2、3 點。
+### ⚠️ 套模板前：檢查單調性（monotonicity）
+
+**可變長度窗口必須證明：`right` 前進時，已排除的起點不需要重新考慮，`left` 只往右仍不漏解。** 指標單調前進只能用來分析成本；能安全排除候選才是正確性的依據。
+
+| 目標 | 常見的單調條件 | 例子 |
+| :--- | :--- | :--- |
+| 最長合法窗口 | 不合法時繼續擴張仍不合法；縮小可修復 | 非負數 `sum <= k`、至多 k 種元素 |
+| 最短覆蓋窗口 | 合法時繼續擴張仍合法；縮小可尋找最短邊界 | 非負數 `sum >= k`（正門檻）、包含所有需求字元 |
+| 固定長度窗口 | 邊界由長度決定，不需要上述合法性單調條件 | 固定 k 個元素的和，允許負數 |
+
+負數會破壞「和隨擴張不減、隨縮小不增」：`[4, -3]`、門檻 3，`[4]` 的和超標，擴張後卻恢復合法，不能因超標就永久丟掉起點。**有負數不代表所有 sliding window 都失效，要看約束是否仍有可利用的單調性。**
+
+「剛好等於 k」也不能直接套最長合法窗口模板；計數時還要確認是否有多個合法起點，不能每個 `right` 只加一。需另行論證或轉換問題，見 [Fix 條件的適用前提](03-Fix_Condition_from_Invariant.md#6-️-前提合法性在往外擴時保持)。
 
 ## 2. 要點
 
-1. **window** 表示 subarray
-2. 維持兩個 index — **left** and **right**
-3. **right** 會增加，讓 window 變大；**left** 會增加，讓 window 變小
-4. sliding window 長度是 **`right - left + 1`**
-5. 因為 **right** 會不斷增加，所以 window 會 **slide**
-6. **constraint metric** 決定要做什麼窗口「特性」判斷，例如 sum、出現的數字個數等
-7. 通常問題會給一個 array，去找到滿足 constraint metric 某個特性的 subarray
+`window` 表示連續 subarray，閉區間 `[left, right]` 的長度為 `right - left + 1`。`right++` 擴張，`left++` 收縮；**constraint metric** 追蹤窗口特性，例如 sum、不同元素個數。
 
 ## 3. 為什麼是閉區間 `[left, right]`
 
@@ -48,20 +52,16 @@ ResultType solve(const Container& data) {
     Window window_state;
     int left = 0;
     int right = 0; // as the input index, also
-
     // Target answer
     ResultType ans = 0;
-
     for (; right < data.size(); ++right) {
         // 1. 擴張窗口：將 data[right] 的狀態更新到 window_state 中
         window_state.add(data[right]);
-
         // 2. 檢查並修復：當窗口不滿足約束時，從左側收縮，直到恢復合法
         while (is_window_invalid(window_state)) {
             window_state.remove(data[left]);
             left++;
         }
-
         // 3. 更新結果：此時窗口 [left, right] 必定滿足約束
         ans = max(ans, calculate_result(left, right));
     }
@@ -141,7 +141,7 @@ for (right...) {
 - **只背一個模板**：閉區間 `[left, right]`，節奏是**擴張 → 修復 → 結算**
 - **答案只在一個地方更新**：迴圈體末尾，窗口已恢復合法之後
 - **不要用半開區間**：結果結算分散的陷阱在壓力下極易出錯
-- **難度在 constraint 設計**，不在指針移動
+- **先驗證單調性與安全排除，再設計 constraint**；固定長度窗口另看長度條件
 
 ## 相關筆記
 

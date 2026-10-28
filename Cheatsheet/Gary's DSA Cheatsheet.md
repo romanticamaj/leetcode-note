@@ -85,6 +85,8 @@ State Definition → Recurrence → Traversal Order
 
 **Mantra:** Expand → Fix → Update
 
+**先檢查適用性**：可變長度窗口需證明 `left` 前進後不必回頭、不漏解（通常依賴約束單調性）。負數可能破壞「和」的單調性；固定長度窗口不需要此條件。見 [標準模板](../Algorithms/Sliding_Window/00-Sliding_Window_Standard_Template.md)。
+
 1. constraint check 的 DS，strive for O(1)
 2. 先 expand 再 fix：從 0 開始建構 DS，初始狀態不用設計
 3. fix 後必為 valid → 才 update global target
