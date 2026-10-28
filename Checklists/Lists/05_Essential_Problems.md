@@ -128,6 +128,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 238. Product of Array Except Self
 - 🟡 🔴 LeetCode 134. Gas Station
+- 🟡 🔴 LeetCode 560. Subarray Sum Equals K
 
 ## Bit Manipulation
 
@@ -304,6 +305,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Post-ordering + Tree Dynamic Programming
 - 🟡 🔴 LeetCode 15. 3Sum
   - sort + hashmap or sort + two-pointer
+- 🟡 🔴 LeetCode 560. Subarray Sum Equals K
+  - Prefix Sum + Running Hashmap
 
 ### Followup Possible (Multiple Solutions)
 

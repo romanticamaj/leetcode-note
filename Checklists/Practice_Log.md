@@ -5,12 +5,24 @@
 ## 2026-10-28
 
 - 373. Find K Pairs with Smallest Sums
+- 560. Subarray Sum Equals K
+- 647. Palindromic Substrings
+- 86. Partition List
+- 695. Max Area of Island
 
 **心得**：
+- 695：經典的 one-liner DFS……跟 visited 狀態管理。
+- 86：糟糕……我把它想難了＠＠……用 two pointer technique，最後 merge two lists 來做就很簡單。
+- 647：dynamic programming……但是我寫不出漂亮的 i + 1、j - 1。要用 cut position 來設計的話，dp[i][i] 就是空字串？好像很複雜……解答很巧妙地先把 length 2 的做掉了，所以就不會踩到我的 case。
+- 560：一開始設計錯，使用 sliding window。這個沒有單調性的 constraint metric，因為 sum 不是 monotonic。沒辦法有效地找到對應的 pair，後來才經由提示得到是 running hashmap。prefix sum + running hashmap。
 - 373：k-way merge + heap。跟 gpt-6.1-sol 一路討論：暴力法先 sort／heap 取 top-k 沒問題，可是不用把 m*n 看完。使用 non-decreasing sorted 特性，總是取下一個最小的，只考慮下一個候選。這就是 k-way merge！heap 存 index，comparator 透過 nums1、nums2 比較總和。
 
 **LLM 點評**：
-model: GPT-6
+model: gpt-6.1-sol（560、647、86、695）；GPT-6（373，保留原點評）
+- 695：核心是每個陸地格只計數一次：通過邊界、水域與 visited 檢查後，先標記，再往四鄰遞迴，回傳本格 1 加上各方向新發現的面積。visited 跨整次掃描保留，回傳時不撤銷，與列舉路徑的 backtracking 不同。可另存 visited 或原地標記 grid；即使原地標記，遞迴堆疊最壞仍為 O(mn)，不能直接稱額外空間 O(1)。整張網格時間 O(mn)。未提供程式碼，不判定本次具體實作。
+- 86：提供的程式正確，時間 O(n)、額外空間 O(1)，重用原節點完成 stable partition。head 實際是目前待檢查節點的前驅：抽出 head->next 後保持 head 不動，才能繼續檢查接上來的節點；只有保留 < x 的節點時才前進。ptr 是 >= x 串列的尾端，依遇到順序尾插，兩組都保留原相對順序。ptr->next = nullptr 切斷抽出節點的舊連結，維持抽出串列獨立並以空指標結尾；最後 head 停在保留串列尾端（或 dummy），接上 extracted.next 即可。這裡的 merge 更精確是串接 concatenate，不需像合併排序串列一樣逐一比較。head 自 dummy 起且只在 head->next 非空時前進，故 while 中的 head && 可省略；命名為 prev 更貼近角色。
+- 647：提供的閉區間 DP 程式正確，時間與空間皆 O(n²)。dp[i][j] 表示 s[i..j] 是否為回文，因此 dp[i][i] 是單字元，不是空字串；若改成 cut position 的半開區間 [i,j)，才是 dp[i][i] 表示空字串（可設 true 作為轉移 base case，但不計入題目答案），右端字元改讀 s[j-1]。目前 length 2 時 i+1 > j-1 成立，C++ || 短路避免讀取反向區間，直接比較兩端即可，不必另外初始化 length 2；該條件可寫成 l == 2。依長度遞增，內部 length-2 的狀態已先算完。dp 是 boolean 回文判定，註解中的 dp[i+1][j-1] + 1 不符合狀態定義；計數應在判定成立後另做 count++。邊界表示選定後保持一致即可，不必強行改成 cut position。
+- 560（model: gpt-6.1-sol）：本次經提示完成，最終程式正確。負數使區間和不具備可安全移動左界的單調性；建立 prefix sum 只讓區間和能 O(1) 計算，不會產生單調性。由 prefix[right] - prefix[previous] = k 移項，固定 right 後只需查先前 prefix[right] - k 的出現次數，將枚舉 pair 轉成頻率查詢；同值可能對應多個合法起點，須存次數。hashmap[0] = 1 表示空前綴；先查再加入目前 prefix，避免 k = 0 時計入空子陣列。平均時間 O(n)、空間 O(n)，key design 應標為 prefix sum + frequency hashmap。見 [Sliding Window 適用性與單調性](../Algorithms/Sliding_Window/00-Sliding_Window_Standard_Template.md)。
 - 373：在兩陣列非空且 k 不超過配對總數的前提下，提供的程式正確。固定 i 後，(i,0)、(i,1)…形成總和非遞減的一列；heap 始終保存每列尚未取出的第一組，因此全域下一個最小值必在 heap 中。取出 (i,j) 後只補 (i,j+1)，每個索引配對只生成一次。這是利用有序性延後生成候選，不是證明後續配對永遠不會入選。初始化依 i 遞增 push (i,0)，總和非遞減，在標準 binary min-heap 中新元素不需上浮，故此特定初始化可為 O(m)；一般任意順序逐一 push 的上界則為 O(m log(m+1))。後續 k 次取出／補入為 O(k log(m+1))，heap 額外空間 O(m)，輸出另需 O(k)。while(k--) 依賴有足夠配對的前提，通用版本可加 !pq.empty()；nums2 為空也應先返回。還可只初始化前 min(m,k) 列：更後面的列首已有至少 k 個不大的前列列首，因此不影響取得任意合法的前 k 組。
 
 ---

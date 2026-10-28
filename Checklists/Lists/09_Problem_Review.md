@@ -8,6 +8,8 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | 647. Palindromic Substrings：獨立推導並實作 O(n²) 時間、O(1) 額外空間的 follow-up；目前已完成 O(n²) 空間的 DP 版本 | 2026-10-28 | — |
+| 待做 | 560. Subarray Sum Equals K：獨立推導並實作 running sum + frequency hashmap，不建立 prefix sum 陣列；說明負數為何使此題無法直接套 sliding window、空前綴初始化，以及先查詢再記錄的 invariant | 2026-10-28 | — |
 | 待做 | 373. Find K Pairs with Smallest Sums：獨立重做 k-way merge；從隱式有序序列推導每列一個候選的 invariant、同列補位與 min-heap comparator | 2026-10-28 | — |
 | 待做 | **【必做】221. Maximal Square：再做一次，獨立重建固定右下角、逐邊長 DP 的狀態與三個小正方形的覆蓋證明；檢查邊長 1、全 0 與座標偏移** | 2026-10-27 | — |
 | 待做 | **【高優先級】542. 01 Matrix：獨立推導並實作 two-pass DP（distance transform）；說明為何一次掃描不足、兩次足夠，以及無障礙四鄰接網格的適用條件** | 2026-10-26 | — |

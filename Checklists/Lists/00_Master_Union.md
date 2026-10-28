@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：186 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：190 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -221,10 +221,10 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **684.** [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-27</sub>
 - [x] **289.** [Game of Life](https://leetcode.com/problems/game-of-life/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-27</sub>
 - [x] **373.** [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) — `Medium` · <sub>TI150</sub> ✅ · <sub>✔ 2026-10-28</sub>
-- [ ] **560.** [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) — `Medium` · <sub>H100</sub>
-- [ ] **647.** [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — `Medium` · <sub>NC</sub>
-- [ ] **86.** [Partition List](https://leetcode.com/problems/partition-list/) — `Medium` · <sub>TI150</sub> ✅
-- [ ] **695.** [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) — `Medium` · <sub>NC</sub>
+- [x] **560.** [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) — `Medium` · <sub>H100</sub> · <sub>✔ 2026-10-28</sub>
+- [x] **647.** [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-28</sub>
+- [x] **86.** [Partition List](https://leetcode.com/problems/partition-list/) — `Medium` · <sub>TI150</sub> ✅ · <sub>✔ 2026-10-28</sub>
+- [x] **695.** [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-28</sub>
 - [ ] **173.** [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/) — `Medium` · <sub>TI150</sub>
 - [ ] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium` · <sub>H100</sub>
 - [ ] **274.** [H-Index](https://leetcode.com/problems/h-index/) — `Medium` · <sub>TI150</sub>
