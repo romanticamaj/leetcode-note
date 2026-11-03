@@ -2,6 +2,131 @@
 
 ---
 
+## 2026-11-03
+
+- 92. Reverse Linked List II
+- 787. Cheapest Flights Within K Stops
+- 371. Sum of Two Integers
+- 437. Path Sum III
+- 518. Coin Change II
+
+**心得**：
+- 92：combined technique：k-gap pointer 跟 reverse linked list。用 dummy 定位 left 前驅與 right，保存區間原頭與尾端後繼，反轉後重新接回。
+
+- 787：滿慘的，第三次做，還是一塌糊塗。這次收穫是，從 Dijkstra's 去改，配上 distance 要 extend 成多維，才能記錄 k stops，但是觀察起來時間好像沒有更快。
+  1. 一開始先設計 Dijkstra's 算 weighted shortest path。
+  2. 後來加入 k stops 的限制。
+  3. 前面先卡到 C++ 實作整個大錯亂，vector<pair<int, int>> 跟 vector<int> 混用。
+  4. 演算法錯誤：沒有處理到 edges 數少、weighted path 大的可能性，需要用一個二維的 Distance 陣列去記錄可能的路徑。
+  - 用 Dijkstra's 寫滿混亂的。
+  - 後續：整理[題目出處與歷史](../Problem_History/LC_0787_Cheapest_Flights_Within_K_Stops.md)，加入 Problem Review；三種解法都可以玩看看：Bellman-Ford、BFS with condition k、better Dijkstra，分開獨立重練。
+
+- 371：經提示做出來了，但是負數出現的處理，竟然 bit manipulation 是可以處理 sign bit，還是覺得很驚人。原來 ^ 跟 & 是整組 bits 直接做，不必逐 bit 取出；carry 往左移，直到 carry == 0。
+
+- 437：用標準的雙遞迴，這好像不是第一次出現。因為數字範圍太大，要轉型成 long long 來處理，但是這版時間複雜度不好。
+  - 後續經 gpt-sol-6.1 跟解答提示完成 prefix sum 版本。滿妙的這題……preorder + prefix sum；backtracking 記錄祖先的 running sum，查詢後加入、離開時撤銷，使用 prefix sum 的出現次數計數。
+  - [歷史與教材出處](../Problem_History/LC_0437_Path_Sum_III.md)：CtCI 第六版 4.12 Paths with Sum，官方解答也有雙遞迴與 prefix sum＋回溯版本。
+
+- 518：Top-down value range DP。這好像是很經典的 value range DP，想確認 Knapsack DP 筆記有沒有出現它。用 choose／not choose 的遞迴，加上候選 index 與剩餘 amount 的 cache。
+  - 今天累了，二維 bottom-up 留到明天（2026-11-04）寫，先不做一維壓縮；已加入 Problem Review，尚未完成。
+
+**LLM 點評**：
+model: GPT-6
+- 92：提供的程式在合法輸入下正確；以 Python 模擬相同指標操作，檢查 n=1..30 的全部 4,960 個合法區間，順序、節點數與最終無環皆通過，未執行原始 C++。left 減一後，k=right-left 等於原始 right-left+1；同步移動維持此間距，最後 slow 位於原始 left-1、fast 位於 right，符合 [K-Gap Pointers](../Algorithms/Two_Pointers/03_K_Gap_Pointers.md) 的 invariant。reverse(slow,fast) 實際連前驅一起反轉，之後兩次接線才修回；建議改成 reverse(headNext,fast)，使 helper 的範圍直接等於目標區間，仍由呼叫端補上原頭 next。令 m=原始 right-left+1，時間 O(right)，最壞 O(n)，遞迴堆疊 O(m)；註解的 k 會被 k-- 消耗，應另用未修改的區間長度說明。先定位右界再重走區間反轉，不符合本題 one-pass 的通常要求；one pass 並非看有幾個迴圈，而是能否到達左界後直接反轉，不先掃到右界再回頭處理。已知 left/right 時，K-gap 可用但非必要；可先定位前驅，再以長度 m 迭代反轉，達 O(n) 時間、O(1) 額外空間，未將此延伸視為本次已完成。
+- 787：經提示完成的最終二維 distance 版本，從狀態與邊界推理看正確，未執行原始 C++。核心卡點是狀態定義：加入會影響後續合法選擇的邊數限制後，狀態必須由 city 擴成 (city, edgesUsed)，不能只在普通 Dijkstra 外加停止條件。distances[city][edgesUsed] 存恰好使用指定邊數的最小費用，不是記錄所有實際路徑；便宜但邊數多與昂貴但邊數少的候選，可能都要保留。最多 k 個中繼站即 k+1 條邊，包含 0 邊需 k+2 格；stops 建議改名 edgesUsed。二維表是修正錯誤剪枝，不保證提速；令 K=k+1，擴展圖最多 V(K+1) 個狀態、EK 條轉移，目前 lazy heap 實作時間 O(V(K+1)+EK log(EK+2))、空間 O(V(K+1)+EK)，且跑到 heap 清空。非負權重下，可在通過 stale-state 檢查後、邊數擴展 guard 前，於第一次彈出 dst 時提早返回，但實際加速需量測，不能憑單次平台時間斷言。混亂可拆成 C++ 型別表示與演算法狀態設計兩件事；下次先寫清楚狀態、支配條件與邊數界線，再選搜尋順序。另一個貼合限制的視角是 [Bellman-Ford 的邊數 DP](../Algorithms/Dynamic_Programming/Advanced_Techniques/Bellman-Ford/01-DP_Foundations_of_Bellman-Ford.md)：逐層放寬邊數、每層只讀上一層，與本次 expanded-state Dijkstra 可分開內化；本次未實作此版本。
+- 371：XOR 得不含進位的和、AND 後左移得進位，演算法方向正確；未執行原始 C++。二補數的關鍵是固定 w 位下，負數 -x 編碼為 2^w-x，與 -x 在模 2^w 下同餘，因此加法可共用相同的逐位規則。sign bit 在二補數的數值解讀中權重為 -2^(w-1)，不是獨立符號旗標；最高位溢出的進位捨棄，若真實答案在 signed 範圍內，解讀即為正確整數。每輪 a+b 的 invariant 應理解成模 2^w 不變；carry 最低有效位每輪嚴格左移，最多 w 輪，時間 O(w)、空間 O(1)，固定 32 位可視為 O(1)。swap 無法改善迭代次數，因 XOR 與 AND 皆可交換，交換後第一輪 sum/carry 完全相同。實作需區分位元數學與語言規則：C++17 對負值左移屬 UB；較新標準的左移採模 2^w 定義，跨版本宜用 unsigned 中間值，舊版 unsigned 轉回超出範圍的 int 另有實作定義問題。見 [位元加法](../Algorithms/Bit_Manipulation/99-Case_Bitwise_Addition.md)；以 [C++17 草案](https://timsong-cpp.github.io/cppwp/n4659/expr.shift) 與 [目前草案](https://eel.is/c++draft/expr.shift) 區分版本，既有筆記的 invariant 與型別轉換敘述需帶此前提閱讀。
+- 437：提供的雙遞迴版本從結構推理看正確，未執行原始 C++。pathSum 枚舉路徑起點，pathCount 固定起點、沿子孫枚舉終點；每條合法向下路徑依起點與終點被計數一次。這與 LC 572 的「外層找候選位置、內層從該位置檢查」有相同拆解。命中 sum == root->val 後仍繼續遞迴正確，因下方可能有總和為 0 的延伸；有負值時也不能以 remaining < 0 剪枝。helper 參數直接為 long long，因此 targetSum 傳入時已提升，sum-root->val 也在 long long 運算，不必等減完再轉型。精確時間為 Θ(Σ_v subtreeSize(v)) = Θ(n+Σ_v depth(v))，平衡樹 Θ(n log n)、鏈狀樹 Θ(n²)，堆疊 O(h)，不是 O(h²)。此版以值傳遞 remaining、沒有共享狀態的加入／撤銷，描述成 DFS 更精確。瓶頸是每個起點重掃子樹；後續經提示完成固定終點、重用祖先 prefix 頻率的版本，銜接既有 [Running State](../Algorithms/Prefix_Sum/02_Running_State_Pattern.md)。最終程式的 long long running sum、先查 prefixSum[sum-targetSum] 再加入、左右子樹後撤銷，以及 prefixSum[0]=1 的順序正確；從 invariant 推理看正確，未執行原始 C++。這裡是 preorder 更新／查詢加上離開時 backtracking；固定起終點的路徑唯一，但同終點仍有多個起點，且 prefix 可重複，因此要累加頻率。平均時間 O(n)，來自每節點固定次數 hash 操作；一般遞迴式應寫 T(n)=T(leftSize)+T(rightSize)+平均 O(1)，2T(n/2) 只適用平衡樹。空間為 O(U+h)，U 是實際保留的 map key 數而非 sum 值域；目前 operator[] 查詢會插入缺少的 key，撤銷只減次數而不 erase，故最壞 O(n)。若查詢用 find 且次數歸零時 erase，才可界為 O(h) 額外空間。
+- 518：提供的 top-down memoization 在題目的正整數、互異面額及 amount <= 5000 前提下，從狀態推理看正確，未執行原始 C++。精確分類是「候選進度 i × 剩餘金額 r」的完全背包組合 Counting DP；F(i,r) 表示只使用 coins[i..] 湊出 r 的組合數，不能只說值域 DP 就省略 i。選取後保留 i，代表同面額可無限使用；跳過才 i+1，固定候選順序避免把同一組合的不同排列重算；amount=0 回傳 1 表示空選擇是一種完成方式。排序不必要，任意固定候選順序即可，且目前沒有利用排序做額外剪枝。建議 cache 改成 amount+1 格，刪除 sort 後，含初始化時間為 O(n(A+1))、表格空間 O(n(A+1))；另有 O(n+A/c_min) 遞迴堆疊，c_min 為最小面額，0 金額直接返回。原碼配置 n×5001，須計這份固定上界表格的初始化／空間成本，排序另需 O(n log n)。暴力法不能直接套 O(2^n)：選取分支不增加 i，遞迴深度還依賴 A/c_min。現有 [Counting DP](../Algorithms/Dynamic_Programming/Problem_Types/Counting_DP.md) 已明列 518 並示範一維 bottom-up 組合計數；[狀態壓縮](../Algorithms/Dynamic_Programming/State_Design/04-State_Reduction.md) 也對照 322／518，主要 [Knapsack Playbook](Trick%20Practice/Knapsack_Variations_Playbook.md) 則聚焦 0/1 且尚未明列本題。完成紀錄僅涵蓋本次 top-down，不視為完成一維 bottom-up 延伸。
+
+---
+
+## 2026-11-01
+
+- 452. Minimum Number of Arrows to Burst Balloons
+- 427. Construct Quad Tree
+
+**心得**：
+- 427：設計方向對了……但是實作一直錯，漏東漏西。
+  - 經典的 divide and conquer，一開始 base case 想錯了，長度 1 是可以的。
+  - 這就回到我們常常用的心法：要用 classic example 去測試程式，其中一個最重要的 example 就是 edge case。一測試就知道 base case 要怎麼設計，甚至 invariant 的驗證。
+  - 加入 Essential Problems 的 Divide and Conquer。
+  - 看完解答後，發現程式碼難寫是因為用起始、結尾座標；如果設計成 x、y、width 三個參數，會簡單很多。這算是需要靈感，或是常講的「simple is better and faster」？
+- 452：有變化的 interval problem。
+
+**LLM 點評**：
+model: GPT-6
+- 427：最終提供的四分遞迴＋同值 leaf 合併版本，在正方形且邊長為 2^k 的前提下正確；本次透過討論修正，未實際執行測試。具體卡點是 1×1 base case、topRight／bottomLeft 對調、閉區間後半段未從 mid+1 開始，以及 delete 後再次讀取指標。核心 invariant 是每次呼叫回傳精確表示指定正方形的 Quad Tree；四個子區域須不重疊、完整覆蓋且嚴格縮小，只有四個 child 都是同值 leaf 才能合併。edge case 很適合幫助設計並檢查 base case，但測試通過不等於證明一般 invariant：還需確認分割保留前提、遞迴嚴格縮小，以及合併維持表示正確。建議手算 1×1、僅 topRight 為 1 的 2×2、全同值與需多層切分的 4×4。令 n 為邊長，時間 Θ(n²)、遞迴 stack O(log n)，含建樹節點的峰值空間 O(n²)；即使全同值也會先展開再合併。見 [分治區間設計](../Algorithms/Divide_and_Conquer/03_Interval_Design_in_Divide_and_Conquer.md)。已加入 Essential Problems 的 Divide and Conquer。後續觀察到可將四個區間端點改成 (x,y,width)：這是利用每個子問題皆為正方形的 invariant 選擇更貼合結構的狀態表示。四端點之間需維持列長等於欄長的約束；起點＋邊長則只存獨立資訊，讓大小、1×1 base case 與四象限偏移直接可見，減少 end 是否包含、mid 與 mid+1 的協調。此簡化可由「子問題是什麼形狀、哪些參數可推導、最小充分表示是什麼」系統性導出，不必等待靈感；適用前提是正方形，任意矩形則需 height 與 width。simple 在這裡主要改善撰寫、推理與除錯速度，兩種表示的時間複雜度仍是 Θ(n²)，不能據此宣稱執行速度必然更快。x、y 仍須明確約定 row／column。
+- 452：變化在於「用最少的點刺穿所有區間」：同一箭能處理的氣球必須有共同交集，不能只看重疊是否連成一串。例如 [1,2]、[2,3]、[3,4] 可合併成一段，卻不能一箭全破。標準 greedy 是依右端點遞增排序，在尚未處理的最早右端點射箭；將命中該區間的箭右移到此端點，不會失去其他尚未處理、原本被這支箭命中的區間，因此可保留最優解。閉區間端點相接仍可共用一箭，只有 start > arrow 才需新增箭；排序 O(n log n)、掃描 O(n)。後續提供的起點排序＋交集收縮版本正確：range 維持目前這組氣球的共同交集，新區間 start <= range.second 即可加入並縮小交集；否則必須新開一組。每組可在交集中用一箭處理；前組最小右端點所屬的氣球與下一組所有氣球分離，各組可取出兩兩不重疊的代表，因此至少需要組數支箭，達到最優。count 計的是成功加入既有組、節省的箭數，所以 n-count 等於組數；可改名 savedArrows，或直接從 arrows=1 開始、遇到新組才遞增。依起點排序後，range.first 每次等於目前 start，若只求答案可省略，只保留最小右端點。時間 O(n log n) 正確；常見 std::sort 實作需 O(log n) stack，掃描本身 O(1) 額外空間。points[0] 依賴非空輸入；本題符合此前提。
+
+---
+
+## 2026-10-31
+
+- 240. Search a 2D Matrix II
+- 743. Network Delay Time
+- 846. Hand of Straights
+
+**心得**：
+- 846：一開始方向錯了……跑去直接 sort 原本 array，然後想要用 two-pointer。後來直接改成 ordered map，讓它小到大、可以計數，每次取最小，然後去消化一組 group。hashmap + sort + greedy。
+- 240：這題可以用 divide and conquer，但是超難寫……然後最佳解也不是這個，加入 Problem Review。
+- 743：這個就是標準的 DFS，但是要注意 minimum path 更新，因為可能有多條路徑，要選最短的。靠……這是最短路徑問題！！我用了最 naive 的解法。
+  - 後續改寫 Dijkstra's 經典做法。有錯！！！pair 是 weight 當第一個，不是 node……會對，但是會多做。
+  - 順便練了 Dijkstra's。
+
+**LLM 點評**：
+model: gpt-6.1-sol
+- 846：提供的程式正確，核心是 ordered frequency map + greedy。當前最小剩餘值 base 不可能接在更小值之後，因此它的 count 份都必須各自作為一組的起點；一次從 base..base+groupSize-1 各扣 count，等於批次組出 count 組，不只一組，缺牌或數量不足即可判 false。std::map 本身依 key 排序，不是 hashmap；令 U 為不同值個數，建表 O(n log(U+1))，消耗階段每次成功扣減都至少消耗一張牌，因此扣減次數合計 O(n)，搭配 map 查找得到總時間 O(n log(U+1))，最壞 O(n log n)，額外空間 O(U)。auto [base,count] 是複製值，後續 erase 不會使這兩個變數失效。直接排序原 array 並非錯誤方向，也能搭配頻率表實作相同 greedy；卡點在重複牌的次數管理，單靠 two pointers 不容易表達「消耗每個連續值」的需求。
+- 240：本次經討論修正後完成三區域 divide-and-conquer 搜尋。主要陷阱是矩形參數順序、start > end 的空區間 guard，以及排除 midpoint 時不能漏掉同列／同欄的候選；最終切分正確且每輪嚴格縮小。這不是只保留一個分支的 binary search，不能標 O(log(mn)) 時間；對 N×N 矩陣，由 T(N) ≤ 3T(⌈N/2⌉)+O(1) 可得 O(N^log₂3) 的時間上界，N 指邊長，遞迴空間 O(log N)。後續值得練習 O(m+n) 時間、O(1) 空間的階梯搜尋，重點是利用行列排序讓每次比較安全排除整列或整欄；本次尚未實作此版本。已列 ⭐⭐⭐⭐ 待重做，區分已完成的分治版本與待練的延伸。
+- 743：提供的程式是以 DFS 排程的反覆 distance relaxation，不是每個節點／邊只處理一次的普通 DFS。在本題非負權重與數值範圍下可正確求最短距離：currCost >= costs[k] 時剪枝，較短路徑仍會重新展開節點；非負環無法改善距離，因而被擋住。答案是 max_v dist(source,v)，即所有節點最早收到訊號時間的最大值，不是圖上的最長路徑；不可達則回傳 -1。時間不能標 O(V+E)：同一節點每次距離改善都會重掃出邊，總成本取決於改善次數；一般圖上此深度優先排程可能出現大量、甚至指數級的改善，固定整數權重範圍則可另給依權重界的偽多項式分析。圖儲存 O(V+E)、costs O(V)、遞迴堆疊 O(V)，含建圖的總額外空間 O(V+E)。值得接著掌握非負權重的 Dijkstra：以目前最小距離候選優先處理，避免任意順序的反覆傳播；尚未提供此版本，不記為已實作。見 [Dijkstra 指南](../Algorithms/Greedy/Dijkstra's%20Algorithm/01-Dijkstra_Algorithm_Guide.md)。
+
+  - 後續已提供 heap＋距離鬆弛版本；pair 原存 {node,cost}，greater<pair<int,int>> 依第一欄排序，因此實際按節點編號處理。正確優先鍵應是起點到候選節點的「累積距離 cost」，不是單條邊的 weight；入 heap、解構與後續 push 都須統一為 {cost,node}。原版在非負權重下可透過距離改善與重新入 heap 繼續收斂，但同一節點可能重複展開，不能套 Dijkstra 的效率保證。修正 pair 後，lazy heap 時間 O(V+E log(E+2))、總額外空間 O(V+E)；已辨認此錯誤，尚未提供修正後完整版本。
+
+---
+
+## 2026-10-30
+
+- 222. Count Complete Tree Nodes
+- 678. Valid Parenthesis String
+- 721. Accounts Merge
+- 309. Best Time to Buy and Sell Stock with Cooldown
+
+**心得**：
+- 309：multidimensional dynamic programming。這個多維的太經典了，記錄在 Archetype Problems 跟 Essential Problems。
+- 721：建立 graph 的觀察比較難，其他就是標準的 connected component 題目而已。加入 Problem Review。
+- 678：標準的 recursive 轉 top-down dynamic programming。但是這題解法有點多欸……而且直接想 bottom-up dynamic programming 也不容易，甚至有 O(n) 的解法。這題需要繼續練嗎？
+- 222：這題經典地難，不看提示的話，我是不可能想出來的……加入 Problem Review。
+
+**LLM 點評**：
+model: gpt-6.1-sol
+- 309：提供的程式在非空 prices 的題目前提下正確，時間 O(n)、空間 O(n)。狀態是「日期 × 是否持股」，兩個 array 只是分開儲存狀態維度；buy[i] 表示第 i 天結束時持股的最大淨收益，sell[i] 表示未持股的最大收益，不代表當天必須買／賣。buy[i] = max(buy[i-1], sell[i-2]-prices[i]) 將 cooldown 編入依賴：今天買入只能接到兩天前未持股的收益，不能接昨天剛賣出的收益；sell[i] = max(sell[i-1], buy[i-1]+prices[i]) 則比較休息與今天賣出。長度 1、前兩天初始化與最後回傳未持股狀態均合理；註解中的轉移也須保留 max 的「延續原狀態」分支。可只保存必要歷史壓成 O(1) 空間，但須保留舊值並確認更新順序；本次僅確認 O(n) 空間版本。已加入 State Machine DP 原型與 Essential Problems。
+- 721：核心確實是建模：共同 email 連接帳戶，合併具有傳遞性，同名本身不能當成合併依據。提供的 email → account index → emails 寫法可找出連通分量，但只標記 email，沒有保證 account 只展開一次；設第 a 個帳戶有 k_a 個不同 email，其內容可被重掃 k_a 次，遍歷成本可達 O(Σk_a²)，另有各分量 email 的排序成本，不能標為每個 email 一次的 O(m)。改用 email → email 邊時，同帳戶只需建立保留連通性的星狀或鏈狀邊，不必兩兩相連；也可保留原模型、追蹤 account 是否已展開。重做聚焦節點／邊語意、visited 對象與實際掃描次數，再處理排序輸出。尚未提供另一版程式，不將優化版本記為已實作；已列 ⭐⭐⭐⭐ 待獨立重做。
+- 678：本次回報完成 top-down DP；未提供程式碼，不判定具體實作。若使用 (index, balance) 表示目前位置與未配對左括號數，memoization 將重複路徑合併，狀態數 O(n²)、每個狀態常數種轉移，時間與 cache 空間 O(n²)，遞迴深度 O(n)。bottom-up 可先沿原遞迴依賴順序填表，不必直接憑空想新狀態；前綴可達性的寫法則需重新定義狀態語意。值得另練一次 O(n) 時間、O(1) 空間的區間摘要做法，重點是證明可達 balance 的結構能以端點完整表示，而非收集所有解法。可先結束本次練習，另日練此延伸，再獨立重寫；尚未完成 bottom-up 或 O(n) 版本，不將其記為已做。
+- 222：本次經提示完成最後一層編號的 binary search，最終程式在 complete tree 與題目數值範圍內正確。關鍵是把結構轉成單調判定：以 1 為根的編號連續，最後一層的存在性為 true 前綴、false 後綴；搜尋第一個不存在的編號後減一，即總節點數。編號去掉最高位 1 後，其餘 bits 由高到低對應左 0／右 1 的路徑。每次存在性查詢 O(h)，搜尋 O(h) 輪，總時間 O(h²)=O(log² n)，遞迴堆疊 O(h)。base case 應回傳節點非空；空樹目前也能回傳 0。重做重點是獨立連結 complete tree、單調性、編號路徑與二分邊界，而非只背程式；整數的 2 次方可用適當寬度的位移取代浮點 pow，並確認位寬。已列待重做。
+
+---
+
+## 2026-10-29
+
+- 173. Binary Search Tree Iterator
+- 279. Perfect Squares
+- 274. H-Index
+- 380. Insert Delete GetRandom O(1)
+
+**心得**：
+- 380：hashmap + delete at the end of vector + rand。其實滿容易做錯的，值得再做一次。
+- 274：其實小複雜……要先想到 value range hashmap，然後還要做 suffix sum。
+- 279：很有趣欸……是 dynamic programming 經典設計。一開始沒處理到往下查每個可能的 sqrt，作為 last。這也是 value range DP？解法有點多，需要再做其他做法嗎？
+- 173：就是用 iterative 的 inorder 去想的，應該是最佳解了。
+
+**LLM 點評**：
+model: gpt-6.1-sol
+- 380：本次經討論修正刪除邏輯：維持 hashmap[store[i]] == i，非尾端刪除時以尾元素補位並更新其 index，再移除尾端與 val 的 map 紀錄；刪除尾端或唯一元素時不可重新插回 val。最後提供的 remove 寫法正確，resize(size-1) 可改為 pop_back()。重做應涵蓋刪中間、刪尾端、刪唯一元素與刪後重新插入。getRandom 的 rand()%n 可能有 modulo bias；已討論改用持久的 mt19937 引擎搭配 uniform_int_distribution，尚未看到整合後版本。insert 平均／攤銷 O(1)，remove 平均 O(1)，均勻取樣在固定字長下以期望常數成本處理；儲存 n 個元素需 O(n) 空間。見 [均勻亂數取樣](../CPP_Reference/Algorithm/Uniform_Random_Sampling.md)；獨立重做列為待做。
+- 274：在 citations 值介於 0..1000 的前提下，提供的程式正確；array 是以值直接定址的頻率桶，不是 hashmap。由大到小掃描，在檢查 counts[i] >= i 時，counts[i] 已包含所有引用數 >= i 的論文，因此判斷的是「至少 i 篇論文各被引用至少 i 次」；第一個成立的 i 就是最大 h，未成立時再把累積值傳給 i-1。以 K 表示桶數，時間 O(n+K)、空間 O(K)；若固定 1001 為常數，則為 O(n) 時間、O(1) 額外空間。進一步利用 h <= n，可將引用數 c 歸入 min(c,n) 的桶，改用 n+1 個桶，得到不依賴引用數上界的 O(n) 時間、O(n) 空間版本。註解中的 brute force 若只測原始 citation 值會漏掉答案，例如 [100,100] 的 h=2；候選應是 0..n，目標是最大可行 h，不是最大論文數。
+- 279：提供的 DP 程式正確。這是以目標總和值為狀態的 value-space／value-range DP，也可視為完全平方數作為可重複面額的 Coin Change／完全背包最小化問題；dp[i] 存湊出 i 的最少項數，並非以答案項數作索引。枚舉最後一項 q²，取 dp[i-q²]+1 的最小值；不能只取最大的平方數，例如 12 貪心取 9 需四項，但 4+4+4 只需三項。內層枚舉 floor(sqrt(i)) 個候選，時間 Θ(n√n)，不是 O(n log n)；空間 O(n)。平方根候選由大到小或由小到大皆可，因依賴的總和值嚴格小於 i；變數名可用 q 避免與 sqrt 函式混淆。註解中的 15=9+4+2、6=4+2 不是合法的平方數分解。當前優先內化最後一步枚舉與最小化轉移即可；BFS 可作等權最短路視角的選修，數論做法不必為收集解法而立即重做。見 [在值域上做 DP](../Algorithms/Dynamic_Programming/State_Design/03-On_Value_Space.md)。
+- 173：提供的 lazy iterative inorder 程式正確，是不修改原樹、符合 O(h) 空間要求的標準最佳解法。每次操作前，stack top 是下一個尚未輸出的最小節點；store 沿左鏈保存尚待處理的節點，next 彈出後補入右子樹的左鏈，便恢復 invariant。constructor 最壞 O(h)，hasNext 最壞 O(1)，單次 next 最壞 O(h)；每個節點全程只 push、pop 各一次，因此完整遍歷 O(n)，next 為攤銷 O(1)，空間 O(h)。若只呼叫前 k 次 next，連同初始化總成本為 O(h+k)，不可將初始化成本忽略後宣稱任意短前綴都只需 O(k)。next 依賴仍有下一個元素的呼叫前提；store 命名為 pushLeftChain 可更直接表達用途。
+
+---
+
 ## 2026-10-28
 
 - 373. Find K Pairs with Smallest Sums
@@ -740,7 +865,7 @@ model: GPT-6
   - 完成後的關鍵觀察是「選擇的單位」：本題每次選一整段 substring，遞迴狀態仍可用 start index 表示剩餘後綴，不必逐字維護未完成段落。精確 invariant 是 solution 串接後恰好等於 `s[0:start)`，且每段都是回文；剩餘區是 `s[start:n)`。與 permutation 共用 choose / recurse / unchoose 骨架，但本題依原順序切段，不重排字元。可對照 [State and Solution Design](../Algorithms/Backtracking/04-State_and_Solution_Design.md)。
   - DP 優化可預先計算各區間是否為回文，讓候選檢查變成 O(1)；列舉所有分割的 backtracking 仍保留，最壞輸出規模仍是指數級。
 - 69：這次的重點是中間運算的型別與值域：兩個 int 相乘仍以 int 計算，即使最後存進 long long，也可能在賦值前就發生 signed overflow（undefined behavior）。要在乘法前提升型別，例如 `1LL * k * k` 或 `static_cast<long long>(k) * k`；`static_cast<long long>(k * k)` 則太晚。32-bit signed int 的 `46341 * 46341` 已超出上限，候選值的平方可能超界，即使 x 與最後答案都放得進 int。見 [整數溢位防範心法](../CPP_Reference/Type/Integer_Overflow_Prevention.md)。
-  - 建議再做 binary search，練習從已完成的基準解推導優化。若 linear search 從 0 逐一試到平方超過 x，時間為 O(√x)；BUD 的瓶頸是候選值逐一檢查，`k² <= x` 在非負候選區間呈現 true → false 的單調性，因而能二分尋找最後一個可行值，把搜尋降到 O(log x)（x ≥ 2），額外空間 O(1)。目標是 floor sqrt(x)，判定要包含等號並防止平方溢位；完成後用 x = 0、1、完全平方數、相鄰非平方數與 int 上限 dry run。見 [答案空間上的二分搜尋](../Algorithms/Binary_Search/04-Binary_Search_on_Solution_Space.md)。
+  - 建議再做 binary search，練習從已完成的基準解推導優化。若 linear search 從 0 逐一試到平方超過 x，時間為 O(√x)；BUD 的瓶頸是候選值逐一檢查，`k² <= x` 在非負候選區間呈現 true → false 的單調性，因而能二分尋找最後一個可行值，把搜尋降到 O(log x)（x ≥ 2），額外空間 O(1)。目標是 floor sqrt(x)，判定要包含等號並防止平方溢位；完成後用 x = 0、1、完全平方數、相鄰非平方數與 int 上限 dry run。見 [答案空間上的二分搜尋](../Algorithms/Binary_Search/Answer_Space/01-Answer_Space_Modeling.md)。
   - 提供的 binary search 版本正確，是 search on value 的基本題：候選數值本身有序，predicate `ok(k) = k² > x` 為 false → true。找第一個 true，再減一得到 floor sqrt；若改成 >=，完全平方數會被錯誤減一。Invariant：`[1, i)` 的平方都 <= x，`[j, x]` 的平方都 > x；未判定候選是 `[i, j)`，邊界答案在 `[i, j]`。x > 1 時 x² > x，因此 j = x 可作已知 true 的右界，不必設 x + 1；x = 0、1 由開頭處理。迴圈结束時 i == j，回傳 i - 1 或 j - 1 都正確，差別在 predicate 與答案轉換，不在變數名稱。口訣：定 predicate → 定空間 → 定移動 → 定回傳。見 [Binary Search 標準模板](../Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md)。
 
 ---
@@ -954,7 +1079,7 @@ model: Opus 5.5 (1M context)
 
 **LLM 點評**：
 model: Opus 5.5 (1M context)
-- 35（你的感覺是對的：筆記裡有兩套互相打架的模板）：`Algorithms/Binary_Search/01-Binary_Search_Template.md` 是**閉區間 `[0, n-1]` + `left <= right` + 三路比較（`==` 就 return）**，插入點靠「迴圈結束時 `left` 恰好停在對的地方」這個事後解釋；`02-Binary_Search_Comprehensive_Guide.md` 的 lower_bound 才是你今天這套：**半開 `[0, n]` + `i < j` + 二分判斷**。你這次的推法（先定義答案 = 第一個滿足 predicate 的位置 → 答案可能是 n 所以 search space 含 n → 不滿足就丟掉 mid、滿足就留住 mid → 收斂到 `i == j` 那格就是答案）是**從定義推出來的**，比 01 那套「背下來、結束時 left 剛好是插入點」可靠得多，也能直接推廣到 04 的 binary search on answer。照 repo 慣例，Binary_Search 資料夾還缺 `00-*_Standard_Template.md`，今天這版就是該升格的那一個，01 應該降為 ⚠️ rejected alternative。
+- 35（你的感覺是對的：筆記裡有兩套互相打架的模板）：`Algorithms/Binary_Search/04-Legacy_Closed_Interval_Search.md` 是**閉區間 `[0, n-1]` + `left <= right` + 三路比較（`==` 就 return）**，插入點靠「迴圈結束時 `left` 恰好停在對的地方」這個事後解釋；`01-Boundary_Search_Guide.md` 的 lower_bound 才是你今天這套：**半開 `[0, n]` + `i < j` + 二分判斷**。你這次的推法（先定義答案 = 第一個滿足 predicate 的位置 → 答案可能是 n 所以 search space 含 n → 不滿足就丟掉 mid、滿足就留住 mid → 收斂到 `i == j` 那格就是答案）是**從定義推出來的**，比 01 那套「背下來、結束時 left 剛好是插入點」可靠得多，也能直接推廣到 04 的 binary search on answer。照 repo 慣例，Binary_Search 資料夾還缺 `00-*_Standard_Template.md`，今天這版就是該升格的那一個，01 應該降為 ⚠️ rejected alternative。
 - 35（程式碼最後的 note 寫反了）：`nums[i] <= target → lower bound`、`nums[i] < target → upper bound` 是錯的。正確是看「往右丟」的條件：`nums[mid] < target` 時 `i = mid + 1` → **lower_bound**（第一個 `>=`）；`nums[mid] <= target` 時 `i = mid + 1` → **upper_bound**（第一個 `>`）。記法：丟掉的是「不是答案」的那一側，**predicate 的否定就是 move-right 條件**。
 - 67（「少一個狀態」為什麼沒有變簡單）：你縮減的不是狀態，是**迴圈條件**。`i`、`j`、`carry` 是三個**獨立的剩餘工作來源**，少寫一個進 `while`，那份工作就被推到迴圈外，得再補一段收尾（「while 不成立時反而要繼續做」正是這個症狀）。`while (i >= 0 || j >= 0 || carry)` 的意思是「**還有任何一份工作沒做完就繼續**」，迴圈體內用 `i >= 0 ? a[i--] - '0' : 0` 把「已經用完的來源」補成 0，三條路徑合成一條，外面就不需要任何收尾。跟 994 把 `fresh > 0` 寫進 `while` 是同一個動作：**讓迴圈條件精確等於「還有事要做」**（`Algorithms/Design_Principles/Correct_by_Construction.md`）。同一個骨架直接套 2 Add Two Numbers、415 Add Strings、66 Plus One（66 就是只有一個來源 + `carry` 初值為 1）。
 - 67（用詞小修正）：`i || j || carry` 是**迴圈的繼續條件**，不是 invariant。這題的 invariant 是「`res` 已經存了兩個字串低位部分的和，`carry` 是還沒寫出去的進位」——它說明了**為什麼**三者都耗盡時 `res` 就是答案。
@@ -1017,7 +1142,7 @@ model: Opus 5 (1M context)
 **LLM 點評**：
 model: Opus 5 (1M context)
 - 153（寫對了，而且兩個分支互斥是可以證明的）：`nums[i] > nums[mid]` 成立時，拐點落在 `[i, mid]`，所以 `[mid, j]` 必定是升冪的 → `nums[mid] < nums[j]`，第二個分支**不可能**同時成立。這代表分支的先後順序不影響正確性——這種「互斥可證」的結構值得當場確認一下，因為只要兩個條件會同時成立，先寫誰就變成一個藏在順序裡、沒被寫下來的決定。
-- 153（第一個比較是冗餘的，repo 已有正規版）：`nums[i] > nums[mid]` 這一支的結論（`j = mid`）跟「`nums[mid] < nums[j]` → `j = mid`」完全重合，所以**一次比較就夠**：`if (nums[mid] > nums[j]) i = mid + 1; else j = mid;`，迴圈結束時 `i == j` 就是答案。這正是 `Algorithms/Binary_Search/07-Inflection_Point_Binary_Search.md` 的模板（`beforeInflection(m) → nums[m] > nums[r]`）。你的版本是「模板 + 一次冗餘比較 + 一個提前 break」。
+- 153（第一個比較是冗餘的，repo 已有正規版）：`nums[i] > nums[mid]` 這一支的結論（`j = mid`）跟「`nums[mid] < nums[j]` → `j = mid`」完全重合，所以**一次比較就夠**：`if (nums[mid] > nums[j]) i = mid + 1; else j = mid;`，迴圈結束時 `i == j` 就是答案。這正是 `Algorithms/Binary_Search/03-Peak_and_Rotated_Array_Search.md` 的模板（`beforeInflection(m) → nums[m] > nums[r]`）。你的版本是「模板 + 一次冗餘比較 + 一個提前 break」。
 - 153（真正該記住的是：為什麼跟**右**端比，不是左端）：因為 `nums[m] > nums[右端]` 這個謂詞在整個陣列上是**單調的**（false…false true…true 反過來也是一刀切），二分搜尋能work的前提就是謂詞單調。跟左端比不具這個性質——`[1,2,3]` 沒旋轉時 `nums[mid]=2 > nums[i]=1`，照「大於就往右」會直接丟掉答案。**選擇比較對象不是風格問題，是在選一個單調謂詞。**
 - 153（break 的代價，以及它在 154 第一個死）：早退要付「每輪多一次比較」，而提前結束只在已排序的子區間才發生，平均省不到什麼。更重要的是它是**最脆弱的那一段**：`154 Find Minimum II`（可重複）一來，`[3, 3, 1, 3]` 會走到 `nums[i] == nums[mid] == nums[j]`，你的 `break` 直接回傳 `nums[i] = 3`，錯。有重複值時「兩端相等」根本無法判斷拐點在哪邊，只能 `j--` 退化成 O(n)。
 - 153（`j = mid` 和 `i = mid + 1` 的不對稱不是隨意的）：往左收時 **mid 本身可能就是答案**，所以不能 `mid - 1`；往右收時 `nums[mid] > nums[j]` 已經證明 mid 不是最小值，所以可以也**必須** `+1`。而 `mid` 下取整保證 `mid < j`，`j = mid` 一定讓區間變小、不會死迴圈。不變量一句話：**答案永遠在 `[i, j]` 內**——邊界怎麼移是從它推出來的，不是試出來的（見 `Algorithms/Backtracking/07-Guards_from_Invariants.md` 的同一套讀法）。
@@ -1030,7 +1155,7 @@ model: Opus 5 (1M context)
 - 215（quickselect 的核心是「只遞迴一邊」）：跟 quicksort 唯一的差別——partition 完看 pivot 落點，**只往包含答案的那半邊繼續**，另一半直接丟掉。均攤 T(n) = T(n/2) + O(n) = **O(n)**；最壞 O(n²)（每次都切在邊界），修法是**隨機選 pivot**（或 median-of-medians 保證最壞 O(n)，但常數大、面試只需口述）。repo 已有 `Algorithms/Partition/01-Lomuto_Partition_Scheme.md` 可以直接接上去，缺的是「選擇」這一層。
 - 215（實作最容易錯的兩點，先記下來）：(1) **k 要先轉成索引**——第 k 大 = 排序後的索引 `n - k`，之後整趟都用索引比較，別在迴圈裡反覆換算；(2) 遞迴/迴圈的**終止條件是 `pivot_index == target`**，不是區間長度 1。另外務必寫成 while 迴圈而非遞迴（尾遞迴，省 stack）。
 - 215（follow-up 你的直覺對，它是一整個家族的入口）：**347 Top K Frequent**（同一招套在 frequency 上，另有 bucket sort O(n) 解）、**703 Kth Largest in a Stream**（streaming → 只有 heap 能做，quickselect 出局）、**973 K Closest Points**、**295 Find Median from Data Stream**（雙 heap）、**4 Median of Two Sorted Arrays**（同樣是選擇問題，但要 O(log) → 改用 binary search on partition）。這條線值得開一篇 `Algorithms/Partition/` 底下的 Quickselect 心法，已加進 `Checklists/Learning_Roadmap.md`。
-- 153（二版收斂到模板了）：`if (nums[mid] > nums[j]) i = mid + 1; else j = mid;` 就是 `Algorithms/Binary_Search/07-Inflection_Point_Binary_Search.md` 的通用模板逐字對應（`beforeInflection(m) → nums[m] > nums[r]`）。三分支塌成二分支之後，`else` 那支自動涵蓋了原本要 `break` 的已排序情形——**不是把 break 刪掉，是它不再是一個獨立的 case**。
+- 153（二版收斂到模板了）：`if (nums[mid] > nums[j]) i = mid + 1; else j = mid;` 就是 `Algorithms/Binary_Search/03-Peak_and_Rotated_Array_Search.md` 的通用模板逐字對應（`beforeInflection(m) → nums[m] > nums[r]`）。三分支塌成二分支之後，`else` 那支自動涵蓋了原本要 `break` 的已排序情形——**不是把 break 刪掉，是它不再是一個獨立的 case**。
 - 153（「mid 跟 i 比沒有意義」要修正——真正的差別更有用）：`nums[mid] < nums[i]` 其實**是**有意義的，它確定拐點在左半（這正是你第一版的第一條分支，而且它是對的）。沒有意義的是**反過來**：`nums[mid] > nums[i]` 什麼都不能斷定。所以精確的說法是——**跟 `i` 比只有一個方向能下結論，跟 `j` 比兩個方向都能**。二分搜尋要的是每個 mid 都能做出決定的**完整二分**，只能單向決定的謂詞湊不出 `if/else`。
 - 153（更漂亮的判準，而且跟 138 是同一件事）：拿 `i` 當參照其實**也做得出來**（`P(m) = nums[m] < nums[i]` 在區間上同樣單調），但它有一個洞：完全沒旋轉時 `[1,2,3]` 沒有任何元素滿足 `P`，答案就漏掉了——**必須**靠「已排序就提前結束」那個特判把它補回來。拿 `j` 當參照則不需要，已排序的情形自動落進 `else`。兩個參照點的真正差別不是「有沒有意義」，是**其中一個讓特殊情況消失，另一個讓特殊情況變成必要條件**。這跟 138 換成 `map<Node*, Node*>` 之後 `nullptr` 特判自動消失是同一個形狀，見 `Algorithms/Design_Principles/Correct_by_Construction.md`：選對承載結構的東西，例外就不存在。
 - 153（所以你二版的 break 現在是純優化）：留著沒錯（已排序區間可以早退），但它不再扛正確性。判斷方式很簡單：**把它刪掉，答案還是對的**——這就是「優化」和「特判」的分界線，值得每次都確認一下自己留的是哪一種。
@@ -1347,7 +1472,7 @@ model: Fable 5.1
 - 15（2026-10-20 更正）：先前將 hashmap 方向判為不適合 3Sum 的評論過度武斷。固定 i、j 後查詢補數，配合合法 index 判斷與值去重，可以得到正確解；2026-10-20 已提供完整索引表版本。Running hashmap 尚未實作，不應記為通過；sort + two pointers 也仍待實作。
 - 15（第二次）：你做出來的就是「固定 i，內層跑 Two Sum I（seen-set）」— 「往前找曾經看過的」正是 LC 1 的 seen-set 概念，只是把 target 換成 `-nums[i]`，所以 hash map 其實是內層 2Sum 的 cache，不是 3Sum 層級的。它和 two-pointer 一樣 O(N²)，差別在 dedup：two-pointer 靠有序跳過三處相同值就乾淨；seen-set 版要在 i 跳重複 + 內層用 set 收 (j, k) 值對，比較容易漏。二刷時兩種都寫，重點感受「排序讓 two-pointer 成立」這件事。
 - 17：queue（BFS）版不用另外寫。它和 backtracking 是同一棵 state space tree 的 BFS / DFS 兩種走法，沒有新的設計決策，面試也極少追問（這題的 follow-up 通常是 digits 為空、或 mapping 動態給定）。真正值得留意的是這題把 backtracking 的三要素展示得很乾淨：path、candidates 由 `digits[depth]` 決定、terminate 在 `depth == digits.size()`。`const` map 用 `.at()` 這個坑 repo 已有：`CPP_Reference/Container/Const_Map_and_Operator_Bracket.md`。
-- 33：你這次抓到的判準是對的，而且它和 153 是**兩種不同的 binary search**，混用就是你一直錯的原因。153 找 inflection point，predicate 是 `nums[m] > nums[r]`（跟右端比）；33 不找 inflection，每輪只問「`[l, m]` 是否 sorted」（`nums[l] <= nums[m]`），sorted 那半可以用普通 range check 決定 target 在不在，不在就整半 prune。**是「兩段 binary search」壓成一段**，不是「先找 pivot 再二分」。注意 `<=` 而非 `<`：`l == m` 時單元素也算 sorted，否則會漏。repo 的 `07-Inflection_Point_Binary_Search.md` 目前只收 153 / 162，這個「找 sorted 半邊」的 predicate 還沒寫進去，值得補一段對照。
+- 33：你這次抓到的判準是對的，而且它和 153 是**兩種不同的 binary search**，混用就是你一直錯的原因。153 找 inflection point，predicate 是 `nums[m] > nums[r]`（跟右端比）；33 不找 inflection，每輪只問「`[l, m]` 是否 sorted」（`nums[l] <= nums[m]`），sorted 那半可以用普通 range check 決定 target 在不在，不在就整半 prune。**是「兩段 binary search」壓成一段**，不是「先找 pivot 再二分」。注意 `<=` 而非 `<`：`l == m` 時單元素也算 sorted，否則會漏。repo 的 `03-Peak_and_Rotated_Array_Search.md` 目前只收 153 / 162，這個「找 sorted 半邊」的 predicate 還沒寫進去，值得補一段對照。
 - 39：你的推導方向對，補一個精確化：二元樹的深度不是 `T/M`，而是 `N + T/M` — 每個「不選」讓 `i` 前進一格（最多 N 次），每個「選」讓 `target` 減至少 M（最多 T/M 次），所以 `O(2^(N + T/M))`；多叉樹版是 `O(N^(T/M))`，兩者都是同一個 state space `(i, remaining)` 的不同枚舉方式。**「用數值範圍推遞迴深度」這個感覺是 backtracking 複雜度分析的核心**：深度 = 「還能做幾次決策直到終止」，這題的終止由 target 給，所以深度由 T/M 給。二元 vs 多叉在 repo 有專文：`Algorithms/Backtracking/05-State_Space_Tree_and_N_Tuple_Representation.md`。
 - 39（code review）：演算法正確，排序後 `candidates[i] > remaining` 同時砍掉選/不選兩支是亮點；開頭的 input/output 註解是 3Sum 教訓的落實。要改：複雜度註解 `O(n^n * n)` 錯，應為 `O(2^(N+T/M) · T/M)`，空間是遞迴深度 `O(T/M)` 不是 `O(n)`；`solutions` 做 member 會讓重複呼叫累加，改 by-ref 傳或開頭 clear；`sol` 改名 `path`。
 - 53：你卡的點是 **state 的定義跟答案的形狀不一樣**。`dp[i]` 定義的是「**以 i 結尾**的最大子陣列和」，這是一個被限制的子問題，不是答案；答案是 `max(dp[0..n-1])`，因為最優子陣列可以在任何位置結尾，`dp[n-1]` 只是「必須包含最後一個元素」那一種。為什麼要這樣定義？因為「以 i 結尾」才能讓遞推 O(1)：`dp[i] = max(nums[i], dp[i-1] + nums[i])` — 要嘛接上前面，要嘛重新開始。如果把 state 定成答案的形狀「`[0..i]` 內的最大子陣列和」，遞推就寫不出來（不知道前面的最優段有沒有碰到 i-1，無法延伸）。所以這是一個交易：**把 state 綁死在「必須包含 i」換取乾淨的遞推，代價是最後要多一層 global max**。這正是 repo 的 `Kadanes_Pattern_DP.md`（dp[i] 必須包含位置 i）和 `State_Design/05-Local_State_vs_Global_Optimum.md` 在講的東西。順帶：sliding window 在這題失效是因為有負數 — 窗口不知道該不該縮，單調性不成立。

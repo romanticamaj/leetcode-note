@@ -1,4 +1,4 @@
-# 心法：尋找約束來套用二分搜尋 (Binary Search on Constraint)
+# 門檻與可行性判定（Threshold Feasibility）
 
 ## tl;dr
 
@@ -50,7 +50,7 @@
 
 ### 3.4. 設定收斂與返回 (Set Up Convergence & Return)
 
-- 使用二分搜尋的 `lower_bound` 模板來找到最小的可行解。
+- 目標是 `FFFFTTTT` 的第一個 T。標準寫法見 [first-true 模板](../00-Binary_Search_Standard_Template.md)；以下閉區間寫法保留作對照，與 [答案空間建模](01-Answer_Space_Modeling.md) 使用相同不變量。
 
 ```cpp
   int left = MIN_POSSIBLE_VALUE, right = MAX_POSSIBLE_VALUE;
@@ -61,7 +61,7 @@
       if (feasible(mid)) {
           // mid 是一個可行解，但我們想找更小 (更好) 的
           // 所以我們可以安全地捨棄右半邊，繼續在左半邊 [left, mid - 1] 尋找
-          // 但是別擔心，最後 left == right，因為不可行，就又跑到 right 右邊 + 1
+          // mid 可能就是答案；只排除未判定候選，不代表 mid 不可行
           right = mid - 1;
       } else {
           // mid 不是可行解，需要放寬條件
@@ -73,7 +73,7 @@
   return left;
 ```
 
-- **說明**：當 `while (left <= right)` 迴圈終止時，`left` 指針的位置就是第一個滿足 `feasible(x) == true` 的位置，即 `lower_bound`，這就是我們的答案。
+- **說明**：每輪開始時，原範圍內小於 `left` 的值全 F，大於 `right` 的值全 T。終止時 **`left == right + 1`**，所以 `left` 是第一個 T；不必先經過 `left == right`。若初始範圍全 F，則回傳初始上界加一的無解哨兵，不能直接當成可行答案。本篇連通性範例的上界需保證可行。
 
 ### 3.5. 時間複雜度分析 (Time Complexity Analysis)
 

@@ -16,6 +16,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Binary Search on Value Space
 
 - 🔴 LeetCode 4. Median of Two Sorted Arrays
+- 🟡 🔴 LeetCode 222. Count Complete Tree Nodes
+  - Tree Height + Search on Value + Bit Manipulation
 
 ## Two Pointers
 
@@ -64,14 +66,11 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Dynamic Programming
 
+- LeetCode 309. Best Time to Buy and Sell Stock with Cooldown
+  - 多維／State Machine DP：日期 × 持股狀態；buy[i] 從 sell[i-2] 買入以滿足 cooldown，並與前一天持股狀態取 max。
 - 🟡 🔴 LeetCode 221. Maximal Square
 - LeetCode 72. Edit Distance
-- 🟡 🔴 LeetCode 494. Target Sum
-  - Counting Dynamic Programming，設計 value range 很難，但是 Top-Down DP 很直觀
-- 🟡 LeetCode 416. Partition Equal Subset Sum
-  - **必做、再做一次。0/1 Knapsack／Subset Sum 判定型**：先練固定 target 的原始子集和，再回來獨立推導等和分割。每個元素最多選一次；由選／不選的暴力搜尋，推導 `(index, remaining)` 的 memoization。見 [背包 DP 筆記](../../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
 - 🟡 🔴 LeetCode 139. Word Break
-- 🟡 LeetCode 322. Coin Change
 - 🟡 LeetCode 22. Generate Parentheses
 - 🟡 LeetCode 97. Interleaving String
 - 🟡 🔴 LeetCode 152. Maximum Product Subarray
@@ -80,6 +79,17 @@ A curated list of must-do problems that build core competencies. Completing thes
   - Tree DP
 - 🟡 LeetCode 91. Decode Ways
   - bottom-up counting dynamic programming 不好寫
+
+## Knapsack DP / Value-Range DP
+
+- 🟡 🔴 LeetCode 494. Target Sum
+  - Counting Dynamic Programming，設計 value range 很難，但是 Top-Down DP 很直觀
+- 🟡 LeetCode 416. Partition Equal Subset Sum
+  - **必做、再做一次。0/1 Knapsack／Subset Sum 判定型**：先練固定 target 的原始子集和，再回來獨立推導等和分割。每個元素最多選一次；由選／不選的暴力搜尋，推導 `(index, remaining)` 的 memoization。見 [背包 DP 筆記](../../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)。
+- 🟡 LeetCode 322. Coin Change
+- 🟡 LeetCode 518. Coin Change II
+  - **完全背包／組合計數**：以 `(coin index, remaining amount)` 為狀態的 top-down value-range DP；選取後保留 index，允許重複使用同面額，跳過才前進，避免重複計算排列。
+  - 筆記：[Knapsack DP](../../Algorithms/Dynamic_Programming/Problem_Types/Knapsack_DP.md)、[Counting DP 的組合去重](../../Algorithms/Dynamic_Programming/Problem_Types/Counting_DP.md)。
 
 ## Kadane's Pattern DP
 
@@ -101,6 +111,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Divide and Conquer
 
+- 🟢 🟡 LeetCode 427. Construct Quad Tree
+  - 二維區域四分＋bottom-up 合併；練習 1×1 base case、閉區間切分、象限座標與節點生命週期。
 - LeetCode 218. The Skyline Problem
 - LeetCode 190. Reverse Bits
 - LeetCode 191. Number of 1 Bits
@@ -132,10 +144,15 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 ## Bit Manipulation
 
+- LeetCode 201. Bitwise AND of Numbers Range
+  - 區間 bit pattern 與位移操作；目前暫停、尚未完成，補強二進位觀察後再獨立推導。
 - 🟢 🟡 LeetCode 137. Single Number II
 - LeetCode 191. Number of 1 Bits
 - LeetCode 338. Counting Bits
   - Bit manipulation + bottom-up DP；移除最低位，或清除最低位的 1，重用較小數字的答案。
+- 🟡 🔴 LeetCode 222. Count Complete Tree Nodes
+  - Tree Height + Search on Value + Bit Manipulation
+- 🟡 LeetCode 371. Sum of Two Integers
 
 ## State Compression through Bit Manipulation
 
@@ -164,10 +181,13 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 319. Bulb Switcher
 - LeetCode 1925. Count Square Sum Triples
 - 🟡 LeetCode 189. Rotate Array
+- 🟡 LeetCode 380. Insert Delete GetRandom O(1)
 
 ## Sorting & Partition
 
 - LeetCode 49. Group Anagrams
+- 🟢 🟡 LeetCode 274. H-Index
+  - Naive 是 Sorting; 頻率桶 + suffix sum
 
 ## String Matching
 
@@ -229,7 +249,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 49. Group Anagrams
 - LeetCode 36. Valid Sudoku
-- LeetCode 424. Longest Repeating Character Replacement
+- 🔴 LeetCode 424. Longest Repeating Character Replacement
 - LeetCode 409. Longest Palindrome
 - 🟡 LeetCode 981. Time Based Key-Value Store
 - 🟢 🟡 LeetCode 73. Set Matrix Zeroes
@@ -307,6 +327,10 @@ Problems that require integrating multiple advanced techniques. These are excell
   - sort + hashmap or sort + two-pointer
 - 🟡 🔴 LeetCode 560. Subarray Sum Equals K
   - Prefix Sum + Running Hashmap
+- 🟡 🔴 LeetCode 222. Count Complete Tree Nodes
+  - Tree Height + Search on Value + Bit Manipulation
+- 🟡 🔴 437. Path Sum III
+  - Preordering Recursion + Prefix Sum + Running Sum
 
 ### Followup Possible (Multiple Solutions)
 
@@ -335,6 +359,10 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 LeetCode 15. 3Sum
 - 🟢 🟡 LeetCode 120. Triangle
   - Dynamic Programing with different space tradeoff
+- 🟢 🟡 LeetCode 279. Perfect Squares
+  - Value-Range DP or BFS
+- 🟡 🔴 LeetCode 222. Count Complete Tree Nodes
+  - Tree Height + Search on Value + Bit Manipulation
 
 ## LeetCode Solution Worth Reading
 
@@ -354,6 +382,9 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 LeetCode 124. Binary Tree Maximum Path Sum
 - 🟡 🔴 LeetCode 15. 3Sum
 - 🟡 LeetCode 151. Reverse Words in a String
+- 🟡 🔴 LeetCode 222. Count Complete Tree Nodes
+  - Tree Height + Search on Value + Bit Manipulation
+- 🟡 LeetCode 371. Sum of Two Integers
 
 ## Classic Optimization / Brain Development
 

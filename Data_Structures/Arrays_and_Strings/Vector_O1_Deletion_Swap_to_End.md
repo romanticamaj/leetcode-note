@@ -74,7 +74,7 @@ void removeAtIndex(int idx) {
 **數據結構組合**：
 
 - `unordered_map<Value, Index>`：O(1) 值查找和索引映射
-- `vector<Value>`：O(1) 隨機存取和 `rand() % size`
+- `vector<Value>`：O(1) 隨機存取；用 `uniform_int_distribution` 均勻抽取索引。`rand() % size` 可能有 modulo bias，見 [均勻亂數取樣](../../CPP_Reference/Algorithm/Uniform_Random_Sampling.md)。
 
 **典型應用**：
 

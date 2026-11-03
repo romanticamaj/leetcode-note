@@ -1,4 +1,4 @@
-# 🟢 二分搜尋全面心法整理
+# 二分邊界搜尋：Lower Bound 與 Upper Bound
 
 二分搜尋法的精髓在於其 **搜尋區間 (Search Space)** 的定義與 **收斂方式 (Convergence)**。不同的設定組合適用於不同的情境。
 

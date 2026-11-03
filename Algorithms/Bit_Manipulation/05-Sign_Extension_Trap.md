@@ -31,6 +31,7 @@ uint32_t value = n;  // 明確使用 uint32_t
 
 ## ✅ 關鍵要點
 
-- **永遠使用無符號型別**進行位元操作
-- 算術右移（signed）：補符號位
+- **需要邏輯右移時使用無符號型別**；不是所有位元操作都禁止 signed。
+- 負的 signed 右移：C++17 為 implementation-defined；C++20 起保證算術右移，補符號位。
 - 邏輯右移（unsigned）：補 0
+- 左移不做 sign extension；負值左移的版本差異與位移量限制，見 [Bit Shift UB 地雷](99-Case_Shift_UB_Pitfall.md)。

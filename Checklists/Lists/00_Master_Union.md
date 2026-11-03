@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：190 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：208 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -225,27 +225,27 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **647.** [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-28</sub>
 - [x] **86.** [Partition List](https://leetcode.com/problems/partition-list/) — `Medium` · <sub>TI150</sub> ✅ · <sub>✔ 2026-10-28</sub>
 - [x] **695.** [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-28</sub>
-- [ ] **173.** [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/) — `Medium` · <sub>TI150</sub>
-- [ ] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium` · <sub>H100</sub>
-- [ ] **274.** [H-Index](https://leetcode.com/problems/h-index/) — `Medium` · <sub>TI150</sub>
+- [x] **173.** [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-29</sub>
+- [x] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium` · <sub>H100</sub> · <sub>✔ 2026-10-29</sub>
+- [x] **274.** [H-Index](https://leetcode.com/problems/h-index/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-29</sub>
 - [ ] **201.** [Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/) — `Medium` · <sub>TI150</sub>
-- [ ] **380.** [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) — `Medium` · <sub>TI150</sub>
+- [x] **380.** [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-10-29</sub>
 - [ ] **424.** [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **678.** [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **721.** [Accounts Merge](https://leetcode.com/problems/accounts-merge/) — `Medium` · <sub>G75</sub>
-- [ ] **222.** [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) — `Medium` · <sub>TI150</sub> ✅
-- [ ] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium` · <sub>NC</sub>
-- [ ] **240.** [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) — `Medium` · <sub>H100</sub> ✅
-- [ ] **743.** [Network Delay Time](https://leetcode.com/problems/network-delay-time/) — `Medium` · <sub>NC</sub>
-- [ ] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium` · <sub>NC</sub>
-- [ ] **427.** [Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/) — `Medium` · <sub>TI150</sub>
+- [x] **678.** [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-30</sub>
+- [x] **721.** [Accounts Merge](https://leetcode.com/problems/accounts-merge/) — `Medium` · <sub>G75</sub> · <sub>✔ 2026-10-30</sub>
+- [x] **222.** [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) — `Medium` · <sub>TI150</sub> ✅ · <sub>✔ 2026-10-30</sub>
+- [x] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-30</sub>
+- [x] **240.** [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) — `Medium` · <sub>H100</sub> ✅ · <sub>✔ 2026-10-31</sub>
+- [x] **743.** [Network Delay Time](https://leetcode.com/problems/network-delay-time/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-31</sub>
+- [x] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-10-31</sub>
+- [x] **427.** [Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/) — `Medium` · <sub>TI150</sub> ✅ · <sub>✔ 2026-11-01</sub>
 - [x] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-10-21</sub>
-- [ ] **452.** [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) — `Medium` · <sub>TI150</sub>
-- [ ] **787.** [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) — `Medium` · <sub>NC</sub>
-- [ ] **92.** [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) — `Medium` · <sub>TI150</sub>
-- [ ] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium` · <sub>NC</sub>
-- [ ] **437.** [Path Sum III](https://leetcode.com/problems/path-sum-iii/) — `Medium` · <sub>H100</sub>
-- [ ] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium` · <sub>NC</sub>
+- [x] **452.** [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-11-01</sub>
+- [x] **787.** [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-03</sub>
+- [x] **92.** [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-11-03</sub>
+- [x] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-03</sub>
+- [x] **437.** [Path Sum III](https://leetcode.com/problems/path-sum-iii/) — `Medium` · <sub>H100</sub> · <sub>✔ 2026-11-03</sub>
+- [x] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-03</sub>
 - [ ] **567.** [Permutation in String](https://leetcode.com/problems/permutation-in-string/) — `Medium` · <sub>NC</sub> ✅
 - [ ] **909.** [Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders/) — `Medium` · <sub>TI150</sub>
 - [ ] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium` · <sub>NC</sub>

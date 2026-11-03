@@ -1,4 +1,4 @@
-# 🔍 Binary Search on Answer 題型整理
+# 答案空間二分搜尋：題型與練習路徑
 
 這類題目雖然使用 Binary Search，但不是在 array 上找元素，而是在「答案空間」上進行二分，透過 check 函數來判斷某個 candidate 是否可行。
 

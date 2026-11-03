@@ -2,7 +2,7 @@
 
 單調 predicate 邊界搜尋的標準寫法：**半開區間 `[lo, hi)`、`while (lo < hi)`，找「第一個讓 predicate 成立的位置」**。
 
-`lower_bound`、`upper_bound`、插入點、binary search on answer 全都是這一個模板換 predicate。細節與變體見 [02-Binary_Search_Comprehensive_Guide.md](02-Binary_Search_Comprehensive_Guide.md)。
+`lower_bound`、`upper_bound`、插入點、binary search on answer 全都是這一個模板換 predicate。細節與變體見 [01-Boundary_Search_Guide.md](01-Boundary_Search_Guide.md)。
 
 ---
 
@@ -88,11 +88,11 @@ int firstTrue(int n, auto ok) {
 
 「找**最後一個** X」不用另一套模板：它就是「第一個 **非 X**」的前一格，`firstTrue(...) - 1`。
 
-Binary search on answer 只是把空間從 index `[0, n]` 換成答案值域 `[minAns, maxAns]`，模板一字不改。見 [04-Binary_Search_on_Solution_Space.md](04-Binary_Search_on_Solution_Space.md)。
+Binary search on answer 只是把空間從 index `[0, n]` 換成答案值域 `[minAns, maxAns]`，模板一字不改。見 [01-Answer_Space_Modeling.md](Answer_Space/01-Answer_Space_Modeling.md)。
 
 ## 5. ⚠️ 被淘汰的寫法（不要背）
 
-> ⚠️ **閉區間 `[0, n-1]` + `while (left <= right)` + 三路比較**（[01-Binary_Search_Template.md](01-Binary_Search_Template.md) 的寫法）
+> ⚠️ **閉區間 `[0, n-1]` + `while (left <= right)` + 三路比較**（[04-Legacy_Closed_Interval_Search.md](04-Legacy_Closed_Interval_Search.md) 的寫法）
 > - `==` 就 return，有重複值時回傳的是**任意一個**符合的位置，不是第一個。
 > - 插入點靠「迴圈結束時 `left` 剛好停在對的地方」的**事後解釋**，不是從定義推出來的，壓力下很難重建。
 > - 三個分支、兩種收斂，無法直接推廣到 predicate / binary search on answer。
@@ -142,8 +142,8 @@ Binary search on answer 只是把空間從 index `[0, n]` 換成答案值域 `[m
 
 ## 相關筆記
 
-- **[02-Binary_Search_Comprehensive_Guide.md](02-Binary_Search_Comprehensive_Guide.md)** — lower/upper bound 對照、`right = size - 1` 陷阱的完整走查
-- **[03-Deep_Dive_Existence_Positioning_Duplicates.md](03-Deep_Dive_Existence_Positioning_Duplicates.md)** — 存在性、定位與重複值
-- **[04-Binary_Search_on_Solution_Space.md](04-Binary_Search_on_Solution_Space.md)** / **[05-Binary_Search_on_Constraint.md](05-Binary_Search_on_Constraint.md)** — 在答案值域上二分
-- **[07-Inflection_Point_Binary_Search.md](07-Inflection_Point_Binary_Search.md)** — 旋轉陣列、峰值
+- **[01-Boundary_Search_Guide.md](01-Boundary_Search_Guide.md)** — lower/upper bound 對照、`right = size - 1` 陷阱的完整走查
+- **[02-Existence_Positioning_and_Duplicates.md](02-Existence_Positioning_and_Duplicates.md)** — 存在性、定位與重複值
+- **[01-Answer_Space_Modeling.md](Answer_Space/01-Answer_Space_Modeling.md)** / **[02-Threshold_Feasibility.md](Answer_Space/02-Threshold_Feasibility.md)** — 在答案值域上二分
+- **[03-Peak_and_Rotated_Array_Search.md](03-Peak_and_Rotated_Array_Search.md)** — 旋轉陣列、峰值
 - **[Loop_Invariant.md](../../Proof_Techniques/Loop_Invariant.md)** — 不變量證明方法

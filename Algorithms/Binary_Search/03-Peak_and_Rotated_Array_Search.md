@@ -1,4 +1,4 @@
-# Inflection Point 二分搜尋 / Inflection Point Binary Search
+# 峰值與旋轉陣列的二分搜尋（Peak and Rotated Array Search）
 
 ## ℹ️ Inflection Point 定義 / Definition
 

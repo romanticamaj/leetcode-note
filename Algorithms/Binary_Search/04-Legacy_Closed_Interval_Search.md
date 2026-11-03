@@ -1,4 +1,4 @@
-# 二分搜尋法範本與插入點解釋
+# 閉區間三路搜尋與插入點：舊版對照
 
 > ⚠️ **已被取代**：標準寫法見 [00-Binary_Search_Standard_Template.md](00-Binary_Search_Standard_Template.md)（半開區間 + 找第一個 true）。本篇的閉區間三路比較寫法保留作對照，不要背。
 

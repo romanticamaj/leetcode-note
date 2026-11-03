@@ -82,7 +82,7 @@ HTML 版支援搜尋、分類篩選與展開閱讀。下載後可直接用瀏覽
 |---|---|---|
 | Two Pointers | [核心模式與模板](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md) | [快慢指標](Algorithms/Two_Pointers/02_Fast_and_Slow_Pointers.md) |
 | Sliding Window | [擴張 → 修復 → 結算](Algorithms/Sliding_Window/00-Sliding_Window_Standard_Template.md) | [Constraint 追蹤與優化](Algorithms/Sliding_Window/01-Constraint_Tracking_and_Optimization.md) |
-| Binary Search | [找第一個成立的 predicate](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md) | [在答案空間搜尋](Algorithms/Binary_Search/04-Binary_Search_on_Solution_Space.md) |
+| Binary Search | [找第一個成立的 predicate](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md) | [在答案空間搜尋](Algorithms/Binary_Search/Answer_Space/01-Answer_Space_Modeling.md) |
 | Prefix Sum | [前綴和基礎](Algorithms/Prefix_Sum/01_Prefix_Sum_Intro.md) | [Running State 模式](Algorithms/Prefix_Sum/02_Running_State_Pattern.md) |
 | Recursion & Trees | [遞迴設計原則](Algorithms/Design_Principles/Recursion/01-Recursion_Design_Principles.md) | [遞迴四大流派的狀態設計](Algorithms/Design_Principles/Recursion/State_Design_Across_Recursive_Paradigms.md) |
 | Backtracking | [模板與模式](Algorithms/Backtracking/01-Backtracking_Templates_and_Patterns.md) | [已定 vs. 待定的候選者建模](Algorithms/Backtracking/03-Backtracking_Candidate_Modeling.md) |

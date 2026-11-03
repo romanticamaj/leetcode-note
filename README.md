@@ -82,7 +82,7 @@ Each entry below gives you a concrete starting point and a deeper modeling quest
 |---|---|---|
 | Two Pointers | [Core patterns and templates](Algorithms/Two_Pointers/01-Two_Pointers_Core_Patterns_and_Templates.md) | [Fast and slow pointers](Algorithms/Two_Pointers/02_Fast_and_Slow_Pointers.md) |
 | Sliding Window | [Expand → repair → evaluate](Algorithms/Sliding_Window/00-Sliding_Window_Standard_Template.md) | [Constraint tracking](Algorithms/Sliding_Window/01-Constraint_Tracking_and_Optimization.md) |
-| Binary Search | [Find the first true predicate](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md) | [Search the solution space](Algorithms/Binary_Search/04-Binary_Search_on_Solution_Space.md) |
+| Binary Search | [Find the first true predicate](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md) | [Search the solution space](Algorithms/Binary_Search/Answer_Space/01-Answer_Space_Modeling.md) |
 | Prefix Sum | [Core concepts](Algorithms/Prefix_Sum/01_Prefix_Sum_Intro.md) | [Running-state patterns](Algorithms/Prefix_Sum/02_Running_State_Pattern.md) |
 | Recursion & Trees | [Recursion design principles](Algorithms/Design_Principles/Recursion/01-Recursion_Design_Principles.md) | [State design across recursive paradigms](Algorithms/Design_Principles/Recursion/State_Design_Across_Recursive_Paradigms.md) |
 | Backtracking | [Templates and patterns](Algorithms/Backtracking/01-Backtracking_Templates_and_Patterns.md) | [Decided vs. undecided candidates](Algorithms/Backtracking/03-Backtracking_Candidate_Modeling.md) |

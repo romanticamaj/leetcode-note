@@ -4,7 +4,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 
 來源：https://leetcode.com/studyplan/top-100-liked/
 
-**已刷：93 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
+**已刷：96 / 100**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 20 · Medium 68 · Hard 12　|　🔒 = Premium
 
 ---
 
@@ -43,7 +43,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **226.** [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — `Easy` · <sub>✔ 2026-09-05</sub>
 - [x] **230.** [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
 - [x] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — `Medium` · <sub>✔ 2026-09-21</sub>
-- [ ] **437.** [Path Sum III](https://leetcode.com/problems/path-sum-iii/) — `Medium`
+- [x] **437.** [Path Sum III](https://leetcode.com/problems/path-sum-iii/) — `Medium` · <sub>✔ 2026-11-03</sub>
 - [x] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — `Easy` · <sub>✔ 2026-09-16</sub>
 
 ## Dynamic Programming (15)
@@ -58,7 +58,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [x] **139.** [Word Break](https://leetcode.com/problems/word-break/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **152.** [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — `Medium` · <sub>✔ 2026-10-05</sub>
 - [x] **198.** [House Robber](https://leetcode.com/problems/house-robber/) — `Medium` · <sub>✔ 2026-09-21</sub>
-- [ ] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium`
+- [x] **279.** [Perfect Squares](https://leetcode.com/problems/perfect-squares/) — `Medium` · <sub>✔ 2026-10-29</sub>
 - [x] **300.** [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) — `Medium` · <sub>✔ 2026-09-22</sub>
 - [x] **322.** [Coin Change](https://leetcode.com/problems/coin-change/) — `Medium` · <sub>✔ 2026-09-15</sub>
 - [x] **416.** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) — `Medium` ✅ · <sub>✔ 2026-10-19</sub>
@@ -112,7 +112,7 @@ LeetCode 官方按讚數最高的 100 題，經典題密度最高。
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — `Medium`
 - [x] **54.** [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) — `Medium` ✅ · <sub>✔ 2026-09-10</sub>
 - [x] **73.** [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
-- [ ] **240.** [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) — `Medium` ✅
+- [x] **240.** [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) — `Medium` ✅ · <sub>✔ 2026-10-31</sub>
 
 ## Sliding Window (4)
 

@@ -54,7 +54,7 @@ Subset Sum 問：給定 n 個正整數，每個輸入位置最多選一次，能
 
 這裡的關鍵能力是**先找出數值軸，再證明它的範圍**。n 通常容易從項目進度辨認；另一軸則要由選擇對剩餘問題的影響推導，不能只看單一元素的最大值。
 
-與 [答案範圍二分](../../Binary_Search/04-Binary_Search_on_Solution_Space.md) 的共同點，是把數值本身當成探索空間；分界在於：DP 要有充分狀態與可負擔的依賴計算，二分則要有正確且單調的判定。**「能否恰好湊出某個值」通常不具單調性，不能只因為有 range 就二分。**
+與 [答案範圍二分](../../Binary_Search/Answer_Space/01-Answer_Space_Modeling.md) 的共同點，是把數值本身當成探索空間；分界在於：DP 要有充分狀態與可負擔的依賴計算，二分則要有正確且單調的判定。**「能否恰好湊出某個值」通常不具單調性，不能只因為有 range 就二分。**
 
 教材對照：Kleinberg、Tardos，*Algorithm Design* §6.4 **Subset Sums and Knapsacks: Adding a Variable**，書頁 268–269，先說明只記前 i 個項目不足，再引入剩餘容量作為額外變數；見 [依該節編寫的大學講義](https://www.cs.cmu.edu/~ckingsf/bioinfo-lectures/subsetsum.pdf)。此處的起手式是整理出的練習框架，不主張是教材中的獨立演算法名稱。
 

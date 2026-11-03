@@ -9,7 +9,7 @@
 - Vertex-Mapping trick: Algorithms/BFS/BFS_Vertex_Mapping_Pattern.md
 - Multi-Source BFS: Algorithms/BFS/MultiSource_BFS_Thinking_Framework.md
 - State-Space BFS: Algorithms/BFS/State_Space_BFS.md
-- Solution-Space or Contraint Binary Search: Algorithms/Binary_Search/04-Binary_Search_on_Solution_Space.md, Algorithms/Binary_Search/05-Binary_Search_on_Constraint.md
+- Solution-Space or Contraint Binary Search: Algorithms/Binary_Search/Answer_Space/01-Answer_Space_Modeling.md, Algorithms/Binary_Search/Answer_Space/02-Threshold_Feasibility.md
 - Bit Space Optimization: Algorithms/Bit_Manipulation/State_Compression_with_Bitmask.md
 - Bidirectional Constraint Decomposition: Algorithms/Design_Principles/Bidirectional_Constraint_Decomposition.md
 - Movement Constraint Transformation: Algorithms/Design_Principles/Transformation_Patterns/Movement_Constraint_Transformation.md

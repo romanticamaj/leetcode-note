@@ -31,6 +31,9 @@
 
 ### State Machine DP
 
+- LeetCode 309. Best Time to Buy and Sell Stock with Cooldown
+  - **日期 × 持股狀態的多維 DP 原型**：以 buy[i]／sell[i] 分別保存當天結束時持股／未持股的最大收益；cooldown 使買入轉移依賴 sell[i-2]，每個狀態都保留休息的選項。時間 O(n)、array 空間 O(n)。
+
 ### Tree DP
 
 - 🔴 🟡 LeetCode 124. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
@@ -51,6 +54,12 @@
 ### Topological Sort
 
 - 🟢 🟡 LeetCode 210. Course Schedule II
+
+### Dijkstra（非負權重單源最短路徑）
+
+- LeetCode 743. Network Delay Time
+  - **單源到所有節點的最短路徑原型**：有向、非負權重圖；min-heap 存 `{累積距離, node}`，透過 relaxation 更新距離並跳過過時候選。答案取所有最短距離的最大值，不可達則回傳 -1。
+  - ⚠️ pair 的第一欄是排序鍵，不能放 node，也不是單條邊的 weight。見 [Dijkstra 指南](../../Algorithms/Greedy/Dijkstra's%20Algorithm/01-Dijkstra_Algorithm_Guide.md)。
 
 ### Union-Find
 

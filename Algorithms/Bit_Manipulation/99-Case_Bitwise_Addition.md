@@ -2,6 +2,8 @@
 
 不用 `+` 運算子，純粹用位元操作實現加法。
 
+歷史與教材脈絡見 [LC 371：加法器、二補數與位元加法的歷史](../../Problem_History/LC_0371_Sum_of_Two_Integers.md)。
+
 ## 🧠 核心概念：位元操作不管語義
 
 位元操作只關心**位模式 (bit pattern)**，不關心這個數字「代表什麼」。
@@ -9,8 +11,8 @@
 這意味著：
 
 - 不管是正數、負數、還是 unsigned
-- XOR、AND、shift 都只看 0 和 1 的排列
-- Two's complement 表示的負數，做位元運算後結果自動正確，不需特殊處理
+- XOR、AND 同時處理所有對應 bits；shift 另須遵守 C++ 型別與版本規則。
+- w-bit 二補數將 `-x` 編碼為 `2^w-x`，所以模 `2^w` 的加法不需另處理負號；若真實答案在 signed 範圍內，解讀即為正確整數。
 
 ## 核心公式
 
@@ -35,11 +37,11 @@ int getSum(int a, int b) {
         ua = ua ^ ub;
         ub = carry;
     }
-    return (int)ua;  // 轉回 int，自動還原正負號
+    return static_cast<int>(ua);  // C++20 起保證模數轉換；舊版見下方
 }
 ```
 
-**Loop Invariant：** `ua + ub` 的值始終等於原始 `a + b`，直到 `ub == 0`
+**Loop Invariant：** `ua + ub` 在模 `2^w` 下始終等於原始總和，直到 `ub == 0`；w 是 unsigned int 的位寬。
 
 ## 為什麼用 `unsigned int`？
 
@@ -48,9 +50,10 @@ int a = -1;              // 位模式: 0xFFFFFFFF
 unsigned int ua = a;     // 位模式仍是 0xFFFFFFFF
 ```
 
-- C++ 的 signed 右移是算術移位（補符號位），行為依實作而定
-- unsigned 右移是邏輯移位（補 0），行為明確
-- 轉回 `int` 時，位模式不變，自動還原成正確的負數
+- 此演算法使用的是**左移**：unsigned 左移有明確的模數規則，捨棄超出位寬的高位。
+- C++17 對負值左移屬 UB；C++20 起 signed 左移也採模數規則，因此新版用 int 亦可，不代表 unsigned 寫法有問題。
+- unsigned 轉回超出範圍的 int：C++17 為 implementation-defined，C++20 起保證模數轉換。
+- 詳見 [Bit Shift UB 地雷](99-Case_Shift_UB_Pitfall.md) 的版本對照與標準來源；右移的補符號位問題見 [Sign Extension](05-Sign_Extension_Trap.md)。
 
 ## 手動追蹤：`-1 + 1`
 

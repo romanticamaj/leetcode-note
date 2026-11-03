@@ -13,7 +13,10 @@
 | [134. Gas Station](LC_0134_Gas_Station.md) | Gasoline Puzzle、Gasoline Lemma；相關的 Cycle Lemma | 從前綴和的最低谷出發 |
 | [189. Rotate Array](LC_0189_Rotate_Array.md) | 文字編輯器的區塊搬移、三次反轉；Bentley 記載 1971 年已有使用 | 把 rotation 看成 A\|B → B\|A |
 | [310. Minimum Height Trees](LC_0310_Minimum_Height_Trees.md) | Jordan 的樹中心、Harary 的剝葉證明、網路設施選址與 LeetCode 解答的術語混用 | 剝葉或取直徑中點，找最遠距離最小的 center |
+| [371. Sum of Two Integers](LC_0371_Sum_of_Two_Integers.md) | CtCI 17.1 同型題；Shannon 1937 加法器、EDVAC 1945 的模數表示與 Nand to Tetris 教材；直接命題來源未確認 | XOR 交出部分和、AND 找進位；二補數讓正負數共用固定位寬加法 |
 | [373. Find K Pairs with Smallest Sums](LC_0373_Find_K_Pairs_with_Smallest_Sums.md) | 磁帶外部排序、多路合併、heap 與 tournament tree；最初發明者與 LeetCode 直接來源未確認 | 每個有序來源只保留一個前端，取出誰就向誰補下一個 |
+| [437. Path Sum III](LC_0437_Path_Sum_III.md) | CtCI 第六版 4.12 Paths with Sum，官方解答含雙遞迴與 prefix 頻率＋回溯；直接命題來源未確認 | 固定終點查 prefix 差，撤銷讓有效歷史只包含祖先鏈 |
+| [787. Cheapest Flights Within K Stops](LC_0787_Cheapest_Flights_Within_K_Stops.md) | Weekly Contest 72；Bellman 1958 的停留次數迭代、教科書邊數 DP、資源受限最短路徑與 2023 年條件下界 | 同城市的低費用與少邊數可能互不支配；先定義狀態，再選搜尋排程 |
 
 ## 檔名與組織
 

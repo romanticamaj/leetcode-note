@@ -2,12 +2,35 @@
 
 這份清單用於追蹤需要重點複習的演算法題目。
 
+## 必練星級
+
+之後新增或更新複習項目時，皆在題目前標註 **⭐～⭐⭐⭐⭐⭐**。星數表示個人的**必練程度／複習優先級**，不代表題目難度；同題不同版本可分別評級。使用者指定的星級優先，未指定時依練習紀錄與重練目標判斷。既有未標星項目待更新時再補。
+
+| 星級 | 意義 |
+|:---|:---|
+| ⭐⭐⭐⭐⭐ | 必練，優先安排並獨立重做 |
+| ⭐⭐⭐⭐ | 重點複習，核心觀念或實作仍需鞏固 |
+| ⭐⭐⭐ | 一般複習，值得再練一次 |
+| ⭐⭐ | 延伸練習，核心版本熟悉後再做 |
+| ⭐ | 選修，有餘裕時練習 |
+
 ## 重練追蹤
 
 從 [刷題日誌](../Practice_Log.md) 與下方複習目標整理，聚焦已練過的題目；尚未練過的題目保留在下方清單。**前次練習**是整理時日誌裡最近一次記錄該題的日期（已完成的列保留重做前的練習日）；**重做日期**只填已確認完成這項目標的日期，`—` 表示仍待做。舊筆記中的「二刷日期」是當時的計畫，不能當作已完成紀錄。同一題的不同版本分開追蹤。之後重做時先記入日誌；達成該目標才把狀態改成「已完成」並填上實際日期。
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | ⭐⭐⭐⭐ 518. Coin Change II：計畫 2026-11-04 寫二維 bottom-up；保留 (coin index, remaining amount) 語義，獨立推導 base case 與填表方向，說明選取留在同一 i、跳過依賴 i+1；先不要求一維壓縮 | 2026-11-03 | — |
+| 待做 | ⭐⭐⭐⭐⭐ 787. Cheapest Flights Within K Stops：Bellman-Ford／邊數 DP；獨立定義至多 i 條邊的最小費用，實作每輪只讀上一層快照，說明 k stops = k+1 edges 與原地更新會超用邊數 | 2026-11-03 | — |
+| 待做 | ⭐⭐⭐⭐⭐ 787. Cheapest Flights Within K Stops：BFS with condition k；按已用邊數分層做費用 relaxation、同層同城市合併再擴展，限制最多 k+1 條邊；說明不能首次 visited 就封鎖城市或首次抵達 dst 就回傳 | 2026-11-03 | — |
+| 待做 | ⭐⭐⭐⭐⭐ 787. Cheapest Flights Within K Stops：better Dijkstra；獨立推導 cost-ordered pop＋minEdges 支配剪枝，保留較貴但邊數較少的候選，解釋為何只能在 pop 時套用此判斷、合法 dst 可提早回傳，分析 heap 成本 | 2026-11-03 | — |
+| 待做 | ⭐⭐⭐ 846. Hand of Straights：獨立推導最小剩餘值必須當組頭的 greedy，以 ordered frequency map 批次開 count 組並扣除連續值；分析 O(n log(U+1)) 時間、O(U) 空間，O(n) 延伸版本暫不列必做 | 2026-10-31 | — |
+| 待做 | ⭐⭐⭐⭐ 240. Search a 2D Matrix II：已完成三區域 divide and conquer；獨立推導並實作 O(m+n) 時間、O(1) 空間搜尋，證明每次可安全排除整列或整欄；此延伸尚未完成 | 2026-10-31 | — |
+| 待做 | ⭐⭐⭐⭐ 721. Accounts Merge：獨立建立 graph，說明節點、邊與共享 email 的傳遞連通性；避免同名誤合併、同帳戶重複展開或不必要的兩兩連邊，分析遍歷與排序成本 | 2026-10-30 | — |
+| 待做 | ⭐⭐⭐⭐⭐ 678. Valid Parenthesis String：目前完成 recursive → top-down DP；另日學習並獨立實作 O(n) 時間、O(1) 空間的做法，重點在狀態摘要與正確性 invariant；尚未完成此延伸版本 | 2026-10-30 | — |
+| 待做 | 222. Count Complete Tree Nodes：本次經提示完成；獨立重建最後一層存在性的單調判定、編號 bits 對應根到節點路徑，以及 binary search 邊界；驗證空樹與未滿最後一層，分析 O(log² n) 時間、O(log n) 遞迴空間 | 2026-10-30 | — |
+| 待做 | 380. Insert Delete GetRandom O(1)：獨立實作 hashmap + vector 尾端補位刪除，維持 value → index 一致；驗證刪中間／尾端／唯一元素與刪後重插，整合 uniform_int_distribution 均勻取樣並說明 modulo bias | 2026-10-29 | — |
+| 待做 | 279. Perfect Squares：獨立重做以目標總和為狀態的 DP，枚舉最後一個平方數並推導最小化轉移；說明不能只取最大平方數，以及 Θ(n√n) 時間、O(n) 空間的分析 | 2026-10-29 | — |
 | 待做 | 647. Palindromic Substrings：獨立推導並實作 O(n²) 時間、O(1) 額外空間的 follow-up；目前已完成 O(n²) 空間的 DP 版本 | 2026-10-28 | — |
 | 待做 | 560. Subarray Sum Equals K：獨立推導並實作 running sum + frequency hashmap，不建立 prefix sum 陣列；說明負數為何使此題無法直接套 sliding window、空前綴初始化，以及先查詢再記錄的 invariant | 2026-10-28 | — |
 | 待做 | 373. Find K Pairs with Smallest Sums：獨立重做 k-way merge；從隱式有序序列推導每列一個候選的 invariant、同列補位與 min-heap comparator | 2026-10-28 | — |
@@ -108,6 +131,20 @@
 
 ## 題目列表
 
+- [ ] **⭐⭐⭐⭐⭐ LeetCode 787. Cheapest Flights Within K Stops**
+  - 📌 標記原因：第三次做仍卡在 C++ 型別表示與邊數狀態；本次經提示完成二維 distance 版本，以下三種解法仍須分別獨立驗收。
+  - 🔗 前置閱讀：[邊數限制最短路徑的出處、歷史與三種排程](../../Problem_History/LC_0787_Cheapest_Flights_Within_K_Stops.md)。
+  - [ ] Bellman-Ford：以快照維持至多 i 條邊的 DP invariant。
+  - [ ] BFS with condition k：按邊數分層、合併同層費用，不套用普通 BFS 的 visited／首次抵達終點規則。
+  - [ ] Better Dijkstra：依費用出隊，以 minEdges 做 dominance pruning，區分與二維 distance 版本的保證。
+  - 📌 共通驗收：用本次 node 4 的反例說明低費用與少邊數互不支配；比較正確性、時間與含 queue／heap 的空間成本。
+
+- [ ] **LeetCode 201. Bitwise AND of Numbers Range**
+  - 📌 標記原因：2026-10-29 嘗試後暫停，尚未完成；逐 bit 枚舉整個區間的版本時間成本過高，推導 bit 週期時感到缺少工具。
+  - 🏷️ 技巧分類：Bit Manipulation / 區間二進位觀察
+  - [ ] 複習位移操作與連續整數的 bit pattern，再獨立推導不逐一掃描區間的做法。
+  - [ ] 檢查 bitwise 與比較運算的優先序、整數邊界，以及以區間長度分析暴力法時間。
+
 - [ ] **K-way Merge（多路合併）專題重練**
   - 🔗 前置閱讀：[K-way Merge 的演算法與文獻歷史](../../Problem_History/LC_0373_Find_K_Pairs_with_Smallest_Sums.md)。
   - [ ] 373. Find K Pairs with Smallest Sums：不看本次討論，獨立辨識隱式有序列、實作 heap frontier，證明每次取出的配對是全域剩餘最小值。
@@ -195,6 +232,7 @@
 
 - [ ] LeetCode 95. Unique Binary Search Trees II
 - [ ] LeetCode 240. Search a 2D Matrix II
+  - ⭐⭐⭐⭐ 2026-10-31 已完成 divide-and-conquer 版本；O(m+n) 時間、O(1) 空間版本仍待練，見上方重練追蹤。
 - [ ] LeetCode 489. Robot Room Cleaner
 - [ ] LeetCode 215. Kth Largest Element in an Array
 - [ ] LeetCode 37. Sudoku Solver
@@ -252,6 +290,7 @@
   - [ ] 3D Dynamic Programming
 - [ ] LeetCode 97. Interleaving String
 - [ ] LeetCode 222. Count Complete Tree Nodes
+  - 📌 2026-10-30 經提示完成編號 binary search 版本；獨立重做仍待完成，目標見上方重練追蹤。
 - [ ] LeetCode 425. Word Squares
   - [ ] Trie
 - [ ] LeetCode 212. Word Search II
@@ -375,7 +414,7 @@
 - [ ] LeetCode 33. Search in Rotated Sorted Array
   - 📌 標記原因: 思路盲點 — 做過多次仍錯，根源是混用 153 的「找拐點」predicate；33 是「找 sorted 半邊 → range check → prune 另一半」
   - 🏷️ 技巧分類: Binary Search（predicate 設計）
-  - 🔗 前置閱讀: `Binary_Search/07-Inflection_Point_Binary_Search.md` 的「33 vs 153 對照」節
+  - 🔗 前置閱讀: `Binary_Search/03-Peak_and_Rotated_Array_Search.md` 的「33 vs 153 對照」節
   - 📅 二刷: 2026-09-12
 - [ ] LeetCode 39. Combination Sum
   - 📌 標記原因: 已用二元「選/不選」樹過，補 N 多叉決策樹版；複雜度分析 `O(2^(N+T/M))` vs `O(N^(T/M))` 要能自己推

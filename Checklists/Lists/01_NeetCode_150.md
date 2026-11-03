@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：117 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：124 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -135,12 +135,12 @@
 
 ## Advanced Graphs (6)
 
-- [ ] **743.** [Network Delay Time](https://leetcode.com/problems/network-delay-time/) — `Medium`
+- [x] **743.** [Network Delay Time](https://leetcode.com/problems/network-delay-time/) — `Medium` · <sub>✔ 2026-10-31</sub>
 - [ ] **332.** [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) — `Hard`
 - [ ] **1584.** [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) — `Medium`
 - [ ] **778.** [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) — `Hard`
 - [ ] **269.** [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) 🔒 — `Hard`
-- [ ] **787.** [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) — `Medium`
+- [x] **787.** [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) — `Medium` · <sub>✔ 2026-11-03</sub>
 
 ## 1-D Dynamic Programming (12)
 
@@ -161,8 +161,8 @@
 
 - [x] **62.** [Unique Paths](https://leetcode.com/problems/unique-paths/) — `Medium` · <sub>✔ 2026-09-19</sub>
 - [x] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium` · <sub>✔ 2026-10-11</sub>
-- [ ] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium`
-- [ ] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium`
+- [x] **309.** [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) — `Medium` · <sub>✔ 2026-10-30</sub>
+- [x] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium` · <sub>✔ 2026-11-03</sub>
 - [x] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` ✅ · <sub>✔ 2026-10-21</sub>
 - [x] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
 - [ ] **329.** [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — `Hard`
@@ -177,10 +177,10 @@
 - [x] **55.** [Jump Game](https://leetcode.com/problems/jump-game/) — `Medium` · <sub>✔ 2026-09-18</sub>
 - [x] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` ✅ · <sub>✔ 2026-09-17</sub>
 - [x] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` ✅ · <sub>✔ 2026-10-01</sub>
-- [ ] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium`
+- [x] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium` · <sub>✔ 2026-10-31</sub>
 - [ ] **1899.** [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) — `Medium`
 - [x] **763.** [Partition Labels](https://leetcode.com/problems/partition-labels/) — `Medium` · <sub>✔ 2026-10-15</sub>
-- [ ] **678.** [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) — `Medium` ✅
+- [x] **678.** [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) — `Medium` ✅ · <sub>✔ 2026-10-30</sub>
 
 ## Intervals (6)
 
@@ -209,5 +209,5 @@
 - [x] **338.** [Counting Bits](https://leetcode.com/problems/counting-bits/) — `Easy` · <sub>✔ 2026-10-12</sub>
 - [x] **190.** [Reverse Bits](https://leetcode.com/problems/reverse-bits/) — `Easy` ✅ · <sub>✔ 2026-09-26</sub>
 - [x] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — `Easy` · <sub>✔ 2026-10-09</sub>
-- [ ] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium`
+- [x] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium` · <sub>✔ 2026-11-03</sub>
 - [x] **7.** [Reverse Integer](https://leetcode.com/problems/reverse-integer/) — `Medium` ✅ · <sub>✔ 2026-10-15</sub>

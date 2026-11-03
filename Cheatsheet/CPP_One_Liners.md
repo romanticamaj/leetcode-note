@@ -183,6 +183,7 @@ int m = std::max<int>(v.size(), 5);       // Option 2: Explicit template argumen
 
 // ===== Random Numbers =====
 
+// 均勻分布、modulo bias 與拒絕採樣：CPP_Reference/Algorithm/Uniform_Random_Sampling.md
 // Modern C++ random (recommended for production)
 std::mt19937 rng(std::random_device{}());
 std::uniform_int_distribution<int> dist(1, 100);
@@ -193,4 +194,10 @@ std::shuffle(v.begin(), v.end(), rng);
 
 // ✅ 零初始化（所有元素為 0）
 std::array<int, 5> arr{};
+
+// std::array<int, 5> arr(0);
+// std::array 沒有這種構造函數，因此會報錯
+// array initializer must be an initializer list（陣列初始化器必須是大括號清單）
+// 因為 std::array 在 C++ 中是一個聚合類別（Aggregate Class）
+// 它內部包裝的是標準的 C 語言風格陣列，沒有提供接受單一數值的構造函數（Constructor）
 ```

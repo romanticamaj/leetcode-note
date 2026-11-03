@@ -249,7 +249,7 @@ P(i,j) = "維持指針間關係"
 
 ## 與 Repo 的關聯
 
-- [`Binary_Search_Template.md`](../Algorithms/Binary_Search/01-Binary_Search_Template.md)
+- [`Binary_Search_Template.md`](../Algorithms/Binary_Search/04-Legacy_Closed_Interval_Search.md)
 - [`Monotonic_Stack.md`](../Data_Structures/Stacks_and_Queues/Monotonic_Stacks/01-Monotonic_Stack_and_Queue.md)
 - [`Structural_Induction.md`](Structural_Induction.md)
 
