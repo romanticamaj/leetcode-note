@@ -45,7 +45,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 438. Find All Anagrams in a String
 - LeetCode 424. Longest Repeating Character Replacement
-- 🟡 LeetCode 567. Permutation in String
+- 🟡 🔴 LeetCode 567. Permutation in String
 - 🔴 LeetCode 76. Minimum Window Substring
 - 🟢 LeetCode 219. Contains Duplicate II
 
@@ -214,6 +214,16 @@ A curated list of must-do problems that build core competencies. Completing thes
   - 方向是四種狀態；下一格越界或已走過時，轉到下一個方向。
 - 🟡 LeetCode 394. Decode String
   - Stack + Finite State Machine
+
+### 數值門檻驅動的分段轉換（Phase-based Simulation）
+
+共通心法：**依數值門檻選適用單位 → 輸出對應字串 → 消耗數值 → 處理剩餘部分**。將目前單位／數值區間視為控制階段，以有序 mapping 取代大量散落的判斷式；這裡練習的是 FSM 式控制流程，數值分解與查表負責各階段的轉換。
+
+- 🟡 LeetCode 12. [Integer to Roman](https://leetcode.com/problems/integer-to-roman/)
+  - 合法面額由大到小排列，包含 `900/400/90/40/9/4`；選目前最大的可扣面額，接上符號並扣減，直到剩餘值為 0。
+- 🔴 LeetCode 273. [Integer to English Words](https://leetcode.com/problems/integer-to-english-words/)
+  - 同樣依門檻選規則；大單位先轉換商再接單位字串，接著處理餘數。也可每三位一組，共用 `1..999` 的轉換規則，再接 Thousand／Million／Billion。
+  - 邊界重點：整體 `0`、空的三位組、`10..19` 特例與空白；本題輸入上限只需處理到 Billion。
 
 ## Priority Queue
 

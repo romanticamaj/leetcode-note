@@ -16,6 +16,7 @@
 | [371. Sum of Two Integers](LC_0371_Sum_of_Two_Integers.md) | CtCI 17.1 同型題；Shannon 1937 加法器、EDVAC 1945 的模數表示與 Nand to Tetris 教材；直接命題來源未確認 | XOR 交出部分和、AND 找進位；二補數讓正負數共用固定位寬加法 |
 | [373. Find K Pairs with Smallest Sums](LC_0373_Find_K_Pairs_with_Smallest_Sums.md) | 磁帶外部排序、多路合併、heap 與 tournament tree；最初發明者與 LeetCode 直接來源未確認 | 每個有序來源只保留一個前端，取出誰就向誰補下一個 |
 | [437. Path Sum III](LC_0437_Path_Sum_III.md) | CtCI 第六版 4.12 Paths with Sum，官方解答含雙遞迴與 prefix 頻率＋回溯；直接命題來源未確認 | 固定終點查 prefix 差，撤銷讓有效歷史只包含祖先鏈 |
+| [545. Boundary of Binary Tree](LC_0545_Boundary_of_Binary_Tree.md) | EPI 收錄 Exterior 同型題；2012／2015 年公開討論；Euler Tour 為相關遍歷框架，直接命題來源未知 | 邊界身分向下傳，左邊界進入時輸出、右邊界返回時輸出 |
 | [787. Cheapest Flights Within K Stops](LC_0787_Cheapest_Flights_Within_K_Stops.md) | Weekly Contest 72；Bellman 1958 的停留次數迭代、教科書邊數 DP、資源受限最短路徑與 2023 年條件下界 | 同城市的低費用與少邊數可能互不支配；先定義狀態，再選搜尋排程 |
 
 ## 檔名與組織

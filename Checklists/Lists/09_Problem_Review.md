@@ -20,6 +20,7 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | ⭐⭐⭐ 545. Boundary of Binary Tree：one-pass DFS；結合 preorder／postorder 與 isLeftBoundary／isRightBoundary 多狀態傳遞，獨立推導邊界旗標、葉節點去重與輸出順序；目前只完成分段版本 | 2026-11-05 | — |
 | 待做 | ⭐⭐⭐⭐ 518. Coin Change II：計畫 2026-11-04 寫二維 bottom-up；保留 (coin index, remaining amount) 語義，獨立推導 base case 與填表方向，說明選取留在同一 i、跳過依賴 i+1；先不要求一維壓縮 | 2026-11-03 | — |
 | 待做 | ⭐⭐⭐⭐⭐ 787. Cheapest Flights Within K Stops：Bellman-Ford／邊數 DP；獨立定義至多 i 條邊的最小費用，實作每輪只讀上一層快照，說明 k stops = k+1 edges 與原地更新會超用邊數 | 2026-11-03 | — |
 | 待做 | ⭐⭐⭐⭐⭐ 787. Cheapest Flights Within K Stops：BFS with condition k；按已用邊數分層做費用 relaxation、同層同城市合併再擴展，限制最多 k+1 條邊；說明不能首次 visited 就封鎖城市或首次抵達 dst 就回傳 | 2026-11-03 | — |
@@ -130,6 +131,16 @@
 ---
 
 ## 題目列表
+
+- [ ] **⭐⭐⭐ LeetCode 545. Boundary of Binary Tree — one-pass DFS**
+  - 🔗 歷史與教材：[EPI 的 Exterior、早期面試紀錄與 Euler Tour 遍歷框架](../../Problem_History/LC_0545_Boundary_of_Binary_Tree.md)。
+  - 📌 標記原因：2026-11-05 已完成左邊界／葉節點／右邊界的分段遞迴；看過 one-pass 設計後，想另日獨立實作，尚未完成此版本。
+  - 🏷️ 關鍵字：**Preorder + Postorder / Multi-state DFS / Boundary Flags / Top-down State Propagation / 輸出順序設計**。
+  - [ ] 定義 `isLeftBoundary`／`isRightBoundary`，由父節點往子節點傳遞邊界身分，不依賴「第一個／最後一個 leaf」的全域階段切換。
+  - [ ] 左邊界在 preorder 加入，右邊界在 postorder 加入；葉節點只加入一次並直接返回。
+  - [ ] 獨立推導缺少 child 時的旗標轉移：左邊界優先左、缺左走右；右邊界優先右、缺右走左。root 單獨加入，左右子樹分別以 `(true, false)`／`(false, true)` 起始。
+  - [ ] 用單節點、單側鏈與缺少偏好 child 的樹驗證順序及去重；說明 O(n) 時間、O(h) 呼叫堆疊，輸出另計。
+  - 🔗 前置閱讀：[遞迴設計：狀態與職責](../../Algorithms/Design_Principles/Recursion/01-Recursion_Design_Principles.md)。
 
 - [ ] **⭐⭐⭐⭐⭐ LeetCode 787. Cheapest Flights Within K Stops**
   - 📌 標記原因：第三次做仍卡在 C++ 型別表示與邊數狀態；本次經提示完成二維 distance 版本，以下三種解法仍須分別獨立驗收。
@@ -389,8 +400,8 @@
   - 重練目標: 分開處理狀態語義與填表順序；解釋 W±nums[i] 的來源、0 的兩種符號計數、值域 offset 與 target 越界檢查。
   - [ ] 獨立重建：從 S=sum(nums) 推導 [-S,S]，說明為何配置 2S+1 格、如何映射 W+S，並區分 target 範圍與轉移來源範圍；重做日期：—。
   - [ ] Convert to Subset Sum problem
-- [ ] LeetCode 567. Permutation in String
-  - [ ] Sliding Window (Frequency Counting)
+- [x] LeetCode 567. Permutation in String
+  - [x] Sliding Window (Frequency Counting)：2026-11-04 已提供實作；經討論釐清「至少達標」的種類計數與固定長度迫使頻率相等的 invariant。
 - [ ] LeetCode 572. Subtree of Another Tree
   - 📌 標記原因: 已用逐點遞迴 + Same Tree 完成；想另外練 string matching 與 canonical form compare，並各做一系列相關題目。
   - [ ] String matching 系列：LC 28. Find the Index of the First Occurrence in a String 練 KMP / Z-algorithm → 回來做 LC 572 的先序序列化 + 字串比對；保留空節點與值的邊界，避免不同樹得到相同字串。

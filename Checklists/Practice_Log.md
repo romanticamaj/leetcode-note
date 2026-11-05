@@ -2,6 +2,42 @@
 
 ---
 
+## 2026-11-05
+
+- 273. Integer to English Words
+- 2221. Find Triangular Sum of an Array
+- 545. Boundary of Binary Tree
+
+**心得**：
+- 273：標準的 finite state machine，這個好像也是可以給一個數值 mapping 順序，越過這個界，就加上對應字串。瘋狂的 edge case……然後一開始有先問一下 gpt-6.1-sol 單位有哪些，原來其實只有到 Billion。想到之前的羅馬數字轉換題。
+- 2221：不確定這題要幹嘛……直接 in-place 模擬，每輪把相鄰兩數相加取 % 10，有效長度 n 每輪減一，直到 size == 1。時間 O(n²)、額外空間 O(1)。想到是不是可以 collapse。（Pascal’s Triangle 可以加速，但是變複雜滿多。）
+- 545：理解題目才是最難的吧……多個遞迴要同時想。不確定這題還有更好的解法嗎。
+
+**LLM 點評**：
+model: GPT-6
+- 545：在 root 非空、同一 Solution 物件只呼叫一次的前提下，提供的程式從 invariant 推理看正確，未編譯或執行原始 C++。可拆成四份輸出契約：root 一次；左邊界從 root->left 起，優先左、缺左走右，排除葉節點並在遞迴前加入；所有葉由左至右加入；右邊界從 root->right 起，優先右、缺右走左，排除葉節點並在遞迴返回後加入。左右邊界分屬不同子樹，葉節點統一由 constructLeaves 負責，避免重複；單節點時略過三個 helper，使 root 不重複。不要把邊界誤解成每層最左／最右的 view。葉搜尋 O(n)，兩條邊界各 O(h)，合計 O(n)，不會因有三個 helper 變成 O(n²)；呼叫堆疊應標 O(h)，只有平衡樹才是 O(log n)，鏈狀樹最壞 O(n)。輸出 boundary 另占 O(b)，b 是邊界節點數，最壞 O(n)。這個分段解法已達最壞時間最優；可用單次 DFS 加左右邊界旗標合併，但仍為 O(n)／O(h)，增加狀態管理，不必為減少 helper 而重寫。重點是各自想清楚契約，不必同時展開所有遞迴，見 [遞迴設計原則](../Algorithms/Design_Principles/Recursion/01-Recursion_Design_Principles.md)。若要讓物件可重複呼叫，需在入口 boundary.clear()；若另外支援空樹，再於讀取 root->val 前處理 nullptr。可在葉節點加入後直接 return，省去兩次空子樹呼叫，但不改變漸近複雜度。
+- 2221：提供的程式在題目非空陣列的前提下，從 invariant 推理看正確，未編譯或執行原始 C++。每輪開始 nums[0..n-1] 代表目前那一列；由左往右更新時，nums[i] 與 nums[i+1] 都仍是本輪舊值，已覆寫的左側不會再被讀取，因此可安全原地產生下一列；n-- 只縮短有效前綴，尾端舊值不需刪除。原始長度 N 的更新總數為 (N-1)+...+1=N(N-1)/2，故時間 Θ(N²)、額外空間 O(1)；N<=1000 時至多 499,500 次更新。核心練習是忠實模擬、讀寫相依與有效長度，見 [Simulation 設計框架](../Algorithms/Simulation/01-Simulation_Design_Framework.md)。collapse 的觀察成立：三個元素 a,b,c 最後為 (a+2b+c)%10，一般結果為 Σ C(N-1,i)·原始 nums[i] mod 10，係數來自 Pascal 三角形。這是數學展開；若仍逐列產生係數，依舊 O(N²)，且不能直接在模 10 下套用含除法的組合數遞推（分母可能沒有模反元素），完整係數也可能溢位。尚未實作或驗證此延伸，不視為已完成。參考 [題目規格](https://leetcode.com/problems/find-triangular-sum-of-an-array/)。
+  - 加速的關鍵是 Pascal 係數搭配 modular combinatorics，而非逐列重建三角形；例如用 Lucas 定理分別處理 mod 2／mod 5，再以 CRT 合併，可達 O(N log N) 時間、O(1) 額外空間，但增加數論與實作負擔。目前準備先掌握 O(N²)／O(1) 模擬及 Pascal 權重的觀察，進階加速理解即可，暫不列為必練或已完成。
+- 273：相關的是 2026-10-16 的 12. Integer to Roman，當時已討論合法面額由大到小查表、扣減剩餘數值的 simulation／greedy。273 也可用有序數值門檻與字串 mapping，但單位前還要描述數量，例如 200 是 Two Hundred；較精確的分類是數值分解＋查表／simulation，不必然是標準 FSM，沒有程式碼不判定具體實作。可用每三位一組，將組內 1..999 的規則與 Thousand／Million／Billion 分開；注意 0 整體輸出 Zero、空的三位組略過、10..19 特例與空白。題目範圍為 0 <= num <= 2^31-1 = 2,147,483,647，因此最高只需 Billion，並非英文單位到此為止。參考既有 [Simulation 設計框架](../Algorithms/Simulation/01-Simulation_Design_Framework.md)；[273 題目規格](https://leetcode.com/problems/integer-to-english-words/)。本次只記錄使用者完成與心得，未檢視或執行程式；先詢問英文單位與取得演算法提示應分開記錄。
+
+---
+
+## 2026-11-04
+
+- 567. Permutation in String
+- 909. Snakes and Ladders
+
+**心得**：
+- 909：BFS + index mapping。
+- 567：Sliding Window + hashmap + letter count。不知道為什麼 hashmap[c] 的 count 即使超過 target[c]，letterCount 不去減掉也不會影響正確性。
+
+**LLM 點評**：
+model: GPT-6
+- 567：提供的程式從 invariant 推理看正確，未執行原始 C++。letterCount 實際追蹤 target 中 window[c] >= target[c] 的字元種類數，而非頻率恰好相等的種類數；加入時只有 target[c]-1 → target[c] 才加一，移除時只有 target[c] → target[c]-1 才減一，因此超額不需扣除。fix 後窗口長度至多 m，所有目標字元皆達標表示窗口至少含 m 個字元，兩者合起來迫使窗口長度恰為 m、每種頻率恰等於 target，且沒有額外字元；所以不會誤判，也不必另檢查長度 == m。例 s1="ab"、窗口 "aa" 時 a 雖達標，b 必不足，letterCount 仍只有 1。這是固定長度窗口，以長度枚舉候選，不需要頻率相等具有擴張單調性。平均時間 O(m+n)，目前兩張 map 空間 O(m+1)（m>=1 時為 O(m)），本題固定 26 個小寫字母可視為 O(1)。可對照 [Constraint Tracking](../Algorithms/Sliding_Window/01-Constraint_Tracking_and_Optimization.md) 的達標種類計數；與「恰好相等」計數器的狀態轉換須分清楚。
+- 909：BFS 與 index mapping 方向正確；從程式推理看，最短步數邏輯正確，未執行原始 C++。每條邊代表一次擲骰，包含落點後的一次蛇／梯跳轉，因此邊權皆為 1，BFS 的層數就是擲骰次數；跳轉後才查 visited 正確，且用 if 而非 while 符合每次只跳一次。index(k) 先以 (k-1)/n 算由底往上的列偏移，再用其奇偶決定欄方向，能同時處理奇數與偶數邊長。初始化應將 visited[0]=true 改成 visited[1]=true，使起點入隊時即標記；原版遇到回到 1 的蛇時會多展開起點一次，但不影響最短答案。n 是邊長，最多 n² 個狀態、每個狀態至多 6 條出邊，index 為 O(1)，故時間 O(n²)、額外空間 O(n²)（visited 與 queue），不是 O(6^distance)。骰子迴圈可寫 for (int k=curr+1; k<=min(curr+6,destination); ++k)，並另存跳轉後的 next，讓候選落點與最終狀態分清楚。
+
+---
+
 ## 2026-11-03
 
 - 92. Reverse Linked List II

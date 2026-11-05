@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：208 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：210 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -246,8 +246,8 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **371.** [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-03</sub>
 - [x] **437.** [Path Sum III](https://leetcode.com/problems/path-sum-iii/) — `Medium` · <sub>H100</sub> · <sub>✔ 2026-11-03</sub>
 - [x] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-03</sub>
-- [ ] **567.** [Permutation in String](https://leetcode.com/problems/permutation-in-string/) — `Medium` · <sub>NC</sub> ✅
-- [ ] **909.** [Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders/) — `Medium` · <sub>TI150</sub>
+- [x] **567.** [Permutation in String](https://leetcode.com/problems/permutation-in-string/) — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-11-04</sub>
+- [x] **909.** [Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders/) — `Medium` · <sub>TI150</sub> · <sub>✔ 2026-11-04</sub>
 - [ ] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium` · <sub>NC</sub>
 - [ ] **2013.** [Detect Squares](https://leetcode.com/problems/detect-squares/) — `Medium` · <sub>NC</sub>
 - [ ] **875.** [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) — `Medium` · <sub>NC</sub>
