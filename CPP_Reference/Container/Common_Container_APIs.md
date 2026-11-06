@@ -1,5 +1,7 @@
 # C++ 常用數據結構 API 參考
 
+**版本基準：C++14。** 除明確標示 C++17／20 等較新版本的項目外，以下基本用法皆可用於 C++14；版本差異與替代寫法見 [C++ 版本相容性速查](../CPP_Version_Compatibility.md)。
+
 ## vector
 
 ```cpp
@@ -60,7 +62,7 @@ map.emplace("key", 1);           // 原地構造並插入
 
 map["key"];                      // 訪問（如果不存在則創建）
 map.at("key");                   // 訪問（如果不存在則拋出異常）
-map.find("key");                 // 查找，返回迭代器
+map.find("key");                 // C++14 可用；存在判斷：map.find("key") != map.end()
 map.count("key");                // 計數（0或1）
 map.contains("key");             // 檢查是否包含（C++20）
 map.erase("key");                // 刪除
@@ -69,7 +71,8 @@ map.empty();                     // 檢查是否為空
 map.clear();                     // 清空
 
 // 迭代
-for (auto& [key, value] : map) { /* 使用 key 和 value */ }
+for (auto& entry : map) { /* C++14：entry.first / entry.second */ }
+for (auto& [key, value] : map) { /* C++17：structured bindings */ }
 for (auto it = map.begin(); it != map.end(); it++) {
     // 使用 it->first 和 it->second
 }

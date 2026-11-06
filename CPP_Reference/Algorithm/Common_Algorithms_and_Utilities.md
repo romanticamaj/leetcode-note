@@ -2,6 +2,8 @@
 
 這份文件整理了在 C++ 中，特別是在解題時經常使用的標準庫演算法和工具函式。
 
+**版本基準：C++14。** 下列基本用法皆可用於 C++14；`clamp`、`gcd`、`reduce` 等較新功能的版本與替代寫法見 [C++ 版本相容性速查](../CPP_Version_Compatibility.md)。
+
 ## 常用演算法 (`<algorithm>`)
 
 ```cpp
@@ -14,7 +16,7 @@ sort(v.begin(), v.end(), [](int a, int b) {  // 自定義排序
 // `std::sort` 的行為:
 // 1. 預設行為: 如果不提供第三個參數，`std::sort` 預設使用 `operator<` 進行比較，結果為 **升序 (ascending order)**，即從小排到大。
 // 2. 自定義行為:
-//    - 若要 **降序 (descending order)**，可以傳入 `std::greater<>()`。
+//    - 若要 **降序 (descending order)**，可以傳入 `std::greater<>()`（C++14；`std::greater<int>()` 更早即可用）。
 //   - 特別注意, 建構一個 object, 跟 priority_queue 用 type 即可不一樣
 //    - 若要實現更複雜的排序邏輯（例如，按物件的某個成員排序），可以傳入一個自定義的比較函式 (Lambda)。
 //    - 比較函式 `comp(a, b)` 應回傳 `true` 如果 `a` 應該排在 `b` 的前面。
