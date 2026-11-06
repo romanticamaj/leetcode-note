@@ -2,6 +2,35 @@
 
 ---
 
+## 2026-11-06
+
+- 253. Meeting Rooms II
+- 239. Sliding Window Maximum
+- 127. Word Ladder
+- 297. Serialize and Deserialize Binary Tree
+- 212. Word Search II
+
+**心得**：
+- 253：difference array，其他招我也想不到了……時間錯了，是 O(n log n)，因為要 sort。我不知道為什麼其他解答這麼麻煩。
+
+- 239：天啊……Amazon OA 面試前夕，我拼了，竟然做出來。先想 brute force，再想重複的部分怎麼優化 → Sliding Window；Constraint Metric 用 hashmap 算數量，搭配 priority queue O(1) 求解；遇到 priority queue 內不該用的 top，用 hashmap 去維持 invariant。看了解答，好像有更好的解法？
+- 127：BFS。最難的是 graph 的建立，這次使用 teleportation 概念。也可用暴力法，直接把每個 string 在每個位置換字母，然後查表。
+
+- 297：關鍵設計：用直覺可以直接看出 root(left, right) pre-ordering 的設計。只要在設計上處理能找到 left 跟 right 切割位置的做法，就可以遞迴了。而這個做法跟左括號的個數有關。
+  - 主要還是 gpt-6.1-sol 引導、給提示，這題我完全卡住。但是這個設計很好理解也很好實作，喜歡！討論了 preorder 的 root／left／right、如何找到中間逗號、遞迴處理、base case 與取值，還有遞迴的 contract。
+
+- 212：超難……Dynamic Trie + backtracking。
+
+**LLM 點評**：
+model: GPT-6
+- 253：提供的 ordered map 差分＋prefix sum／sweep line 寫法從 invariant 推理看正確，未編譯或執行原始 C++。掃過時間 t 的淨變化後，meetingRoom 等於 start <= t < end 的會議數；峰值是所需房間數的下界，而按開始時間安排、重用已結束會議的房間即可達到此界，因此答案等於最大併發數。同一時間的開始與結束合併成淨變化，自然處理半開區間，不會將端點相接誤算為重疊。令 U 為不同端點數，map 更新各 O(log(U+1))、掃描 O(U)，合計 O(n log(U+1)+U)，最壞 O(n log n)，額外空間 O(U)，最壞 O(n)；沒有顯式 sort，排序成本來自 std::map 維護 key 順序，且它不是 hashmap。只求房間數時這個表示已充分，不必為了其他解答更長而重寫；heap 保存活躍結束時間，若需追蹤具體房間可擴充搭配 room ID；分開排序 starts／ends 再用雙指標則是另一種掃描事件方式，皆可達 O(n log n)。參考既有 [Difference Array](../Algorithms/Prefix_Sum/05_Difference_Array.md)；可改用 const auto& interval 避免複製，minRoom 改名 maxConcurrent 讓峰值語意更清楚。既有 review 的 Chronological Ordering 變體仍待獨立完成。
+- 239：自行從 brute force → sliding window → frequency hashmap＋max-heap lazy deletion 的推導成立；counting 精確記錄窗口頻率，heap 可留過期副本，但每個窗口中的值仍有 heap 代表，輸出前 top 必須是仍存在於窗口的值，因此 top 等於窗口最大值。重複值的歷史副本不會改變最大值；只有移出值頻率降為 0 時，才可能使原本合法的 top 失效，所以目前把清理 while 放在該分支內仍正確。以 C++20 編譯提供的實作，對 n=1..8、值域 {-1,0,1}、所有合法 k 的 73,812 組案例與 brute force 對照皆通過。top() 為 O(1)，push/pop 為 O(log H)，H 是 heap 大小；過期值只在堆頂才刪，遞增輸入且 k=2 時 heap 可累積到 n（另以 n=10000 驗證），故在 hashmap 平均 O(1) 操作假設下，最壞時間 O(n log n)、額外空間 O(n)，不含輸出；不是 O(n)／O(k)。更佳方法是 monotonic deque 保存候選 index：index 遞增、對應值嚴格遞減；隊首先移除過期 index，隊尾移除值 <= 新值的舊 index，因新值更大或相等且更晚過期，舊候選可永久淘汰。每個 index 入隊一次、最多出隊一次，總時間 O(n)、額外空間 O(k)，不需 hashmap。參考既有 [單調棧與單調隊列](../Data_Structures/Stacks_and_Queues/Monotonic_Stacks/01-Monotonic_Stack_and_Queue.md)；目前只確認完成 heap 版本，deque 版本尚未實作。
+- 127：提供的 wildcard bucket＋BFS 版本，在題目單字等長、字典單字唯一、只含小寫英文字母且 beginWord != endWord 的前提下，從 invariant 推理看正確，未編譯或執行原始 C++。把只差一個字母的單字放進共同 pattern bucket，相當於以群組／虛擬中介點表示隱含邊；程式每次直接從 word 走到 bucket 中的 neighbor，仍算一次字母變換，不是多走兩條邊。level 從 1 起算符合回傳序列單字數，visited 在入隊時標記避免重複入隊；同組包含自己也會被 visited 擋掉，endWord 不在字典時提早回傳 0 正確。O(V+E) 只能概括 BFS 抽象圖遍歷，尚未計入建 bucket、字串複製與 hashing。令 N 為字典大小、L 為字長、b_p 為各 bucket 大小，原碼時間可寫 O((N+1)L² + LΣ b_p²)（hash table 平均查找假設）；每個單字有 L 個 pattern，同一 bucket 至多 26 個唯一單字，因此固定英文字母表下可簡化成 O((N+1)L²)。graph 的 key 和 vector<string> 副本占 O(NL²)，queue／visited 另占 O((N+1)L)。可在掃完一個 bucket 後 clear()，因首次展開已將該組所有未訪問單字以最早距離入隊；後續不需重掃，但不可在 range-for 迴圈內清空。逐位置換 26 個字母再查字典是 on-the-fly neighbor generation／隱含圖 BFS，不必視為低效暴力法：時間 O(26(N+1)L²)、額外空間 O((N+1)L)，省去 wildcard map。參考既有 [容器型頂點的複雜度分析](../Algorithms/BFS/04-Container_Vertex_Complexity_Analysis.md)。visited.contains 需要 C++20；C++14 可改成 visited.find(neighbor) == visited.end()，或利用 visited.insert(neighbor).second 合併存在檢查與標記。字典單字和 neighbor 可用 const auto& 避免不必要的複製。
+- 297：經引導完成的括號格式版本正確：格式是 # 或 value(left,right)，serialize 回傳精確描述該子樹的字串，deserialize 回傳該段字串所描述子樹的根。leftCount 實際是尚未配對的括號深度，遇 '(' 加一、遇 ')' 減一；深度 1 的第一個逗號才是目前節點左右子樹分界，深層逗號不會被誤切。# 對應 nullptr、第一個 '(' 前由 stoi 解析根值，支援負數與多位數；此解析契約針對 serialize 產生的合法格式，不需另做任意輸入驗證。以 C++14 編譯原始 Codec，2058 組 round-trip 皆通過：0～8 節點的所有二元樹形，搭配 0、負數、多位數與 int 邊界值，再加左右各一棵 200 節點鏈狀樹，逐節點比較值與結構，並檢查再序列化結果一致。令 n 為節點數、h 為高度，固定 int 字寬下，不能只因每節點呼叫一次便標 O(n)：serialize 在祖先處反覆串接子樹字串；deserialize 反覆掃描及 substr 複製。兩者時間在平衡樹為 O(n log n)，鏈狀樹最壞 O(n²)。呼叫堆疊本身 O(h)，serialize 含輸出與中間字串為 O(n) 空間；deserialize 的各層 data 字串同時存活，鏈狀樹長度約 n、n-1、…、1，故最壞額外空間 O(n²)，另有 O(n) 還原樹節點。先保留這個易懂且正確的格式；若之後追求線性時間，可在相同格式上改成共用輸出字串追加、共用輸入字串與讀取位置的 parser，避免反覆切片，此延伸尚未實作。對照既有 [遞迴簽名契約](../Algorithms/Design_Principles/Recursion/05-Recursion_Signature_Contract.md)。本次為經提示完成，不視為獨立重做或完成 BFS 變體。
+- 212：經提示採用 Trie lookup，將「逐字在 board 搜尋」改成「從每格出發，同時沿 Trie 前綴篩選候選」；board 的 # 標記限制同一路徑不可重用格子，回溯時還原。關鍵修正是區分局部搜尋失敗與全域候選淘汰：從某個 board 起點走不通，不能直接刪掉 Trie 分支；找到單字後清空 node->word 可去重，只有該節點沒有待找單字且沒有 children 時，才可斷開分支。最後貼出的版本在找到單字後檢查 leaf 再斷開，從 invariant 推理看正確，本次未執行該版本；只在此處檢查不會完整回收後來變空的祖先，但不影響正確性。討論確認：斷開 parent 的 child pointer 不等於釋放 node；若 delete node，必須 early return，且當時尚未標記 board，無需還原。令 S 為所有單字總長、L 為最長單字長度、D=min(L,mn)，寬鬆時間上界 O(S+mn·3^D)，額外空間 O(S+D)，不含輸出；Trie 剪枝改善實際搜尋，但不使每格只處理一次，也不能漏算 Trie 空間。本次為經提示及除錯討論後完成，不視為獨立重做。
+
+---
+
 ## 2026-11-05
 
 - 273. Integer to English Words

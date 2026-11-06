@@ -171,6 +171,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 🔴 LeetCode 117. Populating Next Right Pointers in Each Node II
   - Parent 更新 children 的 next；先右後左的遞迴依賴，同層鏈必須在使用前建立。
 - LeetCode 230. Kth Smallest Element in a BST
+- 🟡 🔴 LeetCode 297. Serialize and Deserialize Binary Tree
+  - preordering + parenthesis count
 
 ## Math & Number Theory
 
@@ -303,8 +305,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Tree DFS + Linked List Traversal + Invariant；沿 parent 的 next 鏈尋找下一個 child，right-first preorder 確保跨子樹鏈已備妥。
 - LeetCode 327. Count of Range Sum
   - Divide and Conquer + Prefix Sum + Merge Sort + Two Pointers
-- LeetCode 212. Word Search II
-  - Trie + Backtracking
+- 🔴 LeetCode 212. Word Search II
+  - Dynamic Trie + Backtracking
 - LeetCode 642. Design Search Autocomplete System
   - Trie + DFS + Priority Queue
 - LeetCode 373. Find K Pairs with Smallest Sums
@@ -395,6 +397,10 @@ Problems that require integrating multiple advanced techniques. These are excell
 - 🟡 🔴 LeetCode 222. Count Complete Tree Nodes
   - Tree Height + Search on Value + Bit Manipulation
 - 🟡 LeetCode 371. Sum of Two Integers
+- 🟡 🔴 LeetCode 297. Serialize and Deserialize Binary Tree
+  - preordering + parenthesis count
+- 🔴 LeetCode 212. Word Search II
+  - Dynamic Trie + Backtracking
 
 ## Classic Optimization / Brain Development
 

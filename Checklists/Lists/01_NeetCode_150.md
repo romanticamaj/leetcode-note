@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：125 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：130 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -35,7 +35,7 @@
 - [ ] **424.** [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) — `Medium` ✅
 - [x] **567.** [Permutation in String](https://leetcode.com/problems/permutation-in-string/) — `Medium` ✅ · <sub>✔ 2026-11-04</sub>
 - [x] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` ✅ · <sub>✔ 2026-09-25</sub>
-- [ ] **239.** [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) — `Hard`
+- [x] **239.** [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) — `Hard` · <sub>✔ 2026-11-06</sub>
 
 ## Stack (6)
 
@@ -86,7 +86,7 @@
 - [x] **230.** [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
 - [x] **105.** [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard` · <sub>✔ 2026-10-19</sub>
-- [ ] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — `Hard` ✅
+- [x] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — `Hard` ✅ · <sub>✔ 2026-11-06</sub>
 
 ## Heap / Priority Queue (7)
 
@@ -115,7 +115,7 @@
 
 - [x] **208.** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) — `Medium` · <sub>✔ 2026-09-14</sub>
 - [x] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium` · <sub>✔ 2026-10-11</sub>
-- [ ] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` ✅
+- [x] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` ✅ · <sub>✔ 2026-11-06</sub>
 
 ## Graphs (13)
 
@@ -131,7 +131,7 @@
 - [ ] **261.** [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) 🔒 — `Medium` ✅
 - [ ] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium`
 - [x] **684.** [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — `Medium` · <sub>✔ 2026-10-27</sub>
-- [ ] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard`
+- [x] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard` · <sub>✔ 2026-11-06</sub>
 
 ## Advanced Graphs (6)
 
@@ -188,7 +188,7 @@
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — `Medium` · <sub>✔ 2026-09-10</sub>
 - [x] **435.** [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — `Medium` ✅ · <sub>✔ 2026-10-24</sub>
 - [x] **252.** [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) 🔒 — `Easy` · <sub>✔ 2026-10-09</sub>
-- [ ] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` ✅
+- [x] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` ✅ · <sub>✔ 2026-11-06</sub>
 - [ ] **1851.** [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) — `Hard`
 
 ## Math & Geometry (8)

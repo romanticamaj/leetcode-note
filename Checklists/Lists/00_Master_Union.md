@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：210 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：215 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -88,7 +88,7 @@ Easy 6 · Medium 24 · Hard 5
 - [x] **25.** [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — `Hard` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-10-19</sub>
 - [x] **84.** [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — `Hard` · <sub>NC · G75 · H100</sub> ✅ · <sub>✔ 2026-10-19</sub>
 - [x] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — `Hard` · <sub>NC · TI150 · H100</sub> · <sub>✔ 2026-10-19</sub>
-- [ ] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard` · <sub>NC · G75 · TI150</sub>
+- [x] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard` · <sub>NC · G75 · TI150</sub> · <sub>✔ 2026-11-06</sub>
 
 ## 🔥🔥 兩份有 — 中共識 (44 題)
 
@@ -134,10 +134,10 @@ Easy 13 · Medium 26 · Hard 5
 - [x] **981.** [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — `Medium` · <sub>NC · G75</sub> ✅ · <sub>✔ 2026-10-15</sub>
 - [x] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium` · <sub>NC · H100</sub> · <sub>✔ 2026-10-11</sub>
 - [x] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard` · <sub>NC · H100</sub> · <sub>✔ 2026-10-15</sub>
-- [ ] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` · <sub>NC · TI150</sub> ✅
+- [x] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` · <sub>NC · TI150</sub> ✅ · <sub>✔ 2026-11-06</sub>
 - [ ] **224.** [Basic Calculator](https://leetcode.com/problems/basic-calculator/) — `Hard` · <sub>G75 · TI150</sub>
-- [ ] **239.** [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) — `Hard` · <sub>NC · H100</sub>
-- [ ] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — `Hard` · <sub>NC · G75</sub> ✅
+- [x] **239.** [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) — `Hard` · <sub>NC · H100</sub> · <sub>✔ 2026-11-06</sub>
+- [x] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — `Hard` · <sub>NC · G75</sub> ✅ · <sub>✔ 2026-11-06</sub>
 
 ## 🔥 只有一份 — 補充 (134 題)
 
@@ -256,7 +256,7 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [ ] **1448.** [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) — `Medium` · <sub>NC</sub>
 - [ ] **1584.** [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) — `Medium` · <sub>NC</sub>
 - [ ] **261.** [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) 🔒 — `Medium` · <sub>NC</sub> ✅
-- [ ] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` · <sub>NC</sub> ✅
+- [x] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-11-06</sub>
 - [ ] **271.** [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) 🔒 — `Medium` · <sub>NC</sub>
 - [ ] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium` · <sub>NC</sub>
 - [ ] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium` · <sub>NC</sub>

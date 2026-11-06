@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：135 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：137 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -142,13 +142,13 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 - [x] **909.** [Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders/) — `Medium` · <sub>✔ 2026-11-04</sub>
 - [x] **433.** [Minimum Genetic Mutation](https://leetcode.com/problems/minimum-genetic-mutation/) — `Medium` · <sub>✔ 2026-10-24</sub>
-- [ ] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard`
+- [x] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard` · <sub>✔ 2026-11-06</sub>
 
 ## Trie (3)
 
 - [x] **208.** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) — `Medium` · <sub>✔ 2026-09-14</sub>
 - [x] **211.** [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — `Medium` · <sub>✔ 2026-10-11</sub>
-- [ ] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` ✅
+- [x] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` ✅ · <sub>✔ 2026-11-06</sub>
 
 ## Backtracking (7)
 

@@ -4,7 +4,7 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 來源：https://www.techinterviewhandbook.org/grind75/
 
-**已刷：71 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
+**已刷：73 / 75**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 23 · Medium 43 · Hard 9　|　🔒 = Premium
 
 ---
 
@@ -98,10 +98,10 @@ Blind 75 作者的改良版，依「剩餘時間」排課表，由易到難。�
 
 - [x] **230.** [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
 - [x] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — `Hard` ✅ · <sub>✔ 2026-09-25</sub>
-- [ ] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — `Hard` ✅
+- [x] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — `Hard` ✅ · <sub>✔ 2026-11-06</sub>
 - [x] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — `Hard` ✅ · <sub>✔ 2026-09-18</sub>
 - [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — `Hard` · <sub>✔ 2026-09-27</sub>
-- [ ] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard`
+- [x] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard` · <sub>✔ 2026-11-06</sub>
 - [ ] **224.** [Basic Calculator](https://leetcode.com/problems/basic-calculator/) — `Hard`
 - [ ] **1235.** [Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) — `Hard`
 - [x] **23.** [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — `Hard` · <sub>✔ 2026-09-15</sub>

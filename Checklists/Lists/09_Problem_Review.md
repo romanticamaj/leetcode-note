@@ -20,6 +20,8 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | ⭐⭐⭐⭐ 239. Sliding Window Maximum：下次獨立嘗試 monotonic deque；以 index 維持候選順序，推導隊首過期移除、隊尾淘汰被新值支配的候選與重複值處理，說明 O(n) 時間、O(k) 額外空間；目前只完成 max-heap＋hashmap lazy deletion 版本 | 2026-11-06 | — |
+| 待做 | ⭐⭐⭐⭐ 253. Meeting Rooms II：priority queue／min-heap 解法很值得想；獨立推導按開始時間排序、heap 保存活躍會議結束時間的 invariant，說明為何普通 FIFO queue 不足、為何需移除所有 end <= start，再追蹤 heap size 峰值；目前只完成 ordered map 差分版本 | 2026-11-06 | — |
 | 待做 | ⭐⭐⭐ 545. Boundary of Binary Tree：one-pass DFS；結合 preorder／postorder 與 isLeftBoundary／isRightBoundary 多狀態傳遞，獨立推導邊界旗標、葉節點去重與輸出順序；目前只完成分段版本 | 2026-11-05 | — |
 | 待做 | ⭐⭐⭐⭐ 518. Coin Change II：計畫 2026-11-04 寫二維 bottom-up；保留 (coin index, remaining amount) 語義，獨立推導 base case 與填表方向，說明選取留在同一 i、跳過依賴 i+1；先不要求一維壓縮 | 2026-11-03 | — |
 | 待做 | ⭐⭐⭐⭐⭐ 787. Cheapest Flights Within K Stops：Bellman-Ford／邊數 DP；獨立定義至多 i 條邊的最小費用，實作每輪只讀上一層快照，說明 k stops = k+1 edges 與原地更新會超用邊數 | 2026-11-03 | — |
@@ -304,8 +306,8 @@
   - 📌 2026-10-30 經提示完成編號 binary search 版本；獨立重做仍待完成，目標見上方重練追蹤。
 - [ ] LeetCode 425. Word Squares
   - [ ] Trie
-- [ ] LeetCode 212. Word Search II
-  - [ ] Backtracking + Dynamic Trie
+- [x] ⭐⭐⭐⭐⭐ LeetCode 212. Word Search II
+  - [x] Backtracking + Dynamic Trie：2026-11-06 經提示及除錯討論後完成；釐清找到單字清空 terminal、僅在沒有待找單字與 children 時斷開分支，delete 後需 early return；不是獨立重做。
 - [ ] LeetCode 654. Maximum Binary Tree
   - [ ] Monotonic Stack?
 - [ ] LeetCode 951. Flip Equivalent Binary Trees
@@ -313,7 +315,8 @@
 - [x] LeetCode 42. Trapping Rain Water（two pointers，2026-09-18；monotonic stack 仍待做）
   - [x] Two Pointers Technique (from brute force to prefix sum, then duplicate work removal through two-pointers)
   - [ ] Dynamic Programming
-- [ ] LeetCode 253. Meeting Rooms II
+- [ ] ⭐⭐⭐⭐ LeetCode 253. Meeting Rooms II
+  - [ ] ⭐⭐⭐⭐ Priority Queue／Min-Heap：獨立推導活躍會議的 invariant、釋放條件與最大併發數（2026-11-06 指定複習；目前只完成 ordered map 差分版本）。
   - [ ] Chronological Ordering
 - [ ] LeetCode 135. Candy
   - [ ] Constraint Decomposition for Greedy or DP
@@ -345,8 +348,8 @@
   - [ ] O(nlogk) solution + exactly one condition
   - [ ] Buckets: Inspired by bucket sort, we can achieve linear time complexity in our problem using buckets as window.
 - [ ] LeetCode 732. My Calendar III
-- [ ] LeetCode 297. Serialize and Deserialize Binary Tree
-  - [ ] Pre-ordering/Recursion
+- [x] ⭐⭐⭐⭐ LeetCode 297. Serialize and Deserialize Binary Tree
+  - [x] Pre-ordering/Recursion：2026-11-06 經 gpt-6.1-sol 引導完成 value(left,right)＋# 格式與括號深度切割；不是獨立重做。反覆串接／切片使時間最壞 O(n²)，deserialize 字串副本空間最壞 O(n²)。
   - [ ] BFS with structural optimized
 - [ ] LeetCode 493. Reverse Pairs
   - [ ] BIT

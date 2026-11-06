@@ -10,7 +10,7 @@
 
 編輯標註共 **10 題：OA 5 題、Phone 2 題、Onsite 3 題**。標註是 LeetCode 的編輯整理；頁面未提供統計期間、樣本數或更新日期，不能當成 2026 年近期頻率，也未證明適用於 Embedded「兩題、135 分鐘」的特定 OA。
 
-**已刷：51 / 68**（依 [Practice Log](../../Practice_Log.md)，2026-11-06 快照）。勾選表示日誌有完成紀錄，不代表已能限時獨立重寫。本檔目前未納入 `scripts/sync_lists.py` 的自動同步範圍。
+**已刷：55 / 68**（依 [Practice Log](../../Practice_Log.md)，2026-11-06 快照）。勾選表示日誌有完成紀錄，不代表已能限時獨立重寫。本檔目前未納入 `scripts/sync_lists.py` 的自動同步範圍。
 
 ## 先練：Editor’s choice — Online Assessment
 
@@ -58,7 +58,7 @@
 | Design | 146. LRU Cache |
 | Others | 957. Prison Cells After N Days |
 
-目前以 OA 為目標，先完成上述 5 題的練習／重寫，再補 387、273 等分類推薦；Phone 與 Onsite 題可在準備後續關卡時接上。
+目前以 OA 為目標，先完成上述 5 題的練習／重寫，再補尚未完成的 387，並複習已完成的 273 等分類推薦；Phone 與 Onsite 題可在準備後續關卡時接上。
 
 ## 完整題庫（保留來源分類與順序）
 
@@ -113,7 +113,7 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **103.** [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) — Medium · Phone · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2980/) · <sub>✔ 2026-10-21</sub>
 - [x] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2981/) · <sub>✔ 2026-10-19</sub>
 - [ ] **126.** [Word Ladder II](https://leetcode.com/problems/word-ladder-ii/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/483/)
-- [ ] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2982/)
+- [x] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2982/) · <sub>✔ 2026-11-06</sub>
 - [x] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — Medium · Phone · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/894/) · <sub>✔ 2026-09-14</sub>
 - [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2983/) · <sub>✔ 2026-09-14</sub>
 - [x] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2984/) · <sub>✔ 2026-09-21</sub>
@@ -128,7 +128,7 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **17.** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/84/recursion/521/) · <sub>✔ 2026-09-07</sub>
 - [x] **22.** [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/84/recursion/2988/) · <sub>✔ 2026-09-17</sub>
 - [x] **79.** [Word Search](https://leetcode.com/problems/word-search/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/84/recursion/2989/) · <sub>✔ 2026-09-10</sub>
-- [ ] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/84/recursion/2990/)
+- [x] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/84/recursion/2990/) · <sub>✔ 2026-11-06</sub>
 
 ### Sorting and Searching（8 題）
 
@@ -139,7 +139,7 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **56.** [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/79/sorting-and-searching/2993/) · <sub>✔ 2026-09-10</sub>
 - [x] **167.** [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/79/sorting-and-searching/2994/) · Explore 題名：Two Sum II - Input array is sorted · <sub>✔ 2026-10-09</sub>
 - [x] **215.** [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/79/sorting-and-searching/482/) · <sub>✔ 2026-09-21</sub>
-- [ ] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) — Medium 🔒 · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/79/sorting-and-searching/497/)
+- [x] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) — Medium 🔒 · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/79/sorting-and-searching/497/) · <sub>✔ 2026-11-06</sub>
 - [x] **347.** [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/79/sorting-and-searching/2995/) · <sub>✔ 2026-10-11</sub>
 - [x] **973.** [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — Medium · OA · [Explore](https://leetcode.com/explore/interview/card/amazon/79/sorting-and-searching/2996/) · <sub>✔ 2026-10-15</sub>
 
@@ -160,7 +160,7 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **146.** [LRU Cache](https://leetcode.com/problems/lru-cache/) — Medium · Onsite · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/478/) · <sub>✔ 2026-09-11</sub>
 - [x] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/503/) · <sub>✔ 2026-09-11</sub>
 - [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/495/) · <sub>✔ 2026-09-27</sub>
-- [ ] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/2999/)
+- [x] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/2999/) · <sub>✔ 2026-11-06</sub>
 - [ ] **348.** [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/) — Medium 🔒 · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/517/)
 - [ ] **642.** [Design Search Autocomplete System](https://leetcode.com/problems/design-search-autocomplete-system/) — Hard 🔒 · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/3000/)
 - [ ] **895.** [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/3001/)
