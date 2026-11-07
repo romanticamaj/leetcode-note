@@ -2,6 +2,15 @@
 
 ---
 
+## 2026-11-07
+
+- 819. Most Common Word
+
+**心得**：
+- 819：hashmap + string manipulation。
+
+---
+
 ## 2026-11-06
 
 - 253. Meeting Rooms II

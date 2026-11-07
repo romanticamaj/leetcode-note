@@ -124,11 +124,30 @@ s.find("pattern", start_pos);      // search from position
 s.rfind("pattern");                // search from right
 s.find_first_of("aeiou");          // find any char in set
 
-// Split by custom delimiter using getline
-std::stringstream ss(s);
+// ===== Tokenization: getline vs operator>>（皆可用於 C++14） =====
+// 指定分隔字元：getline 不跳過前導／連續分隔符，可能產生空 token。
+std::stringstream delimiterStream("a   b");
 std::string token;
-while (std::getline(ss, token, ',')) { /* process token */ }
-while (ss >> token) { /* process token */ } // 以空白為分割單位
+while (std::getline(delimiterStream, token, ' ')) { /* "a", "", "", "b" */ }
+// getline(..., ' ') 只認空格；tab／換行不會因此被切開。
+// 注意：最後一個分隔符之後若直接 EOF，不會額外成功讀出一個空 token。
+
+// 讀取單字：>> 預設略過前導／連續 whitespace（空格、tab、換行），不產生空 token。
+std::stringstream wordStream("a   b");
+while (wordStream >> token) { /* "a", "b" */ }
+
+// ⚠️ LC 819：非字母換成空格後，"a!!!" 會變成 "a   "。
+// getline(..., ' ') 讀到 "a", "", ""；若把空字串計數，答案可能變成 ""。
+// 單字統計優先用 >>；若用 getline，先略過空 token。
+std::stringstream filteredStream(s);
+while (std::getline(filteredStream, token, ' ')) {
+    if (token.empty()) continue;
+    /* process token */
+}
+
+// 逗號等自訂分隔符仍使用 getline；上面範例各用獨立 stream，避免重用已讀到 EOF 的 stream。
+std::stringstream commaStream(s);
+while (std::getline(commaStream, token, ',')) { /* process token */ }
 // For paths, use '/' as delimiter; repeated '/' can produce empty tokens.
 std::stringstream pathStream("/a//b");
 while (std::getline(pathStream, token, '/')) { if (token.empty()) continue; /* process token */ }
