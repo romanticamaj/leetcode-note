@@ -1,5 +1,7 @@
 # C++ 排序演算法比較：`std::sort`, `std::stable_sort`, 與 `container.sort()`
 
+比較器如何回傳、判定同順位及設計多條件排序，見 [Comparator 設計心法](Comparator_Design.md)。
+
 在 C++ 中，排序是基礎且頻繁的操作。標準庫提供了多種排序工具，主要包括通用的 `std::sort`、保證穩定性的 `std::stable_sort`，以及特定容器（如 `std::list`）的成員函式 `sort()`。理解它們的差異對於撰寫高效且正確的程式碼至關重要。
 
 ---

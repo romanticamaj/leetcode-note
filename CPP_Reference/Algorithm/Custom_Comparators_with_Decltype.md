@@ -1,5 +1,7 @@
 # C++ 技巧：使用 Lambda 與 decltype 實現自訂比較器
 
+比較器如何回傳、判定同順位及設計多條件排序，見 [Comparator 設計心法](Comparator_Design.md)。
+
 在 C++ 中，當我們需要為 STL 容器（如 `std::priority_queue`, `std::set`, `std::map`）提供自訂的排序邏輯時，通常會使用比較函式物件（Functor）或 Lambda。然而，Lambda 的型別是匿名的，這在模板編程中帶來了一個挑戰。本文件將深入探討如何使用 `decltype` 關鍵字來解決這個問題。
 
 ---

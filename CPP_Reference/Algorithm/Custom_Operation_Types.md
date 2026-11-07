@@ -35,6 +35,8 @@ auto it = std::find_if(v.begin(), v.end(), [](int x) {
 
 ## 2. 二元謂詞 (Binary Predicate)
 
+排序關係的回傳值、strict weak ordering、多條件 tie-break 與 stable_sort 的配合，見 [Comparator 設計心法](Comparator_Design.md)。
+
 - **介面 (Signature):** `bool op(const Type1& a, const Type2& b);`
 - **核心概念:** 接受**兩個**引數，返回一個 `bool` 值，通常用於定義“小於”關係。
 - **常用演算法:** `sort`, `stable_sort`, `lower_bound`, `upper_bound`, `max_element`, `min_element`。
@@ -94,21 +96,21 @@ std::sort(words.begin(), words.end(), [](const std::string& a, const std::string
 
 ### 常見錯誤：當簽名寫錯時
 
-如果你提供給 STL 演算法的自訂操作簽名不正確，你會在**編譯時期 (compile-time)** 遇到錯誤。這些錯誤通常看起來非常嚇人，因為它們涉及到很深的模板實作細節，但其根本原因往往很簡單。
+若自訂操作無法接受演算法傳入的引數，可能在**編譯時期 (compile-time)** 遇到很長的模板錯誤；但隱式轉換也可能讓錯誤寫法通過編譯，仍需檢查比較關係與數值範圍。
 
 **核心除錯技巧：** 當你看到來自 STL 演算法內部、充滿 `template` 和 `static_assert` 的冗長錯誤訊息時，**首先回頭檢查你的 Lambda 或函式物件的簽名**：參數數量、參數類型、`const` 正確性以及返回類型。
 
-#### 範例 1：`std::sort` 的謂詞返回類型錯誤
+#### 範例 1：`std::sort` 的比較關係錯誤
 
 ```cpp
-// 錯誤：比較函式應該返回 bool，但這裡返回了 int
+// 錯誤：相減結果轉成 bool 後，正數與負數都為 true
 std::sort(v.begin(), v.end(), [](int a, int b) {
     return a - b; // <--- 錯誤！應為 a < b
 });
 ```
 
-- **可能錯誤：** `error: return value of lambda is not contextually convertible to bool`
-- **原因：** `std::sort` 期望一個返回 `bool` 值的比較函式。`a - b` 返回 `int`，無法滿足要求。
+- **實際問題：** 這通常可以編譯，因為 int 可轉成 bool；但 1-2 與 2-1 都非零，雙向比較都變成 true，違反 strict weak ordering，排序行為未定義。相減也可能發生 signed integer overflow。
+- **修正：** 直接回傳 `a < b`；若使用 `string::compare`，則判斷其結果 `< 0`。
 
 #### 範例 2：`std::accumulate` 的累加器類型錯誤
 
@@ -120,8 +122,8 @@ int total_length = std::accumulate(words.begin(), words.end(), 0LL, // <-- init 
     });
 ```
 
-- **可能錯誤：** `error: no matching function for call to 'accumulate'`
-- **原因：** `accumulate` 的 `op` 的第一個參數類型必須與 `init` 值的類型嚴格匹配。
+- **實際問題：** 這通常也能編譯，因為 long long 可以轉成 int；但每次呼叫 lambda 都可能窄化累加值，失去使用 `0LL` 的目的。
+- **原因：** 初始化型別決定 accumulator 型別，lambda 的參數與運算也應保留足夠寬度，而不是依賴隱式轉換。
 - **修正：** `[](long long current_sum, ...)`
 
 ---
