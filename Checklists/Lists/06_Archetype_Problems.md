@@ -107,6 +107,7 @@
 ### Substring Search
 
 - LeetCode 28. Find the Index of the First Occurrence in a String
+- 🟢 LeetCode 819. Most Common Word
 
 ---
 

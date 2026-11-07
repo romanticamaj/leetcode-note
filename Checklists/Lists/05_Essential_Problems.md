@@ -207,6 +207,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 58. Length of Last Word
 - 🟡 LeetCode 151. Reverse Words in a String
   - Two Pointers + In-place + Reverse
+- 🟢 LeetCode 819. Most Common Word
 
 ## Finite State Machine (FSM)
 

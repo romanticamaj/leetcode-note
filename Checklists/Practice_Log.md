@@ -2,6 +2,19 @@
 
 ---
 
+## 2026-11-08
+
+- 937. Reorder Data in Log Files
+
+**心得**：
+- 937：string manipulation。comparator 寫錯了：小於沒問題，但是第二個判斷式要第一個判斷式是等於才觸發。
+
+**LLM 點評**：
+model: GPT-6
+- 937：最後提供的 comparator 從邏輯推理看正確，本次未編譯或執行原始 C++。排序 key 是 (content, identifier)：content 較小就排前面，只有 content 相等時才用 identifier 決勝；不能把兩個「小於」條件直接 OR，否則可能 comp(a,b) 與 comp(b,a) 同時為 true，違反 strict weak ordering。先分流再排序 letterLogs，digitLogs 依原順序 push_back，最後接回即可保留數字 log 的穩定順序，無需對它們排序。依題目每個 log 內容全為小寫字母或數字且無尾端空白的保證，isdigit(log.back()) 可正確分類；substr(mid) 雖包含分隔空格，但每份 content 都多同一個前導空格，不影響比較結果，可用 mid+1 讓意圖更清楚。令 n 為 log 數、a 為 letter-log 數、L 為最長 log 長度，分流與輸出涉及字串複製，單次 comparator 的 find／substr／compare 最壞 O(L)，總時間 O(nL+a log(a+1)·L)，最壞 O(nL log(n+1))；額外空間 O(nL)，不能只算字串物件個數。for (const auto& log : logs) 可省去迴圈變數複製，comparator 可用 const auto& a／b 表達唯讀。
+
+---
+
 ## 2026-11-07
 
 - 819. Most Common Word
