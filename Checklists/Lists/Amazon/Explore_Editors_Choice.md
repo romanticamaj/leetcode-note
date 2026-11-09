@@ -10,18 +10,18 @@
 
 編輯標註共 **10 題：OA 5 題、Phone 2 題、Onsite 3 題**。標註是 LeetCode 的編輯整理；頁面未提供統計期間、樣本數或更新日期，不能當成 2026 年近期頻率，也未證明適用於 Embedded「兩題、135 分鐘」的特定 OA。
 
-**已刷：55 / 68**（依 [Practice Log](../../Practice_Log.md)，2026-11-06 快照）。勾選表示日誌有完成紀錄，不代表已能限時獨立重寫。本檔目前未納入 `scripts/sync_lists.py` 的自動同步範圍。
+**已刷：62 / 68**（依 [Practice Log](../../Practice_Log.md)，2026-11-09 快照）。勾選表示日誌有完成紀錄，不代表已能限時獨立重寫。本檔目前未納入 `scripts/sync_lists.py` 的自動同步範圍。
 
 ## 先練：Editor’s choice — Online Assessment
 
 編輯原文：**“Editor's choice: Frequently asked in an Amazon online assessment.”**
 
-先做尚無紀錄的 **819 → 937**，再限時複習 **1 → 5 → 973**。這是依目前練習紀錄安排的順序，不是五題的出題機率排名。
+上述 5 題皆已有完成紀錄，接下來限時複習 **819 → 937 → 1 → 5 → 973**。這是依目前練習紀錄安排的順序，不是五題的出題機率排名。
 
 | 題目 | 難度 | 本次安排 | Explore 證據 |
 |---|---|---|---|
-| [819. Most Common Word](https://leetcode.com/problems/most-common-word/) | Easy | 優先練習；日誌尚無完成紀錄 | [OA 標註](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2973/) |
-| [937. Reorder Data in Log Files](https://leetcode.com/problems/reorder-data-in-log-files/) | Medium | 優先練習；日誌尚無完成紀錄 | [OA 標註](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2974/) |
+| [819. Most Common Word](https://leetcode.com/problems/most-common-word/) | Easy | 限時複習；曾於 2026-11-07 完成 | [OA 標註](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2973/) |
+| [937. Reorder Data in Log Files](https://leetcode.com/problems/reorder-data-in-log-files/) | Medium | 限時複習；曾於 2026-11-08 完成 | [OA 標註](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2974/) |
 | [1. Two Sum](https://leetcode.com/problems/two-sum/) | Easy | 限時複習；曾於 2026-09-04 完成 | [OA 標註](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/508/) |
 | [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | Medium | 限時複習；曾於 2026-09-05 完成 | [OA 標註](https://leetcode.com/explore/interview/card/amazon/80/dynamic-programming/489/) |
 | [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) | Medium | 限時複習；曾於 2026-10-15 完成 | [OA 標註](https://leetcode.com/explore/interview/card/amazon/79/sorting-and-searching/2996/) |
@@ -58,7 +58,7 @@
 | Design | 146. LRU Cache |
 | Others | 957. Prison Cells After N Days |
 
-目前以 OA 為目標，先完成上述 5 題的練習／重寫，再補尚未完成的 387，並複習已完成的 273 等分類推薦；Phone 與 Onsite 題可在準備後續關卡時接上。
+目前以 OA 為目標，上述 5 題均已完成，接下來限時重寫，並複習已完成的 387、273、957 等分類推薦；Phone 與 Onsite 題可在準備後續關卡時接上。
 
 ## 完整題庫（保留來源分類與順序）
 
@@ -77,19 +77,19 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **12.** [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2964/) · <sub>✔ 2026-10-16</sub>
 - [x] **13.** [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) — Easy · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2965/) · <sub>✔ 2026-09-29</sub>
 - [x] **15.** [3Sum](https://leetcode.com/problems/3sum/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2966/) · <sub>✔ 2026-09-05</sub>
-- [ ] **16.** [3Sum Closest](https://leetcode.com/problems/3sum-closest/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2967/)
+- [x] **16.** [3Sum Closest](https://leetcode.com/problems/3sum-closest/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2967/) · <sub>✔ 2026-11-09</sub>
 - [x] **28.** [Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) — Easy · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2968/) · Explore 題名：Implement strStr() · <sub>✔ 2026-10-01</sub>
 - [ ] **48.** [Rotate Image](https://leetcode.com/problems/rotate-image/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2969/)
 - [x] **49.** [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2970/) · <sub>✔ 2026-09-18</sub>
 - [x] **76.** [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/902/) · <sub>✔ 2026-09-25</sub>
-- [ ] **165.** [Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/502/)
+- [x] **165.** [Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/502/) · <sub>✔ 2026-11-09</sub>
 - [x] **238.** [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/499/) · <sub>✔ 2026-09-15</sub>
 - [x] **268.** [Missing Number](https://leetcode.com/problems/missing-number/) — Easy · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2971/) · <sub>✔ 2026-10-09</sub>
 - [x] **273.** [Integer to English Words](https://leetcode.com/problems/integer-to-english-words/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/481/) · <sub>✔ 2026-11-05</sub>
-- [ ] **387.** [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/) — Easy · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/480/)
+- [x] **387.** [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/) — Easy · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/480/) · <sub>✔ 2026-11-08</sub>
 - [x] **20.** [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) — Easy · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2972/) · <sub>✔ 2026-09-04</sub>
-- [ ] **819.** [Most Common Word](https://leetcode.com/problems/most-common-word/) — Easy · OA · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2973/)
-- [ ] **937.** [Reorder Data in Log Files](https://leetcode.com/problems/reorder-data-in-log-files/) — Medium · OA · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2974/) · Explore 題名：Reorder Log Files
+- [x] **819.** [Most Common Word](https://leetcode.com/problems/most-common-word/) — Easy · OA · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2973/) · <sub>✔ 2026-11-07</sub>
+- [x] **937.** [Reorder Data in Log Files](https://leetcode.com/problems/reorder-data-in-log-files/) — Medium · OA · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2974/) · Explore 題名：Reorder Log Files · <sub>✔ 2026-11-08</sub>
 - [x] **42.** [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — Hard · Onsite · [Explore](https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2975/) · <sub>✔ 2026-09-18</sub>
 
 ### Linked Lists（6 題）
@@ -112,7 +112,7 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **102.** [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/506/) · <sub>✔ 2026-09-10</sub>
 - [x] **103.** [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) — Medium · Phone · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2980/) · <sub>✔ 2026-10-21</sub>
 - [x] **124.** [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2981/) · <sub>✔ 2026-10-19</sub>
-- [ ] **126.** [Word Ladder II](https://leetcode.com/problems/word-ladder-ii/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/483/)
+- [x] **126.** [Word Ladder II](https://leetcode.com/problems/word-ladder-ii/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/483/) · <sub>✔ 2026-11-08</sub>
 - [x] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2982/) · <sub>✔ 2026-11-06</sub>
 - [x] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — Medium · Phone · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/894/) · <sub>✔ 2026-09-14</sub>
 - [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2983/) · <sub>✔ 2026-09-14</sub>
@@ -172,7 +172,7 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **7.** [Reverse Integer](https://leetcode.com/problems/reverse-integer/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/82/others/3002/) · <sub>✔ 2026-10-15</sub>
 - [ ] **176.** [Second Highest Salary](https://leetcode.com/problems/second-highest-salary/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/82/others/3003/)
 - [x] **763.** [Partition Labels](https://leetcode.com/problems/partition-labels/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/82/others/3004/) · <sub>✔ 2026-10-15</sub>
-- [ ] **957.** [Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/82/others/3005/)
+- [x] **957.** [Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/82/others/3005/) · <sub>✔ 2026-11-09</sub>
 
 ## 核對方式
 

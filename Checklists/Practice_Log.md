@@ -2,16 +2,60 @@
 
 ---
 
+## 2026-11-09
+
+- 957. Prison Cells After N Days
+- 16. 3Sum Closest
+- 165. Compare Version Numbers
+
+**心得**：
+- 957：靠 gpt-6.1-sol 提示的……其實滿難的。Simulation + Cycle Detection + Fast Forwarding。
+  1. 要想到內部的狀態會重複（2^6 = 64 個可能）。
+  2. 要想到可以用 cycle 加速；cycle 的循環設計要靠 unordered_map 去紀錄時間，這邊最難。
+
+  - 看了解答後的補充：這題非常酷！純粹做狀態改變滿容易，但還能思考狀態是否重複（repetition）；對應 BUD optimization 的 duplicate，重複後進入 cycle，便能 fast forward。這是我第一次在這題看到 fast forward，很值得整理成一篇。
+  - 表示法：只有 2^6 種後續狀態，可以用 bitmap／bitmask 表示，再用 bit manipulation 記錄與更新狀態。
+
+- 16：3Sum 概念去改：sort + two pointers。
+
+- 165：完全靠 gpt-6.1-sol 提示……這題完全是在考 getline 操作啊。getline 回傳值用 boolean 決定要不要往下。
+  - Takeaway：getline 回傳可以轉 bool，判斷是否成功；取得的 token 可能保留舊值，所以 getline 沒有成功時不能使用 token。
+  - `bool has1 = static_cast<bool>(getline(ss1, token1, '.'));` 搭配 `const int num1 = !has1 ? 0 : std::stoi(token1);`，這兩行太經典了，加入 C++ One-Liners。
+
+**LLM 點評**：
+model: GPT-6
+- 957：經提示完成週期加速版；11/8 的端點重設除錯與當時未完成狀態保留為歷程。有限狀態還要搭配「同一狀態的下一天唯一確定」，才能推論重複後整段未來也會重複；第一天後兩端為 0，只剩 64 種內部狀態，初始狀態可能在循環外，不必另找多組大循環。提供的實作用 map 存上次出現時的剩餘天數，第一次重複時 cycleLength=舊剩餘天數-目前剩餘天數，再 n%=cycleLength 跳過整輪。n+1 是找到週期前不影響取餘的哨兵值。首次跳躍後 map 混用不同剩餘天數基準，後續差值未必等於最小週期，但此版剩餘天數已不足一輪，後續取餘不再改變它；若想讓 invariant 更清楚，可只在第一次重複時跳躍。C++20 編譯提供的原始版本，全部 256 個初始狀態搭配 n=1..256、999999999、1000000000 與每個狀態 50 個隨機大天數，共 78848 組對照皆通過。固定 8 格時，找到重複並模擬餘數只需有界次數，時間及額外空間均 O(1)，不再隨原始 n 增長；目前是 hashmap cycle detection，Floyd 是另一種偵測方法，尚未實作。這題的重點是狀態數、確定性轉移、時間標記語義與餘數跳躍，不只是套一個 unordered_map。 延伸心得成立，但要補上確定性轉移前提，且初始兩端可能為 1，完整八格自然以 8-bit 編碼；2^6 是第一天後的狀態數上界。Fast forwarding 減少步數，bitmask 改善表示與轉移成本，不須綁在一起。已整理 [狀態循環與快速跳躍心法](../Algorithms/Simulation/02-Cycle_Detection_and_Fast_Forward.md)，連回 BUD 與既有 state compression；位元轉移為理解解答後的延伸，尚未回報獨立實作。
+- 16：從 3Sum 延伸排序＋固定一個元素＋雙指標的方向成立；目標改為追蹤與 target 的最小絕對差，而不是只找相等或列舉不重複組合。每次移動前更新最佳候選；sum < target 時，對目前 left 而言，縮小 right 只會更小、更遠，因此可排除目前 left；sum > target 時對稱排除目前 right；相等已達差值 0，可提早結束。排序 O(n log n)、各固定元素的雙指標掃描 O(n)，合計 O(n²)。可對照既有 [3Sum 筆記](../Data_Structures/Arrays_and_Strings/K-Sum_Problems/02-Three_Sum.md)。本次僅依心得確認方法，未提供程式碼，不判定具體實作或執行結果。
+- 165：依使用者回報記錄為經提示完成；最後貼出的完整程式漏了 has1 的宣告／第一次 getline，須補回隨後列出的那一行，不能將原樣程式視為可編譯版本。核心仍是逐段比較 revision 的數值、忽略前導零、缺少段補 0；getline 是本次卡住的 parsing API 契約。兩個 stream 必須每輪獨立讀取，不能放在 || 兩側造成短路；用兩次讀取的成功旗標決定停止與補零，不能由 token.empty() 判斷是否成功，因 stream 已在 EOF 時再次讀取可能保留舊值而無限迴圈。getline 回傳的是 stream，轉 bool 表示本輪成功，不是 stoi 轉換成功；一般輸入即使成功仍可能讀到空欄位，兩行補零寫法以題目的非空數字 revision 為前提。最後一段可成功讀出並設 eofbit，不能只用 eof() 當成功判斷。令 m,n 為兩字串長度，時間 O(m+n)（等價於 O(max(m,n))），兩個 stringstream 與 token 的額外儲存為 O(m+n)。已補入 [C++ One-Liners](../Cheatsheet/CPP_One_Liners.md)；前次已執行 EOF token 保留的重現測試，本次原樣缺行程式未執行。
+
+---
+
 ## 2026-11-08
 
 - 937. Reorder Data in Log Files
+- 126. Word Ladder II
+- 387. First Unique Character in a String
 
 **心得**：
 - 937：string manipulation。comparator 寫錯了：小於沒問題，但是第二個判斷式要第一個判斷式是等於才觸發。
 
+- 126：BFS with level-conditioned predecessor push + backtracking。
+  1. BFS 需紀錄一個 distance。
+  2. 每個被拜訪的 neighbor 要確認搭配 queue 中紀錄的 distance 值；level 比較大的那些 node 就不再放進 queue，但是要更新 predecessor 清單。
+  3. 建構 path 的 walk 要用 recursive，然後反向順序。
+  4. Edge case：要判斷 destination 存在。
+  5. Pitfall：要確認有 path 才輸出 path。
+
+- 387：hashmap。
+
+- 957：Prison Cells After N Days（除錯中，尚未完成）。Simulation，使用 next buffer 與 cells.swap(next)，看不出來問題在哪。
+
 **LLM 點評**：
 model: GPT-6
 - 937：最後提供的 comparator 從邏輯推理看正確，本次未編譯或執行原始 C++。排序 key 是 (content, identifier)：content 較小就排前面，只有 content 相等時才用 identifier 決勝；不能把兩個「小於」條件直接 OR，否則可能 comp(a,b) 與 comp(b,a) 同時為 true，違反 strict weak ordering。先分流再排序 letterLogs，digitLogs 依原順序 push_back，最後接回即可保留數字 log 的穩定順序，無需對它們排序。依題目每個 log 內容全為小寫字母或數字且無尾端空白的保證，isdigit(log.back()) 可正確分類；substr(mid) 雖包含分隔空格，但每份 content 都多同一個前導空格，不影響比較結果，可用 mid+1 讓意圖更清楚。令 n 為 log 數、a 為 letter-log 數、L 為最長 log 長度，分流與輸出涉及字串複製，單次 comparator 的 find／substr／compare 最壞 O(L)，總時間 O(nL+a log(a+1)·L)，最壞 O(nL log(n+1))；額外空間 O(nL)，不能只算字串物件個數。for (const auto& log : logs) 可省去迴圈變數複製，comparator 可用 const auto& a／b 表達唯讀。
+- 126：分類是 BFS 建立最短路徑 predecessor DAG＋DFS/backtracking 列舉所有最短路徑；提供的程式在題目單字等長、唯一且 beginWord != endWord、每個 Solution 物件呼叫一次的前提下，從 invariant 推理看正確，本次未編譯或執行原始 C++。distances 追蹤從起點到各單字的最少邊數；首次發現 neighbor 才設定距離並入隊，之後已訪問的 neighbor 不重複入隊，但只有 dist+1 == distances[neighbor] 的到達才能補進 predecessor，較長路徑不能補。原碼的 <= 在單位邊權 FIFO BFS 下等價於 ==，因較短的新到達不可能發生；建議直接用 == 表達最短路徑邊的 invariant。每條 predecessor 邊都使距離減一，故形成 DAG，不會循環；walk 的 push／遞迴／pop 是 backtracking，從 endWord 走回 beginWord 後 reverse 即得到正向路徑。Recursive 是自然的實作選擇，並非唯一方法。endWord 出隊時才 break 安全，因所有距離 D-1 的父節點都已展開，所有最短 predecessor 已收齊；不能改成第一次發現 endWord 就立刻停止整個 BFS。reachDestination 避免把沒有 predecessor 的孤立終點錯當有效路徑；在已達終點且 predecessor 僅保留最短邊的前提下，walk 遇到無 predecessor 的節點必為 beginWord。現有 BFS 已能處理 endWord 不在字典或存在但不可達，皆回傳空結果；預先檢查字典是否含 endWord 是提早回傳優化，不是正確性必要條件。相較 127，不能照搬每次掃完 wildcard bucket 立即 clear 的優化，可能漏掉同層其他父節點。若支援同物件重複呼叫，入口需 paths.clear()。令 N 為字典大小、L 為字長、P 為最短路徑數、D 為每條路徑單字數；固定 26 字母與 hash table 平均查找假設下，建圖及 BFS 為 O((N+1)L²)，回溯與字串輸出為 O(PDL)，不能忽略可能很大的輸出量。
+- 387：提供的實作在小寫英文字母的前提下，從 invariant 推理看正確，本次未編譯或執行原始 C++。第一輪取得全字串的頻率，第二輪按原索引遞增找第一個 frequency==1 的位置，因此同時滿足「唯一」與「最早」；全無則回傳 -1。概念是 frequency counting，具體用 array<int,26> 作 direct-address table，而非實際使用 hashmap。兩輪各 O(n)，合計 Θ(n)；frequency 固定 26 格，所以演算法額外工作空間 O(1)，不是 O(n)。若將 string s 值傳遞從 lvalue 產生的輸入副本也計入，該副本另占 O(n)，需與計數工作空間分開；一般字元集合則可寫 O(Σ)，Σ 為字母表大小。frequency{0} 會把其餘元素也零初始化。最壞必須檢查整個字串以確認是否唯一，故 Ω(n) 的 BCR 判斷成立。
+- 957：核心 bug 是只在迴圈外把 next 的端點設為 0；swap 後 next 持有上一輪的 cells（第一次 swap 後就是原始輸入），下一輪只覆寫中間六格，可能把原始非零端點換回結果。應在每一輪、swap 前重新設定 next.front()=next.back()=0，以維持 next 完整表示下一天的 invariant。以 C++14 重現原邏輯：[1,0,0,0,0,0,0,0]、n=2 時原結果 [1,0,0,1,1,1,0,0]，正確為 [0,0,0,1,1,1,0,0]；將端點重設放進每輪後，全部 256 個初始狀態搭配 n=1..10 的 2560 組模擬對照皆通過。固定 8 格時逐日模擬時間 O(n)、額外空間 O(1) 的分析成立；但題目 n 可到 10^9，修正端點仍不足以支援完整限制，尚需加速，不記為整題完成。參考 [題目限制](https://leetcode.com/problems/prison-cells-after-n-days/)。
 
 ---
 

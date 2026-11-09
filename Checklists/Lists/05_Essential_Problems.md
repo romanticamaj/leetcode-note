@@ -61,6 +61,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 🔴 LeetCode 45. Jump Game II
   - [ ] Greedy (嚴格說起來，是 BFS + 狀態壓縮去除 queue)
 - 🟢 🟡 LeetCode 542. 01 Matrix
+- 🔴 LeetCode 126. Word Ladder II
+  - BFS + Distance-Constrained Predecessor DAG + Backtracking
 
 ## DFS (Depth-First Search)
 
@@ -153,6 +155,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 🔴 LeetCode 222. Count Complete Tree Nodes
   - Tree Height + Search on Value + Bit Manipulation
 - 🟡 LeetCode 371. Sum of Two Integers
+- 🟡 LeetCode 957. Prison Cells After N Days
 
 ## State Compression through Bit Manipulation
 
@@ -239,7 +242,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 演算法推導與文獻歷史：[373：K-way Merge 與外部排序](../../Problem_History/LC_0373_Find_K_Pairs_with_Smallest_Sums.md)。
 
 - 🟡 LeetCode 373. Find K Pairs with Smallest Sums
-  - **隱式有序序列的合併**：固定 i，(i,0)、(i,1)…的總和非遞減；min-heap 只保留每列尚未取出的第一組，取出 (i,j) 後補 (i,j+1)，不必先生成全部 m*n 組配對。
+  - **隱式有序序列的合併**：固定 i，(i,0)、(i,1)…的總和非遞減；min-heap 只保留每列尚未取出的第一組，取出 (i,j) 後補 (i,j+1)，不必先生成全部 m\*n 組配對。
   - 相關題：23. Merge k Sorted Lists（直接合併有序串列）、355. Design Twitter（各作者依時間排序，用 max-heap 合併最新候選；此版本仍待練習）。既有參考：[Heap 使用場景](../../Data_Structures/Heaps/01-Heap_Decision_Making.md)。
 
 ## Stack Operations
@@ -289,6 +292,11 @@ A curated list of must-do problems that build core competencies. Completing thes
 ## Simulation
 
 - LeetCode 409. Longest Palindrome
+
+## Cycle Detection
+
+- 🟡 LeetCode 957. Prison Cells After N Days
+  - Simulation + Cycle Detection + Fast Forwarding
 
 ## Look Simple, Easy to Make Mistakes
 
@@ -342,8 +350,10 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Prefix Sum + Running Hashmap
 - 🟡 🔴 LeetCode 222. Count Complete Tree Nodes
   - Tree Height + Search on Value + Bit Manipulation
-- 🟡 🔴 437. Path Sum III
+- 🟡 🔴 LeetCode 437. Path Sum III
   - Preordering Recursion + Prefix Sum + Running Sum
+- 🔴 LeetCode 126. Word Ladder II
+  - BFS + Distance-Constrained Predecessor DAG + Backtracking
 
 ### Followup Possible (Multiple Solutions)
 
@@ -402,6 +412,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - preordering + parenthesis count
 - 🔴 LeetCode 212. Word Search II
   - Dynamic Trie + Backtracking
+- 🟡 LeetCode 957. Prison Cells After N Days
+  - Simulation + Cycle Detection + Fast Forwarding
 
 ## Classic Optimization / Brain Development
 

@@ -20,6 +20,8 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | ⭐⭐⭐⭐ 957. Prison Cells After N Days：獨立練習 bitmask／bit manipulation 表示法；定義 bit i 對應 cells[i]，完成八格與整數的編碼／解碼，推導左右移位、XOR 取反與端點遮罩的單步轉移，再整合 cycle detection＋fast forwarding；目前只完成 vector 模擬＋string key 的週期加速版，bitmask 版本尚未實作。參考[狀態循環與快速跳躍](../../Algorithms/Simulation/02-Cycle_Detection_and_Fast_Forward.md) | 2026-11-09 | — |
+| 待做 | ⭐⭐⭐⭐ 126. Word Ladder II：之後嘗試 bidirectional BFS；使用者表示可能尚未用過此技巧。先理解雙向 frontier 的逐層擴展與相遇條件，再處理所有最短路徑的邊方向、同層多個連接及 backtracking，不能找到第一個交點就漏掉其他最短路徑；目前只完成單向 BFS＋predecessor DAG＋backtracking | 2026-11-08 | — |
 | 待做 | ⭐⭐⭐⭐ 239. Sliding Window Maximum：下次獨立嘗試 monotonic deque；以 index 維持候選順序，推導隊首過期移除、隊尾淘汰被新值支配的候選與重複值處理，說明 O(n) 時間、O(k) 額外空間；目前只完成 max-heap＋hashmap lazy deletion 版本 | 2026-11-06 | — |
 | 待做 | ⭐⭐⭐⭐ 253. Meeting Rooms II：priority queue／min-heap 解法很值得想；獨立推導按開始時間排序、heap 保存活躍會議結束時間的 invariant，說明為何普通 FIFO queue 不足、為何需移除所有 end <= start，再追蹤 heap size 峰值；目前只完成 ordered map 差分版本 | 2026-11-06 | — |
 | 待做 | ⭐⭐⭐ 545. Boundary of Binary Tree：one-pass DFS；結合 preorder／postorder 與 isLeftBoundary／isRightBoundary 多狀態傳遞，獨立推導邊界旗標、葉節點去重與輸出順序；目前只完成分段版本 | 2026-11-05 | — |
