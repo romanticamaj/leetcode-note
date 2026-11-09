@@ -57,6 +57,10 @@
 
 這種技巧在解決旅行商問題 (TSP)、排列組合相關的 DP 問題以及需要狀態壓縮的圖論問題中非常常見且強大。
 
+## 二元模擬狀態的表示
+
+Bitmask 不只表示 visited 集合，也能表示每格為 0／1 的完整系統狀態。LC 957 可用 8-bit 整數表示八格，作為 cycle detection 的 key；循環加速與狀態壓縮是兩個可分開使用的設計。見 [狀態循環與 Fast Forwarding](../Simulation/02-Cycle_Detection_and_Fast_Forward.md)。
+
 ## 延伸閱讀
 
 - [02-Bitmask_Set_Operations.md](02-Bitmask_Set_Operations.md) - 集合運算對照表、遍歷子集合技巧
