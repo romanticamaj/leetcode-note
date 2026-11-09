@@ -152,6 +152,21 @@ while (std::getline(commaStream, token, ',')) { /* process token */ }
 std::stringstream pathStream("/a//b");
 while (std::getline(pathStream, token, '/')) { if (token.empty()) continue; /* process token */ }
 
+// ===== getline 成功狀態與 token 內容（LC 165；C++14） =====
+// getline 回傳 stream；轉 bool 檢查本次讀取成功，不是檢查數字轉換成功。
+// 下列兩行假設：成功讀到的欄位是非空、可由 stoi 解析的整數；缺欄位補 0。
+bool has1 = static_cast<bool>(std::getline(ss1, token1, '.'));
+const int num1 = !has1 ? 0 : std::stoi(token1);
+// 成功時才使用本次 token；失敗時 token 不保證清空，可能保留舊值。
+// 一般分隔輸入也可能成功讀到空 token（如 "a..b"）；has1 不保證 token 非空或是合法數字。
+// 最後一段可以成功讀到並同時設 eofbit；不要用 !ss.eof() 取代本次成功判斷。
+
+// 兩個 stream 每輪都要各讀一次，不能把兩次 getline 放在 || 兩側：左成功會短路右邊。
+// while (std::getline(ss1, token1, '.') || std::getline(ss2, token2, '.'))
+bool has2 = static_cast<bool>(std::getline(ss2, token2, '.'));
+// if (!has1 && !has2) break; // 放在讀取迴圈內：雙方都無資料才結束。
+const int num2 = !has2 ? 0 : std::stoi(token2);
+
 // Parse with specified base (2=binary, 16=hex)
 int bin = std::stoi("1010", nullptr, 2);   // -> 10
 int hex = std::stoi("FF", nullptr, 16);    // -> 255
