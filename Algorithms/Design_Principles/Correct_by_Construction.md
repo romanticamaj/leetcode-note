@@ -100,3 +100,7 @@
 - [ ] 有的話，它能不能改成命名 / 型別 / 不變量來承載？
 
 > 相關：[`Problem_Solving_Process_and_Assumption_Checklist.md`](../../Interview_Playbook/Problem_Solving_Process_and_Assumption_Checklist.md) 的 classic / edge dry run —— 測資的價值在於**能分辨對錯**，不在於數量。
+
+## 延伸：用充分摘要減少同步欄位
+
+LC 348 可把「落子總數＋玩家集合」改成玩家的 +1／-1 淨貢獻；在每條線至多 n 格的限制下，±n 已足以判定占滿。見 [Signed Contribution Counting](Signed_Contribution_Counting.md)。

@@ -7,6 +7,7 @@
 - 957. Prison Cells After N Days
 - 16. 3Sum Closest
 - 165. Compare Version Numbers
+- 348. Design Tic-Tac-Toe
 
 **心得**：
 - 957：靠 gpt-6.1-sol 提示的……其實滿難的。Simulation + Cycle Detection + Fast Forwarding。
@@ -22,11 +23,15 @@
   - Takeaway：getline 回傳可以轉 bool，判斷是否成功；取得的 token 可能保留舊值，所以 getline 沒有成功時不能使用 token。
   - `bool has1 = static_cast<bool>(getline(ss1, token1, '.'));` 搭配 `const int num1 = !has1 ? 0 : std::stoi(token1);`，這兩行太經典了，加入 C++ One-Liners。
 
+- 348：hashmap + bit manipulation。不難，但是不好實作，很容易出錯。
+  - 看完解答後，可以把 counting 跟 player 的貢獻數量結合，就不用兩個變數。這個優化滿有趣的，因為我就是想朝這個方向簡化程式，這樣才不容易在實作時出錯。
+
 **LLM 點評**：
 model: GPT-6
 - 957：經提示完成週期加速版；11/8 的端點重設除錯與當時未完成狀態保留為歷程。有限狀態還要搭配「同一狀態的下一天唯一確定」，才能推論重複後整段未來也會重複；第一天後兩端為 0，只剩 64 種內部狀態，初始狀態可能在循環外，不必另找多組大循環。提供的實作用 map 存上次出現時的剩餘天數，第一次重複時 cycleLength=舊剩餘天數-目前剩餘天數，再 n%=cycleLength 跳過整輪。n+1 是找到週期前不影響取餘的哨兵值。首次跳躍後 map 混用不同剩餘天數基準，後續差值未必等於最小週期，但此版剩餘天數已不足一輪，後續取餘不再改變它；若想讓 invariant 更清楚，可只在第一次重複時跳躍。C++20 編譯提供的原始版本，全部 256 個初始狀態搭配 n=1..256、999999999、1000000000 與每個狀態 50 個隨機大天數，共 78848 組對照皆通過。固定 8 格時，找到重複並模擬餘數只需有界次數，時間及額外空間均 O(1)，不再隨原始 n 增長；目前是 hashmap cycle detection，Floyd 是另一種偵測方法，尚未實作。這題的重點是狀態數、確定性轉移、時間標記語義與餘數跳躍，不只是套一個 unordered_map。 延伸心得成立，但要補上確定性轉移前提，且初始兩端可能為 1，完整八格自然以 8-bit 編碼；2^6 是第一天後的狀態數上界。Fast forwarding 減少步數，bitmask 改善表示與轉移成本，不須綁在一起。已整理 [狀態循環與快速跳躍心法](../Algorithms/Simulation/02-Cycle_Detection_and_Fast_Forward.md)，連回 BUD 與既有 state compression；位元轉移為理解解答後的延伸，尚未回報獨立實作。
 - 16：從 3Sum 延伸排序＋固定一個元素＋雙指標的方向成立；目標改為追蹤與 target 的最小絕對差，而不是只找相等或列舉不重複組合。每次移動前更新最佳候選；sum < target 時，對目前 left 而言，縮小 right 只會更小、更遠，因此可排除目前 left；sum > target 時對稱排除目前 right；相等已達差值 0，可提早結束。排序 O(n log n)、各固定元素的雙指標掃描 O(n)，合計 O(n²)。可對照既有 [3Sum 筆記](../Data_Structures/Arrays_and_Strings/K-Sum_Problems/02-Three_Sum.md)。本次僅依心得確認方法，未提供程式碼，不判定具體實作或執行結果。
 - 165：依使用者回報記錄為經提示完成；最後貼出的完整程式漏了 has1 的宣告／第一次 getline，須補回隨後列出的那一行，不能將原樣程式視為可編譯版本。核心仍是逐段比較 revision 的數值、忽略前導零、缺少段補 0；getline 是本次卡住的 parsing API 契約。兩個 stream 必須每輪獨立讀取，不能放在 || 兩側造成短路；用兩次讀取的成功旗標決定停止與補零，不能由 token.empty() 判斷是否成功，因 stream 已在 EOF 時再次讀取可能保留舊值而無限迴圈。getline 回傳的是 stream，轉 bool 表示本輪成功，不是 stoi 轉換成功；一般輸入即使成功仍可能讀到空欄位，兩行補零寫法以題目的非空數字 revision 為前提。最後一段可成功讀出並設 eofbit，不能只用 eof() 當成功判斷。令 m,n 為兩字串長度，時間 O(m+n)（等價於 O(max(m,n))），兩個 stringstream 與 token 的額外儲存為 O(m+n)。已補入 [C++ One-Liners](../Cheatsheet/CPP_One_Liners.md)；前次已執行 EOF token 保留的重現測試，本次原樣缺行程式未執行。
+- 348：修正後提供的實作，在合法落子、格子不重複、勝負確定後不再呼叫 move 的題目前提下，從 invariant 推理看正確，本次未編譯或執行該份 C++。具體分類是 Array Counting + Player Bitmask，而非實際使用 hashmap：每條線的 count 記落子格數，OR mask 記曾出現的玩家集合，count==n 且 mask==(1<<player) 表示線已滿且只有該玩家。一次落子只影響一行、一列，以及其所在的主／反對角線；count 與 mask 必須在相同的位置條件內更新，否則非對角線落子會污染 mask。原先誤將兩條 diagonal mask 無條件更新，已經修正為 row==col 與 row+col==n-1 分別包住 count／mask 更新；中心格可以同時更新兩條，不能改成 else if。每次 move O(1)，建構初始化 O(n)，額外空間 O(n)；不需要存整張 O(n²) 棋盤，因為題目保證落子合法。重點是局部更新的範圍與兩種摘要資訊保持一致，而不是每步重掃勝利線。 看解答後理解 Signed Contribution Counting：玩家 1 貢獻 +1、玩家 2 貢獻 -1，每條線只保存兩者數量差；由於一條線至多 n 個合法落子，sum==n 必為玩家 1 占滿，sum==-n 必為玩家 2 占滿，因此不需另外保存總格數與玩家集合。這是依「只判斷是否同玩家占滿」的目標選擇充分摘要，不需還原各玩家完整落子數；減少需要同步更新的狀態，降低漏改某個欄位的風險，仍須保留對角線的成員條件。時間／空間維持每步 O(1)／O(n)，主要改善狀態數與實作清晰度。此版目前為看解答後的理解，尚未回報獨立實作。 已整理 [Signed Contribution Counting 心法](../Algorithms/Design_Principles/Signed_Contribution_Counting.md)，保留每條線容量上界的證明與摘要不能回答的問題。
 
 ---
 
