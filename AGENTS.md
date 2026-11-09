@@ -126,6 +126,17 @@ Project skills live in **`.agents/skills/`** (the Agent Skills location Codex re
   - Common problem examples
   - Implementation tips
 
+### Technique Summary Convention
+
+When recording a completed problem, reviewing a supplied solution, summarizing reflections, or adding a problem-list description, include a one-line **English technique summary**. Keep explanations separate and in Traditional Chinese. Do not repeat the summary in short replies that add no technical content.
+
+- **Format**: Use nouns or noun phrases joined by ` + `, not full sentences or procedural steps.
+- **Content**: Identify the main algorithm and key state/data structure, then include pruning, acceleration, or reconstruction when it distinguishes the approach. Do not force a fixed number of components.
+- **Accuracy**: Match the actual implementation. Do not call array counting a hashmap or map-based cycle detection Floyd's algorithm. Keep unimplemented follow-ups separate from completed approaches.
+- **Terminology**: Prefer established terms. Define descriptive labels such as Signed Contribution Counting in the note rather than presenting them as universal terminology.
+- **Examples**: `Sorting + Two Pointers`, `BFS + Distance-Constrained Predecessor DAG + Backtracking`, `Simulation + Cycle Detection + Fast Forwarding`, `Signed Contribution Counting`.
+- **Interview Practice Mode**: This convention does not override its restrictions. During solving or hint-only exchanges, do not reveal techniques or solutions the user has not derived.
+
 ### Common Patterns Referenced
 
 - **Two Pointers**: Fast/Slow, K-Gap, Adjacent, Expand Around Center
