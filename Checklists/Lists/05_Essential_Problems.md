@@ -302,6 +302,11 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - 🟢 🟡 LeetCode 73. Set Matrix Zeroes
 
+## Design
+
+- 🔴 895. Maximum Frequency Stack
+  - O(1) push and pop
+
 ---
 
 ## 🎯 Technique Integration

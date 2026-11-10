@@ -2,6 +2,28 @@
 
 ---
 
+## 2026-11-10
+
+- 2100. Find Good Days to Rob the Bank
+- 895. Maximum Frequency Stack
+
+**心得**：
+- 2100：太難了……sliding window + two pointers，加上超複雜的左右 subarray invariant 設計。而且其實遠超過一小時，做得斷斷續續的……是不是用 sliding window one-pass 解法讓解題難度提高了？覺得這個 invariant 不是很好設計。
+  - 後續完成左右分開預處理版本：left／right 分別記連續非遞增／非遞減的相鄰比較數，最後同時檢查是否至少 time。
+
+- 895：需要處理 index 的關係，因為有人移除可能導致無法正確得到 index；好巧不巧，因為只有 2*10^4，所以可以用 time simulation。
+  - Priority queue 需要紀錄 frequency、index 來判斷最接近 top，然後 hashmap 紀錄 counting，作為 frequency。
+  - 但是這題可以做到 O(1) time for push and pop。
+
+  - 後續完成 hashmap 分組版：用 frequency 跟 vector 尾端一定最接近 top 的特性；bookkeeper，gpt-6.1-sol 引導的……但是這個作法覺得很值得學習，因為比較少認真實作過有 history 的。
+
+**LLM 點評**：
+model: GPT-6
+- 2100：提供的 O(n) 時間、O(1) 額外工作空間版本正確；以 C++14 編譯原邏輯，對長度 1..8、值域 {0,1,2}、time=0..n 的 83652 組案例與 brute force 對照皆通過，包含相等值、time=0、無合法中心與單調／轉折情況。技巧摘要：Sliding Window + Last-Violation Tracking（描述實際維護的違規位置）。lo 是截至 i 最近一次 security[j]>security[j-1] 的上升位置，沒有則以 0 為界；左段非遞增成立 iff lo<=i-time，也就是 i-lo>=time。hi 是截至 i+time 最近一次 security[j]<security[j-1] 的下降位置，沒有則為 0；右段非遞減成立 iff hi<=i。初始 backward scan 找的是截至 time 的最近下降，之後每輪只檢查新納入的相鄰邊；左／右判定處理的是 i 與 i+time 兩個進度，造成初始化與索引偏移的協調成本。這不是程式錯或能力不足，而是同時追求單次主掃描與常數工作空間，讓第一版設計更難；初始化本身已有一段掃描，不應把 one-pass 視為不需任何前置處理。較直觀的基準是 [雙向約束分解](../Algorithms/Design_Principles/Bidirectional_Constraint_Decomposition.md)：分別求每個位置向左的連續非遞增邊數與向右的連續非遞減邊數，兩者都至少 time 才輸出。此處合併是兩條件取 AND，不是機械套 max。預處理版也是 O(n) 時間、O(n) 工作空間；目前版本主要省空間，不是從多項式時間再降階。初次可先建立清楚的雙向版本，再決定是否需滾動壓縮；已完成的常數空間版本可保留，不必否定。輸出 goodDays 最壞另占 O(n)，O(1) 指排除輸出的額外工作空間。後續已回報並提供雙向預處理版本；從 invariant 推理看正確，本次未編譯或執行該份新 C++。技巧摘要：Bidirectional Constraint Decomposition + Prefix/Suffix Run-Length DP。left[i] 記以 i 結尾的連續非遞增邊數，right[i] 記以 i 起始的連續非遞減邊數；比較成立時延長一邊，不成立則保留初始化的 0，兩者 >=time 即同時滿足條件。這些值計的是邊數，不是元素數；time=0 時所有索引自然通過，陣列邊界不足 time 也自然不通過。三輪皆線性，時間 O(n)、額外工作空間 O(n)。兩個版本均已完成；雙向版較適合作為初次解題的清楚基準，再按需要壓縮狀態。
+- 895：技巧摘要：Hash Map Frequency Counting + Max-Heap + Monotonic Timestamp。提供的 heap 版本正確；以 C++17 編譯原邏輯，500 組序列共 100000 次 push／pop，其中 39507 次 pop 與 brute-force 原始堆疊計數＋由後往前挑選對照皆一致。count 記的是每次 push 的遞增時間戳，不是目前實體 index，因此 pop 不需修改其他元素的時間戳，也不能用剩餘元素數來取代它；操作上限只是確保 int 足夠，timestamp 的正確性不依賴上限剛好很小。每個 value 在 heap 中保留頻率階層 1..counter[value] 對應的未移除 occurrence；該 value 的最高階層一定先於較低階層被取出，所以歷史 frequency 不是需要清除的過期資料，pop 後底下一層自然成為新候選，不需 lazy deletion。tuple 預設依 frequency、timestamp、value 字典序比較，先選最高頻率，再選最近一次仍存在的 push；timestamp 唯一，最後 value 不影響平手。令 M 為目前 heap 元素數，hashmap 採平均常數操作分析，push／pop 為 O(log(M+1)) 的 heap 操作；若計 vector buffer 偶發擴容，push 採均攤分析。空間為 O(M+U)，U 是曾出現的不同值數，因 counter 沒有刪掉零頻率 key，不能一概只以目前元素數估算；總 push 次數 P 下最壞 O(P)。後續經引導完成常數時間分組版。技巧摘要：Hash Map Frequency Counting + Frequency-Indexed Stacks。counter[val] 保存目前頻率，store[f] 保存尚未消耗的第 f 次達標紀錄，組內按達標先後 push_back，因此 back 自然是該頻率最近加入的候選，不需額外 index。store[f] 不是「目前頻率恰好 f 的所有值」：值升到 f+1 時必須保留第 f 層紀錄，較高層被 pop 後，低層歷史自然重新成為候選，無須搬回去。從 maxFreq 層取出一筆後 counter 減一；該層變空則 maxFreq 直接減一，因到達 f 必經 f-1 且較低層紀錄仍在，不會出現需向下搜尋的缺口；1 降到 0 代表結構已空。以 C++14 編譯提供的分組邏輯，同樣 500 組序列、100000 次操作，39507 次 pop 皆與 brute force 一致。hashmap 採平均常數操作分析，push 的 vector 尾端新增為均攤 O(1)，pop 為平均 O(1)；總 push 次數 P 下空間最壞 O(P)，包含 counter 零頻率 key、空 bucket 與 vector 保留容量，不保證跟目前元素數同步縮小。已完成 heap 與經提示分組兩個版本，不代表已能獨立重寫；這次核心收穫是用歷史頻率層級與組內順序直接承載原本 heap 的兩個排序條件。 已整理 [分層歷史紀錄心法](../Algorithms/Design_Principles/Layered_History_Bookkeeping.md)，聚焦目前計數、未消耗的歷史紀錄與低層候選自然恢復。
+
+---
+
 ## 2026-11-09
 
 - 957. Prison Cells After N Days
