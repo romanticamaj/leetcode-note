@@ -70,6 +70,8 @@ int ascii_value = c; // 隱性轉換 (Implicit conversion)
 
 ## 4. 處理多位數：字串與整數的轉換
 
+C style 的 `char*` 輸入、`strtol`／`strtod` 與完整字串驗證，見 [C Style 字串常用 std](C_Style_String_Utilities.md)。
+
 當處理的不只是一位數時，需要藉助 C++ 標準庫中的字串轉換函數。
 
 ### `std::stoi`：字串轉整數 (String to Integer)

@@ -1,5 +1,7 @@
 # C++ One-Liners for LeetCode
 
+C++14 的 `char*`／`char**` 輸入：見 [C Style 字串常用 std](../CPP_Reference/Type/C_Style_String_Utilities.md)，包含 `strcmp`、`strtol`、`strtod` 與停止位置／範圍檢查。
+
 C++14 的多執行緒同步：見 [同步處理必備 std](../CPP_Reference/Concurrency/CPP14_Synchronization_One_Liners.md)，包含 `thread`、`mutex`、RAII locks、`condition_variable` 與 `atomic`。
 
 ## Common
