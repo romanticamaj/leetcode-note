@@ -20,6 +20,7 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | ⭐⭐⭐ 65. Valid Number：已通過分階段解析版本（Sequential Parsing + Index Tracking）；下次獨立重構，抽出回傳消耗位數的 digits 掃描操作，分離「如何消耗」與「需要多少」：小數點前後的 digits 合計至少一位，指數在可選正負號後至少一位，最後必須消耗完整字串。比較控制流程隱含狀態、explicit DFA 與 status flags 的語義及取捨；DFA／flags 版本尚未實作 | 2026-11-13 | — |
 | 待做 | ⭐⭐⭐⭐ 957. Prison Cells After N Days：獨立練習 bitmask／bit manipulation 表示法；定義 bit i 對應 cells[i]，完成八格與整數的編碼／解碼，推導左右移位、XOR 取反與端點遮罩的單步轉移，再整合 cycle detection＋fast forwarding；目前只完成 vector 模擬＋string key 的週期加速版，bitmask 版本尚未實作。參考[狀態循環與快速跳躍](../../Algorithms/Simulation/02-Cycle_Detection_and_Fast_Forward.md) | 2026-11-09 | — |
 | 待做 | ⭐⭐⭐⭐ 126. Word Ladder II：之後嘗試 bidirectional BFS；使用者表示可能尚未用過此技巧。先理解雙向 frontier 的逐層擴展與相遇條件，再處理所有最短路徑的邊方向、同層多個連接及 backtracking，不能找到第一個交點就漏掉其他最短路徑；目前只完成單向 BFS＋predecessor DAG＋backtracking | 2026-11-08 | — |
 | 待做 | ⭐⭐⭐⭐ 239. Sliding Window Maximum：下次獨立嘗試 monotonic deque；以 index 維持候選順序，推導隊首過期移除、隊尾淘汰被新值支配的候選與重複值處理，說明 O(n) 時間、O(k) 額外空間；目前只完成 max-heap＋hashmap lazy deletion 版本 | 2026-11-06 | — |

@@ -307,6 +307,10 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🔴 895. Maximum Frequency Stack
   - O(1) push and pop
 
+## Extreme Edge Case
+
+- 🟡 🔴 LeetCode 65. Valid Number
+
 ---
 
 ## 🎯 Technique Integration

@@ -2,6 +2,30 @@
 
 ---
 
+## 2026-11-13
+
+- 150. Evaluate Reverse Polish Notation
+- 622. Design Circular Queue
+
+**心得**：
+- 150：寫完 Amazon OA 回來看這題，Amazon OA 比這題的 edge case 多超多。
+  1. 要用 C style input 參數。
+  2. 不知道 string 是不是合法數值，需要特別寫一個函式判斷是不是合法數字或是 operators。
+  3. 需要處理 intermediate value 是 float，最後回傳才是 integer（其實也沒講得很死）。
+  - 想找一題 LeetCode 可以判斷 string 是不是合法數字，或是 C++14 有什麼可以用的作法。
+
+- 622：設計關鍵是 head / tail / available 的 invariant。我這寫法是不是超漂亮……
+
+**LLM 點評**：
+model: GPT-6
+- 150：技巧摘要：Stack + Postfix Expression Evaluation。依 invariant 推理，此版在 LC 的合法輸入保證下正確：stack 依序保存尚未被後續運算合併的子表達式值；先 pop 右運算元 b，再 pop 左運算元 a，減法與除法的順序正確。未執行這份 RPN 程式。令 n 為 token 數、l 為最長 token 長度，時間 O(n·l)（本題 token 長度有界，可寫 O(n)），額外空間 O(n)，因 stack 保存 int，並未複製所有字串；這是直接求值，無須標成 brute force。unordered_set::contains 需要 C++20，C++14 可改成 operators.count(token) != 0。
+  - LC 150 明確保證合法表達式、沒有除以零、所有中間運算都在 32-bit integer 範圍內，且每次整數除法向零截斷。OA 若要求中間保留小數，則應用 double stack，最後依規格轉整數；例如 3 2 / 2 *，每步整數除法得 2，保留小數到最後得 3。只有 int 回傳型別無法證明採哪種語義；目前僅有使用者回憶，OA 規格仍未確認。一般化輸入還需在運算前確認 stack 至少兩項、檢查除以零，並在結尾確認只剩一項。
+  - 延伸練習：[65. Valid Number](https://leetcode.com/problems/valid-number/) 專門驗證正負號、小數點與科學記號的語法，不需要實際轉成可表示數值。C++14 的 stoi／stod 可配合 pos == s.size() 檢查是否完整消耗，並處理 invalid_argument／out_of_range；只呼叫 stoi 可能把 12abc 當成 12。C style 的 null-terminated const char* 可用 strtod，檢查 end != s、*end == '\0'、errno != ERANGE 與 isfinite，視規格拒絕前導空白。此為可表示有限值的轉換檢查，不等於 LC 65 的純語法：strtod 還接受十六進位、依 locale 解析，也可能拒絕語法合法但超出 double 範圍的數字。已以 C++14 編譯示範 helper，19 組案例通過，涵蓋空字串、null、孤立符號、非法尾綴、空白、NaN／Inf 與範圍錯誤；未實作 LC 65。既有 [Sequential Phase Consumption](../Algorithms/Design_Principles/Sequential_Phase_Consumption.md) 可作 parsing 延伸參考。
+
+- 622：技巧摘要：Circular Buffer + Head/Tail Indices + Available-Slot Counting。此版正確，且狀態語義清楚：available 是剩餘容量，head 在非空時指向隊首、空時指向下次插入位置，tail 在非空時指向隊尾、空時保留前次尾端（初始 -1）。令 k 為容量、m=k-available 為元素數；非空時 tail ≡ head+m-1 (mod k)，空時 head=(tail+1)%k，因此清空後不必重設指標，下次 enQueue 先前進 tail 就自然落在 head。enQueue 只移動 tail 並減少 available，deQueue 只移動 head 並增加 available；失敗操作不改狀態。available==k 判空、available==0 判滿，所有 k 格都可利用。尾端草稿註解需修正：環狀配置不能以 head>tail 判空；非空元素跨過陣列尾端時也會如此。使用全部 k 格時，(tail+1)%k==head 在空與滿都可能成立，原註解 (tail+k-1)%k==head 也不是此實作的 full invariant，應以 available 為準。每個公開操作 O(1)，建構初始化與儲存空間 O(k)。以 C++14 編譯提供的原邏輯，搭配 AddressSanitizer／UndefinedBehaviorSanitizer，容量 1、2、3、4、7、16、31、1000 共 206432 次新增／刪除操作，每次對照 std::deque 的回傳結果、Front／Rear 與空滿狀態皆一致，涵蓋空時刪除、滿時新增、繞回及反覆清空再填滿。
+
+---
+
 ## 2026-11-10
 
 - 2100. Find Good Days to Rob the Bank
