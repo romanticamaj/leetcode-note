@@ -105,6 +105,9 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 45. Jump Game II
 - 🟢 🟡 LeetCode 435. Non-overlapping Intervals
 - 🟡 🔴 LeetCode 134. Gas Station
+- LeetCode 853. Car Fleet
+  - Sorting + Greedy + Fleet Arrival Time
+  - 以抵達時間取代連續移動模擬；依 position 由大到小處理，用一個抵達時間摘要前方車隊。後車單獨抵達時間 ≤ 前方車隊抵達時間時合併，並保留前方時間。
 
 ## Intervals
 

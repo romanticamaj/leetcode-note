@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：130 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：132 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -43,7 +43,7 @@
 - [x] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **150.** [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — `Medium` · <sub>✔ 2026-09-21</sub>
 - [x] **739.** [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) — `Medium` · <sub>✔ 2026-10-14</sub>
-- [ ] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium`
+- [x] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium` · <sub>✔ 2026-11-16</sub>
 - [x] **84.** [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — `Hard` ✅ · <sub>✔ 2026-10-19</sub>
 
 ## Binary Search (7)
@@ -200,7 +200,7 @@
 - [x] **66.** [Plus One](https://leetcode.com/problems/plus-one/) — `Easy` · <sub>✔ 2026-09-23</sub>
 - [x] **50.** [Pow(x, n)](https://leetcode.com/problems/powx-n/) — `Medium` · <sub>✔ 2026-09-27</sub>
 - [x] **43.** [Multiply Strings](https://leetcode.com/problems/multiply-strings/) — `Medium` ✅ · <sub>✔ 2026-10-16</sub>
-- [ ] **2013.** [Detect Squares](https://leetcode.com/problems/detect-squares/) — `Medium`
+- [x] **2013.** [Detect Squares](https://leetcode.com/problems/detect-squares/) — `Medium` · <sub>✔ 2026-11-16</sub>
 
 ## Bit Manipulation (7)
 
