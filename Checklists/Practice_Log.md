@@ -2,10 +2,26 @@
 
 ---
 
+## 2026-11-17
+
+- 875. Koko Eating Bananas
+
+**心得**：
+- 875：Binary Search on Value Range……FFFFFTTTTT。lo < hi，!check 時 lo = mid + 1，否則 hi = mid，return lo。
+
+**LLM 點評**：
+model: GPT-6
+- 875：技巧摘要：Binary Search on Answer + Monotonic Feasibility Check。搜尋速度 k，check(k) 判斷能否在 h 小時內吃完；速度越大，所需時間不增，因此是 FFFFFTTTTT，程式尾端草稿的 TTTTFFF 應更正。候選答案始終在 [lo, hi]，且 hi 可行：由題目 h >= piles.size()，max(piles) 能讓每堆最多花一小時。不可行時排除 mid 及更小速度，lo = mid + 1；可行時保留 mid，hi = mid。lo < hi 時向下取整的 mid < hi，兩個分支皆嚴格縮小區間，最終 lo == hi 為最小可行速度。依程式與題目前提推理，二分邏輯正確；本次未編譯或執行提供的 C++。
+  - 每小時只能處理一堆，所以總時間是 sum(ceil(pile / k))，不能用 ceil(sum(piles) / k) 取代。程式逐堆 ceil 的方向正確；可改用純整數 (pile - 1) / speed + 1，減去後若 h < 0 就提早回傳 false，避免浮點轉換並省下不必要的掃描；這是實作簡化建議，不將目前程式診斷為已發生精度錯誤。令 M = max(piles)、n 為堆數，時間 O(n log(M + 1))、額外空間 O(1)。對照既有 [答案空間建模（含 Koko 範例）](../Algorithms/Binary_Search/Answer_Space/01-Answer_Space_Modeling.md)。
+
+---
+
 ## 2026-11-16
 
 - 853. Car Fleet
 - 2013. Detect Squares
+- 1115. Print FooBar Alternately
+- 1188. Design Bounded Blocking Queue
 
 **心得**：
 - 853：天啊……這題我不可能想到剩餘時間啊……這是考數學還是考演算法？智商？
@@ -15,6 +31,8 @@
 
 - 2013：執行速度超慢……sweep line 錯了嗎？！
   - 後續完成 hashmap 版：有變快一點啦……用 hashmap 的確是可以少 traverse 一點東西。
+
+- 1188：參考 Boost 跟 Java；mutex + two condition variables。
 
 **LLM 點評**：
 model: GPT-6
@@ -26,6 +44,11 @@ model: GPT-6
   - 令 U 為座標軸長度：add O(1)、count O(U)、建構與空間 O(U²)；本題 U=1001 固定，所以以操作數為變數時 count 可稱 O(1)，但每次仍掃 1001 個位置。原註解並非一定錯，應說明固定值域前提。可能成本包含初始化約一百萬個 int、掃過不存在的候選及 points[i][y] 跨不同內層 vector 的存取；目前未量測，不能斷定哪個是主因。可先在計算邊長前以 points[i][y]==0 跳過不可能候選；若採用，須以唯讀查表保留頻次，且最壞仍 O(U)。後續已完成對稱的同 x 欄分組 hashmap 版本，詳見下方。
   - 以 C++14 編譯原計數邏輯，搭配 AddressSanitizer／UndefinedBehaviorSanitizer，與枚舉對角點的獨立參考計數比對，1146 次查詢皆通過，涵蓋空集合、重複點、查詢點未加入、座標 0／1000 及隨機交錯新增／查詢；未做效能基準測試。
   - 後續 hashmap 版技巧摘要：Hash Map + Column-Based Enumeration + Frequency Counting。以 points[x][y] 儲存頻次，固定 x 枚舉實際存在的 j；j-y 可帶正負號，x+(j-y) 與 x-(j-y) 仍恰好涵蓋左右兩個候選，不需 abs。跳過 j==y 排除退化正方形，三個頂點頻次相乘正確處理重複點。所有查詢用到的 operator[] 都有 contains 或遍歷中的既存 key 保證，因此此版不會意外插入資料，也不會使遍歷 iterator 失效；contains 需要 C++20。令 k_x 為該欄不同 y 的數量、D 為不同座標數：add 平均攤銷 O(1)、count 平均 O(k_x)、空間 O(D)。使用者回報稍快；改善方向是從掃完整值域縮成掃實際候選，hash 查找本身未必比陣列快。可直接使用 structured binding 的 frequency，省去 points[x][j] 的重複查找；其餘查找可視需要再用 find 合併，不必為微調改寫核心邏輯。以 C++20 與 AddressSanitizer／UndefinedBehaviorSanitizer 編譯提供的核心程式，沿用獨立對角點參考計數的 1146 次查詢皆通過；未做兩版效能比較。
+
+- 1115：技巧摘要：Mutex + Condition Variable + Turn Flag。提供的 runFoo 版本正確：runFoo=true 表示下一次允許 foo、false 表示下一次允許 bar；初始 true 保證 foo 先輸出。mt 保護 predicate 檢查、輸出與狀態切換，wait 返回時已重新持鎖，所以每次輸出後切換 runFoo 可維持嚴格交替。迴圈 body 結束時 unique_lock 解構放鎖；持鎖呼叫 notify_one 合法，被喚醒者需等解鎖後才取得 mt。此題只有一個 foo thread 與一個 bar thread，因此 notify_one 足夠；predicate 可處理 spurious wakeup，也避免依賴通知保存歷史。C++14＋ThreadSanitizer 編譯原核心邏輯，n=1、2、3、10、100、1000，各搭配兩種啟動順序與 yield 擾動，共 120 組、22320 對 foobar 輸出及順序斷言皆通過。列印與狀態更新次數 O(n)、額外同步狀態 O(1)；排程及阻塞等待不保證固定牆鐘時間。可參考 [C++ 同步處理必備 std](../CPP_Reference/Concurrency/CPP14_Synchronization_One_Liners.md)。
+  - 使用者另貼的雙 mutex 解答有 correctness 問題：建構子鎖 m2、foo 解鎖 m2，且 foo 鎖 m1、bar 解鎖 m1，形成非 owner thread 呼叫 unlock；std::mutex 要求由持鎖的同一個 thread 解鎖，違反此前提是 undefined behavior。最後一次 bar 還會留下 m2 被鎖住，物件解構也違反 mutex 生命週期要求。即使某個評測平台碰巧通過，也不能當成可攜的 C++ 同步方案；這個交棒模式適合 semaphore 的 acquire／release 語義，標準 semaphore 需 C++20，C++14 保留目前的 mutex＋condition_variable 版本。未量測兩版效能，也未執行這份含 undefined behavior 的雙 mutex 程式，不以線上單次 runtime 判斷快慢。[Mutex ownership 契約](https://eel.is/c++draft/thread.mutex.requirements.mutex)。
+
+- 1188：技巧摘要：Circular Buffer + Mutex + Two Condition Variables。依提供的最終程式推理，在 capacity > 0 下正確；尚未編譯或執行此版。count 維持 0 <= count <= sz，head 指向下一個取出位置，tail 指向最後寫入位置；同一把 mt 保護 predicate 檢查、資料存取與狀態更新。producer 在 notFull 等 count < sz，enqueue 後通知 notEmpty；consumer 在 notEmpty 等 count > 0，dequeue 後通知 notFull。兩個 CV 分開管理兩類等待者，與用 count 或 head/tail 判斷狀態是獨立選擇；相較原先單一 CV 搭配 notify_all，可用 notify_one 通知對應的一類，減少無關喚醒，但本次未量測效能。wait 返回時已重新持鎖，持鎖 notify_one 合法，函式結束由 RAII 解鎖。每次操作不含阻塞等待為 O(1)，空間 O(capacity)，等待時間無固定上限。可將 sz 改名 capacity，區分容量與目前元素數量 count；同步 API 見 [C++ 同步處理必備 std](../CPP_Reference/Concurrency/CPP14_Synchronization_One_Liners.md)。
 
 ---
 

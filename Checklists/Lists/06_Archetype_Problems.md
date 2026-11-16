@@ -90,6 +90,11 @@
 
 - 🟢 🟡 LeetCode 69. Sqrt(x)
 
+### Binary Search on Solution Space
+
+- 🟡 LeetCode 875. Koko Eating Bananas
+  - Binary Search on Answer + Monotonic Feasibility Check
+
 ### Lower/Upper Bound
 
 ---

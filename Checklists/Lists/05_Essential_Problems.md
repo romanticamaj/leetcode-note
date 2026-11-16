@@ -18,6 +18,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🔴 LeetCode 4. Median of Two Sorted Arrays
 - 🟡 🔴 LeetCode 222. Count Complete Tree Nodes
   - Tree Height + Search on Value + Bit Manipulation
+- 🟡 LeetCode 875. Koko Eating Bananas
 
 ## Two Pointers
 
