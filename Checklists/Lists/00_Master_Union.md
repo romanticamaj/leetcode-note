@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：218 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：219 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -251,7 +251,7 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **853.** [Car Fleet](https://leetcode.com/problems/car-fleet/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-16</sub>
 - [x] **2013.** [Detect Squares](https://leetcode.com/problems/detect-squares/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-16</sub>
 - [x] **875.** [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-17</sub>
-- [ ] **1899.** [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) — `Medium` · <sub>NC</sub>
+- [x] **1899.** [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-17</sub>
 - [ ] **918.** [Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/) — `Medium` · <sub>TI150</sub> ✅
 - [ ] **1448.** [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) — `Medium` · <sub>NC</sub>
 - [ ] **1584.** [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) — `Medium` · <sub>NC</sub>

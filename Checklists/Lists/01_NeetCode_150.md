@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：133 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：134 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -178,7 +178,7 @@
 - [x] **45.** [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — `Medium` ✅ · <sub>✔ 2026-09-17</sub>
 - [x] **134.** [Gas Station](https://leetcode.com/problems/gas-station/) — `Medium` ✅ · <sub>✔ 2026-10-01</sub>
 - [x] **846.** [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — `Medium` · <sub>✔ 2026-10-31</sub>
-- [ ] **1899.** [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) — `Medium`
+- [x] **1899.** [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) — `Medium` · <sub>✔ 2026-11-17</sub>
 - [x] **763.** [Partition Labels](https://leetcode.com/problems/partition-labels/) — `Medium` · <sub>✔ 2026-10-15</sub>
 - [x] **678.** [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) — `Medium` ✅ · <sub>✔ 2026-10-30</sub>
 

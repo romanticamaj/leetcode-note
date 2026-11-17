@@ -5,14 +5,45 @@
 ## 2026-11-17
 
 - 875. Koko Eating Bananas
+- 1899. Merge Triplets to Form Target Triplet
+- 1117. Building H2O
+- 1116. Print Zero Even Odd
+- 1226. The Dining Philosophers
 
 **心得**：
 - 875：Binary Search on Value Range……FFFFFTTTTT。lo < hi，!check 時 lo = mid + 1，否則 hi = mid，return lo。
+
+- 1899：看提示的啦……前面想了 15 分鐘，看不出怎麼做狀態轉換或是 prune search space，後來提示說：「你覺得哪些 triplet 真的重要？」接著導到：
+  1. 這是一個 move forward connectivity 的問題，由左掃到右。
+  2. 如果掃到那個項目，它沒有 target 裡面的值，或者是出現比它大的值，就不可能留著用了。因為 max 的特性會讓這個 target 無法達到，這就是一個最簡單的 prune。
+  3. Termination condition 就很自然地得到：如果我們一路這樣子做狀態轉換，在可選的項目中就取 max，然後做狀態轉換，轉換的結果如果等於 target 就結束了，自然就變成一個簡單的狀態轉換問題了。
+
+- 1117：Concurrency 系列的解題策略：先不考慮 thread safety，先考慮 single-threaded 正確性，才開始擴充到 lock-style multithreaded，再到 signal-driven／event-driven，最後是 minimized sync scope。
+
+- 1116：這題太有趣了啊！！！
+  1. 要先釐清這三個 function 被三個 threads 個別呼叫一次，要在 function 內完成所有輸出，不是多次呼叫。
+  2. 實作一般版本，把 invariant 準備好。
+  3. Condition-based lock，flag 去改變狀態，跳轉到應該被喚起的函式。
+  4. 設計 termination condition，當輸出量不夠，要持續 safely 輸出；當數量夠了，要進 termination status。
+  5. 因為即使數量都夠了，thread 有可能已經進去 lock 等待，所以要多一個可以 unlock 的條件，是 i > n，然後 exit loop。
 
 **LLM 點評**：
 model: GPT-6
 - 875：技巧摘要：Binary Search on Answer + Monotonic Feasibility Check。搜尋速度 k，check(k) 判斷能否在 h 小時內吃完；速度越大，所需時間不增，因此是 FFFFFTTTTT，程式尾端草稿的 TTTTFFF 應更正。候選答案始終在 [lo, hi]，且 hi 可行：由題目 h >= piles.size()，max(piles) 能讓每堆最多花一小時。不可行時排除 mid 及更小速度，lo = mid + 1；可行時保留 mid，hi = mid。lo < hi 時向下取整的 mid < hi，兩個分支皆嚴格縮小區間，最終 lo == hi 為最小可行速度。依程式與題目前提推理，二分邏輯正確；本次未編譯或執行提供的 C++。
   - 每小時只能處理一堆，所以總時間是 sum(ceil(pile / k))，不能用 ceil(sum(piles) / k) 取代。程式逐堆 ceil 的方向正確；可改用純整數 (pile - 1) / speed + 1，減去後若 h < 0 就提早回傳 false，避免浮點轉換並省下不必要的掃描；這是實作簡化建議，不將目前程式診斷為已發生精度錯誤。令 M = max(piles)、n 為堆數，時間 O(n log(M + 1))、額外空間 O(1)。對照既有 [答案空間建模（含 Koko 範例）](../Algorithms/Binary_Search/Answer_Space/01-Answer_Space_Modeling.md)。
+
+- 1899：技巧摘要：Greedy + Feasibility Filtering + Componentwise Maximum。經提示完成；依提供程式與題目正整數前提推理正確，本次未編譯或執行 C++。curr 保存已納入 triplets 的逐維最大值，且各維始終不超過 target；全部安全候選可以一起合併，因為 max 只增不減，加入不超標的候選不會破壞已命中的維度，也不會失去未來的可行解，因此不需要回溯選／不選。固定三維，時間 O(n)、額外空間 O(1)，curr 初始化 0 利用輸入為正整數的前提。
+  - 心得第 2 點要分清楚：任一對應維度超過 target 的 triplet 不能納入，因為超標後 max 無法降低；所有對應維度都嚴格小於 target 的 triplet 則是「不能提供任何一維的 target 值」，可以安全略過，不代表納入就一定無解。第二個 continue 是可省略的篩選；保留它也正確。比較的是 triplet[k] 與 target[k]，不是該數字是否出現在 target 的任意位置。
+  - 「狀態轉換」的觀察成立，但這裡不需建圖或追蹤 connectivity；max 的交換律、結合律讓掃描順序不影響最終可達性，從左到右只是方便實作。排除超標候選後，三個維度各有至少一個候選命中 target，就能一起合併成答案；curr == target 是這個條件的直接表示，也可提前結束。
+
+- 1117：技巧摘要：Mutex + Condition Variable + Per-Group Counting。經討論修正後，最終版本依 invariant 推理正確，尚未編譯或執行測試。mt 保護條件檢查、callback 輸出、計數與重設，維持每組最多 2H＋1O；三次 callback 完成後才將計數歸零並 notify_all，因此下一組不會混入。resetIfFull 的呼叫端必須已持有 mt，helper 不重複上鎖。初版錯誤假設同種類只由一個 thread 呼叫；實際可能有多個 hydrogen／oxygen threads，wait 後解鎖、再輸出與增加計數，會讓多個同類 thread 同時通過條件，也造成計數的 data race。
+  - 四階段可整理為 Sequential Correctness → Coarse-Grained Locking → Condition-Based Waiting → Synchronization Refinement；第三階段是共享狀態上的條件等待，不必視為 event-driven 架構。縮小鎖範圍前，必須保留檢查與更新的一致性，以及輸出分組順序；scope 越小不保證越快。wait／notify 不需一對一配對，應確認可能讓 predicate 成立的狀態轉換會通知適當等待者。已整理至 [同步設計心法](https://github.com/romanticamaj/real-time-cpp-handbook/blob/master/Modern%20C%2B%2B/C%2B%2B11_synchronization_design.md)；同步 API 見 [C++ 同步處理必備 std](../CPP_Reference/Concurrency/CPP14_Synchronization_One_Liners.md)。
+
+- 1116：技巧摘要：Mutex + Condition Variable + Turn State + Termination Predicate。最終程式依 invariant 推理正確，本次未編譯或執行測試。i 是下一個要輸出的非零整數；flag=-1 表示下一個輸出為 0，flag=0／1 表示輪到 even／odd。zero 輸出 0 後依 i 的奇偶交棒，even／odd 輸出 i 並遞增，再交回 zero；mt 保護 predicate、輸出與狀態更新，維持 0、1、0、2、…、0、n 的順序。
+  - 重要收穫是 predicate 同時包含「輪到自己」與「所有人該結束」：i > n || myTurn。最後一個數字輸出後 i 變成 n+1，該次 notify_all 讓不同條件的等待者重新持鎖檢查並退出；尚未開始等待的 thread 也會直接看到終止狀態。第 5 點不是額外的 unlock 條件，而是讓 wait 可以返回的終止條件；返回時仍持有 mt，break 離開迴圈區塊時由 unique_lock 的 RAII 解鎖。flag 不會直接選中或呼叫某個函式，是由已在執行的 thread 醒來後檢查 predicate；notify_all 本身不決定執行順序。這個共享 CV 有三種不同輪替條件，不宜直接改成 notify_one，以免叫醒不合適的等待者而卡住。共 2n 次 callback，輸出與狀態轉換 O(n)、額外共享狀態 O(1)；阻塞與排程時間無固定上限。參考 [C++ 同步處理必備 std](../CPP_Reference/Concurrency/CPP14_Synchronization_One_Liners.md)。
+
+- 1226：技巧摘要：Mutex + Condition Variable + Resource Reservation。今天經討論完成共享 mutex＋CV＋forks 占用狀態版，尚未編譯或執行測試。持鎖檢查兩支叉子皆空閒並同時標為占用，再解鎖執行拿叉、吃飯與放叉 callback；吃完重新持鎖釋放占用並 notify_all，函式結束由 unique_lock 解構解鎖。所有 forks 讀寫都由 mt 保護，其他需要不相交叉子的哲學家可以並行；不會持有部分叉子等待另一支，因此避免資源循環等待，但不保證 starvation-free。callback 按題目正常返回前提分析；若要一般化為可拋例外的 callback，需另處理資源預留的回收。
+  - 初版 try_lock 失敗即退還第一把鎖，可避免持鎖等待，卻會 busy waiting，也沒有公平性保證；後來曾把整段吃飯包在同一把 mutex 中，造成所有人序列化，再以占用狀態保留資源使用權來縮短持鎖範圍。最後用 notify_all 讓需求不同的等待者各自重新檢查 predicate。unique_lock 記錄自身持鎖狀態；手動 unlock 後解構不會重複解鎖，但未重新 lock 就再呼叫 unlock 會拋出 system_error。FIFO ticket 的 starvation-free 版本尚未實作，保留為 [Problem Review](Lists/09_Problem_Review.md) 的延伸選做，不因本次完成而標記該目標已完成。同步 API 見 [C++ 同步處理必備 std](../CPP_Reference/Concurrency/CPP14_Synchronization_One_Liners.md)。
 
 ---
 
