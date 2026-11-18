@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：137 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：138 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -170,7 +170,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 ## Kadane's Algorithm (2)
 
 - [x] **53.** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — `Medium` ✅ · <sub>✔ 2026-09-07</sub>
-- [ ] **918.** [Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/) — `Medium` ✅
+- [x] **918.** [Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/) — `Medium` ✅ · <sub>✔ 2026-11-18</sub>
 
 ## Binary Search (7)
 

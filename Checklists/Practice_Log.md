@@ -2,6 +2,20 @@
 
 ---
 
+## 2026-11-18
+
+- 918. Maximum Sum Circular Subarray
+
+**心得**：
+- 918：進步了！！！！！我竟然可以壓在 40 分鐘……這題就是 Kadane's algorithm + suffix sum 啊……絕對是 medium-hard。
+
+**LLM 點評**：
+model: GPT-6
+- 918：技巧摘要：Kadane's Algorithm + Prefix Sum + Suffix Maximum。依提供程式的 invariant 推理正確，本次未編譯或執行 C++；時間 O(n)、額外空間 O(n)。核心是將答案分成不跨尾首與跨尾首兩類：Kadane 處理前者，後者拆成 prefix [0..i] 加上不重疊的 suffix [j..n-1]，其中 j >= i+1。suffixMax[k] = max(0, max_{j>=k} sum(nums[j..n-1]))，預先摘要每個邊界右側最好的 suffix，不必逐一枚舉配對。
+  - suffixMax 的 0 表示允許不選 suffix，不是允許整個答案為空；sum 每輪至少包含 nums[0]，Kadane 也始終保留非空子陣列，maxSum 從 nums[0] 開始，因此全負數與 n=1 都成立。使用 suffixMax[i+1] 是避免 prefix／suffix 重疊、重複使用元素的關鍵。這次可複製的進步是把 circular 結構拆成兩類，再用預處理把跨邊界配對降為 O(1) 查詢；覺得接近 medium-hard 可以理解，難點在結構分解與邊界設計。既有 [Kadane 心法](../Algorithms/Dynamic_Programming/Advanced_Techniques/Kadane_Algorithm.md) 可對照；Review 中 Max & Min、O(1) 空間版本仍待做，本次不標記該變體完成。
+
+---
+
 ## 2026-11-17
 
 - 875. Koko Eating Bananas

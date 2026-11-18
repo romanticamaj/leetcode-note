@@ -367,6 +367,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Preordering Recursion + Prefix Sum + Running Sum
 - 🔴 LeetCode 126. Word Ladder II
   - BFS + Distance-Constrained Predecessor DAG + Backtracking
+- 🟡 🔴 LeetCode 918. Maximum Sum Circular Subarray
+  - Kadane's Algorithm + Prefix Sum + Suffix Maximum
 
 ### Followup Possible (Multiple Solutions)
 
@@ -427,6 +429,8 @@ Problems that require integrating multiple advanced techniques. These are excell
   - Dynamic Trie + Backtracking
 - 🟡 LeetCode 957. Prison Cells After N Days
   - Simulation + Cycle Detection + Fast Forwarding
+- 🟡 🔴 LeetCode 918. Maximum Sum Circular Subarray
+  - Kadane's Algorithm + Prefix Sum + Suffix Maximum
 
 ## Classic Optimization / Brain Development
 
