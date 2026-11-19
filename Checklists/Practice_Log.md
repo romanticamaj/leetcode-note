@@ -2,6 +2,31 @@
 
 ---
 
+## 2026-11-19
+
+- 1448. Count Good Nodes in Binary Tree
+- 1584. Min Cost to Connect All Points
+- 261. Graph Valid Tree
+- 271. Encode and Decode Strings
+
+**心得**：
+- 1448：Preorder + extra info max。這題滿明顯就是 divide and conquer 要很熟，然後要可以思考路徑上的狀態，要怎麼帶下去。
+- 1584：目前做起來 union-by-rank 還不太熟；然後 pq 那邊粗心錯太多；時間分析完全不行。
+- 261：Disjoint set + cycle detection。這題是最經典的 Union and Find 原型。
+- 271：被 index 跟 length 搞死……設計概念就是先存好每段長度，以及一個額外的 content 起點，後面就是無腦前進即可。
+
+**LLM 點評**：
+model: GPT-6
+- 261：技巧摘要：Union-Find + Cycle Detection + Connectivity Check。適合作為 Union and Find 的樹判定原型：處理無向邊時，兩端已在同一分量代表形成環；但無環也可能只是森林，還需確認最後只剩一個連通分量。另一種等價判準是先確認邊數 n−1，再要求每次 union 都成功。若搭配 union-by-rank 與 path compression，含初始化的時間為 O(n + E α(n))，額外空間 O(n)。本次未提供程式，不推定具體實作或執行驗證；已加入 [Archetype Problems](Lists/06_Archetype_Problems.md)。
+- 1584：技巧摘要：Kruskal's Algorithm + Min-Heap + Union-Find。修正距離公式後，依提供程式推理正確，本次未編譯或執行 C++。union-by-rank 三分支正確：低 rank 的 root 掛到高 rank；相等時任選一方為新 root，只有新 root 的 rank 加一。搭配 path compression，rank 不必隨壓縮而降低，也不再等於當前實際樹高。成功 union 才減少 componentCount 並累加成本，從 n 個分量降到 1，恰好選 n−1 條邊。
+  - 對話中可確認的實作錯誤是 Manhattan distance 的 y 差誤寫成 points[j][1] - points[j][1]，不是 pq 本身；min-heap 的 tuple 排序鍵、greater 與 top／pop 用法正確。時間分析的卡點是階段成本相加，以及 log(n²) 與 (log n)² 的區別：E=n(n−1)/2，逐邊 push O(E log E)，最多 E 次 pop O(E log E)，Union-Find 均攤 O(E α(n))；總計 O(E log E)=O(n² log n)，額外空間 O(E+n)=O(n²)。下次先列「操作次數 × 單次成本」，再加總各階段。參考 [Union by Rank](../Algorithms/Union_Find/04-Union_by_Rank.md) 與 [最佳化實作與分析](../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。Kruskal 貪心正確性的 cut property 證明在對話中尚未由使用者說明，不將該項視為已掌握。
+- 1448：技巧摘要：Preorder DFS + Path Maximum Tracking。核心觀察正確：判斷目前節點只需要祖先路徑的最大值，不需要保存整條路徑。可將傳入的 pathMax 定義成「root 到 parent 的最大值」，以 node->val >= pathMax 判斷（相等也算 good），再將 max(pathMax, node->val) 傳給左右子樹；root 可用自身值作初始門檻。若以值傳遞，每條分支自然保有自己的路徑狀態，不需手動還原，也不能讓左子樹的最大值污染右子樹。
+  - 分類上，更精確的核心是 top-down DFS／路徑狀態傳遞；若遞迴回傳左右子樹的 good node 數量，再加上目前節點貢獻，也兼具 divide-and-conquer 的答案合併。不能單憑「遞迴走左右子樹」就認定核心是分治。父節點先更新狀態再往下走，符合 preorder 的依賴方向；左右順序不影響答案。依描述，每個節點訪問一次為 O(n) 時間、遞迴堆疊 O(h)，最壞退化樹 O(n)；本次未提供完整程式，未驗證實作。參考 [Top-Down vs Bottom-Up Recursion](../Algorithms/Design_Principles/Recursion/04-Top_Down_vs_Bottom_Up_Recursion.md)。
+- 271：技巧摘要：Length-Prefixed Serialization + Metadata/Payload Separation + Cursor Parsing。提供格式為 metadata 長度｜各字串長度表｜串接內容；最前面實際儲存的是 metadata 的 byte 長度，解碼時才換算 content 起點。以合法 encode 輸出且長度可由 int／stoi 表示為前提，依 invariant 推理可還原原序列，本次未編譯或執行 C++。metaPos 指向下一個長度欄位，metaEnd 是 metadata 的 exclusive end，contentPos 指向下一段內容；substr 的第二參數是長度，所以解析欄位用 lengthEnd-metaPos，擷取內容用 length。內容中的 | 不影響解析，因 payload 按長度讀而非按分隔符切；空列表編為 0|，一個空字串編為 2|0|，兩者可區分。令 B 為內容總 bytes、H 為 metadata bytes、k 為字串數，採 string 尾端擴容均攤分析，編解碼時間 O(B+H+k)，目前實作含字串暫存、按值 decode 參數及結果儲存，空間 O(B+H+k)；未做效能量測。
+  - 這是 serialization／message framing 的經典問題，不是只能靠看過某種字串技巧。不同解法主要是在選擇邊界表示：長度前綴、分隔符＋escaping、固定寬度長度欄位，以及 metadata／payload 的配置。歷史證據：Sun 的 [RFC 1014（1987），§3.10 String](https://www.rfc-editor.org/rfc/rfc1014.html) 已以長度加內容表示字串；D. J. Bernstein 的 [Netstrings 草案（1997-02-01）](https://datatracker.ietf.org/doc/html/draft-bernstein-netstrings-02) 定義 decimal length:payload,，並明確討論編碼多個字串後串接，概念非常接近本題，但它是過期 Internet-Draft，不是正式 RFC。Tanenbaum《Computer Networks》的 framing 討論 byte count 與 byte stuffing，見 [WPI 教學投影片，第 7、9 頁](https://web.cs.wpi.edu/~rek/Grad_Nets/Spring2013/Framing_and_Stuffing_S13.pdf)。這些是概念先例，尚無證據證明 LC 271 直接改編自某書，也未確認其原始發布日期或首創者。
+
+---
+
 ## 2026-11-18
 
 - 918. Maximum Sum Circular Subarray

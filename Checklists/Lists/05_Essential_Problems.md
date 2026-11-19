@@ -136,6 +136,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - 🟡 LeetCode 684. Redundant Connection
   - 無向圖增量判環：加入邊前，若兩端已連通，該邊就閉合環。見 [Union-Find 推薦實作](../../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。
+- 🟢 🟡 LeetCode 261. Graph Valid Tree
 
 ## Topological Sort
 

@@ -20,6 +20,9 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | ⭐⭐⭐⭐ 271. Encode and Decode Strings：獨立重做 length-prefixed codec，先定義格式與 cursor invariant，再實作 encode／decode。技巧摘要：Length-Prefixed Serialization + Cursor Parsing。先重建已完成的 metadata／payload 分離版本，釐清 index、length、exclusive end；再嘗試逐筆 length＋payload 的簡化版本，比較需要維護的狀態。檢查空列表、空字串、多位數長度、內容含分隔符與數字，確認 decode(encode(strs)) == strs；逐筆版本尚未實作。參考 [歷史與關鍵設計](../../Problem_History/LC_0271_Encode_and_Decode_Strings.md) | 2026-11-19 | — |
+| 待做 | ⭐⭐⭐⭐ 1584. Min Cost to Connect All Points：獨立推導並實作不使用 heap 的 Prim。技巧摘要：Prim's Algorithm + Linear Minimum Selection + Connection Cost Tracking。從單一點擴張生成樹，維護每個未加入節點連到目前樹的最小邊權；每輪線性選取最小者，加入後即時計算 Manhattan distance 並更新其他候選。說明 cut property、與 Dijkstra 累積路徑距離的差異，以及 O(n²) 時間、O(n) 額外空間，不預建所有邊。目前只完成 Kruskal＋min-heap＋Union-Find，Prim 版本尚未實作 | 2026-11-19 | — |
+| 待做 | ⭐⭐⭐⭐ 918. Maximum Sum Circular Subarray：獨立推導並實作 O(n) 時間、O(1) 額外空間版本。技巧摘要：Kadane's Algorithm + Maximum/Minimum Subarray + Complement Sum。由 prefix＋suffix 推導「整體減去中間最小區間」，同時維護 max／min Kadane 與 totalSum；說明 totalSum == minSum 時為何回傳 maxSum，避免扣光後留下空集合，並檢查全負數、單元素與含零案例。目前完成 prefix＋suffix maximum 版本，此版本僅閱讀解答與討論，尚未自行實作 | 2026-11-18 | — |
 | 待做 | ⭐⭐ 1226. The Dining Philosophers：延伸選做 starvation-free 版本（FIFO Request Queue + Mutex + Condition Variable + Resource Reservation）。2026-11-17 已討論並實作無公平性保證的資源預留版本，已記入刷題日誌；下次以每次請求的唯一 ticket 排隊，只有隊首且兩叉空閒才能預留，成功預留後即出隊，讓不衝突的後續請求有機會並行；出隊與釋放叉子後通知等待者。接受 head-of-line blocking，說明在每次用餐有限且可執行 thread 最終被排程的前提下，FIFO 如何避免插隊與 starvation；此 follow-up 尚未實作 | 2026-11-17 | — |
 | 待做 | ⭐⭐⭐ 65. Valid Number：已通過分階段解析版本（Sequential Parsing + Index Tracking）；下次獨立重構，抽出回傳消耗位數的 digits 掃描操作，分離「如何消耗」與「需要多少」：小數點前後的 digits 合計至少一位，指數在可選正負號後至少一位，最後必須消耗完整字串。比較控制流程隱含狀態、explicit DFA 與 status flags 的語義及取捨；DFA／flags 版本尚未實作 | 2026-11-13 | — |
 | 待做 | ⭐⭐⭐⭐ 957. Prison Cells After N Days：獨立練習 bitmask／bit manipulation 表示法；定義 bit i 對應 cells[i]，完成八格與整數的編碼／解碼，推導左右移位、XOR 取反與端點遮罩的單步轉移，再整合 cycle detection＋fast forwarding；目前只完成 vector 模擬＋string key 的週期加速版，bitmask 版本尚未實作。參考[狀態循環與快速跳躍](../../Algorithms/Simulation/02-Cycle_Detection_and_Fast_Forward.md) | 2026-11-09 | — |
@@ -299,8 +302,8 @@
   - 🏷️ 技巧分類: Kadane / Local State vs Global Optimum
   - 🔗 前置閱讀: `DP/State_Design/05-Local_State_vs_Global_Optimum.md`
   - 📅 二刷: 2026-09-12（不看解答，要能自己說出 state 為什麼這樣定）
-- [ ] LeetCode 918. Maximum Sum Circular Subarray
-  - [ ] Max & Min, Space O(1)
+- [ ] ⭐⭐⭐⭐ LeetCode 918. Maximum Sum Circular Subarray
+  - [ ] Max & Min Kadane + Complement Sum，O(1) 額外空間；獨立推導與實作目標見上方重練追蹤。
 - [ ] LeetCode 718. Maximum Length of Repeated Subarray
 - [ ] LeetCode 790. Domino and Tromino Tiling
 - [ ] LeetCode 1473. Paint House III

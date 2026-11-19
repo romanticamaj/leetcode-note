@@ -61,10 +61,21 @@
   - **單源到所有節點的最短路徑原型**：有向、非負權重圖；min-heap 存 `{累積距離, node}`，透過 relaxation 更新距離並跳過過時候選。答案取所有最短距離的最大值，不可達則回傳 -1。
   - ⚠️ pair 的第一欄是排序鍵，不能放 node，也不是單條邊的 weight。見 [Dijkstra 指南](../../Algorithms/Greedy/Dijkstra's%20Algorithm/01-Dijkstra_Algorithm_Guide.md)。
 
-### Union-Find
+### Union and Find（Union-Find）
+
+- 🟡 LeetCode 261. [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)
+  - Union-Find + Cycle Detection + Connectivity Check
+  - **無向圖樹判定原型**：逐邊 union，兩端已同 root 則形成環；所有邊處理後還需確認只剩一個連通分量。無環但不連通只是森林；也可先檢查邊數 n−1，再要求所有 union 成功。見 [Union-Find 推薦實作](../../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。
 
 - 🟡 LeetCode 684. [Redundant Connection](https://leetcode.com/problems/redundant-connection/)
   - **無向圖增量判環原型**：依輸入順序加入邊；兩端已在同一連通分量時，當前邊閉合唯一環，也就是環中輸入順序最後的邊。見 [Union-Find 推薦實作](../../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。
+
+### Minimum Spanning Tree（最小生成樹）
+
+- 🟡 LeetCode 1584. [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/)
+  - Kruskal's Algorithm + Min-Heap + Union-Find
+  - **最小成本全連通原型**：以 Manhattan distance 建立完全無向加權圖，依邊權由小到大取邊，只接受連接不同分量的邊；成功合併 n−1 次即完成生成樹。Union-Find 搭配 union-by-rank 與 path compression 判環；cut property 支持每次選邊的安全性。
+  - 目前實作逐邊 push 至 min-heap；E=n(n−1)/2，時間 O(E log E)=O(n² log n)，額外空間 O(E+n)=O(n²)。
 
 ---
 
