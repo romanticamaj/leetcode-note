@@ -2,6 +2,34 @@
 
 ---
 
+## 2026-11-20
+
+- 323. Number of Connected Components in an Undirected Graph
+- 286. Walls and Gates
+- 52. N-Queens II
+- 269. Alien Dictionary
+
+**心得**：
+- 323：Union-Find（Disjoint Set）。
+- 286：Multi-Source BFS。
+- 52：Backtracking，bottom-up counting；base case 是 1，state 是目前 row 要挑哪個 column，以 promising 排除 column／diagonal／anti-diagonal 衝突。
+- 269：有夠複雜……
+  1. 一開始就搞錯題目……lexical order 是兩兩比較，如果遇到字母不一樣，就知道字母對 (i, j) 的 i < j 了。
+  2. node 數量也需要算，因為可能會出現沒有字母對的字母，這時候 incoming 的數量必須也要更新。
+  3. 需要在建構後判斷沒有出現前面字數大於後面字數的 case。
+  4. 最後做 topological sort／Kahn's algorithm。
+
+**LLM 點評**：
+model: GPT-6
+- 269：技巧摘要：Lexicographic Constraint Extraction + Directed Graph + Kahn's Topological Sort。修正將 index 當成字元建邊的錯誤後，依提供程式推理正確；本次未編譯或執行 C++。真正的難點是從排序結果抽出字元偏序，再把「所有字元」「前綴矛盾」「有向環」三種條件接好，不只是套拓撲排序。
+  - 心得第 1 點要精確為「只比較相鄰單字，且只取第一個不同字元建立一條邊」；後續位置不能繼續推導字母順序。第 2 點是將每個出現的字元初始化為節點，沒有已知前驅者 indegree 為 0，不是因為獨立存在就把 indegree 加一。第 3 點只有「後一字是前一字的嚴格前綴」才非法，例如 abc／ab；單純前字較長不一定非法，例如 ba／c。目前的 x、y 邊界判斷已正確表達這個條件。輸出長度等於全部節點數才能排除環；unordered_map 的迭代順序不固定，合法答案不必唯一。
+  - vector 允許重複邊；本實作每加一筆邊也加一次 indegree，處理時逐筆減回，因此仍正確，不需為了去重改寫。令 S 為輸入總字元數、V 為不同字元數、E 為實際存入的邊數（含重複），hash 操作採平均常數分析：建圖 O(S)，Kahn O(V+E)，總時間 O(S+V+E)、額外空間 O(V+E)。即使字母固定 26 個，E 仍可能隨相鄰單字對數增加，不能把此 vector 版的整段拓撲排序直接寫 O(1)。參考 [Kahn Algorithm](../Algorithms/Topological_Sort/02-Kahn_Algorithm_BFS.md)。
+- 52：技巧摘要：Backtracking + Constraint Sets + Recursive Counting。依提供程式 invariant 推理正確，本次未編譯或執行 C++；contains 需要 C++20。進入 backtracking(row) 時，三個 sets 恰好描述前 row−1 列已放置的皇后；每層只放一個皇后，所以列限制由遞迴結構保證，不需 row set。合法放置後加入 col、row−col、row+col，遞迴返回再全部移除，還原到進入該分支前的狀態。
+  - backtracking(row) 回傳「目前部分配置有多少種完整延伸」；row>n 表示已完成一個合法配置，故回傳 1，沒有合法分支則自然回傳 0，各分支以加法合併。心得的 bottom-up counting 可理解為答案由子呼叫往上加總，但演算法分類仍是 recursive backtracking，不是 bottom-up DP；向下傳遞約束、向上回傳計數可同時存在。參考 [遞迴函式契約](../Algorithms/Design_Principles/Recursion/05-Recursion_Signature_Contract.md)。
+  - 時間需把失敗候選檢查也算入：每次非終止呼叫固定掃 n 欄，令 V 為這些呼叫數，hash 操作採平均常數分析時為 O(nV)。僅用 column 不重複估計，深度 k 的節點至多 P(n,k)，可得保守上界 O(n·n!)；不能只以完整排列數直接證明本實作 O(n!)，對角線剪枝會進一步減少實際搜尋。額外空間 O(n)，包含三個 sets 與深度 O(n) 的呼叫堆疊，不只是 stack。
+
+---
+
 ## 2026-11-19
 
 - 1448. Count Good Nodes in Binary Tree

@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：138 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：141 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -122,14 +122,14 @@
 - [x] **200.** [Number of Islands](https://leetcode.com/problems/number-of-islands/) — `Medium` · <sub>✔ 2026-09-14</sub>
 - [x] **695.** [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) — `Medium` · <sub>✔ 2026-10-28</sub>
 - [x] **133.** [Clone Graph](https://leetcode.com/problems/clone-graph/) — `Medium` · <sub>✔ 2026-09-20</sub>
-- [ ] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium`
+- [x] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium` · <sub>✔ 2026-11-20</sub>
 - [x] **994.** [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) — `Medium` · <sub>✔ 2026-09-22</sub>
 - [x] **417.** [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) — `Medium` ✅ · <sub>✔ 2026-10-22</sub>
 - [x] **130.** [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) — `Medium` ✅ · <sub>✔ 2026-09-30</sub>
 - [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — `Medium` ✅ · <sub>✔ 2026-09-14</sub>
 - [x] **210.** [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — `Medium` · <sub>✔ 2026-10-11</sub>
 - [x] **261.** [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) 🔒 — `Medium` ✅ · <sub>✔ 2026-11-19</sub>
-- [ ] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium`
+- [x] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium` · <sub>✔ 2026-11-20</sub>
 - [x] **684.** [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — `Medium` · <sub>✔ 2026-10-27</sub>
 - [x] **127.** [Word Ladder](https://leetcode.com/problems/word-ladder/) — `Hard` · <sub>✔ 2026-11-06</sub>
 
@@ -139,7 +139,7 @@
 - [ ] **332.** [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) — `Hard`
 - [x] **1584.** [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) — `Medium` · <sub>✔ 2026-11-19</sub>
 - [ ] **778.** [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) — `Hard`
-- [ ] **269.** [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) 🔒 — `Hard`
+- [x] **269.** [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) 🔒 — `Hard` · <sub>✔ 2026-11-20</sub>
 - [x] **787.** [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) — `Medium` · <sub>✔ 2026-11-03</sub>
 
 ## 1-D Dynamic Programming (12)

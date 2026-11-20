@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：224 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：228 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -258,20 +258,20 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **261.** [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) 🔒 — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-11-19</sub>
 - [x] **253.** [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) 🔒 — `Medium` · <sub>NC</sub> ✅ · <sub>✔ 2026-11-06</sub>
 - [x] **271.** [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) 🔒 — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-19</sub>
-- [ ] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium` · <sub>NC</sub>
-- [ ] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium` · <sub>NC</sub>
+- [x] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-20</sub>
+- [x] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-20</sub>
 - [ ] **10.** [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) — `Hard` · <sub>NC</sub>
 - [ ] **30.** [Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/) — `Hard` · <sub>TI150</sub>
 - [ ] **32.** [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) — `Hard` · <sub>H100</sub> ✅
 - [ ] **41.** [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) — `Hard` · <sub>H100</sub>
-- [ ] **52.** [N-Queens II](https://leetcode.com/problems/n-queens-ii/) — `Hard` · <sub>TI150</sub>
+- [x] **52.** [N-Queens II](https://leetcode.com/problems/n-queens-ii/) — `Hard` · <sub>TI150</sub> · <sub>✔ 2026-11-20</sub>
 - [ ] **68.** [Text Justification](https://leetcode.com/problems/text-justification/) — `Hard` · <sub>TI150</sub>
 - [ ] **115.** [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) — `Hard` · <sub>NC</sub>
 - [ ] **123.** [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) — `Hard` · <sub>TI150</sub>
 - [ ] **135.** [Candy](https://leetcode.com/problems/candy/) — `Hard` · <sub>TI150</sub> ✅
 - [ ] **149.** [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) — `Hard` · <sub>TI150</sub>
 - [ ] **188.** [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) — `Hard` · <sub>TI150</sub>
-- [ ] **269.** [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) 🔒 — `Hard` · <sub>NC</sub>
+- [x] **269.** [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) 🔒 — `Hard` · <sub>NC</sub> · <sub>✔ 2026-11-20</sub>
 - [ ] **312.** [Burst Balloons](https://leetcode.com/problems/burst-balloons/) — `Hard` · <sub>NC</sub>
 - [ ] **329.** [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — `Hard` · <sub>NC</sub>
 - [ ] **332.** [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) — `Hard` · <sub>NC</sub>

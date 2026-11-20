@@ -142,6 +142,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 
 - LeetCode 207. Course Schedule
 - 🟡 LeetCode 310. Minimum Height Trees
+- 🔴 LeetCode 269. Alien Dictionary
 
 ## Prefix Sum / Running Sum
 
@@ -216,6 +217,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 151. Reverse Words in a String
   - Two Pointers + In-place + Reverse
 - 🟢 LeetCode 819. Most Common Word
+- 🔴 LeetCode 269. Alien Dictionary
 
 ## Finite State Machine (FSM)
 

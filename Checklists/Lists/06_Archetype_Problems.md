@@ -50,6 +50,7 @@
 
 - 🟡 LeetCode 542. [01 Matrix](https://leetcode.com/problems/01-matrix/)
   - 將所有 `0` 同時作為距離為 0 的起點入隊，逐層向外擴展；每格首次被發現時，就得到到最近 `0` 的最短距離。入隊時標記，避免重複加入；m × n 矩陣的時間與最壞額外空間皆為 O(mn)。
+- 🟡 LeetCode 286. Walls and Gates
 
 ### Topological Sort
 
