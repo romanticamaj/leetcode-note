@@ -137,6 +137,7 @@ A curated list of must-do problems that build core competencies. Completing thes
 - 🟡 LeetCode 684. Redundant Connection
   - 無向圖增量判環：加入邊前，若兩端已連通，該邊就閉合環。見 [Union-Find 推薦實作](../../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。
 - 🟢 🟡 LeetCode 261. Graph Valid Tree
+- 🟡 LeetCode 778. Swim in Rising Water
 
 ## Topological Sort
 
@@ -174,6 +175,8 @@ A curated list of must-do problems that build core competencies. Completing thes
 - LeetCode 130. Surrounded Regions
 - LeetCode 417. Pacific Atlantic Water Flow
 - 🟡 🔴 LeetCode 399. Evaluate Division
+- 🟡 LeetCode 778. Swim in Rising Water
+  - Connectivity with Constraint
 
 ## Tree Algorithms
 
@@ -218,6 +221,7 @@ A curated list of must-do problems that build core competencies. Completing thes
   - Two Pointers + In-place + Reverse
 - 🟢 LeetCode 819. Most Common Word
 - 🔴 LeetCode 269. Alien Dictionary
+- 🔴 🟡 LeetCode 224. Basic Calculator
 
 ## Finite State Machine (FSM)
 
@@ -372,6 +376,10 @@ Problems that require integrating multiple advanced techniques. These are excell
   - BFS + Distance-Constrained Predecessor DAG + Backtracking
 - 🟡 🔴 LeetCode 918. Maximum Sum Circular Subarray
   - Kadane's Algorithm + Prefix Sum + Suffix Maximum
+- 🔴 LeetCode 269. Alien Dictionary
+  - String Manipulation + Topological Sort
+- 🔴 🟡 LeetCode 224. Basic Calculator
+  - String Manipulation + State Design + Recursion
 
 ### Followup Possible (Multiple Solutions)
 

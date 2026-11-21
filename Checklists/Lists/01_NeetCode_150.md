@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：141 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：143 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -138,7 +138,7 @@
 - [x] **743.** [Network Delay Time](https://leetcode.com/problems/network-delay-time/) — `Medium` · <sub>✔ 2026-10-31</sub>
 - [ ] **332.** [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) — `Hard`
 - [x] **1584.** [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) — `Medium` · <sub>✔ 2026-11-19</sub>
-- [ ] **778.** [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) — `Hard`
+- [x] **778.** [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) — `Hard` · <sub>✔ 2026-11-21</sub>
 - [x] **269.** [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) 🔒 — `Hard` · <sub>✔ 2026-11-20</sub>
 - [x] **787.** [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) — `Medium` · <sub>✔ 2026-11-03</sub>
 
@@ -165,7 +165,7 @@
 - [x] **518.** [Coin Change II](https://leetcode.com/problems/coin-change-ii/) — `Medium` · <sub>✔ 2026-11-03</sub>
 - [x] **494.** [Target Sum](https://leetcode.com/problems/target-sum/) — `Medium` ✅ · <sub>✔ 2026-10-21</sub>
 - [x] **97.** [Interleaving String](https://leetcode.com/problems/interleaving-string/) — `Medium` ✅ · <sub>✔ 2026-09-28</sub>
-- [ ] **329.** [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — `Hard`
+- [x] **329.** [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — `Hard` · <sub>✔ 2026-11-21</sub>
 - [ ] **115.** [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) — `Hard`
 - [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **312.** [Burst Balloons](https://leetcode.com/problems/burst-balloons/) — `Hard`

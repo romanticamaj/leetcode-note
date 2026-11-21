@@ -4,7 +4,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 
 來源：https://leetcode.com/studyplan/top-interview-150/
 
-**已刷：139 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
+**已刷：140 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 39 · Medium 93 · Hard 18　|　🔒 = Premium
 
 ---
 
@@ -83,7 +83,7 @@ LeetCode 官方必刷清單，題目較新、偏實作繁瑣型，最貼近真�
 - [x] **71.** [Simplify Path](https://leetcode.com/problems/simplify-path/) — `Medium` · <sub>✔ 2026-10-17</sub>
 - [x] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — `Medium` · <sub>✔ 2026-09-11</sub>
 - [x] **150.** [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — `Medium` · <sub>✔ 2026-09-21</sub>
-- [ ] **224.** [Basic Calculator](https://leetcode.com/problems/basic-calculator/) — `Hard`
+- [x] **224.** [Basic Calculator](https://leetcode.com/problems/basic-calculator/) — `Hard` · <sub>✔ 2026-11-21</sub>
 
 ## Linked List (11)
 

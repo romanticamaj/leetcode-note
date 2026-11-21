@@ -163,7 +163,7 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/2999/) · <sub>✔ 2026-11-06</sub>
 - [ ] **348.** [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/) — Medium 🔒 · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/517/)
 - [ ] **642.** [Design Search Autocomplete System](https://leetcode.com/problems/design-search-autocomplete-system/) — Hard 🔒 · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/3000/)
-- [ ] **895.** [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/3001/)
+- [x] **895.** [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/3001/)
 
 ### Others（4 題）
 

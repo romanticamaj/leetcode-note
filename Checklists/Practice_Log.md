@@ -2,6 +2,32 @@
 
 ---
 
+## 2026-11-21
+
+- 224. Basic Calculator
+- 329. Longest Increasing Path in a Matrix
+- 778. Swim in Rising Water
+
+**心得**：
+- 778：因為不小心看到提示 Union-Find，所以順著聯想到可以用 Union-Find 找連通性。關鍵是看出要找的是「一條路徑上最大值最小」的 path；看出之後，就可以順順做 value range 的 path search。Constraint 就是當前最大值限制下的連通路徑。
+- 329：Backtracking → top-down dynamic programming；之後練習 Peeling Onion。
+- 224：沒有 gpt-6.1-sol 帶著做……根本不可能做出來。
+  1. 想像類比計算機的直觀：每次輸入數值，都會記著，遇到符號就會運算。
+  2. 需要兩個狀態：現在的數值跟要操作的 operator。
+  - 這題根本主要就是 string manipulation；此外還要想到單純計算機的兩個狀態 operand 跟 operator，初值 operand 可以直接 0、operator 填 1，就很像是下一個運算了。如果遇到 - 開頭也不用擔心，因為 operator 會被適當地更新。
+
+**LLM 點評**：
+model: GPT-6
+- 778：技巧摘要：Minimax Path + Bucketed Edge Activation + Union-Find。看過 Union-Find 提示後完成，並經討論將 edge weight 從高度差修正為兩端高度最大值；不是完全無提示解出。依提供程式與高度為 0..n²−1 的排列此前提推理正確，本次未編譯或執行 C++。w(u,v)=max(height[u],height[v]) 表示邊最早可通行的水位；不是兩格高度差，也不是最少步數或最小總邊權。只建上／左相鄰邊就已讓每條無向邊恰好出現一次，id=row*n+col 正確。
+  - 完成水位 t 的 bucket 後，DSU 保存所有權重 <=t 的邊形成的連通關係；若起終點第一次連通，當前可行，而更低水位的所有邊均已處理卻仍未連通，因此 t 最小。這是依值域做遞增門檻掃描／增量連通性，具 Kruskal 依權重處理邊的精神，不是 binary search，也沒有重複枚舉完整路徑；小而稠密的整數值域讓 buckets 取代比較排序。未啟用格子雖在 DSU 中以 singleton 存在，t 以下不會透過未啟用邊合併，不影響不同起終點的連通判定；n=1 時題目排列保證 grid[0][0]=0，回傳 0 正確。
+  - V=n²、E=2n(n−1)。建 bucket 與初始化 O(n²)，總計 O(n²) 次 union／connected 搭配 rank 與 path compression，時間精確寫為 O(n² α(n²)) 均攤，而非嚴格 O(n²)；額外空間 O(n²)，包含 buckets、邊、parents、ranks。這次的可複製觀察是把路徑最優化改寫為「門檻下是否連通」，再利用門檻增加時邊只增不減。參考 [Union-Find 最佳化實作與分析](../Algorithms/Union_Find/06-Optimized_Implementation_and_Analysis.md)。
+- 329：技巧摘要：DFS + Memoization + DAG Longest Path。由枚舉路徑轉為 top-down DP 的核心是：從同一格出發的最佳後續長度不依賴抵達它的路徑，因此可快取每格答案；嚴格遞增使移動關係形成 DAG，不會繞回已走過的格子，毋須用路徑 visited 防環。標準 memoized DFS 每格只展開一次、檢查至多四個鄰居，時間 O(mn)、memo 與最壞遞迴堆疊 O(mn)。本次未提供程式，不驗證具體實作。Peeling Onion 是按拓撲層次剝除節點的另一版本，已列入 Problem Review，尚未實作；不是按矩陣幾何外圈剝除。
+- 224：技巧摘要：Recursive Descent Parsing + Direct Evaluation + Shared Cursor。經逐步引導完成遞迴直接求值版本，不記為獨立解出；這次需要提示不代表未來不可能獨立完成。關鍵不只 string manipulation，而是每層的狀態與解析契約：value 是已完成部分的累積結果，operation 是下一個完整 operand 要套用的符號，另需共享 index 管理讀取位置；括號內另開一層局部狀態，回傳值供外層當作 operand。
+  - 心得第 1 點的時機需修正：此實作「讀到 operator 只更新符號，取得完整數字或括號結果時才計算」。同層只有左結合且同優先級的加減，所以可立即累積；value=0、operation=+1 讓首個 operand 走相同流程，開頭的負號只需改為 −1。遇到 ( 先前進並遞迴，內層消耗 ) 後回傳，外層不再重複跳過。數字按連續 digits 擷取，substr 第二參數是長度。
+  - 最後提供的 evaluate(string&) 已避免每層複製 s，解析時間 O(n)；公開 calculate(string) 仍有一次參數副本，含它、遞迴與數字 substring 的額外空間最壞 O(n)，其中呼叫堆疊為 O(d)，d 是括號深度。helper 可標為 const string&；公開入口每次重設 index=0 的建議尚未在最後程式中採用，同一物件再次呼叫仍可能錯誤。本次依合法輸入、全新物件呼叫一次推理，未編譯或執行 C++。參考 [遞迴函式契約](../Algorithms/Design_Principles/Recursion/05-Recursion_Signature_Contract.md)。
+
+---
+
 ## 2026-11-20
 
 - 323. Number of Connected Components in an Undirected Graph

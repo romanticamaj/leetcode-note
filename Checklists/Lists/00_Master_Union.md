@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：228 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：231 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -135,7 +135,7 @@ Easy 13 · Medium 26 · Hard 5
 - [x] **1143.** [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) — `Medium` · <sub>NC · H100</sub> · <sub>✔ 2026-10-11</sub>
 - [x] **51.** [N-Queens](https://leetcode.com/problems/n-queens/) — `Hard` · <sub>NC · H100</sub> · <sub>✔ 2026-10-15</sub>
 - [x] **212.** [Word Search II](https://leetcode.com/problems/word-search-ii/) — `Hard` · <sub>NC · TI150</sub> ✅ · <sub>✔ 2026-11-06</sub>
-- [ ] **224.** [Basic Calculator](https://leetcode.com/problems/basic-calculator/) — `Hard` · <sub>G75 · TI150</sub>
+- [x] **224.** [Basic Calculator](https://leetcode.com/problems/basic-calculator/) — `Hard` · <sub>G75 · TI150</sub> · <sub>✔ 2026-11-21</sub>
 - [x] **239.** [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) — `Hard` · <sub>NC · H100</sub> · <sub>✔ 2026-11-06</sub>
 - [x] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — `Hard` · <sub>NC · G75</sub> ✅ · <sub>✔ 2026-11-06</sub>
 
@@ -273,9 +273,9 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [ ] **188.** [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) — `Hard` · <sub>TI150</sub>
 - [x] **269.** [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) 🔒 — `Hard` · <sub>NC</sub> · <sub>✔ 2026-11-20</sub>
 - [ ] **312.** [Burst Balloons](https://leetcode.com/problems/burst-balloons/) — `Hard` · <sub>NC</sub>
-- [ ] **329.** [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — `Hard` · <sub>NC</sub>
+- [x] **329.** [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — `Hard` · <sub>NC</sub> · <sub>✔ 2026-11-21</sub>
 - [ ] **332.** [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) — `Hard` · <sub>NC</sub>
 - [ ] **502.** [IPO](https://leetcode.com/problems/ipo/) — `Hard` · <sub>TI150</sub>
-- [ ] **778.** [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) — `Hard` · <sub>NC</sub>
+- [x] **778.** [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) — `Hard` · <sub>NC</sub> · <sub>✔ 2026-11-21</sub>
 - [ ] **1235.** [Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) — `Hard` · <sub>G75</sub>
 - [ ] **1851.** [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) — `Hard` · <sub>NC</sub>
