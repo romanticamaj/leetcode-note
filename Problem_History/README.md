@@ -12,6 +12,7 @@
 | [124. Binary Tree Maximum Path Sum](LC_0124_Binary_Tree_Maximum_Path_Sum.md) | 樹直徑與最大子陣列的相關原型；至少 2012 年已有 LeetCode 同題公開紀錄，最初來源未知 | 向上交出單支路徑，在最高點合併兩支 |
 | [134. Gas Station](LC_0134_Gas_Station.md) | Gasoline Puzzle、Gasoline Lemma；相關的 Cycle Lemma | 從前綴和的最低谷出發 |
 | [189. Rotate Array](LC_0189_Rotate_Array.md) | 文字編輯器的區塊搬移、三次反轉；Bentley 記載 1971 年已有使用 | 把 rotation 看成 A\|B → B\|A |
+| [224. Basic Calculator](LC_0224_Basic_Calculator.md) | 1961 年 ALGOL 翻譯、shunting yard 與經典教材的計算機／表達式解析；直接命題來源未知 | 保存尚未完成的運算；括號交回一個值，完整 operand 到手才求值 |
 | [271. Encode and Decode Strings](LC_0271_Encode_and_Decode_Strings.md) | 1987 年 XDR、1997 年 netstrings 與網路教材的 framing；直接命題來源未知 | 串接丟掉邊界；保存長度，或用分隔符搭配 escaping |
 | [310. Minimum Height Trees](LC_0310_Minimum_Height_Trees.md) | Jordan 的樹中心、Harary 的剝葉證明、網路設施選址與 LeetCode 解答的術語混用 | 剝葉或取直徑中點，找最遠距離最小的 center |
 | [371. Sum of Two Integers](LC_0371_Sum_of_Two_Integers.md) | CtCI 17.1 同型題；Shannon 1937 加法器、EDVAC 1945 的模數表示與 Nand to Tetris 教材；直接命題來源未確認 | XOR 交出部分和、AND 找進位；二補數讓正負數共用固定位寬加法 |
