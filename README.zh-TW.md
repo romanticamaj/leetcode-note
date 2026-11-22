@@ -5,7 +5,7 @@
 **學會推導演算法、辨識 Pattern，並說清楚為什麼正確。**
 
 從解題框架出發，學習資料結構與演算法。<br>
-可複用心法 · C++ 模板 · 精選題庫 · 正確性推導
+可複用心法 · C++ 模板 · 精選題庫 · 正確性推導 · 可追溯的歷史
 
 [English](README.md) · **繁體中文**
 
@@ -20,6 +20,32 @@
 **DSA Pattern Playbook 把這些問題，連結到具體的解題模式與練習題。** 這份持續整理自 Gary Hsieh 學習筆記的資源，以可複用的推理為主軸：定義答案、建立正確的基準解、找出浪費的工作，再推導出能說明理由的優化。
 
 > **閱讀語言：** 英文與繁中 README 都提供完整學習導覽。內文目前以**繁體中文**為主，保留英文技術術語，實作以 **C++** 為主；整個筆記庫尚未全面英文化。
+
+## 先看幾篇
+
+從一個想弄懂的問題開始，沿著推理讀到實作與練習。
+
+| 你想弄懂什麼？ | 代表筆記 | 讀完要能說清楚 |
+|---|---|---|
+| Binary Search 為什麼保留或排除 mid？ | [Binary Search 標準模板](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md) | 候選區間、單調 predicate，以及每輪為何必定前進 |
+| 遞迴函式到底該回傳什麼？ | [遞迴函式契約](Algorithms/Design_Principles/Recursion/05-Recursion_Signature_Contract.md) | 參數如何往下帶情境，回傳值如何摘要子問題 |
+| Union-Find 為什麼要 rank 與 path compression？ | [Union by Rank](Algorithms/Union_Find/04-Union_by_Rank.md)＋[Path Compression](Algorithms/Union_Find/05-Path_Compression.md) | 集合連通性、樹的形狀與找 root 成本之間的關係 |
+| 計算機與 parser 有什麼關係？ | [Basic Calculator：歷史與設計](Problem_History/LC_0224_Basic_Calculator.md) | 遞迴求值、operator stack，以及 postfix 的用途 |
+| 任意字串串接後，怎麼保留邊界？ | [Encode and Decode Strings](Problem_History/LC_0271_Encode_and_Decode_Strings.md) | 長度前綴、escaping，以及編碼題背後的協定歷史 |
+
+### 從題目走到可複用的 invariant
+
+以 **Subarray Sum Equals K** 為例，要記住的可以比「用 hashmap」更精確：
+
+```text
+目標    計算以目前位置結尾、總和為 k 的區間數。
+等式    currentPrefix - previousPrefix = k。
+狀態    目前終點之前，每個 prefix sum 出現的次數。
+更新    延伸 sum → 查詢符合的次數 → 記錄目前 prefix。
+邊界    先放入一個 sum=0 的空前綴，才能涵蓋從 index 0 開始的區間。
+```
+
+[Prefix Sum 筆記](Algorithms/Prefix_Sum/01_Prefix_Sum_Intro.md)將這個推理接到實作。整份筆記反覆練習同一件事：選擇要保留的資訊、說明更新時機，再用邊界案例確認設計成立。
 
 ## 開始學習
 
@@ -108,6 +134,7 @@ HTML 版支援搜尋、分類篩選與展開閱讀。下載後可直接用瀏覽
 | [Grind 75](Checklists/Lists/02_Grind_75.md) | 依週次安排練習順序。 |
 | [Top Interview 150](Checklists/Lists/03_Top_Interview_150.md) · [Top 100 Liked](Checklists/Lists/04_Top_100_Liked.md) | 用整理收錄的 LeetCode 學習清單擴充題型覆蓋。 |
 | [Essential Problems](Checklists/Lists/05_Essential_Problems.md) | 依技法探索維護者挑選的精選題目。 |
+| [Archetype Problems](Checklists/Lists/06_Archetype_Problems.md) | 先練每個演算法家族的代表原型，再延伸到變體。 |
 | [Technique Integration](Checklists/Lists/07_Technique_Integration_Problems.md) | 練習組合多種技法、比較不同思路。 |
 | [Follow-up 題型](Checklists/Lists/08_Followup_Problems.md) | 改變限制、處理變形，或口述 trade-off；頻率標記是編輯判斷。 |
 | [專題練習 Playbook](Checklists/Trick%20Practice/) | 集中練習答案二分、Kadane、Knapsack、KMP 等技巧。 |

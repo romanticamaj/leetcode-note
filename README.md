@@ -5,7 +5,7 @@
 **Learn to derive algorithms, recognize patterns, and explain why they work.**
 
 A framework-first guide to data structures and algorithms.<br>
-Reusable mental models · C++ templates · Curated practice · Correctness reasoning
+Reusable mental models · C++ templates · Curated practice · Correctness reasoning · Documented history
 
 **English** · [繁體中文](README.zh-TW.md)
 
@@ -20,6 +20,32 @@ What information should an algorithm keep? Which work can it avoid? Why is it sa
 **DSA Pattern Playbook connects these questions to concrete patterns and practice problems.** Built from Gary Hsieh’s ongoing study notes, it organizes learning around reusable reasoning: define the answer, establish a correct baseline, identify wasted work, and derive an improvement you can justify.
 
 > **Language:** Both READMEs provide a complete learning guide. The underlying notes are primarily in **Traditional Chinese**, with English technical terms and **C++** implementations. English translations of the full library are not yet available.
+
+## A look inside
+
+Start with one question you want to understand, then follow the reasoning into code and practice.
+
+| Question | Featured note | What you learn to explain |
+|---|---|---|
+| Why does binary search keep or discard `mid`? | [Binary Search standard template](Algorithms/Binary_Search/00-Binary_Search_Standard_Template.md) | The candidate interval, monotone predicate, and progress toward termination |
+| What must a recursive function return? | [Recursion signature contract](Algorithms/Design_Principles/Recursion/05-Recursion_Signature_Contract.md) | How parameters carry context down and return values summarize a subproblem |
+| Why does Union-Find need rank and path compression? | [Union by Rank](Algorithms/Union_Find/04-Union_by_Rank.md) + [Path Compression](Algorithms/Union_Find/05-Path_Compression.md) | The difference between connectivity, tree shape, and the cost of finding a root |
+| How do a parser and a calculator connect? | [Basic Calculator: history and design](Problem_History/LC_0224_Basic_Calculator.md) | Recursive evaluation, operator stacks, and the role of postfix notation |
+| How can arbitrary strings keep their boundaries? | [Encode and Decode Strings](Problem_History/LC_0271_Encode_and_Decode_Strings.md) | Length prefixes, escaping, and the protocol history behind a coding problem |
+
+### From a problem to a reusable invariant
+
+For **Subarray Sum Equals K**, the useful insight is more precise than “use a hash map”:
+
+```text
+Goal        Count subarrays ending here whose sum is k.
+Identity    currentPrefix - previousPrefix = k.
+State       Frequencies of prefix sums strictly before this endpoint.
+Update      Extend the sum → count matches → record the current prefix.
+Boundary    One empty prefix with sum 0 makes index-0 subarrays count.
+```
+
+The [Prefix Sum notes](Algorithms/Prefix_Sum/01_Prefix_Sum_Intro.md) connect this reasoning to implementation. The same learning loop appears throughout the collection: choose the information to retain, explain when it changes, and test the boundary that makes the design work.
 
 ## Start learning
 
@@ -108,6 +134,7 @@ Use a list to choose problems, then return to the pattern library to explain wha
 | [Grind 75](Checklists/Lists/02_Grind_75.md) | Follow a week-based practice sequence. |
 | [Top Interview 150](Checklists/Lists/03_Top_Interview_150.md) · [Top 100 Liked](Checklists/Lists/04_Top_100_Liked.md) | Broaden coverage with the collected LeetCode study-plan lists. |
 | [Essential Problems](Checklists/Lists/05_Essential_Problems.md) | Explore the maintainer’s curated selection by technique. |
+| [Archetype Problems](Checklists/Lists/06_Archetype_Problems.md) | Learn a representative problem before moving to variations. |
 | [Technique Integration](Checklists/Lists/07_Technique_Integration_Problems.md) | Practice combining techniques and comparing approaches. |
 | [Follow-up Problems](Checklists/Lists/08_Followup_Problems.md) | Change a constraint, handle a variant, or explain a trade-off. Frequency labels are editorial judgments. |
 | [Focused practice playbooks](Checklists/Trick%20Practice/) | Deepen a specific technique: answer-space binary search, Kadane, knapsack, KMP, and more. |
