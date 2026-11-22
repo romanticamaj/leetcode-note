@@ -2,6 +2,29 @@
 
 ---
 
+## 2026-11-22
+
+- 560. Subarray Sum Equals K
+- 207. Course Schedule
+- 622. Design Circular Queue
+
+**心得**：
+- 560：一開始做錯了……做成 dynamic programming……後來看提示才想到用 prefix sum + running hashmap。
+- 207：Kahn's algorithm。好像沒什麼特別的，跟 #1 解法一模一樣；有需要做 three-coloring 版本嗎？
+  - 後續完成 three-coloring DFS；這是滿經典的 cycle detection 作法。另外 edge 建構的 src 跟 dst 也是建反了，會變成把每個邊反向。
+- 622：為了 Amazon 面試練習的……主要設計概念就是 count，跟 head 和 tail 的 invariant。
+
+**LLM 點評**：
+model: GPT-6
+- 622：技巧摘要：Circular Array + Element Count + Head/Tail Invariants。核心觀察正確：先定義 head／tail 各指向哪個邏輯位置，再用 count 區分空與滿；不要混用「tail 是最後元素」與「tail 是下次寫入位置」的公式。以 head 為隊首、tail 為下次寫入位置為例，維持 0<=count<=capacity、tail=(head+count)%capacity；count=0 為空、count=capacity 為滿，兩者都可能 head==tail，因此 count 提供必要區分。操作只推進索引並更新 count，不搬移元素；固定容量陣列版各項 queue 操作 O(1)、儲存 O(capacity)，建構初始化成本另計。本次未提供程式，不推定實際索引定義或實作已驗證。可對照 [Circular Queue 歷史與教科書實作](../Problem_History/LC_0622_Design_Circular_Queue.md)。
+- 207：技巧摘要：Kahn's Topological Sort + Indegree Tracking + Cycle Detection。依提供程式推理正確，本次未編譯或執行 C++。目前將 prerequisite pair [course, prerequisite] 建成 course→prerequisite，與一般修課順序的 prerequisite→course 相反；但全部邊反向保留有向環是否存在，因此本題只回傳可否完成仍正確。若要直接輸出修課順序，需調整邊方向或相應反轉輸出，不能直接沿用目前的出隊順序。
+  - numCourses 在初始化 queue 後作為剩餘未處理節點數，每出隊一次減一；最後為 0 表示所有節點皆可被剝除，否則仍有環阻擋。時間 O(V+E)、額外空間 O(V+E) 正確，包含建圖、indegree、queue；這是拓撲剝除，不是 union。Three-color DFS 值得另練一次，學習區分未訪問／目前遞迴路徑中／已完成：遇 gray 才證明有向環，遇 black 是可重用的完成結果，不代表環。它與 Kahn 同為 O(V+E)，用途是補足 DFS 判環模型，不是優化目前版本；後續已實作，詳見下方。參考 [DFS 拓撲排序與三色狀態](../Algorithms/Topological_Sort/03-DFS_Based_Implementation.md)。
+  - 後續三色版技巧摘要：Three-Color DFS + Recursion-Stack Cycle Detection。補上大括號修正 dangling else 後，依提供程式推理正確；本次未編譯或執行 C++。dfs 回傳 true 表示發現環；WHITE 為尚未訪問，GREY 為目前遞迴鏈上的未完成節點，BLACK 為所有出邊已檢查且未發現環的完成節點。碰到 GREY 構成 back edge，碰到 BLACK 可略過；外層遍歷所有 WHITE 節點以涵蓋不連通圖。初版缺少大括號，else 綁到內層 if(dfs(...))，導致原本已為 GREY 的鄰居未被檢查；這是語法綁定錯誤，不是三色模型錯誤。全部邊反向仍保留有向環，故判環結果不變；時間 O(V+E)、額外空間 O(V+E)，其中遞迴堆疊最壞 O(V)。Kahn 與三色 DFS 兩個版本均已完成，三色版有經除錯提示，不等同無提示獨立重做。
+- 560：技巧摘要：Prefix Sum + Running Sum + Hash Map Frequency Counting。本次為重練，經提示才找回方向；未提供程式，不推定先前 DP 的具體錯誤或目前實作已驗證。DP 並非一概不能做，這次應抓住的是計數所需的歷史資訊：固定目前終點，sum−previousPrefix=k，因此要查先前 prefix 值為 sum−k 的出現次數；不是只保存一個最佳值，也不是只記某個 sum 是否存在。
+  - 標準順序為更新 sum、將 freq[sum−k] 加進答案、再增加 freq[sum]；freq[0]=1 表示空前綴，讓從 index 0 開始的區間也能計入。先查再記避免 k=0 時把目前 prefix 與自己配對成空區間。hash 操作採平均常數分析，時間 O(n)、額外空間 O(n)。參考 [Prefix Sum 基礎](../Algorithms/Prefix_Sum/01_Prefix_Sum_Intro.md)。原有獨立推導／實作目標仍待做，不因本次經提示完成而勾選。
+
+---
+
 ## 2026-11-21
 
 - 224. Basic Calculator
