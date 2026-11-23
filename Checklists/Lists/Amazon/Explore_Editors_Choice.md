@@ -118,7 +118,7 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **207.** [Course Schedule](https://leetcode.com/problems/course-schedule/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2983/) · <sub>✔ 2026-09-14</sub>
 - [x] **236.** [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2984/) · <sub>✔ 2026-09-21</sub>
 - [x] **543.** [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — Easy · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2985/) · <sub>✔ 2026-09-16</sub>
-- [ ] **675.** [Cut Off Trees for Golf Event](https://leetcode.com/problems/cut-off-trees-for-golf-event/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2986/)
+- [x] **675.** [Cut Off Trees for Golf Event](https://leetcode.com/problems/cut-off-trees-for-golf-event/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2986/)
 - [x] **733.** [Flood Fill](https://leetcode.com/problems/flood-fill/) — Easy · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2987/) · <sub>✔ 2026-10-10</sub>
 
 ### Recursion（4 題）
@@ -161,7 +161,7 @@ Explore 的舊題名另保留於備註：`Implement strStr()` 對應現名 LC 28
 - [x] **155.** [Min Stack](https://leetcode.com/problems/min-stack/) — Medium · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/503/) · <sub>✔ 2026-09-11</sub>
 - [x] **295.** [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/495/) · <sub>✔ 2026-09-27</sub>
 - [x] **297.** [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/2999/) · <sub>✔ 2026-11-06</sub>
-- [ ] **348.** [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/) — Medium 🔒 · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/517/)
+- [x] **348.** [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/) — Medium 🔒 · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/517/)
 - [ ] **642.** [Design Search Autocomplete System](https://leetcode.com/problems/design-search-autocomplete-system/) — Hard 🔒 · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/3000/)
 - [x] **895.** [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/) — Hard · 未標註 · [Explore](https://leetcode.com/explore/interview/card/amazon/81/design/3001/)
 
