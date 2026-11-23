@@ -9,7 +9,7 @@
 | 代號 | 清單 | 題數 | 獨有題數 |
 |---|---|---:|---:|
 | T | [Top Amazon Questions](Top_Questions.md) | 50 | 37 |
-| E | [Amazon Explore／Editor’s choice](Explore_Editors_Choice.md) | 68 | 55 |
+| E | [Amazon LeetCode Explore Editors Choice](Explore_Editors_Choice.md) | 68 | 55 |
 
 兩份重疊 **13 題**，所以合併為 `50 + 68 − 13 = 105` 題。來源清單各自保留原本順序、分類、題目說明與出處。
 
