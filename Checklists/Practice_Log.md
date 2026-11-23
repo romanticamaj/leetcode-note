@@ -5,6 +5,7 @@
 ## 2026-11-23
 
 - 675. Cut Off Trees for Golf Event
+- 642. Design Search Autocomplete System
 
 **心得**：
 - 675：BFS + Priority Queue。有跟 gpt-6.1-sol 討論了一下，也想到要來回走動的 case。不過第一版還是忽略了幾個重點：
@@ -13,11 +14,17 @@
   3. 過程中可以走過比自己高的樹。
   - 這些是 spec 有寫，不過沒有一次就理解出來的部分；確認這幾點後，實作就沒問題了。
 
+- 642：異常的難……大方向是我想的，可是後面很多細節是 gpt-6.1-sol 幫忙完成的。Trie、priority_queue、hashmap，特別要注意 C++ 的 priority_queue 沒辦法調整內容，所以這版用 Lazy Invalidation。我感覺有更好的解法？top-3 priority_queue？dead node？應該有更有效率的設計。
+
 **LLM 點評**：
 model: GPT-6
 - 675：技巧摘要：Min-Heap + Repeated BFS。經題意澄清與除錯提示後完成，使用者回報 LeetCode 通過；本次未在本機編譯或執行。這次關鍵是分開「可通行條件」與「砍樹順序」：所有非 0 格子都可走，包含尚未砍的高樹；只有高度 >1 的格子是目標，依高度遞增砍除。起點固定為 (0, 0)，不必是最矮樹的位置；起點為 0 時不能出發。
   - 砍樹順序固定，且砍樹不改變可通行性，因此逐段取最短路徑再加總即可；每段 BFS 重新建立 visited，入隊時標記，不能把前一段的 visited 當成永久禁行狀態。第一版另有鄰居索引未先檢查邊界的問題，後續已修正。
   - 令 N=mn、K 為樹的數量，掃描 O(N)、heap 操作 O(K log K)、K 次 BFS（含 visited 初始化）O(KN)，總時間 O(N+K log K+KN)，最壞 O((mn)²)，額外空間 O(mn)。來回走動不是複雜度推導的原因，重複搜尋的次數才是。鄰居迴圈改用 const auto& 後使用者回報通過，但未實測隔離其他變因，不能將 vector 複製斷言為唯一 TLE 原因。
+
+- 642：技巧摘要：Trie + Priority Queue + Hash Map Frequency Tracking + Lazy Invalidation。大方向由使用者提出，後續經多處提示與修正完成，不記為無提示獨立解出；依最後提供程式推理核心邏輯正確，本次未在本機編譯或執行，也未收到 LeetCode 通過的明確回報。每個 prefix 節點保存候選句子的歷史快照，全域 frequency 為最新次數；頻率只增，使舊快照可用次數不符判定過期。priority_queue 缺少任意元素的更新介面，但 lazy invalidation 是此版本的選擇，不是唯一解法。
+  - 效能成本在每次查詢複製整個 heap（含字串）、原 heap 持續保留過期快照，以及每個字元都從 root 重走前綴。dead node 若指不存在的前綴，可保存目前 TrieNode 指標，路徑不存在後本次輸入直接回傳空結果，直到 # 重設；若指 heap 的過期資料，那是 stale entry，清理它與前綴失效是不同問題。
+  - 可延伸為 Trie + Cached Top-3 + Monotonic Frequency Updates：每個 prefix 只存前三名句子，完成一句時沿途把該句與原前三名去重、依最新頻率與字典序重排後保留三個即可，用小 vector 就足夠。正確性依賴一次只有該句頻率增加，其餘排名相對不變，其他原先落榜的句子不會自行晉級；若允許降頻或刪除，僅保存前三名就不足。此優化尚未實作。參考 [Trie 節點預處理與建議快取](../Data_Structures/Trie/02_Trie_Design_Patterns_and_Usage.md)。
 
 ---
 
