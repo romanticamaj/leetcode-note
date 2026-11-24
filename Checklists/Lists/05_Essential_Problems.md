@@ -82,6 +82,10 @@ A curated list of must-do problems that build core competencies. Completing thes
   - Tree DP
 - 🟡 LeetCode 91. Decode Ways
   - bottom-up counting dynamic programming 不好寫
+- 🔴 LeetCode 10. Regular Expression Matching
+  - 光是 recursion 就超級難寫，關鍵是看 pattern 下一個字元，來決定當前要怎麼跳轉
+  - 需要小心 string 走完，但是 pattern 還沒走完，要讓 pattern 走完
+  - 程式碼很短，但是判斷式很複雜
 
 ## Knapsack DP / Value-Range DP
 
