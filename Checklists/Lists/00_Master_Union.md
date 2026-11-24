@@ -4,7 +4,7 @@
 **按「出現在幾份清單」排序** — 出現次數越多 = 社群共識越高 = 越該先刷。
 
 總計 **250 題**（四份清單合計 475 題次，去重後剩 250）
-**已刷：231 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
+**已刷：232 / 250**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）
 
 ---
 
@@ -260,7 +260,7 @@ Medium 待刷題已依題型交錯排列，🔒 題放在最後；從上往下�
 - [x] **271.** [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) 🔒 — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-19</sub>
 - [x] **323.** [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) 🔒 — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-20</sub>
 - [x] **286.** [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) 🔒 — `Medium` · <sub>NC</sub> · <sub>✔ 2026-11-20</sub>
-- [ ] **10.** [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) — `Hard` · <sub>NC</sub>
+- [x] **10.** [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) — `Hard` · <sub>NC</sub> · <sub>✔ 2026-11-24</sub>
 - [ ] **30.** [Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/) — `Hard` · <sub>TI150</sub>
 - [ ] **32.** [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) — `Hard` · <sub>H100</sub> ✅
 - [ ] **41.** [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) — `Hard` · <sub>H100</sub>

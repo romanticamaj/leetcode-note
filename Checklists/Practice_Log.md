@@ -2,6 +2,41 @@
 
 ---
 
+## 2026-11-24
+
+- 10. Regular Expression Matching
+- 253. Meeting Rooms II
+- 239. Sliding Window Maximum
+- 146. LRU Cache
+
+**心得**：
+- 10：思路是對的……但是實作爆幹難……一直處理不好判斷式，幾乎都是靠 gpt-6.1-sol 提示。Backtracking / recursion → dynamic programming。
+
+- 253：這個解法滿妙的……用 min-heap 去記錄目前房間時間最接近的是誰，要用新事件的起始時間去跟它比較，然後維持 queue 的 invariant。這次完成 Sorting + Min-Heap 版本。
+
+- 239：用 priority queue 取得最大值，用 hashmap 判斷是否不合法（Lazy Invalidation）。這個 priority queue 搭配 hashmap 的設計，跟 642. Design Search Autocomplete System 有類似之處；這次還是跟前一次相同的寫法。
+
+- 146：這題也太硬了……關鍵設計是「要特別注意操作結尾的所有地方」。
+  1. get 更新的是結尾，則不用動。
+  2. put 如果刪除結尾（capacity == 1），要更新 tail 指標，也要注意 next 是 nullptr。
+  - 看完解答後……直接前後都用一個 dummy，就不用處理 tail 指標更新的問題了，我怎麼沒想到？！！！！
+
+**LLM 點評**：
+model: GPT-6
+- 10：技巧摘要：Backtracking + Suffix Matching。經逐步提示修正條件後完成目前遞迴版本，不記為無提示獨立解出；依最後提供程式推理正確，本次未編譯或執行，也未收到 LeetCode 通過的明確回報。狀態 backtracking(i,j) 表示 s[i:] 能否被 p[j:] 完整匹配。主要卡點是分支條件的涵蓋範圍：i<m 必須限制整個字元匹配判斷；略過 x* 不需要 match，消耗一個字元並保留 x* 才需要；pattern 用完時，只有字串也用完才成功。把 x* 視為一組，在前一個元素處向後看，而非等走到 * 才處理零次匹配。
+  - 目前沒有 memoization，仍是最壞指數時間的遞迴搜尋，呼叫堆疊 O(m+n)；不能直接記為已完成 DP。下一步由「同一 (i,j) 的答案只取決於兩個剩餘後綴」推導記憶化，使用可區分未計算／false／true 的快取，得到 O((m+1)(n+1)) 時間與空間；DP 版本尚未實作，已列為五星重做目標。
+
+- 253：技巧摘要：Sorting + Min-Heap + Active Interval Tracking。依提供程式推理正確，本次未編譯或執行。heap top 精確表示目前最早結束的活躍會議，不是時間距離最近者；按 start 遞增處理，先移除所有 end<=start 的舊會議，再加入目前 end，heap 即保存已處理且在目前 start 時刻仍佔用房間的會議。相等時可立即共用房間；持續更新 heap size 峰值，才是所需最少房間數，最後 heap size 可能較小。
+  - 外層雖有 while，每場會議總共最多 push 一次、pop 一次，heap 總成本 O(n log n)，加上排序後總時間仍為 O(n log n)；額外空間 O(n)，包含 heap，排序呼叫堆疊不改變此上界。普通 FIFO queue 無法保證最早結束者在隊首，因為依開始時間排序不保證結束時間順序。這次已提供對應 min-heap 實作，因此完成該 review 目標；未推定其他變體已完成。
+
+- 239：技巧摘要：Max-Heap + Hash Map + Lazy Invalidation。這次重練仍採前次 heap＋hashmap 版本；未提供新程式，不推定具體 hashmap 定義、正確性或執行結果。與 642 的連結正確：heap 提供排序後的候選，外部狀態判斷候選是否仍有效，過期項目等到頂端時才清除；239 的有效性來自目前窗口，642 則是頻率快照是否等於最新次數。取答案前須持續移除無效頂端，不能只清一次；若用值作為 key，重複值需要計數語義，不能僅以存在與否區分各次出現。Monotonic deque 的 O(n) 時間、O(k) 空間版本仍未實作，原 review 目標保留待做，前次練習日期更新為本次日期。
+
+- 146：技巧摘要：Hash Map + Doubly Linked List + Recency Tracking。這次經除錯提示修正單 head dummy、真實尾節點 tail 的版本；依提供程式推理，在 capacity>=1 的題目前提下核心操作正確，本次未編譯或執行，未收到 LeetCode 通過的明確回報。get 命中後移到 MRU 尾端，已為 tail 時略過；淘汰唯一節點時 tail=tail->prev 正確回到 head，恢復空串列 head->next==nullptr 且 tail==head。更新既有 key 的值後仍須刷新最近使用順序。
+  - 雙 dummy 的價值是讓每個資料節點都有前後鄰居，將摘除與插入的邊界分支統一；tail sentinel 固定不動，MRU 是 tail->prev。這是透過資料結構設計減少特殊情況，不只是多記一個尾端判斷。雙 dummy 僅閱讀解答，尚未實作；原「一次寫對」目標仍待做，不因本次除錯完成而勾選。
+  - 目前淘汰後只有 hashmap.erase，缺少 delete nodeToDelete，會洩漏已移出串列的節點；物件銷毀時也應釋放剩餘資料節點與 dummy。釋放前先保存需要的指標與 key。hash map 操作採平均 O(1) 時，get／put 為平均 O(1)；邏輯容器大小 O(capacity)，但現有程式未釋放淘汰節點，實際配置記憶體會隨新增操作累積。
+
+---
+
 ## 2026-11-23
 
 - 675. Cut Off Trees for Golf Event

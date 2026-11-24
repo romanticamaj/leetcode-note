@@ -4,7 +4,7 @@
 
 來源：https://neetcode.io/practice
 
-**已刷：143 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
+**已刷：144 / 150**（`[x]` + ✔日期 = 已在 `Practice_Log.md` 記錄；`✅` = `05_Essential_Problems.md` 曾收錄）　|　Easy 28 · Medium 101 · Hard 21　|　🔒 = Premium
 
 ---
 
@@ -169,7 +169,7 @@
 - [ ] **115.** [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) — `Hard`
 - [x] **72.** [Edit Distance](https://leetcode.com/problems/edit-distance/) — `Medium` ✅ · <sub>✔ 2026-09-19</sub>
 - [ ] **312.** [Burst Balloons](https://leetcode.com/problems/burst-balloons/) — `Hard`
-- [ ] **10.** [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) — `Hard`
+- [x] **10.** [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) — `Hard` · <sub>✔ 2026-11-24</sub>
 
 ## Greedy (8)
 

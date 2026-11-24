@@ -20,6 +20,7 @@
 
 | 狀態 | 題目／重練目標 | 前次練習 | 重做日期 |
 |:---|:---|:---:|:---:|
+| 待做 | ⭐⭐⭐⭐⭐ 10. Regular Expression Matching：獨立重建遞迴判斷，再實作 memoization。技巧摘要：Suffix Matching + Memoized DFS。先定義 (i,j) 為兩個後綴能否完整匹配，區分目前字元是否存在且匹配、下一格是否為 *；x* 的零次分支不依賴 match，消耗分支才需要 match，並保留 j 以允許重複。涵蓋字串先用完、pattern 先用完、剩餘多組 x*、.* 與一般字元不匹配；由相同狀態的重複計算推導三態快取及 O((m+1)(n+1)) 時空。2026-11-24 幾乎靠提示完成無 memo 的 backtracking，尚未獨立重做，DP 版本尚未實作 | 2026-11-24 | — |
 | 待做 | ⭐⭐⭐⭐⭐ 642. Design Search Autocomplete System：獨立重做，嘗試所貼 Java 參考設計。技巧摘要：Trie + Per-Prefix Frequency Map + Bounded Top-K Heap + Incremental Prefix Traversal。設計提示：每個 prefix 節點保存符合該前綴的句子與最新次數，新增句子時沿路更新 map；查詢時掃描目前節點的候選，以容量 3 的 heap 保留前三名，heap top 是目前最差者（低頻優先淘汰，同頻淘汰字典序較大者），取出後反轉為答案順序。這是查詢時選 top 3，不是節點預存 top 3，也不需歷史 heap 快照或 lazy invalidation。currNode 隨字元前進，找不到 child 時進入 dead sentinel；後續字元保持無匹配，直到 # 儲存完整輸入並重設至 root。比較此版本、已完成的 lazy-invalidation 版本與尚未實作的 cached top-3 版本之更新／查詢成本；本次只閱讀參考程式，尚未自行實作此變體 | 2026-11-23 | — |
 | 待做 | ⭐⭐⭐⭐ 329. Longest Increasing Path in a Matrix：獨立嘗試 Peeling Onion。技巧摘要：Topological Sort + Layered BFS + DAG Longest Path。先定義由較小值指向較大值的邊，以 indegree=0 的格子開始，逐層剝除並更新鄰居；固定本層 queue size，說明剝除層數為何等於最長遞增路徑的節點數，而非最短距離。也可反向從 outdegree=0 剝除，但邊方向與 degree 更新必須一致；不是剝矩陣幾何外圈。目標 O(mn) 時間、O(mn) 額外空間，避免遞迴堆疊；目前回報完成 top-down DP，Peeling Onion 尚未實作。參考 [Kahn Algorithm](../../Algorithms/Topological_Sort/02-Kahn_Algorithm_BFS.md) | 2026-11-21 | — |
 | 待做 | ⭐⭐⭐⭐ 224. Basic Calculator：下次獨立嘗試 Stack and String Reversal（由右往左掃描，不必真的反轉字串）。技巧摘要：Reverse Scanning + Stack + Subexpression Evaluation。維持 stack top 取出的順序符合原式左到右；遇 ( 時從 top 求值到 )，移除邊界後把結果 push 回去，掃描結束再求值最外層。反向讀多位數用遞增十進位位權組合，不能直接 value*10+digit；離開數字及掃描結束時都要 flush operand。每層求值前，若 stack 空或 top 不是數字就補 0，以處理 unary minus，再取首個 operand 累積加減。用帶型別的 token 區分整數與符號（C++ 不直接照搬 Java Stack<Object>），檢查多位數、空白、巢狀括號、-(2+3)、1-(-2) 與 8-3-2；說明 O(n) 時間、O(n) 額外空間。已經引導完成 recursive direct evaluation；本次僅閱讀與討論所貼 Java 解答，此 stack 版本尚未自行實作。參考 [歷史與方法對照](../../Problem_History/LC_0224_Basic_Calculator.md) | 2026-11-21 | — |
@@ -31,8 +32,8 @@
 | 待做 | ⭐⭐⭐ 65. Valid Number：已通過分階段解析版本（Sequential Parsing + Index Tracking）；下次獨立重構，抽出回傳消耗位數的 digits 掃描操作，分離「如何消耗」與「需要多少」：小數點前後的 digits 合計至少一位，指數在可選正負號後至少一位，最後必須消耗完整字串。比較控制流程隱含狀態、explicit DFA 與 status flags 的語義及取捨；DFA／flags 版本尚未實作 | 2026-11-13 | — |
 | 待做 | ⭐⭐⭐⭐ 957. Prison Cells After N Days：獨立練習 bitmask／bit manipulation 表示法；定義 bit i 對應 cells[i]，完成八格與整數的編碼／解碼，推導左右移位、XOR 取反與端點遮罩的單步轉移，再整合 cycle detection＋fast forwarding；目前只完成 vector 模擬＋string key 的週期加速版，bitmask 版本尚未實作。參考[狀態循環與快速跳躍](../../Algorithms/Simulation/02-Cycle_Detection_and_Fast_Forward.md) | 2026-11-09 | — |
 | 待做 | ⭐⭐⭐⭐ 126. Word Ladder II：之後嘗試 bidirectional BFS；使用者表示可能尚未用過此技巧。先理解雙向 frontier 的逐層擴展與相遇條件，再處理所有最短路徑的邊方向、同層多個連接及 backtracking，不能找到第一個交點就漏掉其他最短路徑；目前只完成單向 BFS＋predecessor DAG＋backtracking | 2026-11-08 | — |
-| 待做 | ⭐⭐⭐⭐ 239. Sliding Window Maximum：下次獨立嘗試 monotonic deque；以 index 維持候選順序，推導隊首過期移除、隊尾淘汰被新值支配的候選與重複值處理，說明 O(n) 時間、O(k) 額外空間；目前只完成 max-heap＋hashmap lazy deletion 版本 | 2026-11-06 | — |
-| 待做 | ⭐⭐⭐⭐ 253. Meeting Rooms II：priority queue／min-heap 解法很值得想；獨立推導按開始時間排序、heap 保存活躍會議結束時間的 invariant，說明為何普通 FIFO queue 不足、為何需移除所有 end <= start，再追蹤 heap size 峰值；目前只完成 ordered map 差分版本 | 2026-11-06 | — |
+| 待做 | ⭐⭐⭐⭐ 239. Sliding Window Maximum：下次獨立嘗試 monotonic deque；以 index 維持候選順序，推導隊首過期移除、隊尾淘汰被新值支配的候選與重複值處理，說明 O(n) 時間、O(k) 額外空間；2026-11-24 重練仍採 max-heap＋hashmap lazy invalidation，monotonic deque 尚未實作 | 2026-11-24 | — |
+| 已完成 | ⭐⭐⭐⭐ 253. Meeting Rooms II：完成 Sorting + Min-Heap + Active Interval Tracking 版本。依 start 遞增處理，移除所有 end<=start 的會議後加入目前 end，heap 保存目前活躍會議，top 為最早結束時間；追蹤 heap size 峰值。每場會議最多入隊／出隊一次，時間 O(n log n)、額外空間 O(n)。2026-11-24 已提供對應實作，依程式碼推理正確，本次未編譯或執行 | 2026-11-06 | 2026-11-24 |
 | 待做 | ⭐⭐⭐ 545. Boundary of Binary Tree：one-pass DFS；結合 preorder／postorder 與 isLeftBoundary／isRightBoundary 多狀態傳遞，獨立推導邊界旗標、葉節點去重與輸出順序；目前只完成分段版本 | 2026-11-05 | — |
 | 待做 | ⭐⭐⭐⭐ 518. Coin Change II：計畫 2026-11-04 寫二維 bottom-up；保留 (coin index, remaining amount) 語義，獨立推導 base case 與填表方向，說明選取留在同一 i、跳過依賴 i+1；先不要求一維壓縮 | 2026-11-03 | — |
 | 待做 | ⭐⭐⭐⭐⭐ 787. Cheapest Flights Within K Stops：Bellman-Ford／邊數 DP；獨立定義至多 i 條邊的最小費用，實作每輪只讀上一層快照，說明 k stops = k+1 edges 與原地更新會超用邊數 | 2026-11-03 | — |
@@ -104,7 +105,7 @@
 | 選做 | 169. Majority Element：D&C 版 | 2026-09-15 | — |
 | 待做 | 230. Kth Smallest Element in a BST：iterative inorder／Augmented BST | 2026-09-14 | — |
 | 待做 | 139. Word Break：樸素 DP 再到 Trie | 2026-09-11 | — |
-| 待做 | 146. LRU Cache：一次寫對 | 2026-09-11 | — |
+| 待做 | ⭐⭐⭐⭐ 146. LRU Cache：獨立重做、一次寫對；改用前後雙 dummy 統一摘除與插入，固定 tail sentinel，以 tail->prev 表示 MRU。技巧摘要：Hash Map + Doubly Linked List + Dummy Sentinels。涵蓋 capacity=1、重複更新 key、命中 MRU、移動 LRU 與淘汰後再插入；維持 map／list 一致並正確釋放淘汰節點。2026-11-24 經提示修正單 dummy 版的 tail 更新，雙 dummy 僅看過解答尚未實作；本次非一次寫對，原目標仍待做 | 2026-11-24 | — |
 | 已完成 | 15. 3Sum：sort + two pointers（使用者確認） | 2026-10-20 | 2026-10-20 |
 | 已完成 | 15. 3Sum：running hashmap（九月完成紀錄誤記，本次完成） | 2026-10-20 | 2026-10-20 |
 | 待做 | 15. 3Sum：no-sort follow-up | 2026-10-20 | — |
@@ -326,8 +327,8 @@
 - [x] LeetCode 42. Trapping Rain Water（two pointers，2026-09-18；monotonic stack 仍待做）
   - [x] Two Pointers Technique (from brute force to prefix sum, then duplicate work removal through two-pointers)
   - [ ] Dynamic Programming
-- [ ] ⭐⭐⭐⭐ LeetCode 253. Meeting Rooms II
-  - [ ] ⭐⭐⭐⭐ Priority Queue／Min-Heap：獨立推導活躍會議的 invariant、釋放條件與最大併發數（2026-11-06 指定複習；目前只完成 ordered map 差分版本）。
+- [x] ⭐⭐⭐⭐ LeetCode 253. Meeting Rooms II
+  - [x] ⭐⭐⭐⭐ Priority Queue／Min-Heap：2026-11-24 完成活躍會議版本，維持 end>start 的 heap invariant，追蹤最大併發數；依程式碼推理正確，未於本機執行。
   - [ ] Chronological Ordering
 - [ ] LeetCode 135. Candy
   - [ ] Constraint Decomposition for Greedy or DP
@@ -457,6 +458,7 @@
   - 📅 二刷: 2026-09-13（先寫樸素 `dp[i] = any(dp[j] && s[j..i) ∈ set)`，過了再把 set 換 Trie）
   - 📅 三刷: 2026-09-25（連 140 Word Break II 一起）
 - [ ] LeetCode 146. LRU Cache
+  - 📌 最新練習：2026-11-24 經提示修正 capacity=1 時的 tail 更新；下次用雙 dummy 獨立重做並補上節點釋放，該版本尚未實作。
   - 📌 標記原因: 實作細節 — 思路對但四版才過（巢狀型別解析、dummy 尾、淘汰三步、get 要 refresh）；本質是 map + list 兩個結構同步維護不變量
   - 🏷️ 技巧分類: Design / Hash Map + Doubly Linked List
   - 📅 二刷: 2026-09-14（目標：一次寫對，先列出每個操作要維護的不變量再動手）
