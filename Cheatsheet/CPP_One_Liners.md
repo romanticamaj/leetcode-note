@@ -23,10 +23,19 @@ std::string binaryString = std::bitset<32>(num).to_string();
 std::priority_queue<int> maxHeap;
 // min-heap: uses std::greater so parent <= child
 std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;
-// Custom Priority Queue
+// Custom Priority Queue in function scope
 auto cmp = [](...) {...};
 using Item = ...;
 std::priority_queue<Item, std::vector<Item>, decltype(cmp)> q(cmp);
+
+// Custom Priority Queue in class scope
+struct Cmp {
+    bool operator()(const pair<int, string>& a, const pair<int, string>& b) const {
+        if (a.first != b.first) return a.first < b.first; // int 大到小
+        return a.second > b.second;                       // string 小到大
+    }
+};
+priority_queue<pair<int, string>, vector<pair<int, string>>, Cmp> pq;
 
 // Need LIFO operations and bottom-to-top traversal? Use vector as a stack.
 std::vector<std::string> dirs;
